@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Page title | Montessori Mentor</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Vollkorn:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --paper:#FFFFFF; --paper-alt:#F3F3F1; --line:#E6E6E4;
+  --ink:#2B2B2B; --quiet:#6B6B6B; --link:#4A5560;
+  --head:#0432FF; --navy:#1E4D7B;   /* 23 Sept: headings in the blue the person uses in Word */ --bar:#FBF8F3; --bar-line:#DED6C8; --active:#B5613E;
+  --serif:'EB Garamond',Georgia,serif; --display:'Vollkorn',Georgia,serif;
+  --sans:Helvetica,'Helvetica Neue',Arial,sans-serif;
+  --page:1220px; --gutter:40px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.65;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--head)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--active);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:12px;top:12px;z-index:50;background:#fff;padding:8px 12px}
+
+/* ---------- header: menu bar A4 (navy, all serif) ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--navy)}
+.site-head-in{max-width:1280px;margin:0 auto;height:76px;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.site-name{font-family:var(--display);font-size:25px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap}
+.menu{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:22px}
+.menu > li{position:static;display:flex;align-items:center;height:76px}
+.menu .top{font-family:var(--serif);font-size:17px;color:#fff;text-decoration:none;padding:6px 0;border-bottom:1.5px solid transparent;white-space:nowrap}
+.menu .top:hover{color:#DCE6F0}
+.menu .top[aria-current="page"]{border-bottom-color:#fff}
+.sub-toggle{width:22px;height:30px;margin-left:1px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:#fff;cursor:pointer;opacity:.85}
+.panel{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(20,30,40,.14)}
+.has-panel:focus-within > .panel,.has-panel.open > .panel{display:block}
+.has-panel.open > .sub-toggle svg{transform:rotate(180deg)}
+.panel-in{max-width:1280px;margin:0 auto;padding:26px 40px 30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 48px}
+.grp{list-style:none;margin:0;padding:0}
+.grp li{border-bottom:1px solid var(--line)}
+.grp li:last-child{border-bottom:0}
+.grp a{display:block;padding:8px 0;font-family:var(--serif);font-size:17px;line-height:1.3;color:var(--ink);text-decoration:none}
+.grp a:hover{color:var(--head)}
+.grp li.lead a{color:var(--head);font-weight:600}
+.grp a[aria-current="page"]{color:var(--head);text-decoration:underline;text-underline-offset:3px}
+.icon-btn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:#fff;cursor:pointer;border-radius:22px}
+.icon-btn:hover{background:rgba(255,255,255,.1)}
+.menu-btn{display:none}
+.site-tools{display:flex;align-items:center;gap:2px}
+.site-head a:focus-visible,.site-head button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* ---------- hero (Practical Life page) ---------- */
+.hero{position:relative;margin:10px 10px 0;min-height:400px;display:flex;align-items:flex-end;padding:0 8% 40px;
+  background-color:#2A2420;background-size:cover;background-position:center}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,rgba(15,12,9,.72) 0%,rgba(15,12,9,.55) 34%,rgba(15,12,9,.12) 62%,rgba(15,12,9,0) 80%)}
+.hero h1{position:relative;z-index:1;margin:0;max-width:760px;font-family:var(--display);font-weight:500;font-size:40px;line-height:1.2;color:#fff;
+  text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero h1 span{display:block}
+.hero h1 .sub{font-size:26px;margin-top:6px}
+
+/* ---------- contents box ---------- */
+.toc-wrap{max-width:1100px;margin:0 auto;padding:26px 0 36px}
+.toc-label{margin:0 0 14px;font-family:var(--serif);font-weight:500;font-size:24px;color:var(--head)}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:0 0 10px}
+.toc a{font-size:19px;line-height:1.35;color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.toc a:hover{color:var(--head);border-bottom-color:var(--head)}
+.toc-groups a{display:flex;align-items:baseline;gap:8px}
+.toc-num{flex:0 0 22px;font-weight:600;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* ---------- footer ---------- */
+.site-foot{border-top:1px solid var(--line);margin-top:24px}
+.site-foot-in{max-width:var(--page);margin:0 auto;padding:32px var(--gutter) 48px;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-size:15px;color:var(--quiet)}
+.site-foot a{color:var(--quiet)}
+
+/* ---------- shared essay typography (all three templates) ---------- */
+.page-h2{font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.2;color:var(--head);
+  margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--head)}
+blockquote.mq{margin:24px 38px;padding:0;font-family:var(--display);font-weight:400;font-style:italic;font-size:17px;line-height:1.65}
+blockquote.mq strong{font-weight:400}
+blockquote.mq p{margin:0 0 8px;text-indent:48px}
+blockquote.mq cite{display:block;font-style:normal;margin-top:6px;padding-left:48px}
+
+@media (max-width:1180px){
+  .menu{gap:15px}
+  .site-head-in{padding:0 24px}
+  .menu .top{font-size:16px}
+}
+@media (max-width:960px){
+  .site-head-in{height:60px;padding:0 8px 0 18px}
+  .site-name{font-size:21px}
+  .menu-btn{display:inline-flex}
+  .site-nav{display:none;position:absolute;left:0;right:0;top:60px;background:var(--navy);max-height:calc(100vh - 60px);overflow-y:auto;
+    padding:4px 18px 16px;box-shadow:0 12px 24px rgba(0,0,0,.18)}
+  .site-nav.open{display:block}
+  .menu{display:block}
+  .menu > li{display:flex;flex-wrap:wrap;align-items:center;height:auto;border-bottom:1px solid rgba(255,255,255,.2)}
+  .menu .top{flex:1 1 auto;font-size:18px;padding:13px 0;border-bottom:0}
+  .menu .top[aria-current="page"]{text-decoration:underline;text-underline-offset:4px}
+  .sub-toggle{width:44px;height:44px}
+  .has-panel:focus-within > .panel{display:none}
+  .has-panel.open > .panel{display:block}
+  
+  .has-panel.open > .sub-toggle svg{transform:rotate(180deg)}
+  .panel{position:static;flex:0 0 100%;background:transparent;border:0;box-shadow:none}
+  .panel-in{display:block;padding:0 0 10px 14px}
+  .grp{margin-bottom:6px}
+  .grp li{border-bottom:0}
+  .grp a{color:#E7EEF5;font-size:17px;padding:7px 0}
+  .grp li.lead a{color:#fff}
+  .grp a[aria-current="page"]{color:#fff}
+  html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+}
+@media (max-width:640px){
+  .hero{margin:0;min-height:240px;padding:0 24px 24px}
+  .hero h1{font-size:28px}
+  .hero h1 .sub{font-size:19px}
+  .toc-wrap{padding:22px 24px 26px}
+  .toc-grid{grid-template-columns:1fr}
+  .toc-label{font-size:22px}
+  .toc a{font-size:18px}
+  .site-foot-in{flex-direction:column;align-items:flex-start;padding:28px 24px 40px}
+  blockquote.mq{margin:20px 0}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+  :root{
+    --bg:#FBF8F2; --ink:#2A2420; --rule:#E4DBC9;
+    --tint:#F1EBDD; --card:#FFFFFF;
+    --title:#D81F35; --heading:#1F9E42; --material:#1560D4;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'EB Garamond',Georgia,serif;line-height:1.7;font-size:19px}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;color:var(--title);margin:0;font-size:30px;line-height:1.15}
+  h2,h3.material-name{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;margin:0}
+  a{color:var(--material)}
+  img{max-width:100%;display:block}
+
+  .title-block{padding:56px 0 8px;text-align:center}
+  .hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:19px;color:var(--ink);margin-top:8px}
+
+  .article{max-width:1220px;margin:0 auto;padding:8px 40px 96px}
+
+  .section{margin-top:64px;padding-top:24px;border-top:1px solid var(--ink);clear:both}
+  .section:first-of-type{margin-top:40px}
+  .section h2{font-size:25px;line-height:1.25;margin-bottom:16px;color:var(--heading)}
+
+  h3.material-name{font-size:21px;margin-top:40px;margin-bottom:8px;border-top:1px solid var(--rule);padding-top:24px;color:var(--material)}
+
+  .micro-label{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--ink);margin-top:15px;margin-bottom:0}
+
+  .sub-label{font-family:'Cormorant Garamond',serif;margin-top:15px;margin-bottom:0;font-size:21px}
+  .sub-label strong{color:var(--ink);font-weight:700}
+  p.tight-top{margin-top:5px}
+
+  .preview-line{color:var(--ink);font-style:italic;font-size:17px;margin:8px 0}
+
+  p{margin:16px 0}
+  p.tight-bottom{margin-bottom:5px}
+  p.grp-first{margin-bottom:4px}
+  p.grp-mid{margin-top:4px;margin-bottom:4px}
+  p.grp-last{margin-top:4px}
+  ul,ol{margin:16px 0;padding-left:24px}
+  li{margin:8px 0;text-align:justify}
+  ul{list-style:none;padding-left:24px}
+  ul li{position:relative}
+  ul li::before{content:"\2010";position:absolute;left:-20px;color:var(--ink)}
+
+  /* All content photographs: sized from the Word doc's own dimensions (inline style),
+     never cropped -- object-fit is not used so aspect ratio is always exact. */
+  .doc-img{width:auto;max-width:100%;border-radius:2px;background:#EDE6D8;cursor:zoom-in}
+
+  /* Standalone galleries (no accompanying text in that block): one line, never wraps */
+  
+
+  /* "X materials are:" bulleted lists -> a plain multi-column table, no bullet marks */
+  .materials-table{column-count:2;column-gap:48px;margin:16px 0 24px;clear:both;max-width:640px}
+  .materials-table div{break-inside:avoid;padding:4px 0}
+
+  blockquote.pullquote{margin:32px auto;max-width:90%;clear:both;text-align:left;padding:0;border:none}
+  blockquote.pullquote p{font-style:italic;font-weight:400;font-size:1em;line-height:1.7;margin:0;color:inherit;font-family:inherit}
+  blockquote.pullquote cite{display:block;margin-top:8px;font-style:normal;font-size:1em;color:var(--ink);font-family:inherit}
+
+  aside.callout{margin:24px 0;padding:24px;background:var(--tint);border-radius:3px;clear:both;max-width:800px}
+  .callout-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:18px;color:var(--ink);margin-bottom:8px}
+  aside.callout p{margin:8px 0}
+
+  .ref-table{margin-top:8px;border-top:1px solid var(--rule);clear:both}
+  .ref-row{display:flex;gap:24px;padding:16px 0;border-bottom:1px solid var(--rule)}
+  
+  .ref-desc{flex:1;color:var(--ink)}
+
+  
+  
+  
+
+  footer.colophon{max-width:1220px;margin:0 auto;padding:40px 40px 80px;font-size:14px;color:var(--ink);border-top:1px solid var(--rule);clear:both;font-family:'EB Garamond',serif}
+
+  /* Lightbox */
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(20,16,12,.94);z-index:999;align-items:center;justify-content:center;padding:5vw;cursor:zoom-out}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb-nav{position:fixed;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:none;background:rgba(255,255,255,.12);color:#fff;font-size:32px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .15s}
+  .lb-nav:hover{background:rgba(255,255,255,.24)}
+  .lb-prev{left:24px}
+  .lb-next{right:24px}
+  .lb-counter{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.75);font-family:'EB Garamond',serif;font-size:15px;display:none}
+
+  @media (max-width:640px){
+    body{font-size:17px}
+    h1{font-size:26px}
+    .article{padding:8px 24px 72px}
+    .section h2{font-size:22px}
+    h3.material-name{font-size:19px}
+    .micro-label{font-size:17px}
+    .sub-label{font-size:19px}
+    .ref-row{flex-direction:column;gap:4px}
+    
+    
+    blockquote.pullquote{max-width:100%}
+  }
+
+  /* ---- Layout (review changes, 19 Sept afternoon) ---- */
+  @media (min-width:641px){ main h2{font-size:23px !important} }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .ph{margin:0;flex:none;min-width:0}
+  .ph .pim{position:relative;overflow:hidden;border-radius:2px;background:transparent}
+  
+  .ph img.doc-img{display:block;width:100%;height:auto;max-width:none;max-height:none;border-radius:0;cursor:zoom-in;background:transparent}
+  .ph figcaption{font-family:'EB Garamond',serif;font-size:15px;line-height:1.3;color:var(--ink);text-align:center;margin-top:6px;width:0;min-width:100%}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .preview-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(7,auto);grid-auto-flow:column;column-gap:24px}
+  .preview-grid > div{font-style:italic;font-size:17px;margin:8px 0;color:var(--ink)}
+  
+  
+  main ul{list-style:none;padding-left:48px !important;margin-left:0 !important}
+  main ul li{position:relative}
+  main ul li::before{left:-24px !important}
+  main ol{padding-left:48px !important;margin-left:0 !important}
+  .micro-label{font-size:21px !important}
+  
+  
+  
+
+  /* phones: groups of 2+ photos are swipe strips with dots; single photos are plain */
+  @media (max-width:640px){
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .preview-grid{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}
+    
+  }
+  blockquote.pullquote{max-width:none !important;margin:24px 0 !important}
+  blockquote.pullquote p{text-indent:48px}
+  blockquote.pullquote cite{padding-left:48px}
+  .lb-frame{position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb-frame img{display:block}
+
+  /* ---- Layout (review changes, 19 Sept afternoon) ---- */
+  @media (min-width:641px){ main h2{font-size:23px !important} }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .ph{margin:0;flex:none;min-width:0}
+  .ph .pim{position:relative;overflow:hidden;border-radius:2px;background:transparent}
+  
+  .ph img.doc-img{display:block;width:100%;height:auto;max-width:none;max-height:none;border-radius:0;cursor:zoom-in;background:transparent}
+  .ph figcaption{font-family:'EB Garamond',serif;font-size:15px;line-height:1.3;color:var(--ink);text-align:center;margin-top:6px;width:0;min-width:100%}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  hr.formula-divider{border:0;border-top:1px solid var(--rule);margin:40px 0 24px}
+  .preview-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(7,auto);grid-auto-flow:column;column-gap:24px}
+  .preview-grid > div{font-style:italic;font-size:17px;margin:8px 0;color:var(--ink)}
+  
+  
+  main ul{list-style:none;padding-left:48px !important;margin-left:0 !important}
+  main ul li{position:relative}
+  main ul li::before{left:-24px !important}
+  main ol{padding-left:48px !important;margin-left:0 !important}
+  .micro-label{font-size:21px !important}
+  
+  
+  
+  
+  
+  @media (max-width:640px){
+    .micro-label{font-size:19px !important}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+
+  /* phones: groups of 2+ photos are swipe strips with dots; single photos are plain */
+  @media (max-width:640px){
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .preview-grid{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}
+    
+  }
+  blockquote.pullquote{max-width:none !important;margin:24px 0 !important}
+  blockquote.pullquote p{text-indent:48px}
+  blockquote.pullquote cite{padding-left:48px}
+  .lb-frame{position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb-frame img{display:block}
+
+:root{--bg:#FFFFFF;--ink:#2B2B2B;--rule:#E6E6E4;--tint:#F3F3F1;--card:#FFFFFF;--title:#1E4D7B;--heading:#1E4D7B;--material:#1E4D7B}
+body{background:var(--paper);font-family:var(--serif);font-size:18px;line-height:1.65}
+.article{max-width:var(--page);padding:0 var(--gutter) 72px}
+.section{border-top:0;margin-top:48px;padding-top:0}
+.section:first-of-type{margin-top:32px}
+.section h2,main h2{font-family:var(--serif);font-weight:500;font-size:24px !important;line-height:1.2;color:var(--head);
+  padding-bottom:8px;border-bottom:2px solid var(--head);margin-bottom:16px}
+h3.material-name{font-family:var(--serif);font-weight:500;font-size:21px;color:var(--head);border-top:1px solid var(--line);padding-top:22px;margin-top:36px}
+.micro-label{font-family:var(--serif);font-weight:700;font-size:18px !important;color:var(--ink)}
+.sub-label{font-family:var(--serif);font-size:18px}
+.preview-line,.preview-grid > div{font-size:17px}
+p{margin:14px 0}
+blockquote.pullquote{position:relative;margin:24px 38px !important;padding:0;font-family:var(--display)}
+.site-head ul{padding-left:0 !important;margin:0}
+.site-head li::before{content:none !important}
+.site-head li{margin:0;text-align:left;position:static !important}
+blockquote.pullquote p{font-family:var(--display);font-size:17px;text-indent:0 !important}
+blockquote.pullquote cite{font-family:var(--display);font-size:17px;padding-left:0 !important}
+.toc li::before{content:none !important}
+.ph .pim{border-radius:6px}
+.ph figcaption{font-size:15px}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .article{padding:0 24px 56px}
+  .section h2,main h2{font-size:22px !important}
+  h3.material-name{font-size:19px}
+  .micro-label{font-size:17px !important}
+  .sub-label{font-size:17px}
+  blockquote.pullquote{margin:20px 0 !important}
+}
+
+
+/* 22 Sept: Extensions photo pool */
+
+
+
+
+/* 22 Sept: formula table, How to touch table */
+.formula-wrap{overflow-x:auto;max-width:100%}
+.formula-table{border-collapse:collapse;font-size:17px;font-variant-numeric:tabular-nums}
+.formula-table td{padding:3px 10px 3px 0;white-space:nowrap;vertical-align:baseline}
+.formula-table td.op{padding-right:12px;width:1.2em}
+.formula-table tr.rule td{border-top:1px solid var(--ink);padding-top:6px}
+.formula-table tr.rule td.op{border-top:0}
+.formula-table tr.total td{font-weight:600}
+.formula-table sup,.article sup{font-size:.68em;line-height:0;vertical-align:.45em}
+div.formula-head{margin-bottom:10px}
+
+
+@media (max-width:640px){
+  
+  
+  .formula-table{font-size:15px}
+}
+
+/* your changes of 23 September */
+
+
+
+
+
+.micro-label,.sub-label{font-weight:400 !important}
+blockquote.pullquote p,blockquote.pullquote cite,blockquote.pullquote strong{font-family:var(--serif) !important;font-weight:400 !important}
+.blindfold-label{margin:26px 0 6px;text-align:center;color:var(--head)}
+
+/* 21 Sept comments */
+
+
+
+
+
+
+section.section.sense{margin-top:72px}
+p.seq-line{padding-left:48px}
+.cw-white{color:var(--ink) !important}
+.swatch{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:#fff;border:1px solid #8F8F8F;margin-left:.28em;vertical-align:.04em}
+blockquote.pullquote p{text-indent:48px !important}
+blockquote.pullquote cite{padding-left:48px !important}
+@media (max-width:640px){
+  
+  p.seq-line{padding-left:24px}
+  section.section.sense{margin-top:56px}
+}
+
+
+/* 24 Sept: layout from the PDF */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Layout (24 Sept, clean): the rules in START-HERE.md, and nothing else ===== */
+.ph{margin:0;flex:none;min-width:0}
+.mm-imgs .pim{height:calc(var(--mh,153) * 1px);width:auto}
+.mm-row{display:flex;justify-content:center;align-items:flex-start;flex-wrap:nowrap;gap:min(38.4px, calc((100vw - 80px) * 38.4 / 1140));margin:20px 0}   /* 24 Sept item 4: 48px -20% */
+.mm-row .mm-imgs{display:contents}
+.mm-row + .mm-row{margin-top:24px}
+.mm-set{display:flex;align-items:center;margin:16px 0}
+.mm-set .mm-text{flex:0 1 auto;min-width:0}
+.mm-set .mm-text > :first-child{margin-top:0}
+.mm-set .mm-text > :last-child{margin-bottom:0}
+.mm-set .mm-imgs{flex:1 1 auto;display:flex;justify-content:center;align-items:flex-start;gap:24px;min-width:0}
+.mm-set.mm-col .mm-imgs,.mm-set.mm-intro .mm-imgs,.mm-set[data-align=right] .mm-imgs,.mm-set[data-at=right] .mm-imgs{justify-content:flex-end}
+.mm-set.mm-intro .mm-text{flex:1 1 0}
+.mm-set.mm-intro .mm-imgs{flex:none;margin-left:32px}
+.mm-set.mm-formula{align-items:flex-start}
+.mm-set.mm-formula .mm-imgs{flex:none;justify-content:flex-start;margin-left:48px}
+.mm-float{float:right;clear:right;margin:4px 0 12px 32px}   /* never side by side: each below the one before */
+.mm-float.mm-left{float:left;clear:left;margin:4px 32px 12px 0}   /* 30 Sept (eleventh chat): at the left margin, the text on its right */
+.mm-float .pim{height:auto}
+.mm-float + *{margin-top:0}
+main h2,.section h2{font-weight:400 !important}   /* 30 Sept (twelfth chat, your rule): headings and sub-headings Regular 400, not Medium 500 - blue already makes them distinct */
+main .mm-table-wrap{clear:both}
+/* 30 Sept (twelfth chat, your rule - every table): the style of the site's "How to touch" table - a hairline above the
+   header row, under it and under every row; 16px above and below the text; 24px between columns; no vertical lines */
+main table.mm-table{border-top:1px solid var(--rule) !important}
+main table.mm-table th,main table.mm-table td{border-bottom:1px solid var(--rule) !important;padding:16px 24px 16px 0 !important}
+main table.mm-table th:last-child,main table.mm-table td:last-child{padding-right:0 !important}   /* 30 Sept (3.1.2): a table passes below a photo beside text (rule: 32px from what stands under it) */
+blockquote.pullquote,blockquote.mq{margin-left:20px !important;margin-right:20px !important}
+main[data-spacing=table] .mm-set{align-items:flex-start}
+/* 26 Sept: section headings 22px, 20px on phones (were 24/22); the word "Contents" stays at heading size */
+main h2,.section h2,.toc-label{font-size:22px !important}
+main .mm-t{white-space:pre;tab-size:48px;-moz-tab-size:48px}   /* 1 Oct: Word's tabs kept - stops every 48px (Word's half inch) */
+main h2.mm-sub,.section h2.mm-sub{font-size:20px !important}   /* 30 Sept rule: sub-headings 20px (headings 22, text 18) */
+@media (max-width:640px){main h2,.section h2,.toc-label{font-size:20px !important}main h2.mm-sub,.section h2.mm-sub{font-size:18px !important}}
+/* 26 Sept: a quotation between two photos (the Silence Game) */
+.mm-trio{display:flex;align-items:flex-start;gap:0;clear:both}
+.mm-trio>blockquote{flex:1 1 auto;min-width:0}
+.mm-trio>figure.ph{flex:none;margin:0}
+.mm-trio .pim{height:var(--mh,168px);width:auto}
+@media (max-width:640px){.mm-trio{flex-wrap:wrap;gap:12px;justify-content:center}.mm-trio>blockquote{order:-1;flex-basis:100%}.mm-trio>figure.ph{flex:none}.mm-trio .pim{height:110px;width:auto}}
+.mm-set[data-grid] .mm-imgs{gap:16.8px !important}             /* 26 Sept (edits 4): grids 30% closer */
+/* 26 Sept (edits 10): numbers and dashes of every list at the left margin, the text after them */
+main ol{list-style:none !important;counter-reset:mmn;padding-left:0 !important}
+main ol>li{counter-increment:mmn;position:relative;padding-left:30px}
+main ol>li::before{content:counter(mmn) ".";position:absolute;left:0}
+main ul{padding-left:30px !important}
+/* 30 Sept (twelfth chat, your rule - every page): lists offset one tab stop (48px, the site's tab): numbered and bulleted
+   lists, and lists laid out in Word's columns (class mm-tab1, e.g. Age / Presentation). Phones: no offset, as quotations */
+main ol,main ul,main .mm-tab1{margin-left:48px !important}
+@media (max-width:640px){main ol,main ul,main .mm-tab1{margin-left:0 !important}}
+main ul li::before{left:-30px !important}
+/* 26 Sept (edits 1): a list a page asks to show in columns, read downward */
+main ol[data-cols]{display:grid;grid-auto-flow:column;column-gap:48px;justify-content:start}   /* 26 Sept: the spacing table places the text; centre() places the photos */   /* 26 Sept rule: quotations 20px in from both margins (all pages) */
+.beige-rule{height:2px;background:#D9C9AB;margin:0 auto 20px;max-width:100%}
+.mm-dots{display:none}
+/* desktop Curriculum menu: columns read downward; English alone in column 3 (phones: a plain list, order unchanged) */
+#p-curriculum .panel-in > .mc-1-1{grid-column:1;grid-row:1} #p-curriculum .panel-in > .mc-1-2{grid-column:1;grid-row:2} #p-curriculum .panel-in > .mc-1-3{grid-column:1;grid-row:3}
+#p-curriculum .panel-in > .mc-2-1{grid-column:2;grid-row:1} #p-curriculum .panel-in > .mc-2-2{grid-column:2;grid-row:2}
+#p-curriculum .panel-in > .mc-3-1{grid-column:3;grid-row:1 / span 3}
+/* menus: no lines anywhere (24 Sept) - only the current-page underlines remain */
+.panel,.panel .grp li,#site-nav li{border-bottom:0 !important}
+/* ---- resource lists: the Word colour scheme */
+main .section h2{color:#00B050 !important;border-bottom-color:#00B050 !important}
+.res-entry{margin:0 0 8px}
+.res-entry h3.material-name{border-top:0;padding-top:0;margin-top:32px;color:#EE0000}
+.res-entry h3.material-name a{color:#EE0000 !important}   /* a red source that is a link stays red (27 Sept) */
+main p,main li,main .res-desc,main .res-item .meta,main .pullquote,main .pullquote p,main .pullquote cite{color:#000}
+main a{color:#0563C1}
+.pullquote .q-ref{font-style:normal}
+.res-item{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:24px;row-gap:4px;margin:4px 0}
+.res-item .res-title{font-style:italic;color:#0432FF}
+.res-item .res-title em{font-style:italic}
+.res-item .res-title a{color:#0563C1}
+.res-desc{margin:4px 0 !important}
+a.pdf,span.pdf{display:inline-block;vertical-align:.12em;font-family:var(--sans, sans-serif);font-size:11px;font-weight:400;letter-spacing:.06em;line-height:1;
+  padding:4px 6px;border:1.5px solid #0563C1;border-radius:2px;color:#0563C1 !important;text-decoration:none}
+a.pdf:hover{background:#0563C1;color:#fff !important}
+main p a.pdf{margin-left:24px}
+/* ---- resource lists: spacing */
+.res-link + .res-link{margin-top:4px}   /* 11px apart (26 Sept: the spacing table) */
+.res-item.res-book{margin-top:35px;margin-bottom:0}
+.res-book + p,.res-book + .res-item-line,.res-book + .res-item-line + p{margin-top:3.5px !important}
+.res-item-line{margin-bottom:0}
+/* ---- resource lists: type (27 Sept) - green 20px, everything else 18px, no bold, no italics */
+main .section h2{font-size:20px !important;font-weight:400 !important;font-style:normal !important}
+.res-entry h3.material-name{font-size:18px !important;font-weight:400 !important}
+main p,main li,.res-item,.res-item .res-title,.res-item .meta,.res-desc{font-size:18px !important}
+main,main *{font-style:normal !important}
+/* 2 Oct 2026 (eighteenth chat, your rule): all book titles in italics when they are in lists of books */
+main .section blockquote.pullquote em{font-style:italic !important}   /* a list of books: one book per line (3.4.2 Books on Music in Montessori); a book on its own title line is not a list (your edit, 2 Oct) */
+main h3,main h4{font-weight:400 !important}
+/* 30 Sept (13th chat), your rule for every Resources page: nothing in red, blue or green is bold (was: nothing bold) -
+   Word's black bold stays bold */
+main strong,main b{font-weight:700 !important}
+main h2 strong,main h3 strong,main .res-title strong,main .res-src strong,main a strong,main .res-title b,main h3 b{font-weight:400 !important}
+.toc .toc-label,.toc a{font-style:normal !important;font-weight:400 !important}
+.toc .toc-label{color:#00B050 !important}
+.toc a{color:#000 !important}   /* 27 Sept: the word Contents green, the list black */
+.toc .toc-label{font-size:20px !important}
+.toc a{font-size:18px !important}
+@media (max-width:640px){main .section h2{font-size:19px !important}.res-entry h3.material-name,main p,main li,.res-item,.res-item .res-title,.res-item .meta,.res-desc{font-size:17px !important}}
+/* ---- resource lists: books by the same author (27 Sept) */
+.res-entry .res-desc + .res-item{margin-top:23.3px !important}   /* 30px between books in a list (27 Sept) */
+/* ---- resource lists: entries (27 Sept) - 10px from the author's name to the first line, 40px between entries */
+.res-entry > h3.material-name{margin-bottom:0 !important}
+/* 30 Sept (13th chat), your choice B, every Resources page: the curriculum pages' spacing inside entries - 21px between
+   paragraphs; a label (a paragraph wholly in Word's black bold) 24px before, 10.7px to its text (text boxes) */
+main .res-entry p.res-desc + p.res-desc{margin-top:14.3px !important}
+main .res-entry p.res-desc.res-label,main .res-entry p.res-desc + p.res-desc.res-label{margin-top:17.3px !important}
+main .res-entry p.res-desc.res-label + p.res-desc{margin-top:3.5px !important}
+/* 30 Sept (13th chat), your choice B with your values, every Resources page: a PDF badge and its date (in brackets) are a
+   pair - 10px from the badge to its date, 30px from the date to the next part */
+/* 30 Sept (13th chat): the rule 'Lists: 11px between lines, in every list' on Resources pages too (was 14.7) */
+main .res-entry li:not(:last-child){margin-bottom:0 !important}
+main .res-entry li + li{margin-top:4.3px !important}
+main a.pdf + .pdf-date{margin-left:10px !important}
+main .pdf-date + a.pdf,main .pdf-date + .meta,main .pdf-date + a,main .pdf-date + span{margin-left:30px !important}
+.res-item > a.pdf + .pdf-date{margin-left:-14px !important}   /* title lines are flex with a 24px gap: 24 - 14 = 10 */
+main .res-item > .pdf-date + a.pdf,main .res-item > .pdf-date + *{margin-left:6px !important}           /* 24 + 6 = 30 */
+/* 30 Sept (13th chat): the twelfth chat's heading rule on Resources pages - headings (with a line) 35px before, 20px after,
+   between the text boxes (were 50.7 before; 28 after, 47 before a book) */
+main .section{margin-top:32.3px !important}
+main .section h2{margin-bottom:8px !important}
+main .section > h2 + .res-item.res-book,main .section > h2 + p,main .section > h2 + .mm-fspacer + .mm-float + p{margin-top:0 !important}
+@media (max-width:640px){main .section{margin-top:34px !important}main .section > h2 + .res-item.res-book,main .section > h2 + p{margin-top:-0.8px !important}}
+.res-entry:has(> .mm-row:last-child) + .res-entry > h3.material-name{margin-top:37px !important}   /* 30 Sept (13th chat): 40px between entries (RS9) also after an entry that ends in a row of photos (was 35) */
+.res-entry > h3.material-name + .res-item{margin-top:3.3px !important}
+.res-entry > h3.material-name + .res-desc,.res-entry > h3.material-name + p{margin-top:3.3px !important}
+.res-entry > h3.material-name + .res-item:not(:has(.res-title)){margin-top:-3.4px !important}   /* a line of PDF badges only */
+.res-entry:has(> .res-item:last-child) + .res-entry > h3.material-name{margin-top:33.3px !important}
+.res-entry:has(> .res-desc:last-child) + .res-entry > h3.material-name,.res-entry:has(> p:last-child) + .res-entry > h3.material-name{margin-top:33.3px !important}
+.res-entry:has(> p:last-child > a.pdf:last-child) + .res-entry > h3.material-name{margin-top:33.3px !important}
+main section>h2{border-bottom:2px solid currentColor !important;padding-bottom:8px !important}.toc .toc-grid.mm-toc3{display:grid !important;grid-template-columns:repeat(3,1fr);column-gap:40px}.toc .mm-toc3 li{text-align:left}@media (max-width:640px){.toc .toc-grid.mm-toc3{grid-template-columns:1fr}}main .mm-row.mm-rowleft,main .mm-row.mm-rowleft .mm-imgs{justify-content:flex-start !important;margin-left:0 !important}main figcaption.mm-figcap{font-style:italic;font-size:15px;line-height:1.3;text-align:center;margin:6px auto 0}@media (min-width:641px){main figcaption.mm-figcap{margin:6px 0 0 calc(100% - 160px);width:160px}}main .mm-besidepdf{display:flow-root}main .mm-besidepdf p{margin-top:0}main .mm-msfloat{float:right;margin:0 0 0 32px}main .mm-msfloat .mm-imgs{display:flex !important;gap:16px}main #mm-ms .mm-msfloat figure,main #mm-ms .mm-msfloat .mm-imgs{height:auto !important}@media (max-width:640px){main .mm-msfloat{float:none;margin:12px 0}main .mm-msfloat .mm-imgs{justify-content:center}}main .res-entry:has(> .mm-msfloat)::after{content:;display:block;clear:both}main .res-src a[href*=biodiversitylibrary]{color:inherit !important;text-decoration:underline}html,body{background:#F5EEE3 !important}main a:not(.pdf),main a:not(.pdf) *{color:#0432FF !important}#mm-fitR{float:right;margin:0 0 12px 32px}#mm-fitR .pim{height:auto !important;aspect-ratio:var(--arR) !important}#mm-fitR .pim img{width:100% !important;height:100% !important;object-fit:cover}#mm-fitR figure,#mm-fitR .mm-imgs{height:auto !important;display:block !important}main #mm-fitR .pim{border-radius:50% !important;aspect-ratio:1 !important;overflow:hidden}@media (max-width:640px){#mm-fitR{float:none;margin:12px 0}main #mm-fitR .pim{height:180px !important;width:auto !important;margin:0 auto}}main p.res-desc{line-height:37.2px}@media (max-width:640px){main p.res-desc{line-height:36px}}main .res-entry p.res-desc + p.res-desc{margin-top:6.8px !important}main .res-entry p.res-desc.res-label,main .res-entry p.res-desc + p.res-desc.res-label{margin-top:9.8px !important}main .res-entry p.res-desc.res-label + p.res-desc{margin-top:-4px !important}.res-entry > h3.material-name + .res-desc,.res-entry > h3.material-name + p{margin-top:-0.45px !important}.res-entry:has(> .res-desc:last-child) + .res-entry > h3.material-name,.res-entry:has(> p:last-child) + .res-entry > h3.material-name{margin-top:29.55px !important}.res-entry .res-desc + .res-item{margin-top:19.55px !important}.res-entry > h3.material-name + #mm-ms{margin-top:0 !important}.res-entry .res-item + .res-item{margin-top:7.3px !important}#books-on-music-in-montessori blockquote.pullquote,#books-on-music-in-montessori blockquote.pullquote p{margin-left:0 !important;padding-left:0 !important;text-indent:0 !important}main .mm-sugar .mm-tab{display:inline-block}@media (min-width:641px){main .mm-sugar .mm-t1{margin-left:min(55px,calc((100vw - 80px)*55/1140))}main .mm-sugar .mm-t2{margin-left:min(37px,calc((100vw - 80px)*37/1140))}main .mm-sugar .mm-t3{margin-left:min(35px,calc((100vw - 80px)*35/1140))}}@media (max-width:640px){main .mm-sugar .mm-tab{margin-left:24px}}main .mm-sugar .mm-w{color:#0432FF}main .mm-ink{color:#000 !important}main .mm-blue{color:#0432FF !important;display:inline-block}main .res-entry .res-item.mm-ami{margin-top:4px !important}#mm-fit10{float:right;margin:0 0 12px 32px}@media (max-width:640px){#mm-fit10{float:none;margin:12px 0}main #mm-fit10 .pim{height:180px !important;width:auto !important;margin:0 auto}}#mm-fit10 .pim{height:auto !important;aspect-ratio:0.681 !important}#mm-fit10 .pim img{width:100% !important;height:100% !important;object-fit:cover}#mm-fit10 figure,#mm-fit10 .mm-imgs{height:auto !important;display:block !important}#mm-fit10 .pim{max-width:none}#mm-fit10 figcaption.mm-figcap{margin:6px auto 0 !important;width:auto !important}@media (min-width:641px){main .mm-float.mm-left{padding-top:24px !important}}@media (min-width:641px){main .mm-float.mm-left .mm-imgs{display:flex !important;flex-direction:row !important;gap:16px}}@media (max-width:640px){
+  .mm-set{display:block}
+  .mm-set .mm-text{width:auto !important;max-width:none !important}
+  .mm-set .mm-imgs,.mm-row{display:flex;justify-content:flex-start !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:12px 0 0 !important;scrollbar-width:none}
+  .mm-set .mm-imgs::-webkit-scrollbar,.mm-row::-webkit-scrollbar{display:none}
+  .mm-row .mm-imgs{display:contents}
+  .mm-imgs .ph{scroll-snap-align:start}
+  .mm-imgs .pim{height:calc(var(--hp,168) * 1px) !important}
+  .mm-set.mm-col .mm-imgs .pim{height:70px !important}
+  .mm-set.mm-intro .mm-imgs{margin-left:0}
+  .mm-set.mm-intro .mm-imgs .pim{height:240px !important}
+  .mm-set.mm-formula .mm-imgs{margin-left:0}
+  .mm-set.mm-formula .mm-imgs .pim{height:auto !important;width:min(300px, 100%) !important}
+  .mm-float, .mm-float.mm-left{float:none;margin:12px 0}
+  blockquote.pullquote,blockquote.mq{margin-left:0 !important;margin-right:0 !important}   /* phones: as before */
+  .mm-dots{display:flex;justify-content:center;gap:6px;margin:8px 0 4px}
+  .mm-dots span{width:6px;height:6px;border-radius:50%;background:var(--rule)}
+  .mm-dots span.on{background:var(--ink)}
+}
+</style>
+
+<style id="mm-menu">
+/* 6 Oct 2026 (chat 15), the user: "delete the lines from every panel in every menu" - no thin lines under the entries of ANY panel (5 Oct, chat 14: the Home panel only). */
+.menu .panel li{border-bottom:0 !important}
+/* THE FULL MENU (5 Oct 2026): columns of groups; a page that exists is a blue link, one not yet made is plain text */
+.panel-in.c1{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}
+.panel-in.c4{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 40px}
+.panel-in > .pcol{min-width:0;display:flex;flex-direction:column;gap:22px}
+.panel-in > .pcol.over{grid-column:1 / -1;margin-bottom:-12px}
+.grp a,.grp a[aria-current="page"]{color:var(--ink)}
+.grp a:hover{text-decoration:underline;text-underline-offset:3px}
+.grp .np,.grp .hd span{display:block;padding:8px 0;font-family:var(--serif);font-size:17px;line-height:1.3;color:var(--ink);cursor:default}
+/* 7 Oct 2026 (chat 23), the user: "Essential Elements, education and curriculum have categories in their menus.
+   The title of each category to be in blue. no bold to be used anywhere". A CATEGORY TITLE is a group's leading
+   entry (li.lead) or a heading that is not a page (li.hd); it is now the site's blue, and NOTHING in the menu is
+   bold. SUPERSEDES "no blue - ONE text colour in every panel, bold leads and headings" (5 Oct 2026, chat 12).
+   Checked by qa/menu_style_check.py (MN3) in the gate, which reads the blue from MENU_BLUE below. */
+.grp li.lead a,.grp li.lead .np,.grp li.hd span{color:var(--ink)}
+.panel.cat .grp li.lead a,.panel.cat .grp li.lead .np,.panel.cat .grp li.hd span{color:#0432FF}
+.menu,.menu .top,.menu a,.menu span,.grp,.grp li,.grp li.lead a,.grp li.lead .np,.grp li.hd span{font-weight:400}
+.menu .top.np-top{cursor:default}
+.menu .top.np-top:hover{color:#fff}
+@media (min-width:961px) and (max-width:1279px){   /* eight names, each with its arrow, on one line down to 961px */
+  .site-head-in{padding:0 24px;gap:14px}
+  .menu{gap:10px}
+  .sub-toggle{width:16px}
+}
+@media (min-width:961px) and (max-width:1023px){
+  .site-head-in{padding:0 18px;gap:12px}
+  .menu{gap:7px}
+  .menu .top{font-size:16px}
+}
+@media (max-width:960px){
+  .panel-in > .pcol{display:block}
+  .panel-in > .pcol.over{margin-bottom:0}
+  /* 8 Oct 2026, the user: "Menu: on a desktop there is a space between categories. add this space on phones" -
+     the same gap as the desktop's between one group and the next, including where one column's groups end and the
+     next column's begin (on the phone the columns stand one under another). */
+  .panel-in .grp + .grp,.panel-in > .pcol + .pcol{margin-top:24px}
+  #p-resources .panel-in > .pcol + .pcol{margin-top:0}
+  .grp a,.grp .np{color:#E7EEF5}
+  .grp li.lead a,.grp li.lead .np,.grp li.hd span{color:#fff}
+  .panel.cat .grp li.lead a,.panel.cat .grp li.lead .np,.panel.cat .grp li.hd span{color:#8FC6FF}
+  .grp .np,.grp .hd span{font-size:17px;padding:7px 0}
+  .menu .top.np-top{cursor:pointer}
+  .panel .grp a[aria-current="page"]{color:#E7EEF5 !important}
+  #p-essentialelements .grp a[aria-current="page"],#p-curriculum .grp a[aria-current="page"]{color:#8FC6FF !important}
+}
+</style><style id="mm-justify-18-oct">
+/* 18 Oct 2026: your instruction - the text justified on every page.
+   Quotations in their own block, captions, centred lines and headings are left exactly as they were. */
+main.article p:not(.centred):not(.mm-poem-ctr):not(.mm-cap):not(.mc-by){text-align:justify}
+main.article blockquote p{text-align:inherit !important}
+</style>
+<style id="mm-site-18-oct">
+/* Montessori Mentor - site-wide changes, 18 October 2026 */
+body{background:#F5EEE3 !important}
+@media (min-width:831px){
+.panel{background:#F5EEE3 !important}
+.panel .grp li.lead > a,.panel .grp li.lead > .np,.panel .grp li.hd span{color:#0432FF !important;font-weight:400 !important}
+.panel .grp li:not(.lead):not(.hd) > a,.panel .grp li:not(.lead):not(.hd) > .np{color:#2B2B2B !important;font-weight:400 !important}
+.panel .grp a[aria-current="page"]{color:#2B2B2B !important}
+}
+
+/* Quotations and attributions - standardised 18 October 2026 */
+html body main blockquote,
+html body main blockquote p,
+html body main blockquote cite,
+html body main blockquote span.mm-attr,
+html body main blockquote.pullquote,
+html body main blockquote.pullquote p,
+html body main blockquote.pullquote cite,
+html body main blockquote.pullquote span.mm-attr{font-size:18px !important;line-height:40px !important}
+html body main blockquote cite,
+html body main blockquote.pullquote cite{display:block !important;margin-top:0 !important;font-style:normal !important}
+html body main blockquote p,
+html body main blockquote.pullquote p{font-style:italic !important}
+@media (max-width:830px){
+html body main blockquote,
+html body main blockquote p,
+html body main blockquote cite,
+html body main blockquote span.mm-attr,
+html body main blockquote.pullquote,
+html body main blockquote.pullquote p,
+html body main blockquote.pullquote cite,
+html body main blockquote.pullquote span.mm-attr{font-size:17px !important;line-height:38px !important}
+}
+/* Footer - standardised 18 October 2026 */
+html body .mc-band{background:#1E4D7B !important;padding:40px 40px 30px !important;text-align:center;margin-top:40px !important}
+html body .mc-band p{max-width:860px;margin:0 auto !important;font-size:18px !important;line-height:40px !important;font-style:italic !important;color:#fff !important;text-align:center !important;text-indent:0 !important;text-wrap:balance}
+html body .mc-band p.mc-by{margin-top:0 !important;font-size:18px !important;line-height:40px !important;font-style:normal !important;color:#DCE6F0 !important;letter-spacing:.04em}
+html body .site-foot,html body footer.site-foot{background:transparent !important;border-top:0 !important;margin-top:0 !important}
+html body .site-foot .site-foot-in{color:#6B6B6B !important}
+html body .site-foot a{color:#6B6B6B !important}
+@media (max-width:830px){
+html body .mc-band{padding:40px 24px 30px !important}
+html body .mc-band p,html body .mc-band p.mc-by{font-size:17px !important;line-height:38px !important}
+}
+
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#content">Skip to the essay</a><header class="site-head"><div class="site-head-in"><a class="site-name" href="/">Montessori Mentor</a><nav class="site-nav" id="site-nav" aria-label="Main"><ul class="menu"><li class="has-panel"><a class="top" href="/">Home</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-home" aria-label="Show the Home pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-home"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li><a href="/">Montessori Mentor</a></li><li><a href="/why-this-website/">Why This Website?</a></li><li><a href="/aun-aprendo/">Aun Aprendo</a></li><li><a href="/a-montessori-journey/">A Montessori Journey</a></li></ul></div><div class="pcol"><ul class="grp"><li><a href="/the-history-of-montessori-education/">The History of Montessori Education</a></li><li><a href="/biography/">Biography</a></li><li><a href="/timeline/">Timeline</a></li></ul></div><div class="pcol"><ul class="grp"><li><a href="/the-first-casa-dei-bambini/">The First Casa dei Bambini</a></li><li><a href="/the-story-of-san-lorenzo/">The Story of San Lorenzo</a></li><li><a href="/glossary/">Glossary</a></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/essential-elements/">Essential Elements</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-essentialelements" aria-label="Show the Essential Elements pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel cat" id="p-essentialelements"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li class="lead"><a href="/essential-elements/">Essential Elements</a></li><li><span class="np">Essential Elements Resources</span></li></ul><ul class="grp"><li class="lead"><span class="np">The Role of The Adult</span></li><li><span class="np">The Role of The Adult Resources</span></li><li><span class="np">The Role of the Assistant</span></li><li><span class="np">Developing Responsibility</span></li><li><span class="np">Montessori&#x27;s Advice to Teachers</span></li></ul></div><div class="pcol"><ul class="grp"><li class="lead"><span class="np">The Prepared Environment</span></li><li><span class="np">Essential Characteristics - Theory</span></li><li><span class="np">The Prepared Environment Resources</span></li><li><span class="np">The Outdoor Environment</span></li><li><span class="np">Anji Play</span></li></ul><ul class="grp"><li class="lead"><span class="np">Mixed-Age Groups</span></li><li><span class="np">Mixed-Age Groups Resources</span></li></ul></div><div class="pcol"><ul class="grp"><li class="lead"><span class="np">The Uninterrupted Three-Hour Cycle</span></li><li><span class="np">The Uninterrupted Three-Hour Cycle Resources</span></li></ul><ul class="grp"><li class="lead"><span class="np">The Montessori Materials</span></li><li><span class="np">The Montessori Materials Resources</span></li><li><span class="np">The Montessori Materials Sourcing</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/the-montessori-curriculum/">Curriculum</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-curriculum" aria-label="Show the Curriculum pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel cat" id="p-curriculum"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li class="lead"><a href="/the-montessori-curriculum/">The Montessori Curriculum</a></li><li><a href="/montessori-scope-and-sequence/">Scope and Sequence</a></li><li><a href="/curriculum-scope-and-sequence-resources/">Curriculum Resources</a></li></ul><ul class="grp"><li class="lead"><a href="/the-practical-life-curriculum-2/">The Practical Life Curriculum</a></li><li><span class="np">Developing Responsibility</span></li><li><a href="/practical-life-resources/">Practical Life Resources</a></li></ul><ul class="grp"><li class="lead"><a href="/the-sensorial-curriculum/">The Sensorial Curriculum</a></li><li><a href="/sensorial-resources/">Sensorial Resources</a></li></ul></div><div class="pcol"><ul class="grp"><li class="lead"><a href="/the-culture-curriculum/">The Culture Curriculum</a></li><li><a href="/culture-resources/">Culture Resources</a></li></ul><ul class="grp"><li class="lead"><a href="/the-mathematics-curriculum/">The Mathematics Curriculum</a></li><li><a href="/mathematics-resources/">Mathematics Resources</a></li></ul></div><div class="pcol"><ul class="grp"><li class="lead"><span class="np">The English Curriculum</span></li><li><span class="np">Resources 1 - Montessori</span></li><li><span class="np">Resources 2 - Oral Language</span></li><li><span class="np">Resources 3 - Keys to Literacy</span></li><li><span class="np">Resources 4 - Reading</span></li><li><span class="np">Resources 5 - The Pink, Blue and Green Series</span></li><li><span class="np">Resources 6 - Writing</span></li><li><span class="np">Resources 7 - Articles, Books and Research</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/play/">Play</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-play" aria-label="Show the Play pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-play"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li><a href="/play-varieties-and-characteristics/">Types of Play</a></li><li><span class="np">Play Resources</span></li></ul><ul class="grp"><li><span class="np">Outdoor Play: Varieties</span></li><li><span class="np">Outdoor Play: Spaces and Resources</span></li></ul><ul class="grp"><li><span class="np">Loose Parts</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Nature Play</span></li><li><span class="np">Nature Play Spaces</span></li><li><span class="np">Natural Playgrounds</span></li><li><span class="np">Nature Play Resources</span></li><li><span class="np">Forest School Lessons</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Junk Playgrounds History</span></li><li><span class="np">Adventure Playgrounds</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/administration/">Administration</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-administration" aria-label="Show the Administration pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-administration"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li class="hd"><span>Teachers</span></li><li><span class="np">Staff</span></li><li><span class="np">School Handbook</span></li><li><span class="np">Classroom Management</span></li><li><span class="np">Beginning of the year for Teachers</span></li><li><span class="np">Observations for Teachers</span></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Children</span></li><li><span class="np">Lesson Planning</span></li><li><span class="np">Montessori For All Lesson Planning</span></li><li><span class="np">Checklists and Record Keeping</span></li><li><span class="np">Assessment</span></li><li><span class="np">Studies of Montessori Assessment</span></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Parents</span></li><li><span class="np">Admissions</span></li><li><span class="np">Observations for Parents</span></li><li><span class="np">Progress Reports</span></li><li><span class="np">Parent-Teacher Conferences</span></li><li><span class="np">Children’s Portfolio</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/parent-resources/">Parents</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-parents" aria-label="Show the Parents pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-parents"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li><span class="np">Traditional v’s Montessori</span></li><li><span class="np">Montessori at Home: Environment and Materials</span></li><li><span class="np">Montessori at Home: Activities</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Independence</span></li><li><span class="np">Infant and Toddler: Birth to 3</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Elementary: 6 to 12</span></li><li><span class="np">The Silent Journey</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/the-history-of-education/">Education</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-education" aria-label="Show the Education pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel cat" id="p-education"><div class="panel-in c4"><div class="pcol"><ul class="grp"><li class="hd"><span>Foundations</span></li><li><span class="np">The Roots of Montessori</span></li><li><span class="np">Active Learning</span></li><li><span class="np">Constructivism</span></li><li><span class="np">John Amos Comenius</span></li><li><span class="np">John Locke</span></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Predecessors</span></li><li><span class="np">Jean-Jacques Rousseau</span></li><li><span class="np">Johann Pestalozzi</span></li><li><span class="np">Friedrich Froëbel</span></li><li><span class="np">Jean Marc Itard</span></li><li><span class="np">Édouard Séguin</span></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Contemporaries</span></li><li><span class="np">John Dewey</span></li><li><span class="np">Rudolf Steiner</span></li><li><span class="np">Lev Vygotsky</span></li><li><span class="np">Jean Piaget</span></li><li><span class="np">A.S. Neill</span></li><li><span class="np">Célestin Freinet</span></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Modern Voices</span></li><li><span class="np">Caleb Gattegno</span></li><li><span class="np">Jerome Bruner</span></li><li><span class="np">Haim G. Ginott</span></li><li><span class="np">John Holt</span></li><li><span class="np">MIT Guidelines on Learning</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/resources/">Resources</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-resources" aria-label="Show the Resources pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-resources"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li><span class="np">Books by Montessori</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Books by others</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Resources and Links</span></li></ul></div></div></div></li></ul></nav><div class="site-tools"><button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open the menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></div></header><div class="hero" style="background-image:url('images/hero.jpg')"><h1><span>Page title</span></h1></div><nav aria-label="Contents" class="toc-wrap toc"><p class="toc-label">Table of contents</p><div class="toc-grid mm-toc3"><ul class="toc-essays"></ul><ul class="toc-essays"></ul><ul class="toc-essays"></ul></div></nav><main class="article" data-row-h="150" data-rows="one" id="content"><section class="section"></section></main><aside class="mc-band"><p>“I obtained most surprising results through their application, but I must confess that,</p><p><span class="mm-l2">while my efforts showed themselves in the intellectual progress of my pupils, a peculiar form of exhaustion prostrated me.</span><br class="mm-br"> It was as if I gave to them some vital force from within me.”</p><p class="mc-by">- Maria Montessori.</p></aside><footer class="site-foot"><div class="site-foot-in"><span>© 2026 Montessori Mentor</span><a href="#top">Back to top</a></div></footer><div class="lightbox" id="lightbox">
+<button aria-label="Previous image" class="lb-nav lb-prev" id="lb-prev">‹</button>
+<img alt="" id="lightbox-img" src=""/>
+<button aria-label="Next image" class="lb-nav lb-next" id="lb-next">›</button>
+<div class="lb-counter" id="lb-counter"></div>
+</div>
+<script>(function(){
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightbox-img');
+  var prevBtn = document.getElementById('lb-prev'), nextBtn = document.getElementById('lb-next'), counter = document.getElementById('lb-counter');
+  var frame = document.createElement('div'); frame.className = 'lb-frame'; lbImg.parentNode.insertBefore(frame, lbImg); frame.appendChild(lbImg);
+  var group = [], idx = 0;
+  function groupOf(img){
+    var c = img.closest('.mm-imgs, .mm-pfig, .mm-trio');
+    return c ? Array.prototype.slice.call(c.querySelectorAll('img.doc-img')) : [img];
+  }
+  function show(i){
+    idx = Math.max(0, Math.min(group.length - 1, i));   // 22 Sept: a first and a last photo, no endless loop
+    var src = group[idx]; lbImg.src = src.getAttribute('data-full') || src.src;   // 26 Sept: the lightbox opens the full-size file
+    var rot = +src.getAttribute('data-rot') || 0, c = (src.getAttribute('data-crop') || '0,0,0,0').split(',').map(Number);
+    var W = src.naturalWidth || +src.getAttribute('width'), H = src.naturalHeight || +src.getAttribute('height');
+    var cw = 1 - c[0] - c[2], ch = 1 - c[1] - c[3], dw = W * cw, dh = H * ch;
+    if (rot % 180) { var t = dw; dw = dh; dh = t; }
+    var maxW = window.innerWidth * 0.9, maxH = window.innerHeight * 0.9, s = Math.min(maxW / dw, maxH / dh);
+    var fw = dw * s, fh = dh * s; frame.style.width = fw + 'px'; frame.style.height = fh + 'px';
+    lbImg.style.position = 'absolute'; lbImg.style.maxWidth = 'none'; lbImg.style.maxHeight = 'none';
+    if (rot % 180) {
+      lbImg.style.width = fh + 'px'; lbImg.style.height = fw + 'px'; lbImg.style.left = '50%'; lbImg.style.top = '50%';
+      lbImg.style.transform = 'translate(-50%,-50%) rotate(' + rot + 'deg)';
+    } else {
+      var iw = fw / cw, ih = fh / ch;
+      lbImg.style.width = iw + 'px'; lbImg.style.height = ih + 'px';
+      lbImg.style.left = (-c[0] * iw) + 'px'; lbImg.style.top = (-c[1] * ih) + 'px';
+      lbImg.style.transform = rot === 180 ? 'rotate(180deg)' : 'none';
+    }
+    var multi = group.length > 1;
+    prevBtn.style.display = nextBtn.style.display = multi ? 'flex' : 'none';
+    counter.style.display = multi ? 'block' : 'none'; counter.textContent = multi ? (idx + 1) + ' / ' + group.length : ''; prevBtn.style.visibility = idx === 0 ? 'hidden' : 'visible'; nextBtn.style.visibility = idx === group.length - 1 ? 'hidden' : 'visible';
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if (t && t.tagName === 'IMG' && t.classList.contains('doc-img')) { group = groupOf(t); show(group.indexOf(t)); lb.classList.add('open'); }
+    else if (t === prevBtn) show(idx - 1);
+    else if (t === nextBtn) show(idx + 1);
+    else if (t === lb || t === frame || t === lbImg) lb.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e){
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lb.classList.remove('open');
+    else if (e.key === 'ArrowLeft') show(idx - 1);
+    else if (e.key === 'ArrowRight') show(idx + 1);
+  });
+})();
+
+(function(){var b=document.querySelector('.menu-btn'),n=document.getElementById('site-nav');if(!n)return;
+if(b)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close the menu':'Open the menu');});
+var items=[].slice.call(n.querySelectorAll('.has-panel'));
+function closeAll(ex){items.forEach(function(li){if(li!==ex){li.classList.remove('open');var t=li.querySelector('.sub-toggle');if(t)t.setAttribute('aria-expanded','false');}});}
+items.forEach(function(li){var t=li.querySelector('.sub-toggle');t.addEventListener('click',function(e){e.stopPropagation();var o=!li.classList.contains('open');closeAll(li);li.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'true':'false');});});
+document.addEventListener('click',function(e){if(!n.contains(e.target))closeAll();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();if(document.activeElement&&n.contains(document.activeElement))document.activeElement.blur();}});})();
+
+(function(){var lb=document.getElementById('lightbox');if(!lb)return;var x0=null;   // phones: swipe between photos
+lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)<40)return;
+var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!=='none')b.click();});})();
+
+
+/* ===== Layout (24 Sept, clean) ===== */
+(function(){
+  var STD = 106, MIN = 106, ROW = 168, CLEAR = 48, GAP = 24;   // 26 Sept (your choice): every set beside text 106px, at every width (was 125, shrinking to 106)   // 26 Sept: sets 125px (was 153); floor 106 (was 130) - provisional, same proportion
+  var RGAP = 38.4, RMIN = 10, RSHRINK = 140;
+  var GRIDGAP = 16.8;
+  var PCAP = 140;                                                // 26 Sept (edits 2, 3): Purpose photos at most 140px - the height at which rows begin to give way                                            // 26 Sept (edits 4): photos in a grid 30% closer (was 24px), both ways                     // 26 Sept: row gaps 38px; below 140px photos the gaps shrink first, to 10px
+  function phone(){ return window.matchMedia('(max-width:640px)').matches; }
+  function q(sel, root){ return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  function shapes(root){ return q('figure.ph', root).map(function(f){
+    var m = /aspect-ratio:\s*([0-9.]+)/.exec(f.querySelector('.pim').getAttribute('style') || ''); return m ? parseFloat(m[1]) : 1; }); }
+  function sum(a){ return a.reduce(function(x, y){ return x + y; }, 0); }
+  function setH(root, h){ q('.pim', root).forEach(function(p){ p.style.setProperty('--mh', h.toFixed(2)); }); }
+  function ink(el){   // the letters: [left, right, top, bottom]
+    var r = document.createRange(), w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n, o = [1e9, -1e9, 1e9, -1e9];
+    while ((n = w.nextNode())) { if (!n.nodeValue.trim()) continue;
+      var dd = n.parentElement && n.parentElement.closest('details'); if (dd && !dd.open && !n.parentElement.closest('summary')) continue;   // 1 Oct: hidden in a closed list (3.4.1 edit 7)
+      r.selectNodeContents(n);
+      Array.prototype.forEach.call(r.getClientRects(), function(x){ if (!x.width) return; o[0] = Math.min(o[0], x.left); o[1] = Math.max(o[1], x.right); o[2] = Math.min(o[2], x.top); o[3] = Math.max(o[3], x.bottom); }); }
+    return o[1] > o[0] ? o : null;
+  }
+  function sets(){
+    q('.mm-set').forEach(function(s){
+      var tx = s.querySelector('.mm-text'), im = s.querySelector('.mm-imgs'), a = shapes(im), W = s.clientWidth, G = GAP * (a.length - 1);
+      tx.style.width = ''; tx.style.maxWidth = ''; im.style.marginTop = ''; im.style.position = ''; im.style.top = '';
+      if (phone()) return;
+      if (s.classList.contains('mm-intro')) {               // photo the height of its paragraph
+        var h = 200;
+        for (var i = 0; i < 12; i++) { setH(im, h); var t = tx.getBoundingClientRect().height; if (Math.abs(t - h) < 0.5) break; h = t; }
+        return;
+      }
+      if (s.hasAttribute('data-h')) {                         // fixed size: one-material columns, the formula square
+        var H0 = parseFloat(s.getAttribute('data-h')); setH(im, H0);
+        if (s.classList.contains('mm-formula')) { var k = ink(tx.querySelector('table') || tx); if (k) im.style.marginTop = (k[2] - s.getBoundingClientRect().top) + 'px'; }
+        else { tx.style.maxWidth = (W - H0 * sum(a) - G - CLEAR) + 'px'; centre(s);
+          var cl = s.getAttribute('data-centre-lines');   // 26 Sept: centred top to bottom between two of its lines (1-based)
+          if (cl) { var ps = q('.mm-text > p', s), ab = cl.split('-').map(Number), k1 = ink(ps[ab[0] - 1]), k2 = ink(ps[ab[1] - 1]);
+            var f = q('figure.ph', im).map(function(x){ return x.getBoundingClientRect(); });
+            var mid = (Math.min.apply(null, f.map(function(x){ return x.top; })) + Math.max.apply(null, f.map(function(x){ return x.bottom; }))) / 2;
+            if (k1 && k2) im.style.top = ((parseFloat(im.style.top) || 0) + (k1[2] + k2[3]) / 2 - mid).toFixed(2) + 'px'; } }
+        return;
+      }
+      tx.style.width = 'max-content'; var natural = Math.min(tx.getBoundingClientRect().width, W); tx.style.width = '';
+      if (s.hasAttribute('data-column')) {   // 26 Sept (edits 3, 7): the photos one above another, the column as tall as the text
+        var kc = ink(tx), n = a.length, gapc = GRIDGAP;
+        im.style.flexDirection = 'column'; im.style.gap = gapc + 'px'; im.style.alignItems = 'flex-end';
+        for (var jj = 0; jj < 6; jj++) {
+          var hc = parseFloat(s.getAttribute('data-column')) || (kc ? ((kc[3] - kc[2]) - gapc * (n - 1)) / n : STD);   // a number: that height
+          q('.pim', im).forEach(function(p){ p.style.setProperty('--mh', hc.toFixed(2)); });
+          tx.style.maxWidth = (W - Math.max.apply(null, a.map(function(r){ return r * hc; })) - CLEAR) + 'px'; kc = ink(tx);
+        }
+        centre(s); return;
+      }
+      if (s.getAttribute('data-match') === 'text') {       // photos as tall as the text beside them, shape kept
+        // The text keeps at least 55% of the width (as in your PDF). Photos grow to the text's height, but never wider than
+        // the space the text leaves; where the text is taller than that allows, the photos stay at the largest that fits.
+        var cap = (W - 0.55 * W - 2 * CLEAR - G) / sum(a), hm = Math.min(STD, cap);
+        if (s.hasAttribute('data-purpose')) {   // 26 Sept (edits 2, 3): never taller than 140px, nor than the photos in the row beneath
+          var rb = s.nextElementSibling; while (rb && !rb.classList.contains('mm-row') && !rb.matches('h2, .micro-label')) rb = rb.nextElementSibling;
+          var rp = rb && rb.classList.contains('mm-row') ? rb.querySelector('.pim') : null;
+          cap = Math.min(cap, PCAP, rp && rp.getBoundingClientRect().height ? rp.getBoundingClientRect().height : PCAP); hm = Math.min(hm, cap);
+        }
+        for (var j = 0; j < 20; j++) {
+          tx.style.maxWidth = Math.max(0.55 * W, W - sum(a) * hm - G - 2 * CLEAR) + 'px';
+          var kk = ink(tx), th = kk ? Math.min(kk[3] - kk[2], cap) : hm;
+          if (Math.abs(th - hm) < 0.5) break; hm = th;
+        }
+        setH(im, hm); tx.style.maxWidth = Math.max(0.55 * W, W - sum(a) * hm - G - 2 * CLEAR) + 'px';
+        var k3 = ink(tx); if (k3) tx.style.width = Math.ceil(k3[1] - tx.getBoundingClientRect().left + 1) + 'px';
+        centre(s);
+        if (s.getAttribute('data-valign') === 'top') {          // photos start level with the first line of the text
+          var k4 = ink(tx), ft = Math.min.apply(null, q('figure.ph', im).map(function(x){ return x.getBoundingClientRect().top; }));
+          if (k4) im.style.top = (parseFloat(im.style.top || '0') + k4[2] - ft).toFixed(2) + 'px';
+        }
+        return;
+      }
+      var right = s.getAttribute('data-align') === 'right', sides = right || s.getAttribute('data-at') === 'right' ? 1 : 2, least = right ? 100 : MIN;   // data-at=right (26 Sept): at the margin, the usual sizes   // right: photos at the margin, text kept on one line down to 100px photos
+      var H = STD * (parseFloat(s.getAttribute('data-scale')) || 1), room = W - natural - sides * CLEAR;
+      if (s.hasAttribute('data-likerows')) {   // 26 Sept (edits 2, 6): as tall as the rows above and below (the lower of the two)
+        var nb = function(dir){ var e = s[dir]; while (e && !e.classList.contains('mm-row')) e = e[dir]; return e ? e.querySelector('.pim').getBoundingClientRect().height : 0; };
+        var hs = [nb('previousElementSibling'), nb('nextElementSibling')].filter(Boolean); if (hs.length) H = Math.min.apply(null, hs);
+      }
+      if (sum(a) * H + G > room && !s.hasAttribute('data-likerows')) H = Math.max(least, (room - G) / sum(a));   // rows-matched sets keep their height; the text wraps
+      setH(im, H);
+      tx.style.maxWidth = (W - sum(a) * H - G - sides * CLEAR) + 'px';
+      var k2 = ink(tx); if (k2) tx.style.width = Math.ceil(k2[1] - tx.getBoundingClientRect().left + 1) + 'px';   // box = longest line
+      centre(s);
+    });
+  }
+  function pairs(){   // 25 Sept rule: sets beside one list (rows of photos stacked beside it) - the same height, lined up on one left edge
+    if (phone()) return;
+    var grp = {};
+    q('.mm-set[data-pair]').forEach(function(s){ (grp[s.getAttribute('data-pair')] = grp[s.getAttribute('data-pair')] || []).push(s); });
+    Object.keys(grp).forEach(function(k){
+      var g = grp[k]; if (g.length < 2) return;
+      var H = Math.min.apply(null, g.filter(function(s){ return s.getAttribute('data-fit') !== 'width'; }).map(function(s){ return parseFloat(s.querySelector('.pim').style.getPropertyValue('--mh')) || STD; }));   // 1 Oct: a data-fit photo takes its size from the others
+      g.forEach(function(s){ var im = s.querySelector('.mm-imgs'); setH(im, H); im.style.justifyContent = 'flex-start'; im.style.paddingLeft = '0px'; im.style.removeProperty('gap'); });
+      // one block: centred in the space beside the longest line of all their text, 48px clear either side at least
+      var widest = function(){ return Math.max.apply(null, g.map(function(t){ var r = q('figure.ph', t).map(function(x){ return x.getBoundingClientRect(); }); return r[r.length - 1].right - r[0].left; })); };
+      var tr = Math.max.apply(null, g.map(function(s){ var k0 = ink(s.querySelector('.mm-text')); return k0 ? k0[1] : s.getBoundingClientRect().left; })),
+          edge = g[0].getBoundingClientRect().right, room = edge - tr - 2 * CLEAR, w = widest();
+      if (w > room) {
+        var gp = Math.max.apply(null, g.map(function(t){ return GAP * (q('figure.ph', t).length - 1); }));
+        H = Math.max(MIN, H * (room - gp) / (w - gp)); g.forEach(function(s){ setH(s.querySelector('.mm-imgs'), H); }); w = widest();   // never under the set height (rule of 26 Sept)
+      }
+      {   // 26 Sept rule (all grids and pairs): every row as wide as the widest, by widening its gaps, so the outer edges line up
+        var spans = g.map(function(t){ var r = q('figure.ph', t).map(function(x){ return x.getBoundingClientRect(); }); return [r.length, r.reduce(function(a, x){ return a + x.width; }, 0)]; });
+        var wmax = Math.max.apply(null, g.map(function(t){ var r = q('figure.ph', t).map(function(x){ return x.getBoundingClientRect(); }); return r[r.length - 1].right - r[0].left; }));
+        g.forEach(function(t, i){ if (spans[i][0] > 1) t.querySelector('.mm-imgs').style.setProperty('gap', ((wmax - spans[i][1]) / (spans[i][0] - 1)).toFixed(2) + 'px', 'important'); });
+        // 1 Oct (sixteenth chat, 3.4.1 edit 18 - as the PDF): a single photo marked data-fit="width" is as wide as the widest
+        // row of its group, never taller than ROW (168px); then the rows close their gaps (not under 10px) to its width
+        g.forEach(function(t){ if (t.getAttribute('data-fit') !== 'width') return; var a1 = shapes(t.querySelector('.mm-imgs'));
+          if (a1.length !== 1) return; var h1 = Math.min(ROW, wmax / a1[0]); setH(t.querySelector('.mm-imgs'), h1); var w1 = h1 * a1[0];
+          if (w1 < wmax - 0.5) g.forEach(function(u, j){ if (u !== t && spans[j][0] > 1) u.querySelector('.mm-imgs').style.setProperty('gap', Math.max(10, (w1 - spans[j][1]) / (spans[j][0] - 1)).toFixed(2) + 'px', 'important'); }); });
+        w = widest();
+      }
+      var left = tr + (edge - tr - w) / 2;
+      g.forEach(function(s){
+        var im = s.querySelector('.mm-imgs'), f0 = q('figure.ph', im)[0].getBoundingClientRect();
+        im.style.paddingLeft = Math.max(0, left - f0.left).toFixed(2) + 'px';
+      });
+    });
+  }
+  function grids(){   // sets beside one list that a page asks to show as a grid (data-grid = the gap): rows as far apart as the
+                      // photos in a row (the same gap both ways), the whole grid centred vertically on the list's text (26 Sept)
+    if (phone()) return;
+    var grp = {};
+    q('.mm-set[data-grid]').forEach(function(s){ (grp[s.getAttribute('data-pair')] = grp[s.getAttribute('data-pair')] || []).push(s); });
+    Object.keys(grp).forEach(function(k){
+      var g = grp[k], gap = GRIDGAP, ks = g.map(function(s){ return ink(s.querySelector('.mm-text')); }).filter(Boolean);
+      if (!ks.length) return;
+      var mid = (Math.min.apply(null, ks.map(function(x){ return x[2]; })) + Math.max.apply(null, ks.map(function(x){ return x[3]; }))) / 2;
+      var hs = g.map(function(s){ return q('figure.ph', s)[0].getBoundingClientRect().height; }), total = hs.reduce(function(a, b){ return a + b; }, 0) + gap * (g.length - 1);
+      var top = mid - total / 2;
+      g.forEach(function(s, i){
+        var im = s.querySelector('.mm-imgs'), f0 = q('figure.ph', im)[0].getBoundingClientRect();
+        im.style.position = 'relative'; im.style.top = ((parseFloat(im.style.top) || 0) + top - f0.top).toFixed(2) + 'px';
+        top += hs[i] + gap;
+      });
+    });
+  }
+  function centre(s){   // the photos (with any captions) centred on the letters of the text, not on its box
+    var im = s.querySelector('.mm-imgs'), k = ink(s.querySelector('.mm-text')); if (!k) return;
+    var f = q('figure.ph', im).map(function(x){ return x.getBoundingClientRect(); });
+    var mid = (Math.min.apply(null, f.map(function(x){ return x.top; })) + Math.max.apply(null, f.map(function(x){ return x.bottom; }))) / 2;
+    var target = (k[2] + k[3]) / 2;
+    if (s.hasAttribute('data-vc-upper')) {                 // centred between two named lines of text
+      var line = function(t){ return q('main p').filter(function(p){ return p.textContent.indexOf(t) >= 0; })[0]; };
+      var u = ink(line(s.getAttribute('data-vc-upper'))), l = ink(line(s.getAttribute('data-vc-lower')));
+      if (u && l) target = (u[3] + l[2]) / 2;
+    }
+    im.style.position = 'relative'; im.style.top = (target - mid).toFixed(2) + 'px';
+    // 1 Oct (sixteenth chat, 3.4.1 edit 22): photos never cross the line under the heading straight above them - at least
+    // 20px below it (the space under a heading)
+    var h = s.previousElementSibling;
+    if (h && h.tagName === 'H2' && parseFloat(getComputedStyle(h).borderBottomWidth) > 0) {
+      var top = Math.min.apply(null, q('figure.ph', im).map(function(x){ return x.getBoundingClientRect().top; })), lim = h.getBoundingClientRect().bottom + 20;
+      if (top < lim) im.style.top = ((parseFloat(im.style.top) || 0) + lim - top).toFixed(2) + 'px'; }
+  }
+  function rows(){
+    var mn = document.querySelector('main'), one = mn && mn.getAttribute('data-rows') === 'one';   // a page may ask for one height for all its rows
+    if (one && !phone()) {
+      // 29 Sept (seventh chat): the row gap rule of 26 Sept holds here too - while the photos would fall below 140px the
+      // gaps shrink first (down to 10px), and only then do the photos shrink; all rows keep one height
+      var all = q('.mm-row'), H1 = parseFloat(mn.getAttribute('data-row-h')) || ROW;
+      all.forEach(function(r){ r.style.gap = ''; });
+      var base1 = Math.min(RGAP, (window.innerWidth - 80) * RGAP / 1140);
+      all.forEach(function(r){ var a = shapes(r), n = a.length, S = sum(a), W = r.clientWidth, Hr;
+        if (n < 2) Hr = W / S;
+        else { var Hb = (W - base1 * (n - 1)) / S;
+          if (Hb >= RSHRINK) Hr = Hb;
+          else Hr = (W - RSHRINK * S) / (n - 1) >= RMIN ? RSHRINK : (W - RMIN * (n - 1)) / S; }
+        H1 = Math.min(H1, Hr); });
+      H1 = Math.floor(H1 * 100) / 100;
+      all.forEach(function(r){ var a = shapes(r), n = a.length; setH(r, H1);
+        if (n > 1) r.style.gap = Math.min(base1, (r.clientWidth - sum(a) * H1) / (n - 1)).toFixed(2) + 'px'; });
+      return;
+    }
+    var groups = {};
+    q('.mm-row').forEach(function(r){ (groups[r.getAttribute('data-level')] = groups[r.getAttribute('data-level')] || []).push(r); });
+    Object.keys(groups).forEach(function(k){
+      var g = groups[k];
+      g.forEach(function(r){ r.style.gap = ''; });
+      if (phone()) { g.forEach(function(r){ q('.pim', r).forEach(function(p){ p.style.removeProperty('--mh'); }); }); return; }
+      // 26 Sept rules: gaps 38px (a little less on narrow windows) while the photos are 140px or taller; below that the gaps
+      // shrink first, down to 10px, before the photos shrink further. Rows that follow each other: one height, and the same
+      // width - the shorter row's gaps widen to match the widest.
+      var base = Math.min(RGAP, (window.innerWidth - 80) * RGAP / 1140);
+      var info = g.map(function(r){ var a = shapes(r), n = a.length, S = sum(a), W = r.clientWidth, Hr;
+        if (n < 2) Hr = Math.min(ROW, W / S);
+        else { var H38 = (W - base * (n - 1)) / S;
+          if (H38 >= RSHRINK) Hr = Math.min(ROW, H38);
+          else { var gg = (W - RSHRINK * S) / (n - 1); Hr = gg >= RMIN ? RSHRINK : (W - RMIN * (n - 1)) / S; } }
+        return {r: r, n: n, S: S, W: W, Hr: Hr}; });
+      var H = Math.floor(Math.min.apply(null, info.map(function(x){ return x.Hr; })) * 100) / 100;
+      info.forEach(function(x){ x.gap = x.n < 2 ? 0 : Math.min(base, (x.W - x.S * H) / (x.n - 1)); x.w = x.S * H + x.gap * (x.n - 1); });
+      var wide = Math.max.apply(null, info.map(function(x){ return x.w; }));
+      info.forEach(function(x){
+        if (x.n > 1 && g.length > 1) x.gap = (wide - x.S * H) / (x.n - 1);
+        setH(x.r, H); if (x.n > 1) x.r.style.gap = x.gap.toFixed(2) + 'px';
+      });
+    });
+  }
+  // 1 Oct (sixteenth chat, 3.4.1 edits 9, 12, 14): a page's settings may scale one row's photos (data-hscale) and set each
+  // gap between its photos as a factor of the gap the rules give (data-gaps="0.8,2,0.5"); a .mm-twocap line above a row
+  // centres its first caption over the first half of the row's photos and its second over the second half (as the PDF)
+  function vgap(){
+    // 1 Oct (3.4.1, edit 14 to preview 5): a set marked data-vgap="k" keeps k times its space to the set before it in the
+    // same pair group (photos to photos)
+    q('.mm-set[data-vgap]').forEach(function(s){
+      if (phone()) return; var pr = s.previousElementSibling; if (!pr || !pr.classList.contains('mm-set')) return;
+      var im = s.querySelector('.mm-imgs'), k = parseFloat(s.getAttribute('data-vgap'));
+      var pb = Math.max.apply(null, q('.pim', pr).map(function(x){ return x.getBoundingClientRect().bottom; })),
+          tp = Math.min.apply(null, q('.pim', s).map(function(x){ return x.getBoundingClientRect().top; })), g = tp - pb;
+      if (g > 0) { im.style.position = 'relative'; im.style.top = ((parseFloat(im.style.top) || 0) - g * (1 - k)).toFixed(2) + 'px'; }
+    });
+  }
+  function rowTweaks(){
+    q('.mm-row[data-hscale], .mm-row[data-gaps], .mm-row[data-hmatch]').forEach(function(r){
+      var f = q('figure.ph', r); f.forEach(function(x){ x.style.marginLeft = ''; });
+      if (phone()) return;
+      var hm = r.getAttribute('data-hmatch'), tg = hm && document.getElementById(hm);   // 1 Oct (3.4.1, preview 6 edit 2): the height of another row
+      if (tg) { var th = tg.querySelector('.pim').getBoundingClientRect().height; q('.pim', r).forEach(function(p){ p.style.setProperty('--mh', th.toFixed(2)); }); }
+      var hs = parseFloat(r.getAttribute('data-hscale'));
+      if (hs) q('.pim', r).forEach(function(p){ var h = parseFloat(p.style.getPropertyValue('--mh')) || ROW; p.style.setProperty('--mh', (h * hs).toFixed(2)); });
+      var gs = r.getAttribute('data-gaps');
+      if (gs) { var g = parseFloat(r.style.gap) || parseFloat(getComputedStyle(r).columnGap) || RGAP, k = gs.split(',').map(parseFloat);
+        r.style.gap = '0px'; f.forEach(function(x, i){ if (i) x.style.marginLeft = (g * (k[Math.min(i - 1, k.length - 1)] || 1)).toFixed(2) + 'px'; }); }
+    });
+    vgap();
+    q('.mm-twocap').forEach(function(c){
+      var r = c.nextElementSibling, sp = q('span', c); sp.forEach(function(s){ s.style.marginLeft = ''; });
+      c.style.display = ''; c.style.textAlign = ''; if (phone() || !r || !r.classList.contains('mm-row') || sp.length !== 2) return;
+      var p = q('.pim', r).map(function(x){ return x.getBoundingClientRect(); }), h = Math.ceil(p.length / 2); if (p.length < 2) return;
+      var mid = function(a){ return (Math.min.apply(null, a.map(function(x){ return x.left; })) + Math.max.apply(null, a.map(function(x){ return x.right; }))) / 2; };
+      var m = [mid(p.slice(0, h)), mid(p.slice(h))], x0 = c.getBoundingClientRect().left;
+      c.style.display = 'block'; c.style.whiteSpace = 'nowrap'; c.style.textAlign = 'left';
+      sp.forEach(function(s){ s.style.display = 'inline-block'; });
+      var w = sp.map(function(s){ return s.getBoundingClientRect().width; });
+      sp[0].style.marginLeft = (m[0] - w[0] / 2 - x0).toFixed(2) + 'px';
+      sp[1].style.marginLeft = (m[1] - w[1] / 2 - (m[0] + w[0] / 2)).toFixed(2) + 'px';
+    });
+  }
+  function under(){   // a row whose photos are each centred under the photo above
+    q('.mm-row[data-under]').forEach(function(r){
+      var f = q('figure.ph', r); f.forEach(function(x){ x.style.marginLeft = ''; }); r.style.justifyContent = ''; r.style.gap = '';
+      if (phone()) return;
+      var above = r.previousElementSibling; if (!above || !above.classList.contains('mm-row')) return;
+      var c = q('.pim', above).map(function(p){ var b = p.getBoundingClientRect(); return (b.left + b.right) / 2; });
+      r.style.justifyContent = 'flex-start'; r.style.gap = '0px';
+      var x = r.getBoundingClientRect().left;
+      f.forEach(function(fig, i){ var w = fig.getBoundingClientRect().width, want = c[Math.min(i, c.length - 1)] - w / 2; fig.style.marginLeft = (want - x).toFixed(2) + 'px'; x = want + w; });
+    });
+  }
+  function rules(){   // beige rules as wide as the rows beside them, never wider than the page
+    q('.beige-rule').forEach(function(b){
+      var w = 0; [b.previousElementSibling, b.nextElementSibling].forEach(function(e){
+        if (e && e.classList.contains('mm-row')) { var p = q('.pim', e); if (p.length) w = Math.max(w, p[p.length - 1].getBoundingClientRect().right - p[0].getBoundingClientRect().left); } });
+      b.style.width = w && !phone() ? Math.round(w) + 'px' : '100%';
+    });
+  }
+  function bottom(el){   // what the eye sees as the bottom of the thing above a label
+    if (el.classList.contains('mm-row') || el.classList.contains('mm-set') || el.classList.contains('mm-float') || /^(HR|H1|H2|H3)$/.test(el.tagName) || el.classList.contains('beige-rule')) {
+      if (el.classList.contains('mm-set')) { var k = ink(el.querySelector('.mm-text')), r = el.querySelector('.mm-imgs').getBoundingClientRect(); return Math.max(r.bottom, k ? k[3] : r.bottom); }
+      if (/^H[123]$/.test(el.tagName)) { var kh = ink(el); return kh ? kh[3] : el.getBoundingClientRect().bottom; }
+      return el.getBoundingClientRect().bottom;
+    }
+    var k2 = ink(el); return k2 ? k2[3] : null;
+  }
+  function spacing(){   // 32px of clear space before a label, 24px before a sub-heading that follows text
+    q('main .micro-label, main .sub-label').forEach(function(l){
+      var want = parseFloat(l.getAttribute('data-want')) || (l.classList.contains('micro-label') ? 32 : 24), target = l, above = l.previousElementSibling;
+      if (!above && l.parentElement.classList.contains('mm-text')) { target = l.parentElement.parentElement; above = target.previousElementSibling; }
+      while (above && above.classList.contains('mm-float')) above = above.previousElementSibling;
+      if (!above) return;
+      if (!l.hasAttribute('data-want') && want === 24 && /(^| )(mm-row|mm-set|mm-float)( |$)/.test(above.className)) want = 32;   // rule: 32px before a sub-heading that follows photos
+      if (!l.hasAttribute('data-want') && want === 24 && (above.classList.contains('micro-label') || /^H[123]$/.test(above.tagName))) return;
+      var b = bottom(above), k = ink(l); if (b === null || !k) return;
+      above.style.marginBottom = '0px';
+      var cur = parseFloat(getComputedStyle(target).marginTop) || 0;
+      target.style.marginTop = Math.max(0, cur + want - (k[2] - b)).toFixed(2) + 'px';
+    });
+  }
+  function spaceAbove(){   // rows and sets with a set clear space above them
+    q('[data-above]').forEach(function(el){
+      if (phone()) { el.style.marginTop = ''; return; }
+      var above = el.previousElementSibling; while (above && above.classList.contains('mm-float')) above = above.previousElementSibling; if (!above) return;
+      var b = el.getAttribute('data-above-from') === 'text' ? (ink(above.querySelector('.mm-text') || above) || [0, 0, 0, null])[3] : bottom(above);
+      var t = Math.min.apply(null, q('.mm-cap, .pim', el).map(function(p){ return p.getBoundingClientRect().top; }));   // 30 Sept: labels above photos count as the row's top
+      if (b === null || !isFinite(t)) return;
+      above.style.marginBottom = '0px';
+      var cur = parseFloat(getComputedStyle(el).marginTop) || 0;
+      el.style.setProperty('margin-top', Math.max(0, cur + parseFloat(el.getAttribute('data-above')) - (t - b)).toFixed(2) + 'px', 'important');
+    });
+  }
+
+  // ===== 26 Sept (queue item 12): the spacing table - every situation. On for a page whose settings set
+  // main[data-spacing=table] (The Practical Life Curriculum, for review); other pages keep spacing() and spaceAbove().
+  // Measured as the engine measures: the top and bottom of each line of text (ink()), photo edges.
+  function spaceTable(fresh){
+    var main = document.querySelector('main'), ph = phone(), items = [], floats = [];
+    function add(el, type, target, set){ items.push({el: el, type: type, target: target || el, set: set || null, nf: floats.length}); }
+    function walk(c0, set, firstTarget){
+      var first = firstTarget;
+      Array.prototype.forEach.call(c0.children, function(c){
+        if (c.nodeType !== 1 || getComputedStyle(c).display === 'none') return;
+        var cl = c.classList, tg = c.tagName, tgt = first || c; first = null;
+        if (tg === 'SCRIPT' || tg === 'STYLE' || cl.contains('mm-dots') || tg === 'NAV') return;
+        if (cl.contains('mm-fspacer')) return;   // 30 Sept: the spacer that places a photo on its text is not text
+        if (cl.contains('mm-float')) { if (ph) add(c, 'row', tgt, set); else floats.push(c.querySelector('.pim')); return; }
+        if (cl.contains('mm-row')) { add(c, 'row', tgt, set); return; }
+        if (cl.contains('mm-set')) {
+          var tx = c.querySelector('.mm-text');
+          if (tx && ink(tx)) { var n0 = items.length; walk(tx, c, c);
+            if (items.length > n0) { items[n0].firstInSet = true; items[items.length - 1].lastInSet = true; }
+            if (ph) add(c.querySelector('.mm-imgs'), 'strip', null, c); }
+          else add(c, 'row', tgt, set);
+          return;
+        }
+        if (tg === 'SECTION' || tg === 'ARTICLE' || (tg === 'DIV' && !c.className)) { walk(c, set, tgt === c ? null : tgt); return; }
+        if (cl.contains('mm-trio')) { add(c.querySelector('blockquote p'), 'quote', tgt, set); var ci = c.querySelector('blockquote cite'); if (ci) add(ci, 'cite', null, set);
+          if (ph) add(c, 'strip', null, set); return; }   // phones: the two photos below the quotation
+        if (tg === 'OL' && c.hasAttribute('data-cols')) { add(c, 'li', tgt, set); return; }   // a list in columns: one block (listColumns() spaces its lines)
+        if (tg === 'OL' || tg === 'UL') { Array.prototype.forEach.call(c.children, function(li, i){ add(li, 'li', i === 0 && tgt !== c ? tgt : li, set); }); return; }
+        if (tg === 'BLOCKQUOTE') { Array.prototype.filter.call(c.children, function(x){ return x.tagName === 'P' || x.tagName === 'CITE'; }).forEach(function(x, i){ add(x, x.tagName === 'CITE' ? 'cite' : 'quote', i === 0 ? tgt : x, set); }); return; }
+        if (tg === 'H2') { add(c, 'heading', tgt, set); return; }
+        if (cl.contains('micro-label') || cl.contains('sub-label')) { add(c, 'label', tgt, set); return; }
+        if (cl.contains('mm-table-wrap') || tg === 'TABLE') { add(c, 'table', tgt, set); return; }
+        add(c, 'text', tgt, set);
+      });
+    }
+    walk(main, null, null);
+    // lists: two or more short lines under a label, or three or more short lines anywhere; a list continues from one set
+    // into the next only when both sit beside the same list (data-pair)
+    var short = function(it){ return it.type === 'text' && ((it.el.classList && it.el.classList.contains('mm-tabrow')) || (it.el.textContent.trim().length <= 160 && !/:\s*$/.test(it.el.textContent))); };   // 30 Sept (3.1.2): a line in Word's columns (tab stops, column sections) is a list line, whatever its length
+    for (var i = 0; i < items.length; ) {
+      if (!short(items[i])) { i++; continue; }
+      var j = i;
+      while (j + 1 < items.length && short(items[j + 1]) && !(items[j + 1].el.classList && items[j + 1].el.classList.contains('mm-lstart')) && (items[j + 1].set === items[j].set ||
+             (items[j].set && items[j + 1].set && items[j].set.getAttribute('data-pair') && items[j].set.getAttribute('data-pair') === items[j + 1].set.getAttribute('data-pair')))) j++;
+      var n = j - i + 1, underLabel = i > 0 && items[i - 1].type === 'label';
+      if ((underLabel && n >= 2) || n >= 3) for (var k = i; k <= j; k++) items[k].list = true;
+      i = j + 1;
+    }
+    var rowText = parseFloat(main.getAttribute('data-space-row-text')) || 64;
+    // 2 Oct (eighteenth chat, page options): space before a heading (its letters from what is above, text or photos), after
+    // a heading measured from the line under it, and between consecutive short lines (title lines, link lists)
+    var headB = parseFloat(main.getAttribute('data-space-head-before')) || 35, headA = parseFloat(main.getAttribute('data-space-head-after')) || 20,
+        headLine = main.hasAttribute('data-space-head-line'), lines = parseFloat(main.getAttribute('data-space-lines')) || 11;   // standing rule (1 Oct, sixteenth chat): 64px between a row of photos and the text after it
+    function want(a, b){
+      if (b.type === 'strip') return null;
+      // 1 Oct (sixteenth chat, 3.4.1 edits 5, 6, 9, 11, 20): the space a page's settings set above one element (data-space,
+      // not when it follows a heading) and above text that follows a row of photos (main data-space-row-text)
+      if (b.target.hasAttribute && b.target.hasAttribute('data-space') && a.type !== 'heading') return parseFloat(b.target.getAttribute('data-space'));
+      if (b.el.hasAttribute && b.el.hasAttribute('data-space') && a.type !== 'heading') return parseFloat(b.el.getAttribute('data-space'));
+      if (rowText && a.type === 'row' && (b.type === 'text' || b.type === 'li')) return rowText;                                   // phones: the strip keeps its 12px below its text
+      if (b.type === 'heading') return b.el.classList.contains('mm-sub') ? 30 : headB;   // 30 Sept rule: 30px before a sub-heading; twelfth chat (your edits): 35px before a heading (was 48, then 30)
+      if (b.type === 'label') return 24;   // 26 Sept rule: 24px above every sub-heading, whatever comes before (was 32)
+      if (b.type === 'row') return a.type === 'label' ? 16 : (a.type === 'row' ? 48 : 32);   // 1 Oct (sixteenth chat, your standing rule): 48px between two rows (was 32)   // 26 Sept: 32px above a row, as below it; 16px under the name of a material or activity (edits 6)
+      if (a.type === 'heading') return a.el.classList.contains('mm-sub') ? 15 : headA;   // 15px after a sub-heading (eleventh chat); twelfth chat (your edits): 20px after a heading (was 29, then 15)
+      if (a.type === 'label') return 12;
+      if (a.type === 'row' || a.type === 'strip') return 32;
+      if (b.type === 'cite') return 15;
+      if (b.type === 'quote') return 32;
+      if (a.type === 'cite' || a.type === 'quote' || a.type === 'table') return 32;
+      if (a.type === 'li' && b.type === 'li') return 11;   // 26 Sept rule: every list, 11px between its lines (Word lists were 15)
+      if (a.type === 'li' || b.type === 'li') return 23;
+      if (b.type === 'table') return 21;
+      return a.list && b.list && !(b.el.classList && b.el.classList.contains('mm-lstart')) ? lines : 21;   // mm-lstart: a new list, a paragraph's space above it
+    }
+    function top(it){ if (it.type === 'table') { var tt = tline(it, 'top'); if (tt !== null) return tt; }
+      if (it.type === 'row' || it.type === 'strip') { var p = q('.mm-cap, .pim', it.el).map(function(x){ return x.getBoundingClientRect().top; }); return p.length ? Math.min.apply(null, p) : it.el.getBoundingClientRect().top; }
+      var k = ink(it.el); return k ? k[2] : it.el.getBoundingClientRect().top; }
+    // twelfth chat: a table drawn with lines (your screenshot style) ends at its bottom line and starts at its top line
+    function tline(it, side){ var t = it.el.tagName === 'TABLE' ? it.el : it.el.querySelector('table'); if (!t) return null;
+      var c = side === 'bot' ? t.querySelector('tr:last-child > *') : t; if (!c) return null;
+      var w = parseFloat(getComputedStyle(c)[side === 'bot' ? 'borderBottomWidth' : 'borderTopWidth']) || 0; if (!w) return null;
+      var r = t.getBoundingClientRect(); return side === 'bot' ? r.bottom : r.top; }
+    function bot(it){ if (it.type === 'table') { var tb = tline(it, 'bot'); if (tb !== null) return tb; }
+      if (it.type === 'row' || it.type === 'strip') { var p = q('.pim', it.el).map(function(x){ return x.getBoundingClientRect().bottom; }); return p.length ? Math.max.apply(null, p) : it.el.getBoundingClientRect().bottom; }
+      if (it.type === 'heading') { if (headLine && !it.el.classList.contains('mm-sub')) return it.el.getBoundingClientRect().bottom; var kh = ink(it.el); return kh ? kh[3] : it.el.getBoundingClientRect().bottom; }
+      var k = ink(it.el); return k ? k[3] : it.el.getBoundingClientRect().bottom; }
+    function span(it){ if (it.type === 'row' || it.type === 'strip') return [0, 1e9];
+      var k = ink(it.el); return k ? [k[0], k[1]] : [0, 1e9]; }
+    function across(a, b){ return a[0] < b[1] && b[0] < a[1]; }
+    function clears(it){ var t = it.target; if (getComputedStyle(t).clear !== 'none') return true;
+      return t.tagName === 'H2' && t.parentElement && getComputedStyle(t.parentElement).clear !== 'none' && t === t.parentElement.firstElementChild; }
+    function photos(set){ var p = q('.pim', set.querySelector('.mm-imgs')).map(function(x){ return x.getBoundingClientRect(); }); return [Math.min.apply(null, p.map(function(x){ return x.top; })), Math.max.apply(null, p.map(function(x){ return x.bottom; }))]; }
+    // every margin between the things measured is set here, and only here
+    if (fresh) {   // the first pass of a layout starts from nothing; later passes correct what the one before left
+      items.forEach(function(it){ it.target.style.setProperty('margin-top', '0px', 'important'); it.target.style.setProperty('margin-bottom', '0px', 'important'); it.el.style.setProperty('margin-bottom', '0px', 'important');
+        if (it.type === 'heading') it.el.style.setProperty('padding-top', '0px', 'important');
+        if (it.target.tagName === 'BLOCKQUOTE') it.target.style.setProperty('padding-top', '0px', 'important'); });
+      q('main section, main .mm-text, main ol, main ul, main blockquote, main .mm-set').forEach(function(e){ e.style.setProperty('margin-bottom', '0px', 'important'); if (!items.some(function(it){ return it.target === e; })) e.style.setProperty('margin-top', '0px', 'important'); });
+    }
+    // measure once with every margin at 0; each margin then moves everything below it by the same amount
+    var T = items.map(top), B = items.map(bot), P = items.map(function(it){ return it.set && !ph ? photos(it.set) : null; }), X = items.map(span);
+    var F = floats.map(function(f){ var r = f.getBoundingClientRect(); return [r.left, r.right, r.top, r.bottom]; });
+    var done = new Set(); main.__space = {items: items, T: T, B: B, F: F, log: []};   // for the check and for debugging
+    for (var m = 1; m < items.length; m++) {
+      var a = items[m - 1], b = items[m], w = want(a, b); if (w === null || done.has(b.target)) continue;
+      var pt = b.type === 'heading' ? b.el : b.target, cl = clears(b); var lift = null;
+      var cur = parseFloat(cl ? pt.style.paddingTop : b.target.style.marginTop) || 0;
+      var need = cur + w - (T[m] - B[m - 1]);
+      if (!ph) {   // photos beside text never closer than 32px (48px above a heading) to what is above or below them,
+                   // where they would stand over or under it (a short label at the left, beside photos at the right, is not)
+        var ps = function(pp, set){ var r = q('.pim', set.querySelector('.mm-imgs')).map(function(x){ return x.getBoundingClientRect(); });
+          return [Math.min.apply(null, r.map(function(x){ return x.left; })), Math.max.apply(null, r.map(function(x){ return x.right; }))]; };
+        var big = b.type === 'heading' ? (b.el.classList.contains('mm-sub') ? 30 : headB) : b.type === 'label' ? 24 : 32;   // photos -> heading: the heading's own space (twelfth chat: 35, was 48)
+        if (b.firstInSet && across(X[m - 1], ps(P[m], b.set)) && !(a.set && a.set.getAttribute('data-pair') && a.set.getAttribute('data-pair') === b.set.getAttribute('data-pair')))
+          need = Math.max(need, cur + 32 - (P[m][0] - B[m - 1]));
+        if (a.lastInSet && across(X[m], ps(P[m - 1], a.set)) && !(b.set && b.set.getAttribute('data-pair') && b.set.getAttribute('data-pair') === a.set.getAttribute('data-pair')))
+          need = Math.max(need, cur + big - (T[m] - P[m - 1][1]));
+        // 30 Sept (3.1.1): photos of one set never closer than 32px to the photos of the set before it, when they stand
+        // over each other (a short heading between them at the left does not keep them apart)
+        if (b.firstInSet) { for (var j = m - 1; j >= 0; j--) { if (items[j].set && items[j].set !== b.set && P[j]) {
+          if (across(ps(P[j], items[j].set), ps(P[m], b.set))) { var nph = cur + 32 - (P[m][0] - P[j][1]);
+            if (nph > need) { if (a.type === 'heading') lift = [a, nph - need]; else need = nph; } } break; } } }
+        // a single photo at the margin: only what must pass below it (a heading, a quotation that clears it, a row) keeps
+        // its distance; text beside it wraps around it and is never pushed below it (fixed 26 Sept, "Observing the needs")
+        if (clears(b) || b.type === 'row') for (var f = 0; f < b.nf; f++) if (F[f][3] > B[m - 1] && across(X[m], [F[f][0], F[f][1]])) need = Math.max(need, cur + big - (T[m] - F[f][3]));
+      }
+      main.__space.log.push([m, a.type, b.type, w, +(T[m] - B[m - 1]).toFixed(1), +need.toFixed(1), cl]);
+      if (lift) {   // the extra space goes above the heading, so the heading keeps its text (30 Sept)
+        var he = lift[0].target, pad = he.style.getPropertyValue('padding-top') !== '';
+        var hv = parseFloat(pad ? he.style.paddingTop : he.style.marginTop) || 0;
+        he.style.setProperty(pad ? 'padding-top' : 'margin-top', (hv + lift[1]).toFixed(2) + 'px', 'important'); lift = null; }
+      if (cl) {   // an element that clears a float: padding, because clearance swallows a margin
+        pt.style.setProperty('padding-top', Math.max(0, need).toFixed(2) + 'px', 'important');
+      } else b.target.style.setProperty('margin-top', need.toFixed(2) + 'px', 'important');
+      done.add(b.target);
+    }
+  }
+  // 26 Sept: a single photo at the margin straight after a section heading starts as far below the heading's blue line
+  // as the letters of the text beside it ("Observing the needs of the child")
+  function trio(){   // 26 Sept: the photos start level with the quotation's first line; the left one reaches the foot of the
+                     // attribution, the right one the quotation's last line (sizes settle over a few passes, as the text rewraps)
+    q('main .mm-trio').forEach(function(t){
+      var f = q('figure.ph', t), qp = t.querySelector('blockquote p'), ct = t.querySelector('blockquote cite');
+      f.forEach(function(x){ x.style.marginTop = '0px'; });
+      if (phone()) { f.forEach(function(x){ x.querySelector('.pim').style.removeProperty('--mh'); }); return; }
+      if (t.hasAttribute('data-h')) {   // 26 Sept: a set height (the rule), both photos level with the quotation's first line
+        var hh = parseFloat(t.getAttribute('data-h')); f.forEach(function(x){ x.querySelector('.pim').style.setProperty('--mh', hh + 'px'); });
+        var kq0 = ink(qp); if (kq0) f.forEach(function(x){ x.style.marginTop = (kq0[2] - x.querySelector('.pim').getBoundingClientRect().top).toFixed(2) + 'px'; });
+        return;
+      }
+      var arOf = function(x){ var m = /aspect-ratio:\s*([0-9.]+)/.exec(x.querySelector('.pim').getAttribute('style') || ''); return m ? parseFloat(m[1]) : 1; };
+      var W = t.clientWidth, arL = arOf(f[0]), arR = arOf(f[f.length - 1]);
+      for (var i = 0; i < 12; i++) {
+        var kq = ink(qp), kc = ct ? ink(ct) : kq; if (!kq) return;
+        var hL = kc[3] - kq[2], hR = kq[3] - kq[2], k = Math.min(1, 0.4 * W / (hL * arL + hR * arR));   // the two photos: at most 40% of the width
+        f[0].querySelector('.pim').style.setProperty('--mh', (hL * k).toFixed(2) + 'px');
+        f[f.length - 1].querySelector('.pim').style.setProperty('--mh', (hR * k).toFixed(2) + 'px');
+      }
+      var kq2 = ink(qp);
+      f.forEach(function(x){ x.style.marginTop = (kq2[2] - x.querySelector('.pim').getBoundingClientRect().top).toFixed(2) + 'px'; });
+    });
+  }
+  function purposeWrap(){   // 26 Sept rule (changed): the Purpose photo centred top to bottom on its paragraph, at the right;
+                            // the text runs close beside it, and full width above and below it where the paragraph is taller
+    q('main .mm-pwrap').forEach(function(w){
+      var sp = w.querySelector('.mm-pspacer'), pf = w.querySelector('.mm-pfig'), p = w.querySelector('p'), pims = q('.pim', pf);
+      if (phone()) { pims.forEach(function(x){ x.style.setProperty('--mh', '106'); }); sp.style.height = '0px'; return; }
+      var rb = w.nextElementSibling; while (rb && !rb.classList.contains('mm-row') && !rb.matches('h2, .micro-label')) rb = rb.nextElementSibling;
+      var rp = rb && rb.classList.contains('mm-row') ? rb.querySelector('.pim') : null;
+      var cap = Math.min(PCAP, rp && rp.getBoundingClientRect().height ? rp.getBoundingClientRect().height : PCAP);
+      var foot = w.hasAttribute('data-foot'), fixed = parseFloat(w.getAttribute('data-h')) || 0;   // data-foot: at the text's foot (NAMC)
+      var place = function(H){ pims.forEach(function(x){ x.style.setProperty('--mh', H.toFixed(2)); });
+        for (var r = 0; r < 8; r++) { var k = ink(p); if (!k) return; var t0 = w.getBoundingClientRect().top + parseFloat(getComputedStyle(w).paddingTop || 0);
+          sp.style.height = Math.max(0, (foot ? k[3] - H : (k[2] + k[3]) / 2 - H / 2) - t0).toFixed(2) + 'px'; } };
+      var fit = function(){ var f = pf.getBoundingClientRect(), k = ink(p); return k && (foot ? Math.abs(f.bottom - k[3]) < 0.75 : Math.abs((f.top + f.bottom) / 2 - (k[2] + k[3]) / 2) < 0.75); };
+      var H = fixed || cap;
+      if (fixed) place(H);
+      else for (var i = 0; i < 6; i++) { place(H); var k0 = ink(p); var H2 = Math.min(cap, k0[3] - k0[2]); if (Math.abs(H2 - H) < 0.5) break; H = H2; }
+      // if the lines keep re-flowing around the photo, it gives up a few pixels of height (at most 30) until it is centred
+      for (var d = 1; !fit() && d <= 30; d++) place(H - d);
+    });
+  }
+  function listColumns(){   // 26 Sept (edits 1): lines 15px apart, as in any Word list; the columns start level
+    q('main ol[data-cols]').forEach(function(ol){
+      var li = q('li', ol).filter(function(x){ return x.parentElement === ol; }), c = +ol.getAttribute('data-cols') || 2, r = Math.ceil(li.length / c);
+      ol.style.gridTemplateRows = 'repeat(' + r + ', auto)'; ol.style.rowGap = '0px';
+      li.forEach(function(x){ x.style.setProperty('margin-top', '0px', 'important'); x.style.setProperty('margin-bottom', '0px', 'important'); });
+      if (r > 1) { var a = ink(li[0]), b = ink(li[1]); if (a && b) ol.style.rowGap = Math.max(0, 11 - (b[2] - a[3])).toFixed(2) + 'px'; }   // 26 Sept rule: list lines 11px
+    });
+  }
+  // 30 Sept rules (3.1.1, preview edits 4): a single photo beside a block of text is centred on that text, and the text
+  // wraps it above and below where it can (a zero-width spacer floated above the photo); where the text would wrap only
+  // one side (less than a line above), the photo stands level with the lowest line of the text; text shorter than the
+  // photo: the photo is centred on it.
+  function wrapFloats(){
+    var lastBs = {left: -1e9, right: -1e9}, lastB;   // 30 Sept (eleventh chat): the 30px rule is for photos on the same side
+    q('main .mm-float').forEach(function(f){
+      var sp = f.previousElementSibling; if (sp && sp.classList.contains('mm-fspacer')) sp.parentNode.removeChild(sp);
+      f.style.removeProperty('margin-top');
+      if (phone()) return;
+      var block = [], e = f.nextElementSibling;
+      // the text beside the photo: what can wrap it (not a quotation, nor anything that clears the photo) (30 Sept fix)
+      while (e && (e.tagName === 'P' || e.tagName === 'UL' || e.tagName === 'OL' || e.classList.contains('micro-label')) && getComputedStyle(e).clear === 'none') {
+        if (e.classList.contains('micro-label') && block.length) break;
+        block.push(e); e = e.nextElementSibling;
+        if (block[block.length - 1].tagName !== 'DIV') break; }   // 30 Sept (your correction): a paragraph - the one text block after the photo (a label carries on to its text)
+      if (!block.length) return;
+      var pim = f.querySelector('.pim'); if (!pim) return;
+      var s2 = document.createElement('div'); s2.className = 'mm-fspacer';
+      var side = f.classList.contains('mm-left') ? 'left' : 'right';
+      s2.style.cssText = 'float:' + side + ';width:0;height:0;margin:0;padding:0';
+      f.parentNode.insertBefore(s2, f);
+      var lh = parseFloat(getComputedStyle(block[0]).lineHeight) || 28, Hp = pim.getBoundingClientRect().height;
+      // 30 Sept (eleventh chat): the case is decided once, from the text as it stands beside the photo for its whole length
+      // (moving the photo re-flows the text, so deciding from the current layout flipped between cases)
+      var Wf = f.getBoundingClientRect().width + (parseFloat(getComputedStyle(f)[side === 'left' ? 'marginRight' : 'marginLeft']) || 0), dsp = f.style.display;
+      var mprop = side === 'left' ? 'margin-left' : 'margin-right';
+      f.style.display = 'none'; block.forEach(function(b){ b.style.setProperty(mprop, Wf.toFixed(2) + 'px'); });
+      var n0 = ink(block[0]), n1 = ink(block[block.length - 1]), Htn = (n0 && n1) ? n1[3] - n0[2] : 0;
+      f.style.display = dsp; block.forEach(function(b){ b.style.removeProperty(mprop); });
+      var mode = Htn - Hp < lh ? 'none' : ((Htn - Hp) / 2 < lh ? 'above' : 'both'); f.dataset.wrap = mode;
+      // place the photo: set(h) puts its top h px below the top of the first line; err() = distance from where the rule wants it
+      var place = function(h){ var k0 = ink(block[0]); if (!k0) return;
+        f.style.removeProperty('margin-top');   // decide from the photo's own top margin, not one set by an earlier try
+        var base = s2.getBoundingClientRect().top, mt = parseFloat(getComputedStyle(f).marginTop) || 0, want = k0[2] + h;
+        if (want - base - mt >= 0) { s2.style.height = Math.max(0, want - base - mt).toFixed(2) + 'px'; }
+        else { s2.style.height = '0px'; f.style.removeProperty('margin-top'); f.style.setProperty('margin-top', (want - pim.getBoundingClientRect().top + (parseFloat(getComputedStyle(f).marginTop) || 0)).toFixed(2) + 'px', 'important'); } };
+      var err = function(){ var k0 = ink(block[0]), k1 = ink(block[block.length - 1]), r = pim.getBoundingClientRect();
+        return mode === 'above' ? k1[3] - r.bottom : r.top - (k0[2] + (k1[3] - k0[2] - Hp) / 2); };
+      if (mode === 'above') {
+        // 30 Sept (eleventh chat): the text wraps ABOVE - whole lines above the photo (its top on a line), its bottom as
+        // near the lowest line as it goes without a line left below it
+        var best = null;
+        for (var kk = 1; kk <= 3; kk++) { place(kk * lh); var e1 = err(); if (e1 >= -1 && e1 < lh - 1 && (best === null || e1 < best[1])) best = [kk, e1]; }
+        if (best) place(best[0] * lh); else place(Math.max(0, Htn - Hp));
+      } else {
+        // centred: the text re-flows as the photo moves, so try the centre of each layout and keep the nearest
+        place(0); var q0 = ink(block[0]), q1 = ink(block[block.length - 1]);   // start as before: from the text with the photo at its top
+        var bestC = null, h = (q0 && q1) ? (q1[3] - q0[2] - Hp) / 2 : (Htn - Hp) / 2;
+        for (var it = 0; it < 8; it++) { place(h); var e2 = err(); if (bestC === null || Math.abs(e2) < Math.abs(bestC[1])) bestC = [h, e2];
+          if (Math.abs(e2) < 0.5) break; h = h - e2; }
+        if (Math.abs(bestC[1]) > 2) {   // the text re-flows a line as the photo moves: try positions around it, keep the nearest
+          var c0 = bestC[0]; for (var hh3 = c0 - lh; hh3 <= c0 + lh; hh3 += 2) { place(hh3); var e3 = err(); if (Math.abs(e3) < Math.abs(bestC[1])) bestC = [hh3, e3]; } }
+        place(bestC[0]);
+      }
+      // 30 Sept fix: text reflows as the photo moves; if the photo ended up below the lowest line, lift it until it is not
+      for (var it2 = 0; it2 < 6; it2++) {
+        var kl = ink(block[block.length - 1]), pb = pim.getBoundingClientRect().bottom, k0b = ink(block[0]);
+        if (!kl || !k0b || kl[3] - k0b[2] <= Hp || pb <= kl[3] + 1) break;
+        var hh = parseFloat(s2.style.height) || 0; if (hh <= 0) break;
+        s2.style.height = Math.max(0, hh - (pb - kl[3])).toFixed(2) + 'px';
+      }
+      // 30 Sept: a photo never closer than 30px to the photo above it (two short paragraphs, each with its photo)
+      var pt = pim.getBoundingClientRect().top; lastB = lastBs[side];
+      if (pt < lastB + 30) { var hh2 = parseFloat(s2.style.height) || 0, mt = parseFloat(f.style.marginTop) || 0;
+        if (mt < 0) f.style.setProperty('margin-top', Math.min(0, mt + (lastB + 30 - pt)).toFixed(2) + 'px', 'important');
+        pt = pim.getBoundingClientRect().top; if (pt < lastB + 30) s2.style.height = (hh2 + lastB + 30 - pt).toFixed(2) + 'px'; }
+      lastBs[side] = pim.getBoundingClientRect().bottom;
+    });
+  }
+  // 30 Sept (eleventh chat), confirmed for every page: photos beside text keep 30px from a sub-heading below (48px from a
+  // heading with a line, as spaceTable). Run after the last wrapFloats(), which can move a photo lower once the heading's
+  // space is set (The Montessori Curriculum: 11px under History and Science - accepted there, that page is finished).
+  function floatsAboveHeadings(){
+    if (phone()) return;
+    var fl = q('main .mm-float');
+    if (!fl.length) return;
+    q('main h2').forEach(function(h){
+      var sec = h.parentElement; if (!sec || h !== sec.firstElementChild || getComputedStyle(sec).clear === 'none') return;   // only headings that pass below photos
+      var k = ink(h); if (!k) return;
+      var want = h.classList.contains('mm-sub') ? 30 : 35, fb = -1e9;   // twelfth chat: headings 35px (was 48)
+      fl.forEach(function(f){ if (!(f.compareDocumentPosition(h) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
+        var r = f.querySelector('.pim').getBoundingClientRect(); if (r.bottom <= k[2] + 1) fb = Math.max(fb, r.bottom); });
+      if (fb < -1e8) return;
+      var gap = k[2] - fb; if (gap >= want - 0.5) return;
+      var cur = parseFloat(h.style.paddingTop) || 0;
+      h.style.setProperty('padding-top', (cur + want - gap).toFixed(2) + 'px', 'important');
+      h.setAttribute('data-fgap', (want).toString());
+    });
+  }
+  function floatsUnderHeading(){
+    q('main .mm-float').forEach(function(f){
+      var h = f.previousElementSibling, t = f.nextElementSibling, p = f.querySelector('.pim');
+      if (!h || h.tagName !== 'H2' || !t || phone()) { if (p) f.style.removeProperty('margin-top'); return; }
+      var k = ink(t); if (!k) return;
+      // the tops of the letters themselves (what the eye sees), not the top of the line of type
+      var cs = getComputedStyle(t), c = document.createElement('canvas').getContext('2d');
+      c.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+      var m = c.measureText(t.textContent.trim().split(/\s+/).slice(0, 8).join(' '));
+      var letters = k[2] + (m.fontBoundingBoxAscent - m.actualBoundingBoxAscent);
+      var line = h.getBoundingClientRect().bottom, cur = parseFloat(getComputedStyle(f).marginTop) || 0;
+      f.style.setProperty('margin-top', (cur + (letters - line) - (p.getBoundingClientRect().top - line)).toFixed(2) + 'px', 'important');
+    });
+  }
+  function dots(){
+    q('.mm-dots').forEach(function(d){ d.parentNode.removeChild(d); });
+    if (!phone()) return;
+    q('.mm-row, .mm-set .mm-imgs').forEach(function(st){
+      var f = q('figure.ph', st); if (f.length < 2) return;
+      var d = document.createElement('div'); d.className = 'mm-dots';
+      f.forEach(function(){ d.appendChild(document.createElement('span')); }); d.firstChild.className = 'on';
+      (st.classList.contains('mm-row') ? st : st.parentNode).insertAdjacentElement('afterend', d);
+      st.addEventListener('scroll', function(){ var k = 0, best = 1e9;
+        f.forEach(function(x, i){ var dd = Math.abs(x.offsetLeft - st.offsetLeft - st.scrollLeft); if (dd < best) { best = dd; k = i; } });
+        q('span', d).forEach(function(s, i){ s.className = i === k ? 'on' : ''; }); }, {passive: true});
+    });
+  }
+  function layout(){
+    // 30 Sept (eleventh chat): the browser's scroll anchoring moves the page while it is being measured when the reader is
+    // scrolled down; it is off while the layout runs, so the page is the same wherever the reader is
+    var de = document.documentElement, oa = de.style.overflowAnchor; de.style.overflowAnchor = 'none';
+    // 1 Oct (3.4.1 edit 23, "the page is not scrolling below Music And Movement"): the spacing pass sets every margin to 0
+    // before measuring, so the page was briefly shorter than where the reader had scrolled and the browser pulled them
+    // back up at every re-layout (photos loading as the reader scrolls). The page keeps its height while the layout runs.
+    var bd = document.body, mh = bd.style.minHeight; bd.style.minHeight = de.scrollHeight + 'px';
+    try { layout0(); } finally { bd.style.minHeight = mh; de.style.overflowAnchor = oa; } }
+  function layout0(){
+    if (document.querySelector('main[data-spacing=table]')) {   // photos are re-centred after the margins change, twice to settle
+      // 30 Sept (eleventh chat): every layout starts from the photos as first loaded (no spacer, no top margin set), so a
+      // re-layout (resize, fonts, images) gives the same page as the first one
+      q('main .mm-fspacer').forEach(function(sp){ sp.parentNode.removeChild(sp); }); q('main .mm-float').forEach(function(f){ f.style.removeProperty('margin-top'); });
+      dots(); listColumns(); for (var i = 0; i < 4; i++) { sets(); pairs(); grids(); rows(); rowTweaks(); under(); rules(); trio(); purposeWrap(); spaceTable(i === 0); } purposeWrap(); sets(); pairs(); grids(); vgap(); wrapFloats(); spaceTable(false); wrapFloats(); floatsAboveHeadings(); }
+    else { sets(); pairs(); grids(); rows(); rowTweaks(); under(); rules(); spacing(); spaceAbove(); spacing(); spaceAbove(); dots(); listColumns(); floatsUnderHeading(); floatsUnderHeading(); wrapFloats(); wrapFloats(); }   // 30 Sept (13th chat): the rule of 30 Sept (a single photo centred on its text) on Resources pages too
+    var mr = document.querySelector('main').getBoundingClientRect(); window.__mmSize = [mr.width, mr.height];   // the size this layout left
+    document.documentElement.setAttribute('data-layout', 'done'); }
+  var pending = false;
+  function schedule(){ if (pending) return; pending = true; requestAnimationFrame(function(){ pending = false; layout(); }); }
+  window.addEventListener('resize', schedule);                          // every resize, so a brief one (zoom, print, capture) is always undone
+  // 30 Sept (twelfth chat): the page re-lays itself only when its size really changes (over 1px) - never for the fraction
+  // of a pixel its own layout moves it (that fed back into a never-ending re-layout: 3.1.2 previews 2-4)
+  if (window.ResizeObserver) new ResizeObserver(function(es){ var r = es[0].target.getBoundingClientRect(), m = window.__mmSize;
+    if (m && Math.abs(r.width - m[0]) <= 1 && Math.abs(r.height - m[1]) <= 1) return; schedule(); }).observe(document.querySelector('main'));
+  window.addEventListener('load', schedule);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+  q('img.doc-img').forEach(function(i){ if (!i.complete) i.addEventListener('load', schedule); });
+  layout();
+})();
+</script>
+<script>(function(){function ink(el){var rg=document.createRange(),w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,t=1e9,b=-1e9,L=[];
+ while((n=w.nextNode())){if(!n.nodeValue.trim())continue;rg.selectNodeContents(n);var rs=rg.getClientRects();for(var i=0;i<rs.length;i++)if(rs[i].width){t=Math.min(t,rs[i].top);b=Math.max(b,rs[i].bottom);L.push(Math.round(rs[i].top));}}
+ var u={};L.forEach(function(x){u[x]=1;});return [t,b,Object.keys(u).length];}
+ function fit(){var w=document.getElementById('mm-ms');if(!w)return;var p=w.querySelector('p'),f=w.parentElement.querySelector('.mm-msfloat'),pim=f.querySelector('.pim');
+  if(window.innerWidth<=640){p.style.removeProperty('line-height');p.style.removeProperty('margin-top');f.style.removeProperty('margin-top');return;}
+  var h3=f.parentElement.querySelector('h3');
+  for(var k=0;k<5;k++){var mt=parseFloat(getComputedStyle(f).marginTop)||0;f.style.setProperty('margin-top',(mt+ink(h3)[0]-pim.getBoundingClientRect().top).toFixed(2)+'px','important');
+   var pm=parseFloat(getComputedStyle(p).marginTop)||0;p.style.setProperty('margin-top',(pm+ink(h3)[1]+10-ink(p)[0]).toFixed(2)+'px','important');
+   var r=ink(p),lines=r[2],lh=parseFloat(getComputedStyle(p).lineHeight)||32,want=pim.getBoundingClientRect().bottom-r[0];
+   if(lines>1){var glyph=(r[1]-r[0])-(lines-1)*lh;p.style.setProperty('line-height',((want-glyph)/(lines-1)).toFixed(2)+'px','important');}}}
+ var tm;window.addEventListener('load',function(){setTimeout(fit,100);setTimeout(fit,400);if(document.fonts)document.fonts.ready.then(function(){setTimeout(fit,100);});});window.addEventListener('resize',function(){clearTimeout(tm);tm=setTimeout(fit,100);});})();</script><script>(function(){var ink=function(el,last){var rg=document.createRange(),w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,t=1e9,b=-1e9;
+ while((n=w.nextNode())){if(!n.nodeValue.trim())continue;rg.selectNodeContents(n);var rs=rg.getClientRects();for(var i=0;i<rs.length;i++)if(rs[i].width){t=Math.min(t,rs[i].top);b=Math.max(b,rs[i].bottom);}}return last?b:t;};
+ function fit(){var f=document.getElementById('mm-fit10');if(!f)return;var pim=f.querySelector('.pim'),en=f.closest('.res-entry');
+  if(window.innerWidth<=640){pim.style.removeProperty('width');f.style.removeProperty('margin-top');return;}
+  var ps=[].slice.call(en.querySelectorAll('p'));var ti=ps.filter(function(x){return /This volume contains/.test(x.textContent);})[0],li=ps.filter(function(x){return /understand it by his own movements/.test(x.textContent);})[0];if(!ti||!li)return;
+  var ar=parseFloat(getComputedStyle(pim).aspectRatio)||0.681;
+  var cap=f.querySelector('figcaption');
+  for(var k=0;k<6;k++){var T=ink(ti),B=ink(li,1),below=cap?cap.getBoundingClientRect().bottom-pim.getBoundingClientRect().bottom:0,h=B-T-below;pim.style.setProperty('width',(h*ar).toFixed(1)+'px','important');
+   var mt=parseFloat(getComputedStyle(f).marginTop)||0;f.style.setProperty('margin-top',(mt+T-pim.getBoundingClientRect().top).toFixed(2)+'px','important');}}
+ var tm;window.addEventListener('load',function(){setTimeout(fit,110);setTimeout(fit,410);if(document.fonts)document.fonts.ready.then(function(){setTimeout(fit,110);});});window.addEventListener('resize',function(){clearTimeout(tm);tm=setTimeout(fit,110);});})();</script><script>(function(){function ink(el){var rg=document.createRange(),w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,t=1e9,b=-1e9;
+ while((n=w.nextNode())){if(!n.nodeValue.trim())continue;rg.selectNodeContents(n);var rs=rg.getClientRects();for(var i=0;i<rs.length;i++)if(rs[i].width){t=Math.min(t,rs[i].top);b=Math.max(b,rs[i].bottom);}}return [t,b];}
+ // your edit 1 (2 Oct, fifth list, your Word screenshot): the Raphael as in Word - 19.7% of the column wide (190 of 966px in
+ // the screenshot), its top level with the quotation's first line, at the right margin
+ function fit(){var f=document.getElementById('mm-fitR');if(!f)return;var pim=f.querySelector('.pim'),q=f.nextElementSibling;
+  if(window.innerWidth<=640){pim.style.removeProperty('width');f.style.removeProperty('margin-top');return;}
+  var ar=parseFloat(getComputedStyle(f).getPropertyValue('--arR'))||1;
+  var col=f.parentElement.getBoundingClientRect().width;pim.style.setProperty('width',(0.197*col).toFixed(1)+'px','important');
+  for(var k=0;k<4;k++){var r=ink(q),pr=pim.getBoundingClientRect(),mt=parseFloat(getComputedStyle(f).marginTop)||0;f.style.setProperty('margin-top',(mt+r[0]-pr.top).toFixed(2)+'px','important');}}
+ var tm;window.addEventListener('load',function(){setTimeout(fit,105);setTimeout(fit,405);if(document.fonts)document.fonts.ready.then(function(){setTimeout(fit,105);});});window.addEventListener('resize',function(){clearTimeout(tm);tm=setTimeout(fit,105);});})();</script><script>(function(){function ink(el){var rg=document.createRange(),w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,t=1e9,b=-1e9;
+ while((n=w.nextNode())){if(!n.nodeValue.trim())continue;rg.selectNodeContents(n);var rs=rg.getClientRects();for(var i=0;i<rs.length;i++)if(rs[i].width){t=Math.min(t,rs[i].top);b=Math.max(b,rs[i].bottom);}}return t<1e9?[t,b]:null;}
+ // your edits (2 Oct): a heading's letters 45px below what is above them (text or photos); its first entry 25px below the line under it (fourth list; was 20, before that 10)
+ function sp(){var S=[].slice.call(document.querySelectorAll('main section.section'));
+  for(var k=0;k<2;k++)S.forEach(function(s,i){var h=s.querySelector(':scope > h2');if(!h)return;var pv=S[i-1],bot=-1e9;if(pv){
+   [].forEach.call(pv.querySelectorAll('.pim'),function(x){bot=Math.max(bot,x.getBoundingClientRect().bottom);});
+   [].forEach.call(pv.querySelectorAll('p,li,h3,.res-item,blockquote,figcaption'),function(x){var r=ink(x);if(r)bot=Math.max(bot,r[1]);});}
+   var hi=ink(h);if(!hi)return;if(bot>-1e8){var mt=parseFloat(getComputedStyle(s).marginTop)||0;s.style.setProperty('margin-top',(mt+45-(hi[0]-bot)).toFixed(2)+'px','important');}
+   var f=h.nextElementSibling;while(f&&!ink(f))f=f.nextElementSibling;if(!f)return;var t=f.matches('.res-entry')?(f.querySelector(':scope > h3')||f.querySelector(':scope > *')):f;if(t!==f){t.style.setProperty('margin-top','0px','important');}var ti=ink(t);
+   var m2=parseFloat(getComputedStyle(f).marginTop)||0;f.style.setProperty('margin-top',(m2+25-(ti[0]-h.getBoundingClientRect().bottom)).toFixed(2)+'px','important');});}
+ // Resources rule (27 Sept, RS9): 40px between entries - kept exactly where the taller lines leave a last line a few px taller
+ function ent(){[].forEach.call(document.querySelectorAll('main .res-entry'),function(en){var nx=en.nextElementSibling;if(!nx||!nx.matches('.res-entry'))return;
+   var h=nx.querySelector(':scope > h3');if(!h)return;var k=[].filter.call(en.children,function(c){return c.getClientRects().length&&!c.matches('.mm-float');}),z=k[k.length-1];
+   if(!z||!z.matches('p'))return;var zb=ink(z),hb=ink(h);if(!zb||!hb)return;var g=hb[0]-zb[1];if(Math.abs(g-40)>0.6){var m=parseFloat(getComputedStyle(h).marginTop)||0;h.style.setProperty('margin-top',(m+40-g).toFixed(2)+'px','important');}});}
+ var sp0=sp;sp=function(){ent();sp0();};
+ var tm;window.addEventListener('load',function(){setTimeout(sp,160);setTimeout(sp,460);if(document.fonts)document.fonts.ready.then(function(){setTimeout(sp,160);});});window.addEventListener('resize',function(){clearTimeout(tm);tm=setTimeout(sp,160);});})();</script>
+<script id="mm-menu-js">(function(){[].forEach.call(document.querySelectorAll('.menu .top.np-top'),function(a){a.addEventListener('click',function(e){var t=a.parentNode.querySelector('.sub-toggle');if(t){e.stopPropagation();t.click();}});});})();</script><script id="mm-foot-gap-js">(function(){
+ /* 20 Oct 2026: 60 from the letters of the last line (or the last photo) to the blue footer band above 640; phones keep 40 as before */
+ function inkLow(m){var cv=document.createElement('canvas').getContext('2d'),w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT),n,r=document.createRange(),b=-1e9;
+  while((n=w.nextNode())){var s=n.nodeValue;if(!s.trim())continue;var e=n.parentElement;if(!e||e.closest('nav,script,style')||getComputedStyle(e).display==='none')continue;
+   var cs=getComputedStyle(e);cv.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;var fm=cv.measureText('Hg'),fa=fm.fontBoundingBoxAscent,fd=fm.fontBoundingBoxDescent;
+   for(var i=s.length-1;i>=0;i--){if(!s[i].trim())continue;r.setStart(n,i);r.setEnd(n,i+1);var q=r.getClientRects()[0];if(!q||!q.width)continue;
+    if(q.bottom<b-40)break;var base=q.top+(q.height-(fa+fd))/2+fa;b=Math.max(b,base+cv.measureText(s[i]).actualBoundingBoxDescent);}}
+  [].forEach.call(m.querySelectorAll('img, a.pdf'),function(p){var q=p.getBoundingClientRect();if(q.height)b=Math.max(b,q.bottom);});return b;}
+ function half(el){var cs=getComputedStyle(el);
+  var c=document.createElement('canvas').getContext('2d');
+  c.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+'/'+cs.lineHeight+' '+cs.fontFamily;
+  var m=c.measureText('Hxg'),fh=m.fontBoundingBoxAscent+m.fontBoundingBoxDescent;
+  var lh=parseFloat(cs.lineHeight)||parseFloat(cs.fontSize)*1.2;return (lh-fh)/2;}
+ function low(m){var rg=document.createRange(),w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT),n,b=-1e9;
+  while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var pe=n.parentElement;
+   if(!pe||pe.closest('nav,script,style'))continue;
+   rg.selectNodeContents(n);var rs=rg.getClientRects(),h=half(pe);
+   for(var i=0;i<rs.length;i++)if(rs[i].width)b=Math.max(b,rs[i].bottom-h);}
+  [].forEach.call(m.querySelectorAll('img'),function(i){var r=i.getBoundingClientRect();if(r.height)b=Math.max(b,r.bottom);});
+  return b;}
+ function run(){var bd=document.querySelector('.mc-band'),m=document.querySelector('main');if(!bd||!m)return;
+  var ph=window.innerWidth<=640,G=ph?40:60;
+  for(var k=0;k<6;k++){var lb=ph?low(m):inkLow(m);if(lb<-1e8)return;
+   var d=G-(bd.getBoundingClientRect().top-lb);if(Math.abs(d)<0.3)break;
+   var mt=parseFloat(getComputedStyle(bd).marginTop)||0;
+   bd.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}}
+ var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+ window.addEventListener('resize',run);
+ window.addEventListener('load',function(){run();setTimeout(run,700);
+  if(document.fonts)document.fonts.ready.then(function(){setTimeout(run,300);});});})();</script>
+
+<script id="mm-hero-gap-js">/* 20 Oct 2026: 60 from the hero picture to the letters of the first line, computer and tablet widths (above 640) */
+(function(){
+  function firstText(root){var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),n;
+    while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var e=n.parentElement;if(e.closest('script,style,.mm-float'))continue;
+      if(getComputedStyle(e).display==='none')continue;return n;}return null;}
+  function inkTop(n){var e=n.parentElement,cs=getComputedStyle(e),r=document.createRange();r.selectNodeContents(n);
+    var rs=r.getClientRects();if(!rs.length)return null;var line=rs[0];
+    var c=document.createElement('canvas').getContext('2d');c.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+    var t=n.nodeValue.trim().split(/\s+/)[0],m=c.measureText(t),fm=c.measureText('Hg');
+    var fa=fm.fontBoundingBoxAscent,fd=fm.fontBoundingBoxDescent;
+    var base=line.top+(line.height-(fa+fd))/2+fa;return base-m.actualBoundingBoxAscent;}
+  function run(){var main=document.querySelector('main#content'),hero=document.querySelector('.hero');if(!main||!hero)return;
+    main.style.removeProperty('padding-top');if(window.innerWidth<=640)return;
+    var n=firstText(main);if(!n)return;var top=inkTop(n);if(top==null)return;
+    var gap=top-hero.getBoundingClientRect().bottom,pt=parseFloat(getComputedStyle(main).paddingTop)||0;
+    main.style.setProperty('padding-top',Math.max(0,pt+60.5-gap).toFixed(2)+'px','important');}
+  window.addEventListener('load',function(){run();setTimeout(run,400);setTimeout(run,1200);});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
+  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,150);});
+})();</script><style id="mm-lists">/* 20 Oct 2026, every page and width: numbered lists always at the left margin */ main ol{margin-left:0 !important}</style><script id="mm-photo-align-js">/* 20 Oct 2026, every Resources page: a photo beside the text starts level with the top of the letters of the first line of the text - the first paragraph after it, never the title (above 640) */
+(function(){
+  var cv=document.createElement('canvas').getContext('2d');
+  function letTop(p){var w=document.createTreeWalker(p,NodeFilter.SHOW_TEXT),n,r=document.createRange(),best=null,line=null;
+    while((n=w.nextNode())){var s=n.nodeValue,cs=getComputedStyle(n.parentElement);cv.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+      var fm=cv.measureText('Hg'),fa=fm.fontBoundingBoxAscent,fd=fm.fontBoundingBoxDescent;
+      for(var i=0;i<s.length;i++){if(!s[i].trim())continue;r.setStart(n,i);r.setEnd(n,i+1);var b=r.getClientRects()[0];if(!b||!b.width)continue;
+        if(line===null)line=b.top;if(b.top>line+2)return best;
+        var t=b.top+(b.height-(fa+fd))/2+fa-cv.measureText(s[i]).actualBoundingBoxAscent;best=best===null?t:Math.min(best,t);}}
+    return best;}
+  function run(){[].forEach.call(document.querySelectorAll('main .mm-float'),function(f){
+      f.style.removeProperty('padding-top');f.style.removeProperty('margin-top');f.style.removeProperty('margin-bottom');if(window.innerWidth<=640||f.classList.contains('mm-fitlines'))return;var p=f.nextElementSibling;while(p&&!p.matches('p'))p=p.nextElementSibling;var pim=f.querySelector('.pim');if(!p||!pim)return;
+      for(var k=0;k<3;k++){var t=letTop(p);if(t===null)return;var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t-pim.getBoundingClientRect().top;
+        if(off>=0){f.style.removeProperty('margin-top');f.style.setProperty('padding-top',off.toFixed(2)+'px','important');}else{f.style.removeProperty('padding-top');f.style.setProperty('margin-top',off.toFixed(2)+'px','important');}}});if(window.__mmOrgRun)window.__mmOrgRun();centre();}
+  /* Occasional exception (20 Oct 2026, first used for Bertrand Russell on The Role of the Adult - Resources): a photo marked mm-fitlines is centred between the beige lines above and below its entry, the same space above and below it; those lines follow the text, not the photo */
+  function centre(){[].forEach.call(document.querySelectorAll('main .mm-float.mm-fitlines'),function(f){
+      if(window.innerWidth<=640)return;var e=f.closest('.res-entry')||f.parentElement,a=e.previousElementSibling,b=e.nextElementSibling,pim=f.querySelector('.pim');
+      if(!a||!b||!pim||!a.matches('.beige-rule')||!b.matches('.beige-rule'))return;f.style.setProperty('margin-bottom','0px','important');
+      for(var k=0;k<3;k++){var q=pim.getBoundingClientRect(),tg=(a.getBoundingClientRect().bottom+b.getBoundingClientRect().top)/2-q.height/2;
+        var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+tg-q.top;
+        if(off>=0){f.style.removeProperty('margin-top');f.style.setProperty('padding-top',off.toFixed(2)+'px','important');}else{f.style.removeProperty('padding-top');f.style.setProperty('margin-top',off.toFixed(2)+'px','important');}}});}
+  window.addEventListener('load',function(){run();setTimeout(run,600);setTimeout(run,1500);setTimeout(run,3000);});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
+  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,250);});
+})();</script><style id="mm-band">/* 20 Oct 2026, every page: the footer quotation in three lines as set out (line breaks after "confess that," and "prostrated me."), each line whole where the width allows */ html body .mc-band p{max-width:none !important;text-wrap:wrap !important}</style><style id="mm-foot-strip">/* 20 Oct 2026, every Resources page: the strip under the blue footer band 60 high, text centred in it (above 640; phones as before) */ @media (min-width:641px){html body .site-foot .site-foot-in{padding-top:17.625px !important;padding-bottom:17.625px !important}}</style><style id="mm-fitlines">/* Occasional exception (20 Oct 2026): the line after an entry whose photo is centred between the lines follows the text, not the photo */ main .res-entry:has(> .mm-fitlines) + .beige-rule{clear:none !important}</style><script id="mm-band-js">/* 20 Oct 2026, every page: when the middle line of the footer quotation does not fit, the words that run over carry onto the start of the "It was as if..." line instead of standing alone */
+(function(){function run(){var s=document.querySelector('.mc-band .mm-l2'),br=document.querySelector('.mc-band .mm-br');if(!s||!br)return;br.style.display='';
+  var r=document.createRange();r.selectNodeContents(s);var tops={};[].forEach.call(r.getClientRects(),function(q){if(q.width)tops[Math.round(q.top)]=1;});
+  if(Object.keys(tops).length>1)br.style.display='none';}
+ window.addEventListener('load',run);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
+ window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,100);});run();})();</script><style id="mm-menu-click">/* 16 Oct 2026, the user (3A + A): a panel opens on a click on its name or arrow and closes on a second click, computers and phones; panels no longer open on keyboard focus */ .has-panel:focus-within > .panel{display:none}.has-panel.open > .panel{display:block}</style><script id="mm-pdf-column-js">/* 20 Oct 2026, every Resources page (your words, 19:1x: "when PDF are close by each other like this. place them in a
+   column"): PDF badges on neighbouring lines - paragraphs that follow one another with nothing between them - stand in
+   one column: 24 after the longest text of the group, or further where the PDF puts its links further (data-tabx, the
+   PDF's place in points, scaled by how much wider the page's text is than the PDF's). Where the column would run past the
+   right margin (phones), each badge stands 24 after its text, and a badge that drops to a line of its own starts at the
+   margin. A badge with no neighbour stays 24 after its text. */
+(function(){
+ function textEnd(a){var p=a.parentElement,r=document.createRange();r.setStart(p,0);r.setEndBefore(a);
+  var rs=[].filter.call(r.getClientRects(),function(q){return q.width>0.5;});return rs.length?rs[rs.length-1]:null;}
+ function badge(p){var a=p.lastElementChild;return a&&a.matches('a.pdf')?a:null;}
+ function groups(){var out=[],seen=new Set();
+  [].forEach.call(document.querySelectorAll('main p > a.pdf'),function(a){var p=a.parentElement;if(seen.has(p)||badge(p)!==a)return;
+   var s=p;while(s.previousElementSibling&&s.previousElementSibling.tagName==='P')s=s.previousElementSibling;
+   var g=[];for(var x=s;x&&x.tagName==='P';x=x.nextElementSibling){seen.add(x);var b=badge(x);if(b)g.push(b);}
+   out.push(g);});return out;}
+ function wrapped(bs){bs.forEach(function(a){a.style.setProperty('margin-left','24px','important');var e=textEnd(a);
+  if(e&&a.getBoundingClientRect().top>e.top+e.height/2){a.style.setProperty('margin-left','0px','important');
+   var e2=textEnd(a);if(e2&&a.getBoundingClientRect().top<=e2.top+e2.height/2){   /* it fits beside the text only without its 24: it starts the next line, at the margin */
+    var br=document.createElement('br');br.className='mm-bbr';a.parentNode.insertBefore(br,a);}}});}
+ function run(){[].forEach.call(document.querySelectorAll('main br.mm-bbr'),function(b){b.parentNode.removeChild(b);});
+  var G=groups(),all=[].concat.apply([],G);if(!all.length)return;
+  all.forEach(function(a){a.style.setProperty('margin-left','24px','important');});
+  if(window.innerWidth<=640){wrapped(all);return;}
+  all.forEach(function(a){a.style.setProperty('margin-left','0px','important');});
+  var ks=all.filter(function(a){return +a.dataset.tw>0;}).map(function(a){var e=textEnd(a);return e?(e.right-a.parentElement.getBoundingClientRect().left)/+a.dataset.tw:null;}).filter(Boolean).sort(function(x,y){return x-y;});
+  var k=ks.length?ks[Math.floor(ks.length/2)]:0;
+  G.forEach(function(g){
+   if(g.length<2){wrapped(g);return;}
+   var col=0,ok=true,info=g.map(function(a){var e=textEnd(a),p=a.parentElement.getBoundingClientRect();return {a:a,e:e,p:p,w:a.getBoundingClientRect().width};});
+   info.forEach(function(x){if(!x.e){ok=false;return;}col=Math.max(col,x.e.right-x.p.left+24);if(k&&x.a.dataset.tabx)col=Math.max(col,+x.a.dataset.tabx*k);});
+   info.forEach(function(x){if(ok&&x.p.left+col+x.w>x.p.right+0.5)ok=false;});
+   if(!ok){wrapped(g);return;}
+   info.forEach(function(x){x.a.style.setProperty('margin-left',(x.p.left+col-x.e.right).toFixed(2)+'px','important');});});
+  document.documentElement.setAttribute('data-pdf-column','done');}
+ var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+ window.addEventListener('load',function(){run();setTimeout(run,500);if(document.fonts)document.fonts.ready.then(run);});
+ window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,120);});run();
+})();</script></body>
+</html>
