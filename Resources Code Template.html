@@ -1301,6 +1301,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
   // one side (less than a line above), the photo stands level with the lowest line of the text; text shorter than the
   // photo: the photo is centred on it.
   function wrapFloats(){
+    if (window.__mmPhotoAlign) { q('main .mm-fspacer').forEach(function(sp){ sp.parentNode.removeChild(sp); }); return; }   // 20 Oct 21:1x: mm-photo-align-js places these photos (spacers from a layout before it loaded are removed)
     var lastBs = {left: -1e9, right: -1e9}, lastB;   // 30 Sept (eleventh chat): the 30px rule is for photos on the same side
     q('main .mm-float').forEach(function(f){
       var sp = f.previousElementSibling; if (sp && sp.classList.contains('mm-fspacer')) sp.parentNode.removeChild(sp);
@@ -1387,6 +1388,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
     });
   }
   function floatsUnderHeading(){
+    if (window.__mmPhotoAlign) return;   // 20 Oct 21:1x: mm-photo-align-js places these photos
     q('main .mm-float').forEach(function(f){
       var h = f.previousElementSibling, t = f.nextElementSibling, p = f.querySelector('.pim');
       if (!h || h.tagName !== 'H2' || !t || phone()) { if (p) f.style.removeProperty('margin-top'); return; }
@@ -1495,7 +1497,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
    var cs=getComputedStyle(e);cv.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;var fm=cv.measureText('Hg'),fa=fm.fontBoundingBoxAscent,fd=fm.fontBoundingBoxDescent;
    for(var i=s.length-1;i>=0;i--){if(!s[i].trim())continue;r.setStart(n,i);r.setEnd(n,i+1);var q=r.getClientRects()[0];if(!q||!q.width)continue;
     if(q.bottom<b-40)break;var base=q.top+(q.height-(fa+fd))/2+fa;b=Math.max(b,base+cv.measureText(s[i]).actualBoundingBoxDescent);}}
-  [].forEach.call(m.querySelectorAll('img, a.pdf'),function(p){var q=p.getBoundingClientRect();if(q.height)b=Math.max(b,q.bottom);});return b;}
+  [].forEach.call(m.querySelectorAll('img, a.pdf, .pim'),function(p){var q=p.getBoundingClientRect();if(q.height)b=Math.max(b,q.bottom);});return b;}   /* 20 Oct 22:0x: a photo's reserved box (.pim) counts while its picture is still loading */
  function half(el){var cs=getComputedStyle(el);
   var c=document.createElement('canvas').getContext('2d');
   c.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+'/'+cs.lineHeight+' '+cs.fontFamily;
@@ -1506,16 +1508,18 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
    if(!pe||pe.closest('nav,script,style'))continue;
    rg.selectNodeContents(n);var rs=rg.getClientRects(),h=half(pe);
    for(var i=0;i<rs.length;i++)if(rs[i].width)b=Math.max(b,rs[i].bottom-h);}
-  [].forEach.call(m.querySelectorAll('img'),function(i){var r=i.getBoundingClientRect();if(r.height)b=Math.max(b,r.bottom);});
+  [].forEach.call(m.querySelectorAll('img, .pim'),function(i){var r=i.getBoundingClientRect();if(r.height)b=Math.max(b,r.bottom);});
   return b;}
  function run(){var bd=document.querySelector('.mc-band'),m=document.querySelector('main');if(!bd||!m)return;
-  var ph=window.innerWidth<=640,G=ph?40:60;
+  var ph=window.innerWidth<=640,G=ph?40:60;if(ph&&document.getElementById('mm-phone-gaps-js'))return;   /* 20 Oct 22:1x: the page's own phone gaps (5.4) */
   for(var k=0;k<6;k++){var lb=ph?low(m):inkLow(m);if(lb<-1e8)return;
    var d=G-(bd.getBoundingClientRect().top-lb);if(Math.abs(d)<0.3)break;
    var mt=parseFloat(getComputedStyle(bd).marginTop)||0;
    bd.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}}
  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
  window.addEventListener('resize',run);
+ /* 20 Oct 22:0x (your choice "Fix in the template"): run again whenever a photo finishes loading - a late photo was left over the footer band */
+ document.addEventListener('load',function(e){if(e.target&&e.target.tagName==='IMG'){clearTimeout(run.t);run.t=setTimeout(run,50);}},true);
  window.addEventListener('load',function(){run();setTimeout(run,700);
   if(document.fonts)document.fonts.ready.then(function(){setTimeout(run,300);});});})();</script>
 
@@ -1531,6 +1535,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
     var fa=fm.fontBoundingBoxAscent,fd=fm.fontBoundingBoxDescent;
     var base=line.top+(line.height-(fa+fd))/2+fa;return base-m.actualBoundingBoxAscent;}
   function run(){var main=document.querySelector('main#content'),hero=document.querySelector('.hero');if(!main||!hero)return;
+    if(window.innerWidth<=640&&document.getElementById('mm-phone-gaps-js'))return;   /* 20 Oct 22:5x: the page's own phone gaps (5.4) */
     main.style.removeProperty('padding-top');if(window.innerWidth<=640)return;
     var n=firstText(main);if(!n)return;var top=inkTop(n);if(top==null)return;
     var gap=top-hero.getBoundingClientRect().bottom,pt=parseFloat(getComputedStyle(main).paddingTop)||0;
@@ -1538,7 +1543,9 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
   window.addEventListener('load',function(){run();setTimeout(run,400);setTimeout(run,1200);});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
   window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,150);});
-})();</script><style id="mm-lists">/* 20 Oct 2026, every page and width: numbered lists always at the left margin */ main ol{margin-left:0 !important}</style><script id="mm-photo-align-js">/* 20 Oct 2026, every Resources page: a photo beside the text starts level with the top of the letters of the first line of the text - the first paragraph after it, never the title (above 640) */
+})();</script><style id="mm-lists">/* 20 Oct 2026, every page and width: numbered lists always at the left margin */ main ol{margin-left:0 !important}</style><style id="mm-dash-lists">/* 21 Oct 14:57 (user: "position of dashes- change to 24 from the edge. change on the template and on the page"; 14:58 "Keep the 24 gap, all widths"): every dash list, every width - the dash 24 from the text margin, the word 24 after the dash (54 from the margin; the dash is 6 wide). Was 48/78 above 640, 0/30 on phones */ main ul{margin-left:24px !important;padding-left:30px !important}main ul>li::before{left:-30px !important}</style><script id="mm-photo-align-js">/* 20 Oct 2026, every Resources page: a photo beside the text starts level with the top of the letters of the first line of the text - the first paragraph after it, never the title (above 640) */
+/* 20 Oct 21:1x (your choice "Fix in the template", 5.4): the text may be a list (its first line); the older spacing script leaves these photos where this one puts them */
+window.__mmPhotoAlign=true;
 (function(){
   var cv=document.createElement('canvas').getContext('2d');
   function letTop(p){var w=document.createTreeWalker(p,NodeFilter.SHOW_TEXT),n,r=document.createRange(),best=null,line=null;
@@ -1548,9 +1555,15 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
         if(line===null)line=b.top;if(b.top>line+2)return best;
         var t=b.top+(b.height-(fa+fd))/2+fa-cv.measureText(s[i]).actualBoundingBoxAscent;best=best===null?t:Math.min(best,t);}}
     return best;}
+  /* 20 Oct 21:3x (your "center on the space you print", 5.4): a photo marked mm-mid is centred on the printed text beside it - midway between the top of the letters of its first line and the baseline of its last */
+  function letBase(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,r=document.createRange(),base=null;
+    while((n=w.nextNode())){var s=n.nodeValue,cs=getComputedStyle(n.parentElement);cv.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;var fm=cv.measureText('Hg'),fa=fm.fontBoundingBoxAscent,fd=fm.fontBoundingBoxDescent;
+      for(var i=0;i<s.length;i++){if(!s[i].trim())continue;r.setStart(n,i);r.setEnd(n,i+1);var b=r.getClientRects()[0];if(!b||!b.width)continue;var y=b.top+(b.height-(fa+fd))/2+fa+cv.measureText(s[i]).actualBoundingBoxDescent;if(base===null||y>base)base=y;}}   /* 20 Oct 23:4x (independent check): the lowest point of the letters, descenders included */
+    return base;}
   function run(){[].forEach.call(document.querySelectorAll('main .mm-float'),function(f){
-      f.style.removeProperty('padding-top');f.style.removeProperty('margin-top');f.style.removeProperty('margin-bottom');if(window.innerWidth<=640||f.classList.contains('mm-fitlines'))return;var p=f.nextElementSibling;while(p&&!p.matches('p'))p=p.nextElementSibling;var pim=f.querySelector('.pim');if(!p||!pim)return;
-      for(var k=0;k<3;k++){var t=letTop(p);if(t===null)return;var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t-pim.getBoundingClientRect().top;
+      f.style.removeProperty('padding-top');f.style.removeProperty('margin-top');f.style.removeProperty('margin-bottom');if(window.innerWidth<=640){f.style.removeProperty('margin-right');}if(window.innerWidth<=640||f.classList.contains('mm-fitlines'))return;var p=f.nextElementSibling;while(p&&!p.matches('p,ul,ol'))p=p.nextElementSibling;if(p&&p.matches('ul,ol'))p=p.querySelector('li')||p;var pim=f.querySelector('.pim');if(!p||!pim)return;
+      var blk=f.nextElementSibling;for(var k=0;k<3;k++){var t=letTop(p);if(t===null)return;if(f.classList.contains('mm-mid')&&blk){var lb=letBase(blk);if(lb!==null)t=(t+lb)/2-pim.getBoundingClientRect().height/2;}if(k===0&&f.classList.contains('mm-mid')&&blk){f.style.removeProperty('margin-right');var mr=blk.getBoundingClientRect().right,te=(window.innerWidth<1200)?-2e9:-1e9,rg=document.createRange(),tw=document.createTreeWalker(blk,NodeFilter.SHOW_TEXT),tn;   /* 21 Oct (independent check): centred across only at computer width (1200+); below it the normal placing */while((tn=tw.nextNode())){if(!tn.nodeValue.trim())continue;rg.selectNodeContents(tn);[].forEach.call(rg.getClientRects(),function(q){if(q.width)te=Math.max(te,q.right);});}if(te>-1e8&&window.innerWidth>=1200){var pw=pim.getBoundingClientRect().width;f.style.setProperty('margin-right',Math.max(0,(mr-te-pw)/2).toFixed(2)+'px','important');}}   /* 20 Oct 22:1x (user: "centre between the end of the text and the margin") */
+var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t-pim.getBoundingClientRect().top;
         if(off>=0){f.style.removeProperty('margin-top');f.style.setProperty('padding-top',off.toFixed(2)+'px','important');}else{f.style.removeProperty('padding-top');f.style.setProperty('margin-top',off.toFixed(2)+'px','important');}}});if(window.__mmOrgRun)window.__mmOrgRun();centre();}
   /* Occasional exception (20 Oct 2026, first used for Bertrand Russell on The Role of the Adult - Resources): a photo marked mm-fitlines is centred between the beige lines above and below its entry, the same space above and below it; those lines follow the text, not the photo */
   function centre(){[].forEach.call(document.querySelectorAll('main .mm-float.mm-fitlines'),function(f){
@@ -1560,6 +1573,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
         var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+tg-q.top;
         if(off>=0){f.style.removeProperty('margin-top');f.style.setProperty('padding-top',off.toFixed(2)+'px','important');}else{f.style.removeProperty('padding-top');f.style.setProperty('margin-top',off.toFixed(2)+'px','important');}}});}
   window.addEventListener('load',function(){run();setTimeout(run,600);setTimeout(run,1500);setTimeout(run,3000);});
+  if(window.MutationObserver)new MutationObserver(function(){clearTimeout(run.m);run.m=setTimeout(run,50);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-layout']});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
   window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,250);});
 })();</script><style id="mm-band">/* 20 Oct 2026, every page: the footer quotation in three lines as set out (line breaks after "confess that," and "prostrated me."), each line whole where the width allows */ html body .mc-band p{max-width:none !important;text-wrap:wrap !important}</style><style id="mm-foot-strip">/* 20 Oct 2026, every Resources page: the strip under the blue footer band 60 high, text centred in it (above 640; phones as before) */ @media (min-width:641px){html body .site-foot .site-foot-in{padding-top:17.625px !important;padding-bottom:17.625px !important}}</style><style id="mm-fitlines">/* Occasional exception (20 Oct 2026): the line after an entry whose photo is centred between the lines follows the text, not the photo */ main .res-entry:has(> .mm-fitlines) + .beige-rule{clear:none !important}</style><script id="mm-band-js">/* 20 Oct 2026, every page: when the middle line of the footer quotation does not fit, the words that run over carry onto the start of the "It was as if..." line instead of standing alone */
@@ -1604,5 +1618,27 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
  window.addEventListener('load',function(){run();setTimeout(run,500);if(document.fonts)document.fonts.ready.then(run);});
  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,120);});run();
-})();</script></body>
+})();</script><script id="mm-ul-gap-js">/* 20 Oct 22:4x (user: "underlined words. phrases: 30 above/15 below ... add to the template"): a line that is wholly an underlined phrase (p.mm-ul) - 40 from the letters above (21 Oct 14:50, user: "increase to 40 in the template and on the page"; was 30) to its letters, 15 from its underline to the letters below, at every width */
+(function(){var cv=document.createElement('canvas').getContext('2d');
+ function fm(e){var cs=getComputedStyle(e);cv.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;return cv;}
+ function ink(el,first){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,r=document.createRange(),ns=[];while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var e=n.parentElement;if(!e||getComputedStyle(e).display==='none')continue;ns.push(n);}
+  if(!first)ns.reverse();for(var k=0;k<ns.length;k++){n=ns[k];var s=n.nodeValue;fm(n.parentElement);var m=cv.measureText('Hg'),fa=m.fontBoundingBoxAscent,fd=m.fontBoundingBoxDescent,best=null,line=null;
+   for(var j=0;j<s.length;j++){var i=first?j:s.length-1-j;if(!s[i].trim())continue;r.setStart(n,i);r.setEnd(n,i+1);var q=r.getClientRects()[0];if(!q||!q.width)continue;if(line===null)line=q.top;if(Math.abs(q.top-line)>2)break;
+    var base=q.top+(q.height-(fa+fd))/2+fa,mt=cv.measureText(s[i]);var v=first?base-mt.actualBoundingBoxAscent:base+mt.actualBoundingBoxDescent;best=best===null?v:(first?Math.min(best,v):Math.max(best,v));}
+   if(best!==null){if(!first&&n.parentElement.closest('u')){var cs=getComputedStyle(n.parentElement.closest('u'));best=Math.max(best,base+(parseFloat(cs.fontSize)||18)*0.15);}return best;}}return null;}
+ function inkLow(el){var b=ink(el,false);[].forEach.call(el.querySelectorAll('img'),function(i){var q=i.getBoundingClientRect();if(q.height&&!(i.closest('.mm-float')&&getComputedStyle(i.closest('.mm-float')).float!=='none'))b=Math.max(b===null?-1e9:b,q.bottom);});if(el.matches('.mm-float')){var q=el.querySelector('.pim').getBoundingClientRect();b=q.bottom;}return b;}
+ function side(e){return e.matches('.mm-fspacer,script,style')||(e.matches('.mm-float')&&getComputedStyle(e).float!=='none')||!e.getClientRects().length;}   /* a photo beside the text is skipped; on phones it stands in the flow and counts */
+ function prev(el){var e=el.previousElementSibling;while(e&&side(e))e=e.previousElementSibling;return e;}
+ function next(el){var e=el.nextElementSibling;while(e&&side(e))e=e.nextElementSibling;return e;}
+ function run(){[].forEach.call(document.querySelectorAll('main p.mm-ul'),function(p){p.style.removeProperty('margin-top');p.style.removeProperty('margin-bottom');var a=prev(p),z=next(p);if(a)a.style.removeProperty('margin-bottom');if(z)z.style.removeProperty('margin-top');});
+  for(var k=0;k<3;k++)[].forEach.call(document.querySelectorAll('main p.mm-ul'),function(p){
+   var a=prev(p),z=next(p),t=ink(p,true);
+   if(a&&t!==null){if((parseFloat(getComputedStyle(a).marginBottom)||0)>0)a.style.setProperty('margin-bottom','0px','important');var lb=inkLow(a);if(lb!==null){var mt=parseFloat(getComputedStyle(p).marginTop)||0;p.style.setProperty('margin-top',(mt+40-(t-lb)).toFixed(2)+'px','important');}}
+   var bt=ink(p,false);if(z&&bt!==null){var nt=z.matches('.mm-float')?z.querySelector('.pim').getBoundingClientRect().top:ink(z,true);   /* on phones a photo below counts */if(nt!==null){var mb=parseFloat(getComputedStyle(p).marginBottom)||0,zt=parseFloat(getComputedStyle(z).marginTop)||0;
+     var zt2=z.matches('.mm-float')?(parseFloat(getComputedStyle(z).marginTop)||0):0,eff=(mb>=0?Math.max(mb,zt2):zt2+mb),E=eff+15-(nt-bt);   /* margins collapse: the larger wins, a negative one is added */
+     p.style.setProperty('margin-bottom',(E>=zt2?E:E-zt2).toFixed(2)+'px','important');if(zt>0&&!z.matches('.mm-float'))z.style.setProperty('margin-top','0px','important');   /* a photo keeps its own margin (another script sets it); ours is offset against it */}}});
+  if(window.__mmAfterLayout)window.__mmAfterLayout();}
+ function later(d){clearTimeout(run.t);run.t=setTimeout(run,d);}
+ window.addEventListener('load',function(){later(300);setTimeout(run,1200);setTimeout(run,3300);if(document.fonts)document.fonts.ready.then(function(){later(200);});});
+ window.addEventListener('resize',function(){later(300);});})();</script></body>
 </html>

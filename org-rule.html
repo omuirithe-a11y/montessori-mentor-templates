@@ -1,0 +1,29 @@
+<style id="mm-org-rule-css">main .mm-org-rule{clear:both;margin:0;height:2px;background:#D9C9AB;max-width:100%}</style><script id="mm-org-rule-js">/* 20 Oct 2026: a beige line between organisations, 30 above / 30 below, every width */
+(function(){
+  var cv=document.createElement('canvas').getContext('2d');
+  function texts(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,o=[];while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var e=n.parentElement;if(getComputedStyle(e).display==='none')continue;o.push(n);}return o;}
+  function lines(n){var e=n.parentElement,cs=getComputedStyle(e);cv.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+    var fm=cv.measureText('Hg'),fa=fm.fontBoundingBoxAscent,fd=fm.fontBoundingBoxDescent,r=document.createRange(),s=n.nodeValue,o=[];
+    for(var i=0;i<s.length;i++){if(!s[i].trim())continue;r.setStart(n,i);r.setEnd(n,i+1);var b=r.getClientRects()[0];if(!b||!b.width)continue;
+      var m=cv.measureText(s[i]),base=b.top+(b.height-(fa+fd))/2+fa;o.push([base-m.actualBoundingBoxAscent,base+m.actualBoundingBoxDescent]);}
+    return o;}
+  function bounds(el){var t=1e9,b=-1e9;texts(el).forEach(function(n){lines(n).forEach(function(k){t=Math.min(t,k[0]);b=Math.max(b,k[1]);});});
+    [].forEach.call(el.querySelectorAll('.pim, a.pdf'),function(p){if(window.innerWidth>640&&p.closest('.mm-fitlines'))return;var q=p.getBoundingClientRect();if(!q.height)return;t=Math.min(t,q.top);b=Math.max(b,q.bottom);});
+    return [t,b];}
+  function run(){[].forEach.call(document.querySelectorAll('main .mm-org-rule'),function(r){
+      var a=r.previousElementSibling,n=r.nextElementSibling;if(!a||!n)return;
+      if(a.lastElementChild)a.lastElementChild.style.setProperty('margin-bottom','0px','important');
+      /* 20 Oct 22:5x: the neighbours' own margins (a section's top margin, a list's last line) no longer add to the 30/30 */
+      a.style.setProperty('margin-bottom','0px','important');n.style.setProperty('margin-top','0px','important');if(a.lastElementChild&&a.lastElementChild.matches('ul,ol')&&a.lastElementChild.lastElementChild)a.lastElementChild.lastElementChild.style.setProperty('margin-bottom','0px','important');   /* only a list's last line */
+      [n.querySelector(':scope > h3'),(n.firstElementChild&&n.firstElementChild.matches('.mm-float'))?n.firstElementChild.nextElementSibling:n.firstElementChild].forEach(function(x){if(x)x.style.setProperty('margin-top','0px','important');});
+      
+      for(var k=0;k<3;k++){var rr=r.getBoundingClientRect(),up=bounds(a)[1],dn=bounds(n)[0];
+        var mt=parseFloat(r.style.marginTop)||0,mb=parseFloat(r.style.marginBottom)||0;
+        r.style.setProperty('margin-top',(mt+30-(rr.top-up)).toFixed(2)+'px','important');
+        rr=r.getBoundingClientRect();
+        r.style.setProperty('margin-bottom',(mb+30-(dn-rr.bottom)).toFixed(2)+'px','important');}
+    });if(window.__mmCentre)window.__mmCentre();}
+  window.__mmOrgRun=run;window.addEventListener('load',function(){run();setTimeout(run,500);setTimeout(run,1400);});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);
+  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,200);});
+})();</script>
