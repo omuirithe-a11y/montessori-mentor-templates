@@ -1211,6 +1211,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
     }
     function top(it){ if (it.type === 'table') { var tt = tline(it, 'top'); if (tt !== null) return tt; }
       if (it.type === 'row' || it.type === 'strip') { var p = q(it.el.classList.contains('mm-pdf-row') ? '.pim' : '.mm-cap, .pim', it.el).map(function(x){ return x.getBoundingClientRect().top; }); return p.length ? Math.min.apply(null, p) : it.el.getBoundingClientRect().top; }
+      var g = glInkTop(it.el); if (g !== null && isFinite(g)) return g;   // 21 Oct 2026 (user: "correct the code so it is consistent in measuring"): the top of the letters themselves, as the template's later rules measure - not the line box
       var k = ink(it.el); return k ? k[2] : it.el.getBoundingClientRect().top; }
     // twelfth chat: a table drawn with lines (your screenshot style) ends at its bottom line and starts at its top line
     function tline(it, side){ var t = it.el.tagName === 'TABLE' ? it.el : it.el.querySelector('table'); if (!t) return null;
@@ -1219,9 +1220,9 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
       var r = t.getBoundingClientRect(); return side === 'bot' ? r.bottom : r.top; }
     function bot(it){ if (it.type === 'table') { var tb = tline(it, 'bot'); if (tb !== null) return tb; }
       if (it.type === 'row' || it.type === 'strip') { var p = q('.pim', it.el).map(function(x){ return x.getBoundingClientRect().bottom; }); return p.length ? Math.max.apply(null, p) : it.el.getBoundingClientRect().bottom; }
-      if (it.type === 'heading') { if (headLine && !it.el.classList.contains('mm-sub')) return it.el.getBoundingClientRect().bottom; var kh = ink(it.el); return kh ? kh[3] : it.el.getBoundingClientRect().bottom; }
-      var k = ink(it.el), pb = (it.type === 'text' && it.el.querySelector && it.el.querySelector('.pim')) ? Math.max.apply(null, q('.pim', it.el).map(function(x){ return x.getBoundingClientRect().bottom; })) : -1e9;   // 2 Oct: photos inside a block of text (Word's columns) end it too
-      return Math.max(k ? k[3] : it.el.getBoundingClientRect().bottom, pb); }
+      if (it.type === 'heading') { if (headLine && !it.el.classList.contains('mm-sub')) return it.el.getBoundingClientRect().bottom; var gh = glInkBottom(it.el); if (gh !== null && isFinite(gh)) return gh; var kh = ink(it.el); return kh ? kh[3] : it.el.getBoundingClientRect().bottom; }
+      var gb = glInkBottom(it.el), k = ink(it.el), pb = (it.type === 'text' && it.el.querySelector && it.el.querySelector('.pim')) ? Math.max.apply(null, q('.pim', it.el).map(function(x){ return x.getBoundingClientRect().bottom; })) : -1e9;   // 2 Oct: photos inside a block of text (Word's columns) end it too
+      return Math.max(gb !== null && isFinite(gb) ? gb : (k ? k[3] : it.el.getBoundingClientRect().bottom), pb); }   // 21 Oct 2026: the bottom of the letters themselves (descenders included), not the line box
     function span(it){ if (it.type === 'row' || it.type === 'strip') return [0, 1e9];
       // 7 Oct 2026 (chat 19): a full-width rule (the beige line) is one blank character of ink at the left, so the engine
       // read it as standing clear of a picture floated at the right and gave it no space at all. It spans its own box.
