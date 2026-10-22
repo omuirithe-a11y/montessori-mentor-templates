@@ -32,9 +32,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--active);outline-off
 .site-name{font-family:var(--display);font-size:25px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap}
 .menu{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:22px}
 .menu > li{position:static;display:flex;align-items:center;height:76px}
-.menu .top{font-family:var(--serif);font-size:17px;color:#fff;text-decoration:none;padding:6px 0;border-bottom:1.5px solid transparent;white-space:nowrap}
+.menu .top{font-family:var(--serif);font-size:17px;color:#fff;text-decoration:none;padding:6px 0 7.5px;border-bottom:0;white-space:nowrap}
 .menu .top:hover{color:#DCE6F0}
-.menu .top[aria-current="page"]{border-bottom-color:#fff}
+/* 22 Oct 2026 (user: "B"): no transparent line under the menu names (preferences: never transparent or invisible lines); the current page is underlined as on phones; the 1.5px the line took is kept as space below */
+.menu .top[aria-current="page"]{text-decoration:underline;text-underline-offset:4px}
 .sub-toggle{width:22px;height:30px;margin-left:1px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:#fff;cursor:pointer;opacity:.85}
 .panel{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(20,30,40,.14)}
 .has-panel:focus-within > .panel,.has-panel.open > .panel{display:block}
@@ -628,7 +629,7 @@ main section>h2{border-bottom:2px solid currentColor !important;padding-bottom:8
   .mm-set .mm-imgs,.mm-row{display:flex;justify-content:flex-start !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:12px 0 0 !important;scrollbar-width:none}
   .mm-set .mm-imgs::-webkit-scrollbar,.mm-row::-webkit-scrollbar{display:none}
   .mm-row .mm-imgs{display:contents}
-  .mm-imgs .ph{scroll-snap-align:start}
+  .mm-imgs .ph{scroll-snap-align:center}   /* 22 Oct 2026 (preferences 16 Oct: in swipe rows each photo stops in the middle of the screen) */
   .mm-imgs .pim{height:calc(var(--hp,168) * 1px) !important}
   .mm-set.mm-col .mm-imgs .pim{height:70px !important}
   .mm-set.mm-intro .mm-imgs{margin-left:0}
@@ -1641,5 +1642,21 @@ var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t
   if(window.__mmAfterLayout)window.__mmAfterLayout();}
  function later(d){clearTimeout(run.t);run.t=setTimeout(run,d);}
  window.addEventListener('load',function(){later(300);setTimeout(run,1200);setTimeout(run,3300);if(document.fonts)document.fonts.ready.then(function(){later(200);});});
- window.addEventListener('resize',function(){later(300);});})();</script></body>
+ window.addEventListener('resize',function(){later(300);});})();</script><script id="mm-swipe-middle-js">
+/* 21 Oct 2026 (preferences 16 Oct: "in swipe rows each photo stops in the middle of the screen (space added at both ends)"):
+   below 831 the first and last photo of a swipe row get the space at the row's ends that lets them stop in the middle too */
+(function(){
+  function run(){var ph=window.innerWidth<=830;
+    [].forEach.call(document.querySelectorAll('main .mm-row'),function(r){
+      if(!ph||r.scrollWidth<=r.clientWidth+1){r.style.removeProperty('padding-left');r.style.removeProperty('padding-right');return;}
+      var p=[].slice.call(r.querySelectorAll('.ph')).filter(function(x){return x.getBoundingClientRect().width>0;});if(!p.length)return;
+      var W=r.clientWidth;
+      r.style.setProperty('padding-left',Math.max(0,(W-p[0].getBoundingClientRect().width)/2).toFixed(1)+'px','important');
+      r.style.setProperty('padding-right',Math.max(0,(W-p[p.length-1].getBoundingClientRect().width)/2).toFixed(1)+'px','important');});}
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+  window.addEventListener('load',function(){run();setTimeout(run,800);});
+  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,300);});
+})();
+</script>
+</body>
 </html>

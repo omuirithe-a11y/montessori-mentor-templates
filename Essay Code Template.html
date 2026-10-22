@@ -32,9 +32,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--active);outline-off
 .site-name{font-family:var(--display);font-size:25px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap}
 .menu{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:22px}
 .menu > li{position:static;display:flex;align-items:center;height:76px}
-.menu .top{font-family:var(--serif);font-size:17px;color:#fff;text-decoration:none;padding:6px 0;border-bottom:1.5px solid transparent;white-space:nowrap}
+.menu .top{font-family:var(--serif);font-size:17px;color:#fff;text-decoration:none;padding:6px 0 7.5px;border-bottom:0;white-space:nowrap}
 .menu .top:hover{color:#DCE6F0}
-.menu .top[aria-current="page"]{border-bottom-color:#fff}
+/* 22 Oct 2026 (user: "B"): no transparent line under the menu names (preferences: never transparent or invisible lines); the current page is underlined as on phones; the 1.5px the line took is kept as space below */
+.menu .top[aria-current="page"]{text-decoration:underline;text-underline-offset:4px}
 .sub-toggle{width:22px;height:30px;margin-left:1px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:#fff;cursor:pointer;opacity:.85}
 .panel{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(20,30,40,.14)}
 .has-panel:focus-within > .panel,.has-panel.open > .panel{display:block}
@@ -579,7 +580,7 @@ html,body{background:#F5EEE3 !important}main a:not(.pdf),main a:not(.pdf) *{colo
   .mm-set .mm-imgs,.mm-row{display:flex;justify-content:flex-start !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:12px 0 0 !important;scrollbar-width:none}
   .mm-set .mm-imgs::-webkit-scrollbar,.mm-row::-webkit-scrollbar{display:none}
   .mm-row .mm-imgs{display:contents}
-  .mm-imgs .ph{scroll-snap-align:start}
+  .mm-imgs .ph{scroll-snap-align:center}   /* 22 Oct 2026 (preferences 16 Oct: in swipe rows each photo stops in the middle of the screen) */
   .mm-imgs .pim{height:calc(var(--hp,180) * 1px) !important}
   .mm-set.mm-col .mm-imgs .pim{height:70px !important}
   .mm-set.mm-intro .mm-imgs{margin-left:0}
@@ -1327,8 +1328,8 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
         while (p) {
           var fl = getComputedStyle(p).cssFloat !== 'none' || (p.classList && p.classList.contains('mm-float'));
           if (!fl && !(p.classList && p.classList.contains('mm-gl'))) {
-            var kk = ink(p), lo = -1e9;
-            if (kk) lo = kk[3];
+            var kk = ink(p), lo = -1e9, gk = glInkBottom(p);   /* 22 Oct 2026 (from 5.3, user 21 Oct 18:11): a beige line's space measured from the letters above it */
+            if (gk !== null && isFinite(gk)) lo = gk; else if (kk) lo = kk[3];
             Array.prototype.forEach.call(p.querySelectorAll('.pim, img'), function(x){ var r = x.getBoundingClientRect(); if (r.height) lo = Math.max(lo, r.bottom); });
             if (lo > -1e9) { bot = lo; break; }
           }
@@ -1381,7 +1382,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
     var ws = glWords(el); if (!ws.length) return null;
     var mb = Math.max.apply(null, ws.map(function(x){ return x.bottom; })), best = -1e9;
     ws.forEach(function(x){ if (Math.abs(x.bottom - mb) >= 2) return; var e = glExt(x); best = Math.max(best, x.top + e.fa + e.desc);
-      for (var u = x.par; u && u !== el.parentElement; u = u.parentElement) if (/underline/.test(getComputedStyle(u).textDecorationLine)) { var fsu = parseFloat(getComputedStyle(x.par).fontSize); best = Math.max(best, x.top + e.fa + fsu * 0.15); break; } });   /* 21 Oct 2026: an underline is ink - the space below an underlined last line is from the underline */
+      for (var u = x.par; u && u !== el.parentElement; u = u.parentElement) if (/underline/.test(getComputedStyle(u).textDecorationLine)) { var fsu = parseFloat(getComputedStyle(x.par).fontSize); var uo_ = parseFloat(getComputedStyle(u).textUnderlineOffset), ut_ = parseFloat(getComputedStyle(u).textDecorationThickness); best = Math.max(best, x.top + e.fa + (isFinite(uo_) ? uo_ + (isFinite(ut_) ? ut_ : 1) : fsu * 0.15)); break;   /* 22 Oct 2026 (from 5.3, user 21 Oct 19:31): where an underline really is */ } });   /* 21 Oct 2026: an underline is ink - the space below an underlined last line is from the underline */
     return best;
   }
   function glInkTop(el){
@@ -1888,6 +1889,7 @@ html body main ol{list-style:decimal inside !important;counter-reset:none !impor
 html body main ol>li{counter-increment:none !important;padding-left:0 !important;position:static !important}
 html body main ol>li::before{content:none !important}
 html body main ul>li{text-align:justify !important}
+html body main ol>li{text-align:justify !important}   /* 22 Oct 2026 (preferences 18 Oct: the text is justified on every page) - numbered lists too */
 html body .site-foot-in{padding-top:0 !important;padding-bottom:28px !important}
 </style><style id="mm-toc-19-oct">/* 19 Oct 2026: contents box as on the live Sensorial page */
 nav.toc-wrap{padding-bottom:0 !important}
@@ -1949,5 +1951,21 @@ html body main ol>li::before{content:counter(mmn) "." !important;position:absolu
     var cap=Math.min.apply(null,b.filter(function(x){return x.top<t0+4;}).map(function(x){return x.cap;})),base=Math.max.apply(null,a.map(function(x){return x.base;}));
     var e=B-(cap-base);if(Math.abs(e)<0.2)break;n.style.setProperty('margin-bottom','0px','important');txt.style.setProperty('margin-top',((parseFloat(getComputedStyle(txt).marginTop)||0)+e).toFixed(2)+'px','important');}});}
  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
- window.addEventListener('load',function(){run();setTimeout(run,700);});window.addEventListener('resize',function(){setTimeout(run,200);});})();</script></body>
+ window.addEventListener('load',function(){run();setTimeout(run,700);});window.addEventListener('resize',function(){setTimeout(run,200);});})();</script><script id="mm-swipe-middle-js">
+/* 21 Oct 2026 (preferences 16 Oct: "in swipe rows each photo stops in the middle of the screen (space added at both ends)"):
+   below 831 the first and last photo of a swipe row get the space at the row's ends that lets them stop in the middle too */
+(function(){
+  function run(){var ph=window.innerWidth<=830;
+    [].forEach.call(document.querySelectorAll('main .mm-row'),function(r){
+      if(!ph||r.scrollWidth<=r.clientWidth+1){r.style.removeProperty('padding-left');r.style.removeProperty('padding-right');return;}
+      var p=[].slice.call(r.querySelectorAll('.ph')).filter(function(x){return x.getBoundingClientRect().width>0;});if(!p.length)return;
+      var W=r.clientWidth;
+      r.style.setProperty('padding-left',Math.max(0,(W-p[0].getBoundingClientRect().width)/2).toFixed(1)+'px','important');
+      r.style.setProperty('padding-right',Math.max(0,(W-p[p.length-1].getBoundingClientRect().width)/2).toFixed(1)+'px','important');});}
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+  window.addEventListener('load',function(){run();setTimeout(run,800);});
+  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,300);});
+})();
+</script>
+</body>
 </html>
