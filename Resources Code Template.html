@@ -760,6 +760,11 @@ main em *,main i *,main blockquote p *{font-style:inherit !important}
 :root body main blockquote.pullquote cite{padding-left:48px !important;text-indent:0 !important}
 html body main h3.res-src a.pdf{margin-left:24px;color:#0563C1 !important;border-color:#0563C1 !important}
 html body main h3.res-src a.pdf:hover{color:#fff !important}
+/* 22 Oct 2026 (5.5 edit 12, user: "phones: 24 after each title"): on phones a title line with a PDF badge is one run of text, so
+   the badge stays 24 after the title's last word - the last word goes to the next line with it rather than the badge alone */
+@media (max-width:640px){html body main .res-item:has(> .meta > a.pdf),html body main .res-item:has(> a.pdf){display:block !important}
+html body main .res-item:has(> .meta > a.pdf) > .res-title,html body main .res-item:has(> a.pdf) > .res-title,html body main .res-item > .meta{display:inline !important}
+html body main .res-item > .meta > a.pdf,html body main .res-item > a.pdf{margin-left:24px !important;display:inline !important}}
 </style>
 </head>
 <body id="top">
