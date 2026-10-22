@@ -1967,5 +1967,90 @@ html body main ol>li::before{content:counter(mmn) "." !important;position:absolu
   window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,300);});
 })();
 </script>
+<style id="mm-essay-changes">
+/* Item 1: h2 headings marked blue or red: 18px, weight 400, no line under them, each in its own colour */
+html body main h2.mm-hc-0432FF{color:#0432FF !important;font-size:18px !important;font-weight:400 !important;border-bottom:0 !important;padding-bottom:0 !important}
+html body main h2.mm-hc-EE0000{color:#EE0000 !important;font-size:18px !important;font-weight:400 !important;border-bottom:0 !important;padding-bottom:0 !important}
+html body main h2.mm-hc-FF0000{color:#FF0000 !important;font-size:18px !important;font-weight:400 !important;border-bottom:0 !important;padding-bottom:0 !important}
+/* Item 2: above 830, a photo beside text 150 high */
+@media (min-width:831px){html body main .mm-float .pim{height:150px !important;width:auto !important}}
+/* Item 3: labels marked bold in Word are bold */
+html body main [data-word-bold="1"]{font-weight:700 !important}
+/* Item 4: quotations not offset; first line of every paragraph 48 (the template's one-line rule stays) */
+html body main blockquote.pullquote{margin-left:0 !important;margin-right:0 !important}
+:root body main blockquote.pullquote:not(.mm-one) p{text-indent:48px !important}
+/* Item 5: at 640 and below, a Resources title line ending in a badge is running text, the badge 24 after the last word */
+@media (max-width:640px){html body main .res-item:has(> .meta:last-child > a.pdf:last-child),html body main .res-item:has(> a.pdf:last-child){display:block !important}
+html body main .res-item:has(> .meta:last-child > a.pdf:last-child) > .res-title,html body main .res-item:has(> a.pdf:last-child) > .res-title,html body main .res-item:has(> .meta:last-child > a.pdf:last-child) > .meta{display:inline !important}
+html body main .res-item > .meta:last-child > a.pdf:last-child,html body main .res-item > a.pdf:last-child{margin-left:24px !important;display:inline !important}}
+</style>
+<script id="mm-keep-size-js">/* Item 8: the Essay engine does not lay the page out again because of a change the scripts below make (it re-lays the page when main's recorded size changes; each script records the size it leaves) */
+window.__mmKeepSize=function(){var m=document.querySelector('main');if(m&&window.__mmSize){var r=m.getBoundingClientRect();window.__mmSize=[r.width,r.height];}};
+</script>
+<script id="mm-kind-gaps-js">/* Item 7: the space round each kind of line, letters to letters (set by mm-letter-gaps-js). Item 8: a line with a page figure (data-gap, data-space) keeps it; lines in Resources entries and beige lines get none */
+(function(){
+  function nz(t){return t.replace(/\s+/g,' ').trim();}
+  function share(el,test){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,a=0,b=0;while((n=w.nextNode())){var s=n.nodeValue.replace(/\s/g,'');if(!s)continue;a+=s.length;if(test(n.parentElement))b+=s.length;}return a?b/a:0;}
+  function bold(e){return parseInt(getComputedStyle(e).fontWeight,10)>=600;}
+  function under(e){for(var x=e;x&&x.tagName!=='MAIN';x=x.parentElement){if(x.tagName==='A')return false;if(getComputedStyle(x).textDecorationLine.indexOf('underline')>=0)return true;}return false;}
+  function next(el){var n=el.nextElementSibling;while(n&&n.matches('.mm-float'))n=n.nextElementSibling;if(!n&&el.parentElement&&el.parentElement.tagName==='SECTION')n=el.parentElement.nextElementSibling;return n;}
+  function set(el,v){if(el&&!el.hasAttribute('data-gap')&&!el.hasAttribute('data-space')&&!el.closest('.res-entry')&&!el.matches('.mm-org-rule,.beige-rule,p.mm-gl'))el.setAttribute('data-gap',String(v));}
+  function run(){var m=document.querySelector('main');if(!m)return;
+    [].forEach.call(m.querySelectorAll('h2'),function(h){if(h.closest('.res-entry,blockquote,figure,.mm-float'))return;if(getComputedStyle(h).color!=='rgb(4, 50, 255)')return;set(h,40);set(next(h),25);});
+    [].forEach.call(m.querySelectorAll('p,div.micro-label'),function(e){if(e.querySelector('p,div,li')||!nz(e.textContent)||e.closest('blockquote,figure,.mm-float'))return;
+      if(share(e,bold)>=0.9){set(e,40);set(next(e),40);}
+      else if(share(e,under)>=0.9){set(e,40);set(next(e),15);}});
+    [].forEach.call(m.querySelectorAll('ol>li'),function(li){if(li.closest('blockquote,figure,.mm-float'))return;var f=li.firstElementChild;if(f&&f.matches('strong,b')&&nz(li.textContent).indexOf(nz(f.textContent))===0)set(li,40);});
+    if(window.__mmLetterGaps)window.__mmLetterGaps();}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+  window.addEventListener('load',function(){setTimeout(run,100);});
+})();
+</script>
+<script id="mm-res-extra-js">/* Item 6: above 640, badges on consecutive Resources title lines (.res-item) in one column, 24 after the furthest-right text before a badge */
+(function(){
+  function bdg(x){var a=x.lastElementChild;if(!a)return null;if(a.matches('a.pdf'))return a;if(a.matches('.meta')&&a.children.length===1&&a.firstElementChild.matches('a.pdf')&&a.textContent.trim()===a.firstElementChild.textContent.trim())return a;return null;}
+  function groups(){var out=[],seen=new Set();
+    [].forEach.call(document.querySelectorAll('main .res-item'),function(it){if(seen.has(it))return;var g=[];
+      for(var x=it;x&&x.classList&&x.classList.contains('res-item');x=x.nextElementSibling){seen.add(x);if(bdg(x))g.push(x);}
+      if(g.length)out.push(g);});return out;}
+  function textRight(it){var a=bdg(it),r=document.createRange();r.setStart(it,0);r.setEndBefore(a);var rs=[].filter.call(r.getClientRects(),function(q){return q.width>0.5;});return rs.length?rs[rs.length-1].right:null;}
+  function cols(){var G=groups();
+    G.forEach(function(g){g.forEach(function(it){bdg(it).style.removeProperty('margin-left');});});
+    if(window.innerWidth<=640)return;
+    G.forEach(function(g){if(g.length<2)return;var R=g.map(textRight);if(R.some(function(x){return x===null;}))return;
+      var col=Math.max.apply(null,R)+24;
+      g.forEach(function(it){var a=bdg(it),m=parseFloat(getComputedStyle(a).marginLeft)||0;a.style.setProperty('margin-left',(m+col-a.getBoundingClientRect().left).toFixed(2)+'px','important');});});}
+  function run(){cols();if(window.__mmKeepSize)window.__mmKeepSize();}
+  var orr=window.__mmOrgRun;if(orr)window.__mmOrgRun=function(){orr();run();};
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+  window.addEventListener('load',function(){run();setTimeout(run,800);setTimeout(run,2000);if(document.fonts)document.fonts.ready.then(run);});
+  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,300);});
+})();
+</script>
+<script id="mm-letter-gaps-js">/* Item 7: a line with data-gap stands that far below the text above it, from the baseline of the last line above to the top of the capitals of its first line; three passes after every layout, every width */
+(function(){
+  var cv=document.createElement('canvas').getContext('2d');
+  function met(el){var s=getComputedStyle(el);cv.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;var t=cv.measureText('H');return [t.fontBoundingBoxAscent,t.fontBoundingBoxDescent,t.actualBoundingBoxAscent];}
+  function ok(n){var e=n.parentElement;return n.nodeValue.trim()&&e&&!e.closest('script,style,a.pdf,.mm-float,figure')&&e.getClientRects().length;}
+  function lineOf(n,last){var r=document.createRange();r.selectNodeContents(n);var qs=[].filter.call(r.getClientRects(),function(q){return q.height>=5&&q.width>=1;});if(!qs.length)return null;
+    var q=last?qs[qs.length-1]:qs[0],m=met(n.parentElement),b=(q.top+q.bottom)/2+(m[0]-m[1])/2;return {b:b,t:b-m[2]};}
+  function firstTop(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){if(!ok(n))continue;var l=lineOf(n,false);if(l)return l.t;}return null;}
+  function lastBase(el){var m=document.querySelector('main'),w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT),n,best=null;
+    while((n=w.nextNode())){if(el.contains(n))break;if(!(el.compareDocumentPosition(n)&Node.DOCUMENT_POSITION_PRECEDING))continue;if(!ok(n))continue;var l=lineOf(n,true);if(l)best=best===null?l.b:Math.max(best,l.b);}
+    return best;}
+  function tgt(el){var t=el;while(t.parentElement&&t.parentElement.tagName==='SECTION'&&t.parentElement.firstElementChild===t)t=t.parentElement;return t;}
+  function run0(){[].forEach.call(document.querySelectorAll('main [data-gap]'),function(el){var want=parseFloat((window.innerWidth<=640&&el.getAttribute('data-gap-phone'))||el.getAttribute('data-gap'));
+    for(var k=0;k<3;k++){var a=lastBase(el),b=firstTop(el);if(a===null||b===null)return;var d=want-(b-a);if(Math.abs(d)<0.05)break;var t=tgt(el),mt=parseFloat(getComputedStyle(t).marginTop)||0;
+      if(el.classList.contains('micro-label')){var ds=parseFloat(el.getAttribute('data-want'));if(isNaN(ds))ds=32;el.setAttribute('data-want',(ds+d).toFixed(2));t.style.setProperty('margin-top',(mt+d).toFixed(2)+'px');continue;}
+      t.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}});}
+  function run(){run0();if(window.__mmKeepSize)window.__mmKeepSize();}
+  window.__mmLetterGaps=run;
+  var orr=window.__mmOrgRun;if(orr)window.__mmOrgRun=function(){orr();run();};
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+  window.addEventListener('load',function(){setTimeout(run,700);setTimeout(run,1800);setTimeout(run,3000);if(document.fonts)document.fonts.ready.then(function(){setTimeout(run,300);});});
+  window.addEventListener('resize',function(){clearTimeout(run.t);clearTimeout(run.t2);run.t=setTimeout(run,600);run.t2=setTimeout(run,1500);});
+  document.addEventListener('load',function(e){if(e.target&&e.target.tagName==='IMG')setTimeout(run,250);},true);
+})();
+</script>
 </body>
 </html>
