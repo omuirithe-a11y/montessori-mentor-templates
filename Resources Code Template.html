@@ -1833,7 +1833,8 @@ var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t
     for(var k=0;k<3;k++){var a=lastBase(g);if(a===null)break;var d=want-(g.getBoundingClientRect().top-a);if(Math.abs(d)<0.05)break;var mt=parseFloat(getComputedStyle(g).marginTop)||0;g.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}
     var nx=g.nextElementSibling;if(!nx)return;var wb=parseFloat(g.getAttribute('data-rule-gap-below'));if(!isNaN(wb))want=wb;   /* 22 Oct 2026 (5.5, user 14:00 "change all to 40/25"): a heading under a beige line keeps the headings' space above */
     
-    for(var j=0;j<3;j++){var b=firstTop(nx);if(b===null)break;var e=want-(b-g.getBoundingClientRect().bottom);if(Math.abs(e)<0.05)break;var t=tgt(nx);if(t===nx&&nx.firstElementChild&&nx.tagName!=='SECTION')t=nx;var m2=parseFloat(getComputedStyle(t).marginTop)||0;t.style.setProperty('margin-top',(m2+e).toFixed(2)+'px','important');}});}
+    for(var j=0;j<4;j++){var b=firstTop(nx);if(b===null)break;var e=want-(b-g.getBoundingClientRect().bottom);if(Math.abs(e)<0.05)break;var mb=parseFloat(getComputedStyle(g).marginBottom)||0;g.style.setProperty('margin-bottom',(mb+e).toFixed(2)+'px','important');}   /* 22 Oct 2026: the space below goes on the line's own bottom margin (as the beige-line script does) - a margin on the block below collapsed into it and did not add */
+  });}
   var run0=run;run=function(){rules();run0();};
   window.__mmLetterGaps=run;
   /* the template's photo-top script re-runs the beige-line script (window.__mmOrgRun) on its own timers: this runs after it each time */
