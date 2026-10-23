@@ -858,7 +858,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
   function sets(){
     q('.mm-set').forEach(function(s){
       var tx = s.querySelector('.mm-text'), im = s.querySelector('.mm-imgs'), a = shapes(im), W = s.clientWidth, G = GAP * (a.length - 1);
-      tx.style.width = ''; tx.style.maxWidth = ''; im.style.marginTop = ''; im.style.position = ''; im.style.top = '';
+      tx.style.width = ''; tx.style.maxWidth = ''; im.style.marginTop = ''; im.style.position = ''; im.style.top = ''; s.style.removeProperty('display'); im.style.removeProperty('justify-content');
       if (phone()) return;
       if (s.classList.contains('mm-intro')) {               // photo the height of its paragraph
         var h = 200;
@@ -874,6 +874,13 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
             var f = q('figure.ph', im).map(function(x){ return x.getBoundingClientRect(); });
             var mid = (Math.min.apply(null, f.map(function(x){ return x.top; })) + Math.max.apply(null, f.map(function(x){ return x.bottom; }))) / 2;
             if (k1 && k2) im.style.top = ((parseFloat(im.style.top) || 0) + (k1[2] + k2[3]) / 2 - mid).toFixed(2) + 'px'; } }
+          // 24 Oct 2026 (owner: "correct the issues"): where these fixed-size photos are too wide to stand beside their text they
+          // covered it (The Culture Curriculum, 641-900px); they then stand under the text, centred, smaller only if the column is too narrow
+          var ov = false, kt = document.createRange(), wk = document.createTreeWalker(tx, NodeFilter.SHOW_TEXT), nd, fr2 = q('figure.ph', im).map(function(x){ return x.getBoundingClientRect(); });
+          while ((nd = wk.nextNode()) && !ov) { if (!nd.nodeValue.trim()) continue; kt.selectNodeContents(nd); Array.prototype.forEach.call(kt.getClientRects(), function(x){ if (!x.width) return; fr2.forEach(function(p){ if (Math.min(x.right, p.right) - Math.max(x.left, p.left) > 2 && Math.min(x.bottom, p.bottom) - Math.max(x.top, p.top) > 3) ov = true; }); }); }
+          if (!ov && tx.getBoundingClientRect().width < Math.max(200, 0.35 * W)) ov = true;   // or the text would be squeezed into a narrow column (The Clock, 768-830px)
+          if (ov) { s.style.setProperty('display', 'block'); tx.style.maxWidth = ''; tx.style.width = ''; im.style.position = ''; im.style.top = '';
+            setH(im, Math.min(H0, (W - G) / sum(a))); im.style.justifyContent = 'center'; im.style.marginTop = GAP + 'px'; }
         return;
       }
       tx.style.width = 'max-content'; var natural = Math.min(tx.getBoundingClientRect().width, W); tx.style.width = '';
@@ -973,7 +980,21 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
         im.style.position = 'relative'; im.style.top = ((parseFloat(im.style.top) || 0) + top - f0.top).toFixed(2) + 'px';
         top += hs[i] + gap;
       });
+      g.forEach(guardSet);
     });
+  }
+  function guardSet(s){   // 24 Oct 2026 (owner: "correct the issues"): photos moved to centre on nearby lines never cover text outside their own set - if they would, they rise to end level with the set's own bottom
+    var im = s.querySelector('.mm-imgs'); if (!im || !im.style.top) return;
+    var fr = function(){ return q('figure.ph', im).map(function(x){ return x.getBoundingClientRect(); }); };
+    var txt = []; var e = s.nextElementSibling;
+    for (var n = 0; e && n < 8; n++, e = e.nextElementSibling) { if (e.classList && (e.classList.contains('mm-set') || e.classList.contains('mm-row'))) continue; txt.push(e); if (e.matches && e.matches('h2, h3')) break; }
+    var hits = function(){ var f = fr(), hit = false, r = document.createRange();
+      txt.forEach(function(t){ var w = document.createTreeWalker(t, NodeFilter.SHOW_TEXT), nd; while ((nd = w.nextNode())) { if (!nd.nodeValue.trim()) continue; r.selectNodeContents(nd);
+        Array.prototype.forEach.call(r.getClientRects(), function(x){ if (!x.width) return; f.forEach(function(p){ if (Math.min(x.right, p.right) - Math.max(x.left, p.left) > 2 && Math.min(x.bottom, p.bottom) - Math.max(x.top, p.top) > 3) hit = true; }); }); } });
+      return hit; };
+    if (!hits()) return;
+    var f = fr(), pb = Math.max.apply(null, f.map(function(x){ return x.bottom; })), sb = s.getBoundingClientRect().bottom;
+    if (pb > sb) im.style.top = ((parseFloat(im.style.top) || 0) - (pb - sb)).toFixed(2) + 'px';
   }
   function centre(s){   // the photos (with any captions) centred on the letters of the text, not on its box
     var im = s.querySelector('.mm-imgs'), k = ink(s.querySelector('.mm-text')); if (!k) return;
@@ -992,6 +1013,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
     if (h && h.tagName === 'H2' && parseFloat(getComputedStyle(h).borderBottomWidth) > 0) {
       var top = Math.min.apply(null, q('figure.ph', im).map(function(x){ return x.getBoundingClientRect().top; })), lim = h.getBoundingClientRect().bottom + 20;
       if (top < lim) im.style.top = ((parseFloat(im.style.top) || 0) + lim - top).toFixed(2) + 'px'; }
+    guardSet(s);
   }
   function rows(){
     var mn = document.querySelector('main'), one = mn && mn.getAttribute('data-rows') === 'one';   // a page may ask for one height for all its rows
