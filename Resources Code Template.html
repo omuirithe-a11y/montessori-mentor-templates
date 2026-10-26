@@ -911,7 +911,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
           // covered it (The Culture Curriculum, 641-900px); they then stand under the text, centred, smaller only if the column is too narrow
           var ov = false, kt = document.createRange(), wk = document.createTreeWalker(tx, NodeFilter.SHOW_TEXT), nd, fr2 = q('figure.ph', im).map(function(x){ return x.getBoundingClientRect(); });
           while ((nd = wk.nextNode()) && !ov) { if (!nd.nodeValue.trim()) continue; kt.selectNodeContents(nd); Array.prototype.forEach.call(kt.getClientRects(), function(x){ if (!x.width) return; fr2.forEach(function(p){ if (Math.min(x.right, p.right) - Math.max(x.left, p.left) > 2 && Math.min(x.bottom, p.bottom) - Math.max(x.top, p.top) > 3) ov = true; }); }); }
-          if (!ov && tx.getBoundingClientRect().width < Math.max(200, 0.35 * W)) ov = true;   // or the text would be squeezed into a narrow column (The Clock, 768-830px)
+          if (!ov && tx.getBoundingClientRect().width < Math.max(260, 0.35 * W)) ov = true;   // or the text would be squeezed into a narrow column (The Clock, 768-830px)
           if (ov) { s.style.setProperty('display', 'block'); tx.style.maxWidth = ''; tx.style.width = ''; im.style.position = ''; im.style.top = '';
             setH(im, Math.min(H0, (W - G) / sum(a))); im.style.justifyContent = 'center'; im.style.marginTop = GAP + 'px'; }
         return;
