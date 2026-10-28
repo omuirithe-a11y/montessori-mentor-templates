@@ -2159,6 +2159,21 @@ window.__mmKeepSize=function(){var m=document.querySelector('main');if(m&&window
   document.addEventListener('load',function(e){if(e.target&&e.target.tagName==='IMG')setTimeout(run,250);},true);
 })();
 </script>
+<style id="mm-refline-css">/* 29 Oct 2026: a reference table's top line 6px above its first row (was 17px: with the template's spacing it ran through the heading above, 'Key Areas and Examples') */main .ref-table .ref-row:first-child::before{top:-6px !important}</style><script id="mm-matname-gap-js">/* 29 Oct 2026: the beige lines drawn ABOVE letters - a material name's line (h3.material-name::before) and a reference table's top line (.ref-row:first-child::before, 17px above its first row) - were pulled into the text above them by the letters-to-letters spacing (The Sensorial Curriculum: 14 places at 700px, 20 at 1440px; live none). After every layout (when the page marks data-layout) a material name keeps at least the template's own 20px above it, and a reference table's top line is drawn 6px above its first row (style below; it was 17px, through the heading above the table), then the page's size is recorded so this does not set off another layout. */
+(function(){
+  function tb(e,last){var g=document.createRange();g.selectNodeContents(e);var r=[].filter.call(g.getClientRects(),function(q){return q.height>5&&q.width>1;});return r.length?(last?r[r.length-1]:r[0]):null;}
+  function fix(){var ch=0;
+    [].forEach.call(document.querySelectorAll('main h3.material-name'),function(h){var m=parseFloat(getComputedStyle(h).marginTop)||0;if(m<19.5){h.style.setProperty('margin-top','20px','important');ch=1;}});
+    if(ch&&window.__mmKeepSize)window.__mmKeepSize();}
+  window.__mmLineClear=fix;
+  if(window.MutationObserver)new MutationObserver(function(){fix();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-layout']});
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();fix();};
+  var lg=window.__mmLetterGaps;if(lg)window.__mmLetterGaps=function(){lg();fix();};
+  window.addEventListener('load',function(){[0,750,1850,3050].forEach(function(t){setTimeout(fix,t);});if(document.fonts)document.fonts.ready.then(function(){setTimeout(fix,350);});});
+  window.addEventListener('resize',function(){setTimeout(fix,650);setTimeout(fix,1550);});
+  document.addEventListener('load',function(e){if(e.target&&e.target.tagName==='IMG')setTimeout(fix,300);},true);
+})();
+</script>
 <style id="mm-photo40-css">/* 24 Oct 2026 (owner): at 830px and narrower a photo standing after a line-space takes no margin of its own above it - the quotation script sets its 40px */@media (max-width:830px){html body main blockquote.pullquote + p.mm-gl + .mm-float{margin-top:0 !important}}</style><script id="mm-photo40">/* 24 Oct 2026 (owner: "correct the issues"): at 830px and narrower a photo that stands in the column keeps 40px from the
    letters below it (above: the quotation script, with mm-photo40-css), and a quotation followed straight by a photo row keeps 40px to the photos (the 21 Oct photo rule,
    "photos 40 above/below") - the page's spacing script had left 52-75px above, 11-64px below and 16px before the row */
