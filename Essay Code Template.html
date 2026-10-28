@@ -1298,6 +1298,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
       return t.tagName === 'H2' && t.parentElement && getComputedStyle(t.parentElement).clear !== 'none' && t === t.parentElement.firstElementChild; }
     function photos(set){ var p = q('.pim', set.querySelector('.mm-imgs')).map(function(x){ return x.getBoundingClientRect(); }); return [Math.min.apply(null, p.map(function(x){ return x.top; })), Math.max.apply(null, p.map(function(x){ return x.bottom; }))]; }
     // every margin between the things measured is set here, and only here
+    if (fresh) items.forEach(function(it){ delete it.target.__mmPq; delete it.target.__mmFl; });   // 27 Oct 2026 (owner, 19:01: fix them all) (29)
     if (fresh) {   // the first pass of a layout starts from nothing; later passes correct what the one before left
       items.forEach(function(it){ it.target.style.setProperty('margin-top', '0px', 'important'); it.target.style.setProperty('margin-bottom', '0px', 'important'); it.el.style.setProperty('margin-bottom', '0px', 'important');
         if (it.type === 'heading') it.el.style.setProperty('padding-top', '0px', 'important');
@@ -1345,7 +1346,11 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
         he.style.setProperty(pad ? 'padding-top' : 'margin-top', (hv + lift[1]).toFixed(2) + 'px', 'important'); lift = null; }
       if (cl) {   // an element that clears a float: padding, because clearance swallows a margin
         pt.style.setProperty('padding-top', Math.max(0, need).toFixed(2) + 'px', 'important');
-      } else b.target.style.setProperty('margin-top', need.toFixed(2) + 'px', 'important');
+      } else { var gq = T[m] - B[m - 1], pq = b.target.__mmPq;   /* 27 Oct 2026 (owner, 19:01: fix them all) (29): a margin that moved nothing (the line held where it is by a photo beside it) is not taken further - each pass pulled the line under Aims 12px higher until a photo moved and it ran over Aims (The Mathematics Curriculum, Teen Beads and Boards, 831) */
+        if (pq && cur < pq.cur - 0.5 && Math.abs(gq - pq.gap) < 0.5) b.target.__mmFl = pq.cur;
+        if (b.target.__mmFl !== undefined) need = Math.max(need, b.target.__mmFl);
+        b.target.__mmPq = {cur: cur, gap: gq};
+        b.target.style.setProperty('margin-top', need.toFixed(2) + 'px', 'important'); }
       done.add(b.target);
     }
     // 7 Oct 2026 (chat 19, your words: "those huge empty spaces"). A block that clears a float is pushed down with padding
@@ -1775,7 +1780,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
       // 30 Sept (eleventh chat): every layout starts from the photos as first loaded (no spacer, no top margin set), so a
       // re-layout (resize, fonts, images) gives the same page as the first one
       q('main .mm-fspacer').forEach(function(sp){ sp.parentNode.removeChild(sp); }); q('main .mm-float').forEach(function(f){ f.style.removeProperty('margin-top'); });
-      dots(); listColumns(); for (var i = 0; i < 4; i++) { sets(); pairs(); grids(); rows(); rowTweaks(); under(); rules(); trio(); purposeWrap(); spaceTable(i === 0); } purposeWrap(); sets(); pairs(); grids(); vgap(); wrapFloats(); spaceTable(false); wrapFloats(); floatsAboveHeadings(); }
+      dots(); listColumns(); for (var i = 0; i < 4; i++) { sets(); pairs(); grids(); rows(); rowTweaks(); under(); rules(); trio(); purposeWrap(); spaceTable(i === 0); } purposeWrap(); sets(); pairs(); grids(); vgap(); wrapFloats(); spaceTable(false); wrapFloats(); floatsAboveHeadings(); sets(); spaceTable(false); wrapFloats(); }   /* 27 Oct 2026 (owner, 19:01: fix them all) (30): a set of photos beside text is fitted again at the width it has once the floats above have settled - fitted while wider, its photos ran 17px over its text (The Culture Curriculum, Sandpaper Globe, 1080-1110) */
     else { sets(); pairs(); grids(); rows(); rowTweaks(); under(); rules(); spacing(); spaceAbove(); spacing(); spaceAbove(); dots(); listColumns(); floatsUnderHeading(); floatsUnderHeading(); wrapFloats(); wrapFloats(); }   // 30 Sept (13th chat): the rule of 30 Sept (a single photo centred on its text) on Resources pages too
     if (window.__mmAfterLayout) window.__mmAfterLayout();
     // 7 Oct 2026 (chat 19): the page's own placing moves a quotation's letters after the engine has finished, so the
