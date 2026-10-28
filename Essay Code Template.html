@@ -861,7 +861,8 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
       if (phone()) return;
       if (s.classList.contains('mm-intro')) {               // photo the height of its paragraph
         var h = 200;
-        for (var i = 0; i < 12; i++) { setH(im, h); var t = tx.getBoundingClientRect().height; if (Math.abs(t - h) < 0.5) break; h = t; }
+        var hx = Math.min(200, 0.45 * W / Math.max(0.01, sum(a)));   // 27 Oct 2026 (owner, 19:01: fix them all) (28): never taller than 200 nor wider than 45% of the column - at 831 the paragraph grew as the photo widened and the photo followed it, 2802 px wide
+        for (var i = 0; i < 12; i++) { h = Math.min(h, hx); setH(im, h); var t = tx.getBoundingClientRect().height; if (Math.abs(Math.min(t, hx) - h) < 0.5) break; h = t; }
         return;
       }
       if (s.hasAttribute('data-h')) {                         // fixed size: one-material columns, the formula square
@@ -1189,7 +1190,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
           var tx = c.querySelector('.mm-text');
           if (tx && ink(tx)) { var n0 = items.length; walk(tx, c, c);
             if (items.length > n0) { items[n0].firstInSet = true; items[items.length - 1].lastInSet = true; }
-            if (ph) add(c.querySelector('.mm-imgs'), 'strip', null, c); }
+            if (ph || getComputedStyle(c).display === 'block') add(c.querySelector('.mm-imgs'), 'strip', null, c); }   // 27 Oct 2026 (owner, 19:01: fix them all) (27): a set whose photos are too wide to stand beside its text has them under the text (the 24 Oct rule, display block) at any width, not only on phones - the next block was spaced from its text and drawn over its photos (The Sensorial Curriculum, Drawers 5-6, Blue Triangles, 1024 and wider)
           else add(c, 'row', tgt, set);
           return;
         }
