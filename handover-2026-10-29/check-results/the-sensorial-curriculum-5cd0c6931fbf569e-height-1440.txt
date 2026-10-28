@@ -1,0 +1,1 @@
+the-sensorial-curriculum {"1s": 29587, "4s": 29579, "scrolled": 29579, "largest margin": [64, "HR.formula-divider "]}

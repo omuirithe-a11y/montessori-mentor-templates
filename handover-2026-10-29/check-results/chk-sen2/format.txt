@@ -1,0 +1,35 @@
+-- width 1440
+words seen live 4230, on the page 4230
+replace: visible on live "recognized" -> visible on page "recognised"
+replace: visible on live "color," -> visible on page "colour,"
+replace: visible on live "categorize" -> visible on page "categorise"
+replace: visible on live "colors" -> visible on page "colours"
+replace: visible on live "internalizes" -> visible on page "internalises"
+replace: visible on live "organizing" -> visible on page "organising"
+replace: visible on live "color," -> visible on page "colour,"
+replace: visible on live "math," -> visible on page "maths,"
+replace: visible on live "utilize" -> visible on page "utilise"
+replace: visible on live "from" -> visible on page "form"
+replace: visible on live "place" -> visible on page "plane"
+replace: visible on live "Sensitizing" -> visible on page "Sensitising"
+images seen live 208, on the page 208
+"Montessori": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"Commons": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+-- width 390
+words seen live 4230, on the page 4230
+replace: visible on live "recognized" -> visible on page "recognised"
+replace: visible on live "color," -> visible on page "colour,"
+replace: visible on live "categorize" -> visible on page "categorise"
+replace: visible on live "colors" -> visible on page "colours"
+replace: visible on live "internalizes" -> visible on page "internalises"
+replace: visible on live "organizing" -> visible on page "organising"
+replace: visible on live "color," -> visible on page "colour,"
+replace: visible on live "math," -> visible on page "maths,"
+replace: visible on live "utilize" -> visible on page "utilise"
+replace: visible on live "from" -> visible on page "form"
+replace: visible on live "place" -> visible on page "plane"
+replace: visible on live "Sensitizing" -> visible on page "Sensitising"
+images seen live 208, on the page 208
+"Montessori": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"Commons": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+RESULT: 28 differences a reader sees (formatting, hidden or shown words, hidden or shown images) - each must be an allowed change or a template fault reported to the owner

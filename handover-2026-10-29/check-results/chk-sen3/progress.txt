@@ -1,0 +1,16 @@
+started Wed Oct 28 23:29:21 CST 2026
+vis running, script ready Wed Oct 28 23:39:42 CST 2026
+first shot hung, retrying Thu Oct 29 00:02:07 CST 2026
+retry2 Thu Oct 29 00:09:31 CST 2026
+retry3 chunked Thu Oct 29 00:13:39 CST 2026
+reading pkg-700 pieces Thu Oct 29 00:19:42 CST 2026
+rc=0 live-700 Thu Oct 29 00:20:03 CST 2026
+pkg-700 read: TOC x=0, divider lines through text (Key Areas, Visual grid, Algebraic, Combining sets, Tactile list, Texture scavenger, Complex list, thermic, Stereognostic list, Tasting Jars, Bells) Thu Oct 29 00:20:13 CST 2026
+live-700 compared: lines clear of text in live; package lines through text = regression Thu Oct 29 00:20:53 CST 2026
+rc=0 pkg-1440 Thu Oct 29 00:23:51 CST 2026
+rc=0 live-1440 Thu Oct 29 00:24:24 CST 2026
+1440 read: same line-through-text pattern; live 1440 clean Thu Oct 29 00:25:11 CST 2026
+final-checks read: 122 widths ok, no FAULT Thu Oct 29 00:25:28 CST 2026
+lines.py v2 (pseudo-elements) Thu Oct 29 00:26:09 CST 2026
+lines v2 done Thu Oct 29 00:29:34 CST 2026
+DONE verdict NOT READY: pkg 700=14, 1440=20 line-through-text (live 0/0) Thu Oct 29 00:29:46 CST 2026

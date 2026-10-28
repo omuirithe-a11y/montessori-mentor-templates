@@ -1,0 +1,341 @@
+checking the copy unpacked from /tmp/claude-0/-home-claude/457824cb-7342-52d8-8229-8cd580a6aa46/scratchpad/t4b/the-culture-curriculum.zip
+zip folder name: the-culture-curriculum - matches the live page
+template and copy protection fingerprints: correct
+== 1. CODE OUTSIDE THE SLOTS
+
+OK
+== 2. COPY PROTECTION
+OK
+menu: 38 distinct links
+== 3. CONTENT CLEANED
+
+OK
+-- size settings kept (listed for the owner):
+data-gaps="0.8,2,0.5" on <div class="mm-row">
+data-gaps="2" on <div class="mm-row">
+data-h="168" on <div class="mm-set mm-col">
+data-gaps="0.5" on <div class="mm-row">
+data-h="160" on <div class="mm-set mm-col">
+data-h="136" on <div class="mm-set mm-col">
+data-h="168" on <div class="mm-set mm-col">
+== 4. MAIN ATTRIBUTES
+OK
+== 5. WORDS CHANGED FROM THE LIVE PAGE
+replace: "artifacts," -> "artefacts,"
+   live: ...such as globes, puzzle maps, science experiment kits, and cultural artifacts, children learn about diverse cultures, developing their curiosity, global awareness,...
+   page: ...such as globes, puzzle maps, science experiment kits, and cultural artefacts, children learn about diverse cultures, developing their curiosity, global awareness,...
+delete: "as" -> ""
+   live: ...3. Earth Sciences. Botany This area of the curriculum provides as an introduction to plant anatomy and plant life, helping children...
+   page: ...3. Earth Sciences. Botany This area of the curriculum provides an introduction to plant anatomy and plant life, helping children...
+replace: "showed" -> "shown"
+   live: ...exercise for individual children or small groups. Children are also showed how to care of plants by cleaning or pruning their...
+   page: ...exercise for individual children or small groups. Children are also shown how to care for plants by cleaning or pruning their...
+replace: "of" -> "for"
+   live: ...or small groups. Children are also showed how to care of plants by cleaning or pruning their leaves, which serves as...
+   page: ...or small groups. Children are also shown how to care for plants by cleaning or pruning their leaves, which serves as...
+insert: "" -> "to"
+   live: ...take Montessori outside. The Botany Puzzles serve as an introduction the study of parts of a plant / flower /...
+   page: ...take Montessori outside. The Botany Puzzles serve as an introduction to the study of parts of a plant / flower /...
+insert: "" -> "of"
+   live: ...Botany Cabinet is used to introduce children to the variety leaf shapes and how we categorise them; matching the shapes...
+   page: ...Botany Cabinet is used to introduce children to the variety of leaf shapes and how we categorise them; matching the shapes...
+replace: "frame," -> "frame."
+   live: ...the frame and then, to increase the challenge, outside the frame, Later they will create their own maps by tracing the...
+   page: ...the frame and then, to increase the challenge, outside the frame. Later they will create their own maps by tracing the...
+replace: "or" -> "of"
+   live: ...to the seasons. The Clock Also introduced to small groups or 3 or 4 children, in the following order of presentations:...
+   page: ...to the seasons. The Clock Also introduced to small groups of 3 or 4 children, in the following order of presentations:...
+replace: "categorization" -> "categorisation"
+   live: ...foster an understanding of scientific principles and the basics of categorization and opposites, for example sink or float, magnetic or non-magnetic,...
+   page: ...foster an understanding of scientific principles and the basics of categorisation and opposites, for example sink or float, magnetic or non-magnetic,...
+insert: "" -> "a"
+   live: ...sometimes day and sometimes night? ” The class didn’t have Globe of the Continents, so we took a sphere and...
+   page: ...sometimes day and sometimes night? ” The class didn’t have a Globe of the Continents, so we took a sphere and...
+replace: "equalize" -> "equalise"
+   live: ...the dish up into the inverted glass or jar to equalize the pressure difference . Sample Science Albums (contents) Montessori Teachers...
+   page: ...the dish up into the inverted glass or jar to equalise the pressure difference . Sample Science Albums (contents) Montessori Teachers...
+insert: "" -> "as"
+   live: ...games develop auditory skills, rhythm, and coordination, using materials such an assortment of musical instruments such as bells, drums, etc....
+   page: ...games develop auditory skills, rhythm, and coordination, using materials such as an assortment of musical instruments such as bells, drums, etc....
+delete: "‘" -> ""
+   live: ...their breathing and refine their movements, independent of adult assistance. ‘ Yoga-related books and cards “Jenny’s Winter Walk” by Giselle Shardlow...
+   page: ...their breathing and refine their movements, independent of adult assistance. Yoga-related books and cards “Jenny’s Winter Walk” by Giselle Shardlow...
+== 6. LINKS, IMAGES AND DESCRIPTIONS CHANGED
+--- live links
++++ page links
+@@ -1 +1 @@
+-('to equalize the pressure difference', 'https://people.math.harvard.edu/~knill/pedagogy/waterexperiment/')
++('to equalise the pressure difference', 'https://people.math.harvard.edu/~knill/pedagogy/waterexperiment/')
+descriptions:
+images/002-480.jpg -> A colourful chart titled The Donut of Knowledge, showing areas of study.
+images/003-480.jpg -> Two children watering a potted plant with a metal watering can.
+images/004-480.jpg -> Two children watering plants on a classroom windowsill.
+images/005-480.jpg -> Children watering a potted plant with a white watering can.
+images/006-480.jpg -> Two children tending plants on a shelf by a window.
+images/007-480.jpg -> Two children kneeling beside a large potted plant on the floor.
+images/008-480.jpg -> Children putting soil into a red pot on a black sheet.
+images/009-480.jpg -> An adult and a child repotting plants on a sheet on the floor.
+images/010-480.jpg -> Children watering plants on a classroom shelf.
+images/011-480.jpg -> Two children working with a plant in a plastic tub.
+images/012-480.jpg -> Two children cleaning leaves at a table covered with a green cloth.
+images/013-480.jpg -> A child cleaning the leaves of a tall potted plant.
+images/014-480.jpg -> A child cleaning the leaves of a large plant on a blue mat.
+images/015-480.jpg -> A child spraying a potted plant at a table.
+images/016-480.jpg -> Two children standing on chairs beside a potted tree in a classroom.
+images/017-480.jpg -> Two children cleaning the leaves of a large plant on a table.
+images/018-480.jpg -> Two children holding a bunch of flowers in a hallway.
+images/019-480.jpg -> A child arranging flowers in a glass vase at a table.
+images/020-480.jpg -> A table with a red cloth and flower arranging materials, with flowers in a bucket.
+images/021-480.jpg -> Two children arranging flowers at a table.
+images/022-480.jpg -> A child arranging flowers in small vases at a table.
+images/023-480.jpg -> A child placing a vase of flowers on a classroom shelf.
+images/024-480.jpg -> Children in a fenced garden plot with bare soil.
+images/025-480.jpg -> Two children digging and planting in a garden bed.
+images/026-480.jpg -> Children pulling a small cart along a wooden walkway.
+images/027-480.jpg -> A child watering seedlings in a garden bed with a watering can.
+images/028-480.jpg -> A vegetable garden with rows of young plants and bamboo canes.
+images/029-480.jpg -> A man and a line of children walking past a vegetable garden.
+images/030-480.jpg -> A line of children walking beside rows of vegetable plants.
+images/031-480.jpg -> Shelves by a window holding plants and small garden tools.
+images/032-480.jpg -> Two children watering a raised planter box.
+images/033-480.jpg -> Three children in raincoats watering plants in a planter.
+images/034-480.jpg -> Two children looking at botany puzzle cards on a red mat.
+images/035-480.jpg -> A child working with a green leaf puzzle at a table.
+images/036-480.jpg -> A child matching leaf cards with pine cones and leaves at a table.
+images/037-480.jpg -> A child working with flower cards at a table.
+images/038-480.jpg -> A child sitting behind a potted plant and plant cards on a mat.
+images/039-480.jpg -> A botany cabinet of leaf shapes on a small table outdoors.
+images/040-480.jpg -> A child working with a tray of leaf shape insets on a mat.
+images/041-480.jpg -> A child sitting behind green leaf shape cards laid out on a mat.
+images/042-480.jpg -> Two children working with leaf cards on a mat in a classroom.
+images/043-480.jpg -> Potted plants and green leaf shapes laid along a windowsill.
+images/044-480.jpg -> Two children working with animal puzzles at a table.
+images/045-480.jpg -> A child working with a fish puzzle at a table.
+images/046-480.jpg -> A child working with a set of animal puzzles on a mat.
+images/047-480.jpg -> Three children laying out animal puzzles on a mat.
+images/048-480.jpg -> A child sitting beside a long row of animal puzzles and their pieces.
+images/049-480.jpg -> Puzzle pieces of animals and plants spread on a black mat.
+images/050-480.jpg -> Two children sitting beside puzzle pieces laid out on a black mat.
+images/051-480.jpg -> A child holding up a drawing of a blue horse.
+images/052-480.jpg -> A child looking into a hamster cage.
+images/053-480.jpg -> An adult and children around a rabbit hutch outdoors.
+images/054-480.jpg -> Three children watching a tortoise on the floor.
+images/055-480.jpg -> Children looking at plants in a garden.
+images/056-480.jpg -> Two children looking at a tank of small animals on a shelf.
+images/057-480.jpg -> Two children looking over a stone wall.
+images/058-480.jpg -> A child holding out a small creature in her hand.
+images/059-480.jpg -> A child holding a leaf with small creatures on it.
+images/060-480.jpg -> Children gathered around a green tub outdoors.
+images/061-480.jpg -> A man in a white hat and a child in a sun hat looking at something on the grass.
+images/062-480.jpg -> A child in a sun hat holding a small creature in cupped hands.
+images/063-480.jpg -> A child holding a hand up high in a garden.
+images/064-480.jpg -> A snail on the back of a hand.
+images/065-480.jpg -> A child looking closely at leaves in a white tray.
+images/066-480.jpg -> A child looking at a bug viewer on a table.
+images/067-480.jpg -> A child looking into a bug viewer at a table.
+images/068-480.jpg -> Two children looking into a small plastic tank.
+images/069-480.jpg -> A child looking at grass in a tub through a magnifying glass.
+images/070-480.jpg -> Three children looking at a row of plastic boxes on a shelf.
+images/071-480.jpg -> Children lying on the floor around a small box.
+images/072-480.jpg -> An adult and a group of children looking at a garden bed.
+images/073-480.jpg -> Two children looking closely at a wall.
+images/074-480.jpg -> A child pouring water into a land and water form tray.
+images/075-480.jpg -> A child pouring water from a jug into a land and water form tray.
+images/076-480.jpg -> A child working with land and water form trays and a bucket of water.
+images/077-480.jpg -> Two children with a globe and picture cards at a table.
+images/078-480.jpg -> An adult and a child with land and water form trays at a table.
+images/079-480.jpg -> Picture cards of a lake and an island, each shown twice.
+images/080-480.jpg -> Photo cards of an island and a lake, each shown twice.
+images/081-480.jpg -> Definition cards for a peninsula and an isthmus, with photos.
+images/082-480.jpg -> Definition cards for a system of lakes and a cape, with photos.
+images/083-480.jpg -> Model animals sorted above land, water and air picture cards on a table.
+images/084-480.jpg -> Two children sorting model animals from a basket at a table.
+images/085-480.jpg -> A round chart with the title Earth's Surface printed on it, showing land and water.
+images/086-480.jpg -> Picture cards sorted under the headings land, water and air.
+images/087-480.jpg -> Two children laying out picture cards on a mat on the floor.
+images/088-480.jpg -> A weather chart with a thermometer and two writing boxes.
+images/089-480.jpg -> A weather wheel showing windy, sunny, rainy, snowy and cloudy weather.
+images/090-480.jpg -> Two children at a table filling in a weather chart.
+images/091-480.jpg -> A weekly weather diary chart.
+images/092-480.jpg -> Picture cards of a waterspout and a tornado, each shown twice.
+images/093-480.jpg -> Cloud cards showing altocumulus clouds.
+images/094-480.jpg -> A tracing worksheet for the letter S with a snowflake.
+images/095-480.jpg -> An activity sheet showing how to make a rainstick.
+images/096-480.jpg -> A worksheet for making a chain of paper snowmen.
+images/097-480.jpg -> A child holding two joined plastic bottles of blue water.
+images/098-480.jpg -> Two children beside two joined bottles of blue water on a mat.
+images/099-480.jpg -> Two children sitting beside two joined bottles of blue water.
+images/100-480.jpg -> A group of children sitting behind two joined bottles of blue water.
+images/101-480.jpg -> A child sitting beside two joined bottles of blue water on the floor.
+images/102-480.jpg -> A child stretching beside two joined bottles of blue water.
+images/103-480.jpg -> A shelf of puzzle maps with a stand of small flags and a globe.
+images/104-480.jpg -> A child working with a world puzzle map beside a globe.
+images/105-480.jpg -> Two children working with a world puzzle map on a mat.
+images/106-480.jpg -> A child working with puzzle maps on a mat.
+images/107-480.jpg -> A child working with a puzzle map of a continent on a mat.
+images/108-480.jpg -> A child sitting beside two puzzle maps on a mat.
+images/109-480.jpg -> Children lying on the floor working with puzzle maps.
+images/110-480.jpg -> A child working with a puzzle map on a black mat outdoors.
+images/111-480.jpg -> Two children working with a puzzle map on a mat.
+images/112-480.jpg -> Children working with puzzle maps on coloured mats.
+images/113-480.jpg -> Two children sitting behind two puzzle maps on a mat.
+images/114-480.jpg -> Two children working with a world puzzle map on a mat.
+images/115-480.jpg -> Two children cutting out and colouring maps at a table.
+images/116-480.jpg -> Two children working with puzzle maps at a table.
+images/117-480.jpg -> Two children painting maps at a table.
+images/118-480.jpg -> A child holding up a painted map of the world.
+images/119-480.jpg -> Picture cards titled Animals from Europe, with a cod fish and a brown bear.
+images/120-480.jpg -> Picture cards with the title Foods from Europe printed on them, showing two dishes.
+images/121-480.jpg -> Picture cards with the title Landmarks in Europe printed on them, showing two buildings labelled The Alhambra and Arc de Triomphe.
+images/122-480.jpg -> Picture cards titled Instruments from Europe, with a harp and a pibgorn.
+images/123-480.jpg -> Two children lying beside picture cards and a puzzle map on a blue mat.
+images/124-480.jpg -> A child working with a long puzzle map and picture cards on the floor.
+images/125-480.jpg -> Children working with picture cards on mats in a classroom.
+images/126-480.jpg -> A child sitting behind rows of picture cards on a long mat.
+images/127-480.jpg -> A child laying out picture cards on a mat.
+images/128-480.jpg -> A child carrying small flags in a classroom.
+images/129-480.jpg -> Flag cards with the names Ireland, Italy, Latvia and Lichtenstein printed under the flags.
+images/130-480.jpg -> A large group of children waving small flags.
+images/131-480.jpg -> Outline flag cards for colouring, with the names Ireland, Israel, Italy and Jamaica printed under them.
+images/132-480.jpg -> Children holding small flags in a classroom.
+images/133-480.jpg -> A calendar chart with a picture for each month of the year.
+images/134-480.jpg -> A child sitting behind a mat of picture cards.
+images/135-480.jpg -> A child beside a row of sand timers on the floor.
+images/136-480.jpg -> A man and a child looking closely at a sand timer on a table.
+images/137-480.jpg -> A calendar and weather wall chart for August.
+images/138-480.jpg -> A worksheet with lines for the day, the date, the weather and feelings.
+images/139-480.jpg -> Two children painting at an outdoor table with paper and brushes.
+images/140-480.jpg -> A man showing a carved pumpkin to two children.
+images/141-480.jpg -> Children working with a round seasons chart and cards on a mat.
+images/142-480.jpg -> Children standing in front of a large decorated Christmas tree.
+images/143-480.jpg -> A group of children dancing in a classroom.
+images/144-480.jpg -> A seasons matching chart with pictures for winter, spring, summer and autumn.
+images/145-480.jpg -> A child sitting behind seasonal picture cards laid on a mat.
+images/146-480.jpg -> Children in a courtyard decorated with pumpkins and autumn produce.
+images/147-480.jpg -> A display of fruit and seasonal pictures on a table outdoors.
+images/148-480.jpg -> A poster of a family cycling through an autumn landscape.
+images/149-480.jpg -> A table display of Chinese decorations and picture cards.
+images/150-480.jpg -> A table display of dried plants with picture cards.
+images/151-480.jpg -> A woman sitting on the floor holding a dried plant and a card.
+images/152-480.jpg -> Children sitting in a circle around a display on the floor.
+images/153-480.jpg -> A table display of vegetables, fruit and picture cards.
+images/154-480.jpg -> A worksheet titled Four Seasons Tree, showing a spring tree.
+images/155-480.jpg -> Two children working with picture cards and a basket at a table.
+images/156-480.jpg -> Two children at a table under a string of paper decorations.
+images/157-480.jpg -> A colouring sheet of a child dressed for the four seasons.
+images/158-480.jpg -> A clock face divided into four coloured quarters with minute numbers.
+images/159-480.jpg -> A child moving the hands of a large teaching clock at a table.
+images/160-480.jpg -> A clock face divided into four coloured quarters.
+images/161-480.jpg -> Clock cards showing the hours from 12:00 to 5:00.
+images/162-480.jpg -> Clock cards showing the half hours from 12:30 to 5:30.
+images/163-480.jpg -> Clock cards showing quarter past the hour from 12:15 to 5:15.
+images/164-480.jpg -> Clock cards showing quarter to the hour from 12:45 to 5:45.
+images/165-480.jpg -> Picture cards pairing old and new objects: ink and quill, plate camera, washboard, ballpoint pen, digital camera and washing machine.
+images/166-480.jpg -> Two children laying out picture cards on a mat on the floor.
+images/167-480.jpg -> A wall chart with the title Les Grandes Dates Historiques printed on it.
+images/168-480.jpg -> A child looking at a large glass jar through a magnifying glass.
+images/169-480.jpg -> A child looking at leaves at a table with a green cloth.
+images/170-480.jpg -> A child looking at a tray of objects through a magnifying glass.
+images/171-480.jpg -> A child holding a magnifying glass in front of a mirror.
+images/172-480.jpg -> A child looking at a jar of blue water through a magnifying glass.
+images/173-480.jpg -> A child looking at shells on a tray at a table.
+images/174-480.jpg -> A child looking at a pine cone on a tray through a magnifying glass.
+images/175-480.jpg -> A child looking through a magnifying glass beside a vase of flowers.
+images/176-480.jpg -> A child looking through a magnifying glass beside a tray of pine cones.
+images/177-480.jpg -> A child looking at something through a magnifying glass.
+images/178-480.jpg -> A child looking through binoculars by a window.
+images/179-480.jpg -> A child at a table in a classroom with picture cards on the wall.
+images/180-480.jpg -> Children in a museum beside a statue of a man with an old camera.
+images/181-480.jpg -> Two children sitting on chairs at a table.
+images/182-480.jpg -> A child looking through a small viewer while sitting on the floor.
+images/183-480.jpg -> Two children at a table with a bowl of water and baskets.
+images/184-480.jpg -> Children sitting around a basket on a mat on the floor.
+images/185-480.jpg -> A child at a table sorting picture cards into a box.
+images/186-480.jpg -> A man and two children with a red balloon at a table.
+images/187-480.jpg -> Three children at a table working on an activity.
+images/188-480.jpg -> A man showing dry ice to children, with clouds of mist on the floor.
+images/189-480.jpg -> A child looking up through binoculars outdoors.
+images/190-480.jpg -> Two children shining a small light in a dark room.
+images/191-480.jpg -> Children outdoors holding up a large white card.
+images/192-480.jpg -> Two white flowers in a glass vase of coloured water.
+images/193-480.jpg -> Two flowers turning pink and blue in a glass vase.
+images/194-480.jpg -> Two cabbage leaves in cups of coloured water on a plate.
+images/195-480.jpg -> Children kneeling around a small table with a jar of water.
+images/196-480.jpg -> Children watching a glass of water on a table.
+images/197-480.jpg -> Four children at a table watching a candle under a jar.
+images/198-480.jpg -> Children at a small table watching an experiment.
+images/199-480.jpg -> A child at an easel with paintings pinned up beside him.
+images/200-480.jpg -> A child painting with red paint at an easel.
+images/201-480.jpg -> A child painting at an easel.
+images/202-480.jpg -> A child painting at an easel in front of a world map.
+images/203-480.jpg -> A child drawing with chalk on a blackboard easel.
+images/204-480.jpg -> A child at an easel by a window.
+images/205-480.jpg -> A child holding up a paper cut-out.
+images/206-480.jpg -> Two children making red paper cut-outs at a table.
+images/207-480.jpg -> Children at a table working with small coloured objects.
+images/208-480.jpg -> A child folding paper at a table beside a vase of lilies.
+images/209-480.jpg -> A man and children making crafts at a long table.
+images/210-480.jpg -> Children holding up leaf pictures decorated as faces.
+images/211-480.jpg -> A table laid with plants, tools and plain cloth bags for printing.
+images/212-480.jpg -> A child kneeling and holding up a drawing.
+images/213-480.jpg -> A child in a face mask drawing at a table.
+images/214-480.jpg -> Two children drawing on blue paper at a table.
+images/215-480.jpg -> Two children in winter coats looking at a large painted music sheet outdoors.
+images/216-480.jpg -> A child hugging a large stone sculpture in a garden.
+images/217-480.jpg -> Two children with musical instruments and a wooden tray on a red mat.
+images/218-480.jpg -> Two children playing a singing bowl on the floor.
+images/219-480.jpg -> Two children playing musical instruments beside a wooden tray.
+images/220-480.jpg -> A child playing a small instrument beside a wooden tray.
+images/221-480.jpg -> Two children playing small wind instruments.
+images/222-480.jpg -> A child wearing headphones beside a fish tank.
+images/223-480.jpg -> A child wearing headphones at a window looking out on snow.
+images/224-480.jpg -> Two children wearing headphones at a table.
+images/225-480.jpg -> A child wearing headphones beside a fish tank with a CD player on it.
+images/226-480.jpg -> A child wearing headphones sitting at a desk.
+images/227-480.jpg -> A child wearing headphones sitting at a table.
+images/228-480.jpg -> A woman playing a flute to children sitting on the floor.
+images/229-480.jpg -> A woman and children around a white piano.
+images/230-480.jpg -> A woman showing musical instruments to children sitting on the floor.
+images/231-480.jpg -> Children sitting in a circle on the floor around a mat.
+images/232-480.jpg -> A woman leading children sitting in a circle.
+images/233-480.jpg -> An adult and children dancing in a classroom.
+images/234-480.jpg -> Musicians performing on a stage for an audience in a mall.
+images/235-480.jpg -> Children sitting on the floor watching musicians play in a classroom.
+images/236-480.jpg -> Children stretching with their arms up on a wooden deck outdoors.
+images/237-480.jpg -> Children in high-visibility vests stretching their arms out in a garden.
+images/238-480.jpg -> An adult leading children in stretches in a playground.
+images/239-480.jpg -> An adult leading a line of children in stretches on artificial grass.
+images/240-480.jpg -> An adult leading children in stretches on an outdoor court.
+images/241-480.jpg -> Children sitting in a circle doing stretches on the floor.
+images/242-480.jpg -> A child sitting cross-legged on a blue mat.
+images/243-480.jpg -> A child kneeling on a purple yoga mat with a pose card.
+images/244-480.jpg -> A child doing a shoulder stand on a yoga mat.
+images/245-480.jpg -> Two children doing a yoga pose on a mat.
+images/246-480.jpg -> Two children lying on their backs on a yoga mat.
+images/247-480.jpg -> A child standing on a purple yoga mat with a pose card.
+images/248-480.jpg -> A child squatting on a purple yoga mat with pose cards.
+images/249-480.jpg -> A child doing a side stretch on a purple yoga mat.
+images/250-480.jpg -> A child lying on her front with arms raised on a yoga mat.
+images/251-480.jpg -> A man and a child doing yoga on a purple mat.
+-- names in descriptions not found in the page text (each is a fault unless the name is printed in the image itself):
+images/085-480.jpg: "Earth's Surface" is named in the description but not in the page text
+images/120-480.jpg: "Foods" is named in the description but not in the page text
+images/121-480.jpg: "Landmarks" is named in the description but not in the page text
+images/121-480.jpg: "Triomphe" is named in the description but not in the page text
+images/129-480.jpg: "Ireland" is named in the description but not in the page text
+images/129-480.jpg: "Italy" is named in the description but not in the page text
+images/129-480.jpg: "Latvia" is named in the description but not in the page text
+images/129-480.jpg: "Lichtenstein" is named in the description but not in the page text
+images/131-480.jpg: "Ireland" is named in the description but not in the page text
+images/131-480.jpg: "Israel" is named in the description but not in the page text
+images/131-480.jpg: "Italy" is named in the description but not in the page text
+images/131-480.jpg: "Jamaica" is named in the description but not in the page text
+images/167-480.jpg: "Les Grandes Dates Historiques" is named in the description but not in the page text
+== 7. IMAGE FILES (sha256, finished folder vs live folder)
+(every line above must be a restored file listed in the report with its sha256 and proof, or it is a fault)
+== 8. FILES AND IMAGE SHAPES
+
+OK
+-- 8b. PDF-placed images shown with a shape that differs from the file by more than 1% (kept as on the live page; listed for the owner, step 7):
+none
+== RESULT: ALL CHECKS OK (parts 1-4 and 8)

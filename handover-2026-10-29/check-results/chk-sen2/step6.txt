@@ -1,0 +1,7 @@
+live refs 417 page refs 417 zip files 418
+live local refs missing from zip: []
+live local refs not referenced by page: []
+live external refs: []
+page refs missing from zip: []
+zip files not referenced by page: []
+hero.jpg in zip: ['the-sensorial-curriculum/images/hero.jpg']  referenced by page: ['images/hero.jpg']  live: ['images/hero.jpg']

@@ -1,0 +1,1 @@
+[["if (f.hasAttribute('data-topline')) return;   // 21 Oct (items 30/31): placed by glTopline()", "if (f.hasAttribute('data-topline') || f.classList.contains('ext-float')) return;   // 21 Oct (items 30/31): placed by glTopline(); 28 Oct: the three Sensorial Extensions photos stand one under another (clear:right), not centred on the paragraph"]]

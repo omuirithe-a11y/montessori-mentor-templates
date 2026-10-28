@@ -1,0 +1,700 @@
+checking the copy unpacked from /home/claude/reports/cand/the-sensorial-curriculum-db98b9ea.zip
+zip folder name: the-sensorial-curriculum - matches the live page
+template and copy protection fingerprints: correct
+== 1. CODE OUTSIDE THE SLOTS
+
+OK
+== 2. COPY PROTECTION
+OK
+menu: 38 distinct links
+== 3. CONTENT CLEANED
+
+OK
+-- size settings kept (listed for the owner):
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.02134,0.00000,0.02134" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.02321,0.00000,0.02321,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.02604,0.00000,0.02604,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="90" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00469,0.00000,0.00469,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="80" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.02879,0.00000,0.02879" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.05865,0.00000,0.05865" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="120" on <div class="mm-set">
+data-crop="0.03344,0.06414,0.03013,0.05259" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.03165,0.00000,0.03165" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="120" on <div class="mm-set">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="90" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.12901,0.00000,0.12901,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="225" on <div class="mm-set mm-formula">
+data-crop="0.03626,0.03324,0.04210,0.04832" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.23874,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.02157,0.00000,0.02157,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.01487,0.00000,0.01487,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.05436,0.00000,0.05436" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="120" on <div class="mm-set">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.01505,0.00000,0.01505,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.04035,0.00000,0.04035" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.08027,0.00000,0.08027" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.05991,0.00000,0.05991,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="120" on <div class="mm-set">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="120" on <div class="mm-set">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.04097,0.00000,0.04097" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="69.6" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="69.6" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-h="69.6" on <div class="mm-set mm-col">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="180" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.01428,0.05818,0.05238,0.01986" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="270" on <img class="doc-img">
+data-crop="0.14192,0.03048,0.15230,0.23416" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.06197,0.00000,0.00000,0.13482" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.06062,0.00000,0.06062" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.02983,0.00000,0.02983,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.06044,0.00000,0.06044" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.01804,0.00000,0.01804,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.05323,0.00000,0.05323,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.08473,0.00000,0.08473,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.15918,0.04363,0.05537,0.03601" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.04053,0.00000,0.04053,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.12176" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-match="text" on <div class="mm-set">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.21195,0.00000,0.20424" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="90" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.07591,0.00000,0.07591" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+data-crop="0.00000,0.00000,0.00000,0.00000" on <img class="doc-img">
+data-rot="0" on <img class="doc-img">
+== 4. MAIN ATTRIBUTES
+OK
+== 5. WORDS CHANGED FROM THE LIVE PAGE
+replace: "recognized" -> "recognised"
+   live: ...Montessori, observing the child's innate drive to explore the world, recognized that sensory experience is the bedrock of all human intelligence...
+   page: ...Montessori, observing the child's innate drive to explore the world, recognised that sensory experience is the bedrock of all human intelligence...
+replace: "color," -> "colour,"
+   live: ...(2004) Montessori believed that by isolating specific qualities like dimension, color, texture, sound, or weight, and offering controlled, purposeful interaction, the...
+   page: ...(2004) Montessori believed that by isolating specific qualities like dimension, colour, texture, sound, or weight, and offering controlled, purposeful interaction, the...
+replace: "categorize" -> "categorise"
+   live: ...in texture or weight. Ordered Perception The mental capacity to categorize and sequence sensory input based on identifiable properties e.g., arranging...
+   page: ...in texture or weight. Ordered Perception The mental capacity to categorise and sequence sensory input based on identifiable properties e.g., arranging...
+replace: "colors" -> "colours"
+   live: ...based on identifiable properties e.g., arranging cylinders by height/diameter, grading colors from light to dark. Vocabulary for Experience Precise language -e.g.,...
+   page: ...based on identifiable properties e.g., arranging cylinders by height/diameter, grading colours from light to dark. Vocabulary for Experience Precise language -e.g.,...
+replace: "internalizes" -> "internalises"
+   live: ...repetitive manipulation that the child refines their sensory perception and internalizes concepts. At each stage, the child is the active agent,...
+   page: ...repetitive manipulation that the child refines their sensory perception and internalises concepts. At each stage, the child is the active agent,...
+replace: "organizing" -> "organising"
+   live: ...with the materials, so by providing a logical framework for organizing sensory input, the Sensorial curriculum empowers the child to: Become...
+   page: ...with the materials, so by providing a logical framework for organising sensory input, the Sensorial curriculum empowers the child to: Become...
+replace: "color," -> "colour,"
+   live: ...the primary presentation. Reinforce Concepts Solidify understanding of qualities (size, color, shape, texture, sound, smell, weight, temperature). Promote Creativity and Problem...
+   page: ...the primary presentation. Reinforce Concepts Solidify understanding of qualities (size, colour, shape, texture, sound, smell, weight, temperature). Promote Creativity and Problem...
+replace: "math," -> "maths,"
+   live: ...the curriculum and build a bridge to abstraction Prepare for math, language, geometry, art, and practical life by applying sensorial concepts...
+   page: ...the curriculum and build a bridge to abstraction Prepare for maths, language, geometry, art, and practical life by applying sensorial concepts...
+replace: "utilize" -> "utilise"
+   live: ...extension ideas to spark interest. Respect the Material's Purpose They utilize the material's inherent properties but combine or apply them in...
+   page: ...extension ideas to spark interest. Respect the Material's Purpose They utilise the material's inherent properties but combine or apply them in...
+replace: "from" -> "form"
+   live: ...and black matching prisms - all the pieces once assembled from the binomial cube (a + b) 3 . A binomial...
+   page: ...and black matching prisms - all the pieces once assembled form the binomial cube (a + b) 3 . A binomial...
+replace: "place" -> "plane"
+   live: ...triangles together. Indirect Aim Introducing similarities, equivalences and area of place figures and congruencies. Examples of Extensions Creating entirely new, complex...
+   page: ...triangles together. Indirect Aim Introducing similarities, equivalences and area of plane figures and congruencies. Examples of Extensions Creating entirely new, complex...
+replace: "Sensitizing" -> "Sensitising"
+   live: ...into 5 sections of graded degrees of smoothness. A blindfold. Sensitizing Tray. Direct Aims Refinement of the tactile sense. Development of...
+   page: ...into 5 sections of graded degrees of smoothness. A blindfold. Sensitising Tray. Direct Aims Refinement of the tactile sense. Development of...
+== 6. LINKS, IMAGES AND DESCRIPTIONS CHANGED
+descriptions:
+images/002-480.jpg -> Sensorial materials laid out together on a white background
+images/003-480.jpg -> Adults and children gathered round a table with Pink Tower and Brown Stair blocks
+images/004-480.jpg -> Two children beside Colour Tablets arranged in a star
+images/005-480.jpg -> Red Rods laid end to end in a long line on mats
+images/006-480.jpg -> Two children beside Red Rods and blocks built into enclosures
+images/007-480.jpg -> Children working on the floor with Red Rods and Brown Stair prisms
+images/008-480.jpg -> A child beside the Brown Stair arranged in a corner shape
+images/009-480.jpg -> Children grading a large triangle of Red Rods on the floor
+images/010-480.jpg -> Two children beside a tall structure of Pink Tower cubes and Red Rods, one lying on the floor
+images/011-480.jpg -> An old black-and-white image of adults watching a blindfolded child work with a cylinder block
+images/012-480.jpg -> Classroom shelves of visual Sensorial materials, with the Pink Tower and Brown Stair
+images/013-480.jpg -> Classroom shelves of Sensorial materials, with geometric insets and colour boxes
+images/014-480.jpg -> Classroom shelves holding the Bells and other Sensorial materials
+images/015-480.jpg -> Classroom shelves of Sensorial materials, with the Geometry Cabinet
+images/016-480.jpg -> Cylinder Block 1 with its ten knobbed cylinders
+images/017-480.jpg -> Cylinder Block 2 with its ten knobbed cylinders
+images/018-480.jpg -> Cylinder Block 3 with its ten knobbed cylinders
+images/019-480.jpg -> Cylinder Block 4 with its ten knobbed cylinders
+images/020-480.jpg -> A child working with a cylinder block at a table
+images/021-480.jpg -> Children working together with several cylinder blocks
+images/022-480.jpg -> Children with cylinder blocks arranged in a zigzag
+images/023-480.jpg -> Two children with cylinder blocks arranged in a triangle
+images/024-480.jpg -> A child with four cylinder blocks arranged in a square
+images/025-480.jpg -> A blindfolded child working with a cylinder block
+images/026-480.jpg -> Blindfolded children working with cylinder blocks at a table
+images/027-480.jpg -> Blindfolded children working with cylinder blocks at two tables
+images/028-480.jpg -> A blindfolded child working with a cylinder block
+images/029-480.jpg -> A blindfolded child with cylinder blocks arranged in a square
+images/030-480.jpg -> A child walking beside a Pink Tower built on the floor
+images/031-480.jpg -> A child building the Pink Tower on a red mat
+images/032-480.jpg -> A child beside the Pink Tower laid on its side as a staircase
+images/033-480.jpg -> Two children with the Pink Tower and Brown Stair built together
+images/034-480.jpg -> Pink Tower cubes and Brown Stair prisms built into an enclosure
+images/035-480.jpg -> A child beside a Pink Tower built against the Brown Stair
+images/036-480.jpg -> A child beside a tall tower of Pink Tower cubes and Brown Stair prisms
+images/037-480.jpg -> Two children beside a very tall tower of Pink Tower cubes and Brown Stair prisms
+images/038-480.jpg -> A child with Pink Tower cubes and Brown Stair prisms arranged in a curve
+images/039-480.jpg -> A blindfolded child building the Pink Tower, with another child behind
+images/040-480.jpg -> Children watching a blindfolded child build the Pink Tower
+images/041-480.jpg -> A blindfolded child building the Pink Tower
+images/042-480.jpg -> A blindfolded child and another child building the Pink Tower together
+images/043-480.jpg -> A blindfolded child and another child building the Pink Tower together
+images/044-480.jpg -> Two children working with the Brown Stair on a mat
+images/045-480.jpg -> An old black-and-white image of a woman and a child working with wooden blocks
+images/046-480.jpg -> Two children beside the Brown Stair stacked into a tower
+images/047-480.jpg -> A child lining up the Brown Stair prisms on a mat
+images/048-480.jpg -> Two children with Brown Stair prisms laid end to end in a line
+images/049-480.jpg -> A child beside the Brown Stair built into a standing structure
+images/050-480.jpg -> A child beside a tall structure built from the Brown Stair
+images/051-480.jpg -> A child building a very tall tower with the Brown Stair
+images/052-480.jpg -> A child lying beside the Red Rods arranged as a staircase
+images/053-480.jpg -> A child standing beside the Red Rods arranged as a staircase
+images/054-480.jpg -> A child standing beside the Red Rods laid out as a spiral path
+images/055-480.jpg -> Children grading the Red Rods into a fan on a dark mat
+images/056-480.jpg -> A child standing beside the Red Rods arranged as a staircase
+images/057-480.jpg -> Two children arranging the Red Rods on a blue mat
+images/058-480.jpg -> The Red Rods arranged in a pattern radiating from a central point
+images/060-480.jpg -> A child grading Colour Tablets in a long line on the floor
+images/061-480.jpg -> Blue Colour Tablets on a grey mat
+images/062-480.jpg -> Two children sitting beside Colour Tablets laid out on a mat
+images/063-480.jpg -> Two children sitting beside Colour Tablets and objects laid out on a mat
+images/064-480.jpg -> Two children sitting beside Colour Tablets laid out in rows on a mat
+images/065-480.jpg -> Two children beside Colour Tablets graded in rows
+images/066-480.jpg -> A child grading Colour Tablets in columns on a mat
+images/067-480.jpg -> A child beside Colour Tablets arranged in a circle
+images/068-480.jpg -> A child and an adult with Colour Tablets scattered on a mat
+images/069-480.jpg -> Two children with Colour Tablets graded in a star
+images/070-480.jpg -> A child grading Colour Tablets in a star
+images/071-480.jpg -> Three children sitting behind Colour Tablets arranged in a star
+images/072-480.jpg -> The triangles drawer of the Geometry Cabinet
+images/073-480.jpg -> The rectangles drawer of the Geometry Cabinet
+images/074-480.jpg -> The polygons drawer of the Geometry Cabinet
+images/075-480.jpg -> The circles drawer of the Geometry Cabinet
+images/076-480.jpg -> The curvilinear figures drawer of the Geometry Cabinet
+images/077-480.jpg -> The quadrilaterals drawer of the Geometry Cabinet
+images/078-480.jpg -> Two children working with the demonstration tray of the Geometry Cabinet
+images/079-480.jpg -> A child working with several Geometry Cabinet drawers on the floor
+images/080-480.jpg -> Children with all the Geometry Cabinet drawers and insets laid out on the floor
+images/081-480.jpg -> A child walking past geometric insets laid out on a mat
+images/082-480.jpg -> A child working with geometric insets on the floor
+images/083-480.jpg -> A chart of the geometric shapes of the Geometry Cabinet, with their names
+images/084-480.jpg -> Geometric form cards: each shape filled in, with a thick outline and with a thin outline
+images/085-480.jpg -> A child matching geometric insets to form cards
+images/086-480.jpg -> Two children with geometric insets laid out on a mat
+images/087-480.jpg -> Two children with geometric insets and cards laid out on a mat
+images/088-480.jpg -> A child matching circle insets to form cards on a mat
+images/089-480.jpg -> A blindfolded child with geometric insets
+images/090-480.jpg -> A child with geometric form cards and pictures laid out on a mat
+images/091-480.jpg -> Two children tracing geometric shapes at a table
+images/092-480.jpg -> A child standing beside the Decanomial Square laid out on the floor
+images/093-480.jpg -> A child building the Decanomial Square on a mat
+images/094-480.jpg -> A child with the Decanomial Square laid out in rows on a mat
+images/095-480.jpg -> A child with the Decanomial Square laid out in rows at a table
+images/096-480.jpg -> A child carrying a board across the classroom
+images/097-480.jpg -> The Binomial Cube taken apart beside its box and lid
+images/098-480.jpg -> A child building the Binomial Cube at a table
+images/099-480.jpg -> A child building the Binomial Cube at a table
+images/100-480.jpg -> A child with the Binomial Cube at a table
+images/101-480.jpg -> A blindfolded child with the Binomial Cube at a table
+images/102-480.jpg -> The Trinomial Cube in its box beside its lid
+images/103-480.jpg -> The Trinomial Cube taken apart into layers beside its box
+images/104-480.jpg -> The Trinomial Cube taken apart into layers beside its box
+images/105-480.jpg -> A child with the Trinomial Cube pieces lined up at a table
+images/106-480.jpg -> A child with the Trinomial Cube pieces lined up on a mat
+images/107-480.jpg -> A child building the Trinomial Cube from its pieces
+images/108-480.jpg -> A child building the Trinomial Cube in its box
+images/109-480.jpg -> A child beside the Trinomial Cube pieces on a mat
+images/110-480.jpg -> A blindfolded child building the Trinomial Cube at a table
+images/111-480.jpg -> A colour-coded square showing the products in the formula for the Trinomial Cube
+images/112-480.jpg -> Constructive Triangles from the rectangular box, beside the box
+images/113-480.jpg -> Two children with Constructive Triangles laid out on a mat
+images/114-480.jpg -> An adult and a child with Constructive Triangles on a mat
+images/115-480.jpg -> Children working with Constructive Triangles on a mat
+images/116-480.jpg -> Blue Constructive Triangles joined into a rhombus, a square and other shapes
+images/117-480.jpg -> A child working with blue Constructive Triangles on a mat
+images/118-480.jpg -> Two children sitting beside Constructive Triangles arranged on a mat
+images/119-480.jpg -> A child working with Constructive Triangles on a mat outdoors
+images/120-480.jpg -> Two children working with the triangular box of Constructive Triangles
+images/121-480.jpg -> Two children working with Constructive Triangles on a mat
+images/122-480.jpg -> Constructive Triangles joined into a hexagon, a triangle and other shapes
+images/123-480.jpg -> Red, green and grey Constructive Triangles joined into larger shapes
+images/124-480.jpg -> A child working with the small hexagonal box of Constructive Triangles
+images/125-480.jpg -> Two children working with Constructive Triangles on a mat
+images/126-480.jpg -> A child matching blue Constructive Triangles to cards on a mat
+images/127-480.jpg -> Two children matching blue Constructive Triangles to cards
+images/128-480.jpg -> Two children matching blue Constructive Triangles to cards on a mat
+images/129-480.jpg -> Two children joining blue Constructive Triangles on a red mat
+images/130-480.jpg -> Graded Figures box 1: blue, yellow and red graded triangles
+images/131-480.jpg -> Graded Figures box 2: blue, red and yellow graded squares
+images/132-480.jpg -> Graded Figures box 3: red, yellow and blue graded circles
+images/133-480.jpg -> A child sitting beside graded figures laid out on the floor
+images/134-480.jpg -> Two children lying beside graded squares nested in a row
+images/135-480.jpg -> Two children lying beside graded circles laid out in a row
+images/136-480.jpg -> A child with graded circles laid out on a mat
+images/137-480.jpg -> A child building the Roman Arch on its tray
+images/138-480.jpg -> An adult and a child building the Roman Arch at a table
+images/139-480.jpg -> A child behind a finished Roman Arch with its wall
+images/140-480.jpg -> A child building the Roman Arch at a table
+images/141-480.jpg -> A child beside a finished Roman Arch with its wall
+images/142-480.jpg -> A child building the Roman Arch on a mat
+images/143-480.jpg -> A finished Roman Arch with its wall on a tray, with a child looking through the arch
+images/144-480.jpg -> A child sitting at a table beside a Roman Arch
+images/145-480.jpg -> A child at a table with the Roman Arch pieces
+images/146-480.jpg -> The red Knobless Cylinders lined up beside their box
+images/147-480.jpg -> The yellow Knobless Cylinders lined up beside their box
+images/148-480.jpg -> The green Knobless Cylinders lined up beside their box
+images/149-480.jpg -> The blue Knobless Cylinders lined up beside their box
+images/150-480.jpg -> Red, yellow and green Knobless Cylinders stacked into towers
+images/151-480.jpg -> Knobless Cylinders of different colours arranged in a row
+images/152-480.jpg -> All four sets of Knobless Cylinders arranged in graded rows
+images/153-480.jpg -> A child arranging yellow and green Knobless Cylinders at a table
+images/154-480.jpg -> Two children building towers with Knobless Cylinders
+images/155-480.jpg -> Two children grading Knobless Cylinders of all four colours
+images/156-480.jpg -> A child beside a tall tower of red and yellow Knobless Cylinders
+images/157-480.jpg -> A child with Knobless Cylinders arranged in a winding line
+images/158-480.jpg -> The Touch Boards, rough and smooth
+images/159-480.jpg -> A blindfolded child feeling a Touch Board at a table
+images/160-480.jpg -> A blindfolded child feeling a Touch Board at a table
+images/161-480.jpg -> Touch Tablets laid out on the floor
+images/162-480.jpg -> Two blindfolded children matching Touch Tablets on a mat
+images/163-480.jpg -> A blindfolded child matching fabric squares at a table
+images/164-480.jpg -> A blindfolded child holding Baric Tablets at a table
+images/165-480.jpg -> A blindfolded child sorting Baric Tablets at a table
+images/166-480.jpg -> A blindfolded child sorting Baric Tablets into a box
+images/167-480.jpg -> The Thermic Bottles beside their box
+images/168-480.jpg -> Thermic Tablets of different materials beside their box
+images/169-480.jpg -> A blindfolded child feeling Thermic Tablets at a table
+images/170-480.jpg -> A blindfolded child feeling Thermic Tablets at a table
+images/171-480.jpg -> The blue Geometric Solids on stands
+images/172-480.jpg -> A child matching Geometric Solids to cards on a mat
+images/173-480.jpg -> Two children matching Geometric Solids to picture cards on a mat
+images/174-480.jpg -> Three children holding up Geometric Solids
+images/175-480.jpg -> A child matching Geometric Solids to cards at a table
+images/176-480.jpg -> Two children taking objects from a cloth bag
+images/177-480.jpg -> Two children taking objects from cloth bags
+images/178-480.jpg -> Two children with small objects sorted on a mat
+images/179-480.jpg -> Two children taking objects from a cloth bag
+images/180-480.jpg -> A blindfolded child sorting small objects into a tray beside another child
+images/181-480.jpg -> A blindfolded child sorting small objects into a tray beside another child
+images/182-480.jpg -> A blindfolded child sorting small objects into a tray
+images/183-480.jpg -> A blindfolded adult sorting small objects into a tray beside children
+images/184-480.jpg -> A blindfolded child sorting small objects into a tray
+images/185-480.jpg -> A child taking objects from a cloth bag, with the objects laid out on the floor
+images/186-480.jpg -> A cloth bag beside a row of familiar objects: a pine cone, a key, a ruler and others
+images/187-480.jpg -> Two children taking objects from a cloth bag on a mat
+images/188-480.jpg -> A child smelling a Smelling Bottle at a table
+images/189-480.jpg -> A child smelling a Smelling Bottle at a table
+images/190-480.jpg -> Tasting Jars with dropper lids on a wooden tray
+images/191-480.jpg -> A child working with the Sound Boxes at a table
+images/192-480.jpg -> A child shaking a sound cylinder beside the Sound Boxes
+images/193-480.jpg -> A child shaking a sound cylinder at a table
+images/194-480.jpg -> A child striking a bell from a row of Bells
+images/195-480.jpg -> Children playing a row of Bells
+images/196-480.jpg -> A child striking a bell from a row of Bells
+images/197-480.jpg -> Two children playing the Bells
+images/198-480.jpg -> An adult and a child beside a row of Bells
+images/199-480.jpg -> A child listening on headphones at a table
+images/200-480.jpg -> A child listening on headphones at a table
+images/201-480.jpg -> A child wearing headphones, seen from behind and in the mirror in front of her
+images/202-480.jpg -> A child listening on headphones beside an open book
+images/203-480.jpg -> A child listening on headphones by a window
+images/204-480.jpg -> A child listening on headphones beside an aquarium
+images/205-480.jpg -> Classroom shelves holding the Binomial, Trinomial and Arithmetic Trinomial Cubes
+images/206-480.jpg -> A child tracing a Touch Board at a table
+images/207-480.jpg -> The Continents and Oceans Globe with rough land and smooth water
+images/208-480.jpg -> Two children tracing sandpaper patterns at a table
+images/209-480.jpg -> Two children with Sandpaper Letters on a table
+images/210-480.jpg -> A child tracing Sandpaper Numerals at a table
+-- names in descriptions not found in the page text (each is a fault unless the name is printed in the image itself):
+images/205-480.jpg: "Arithmetic Trinomial Cubes" is named in the description but not in the page text
+== 7. IMAGE FILES (sha256, finished folder vs live folder)
+(every line above must be a restored file listed in the report with its sha256 and proof, or it is a fault)
+== 8. FILES AND IMAGE SHAPES
+
+OK
+-- 8b. PDF-placed images shown with a shape that differs from the file by more than 1% (kept as on the live page; listed for the owner, step 7):
+none
+== RESULT: ALL CHECKS OK (parts 1-4 and 8)

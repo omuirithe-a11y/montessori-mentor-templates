@@ -1,0 +1,11 @@
+TOTAL 31
+22 border | details.mm-centre | bottom | rgb(217, 201, 171) | 1.0
+1 border | details.mm-centre.mm-megd | bottom | rgb(217, 201, 171) | 1.0
+1 border | h2.mm-area | bottom | rgb(0, 176, 80) | 2.0
+6 border | h2.mm-area | bottom | rgb(4, 50, 255) | 2.0
+1 thinbox | div.beige-rule | h2.0 | rgb(217, 201, 171) | 1140
+BY KIND+COLOUR
+1 ('border', 'rgb(0, 176, 80)')
+23 ('border', 'rgb(217, 201, 171)')
+6 ('border', 'rgb(4, 50, 255)')
+1 ('thinbox', 'rgb(217, 201, 171)')

@@ -1,0 +1,295 @@
+checking the copy unpacked from /tmp/claude-0/-home-claude/457824cb-7342-52d8-8229-8cd580a6aa46/scratchpad/t4b/the-mathematics-curriculum.zip
+zip folder name: the-mathematics-curriculum - matches the live page
+template and copy protection fingerprints: correct
+== 1. CODE OUTSIDE THE SLOTS
+
+OK
+== 2. COPY PROTECTION
+OK
+menu: 38 distinct links
+== 3. CONTENT CLEANED
+
+OK
+-- size settings kept (listed for the owner):
+start="8" on <ol> (a list that continues; the template reads it, 27 Oct)
+start="8" on <ol> (a list that continues; the template reads it, 27 Oct)
+== 4. MAIN ATTRIBUTES
+OK
+== 5. WORDS CHANGED FROM THE LIVE PAGE
+replace: "memorization." -> "memorisation."
+   live: ...encouraging a deep understanding of mathematical concepts, rather than rote memorization. A key feature of Montessori mathematics is the use of...
+   page: ...encouraging a deep understanding of mathematical concepts, rather than rote memorisation. A key feature of Montessori mathematics is the use of...
+replace: "individualized" -> "individualised"
+   live: ...allowing each child to progress at their own pace, an individualized approach which ensures that each child's unique learning style and...
+   page: ...allowing each child to progress at their own pace, an individualised approach which ensures that each child's unique learning style and...
+replace: "math" -> "maths"
+   live: ...are respected and supported. In summary, the Montessori method makes math tangible. The materials are hands-on tools designed to help children...
+   page: ...are respected and supported. In summary, the Montessori method makes maths tangible. The materials are hands-on tools designed to help children...
+delete: "Pope" -> ""
+   live: ...data. Thomas Aquinas, an Italian monk priest and theologian to Pope Pope Clement IV, described as the most influential medieval thinker...
+   page: ...data. Thomas Aquinas, an Italian monk priest and theologian to Pope Clement IV, described as the most influential medieval thinker...
+replace: "buys" -> "boys"
+   live: ...pair of 3-year-old twins joined in August; one of the buys was placed in my class and his brother was placed...
+   page: ...pair of 3-year-old twins joined in August; one of the boys was placed in my class and his brother was placed...
+replace: "math," -> "maths,"
+   live: ...foundation, preparing the child for the next stages of Montessori math, where they will explore the decimal system and operations with...
+   page: ...foundation, preparing the child for the next stages of Montessori maths, where they will explore the decimal system and operations with...
+delete: "and" -> ""
+   live: ...isolate by placing at the top of the mat. Identify and the rod and card of 9, placing beneath the 10-rod....
+   page: ...isolate by placing at the top of the mat. Identify the rod and card of 9, placing beneath the 10-rod....
+replace: "from" -> "form"
+   live: ...of the sequence of numbers and how many separate units from each number. Awareness of odd and even numbers. Preparation for...
+   page: ...of the sequence of numbers and how many separate units form each number. Awareness of odd and even numbers. Preparation for...
+replace: "other’s’" -> "other’s"
+   live: ...turns to individually reveal numbers and check by counting each other’s’ objects. The Three-Period Lesson The three-period lesson is a way...
+   page: ...turns to individually reveal numbers and check by counting each other’s objects. The Three-Period Lesson The three-period lesson is a way...
+replace: "organized" -> "organised"
+   live: ...a foundational concept that helps them understand how numbers are organized and related by place value. Through concrete, hands-on materials, children...
+   page: ...a foundational concept that helps them understand how numbers are organised and related by place value. Through concrete, hands-on materials, children...
+replace: "practice" -> "practise"
+   live: ...name and combine quantities (e.g., one thousand, two hundred, thirty-four), practice exchanging (ten units for one ten bar), and eventually perform...
+   page: ...name and combine quantities (e.g., one thousand, two hundred, thirty-four), practise exchanging (ten units for one ten bar), and eventually perform...
+replace: "practice" -> "practise"
+   live: ...have a range of exercises wherein the children get to practice (to exercise ), with the materials. In Group 2 there...
+   page: ...have a range of exercises wherein the children get to practise (to exercise ), with the materials. In Group 2 there...
+replace: "math" -> "maths"
+   live: ...individual mats) while the guide prepares a card with a math problem on it and gives it to the children. Child...
+   page: ...individual mats) while the guide prepares a card with a maths problem on it and gives it to the children. Child...
+replace: "verbalizes" -> "verbalises"
+   live: ...( 6 ). The guide puts the cards together and verbalizes the process of addition: “ You brought two thousands, four...
+   page: ...( 6 ). The guide puts the cards together and verbalises the process of addition: “ You brought two thousands, four...
+replace: "be" -> "by"
+   live: ...Cards to record the total, and then double-checked the total be counting everything again using The Stamp Game. Their grasp of...
+   page: ...Cards to record the total, and then double-checked the total by counting everything again using The Stamp Game. Their grasp of...
+replace: "recognize" -> "recognise"
+   live: ...and skip counting, helping children move beyond simple enumeration to recognize numerical patterns and relationships. Key materials include the Teens and...
+   page: ...and skip counting, helping children move beyond simple enumeration to recognise numerical patterns and relationships. Key materials include the Teens and...
+replace: "it’s" -> "its"
+   live: ...enjoy this activity and create interesting variations upon it demonstrates it’s utility. Some examples: Image 1 Using the materials as in...
+   page: ...enjoy this activity and create interesting variations upon it demonstrates its utility. Some examples: Image 1 Using the materials as in...
+replace: "Memorization" -> "Memorisation"
+   live: ...Aims Sensorial Impression of the different ways to make ten. Memorization of the essential combinations of addition. Reinforcement of the knowledge...
+   page: ...Aims Sensorial Impression of the different ways to make ten. Memorisation of the essential combinations of addition. Reinforcement of the knowledge...
+replace: "Memorization" -> "Memorisation"
+   live: ...and multiplication are part of the same concept. Indirect Aim Memorization of the essential combinations of multiplication The Essential Combinations Aims...
+   page: ...and multiplication are part of the same concept. Indirect Aim Memorisation of the essential combinations of multiplication The Essential Combinations Aims...
+replace: "Memorization" -> "Memorisation"
+   live: ...combinations of multiplication The Essential Combinations Aims Addition Strip Board Memorization of the essential combinations of addition Indirect Aim Awareness of...
+   page: ...combinations of multiplication The Essential Combinations Aims Addition Strip Board Memorisation of the essential combinations of addition Indirect Aim Awareness of...
+replace: "Memorization" -> "Memorisation"
+   live: ...Aim Awareness of the commutative law of addition Addition Charts Memorization of the essential combinations Subtraction Snake Game Memorization of the...
+   page: ...Aim Awareness of the commutative law of addition Addition Charts Memorisation of the essential combinations Subtraction Snake Game Memorisation of the...
+replace: "Memorization" -> "Memorisation"
+   live: ...Addition Charts Memorization of the essential combinations Subtraction Snake Game Memorization of the essential combinations of Subtraction Subtraction Strip Board Memorization...
+   page: ...Addition Charts Memorisation of the essential combinations Subtraction Snake Game Memorisation of the essential combinations of Subtraction Subtraction Strip Board Memorisation...
+replace: "Memorization" -> "Memorisation"
+   live: ...Memorization of the essential combinations of Subtraction Subtraction Strip Board Memorization of the essential combinations Subtraction Charts Memorization of the essential...
+   page: ...Memorisation of the essential combinations of Subtraction Subtraction Strip Board Memorisation of the essential combinations Subtraction Charts Memorisation of the essential...
+replace: "Memorization" -> "Memorisation"
+   live: ...Subtraction Strip Board Memorization of the essential combinations Subtraction Charts Memorization of the essential combinations Multiplication Bead Bars Memorization of the...
+   page: ...Subtraction Strip Board Memorisation of the essential combinations Subtraction Charts Memorisation of the essential combinations Multiplication Bead Bars Memorisation of the...
+replace: "Memorization" -> "Memorisation"
+   live: ...Subtraction Charts Memorization of the essential combinations Multiplication Bead Bars Memorization of the essential combinations i.e. the multiplication tables Reinforcement of...
+   page: ...Subtraction Charts Memorisation of the essential combinations Multiplication Bead Bars Memorisation of the essential combinations i.e. the multiplication tables Reinforcement of...
+replace: "Memorization" -> "Memorisation"
+   live: ...form of multiplication. Preparation for work with factors. Multiplication Board Memorization of the Multiplication tables Multiplication Charts Memorization of the Multiplication...
+   page: ...form of multiplication. Preparation for work with factors. Multiplication Board Memorisation of the Multiplication tables Multiplication Charts Memorisation of the Multiplication...
+replace: "Memorization" -> "Memorisation"
+   live: ...factors. Multiplication Board Memorization of the Multiplication tables Multiplication Charts Memorization of the Multiplication Tables Unit Division Board Memorization of Division...
+   page: ...factors. Multiplication Board Memorisation of the Multiplication tables Multiplication Charts Memorisation of the Multiplication Tables Unit Division Board Memorisation of Division...
+replace: "Memorization" -> "Memorisation"
+   live: ...Multiplication Charts Memorization of the Multiplication Tables Unit Division Board Memorization of Division combinations Division Charts Memorization of the Division Tables...
+   page: ...Multiplication Charts Memorisation of the Multiplication Tables Unit Division Board Memorisation of Division combinations Division Charts Memorisation of the Division Tables...
+replace: "Memorization" -> "Memorisation"
+   live: ...Tables Unit Division Board Memorization of Division combinations Division Charts Memorization of the Division Tables Addition Snake Game Addition Boards Addition...
+   page: ...Tables Unit Division Board Memorisation of Division combinations Division Charts Memorisation of the Division Tables Addition Snake Game Addition Boards Addition...
+replace: "eights," -> "eighths,"
+   live: ...the others sectioned into halves, thirds, fourths, fifths, sixths, sevenths, eights, ninths and tenths. Because they are introduced at the same...
+   page: ...the others sectioned into halves, thirds, fourths, fifths, sixths, sevenths, eighths, ninths and tenths. Because they are introduced at the same...
+replace: "child-cantered" -> "child-centred"
+   live: ...different approach to teaching mathematics, utilising tactile materials and a child-cantered learning philosophy to foster a deep understanding and appreciation of...
+   page: ...different approach to teaching mathematics, utilising tactile materials and a child-centred learning philosophy to foster a deep understanding and appreciation of...
+replace: "instills" -> "instils"
+   live: ...not only supports the development of mathematical skills but also instills a lifelong love of learning, preparing them to be confident...
+   page: ...not only supports the development of mathematical skills but also instils a lifelong love of learning, preparing them to be confident...
+== 6. LINKS, IMAGES AND DESCRIPTIONS CHANGED
+descriptions:
+images/002-480.jpg -> A wall display of coloured Montessori mathematics materials.
+images/003-480.jpg -> A painting of Thomas Aquinas in a dark robe, holding an open book and a model of a church.
+images/004-480.jpg -> Two children at an easel blackboard with numbers written on it.
+images/005-480.jpg -> Two children sitting on the floor beside a long bead chain laid along a paper strip in a classroom.
+images/006-480.jpg -> A child taking black rods from a basket at a table.
+images/007-480.jpg -> A child threading beads onto a string while sitting on a mat.
+images/008-480.jpg -> Three children walking in a line across a classroom.
+images/009-480.jpg -> A group of children standing together in a classroom.
+images/010-480.jpg -> A child kneeling beside a large frame of black rods on the floor.
+images/011-480.jpg -> Two children at a table, one using a dropper to put drops of pink water onto a dotted tray while the other watches.
+images/012-480.jpg -> A group of children in coats standing together in a playground.
+images/013-480.jpg -> Two children with a maze of red and blue rods on a mat.
+images/014-480.jpg -> Two children working with wooden cylinder blocks at a table.
+images/015-480.jpg -> Two children beside a tall stack of brown wooden prisms on a mat.
+images/016-480.jpg -> A child arranging red rods into a staircase on a mat.
+images/017-480.jpg -> A girl standing inside a spiral of red rods while a boy lies beside it pointing, and another child walks past.
+images/018-480.jpg -> A child kneeling beside a mat laid out with colour tablets.
+images/019-480.jpg -> A child pointing at a tall tower of pink cubes.
+images/020-480.jpg -> A child working with yellow boards laid in a row on the floor.
+images/021-480.jpg -> A child kneeling by a mat with blue geometric solids and cards.
+images/022-480.jpg -> A child at a table with small black and coloured cubes.
+images/023-480.jpg -> Two children at two small tables working with black blocks.
+images/024-480.jpg -> A child working with a wooden box of coloured cubes at a table.
+images/025-480.jpg -> A child laying out wooden cubes and number cards on a mat.
+images/026-480.jpg -> Two children standing behind towers of golden bead cubes and number cards on a mat.
+images/027-480.jpg -> A child lying on the floor beside a wooden board of number cards.
+images/028-480.jpg -> Two children working with a row of wooden number tiles on a mat.
+images/029-480.jpg -> A collection of Montessori mathematics materials on a white background.
+images/030-480.jpg -> A classroom shelf holding number rods, number cards and boxes of materials.
+images/031-480.jpg -> Red and blue number rods, sandpaper numerals, a box of counters and a spindle box.
+images/032-480.jpg -> Two children laying out red and blue number rods on a mat.
+images/033-480.jpg -> Red and blue number rods laid out on a mat.
+images/034-480.jpg -> A child sitting beside long red and blue number rods on a mat.
+images/035-480.jpg -> A child holding a long red and blue number rod out at shoulder height.
+images/036-480.jpg -> A child tracing green sandpaper numerals at a table.
+images/037-480.jpg -> A child writing numerals on paper beside a green sandpaper numeral.
+images/038-480.jpg -> A child sitting beside red and blue number rods with number cards on a mat.
+images/039-480.jpg -> Two children sitting beside number rods and number cards on a mat.
+images/040-480.jpg -> A child placing number cards on red and blue number rods on a mat.
+images/041-480.jpg -> A child holding a long red and blue number rod across her body.
+images/042-480.jpg -> A child sitting beside red and blue number rods with number cards on a mat.
+images/043-480.jpg -> A child rubbing out numerals on a green chalkboard at a table.
+images/044-480.jpg -> A child writing numerals on paper beside a green sandpaper numeral.
+images/045-480.jpg -> A child writing numerals on a black chalkboard at a table.
+images/046-480.jpg -> A child beside a spindle box on a classroom shelf.
+images/047-480.jpg -> A child placing spindles in a wooden spindle box on a blue mat.
+images/048-480.jpg -> A child counting spindles from a basket into a spindle box.
+images/049-480.jpg -> A child standing at a table with a spindle box below a wall of pictures.
+images/050-480.jpg -> A child putting spindles into a spindle box at a table.
+images/051-480.jpg -> Two children laying out red numerals and counters on a long mat.
+images/052-480.jpg -> A child placing red counters under numerals on a mat.
+images/053-480.jpg -> A child sitting behind red numerals and counters laid out on a mat.
+images/054-480.jpg -> A child laying out numeral cards and red counters on a mat.
+images/055-480.jpg -> Number cards with small brown objects placed on them on a grey mat.
+images/056-480.jpg -> Two children sitting by a mat laid out with cards and small objects.
+images/057-480.jpg -> Two children working with small objects on a green board.
+images/058-480.jpg -> Two children sitting behind cards and small brown objects on a mat.
+images/059-480.jpg -> Three symbols: a pointing hand, a magnifying glass and a question mark, with the words This is, Show me and What is.
+images/060-480.jpg -> Golden beads, a stamp game and number cards on a white background.
+images/061-480.jpg -> Two children laying out coloured number cards in rows on a long mat beside a tray.
+images/062-480.jpg -> Two children beside red and blue rods arranged in a staircase on a mat.
+images/063-480.jpg -> Children working with red and blue rods on mats in a classroom.
+images/064-480.jpg -> Two children making spiral patterns with red and blue number rods on a mat.
+images/065-480.jpg -> Two children standing beside a maze of red and blue rods on a blue mat.
+images/066-480.jpg -> Red and blue number rods laid out in a fan on mats, with two children sitting behind.
+images/067-480.jpg -> Two children arranging red and blue number rods into a staircase.
+images/068-480.jpg -> A child standing inside a square made of red and blue number rods.
+images/069-480.jpg -> Two children building a wall of golden bead cubes beside number cards.
+images/070-480.jpg -> A child at a table with golden beads and number cards for 1, 10 and 100.
+images/071-480.jpg -> One child sitting by a mat of number cards while another carries a tray.
+images/072-480.jpg -> Two children standing by a tall tower of golden bead cubes.
+images/073-480.jpg -> A child laying out golden beads and number cards on a mat.
+images/074-480.jpg -> A child carrying a tray with golden bead squares.
+images/075-480.jpg -> An adult and a child working with golden bead cubes on a mat.
+images/076-480.jpg -> Two children sitting behind a tower of golden bead cubes and number cards.
+images/077-480.jpg -> Three children sitting behind golden beads and number cards on a mat.
+images/078-480.jpg -> Four children working with trays of golden beads on a mat.
+images/079-480.jpg -> Two children laying out golden bead cubes along a long mat.
+images/080-480.jpg -> Two children holding up number cards beside a line of golden bead cubes.
+images/081-480.jpg -> A group of children building with golden bead cubes on the floor.
+images/082-480.jpg -> A group of children sitting around a mat of number cards and coloured stamps.
+images/083-480.jpg -> A group of children posing beside a long mat of number cards.
+images/084-480.jpg -> A child working with a box of coloured stamps and writing on paper.
+images/085-480.jpg -> A child placing coloured tiles on a dark blue board.
+images/086-480.jpg -> A child working with coloured stamps on a long strip of paper at a table.
+images/087-480.jpg -> A child writing beside a box of coloured stamps at a table.
+images/088-480.jpg -> A child working on a dot game sheet at a table.
+images/089-480.jpg -> Teen boards, bead bars and a box of beads on a white background.
+images/090-480.jpg -> A wooden tray holding a golden bead square and a triangle of coloured bead bars.
+images/091-480.jpg -> A child resting his head on a table beside a bead hanger and teen board.
+images/092-480.jpg -> A child writing at a table beside wooden boards and bead bars.
+images/093-480.jpg -> A man sitting on the floor with a group of children in a classroom.
+images/094-480.jpg -> A man and children sitting around teen boards on a mat.
+images/095-480.jpg -> A man and children around teen boards on a mat, two children reaching out.
+images/096-480.jpg -> A child working with teen boards and bead bars on a long mat.
+images/097-480.jpg -> A man and two children working with teen boards on a mat.
+images/098-480.jpg -> Two children working with tens boards on a mat.
+images/099-480.jpg -> A child sitting beside a long row of tens boards on a mat.
+images/100-480.jpg -> Two children laying out tens boards along a mat.
+images/101-480.jpg -> Three children working with materials on a mat in a classroom.
+images/102-480.jpg -> A child sitting beside a mat with seven number-strip picture puzzles on it.
+images/103-480.jpg -> A child working with number tiles and a box of coloured bead bars.
+images/104-480.jpg -> A child laying out a bead chain and labels on a long black mat.
+images/105-480.jpg -> A child lying beside a golden bead chain with labels on a white mat.
+images/106-480.jpg -> Two children at the end of a long bead chain laid along a black mat.
+images/107-480.jpg -> Two children counting a golden bead chain on the floor.
+images/108-480.jpg -> A child placing labels along a golden bead chain on the floor.
+images/109-480.jpg -> A child sitting at the end of a bead chain with labels on a black mat.
+images/110-480.jpg -> A child lying on the floor beside a bead chain with labels.
+images/111-480.jpg -> A child working with a box of bead bars beside a mat on the floor.
+images/112-480.jpg -> Two children lying beside a blue bead chain on a long black mat.
+images/113-480.jpg -> A child counting coloured bead chains laid out on a mat.
+images/114-480.jpg -> A child kneeling behind bead chains and bead squares laid out on a mat.
+images/115-480.jpg -> Children sitting on the floor counting bead chains.
+images/116-480.jpg -> A child kneeling beside a long golden bead chain and bead cube on a black mat.
+images/117-480.jpg -> A very long bead chain laid along a classroom floor.
+images/118-480.jpg -> Two children placing labels along a blue bead chain on a long black mat.
+images/119-480.jpg -> A child counting a blue bead chain on a mat.
+images/120-480.jpg -> A very long bead chain with labels on a black mat along a corridor.
+images/121-480.jpg -> Children laying out a very long bead chain on an orange mat along a corridor.
+images/122-480.jpg -> Children in a classroom with a very long bead chain laid out on a black mat.
+images/123-480.jpg -> A man and a child sitting on the floor making shapes with bead chains on a mat.
+images/124-480.jpg -> Two children laying out number tiles beside a blue hundred board on a mat.
+images/125-480.jpg -> A child at a table working with a hundred board.
+images/126-480.jpg -> Two children working with a hundred board at a classroom shelf.
+images/127-480.jpg -> A child sitting beside a blue board and number tiles on a mat.
+images/128-480.jpg -> Two children working with a hundred board on artificial grass.
+images/129-480.jpg -> Two children at a table with a clipboard and a measuring tape.
+images/130-480.jpg -> Four children at classroom shelves, a girl writing on a clipboard and a boy reaching into a book stand.
+images/131-480.jpg -> Three boys beside a classroom shelf, two of them measuring the third with a tape measure.
+images/132-480.jpg -> Two children measuring classroom furniture.
+images/133-480.jpg -> A girl holding a clipboard in a classroom washing area, with another girl standing at the far end.
+images/134-480.jpg -> Three children measuring a door with a measuring tape.
+images/135-480.jpg -> Classroom shelves holding the materials for the essential combinations.
+images/136-480.jpg -> Two children working with a blue board and bead bars at a table.
+images/137-480.jpg -> A box of coloured bead bars, black and white bead bars and two coloured cards.
+images/138-480.jpg -> A strip board with a box of strips and red and blue staircase strips.
+images/139-480.jpg -> A set of addition and subtraction charts with a small box of tiles.
+images/140-480.jpg -> A child laying out coloured bead bars on a cloth at a table.
+images/141-480.jpg -> A child working with a strip board at a table.
+images/142-480.jpg -> A child at a table with an addition chart and a box of tiles.
+images/143-480.jpg -> A child working with a box of bead bars at a table.
+images/144-480.jpg -> A green cube with a red lid, a blue prism and a small bead bar.
+images/145-480.jpg -> A child writing at a table in front of a bead frame.
+images/146-480.jpg -> Racks of coloured skittles with bowls of beads and test-tube racks on division boards.
+images/147-480.jpg -> A classroom shelf holding number rods, number cards and fraction circles.
+images/148-480.jpg -> A child placing red fraction pieces into green fraction insets on a mat.
+images/149-480.jpg -> Two children sitting behind red fraction pieces and fraction insets on a mat.
+images/150-480.jpg -> A child kneeling beside a row of green fraction insets on a mat.
+images/151-480.jpg -> Two children working with red fraction pieces and a tray of fraction insets.
+images/152-480.jpg -> Two children working with red fraction pieces at a table.
+images/153-480.jpg -> Two children with fraction insets on a blue mat.
+images/154-480.jpg -> A poster with the title Montessori Math Tree printed on it, showing the mathematics materials arranged as a tree.
+-- names in descriptions not found in the page text (each is a fault unless the name is printed in the image itself):
+none
+== 7. IMAGE FILES (sha256, finished folder vs live folder)
+(every line above must be a restored file listed in the report with its sha256 and proof, or it is a fault)
+== 8. FILES AND IMAGE SHAPES
+
+OK
+-- 8b. PDF-placed images shown with a shape that differs from the file by more than 1% (kept as on the live page; listed for the owner, step 7):
+images/004.jpg: shown 0.7371, file 1200x1600 (0.75000)
+images/005.jpg: shown 0.8355, file 1519x1600 (0.94937)
+images/019.jpg: shown 0.9141, file 1387x1600 (0.86687)
+images/025.jpg: shown 0.7835, file 1200x1600 (0.75000)
+images/026.jpg: shown 0.7835, file 1200x1600 (0.75000)
+images/029.jpg: shown 1.0000, file 2784x2304 (1.20833)
+images/033.jpg: shown 1.4689, file 829x500 (1.65800)
+images/034.jpg: shown 0.7294, file 1200x1600 (0.75000)
+images/035.jpg: shown 0.6894, file 1200x1600 (0.75000)
+images/036.jpg: shown 1.3380, file 900x650 (1.38462)
+images/038.jpg: shown 0.7753, file 677x900 (0.75222)
+images/041.jpg: shown 1.1129, file 900x793 (1.13493)
+images/059.jpg: shown 2.3125, file 1074x470 (2.28511)
+images/088.jpg: shown 1.4104, file 1600x1200 (1.33333)
+images/089.jpg: shown 1.7392, file 1600x802 (1.99501)
+images/090.jpg: shown 0.9292, file 1400x1400 (1.00000)
+16 image(s)
+== RESULT: ALL CHECKS OK (parts 1-4 and 8)

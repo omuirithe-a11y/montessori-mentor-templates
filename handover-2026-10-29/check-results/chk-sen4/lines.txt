@@ -1,0 +1,23 @@
+== pkg 390
+width 390: lines 58 text boxes 1003 line-through-text 0
+== live 390
+width 390: lines 58 text boxes 1013 line-through-text 0
+== pkg 641
+width 641: lines 82 text boxes 840 line-through-text 0
+== live 641
+width 641: lines 82 text boxes 850 line-through-text 0
+== pkg 700
+width 700: lines 82 text boxes 817 line-through-text 0
+== live 700
+width 700: lines 82 text boxes 817 line-through-text 0
+== pkg 1024
+width 1024: lines 82 text boxes 763 line-through-text 0
+== live 1024
+width 1024: lines 87 text boxes 767 line-through-text 0
+== pkg 1440
+width 1440: lines 82 text boxes 727 line-through-text 0
+== live 1440
+width 1440: lines 87 text boxes 730 line-through-text 0
+Thu Oct 29 01:31:04 CST 2026
+
+[exited with code 0]

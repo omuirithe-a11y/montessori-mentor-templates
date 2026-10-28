@@ -1,0 +1,1 @@
+width 700: lines 82 text boxes 817 line-through-text 0

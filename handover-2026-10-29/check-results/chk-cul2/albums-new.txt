@@ -1,0 +1,50 @@
+1440 load scrollHeight 21423 details 23 max margin-top 50.8 H2.mm-area mm-hc-0432FF "Artistic Expression"
+    Observation ['div.micro-label lbl-bold 22.3px']
+    Oxygen Depletion ['div.micro-label lbl-bold 22.3px']
+    Pressure Change ['div.micro-label lbl-bold 22.3px']
+    Water Rise ['div.micro-label lbl-bold 22.3px']
+1440 open scrollHeight 28693 details 23 max margin-top 48.0 DIV.mm-row ""
+    Observation ['div.micro-label lbl-bold 22.3px']
+    Oxygen Depletion ['div.micro-label lbl-bold 22.3px']
+    Pressure Change ['div.micro-label lbl-bold 22.3px']
+    Water Rise ['div.micro-label lbl-bold 22.3px']
+1440 closed scrollHeight 21423 details 23 max margin-top 50.8 H2.mm-area mm-hc-0432FF "Artistic Expression"
+    Observation ['div.micro-label lbl-bold 22.3px']
+    Oxygen Depletion ['div.micro-label lbl-bold 22.3px']
+    Pressure Change ['div.micro-label lbl-bold 22.3px']
+    Water Rise ['div.micro-label lbl-bold 22.3px']
+1440 open scrollHeight 28693 details 23 max margin-top 48.0 DIV.mm-row ""
+    Observation ['div.micro-label lbl-bold 22.3px']
+    Oxygen Depletion ['div.micro-label lbl-bold 22.3px']
+    Pressure Change ['div.micro-label lbl-bold 22.3px']
+    Water Rise ['div.micro-label lbl-bold 22.3px']
+1440 closed scrollHeight 21423 details 23 max margin-top 50.8 H2.mm-area mm-hc-0432FF "Artistic Expression"
+    Observation ['div.micro-label lbl-bold 22.3px']
+    Oxygen Depletion ['div.micro-label lbl-bold 22.3px']
+    Pressure Change ['div.micro-label lbl-bold 22.3px']
+    Water Rise ['div.micro-label lbl-bold 22.3px']
+390 load scrollHeight 29026 details 23 max margin-top 71.8 H2.mm-sub mm-hc-00B050 "Sample Botany Albums (contents"
+    Observation ['div.micro-label lbl-bold 23.95px']
+    Oxygen Depletion ['div.micro-label lbl-bold 23.95px']
+    Pressure Change ['div.micro-label lbl-bold 23.95px']
+    Water Rise ['div.micro-label lbl-bold 23.95px']
+390 open scrollHeight 47868 details 23 max margin-top 71.8 H2.mm-sub mm-hc-00B050 "Sample Botany Albums (contents"
+    Observation ['div.micro-label lbl-bold 23.95px']
+    Oxygen Depletion ['div.micro-label lbl-bold 23.95px']
+    Pressure Change ['div.micro-label lbl-bold 23.95px']
+    Water Rise ['div.micro-label lbl-bold 23.95px']
+390 closed scrollHeight 29026 details 23 max margin-top 71.8 H2.mm-sub mm-hc-00B050 "Sample Botany Albums (contents"
+    Observation ['div.micro-label lbl-bold 23.95px']
+    Oxygen Depletion ['div.micro-label lbl-bold 23.95px']
+    Pressure Change ['div.micro-label lbl-bold 23.95px']
+    Water Rise ['div.micro-label lbl-bold 23.95px']
+390 open scrollHeight 47868 details 23 max margin-top 71.8 H2.mm-sub mm-hc-00B050 "Sample Botany Albums (contents"
+    Observation ['div.micro-label lbl-bold 23.95px']
+    Oxygen Depletion ['div.micro-label lbl-bold 23.95px']
+    Pressure Change ['div.micro-label lbl-bold 23.95px']
+    Water Rise ['div.micro-label lbl-bold 23.95px']
+390 closed scrollHeight 29026 details 23 max margin-top 71.8 H2.mm-sub mm-hc-00B050 "Sample Botany Albums (contents"
+    Observation ['div.micro-label lbl-bold 23.95px']
+    Oxygen Depletion ['div.micro-label lbl-bold 23.95px']
+    Pressure Change ['div.micro-label lbl-bold 23.95px']
+    Water Rise ['div.micro-label lbl-bold 23.95px']

@@ -1,0 +1,21 @@
+00:23:52 goto http://127.0.0.1:21732/index.html 1440
+00:24:01 info {'h': 31454, 'sw': 1440, 'broken': ['<img alt="" id="lightbox-img" src="">']}
+00:24:01 piece 0 y 0
+00:24:03 piece 1 y 1800
+00:24:04 piece 2 y 3600
+00:24:05 piece 3 y 5400
+00:24:07 piece 4 y 7200
+00:24:08 piece 5 y 9000
+00:24:09 piece 6 y 10800
+00:24:11 piece 7 y 12600
+00:24:12 piece 8 y 14400
+00:24:13 piece 9 y 16200
+00:24:15 piece 10 y 18000
+00:24:16 piece 11 y 19800
+00:24:17 piece 12 y 21600
+00:24:19 piece 13 y 23400
+00:24:20 piece 14 y 25200
+00:24:21 piece 15 y 27000
+00:24:23 piece 16 y 28800
+00:24:24 piece 17 y 29654
+00:24:24 saved 18

@@ -1,0 +1,50 @@
+00:09:31 goto
+00:09:46 height 39110
+00:09:53 eager set
+00:10:17 images complete
+00:11:08 /tmp/claude-0/-home-claude/457824cb-7342-52d8-8229-8cd580a6aa46/scratchpad/chk-sen3/shots/pkg-700.png {'h': 39102, 'sw': 700, 'broken': ['']}
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-claude/457824cb-7342-52d8-8229-8cd580a6aa46/scratchpad/chk-sen3/tools/shot.py", line 19, in <module>
+    pg.screenshot(path=out, full_page=True, timeout=120000, animations="disabled")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 10909, in screenshot
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.screenshot(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+        )
+        ^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/playwright/_impl/_page.py", line 830, in screenshot
+    encoded_binary = await self._channel.send(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+        "screenshot", self._timeout_settings.timeout, params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.screenshot: Timeout 120000ms exceeded.
+Call log:
+  - taking page screenshot
+    - disabled all CSS animations
+
+rc=1 pkg-700
+00:13:09 goto
+00:13:11 height 41353
+00:13:12 eager set
+00:13:15 images complete
+Terminated
+rc=143 live-700
+00:13:20 goto

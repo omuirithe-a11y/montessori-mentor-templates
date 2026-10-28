@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Sensorial Resources | Montessori Mentor</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Vollkorn:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --paper:#FFFFFF; --paper-alt:#F3F3F1; --line:#E6E6E4;
+  --ink:#2B2B2B; --quiet:#6B6B6B; --link:#4A5560;
+  --head:#0432FF; --navy:#1E4D7B;   /* 23 Sept: headings in the blue the person uses in Word */ --bar:#FBF8F3; --bar-line:#DED6C8; --active:#B5613E;
+  --serif:'EB Garamond',Georgia,serif; --display:'Vollkorn',Georgia,serif;
+  --sans:Helvetica,'Helvetica Neue',Arial,sans-serif;
+  --page:1220px; --gutter:40px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.65;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--head)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--active);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:12px;top:12px;z-index:50;background:#fff;padding:8px 12px}
+
+/* ---------- header: menu bar A4 (navy, all serif) ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--navy)}
+.site-head-in{max-width:1280px;margin:0 auto;height:76px;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.site-name{font-family:var(--display);font-size:25px;font-weight:500;color:#fff;text-decoration:none;white-space:nowrap}
+.menu{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:22px}
+.menu > li{position:static;display:flex;align-items:center;height:76px}
+.menu .top{font-family:var(--serif);font-size:17px;color:#fff;text-decoration:none;padding:6px 0;border-bottom:1.5px solid transparent;white-space:nowrap}
+.menu .top:hover{color:#DCE6F0}
+.menu .top[aria-current="page"]{border-bottom-color:#fff}
+.sub-toggle{width:22px;height:30px;margin-left:1px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:#fff;cursor:pointer;opacity:.85}
+.panel{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 14px 28px rgba(20,30,40,.14)}
+.has-panel:focus-within > .panel,.has-panel.open > .panel{display:block}
+.has-panel.open > .sub-toggle svg{transform:rotate(180deg)}
+.panel-in{max-width:1280px;margin:0 auto;padding:26px 40px 30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 48px}
+.grp{list-style:none;margin:0;padding:0}
+.grp li{border-bottom:1px solid var(--line)}
+.grp li:last-child{border-bottom:0}
+.grp a{display:block;padding:8px 0;font-family:var(--serif);font-size:17px;line-height:1.3;color:var(--ink);text-decoration:none}
+.grp a:hover{color:var(--head)}
+.grp li.lead a{color:var(--head);font-weight:600}
+.grp a[aria-current="page"]{color:var(--head);text-decoration:underline;text-underline-offset:3px}
+.icon-btn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:#fff;cursor:pointer;border-radius:22px}
+.icon-btn:hover{background:rgba(255,255,255,.1)}
+.menu-btn{display:none}
+.site-tools{display:flex;align-items:center;gap:2px}
+.site-head a:focus-visible,.site-head button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* ---------- hero (Practical Life page) ---------- */
+.hero{position:relative;margin:10px 10px 0;min-height:400px;display:flex;align-items:flex-end;padding:0 8% 40px;
+  background-color:#2A2420;background-size:cover;background-position:center}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,rgba(15,12,9,.72) 0%,rgba(15,12,9,.55) 34%,rgba(15,12,9,.12) 62%,rgba(15,12,9,0) 80%)}
+.hero h1{position:relative;z-index:1;margin:0;max-width:760px;font-family:var(--display);font-weight:500;font-size:40px;line-height:1.2;color:#fff;
+  text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero h1 span{display:block}
+.hero h1 .sub{font-size:26px;margin-top:6px}
+
+/* ---------- contents box ---------- */
+.toc-wrap{max-width:1100px;margin:0 auto;padding:26px 0 36px}
+.toc-label{margin:0 0 14px;font-family:var(--serif);font-weight:500;font-size:24px;color:var(--head)}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:0 0 10px}
+.toc a{font-size:19px;line-height:1.35;color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.toc a:hover{color:var(--head);border-bottom-color:var(--head)}
+.toc-groups a{display:flex;align-items:baseline;gap:8px}
+.toc-num{flex:0 0 22px;font-weight:600;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* ---------- footer ---------- */
+.site-foot{border-top:1px solid var(--line);margin-top:24px}
+.site-foot-in{max-width:var(--page);margin:0 auto;padding:32px var(--gutter) 48px;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-size:15px;color:var(--quiet)}
+.site-foot a{color:var(--quiet)}
+
+/* ---------- shared essay typography (all three templates) ---------- */
+.page-h2{font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.2;color:var(--head);
+  margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--head)}
+blockquote.mq{margin:24px 38px;padding:0;font-family:var(--display);font-weight:400;font-style:italic;font-size:17px;line-height:1.65}
+blockquote.mq strong{font-weight:400}
+blockquote.mq p{margin:0 0 8px;text-indent:48px}
+blockquote.mq cite{display:block;font-style:normal;margin-top:6px;padding-left:48px}
+
+@media (max-width:1180px){
+  .menu{gap:15px}
+  .site-head-in{padding:0 24px}
+  .menu .top{font-size:16px}
+}
+@media (max-width:960px){
+  .site-head-in{height:60px;padding:0 8px 0 18px}
+  .site-name{font-size:21px}
+  .menu-btn{display:inline-flex}
+  .site-nav{display:none;position:absolute;left:0;right:0;top:60px;background:var(--navy);max-height:calc(100vh - 60px);overflow-y:auto;
+    padding:4px 18px 16px;box-shadow:0 12px 24px rgba(0,0,0,.18)}
+  .site-nav.open{display:block}
+  .menu{display:block}
+  .menu > li{display:flex;flex-wrap:wrap;align-items:center;height:auto;border-bottom:1px solid rgba(255,255,255,.2)}
+  .menu .top{flex:1 1 auto;font-size:18px;padding:13px 0;border-bottom:0}
+  .menu .top[aria-current="page"]{text-decoration:underline;text-underline-offset:4px}
+  .sub-toggle{width:44px;height:44px}
+  .has-panel:focus-within > .panel{display:none}
+  .has-panel.open > .panel{display:block}
+  
+  .has-panel.open > .sub-toggle svg{transform:rotate(180deg)}
+  .panel{position:static;flex:0 0 100%;background:transparent;border:0;box-shadow:none}
+  .panel-in{display:block;padding:0 0 10px 14px}
+  .grp{margin-bottom:6px}
+  .grp li{border-bottom:0}
+  .grp a{color:#E7EEF5;font-size:17px;padding:7px 0}
+  .grp li.lead a{color:#fff}
+  .grp a[aria-current="page"]{color:#fff}
+  html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+}
+@media (max-width:640px){
+  .hero{margin:0;min-height:240px;padding:0 24px 24px}
+  .hero h1{font-size:28px}
+  .hero h1 .sub{font-size:19px}
+  .toc-wrap{padding:22px 24px 26px}
+  .toc-grid{grid-template-columns:1fr}
+  .toc-label{font-size:22px}
+  .toc a{font-size:18px}
+  .site-foot-in{flex-direction:column;align-items:flex-start;padding:28px 24px 40px}
+  blockquote.mq{margin:20px 0}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+  :root{
+    --bg:#FBF8F2; --ink:#2A2420; --rule:#E4DBC9;
+    --tint:#F1EBDD; --card:#FFFFFF;
+    --title:#D81F35; --heading:#1F9E42; --material:#1560D4;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'EB Garamond',Georgia,serif;line-height:1.7;font-size:19px}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;color:var(--title);margin:0;font-size:30px;line-height:1.15}
+  h2,h3.material-name{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;margin:0}
+  a{color:var(--material)}
+  img{max-width:100%;display:block}
+
+  .title-block{padding:56px 0 8px;text-align:center}
+  .hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:19px;color:var(--ink);margin-top:8px}
+
+  .article{max-width:1220px;margin:0 auto;padding:8px 40px 96px}
+
+  .section{margin-top:64px;padding-top:24px;border-top:1px solid var(--ink);clear:both}
+  .section:first-of-type{margin-top:40px}
+  .section h2{font-size:25px;line-height:1.25;margin-bottom:16px;color:var(--heading)}
+
+  h3.material-name{font-size:21px;margin-top:40px;margin-bottom:8px;border-top:1px solid var(--rule);padding-top:24px;color:var(--material)}
+
+  .micro-label{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--ink);margin-top:15px;margin-bottom:0}
+
+  .sub-label{font-family:'Cormorant Garamond',serif;margin-top:15px;margin-bottom:0;font-size:21px}
+  .sub-label strong{color:var(--ink);font-weight:700}
+  p.tight-top{margin-top:5px}
+
+  .preview-line{color:var(--ink);font-style:italic;font-size:17px;margin:8px 0}
+
+  p{margin:16px 0}
+  p.tight-bottom{margin-bottom:5px}
+  p.grp-first{margin-bottom:4px}
+  p.grp-mid{margin-top:4px;margin-bottom:4px}
+  p.grp-last{margin-top:4px}
+  ul,ol{margin:16px 0;padding-left:24px}
+  li{margin:8px 0;text-align:justify}
+  ul{list-style:none;padding-left:24px}
+  ul li{position:relative}
+  ul li::before{content:"\2010";position:absolute;left:-20px;color:var(--ink)}
+
+  /* All content photographs: sized from the Word doc's own dimensions (inline style),
+     never cropped -- object-fit is not used so aspect ratio is always exact. */
+  .doc-img{width:auto;max-width:100%;border-radius:2px;background:#EDE6D8;cursor:zoom-in}
+
+  /* Standalone galleries (no accompanying text in that block): one line, never wraps */
+  
+
+  /* "X materials are:" bulleted lists -> a plain multi-column table, no bullet marks */
+  .materials-table{column-count:2;column-gap:48px;margin:16px 0 24px;clear:both;max-width:640px}
+  .materials-table div{break-inside:avoid;padding:4px 0}
+
+  blockquote.pullquote{margin:32px auto;max-width:90%;clear:both;text-align:left;padding:0;border:none}
+  blockquote.pullquote p{font-style:italic;font-weight:400;font-size:1em;line-height:1.7;margin:0;color:inherit;font-family:inherit}
+  blockquote.pullquote cite{display:block;margin-top:8px;font-style:normal;font-size:1em;color:var(--ink);font-family:inherit}
+
+  aside.callout{margin:24px 0;padding:24px;background:var(--tint);border-radius:3px;clear:both;max-width:800px}
+  .callout-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:18px;color:var(--ink);margin-bottom:8px}
+  aside.callout p{margin:8px 0}
+
+  .ref-table{margin-top:8px;border-top:1px solid var(--rule);clear:both}
+  .ref-row{display:flex;gap:24px;padding:16px 0;border-bottom:1px solid var(--rule)}
+  
+  .ref-desc{flex:1;color:var(--ink)}
+
+  
+  
+  
+
+  footer.colophon{max-width:1220px;margin:0 auto;padding:40px 40px 80px;font-size:14px;color:var(--ink);border-top:1px solid var(--rule);clear:both;font-family:'EB Garamond',serif}
+
+  /* Lightbox */
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(20,16,12,.94);z-index:999;align-items:center;justify-content:center;padding:5vw;cursor:zoom-out}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb-nav{position:fixed;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:none;background:rgba(255,255,255,.12);color:#fff;font-size:32px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .15s}
+  .lb-nav:hover{background:rgba(255,255,255,.24)}
+  .lb-prev{left:24px}
+  .lb-next{right:24px}
+  .lb-counter{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.75);font-family:'EB Garamond',serif;font-size:15px;display:none}
+
+  @media (max-width:640px){
+    body{font-size:17px}
+    h1{font-size:26px}
+    .article{padding:8px 24px 72px}
+    .section h2{font-size:22px}
+    h3.material-name{font-size:19px}
+    .micro-label{font-size:17px}
+    .sub-label{font-size:19px}
+    .ref-row{flex-direction:column;gap:4px}
+    
+    
+    blockquote.pullquote{max-width:100%}
+  }
+
+  /* ---- Layout (review changes, 19 Sept afternoon) ---- */
+  @media (min-width:641px){ main h2{font-size:23px !important} }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .ph{margin:0;flex:none;min-width:0}
+  .ph .pim{position:relative;overflow:hidden;border-radius:2px;background:transparent}
+  
+  .ph img.doc-img{display:block;width:100%;height:auto;max-width:none;max-height:none;border-radius:0;cursor:zoom-in;background:transparent}
+  .ph figcaption{font-family:'EB Garamond',serif;font-size:15px;line-height:1.3;color:var(--ink);text-align:center;margin-top:6px;width:0;min-width:100%}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .preview-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(7,auto);grid-auto-flow:column;column-gap:24px}
+  .preview-grid > div{font-style:italic;font-size:17px;margin:8px 0;color:var(--ink)}
+  
+  
+  main ul{list-style:none;padding-left:48px !important;margin-left:0 !important}
+  main ul li{position:relative}
+  main ul li::before{left:-24px !important}
+  main ol{padding-left:48px !important;margin-left:0 !important}
+  .micro-label{font-size:21px !important}
+  
+  
+  
+
+  /* phones: groups of 2+ photos are swipe strips with dots; single photos are plain */
+  @media (max-width:640px){
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .preview-grid{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}
+    
+  }
+  blockquote.pullquote{max-width:none !important;margin:24px 0 !important}
+  blockquote.pullquote p{text-indent:48px}
+  blockquote.pullquote cite{padding-left:48px}
+  .lb-frame{position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb-frame img{display:block}
+
+  /* ---- Layout (review changes, 19 Sept afternoon) ---- */
+  @media (min-width:641px){ main h2{font-size:23px !important} }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .ph{margin:0;flex:none;min-width:0}
+  .ph .pim{position:relative;overflow:hidden;border-radius:2px;background:transparent}
+  
+  .ph img.doc-img{display:block;width:100%;height:auto;max-width:none;max-height:none;border-radius:0;cursor:zoom-in;background:transparent}
+  .ph figcaption{font-family:'EB Garamond',serif;font-size:15px;line-height:1.3;color:var(--ink);text-align:center;margin-top:6px;width:0;min-width:100%}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  hr.formula-divider{border:0;border-top:1px solid var(--rule);margin:40px 0 24px}
+  .preview-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(7,auto);grid-auto-flow:column;column-gap:24px}
+  .preview-grid > div{font-style:italic;font-size:17px;margin:8px 0;color:var(--ink)}
+  
+  
+  main ul{list-style:none;padding-left:48px !important;margin-left:0 !important}
+  main ul li{position:relative}
+  main ul li::before{left:-24px !important}
+  main ol{padding-left:48px !important;margin-left:0 !important}
+  .micro-label{font-size:21px !important}
+  
+  
+  
+  
+  
+  @media (max-width:640px){
+    .micro-label{font-size:19px !important}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+
+  /* phones: groups of 2+ photos are swipe strips with dots; single photos are plain */
+  @media (max-width:640px){
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .preview-grid{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}
+    
+  }
+  blockquote.pullquote{max-width:none !important;margin:24px 0 !important}
+  blockquote.pullquote p{text-indent:48px}
+  blockquote.pullquote cite{padding-left:48px}
+  .lb-frame{position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb-frame img{display:block}
+
+:root{--bg:#FFFFFF;--ink:#2B2B2B;--rule:#E6E6E4;--tint:#F3F3F1;--card:#FFFFFF;--title:#1E4D7B;--heading:#1E4D7B;--material:#1E4D7B}
+body{background:var(--paper);font-family:var(--serif);font-size:18px;line-height:1.65}
+.article{max-width:var(--page);padding:0 var(--gutter) 72px}
+.section{border-top:0;margin-top:48px;padding-top:0}
+.section:first-of-type{margin-top:32px}
+.section h2,main h2{font-family:var(--serif);font-weight:500;font-size:24px !important;line-height:1.2;color:var(--head);
+  padding-bottom:8px;border-bottom:2px solid var(--head);margin-bottom:16px}
+h3.material-name{font-family:var(--serif);font-weight:500;font-size:21px;color:var(--head);border-top:1px solid var(--line);padding-top:22px;margin-top:36px}
+.micro-label{font-family:var(--serif);font-weight:700;font-size:18px !important;color:var(--ink)}
+.sub-label{font-family:var(--serif);font-size:18px}
+.preview-line,.preview-grid > div{font-size:17px}
+p{margin:14px 0}
+blockquote.pullquote{position:relative;margin:24px 38px !important;padding:0;font-family:var(--display)}
+.site-head ul{padding-left:0 !important;margin:0}
+.site-head li::before{content:none !important}
+.site-head li{margin:0;text-align:left;position:static !important}
+blockquote.pullquote p{font-family:var(--display);font-size:17px;text-indent:0 !important}
+blockquote.pullquote cite{font-family:var(--display);font-size:17px;padding-left:0 !important}
+.toc li::before{content:none !important}
+.ph .pim{border-radius:6px}
+.ph figcaption{font-size:15px}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .article{padding:0 24px 56px}
+  .section h2,main h2{font-size:22px !important}
+  h3.material-name{font-size:19px}
+  .micro-label{font-size:17px !important}
+  .sub-label{font-size:17px}
+  blockquote.pullquote{margin:20px 0 !important}
+}
+
+
+/* 22 Sept: Extensions photo pool */
+
+
+
+
+/* 22 Sept: formula table, How to touch table */
+.formula-wrap{overflow-x:auto;max-width:100%}
+.formula-table{border-collapse:collapse;font-size:17px;font-variant-numeric:tabular-nums}
+.formula-table td{padding:3px 10px 3px 0;white-space:nowrap;vertical-align:baseline}
+.formula-table td.op{padding-right:12px;width:1.2em}
+.formula-table tr.rule td{border-top:1px solid var(--ink);padding-top:6px}
+.formula-table tr.rule td.op{border-top:0}
+.formula-table tr.total td{font-weight:600}
+.formula-table sup,.article sup{font-size:.68em;line-height:0;vertical-align:.45em}
+div.formula-head{margin-bottom:10px}
+
+
+@media (max-width:640px){
+  
+  
+  .formula-table{font-size:15px}
+}
+
+/* your changes of 23 September */
+
+
+
+
+
+.micro-label,.sub-label{font-weight:400 !important}
+blockquote.pullquote p,blockquote.pullquote cite,blockquote.pullquote strong{font-family:var(--serif) !important;font-weight:400 !important}
+.blindfold-label{margin:26px 0 6px;text-align:center;color:var(--head)}
+
+/* 21 Sept comments */
+
+
+
+
+
+
+section.section.sense{margin-top:72px}
+p.seq-line{padding-left:48px}
+.cw-white{color:var(--ink) !important}
+.swatch{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:#fff;border:1px solid #8F8F8F;margin-left:.28em;vertical-align:.04em}
+blockquote.pullquote p{text-indent:48px !important}
+blockquote.pullquote cite{padding-left:48px !important}
+@media (max-width:640px){
+  
+  p.seq-line{padding-left:24px}
+  section.section.sense{margin-top:56px}
+}
+
+
+/* 24 Sept: layout from the PDF */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Layout (24 Sept, clean): the rules in START-HERE.md, and nothing else ===== */
+.ph{margin:0;flex:none;min-width:0}
+.mm-imgs .pim{height:calc(var(--mh,153) * 1px);width:auto}
+.mm-row{display:flex;justify-content:center;align-items:flex-start;flex-wrap:nowrap;gap:min(38.4px, calc((100vw - 80px) * 38.4 / 1140));margin:20px 0}   /* 24 Sept item 4: 48px -20% */
+.mm-row .mm-imgs{display:contents}
+.mm-row + .mm-row{margin-top:24px}
+.mm-set{display:flex;align-items:center;margin:16px 0}
+.mm-set .mm-text{flex:0 1 auto;min-width:0}
+.mm-set .mm-text > :first-child{margin-top:0}
+.mm-set .mm-text > :last-child{margin-bottom:0}
+.mm-set .mm-imgs{flex:1 1 auto;display:flex;justify-content:center;align-items:flex-start;gap:24px;min-width:0}
+.mm-set.mm-col .mm-imgs,.mm-set.mm-intro .mm-imgs,.mm-set[data-align=right] .mm-imgs,.mm-set[data-at=right] .mm-imgs{justify-content:flex-end}
+.mm-set.mm-intro .mm-text{flex:1 1 0}
+.mm-set.mm-intro .mm-imgs{flex:none;margin-left:32px}
+.mm-set.mm-formula{align-items:flex-start}
+.mm-set.mm-formula .mm-imgs{flex:none;justify-content:flex-start;margin-left:48px}
+.mm-float{float:right;clear:right;margin:4px 0 12px 32px}   /* never side by side: each below the one before */
+.mm-float .pim{height:auto}
+.mm-float + *{margin-top:0}
+blockquote.pullquote,blockquote.mq{margin-left:20px !important;margin-right:20px !important}
+main[data-spacing=table] .mm-set{align-items:flex-start}
+/* 26 Sept: section headings 22px, 20px on phones (were 24/22); the word "Contents" stays at heading size */
+main h2,.section h2,.toc-label{font-size:22px !important}
+@media (max-width:640px){main h2,.section h2,.toc-label{font-size:20px !important}}
+/* 26 Sept: a quotation between two photos (the Silence Game) */
+.mm-trio{display:flex;align-items:flex-start;gap:0;clear:both}
+.mm-trio>blockquote{flex:1 1 auto;min-width:0}
+.mm-trio>figure.ph{flex:none;margin:0}
+.mm-trio .pim{height:var(--mh,180px);width:auto}
+@media (max-width:640px){.mm-trio{flex-wrap:wrap;gap:12px;justify-content:center}.mm-trio>blockquote{order:-1;flex-basis:100%}.mm-trio>figure.ph{flex:none}.mm-trio .pim{height:110px;width:auto}}
+.mm-set[data-grid] .mm-imgs{gap:16.8px !important}             /* 26 Sept (edits 4): grids 30% closer */
+/* 26 Sept (edits 10): numbers and dashes of every list at the left margin, the text after them */
+main ol{list-style:none !important;counter-reset:mmn;padding-left:0 !important}
+main ol>li{counter-increment:mmn;position:relative;padding-left:30px}
+main ol>li::before{content:counter(mmn) ".";position:absolute;left:0}
+main ul{padding-left:30px !important}
+main ul li::before{left:-30px !important}
+/* 26 Sept (edits 1): a list a page asks to show in columns, read downward */
+main ol[data-cols]{display:grid;grid-auto-flow:column;column-gap:48px;justify-content:start}   /* 26 Sept: the spacing table places the text; centre() places the photos */   /* 26 Sept rule: quotations 20px in from both margins (all pages) */
+.beige-rule{height:2px;background:#D9C9AB;margin:0 auto 20px;max-width:100%}
+.mm-dots{display:none}
+/* desktop Curriculum menu: columns read downward; English alone in column 3 (phones: a plain list, order unchanged) */
+#p-curriculum .panel-in > .mc-1-1{grid-column:1;grid-row:1} #p-curriculum .panel-in > .mc-1-2{grid-column:1;grid-row:2} #p-curriculum .panel-in > .mc-1-3{grid-column:1;grid-row:3}
+#p-curriculum .panel-in > .mc-2-1{grid-column:2;grid-row:1} #p-curriculum .panel-in > .mc-2-2{grid-column:2;grid-row:2}
+#p-curriculum .panel-in > .mc-3-1{grid-column:3;grid-row:1 / span 3}
+/* menus: no lines anywhere (24 Sept) - only the current-page underlines remain */
+.panel,.panel .grp li,#site-nav li{border-bottom:0 !important}
+/* ---- resource lists: the Word colour scheme */
+main .section h2{color:#00B050 !important;border-bottom-color:#00B050 !important}
+.res-entry{margin:0 0 8px}
+.res-entry h3.material-name{border-top:0;padding-top:0;margin-top:32px;color:#EE0000}
+.res-entry h3.material-name a{color:#EE0000 !important}   /* a red source that is a link stays red (27 Sept) */
+main p,main li,main .res-desc,main .res-item .meta,main .pullquote,main .pullquote p,main .pullquote cite{color:#000}
+main a{color:#0563C1}
+.pullquote .q-ref{font-style:normal}
+.res-item{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:24px;row-gap:4px;margin:4px 0}
+.res-item .res-title{font-style:italic;color:#0432FF}
+.res-item .res-title em{font-style:italic}
+.res-item .res-title a{color:#0563C1}
+.res-desc{margin:4px 0 !important}
+a.pdf,span.pdf{display:inline-block;vertical-align:.12em;font-family:var(--sans, sans-serif);font-size:11px;font-weight:400;letter-spacing:.06em;line-height:1;
+  padding:4px 6px;border:1.5px solid #0563C1;border-radius:2px;color:#0563C1 !important;text-decoration:none}
+a.pdf:hover{background:#0563C1;color:#fff !important}
+main p a.pdf{margin-left:24px}
+/* ---- resource lists: spacing */
+.res-link + .res-link{margin-top:4px}   /* 11px apart (26 Sept: the spacing table) */
+.res-item.res-book{margin-top:35px;margin-bottom:0}
+.res-book + p,.res-book + .res-item-line,.res-book + .res-item-line + p{margin-top:3.5px !important}
+.res-item-line{margin-bottom:0}
+/* ---- resource lists: type (27 Sept) - green 20px, everything else 18px, no bold, no italics */
+main .section h2{font-size:20px !important;font-weight:400 !important;font-style:normal !important}
+.res-entry h3.material-name{font-size:18px !important;font-weight:400 !important}
+main p,main li,.res-item,.res-item .res-title,.res-item .meta,.res-desc{font-size:18px !important}
+main,main *{font-style:normal !important}
+main strong,main b,main h3,main h4{font-weight:400 !important}
+.toc .toc-label,.toc a{font-style:normal !important;font-weight:400 !important}
+.toc .toc-label{color:#00B050 !important}
+.toc a{color:#000 !important}   /* 27 Sept: the word Contents green, the list black */
+.toc .toc-label{font-size:20px !important}
+.toc a{font-size:18px !important}
+@media (max-width:640px){main .section h2{font-size:19px !important}.res-entry h3.material-name,main p,main li,.res-item,.res-item .res-title,.res-item .meta,.res-desc{font-size:17px !important}}
+/* ---- resource lists: books by the same author (27 Sept) */
+.res-entry .res-desc + .res-item{margin-top:23.3px !important}   /* 30px between books in a list (27 Sept) */
+/* ---- resource lists: entries (27 Sept) - 10px from the author's name to the first line, 40px between entries */
+.res-entry > h3.material-name{margin-bottom:0 !important}
+.res-entry > h3.material-name + .res-item{margin-top:3.3px !important}
+.res-entry > h3.material-name + .res-desc,.res-entry > h3.material-name + p{margin-top:3.3px !important}
+.res-entry > h3.material-name + .res-item:not(:has(.res-title)){margin-top:-3.4px !important}   /* a line of PDF badges only */
+.res-entry:has(> .res-item:last-child) + .res-entry > h3.material-name{margin-top:33.3px !important}
+.res-entry:has(> .res-desc:last-child) + .res-entry > h3.material-name,.res-entry:has(> p:last-child) + .res-entry > h3.material-name{margin-top:33.3px !important}
+.res-entry:has(> p:last-child > a.pdf:last-child) + .res-entry > h3.material-name{margin-top:33.3px !important}
+
+/* 29 Sept (seventh chat), your edit 3: the two albums as far apart as in the Word document */
+main #sensorial-albums .res-link + .res-link{margin-top:31.5px}
+/* your edit 4: the Montessori Method PDF line - each part 24px apart (Resources rule for PDF badges) */
+/* your edit (29 Sept): the three stacked photos 36px apart - 200% more than the 12px they had */
+main .mm-float.mm-stack{margin-bottom:36px !important}
+main p.res-pdfline{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:24px}
+main p.res-pdfline a.pdf{margin-left:0 !important;margin-right:0 !important}
+/* your edit 5: this quotation in italics (an exception to "nothing italic" on the Resources pages) */
+main blockquote.mm-italic p, main blockquote.mm-italic p *{font-style:italic !important}
+@media (max-width:640px){
+  .mm-set{display:block}
+  .mm-set .mm-text{width:auto !important;max-width:none !important}
+  .mm-set .mm-imgs,.mm-row{display:flex;justify-content:flex-start !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:12px 0 0 !important;scrollbar-width:none}
+  .mm-set .mm-imgs::-webkit-scrollbar,.mm-row::-webkit-scrollbar{display:none}
+  .mm-row .mm-imgs{display:contents}
+  .mm-imgs .ph{scroll-snap-align:start}
+  .mm-imgs .pim{height:calc(var(--hp,180) * 1px) !important}
+  .mm-set.mm-col .mm-imgs .pim{height:70px !important}
+  .mm-set.mm-intro .mm-imgs{margin-left:0}
+  .mm-set.mm-intro .mm-imgs .pim{height:240px !important}
+  .mm-set.mm-formula .mm-imgs{margin-left:0}
+  .mm-set.mm-formula .mm-imgs .pim{height:auto !important;width:min(300px, 100%) !important}
+  .mm-float{float:none;margin:12px 0}
+  blockquote.pullquote,blockquote.mq{margin-left:0 !important;margin-right:0 !important}   /* phones: as before */
+  .mm-dots{display:flex;justify-content:center;gap:6px;margin:8px 0 4px}
+  .mm-dots span{width:6px;height:6px;border-radius:50%;background:var(--rule)}
+  .mm-dots span.on{background:var(--ink)}
+}
+</style>
+<style id="mm-protect">/* Copy protection (28 Sept, TEMPLATE.md) */
+main#content,.hero{-webkit-user-select:none;-ms-user-select:none;user-select:none}
+main#content img,#lightbox img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
+</style>
+<style id="mm-menu">
+/* 6 Oct 2026 (chat 15), the user: "delete the lines from every panel in every menu" - no thin lines under the entries of ANY panel (5 Oct, chat 14: the Home panel only). */
+.menu .panel li{border-bottom:0 !important}
+/* THE FULL MENU (5 Oct 2026): columns of groups; a page that exists is a blue link, one not yet made is plain text */
+.panel-in.c1{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}
+.panel-in.c4{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 40px}
+.panel-in > .pcol{min-width:0;display:flex;flex-direction:column;gap:22px}
+.panel-in > .pcol.over{grid-column:1 / -1;margin-bottom:-12px}
+.grp a,.grp a[aria-current="page"]{color:var(--ink)}
+.grp a:hover{text-decoration:underline;text-underline-offset:3px}
+.grp .np,.grp .hd span{display:block;padding:8px 0;font-family:var(--serif);font-size:17px;line-height:1.3;color:var(--ink);cursor:default}
+/* 7 Oct 2026 (chat 23), the user: "Essential Elements, education and curriculum have categories in their menus.
+   The title of each category to be in blue. no bold to be used anywhere". A CATEGORY TITLE is a group's leading
+   entry (li.lead) or a heading that is not a page (li.hd); it is now the site's blue, and NOTHING in the menu is
+   bold. SUPERSEDES "no blue - ONE text colour in every panel, bold leads and headings" (5 Oct 2026, chat 12).
+   Checked by qa/menu_style_check.py (MN3) in the gate, which reads the blue from MENU_BLUE below. */
+.grp li.lead a,.grp li.lead .np,.grp li.hd span{color:var(--ink)}
+.panel.cat .grp li.lead a,.panel.cat .grp li.lead .np,.panel.cat .grp li.hd span{color:#0432FF}
+.menu,.menu .top,.menu a,.menu span,.grp,.grp li,.grp li.lead a,.grp li.lead .np,.grp li.hd span{font-weight:400}
+.menu .top.np-top{cursor:default}
+.menu .top.np-top:hover{color:#fff}
+@media (min-width:961px) and (max-width:1279px){   /* eight names, each with its arrow, on one line down to 961px */
+  .site-head-in{padding:0 24px;gap:14px}
+  .menu{gap:10px}
+  .sub-toggle{width:16px}
+}
+@media (min-width:961px) and (max-width:1023px){
+  .site-head-in{padding:0 18px;gap:12px}
+  .menu{gap:7px}
+  .menu .top{font-size:16px}
+}
+@media (max-width:960px){
+  .panel-in > .pcol{display:block}
+  .panel-in > .pcol.over{margin-bottom:0}
+  /* 8 Oct 2026, the user: "Menu: on a desktop there is a space between categories. add this space on phones" -
+     the same gap as the desktop's between one group and the next, including where one column's groups end and the
+     next column's begin (on the phone the columns stand one under another). */
+  .panel-in .grp + .grp,.panel-in > .pcol + .pcol{margin-top:24px}
+  #p-resources .panel-in > .pcol + .pcol{margin-top:0}
+  .grp a,.grp .np{color:#E7EEF5}
+  .grp li.lead a,.grp li.lead .np,.grp li.hd span{color:#fff}
+  .panel.cat .grp li.lead a,.panel.cat .grp li.lead .np,.panel.cat .grp li.hd span{color:#8FC6FF}
+  .grp .np,.grp .hd span{font-size:17px;padding:7px 0}
+  .menu .top.np-top{cursor:pointer}
+  .panel .grp a[aria-current="page"]{color:#E7EEF5 !important}
+  #p-essentialelements .grp a[aria-current="page"],#p-curriculum .grp a[aria-current="page"]{color:#8FC6FF !important}
+}
+</style><style id="mm-justify-18-oct">
+/* 18 Oct 2026: your instruction - the text justified on every page.
+   Quotations in their own block, captions, centred lines and headings are left exactly as they were. */
+main.article p:not(.centred):not(.mm-poem-ctr):not(.mm-cap):not(.mc-by){text-align:justify}
+main.article blockquote p{text-align:inherit !important}
+</style>
+<style id="mm-site-18-oct">
+/* Montessori Mentor - site-wide changes, 18 October 2026 */
+body{background:#F5EEE3 !important}
+@media (min-width:831px){
+.panel{background:#F5EEE3 !important}
+.panel .grp li.lead > a,.panel .grp li.lead > .np,.panel .grp li.hd span{color:#0432FF !important;font-weight:400 !important}
+.panel .grp li:not(.lead):not(.hd) > a,.panel .grp li:not(.lead):not(.hd) > .np{color:#2B2B2B !important;font-weight:400 !important}
+.panel .grp a[aria-current="page"]{color:#2B2B2B !important}
+}
+
+/* Quotations and attributions - standardised 18 October 2026 */
+html body main blockquote,
+html body main blockquote p,
+html body main blockquote cite,
+html body main blockquote span.mm-attr,
+html body main blockquote.pullquote,
+html body main blockquote.pullquote p,
+html body main blockquote.pullquote cite,
+html body main blockquote.pullquote span.mm-attr{font-size:18px !important;line-height:40px !important}
+html body main blockquote cite,
+html body main blockquote.pullquote cite{display:block !important;margin-top:0 !important;font-style:normal !important}
+html body main blockquote p,
+html body main blockquote.pullquote p{font-style:italic !important}
+@media (max-width:830px){
+html body main blockquote,
+html body main blockquote p,
+html body main blockquote cite,
+html body main blockquote span.mm-attr,
+html body main blockquote.pullquote,
+html body main blockquote.pullquote p,
+html body main blockquote.pullquote cite,
+html body main blockquote.pullquote span.mm-attr{font-size:17px !important;line-height:38px !important}
+}
+/* Footer - standardised 18 October 2026 */
+html body .mc-band{background:#1E4D7B !important;padding:40px 40px 30px !important;text-align:center;margin-top:40px !important}
+html body .mc-band p{max-width:860px;margin:0 auto !important;font-size:18px !important;line-height:40px !important;font-style:italic !important;color:#fff !important;text-align:center !important;text-indent:0 !important;text-wrap:balance}
+html body .mc-band p.mc-by{margin-top:0 !important;font-size:18px !important;line-height:40px !important;font-style:normal !important;color:#DCE6F0 !important;letter-spacing:.04em}
+html body .site-foot,html body footer.site-foot{background:transparent !important;border-top:0 !important;margin-top:0 !important}
+html body .site-foot .site-foot-in{color:#6B6B6B !important}
+html body .site-foot a{color:#6B6B6B !important}
+@media (max-width:830px){
+html body .mc-band{padding:40px 24px 30px !important}
+html body .mc-band p,html body .mc-band p.mc-by{font-size:17px !important;line-height:38px !important}
+}
+
+</style>
+<style id="mm-phone-left">/* 23 Oct 2026 (user 13 Oct, confirmed 16 Oct): on phones (640px and narrower) text is not justified. Any new rule that justifies text must also be added to this list. */@media (max-width:640px){:root body main li,:root body main ul>li,:root body main ol>li,:root body main.article p:not(.centred):not(.mm-poem-ctr):not(.mm-cap):not(.mc-by):not(blockquote p),:root body main .mm-bda span,:root body main blockquote.pullquote.mm-just>p{text-align:left !important}}</style></head>
+<body id="top">
+<a class="skip" href="#content">Skip to the essay</a><header class="site-head"><div class="site-head-in"><a class="site-name" href="/">Montessori Mentor</a><nav class="site-nav" id="site-nav" aria-label="Main"><ul class="menu"><li class="has-panel"><a class="top" href="/">Home</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-home" aria-label="Show the Home pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-home"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li><a href="/">Montessori Mentor</a></li><li><a href="/why-this-website/">Why This Website?</a></li><li><a href="/aun-aprendo/">Aun Aprendo</a></li><li><a href="/a-montessori-journey/">A Montessori Journey</a></li></ul></div><div class="pcol"><ul class="grp"><li><a href="/the-history-of-montessori-education/">The History of Montessori Education</a></li><li><a href="/biography/">Biography</a></li><li><a href="/timeline/">Timeline</a></li></ul></div><div class="pcol"><ul class="grp"><li><a href="/the-first-casa-dei-bambini/">The First Casa dei Bambini</a></li><li><a href="/the-story-of-san-lorenzo/">The Story of San Lorenzo</a></li><li><a href="/glossary/">Glossary</a></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/essential-elements/">Essential Elements</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-essentialelements" aria-label="Show the Essential Elements pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel cat" id="p-essentialelements"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li class="lead"><a href="/essential-elements/">Essential Elements</a></li><li><a href="/essential-elements-resources/">Essential Elements Resources</a></li></ul><ul class="grp"><li class="lead"><a href="/the-role-of-the-adult/">The Role of The Adult</a></li><li><a href="/the-role-of-the-adult-resources/">The Role of The Adult Resources</a></li><li><a href="/the-role-of-the-assistant/">The Role of the Assistant</a></li><li><span class="np">Developing Responsibility</span></li><li><span class="np">Montessori&#x27;s Advice to Teachers</span></li></ul></div><div class="pcol"><ul class="grp"><li class="lead"><a href="/the-prepared-environment/">The Prepared Environment</a></li><li><span class="np">Essential Characteristics - Theory</span></li><li><span class="np">The Prepared Environment Resources</span></li><li><span class="np">The Outdoor Environment</span></li><li><span class="np">Anji Play</span></li></ul><ul class="grp"><li class="lead"><span class="np">Mixed-Age Groups</span></li><li><span class="np">Mixed-Age Groups Resources</span></li></ul></div><div class="pcol"><ul class="grp"><li class="lead"><span class="np">The Uninterrupted Three-Hour Cycle</span></li><li><span class="np">The Uninterrupted Three-Hour Cycle Resources</span></li></ul><ul class="grp"><li class="lead"><span class="np">The Montessori Materials</span></li><li><span class="np">The Montessori Materials Resources</span></li><li><span class="np">The Montessori Materials Sourcing</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/the-montessori-curriculum/" aria-current="page">Curriculum</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-curriculum" aria-label="Show the Curriculum pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel cat" id="p-curriculum"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li class="lead"><a href="/the-montessori-curriculum/">The Montessori Curriculum</a></li><li><a href="/montessori-scope-and-sequence/">Scope and Sequence</a></li><li><a href="/curriculum-scope-and-sequence-resources/">Curriculum Resources</a></li></ul><ul class="grp"><li class="lead"><a href="/the-practical-life-curriculum-2/">The Practical Life Curriculum</a></li><li><span class="np">Developing Responsibility</span></li><li><a href="/practical-life-resources/">Practical Life Resources</a></li></ul><ul class="grp"><li class="lead"><a href="/the-sensorial-curriculum/">The Sensorial Curriculum</a></li><li><a href="/sensorial-resources/" aria-current="page">Sensorial Resources</a></li></ul></div><div class="pcol"><ul class="grp"><li class="lead"><a href="/the-culture-curriculum/">The Culture Curriculum</a></li><li><a href="/culture-resources/">Culture Resources</a></li></ul><ul class="grp"><li class="lead"><a href="/the-mathematics-curriculum/">The Mathematics Curriculum</a></li><li><a href="/mathematics-resources/">Mathematics Resources</a></li></ul></div><div class="pcol"><ul class="grp"><li class="lead"><span class="np">The English Curriculum</span></li><li><span class="np">Resources 1 - Montessori</span></li><li><span class="np">Resources 2 - Oral Language</span></li><li><span class="np">Resources 3 - Keys to Literacy</span></li><li><span class="np">Resources 4 - Reading</span></li><li><span class="np">Resources 5 - The Pink, Blue and Green Series</span></li><li><span class="np">Resources 6 - Writing</span></li><li><span class="np">Resources 7 - Articles, Books and Research</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/play/">Play</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-play" aria-label="Show the Play pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-play"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li><a href="/play-varieties-and-characteristics/">Types of Play</a></li><li><span class="np">Play Resources</span></li></ul><ul class="grp"><li><span class="np">Outdoor Play: Varieties</span></li><li><span class="np">Outdoor Play: Spaces and Resources</span></li></ul><ul class="grp"><li><span class="np">Loose Parts</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Nature Play</span></li><li><span class="np">Nature Play Spaces</span></li><li><span class="np">Natural Playgrounds</span></li><li><span class="np">Nature Play Resources</span></li><li><span class="np">Forest School Lessons</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Junk Playgrounds History</span></li><li><span class="np">Adventure Playgrounds</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/administration/">Administration</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-administration" aria-label="Show the Administration pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-administration"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li class="hd"><span>Teachers</span></li><li><a href="/staff/">Staff</a></li><li><a href="/school-handbook/">School Handbook</a></li><li><a href="/classroom-management/">Classroom Management</a></li><li><a href="/beginning-of-the-year-for-teachers/">Beginning of the year for Teachers</a></li><li><a href="/observations-for-teachers/">Observations for Teachers</a></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Children</span></li><li><span class="np">Lesson Planning</span></li><li><span class="np">Montessori For All Lesson Planning</span></li><li><span class="np">Checklists and Record Keeping</span></li><li><span class="np">Assessment</span></li><li><span class="np">Studies of Montessori Assessment</span></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Parents</span></li><li><span class="np">Admissions</span></li><li><span class="np">Observations for Parents</span></li><li><span class="np">Progress Reports</span></li><li><span class="np">Parent-Teacher Conferences</span></li><li><span class="np">Children’s Portfolio</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/parent-resources/">Parents</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-parents" aria-label="Show the Parents pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-parents"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li><span class="np">Traditional v’s Montessori</span></li><li><span class="np">Montessori at Home: Environment and Materials</span></li><li><span class="np">Montessori at Home: Activities</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Independence</span></li><li><span class="np">Infant and Toddler: Birth to 3</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Elementary: 6 to 12</span></li><li><span class="np">The Silent Journey</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/the-history-of-education/">Education</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-education" aria-label="Show the Education pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel cat" id="p-education"><div class="panel-in c4"><div class="pcol"><ul class="grp"><li class="hd"><span>Foundations</span></li><li><span class="np">The Roots of Montessori</span></li><li><span class="np">Active Learning</span></li><li><span class="np">Constructivism</span></li><li><span class="np">John Amos Comenius</span></li><li><span class="np">John Locke</span></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Predecessors</span></li><li><span class="np">Jean-Jacques Rousseau</span></li><li><span class="np">Johann Pestalozzi</span></li><li><span class="np">Friedrich Froëbel</span></li><li><span class="np">Jean Marc Itard</span></li><li><span class="np">Édouard Séguin</span></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Contemporaries</span></li><li><span class="np">John Dewey</span></li><li><span class="np">Rudolf Steiner</span></li><li><span class="np">Lev Vygotsky</span></li><li><span class="np">Jean Piaget</span></li><li><span class="np">A.S. Neill</span></li><li><span class="np">Célestin Freinet</span></li></ul></div><div class="pcol"><ul class="grp"><li class="hd"><span>Modern Voices</span></li><li><span class="np">Caleb Gattegno</span></li><li><span class="np">Jerome Bruner</span></li><li><span class="np">Haim G. Ginott</span></li><li><span class="np">John Holt</span></li><li><span class="np">MIT Guidelines on Learning</span></li></ul></div></div></div></li><li class="has-panel"><a class="top" href="/resources/">Resources</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="p-resources" aria-label="Show the Resources pages"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button><div class="panel" id="p-resources"><div class="panel-in c3"><div class="pcol"><ul class="grp"><li><span class="np">Books by Montessori</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Books by others</span></li></ul></div><div class="pcol"><ul class="grp"><li><span class="np">Resources and Links</span></li></ul></div></div></div></li></ul></nav><div class="site-tools"><button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open the menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></div></header><div class="hero" style="background-image:url('images/hero.jpg')"><h1><span>Sensorial Resources</span></h1></div><nav aria-label="Contents" class="toc-wrap toc"><p class="toc-label">Table of contents</p><div class="toc-grid"><ul class="toc-essays"><li><a href="#theory-and-materials">Theory and Materials</a></li><li><a href="#sensorial-at-home">Sensorial at Home</a></li><li><a href="#sensorial-albums">Sensorial Albums</a></li><li><a href="#books">Books</a></li></ul></div></nav><main class="article" data-row-h="150" data-rows="one" id="content"><section class="section" id="theory-and-materials"><h2>Theory and Materials</h2><div class="mm-float"><div class="mm-imgs"><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:1.00151"><div class="pim" style="aspect-ratio:1.00151;width:180px"><img alt="" class="doc-img" data-name="002.jpg" height="1984" loading="lazy" src="images/002-480.jpg" data-full="images/002.jpg" width="1987"/></div></figure></div></div>
+<div class="res-entry"><h3 class="material-name res-src">Paula Lillard Preschlack</h3>
+<div class="res-item"><span class="res-title"><em>The Montessori Sensorial Materials</em></span><span class="meta"><a href="https://www.forestbluffschool.org/montessori-sensorial-materials-part-i" rel="noopener" target="_blank">Part I</a></span><a class="pdf" href="https://irp.cdn-website.com/6aa064ea/files/uploaded/Montessori-Sensorial-Materials-Part-I.pdf" rel="noopener" target="_blank">PDF</a><span class="meta"><a href="https://www.forestbluffschool.org/montessori-sensorial-materials-part-2" rel="noopener" target="_blank">Part II</a></span><a class="pdf" href="https://irp.cdn-website.com/6aa064ea/files/uploaded/Montessori-Sensorial-Materials-Part-II.pdf" rel="noopener" target="_blank">PDF</a></div>
+</div>
+<div class="res-entry"><h3 class="material-name res-src">Maitri Learning</h3>
+<div class="res-item"><span class="res-title"><em>The Sequence and Order of Sensorial Materials</em></span><span class="meta"><a class="pdf" href="https://cdn.shopify.com/s/files/1/0734/7437/files/Sensorial_shelves.pdf?12257683960520653578" rel="noopener" target="_blank">PDF</a></span></div>
+<p class="res-desc">Advice on <a href="https://maitrilearning.com/blogs/pedagogy-blog/37064321-setting-up-sensorial" rel="noopener" target="_blank">Setting up Sensorial</a></p>
+</div>
+<div class="res-entry"><h3 class="material-name res-src">Montessori Helper</h3>
+<p class="res-desc">Have an <a href="https://montessorihelper.com/courses/sensorial" rel="noopener" target="_blank">online course of Sensorial activities</a>, and their <a href="https://montessorihelper.com/lessons/introduction-sensorial-start-2" rel="noopener" target="_blank">Introduction to Sensorial</a> includes a 30-minute video of Margaret Homfray discussing the Knobbed Cylinders.</p>
+</div>
+<div class="res-entry"><h3 class="material-name res-src">Chloë Marshall</h3>
+<div class="res-item"><span class="res-title"><em>Montessori Education: A Review of the Evidence Base</em></span><span class="meta"><a class="pdf" href="https://www.nature.com/articles/s41539-017-0012-7.pdf" rel="noopener" target="_blank">PDF</a></span></div>
+
+<p class="res-desc">“The Montessori educational method has existed for over 100 years, but evaluations of its effectiveness are scarce. This review paper has three aims, namely to (1) identify some key elements of the method, (2) review existing evaluations of Montessori education, and (3) review studies that do not explicitly evaluate Montessori education but which evaluate the key elements identified in (1).”</p>
+</div>
+<div class="res-entry"><div class="mm-float mm-stack"><div class="mm-imgs"><figure class="ph portrait" style="--h:180;--hg:180;--hp:180;--ar:0.78668"><div class="pim" style="aspect-ratio:0.78668;width:141.6px"><img alt="" class="doc-img" data-name="003.jpg" height="1772" loading="lazy" src="images/003-480.jpg" data-full="images/003.jpg" width="1394"/></div></figure></div></div><div class="mm-float mm-stack"><div class="mm-imgs"><figure class="ph portrait" style="--h:180;--hg:180;--hp:180;--ar:0.69900"><div class="pim" style="aspect-ratio:0.69900;width:141.6px"><img alt="" class="doc-img" data-name="004.jpg" height="1000" loading="lazy" src="images/004-480.jpg" data-full="images/004.jpg" width="699"/></div></figure></div></div><div class="mm-float mm-stack"><div class="mm-imgs"><figure class="ph portrait" style="--h:180;--hg:180;--hp:180;--ar:0.88491"><div class="pim" style="aspect-ratio:0.88491;width:141.6px"><img alt="" class="doc-img" data-name="005.jpg" height="1286" loading="lazy" src="images/005-480.jpg" data-full="images/005.jpg" width="1138"/></div></figure></div></div><h3 class="material-name res-src">Montessori Commons</h3>
+<div class="res-item"><span class="res-title"><em><a href="https://montessoricommons.cc/category/casa/sensorial/introducing-the-sensorial-materials/" rel="noopener" target="_blank">Introducing the Sensorial Materials</a></em></span></div>
+</div>
+<div class="res-entry"><h3 class="material-name res-src">Lynne Lawrence</h3>
+<div class="res-item"><span class="res-title"><em><a href="https://montessoridigital.org/file/1986/download?token=TFuyoCTE" rel="noopener" target="_blank">The Importance of a Sensorial Grounding of Intelligence From the Beginning Of Life</a></em></span></div>
+
+<p class="res-desc">Lynne Lawrence is the Executive Director of AMI.</p>
+</div>
+<div class="res-entry"><h3 class="material-name res-src">Montessori AMI 3 to 6</h3>
+<div class="res-item"><span class="res-title"><em><a href="https://www.montessoriami3to6.com/2019/11/sensorial-introduction.html" rel="noopener" target="_blank">Sensorial Introduction</a></em></span></div>
+</div>
+<div class="res-entry"><h3 class="material-name res-src">Greene Towne Montessori</h3>
+<div class="res-item"><span class="res-title"><em>A Highlight on Sensorial Learning</em></span></div>
+<p class="res-desc">Includes many photos of children using the Sensorial materials.</p>
+
+</div>
+<div class="res-entry"><h3 class="material-name res-src">My Montessori Moments</h3>
+<div class="res-item"><span class="res-title"><em>Sensorial Materials in Montessori</em></span></div>
+<p class="res-desc">An introduction in two parts:</p>
+<ol class="res-list"><li><a href="https://mymontessorimoments.com/montessori-sensorial-activities/" rel="noopener" target="_blank">Theory</a> and sequence of activities.</li><li><a href="https://mymontessorimoments.com/sensorial-materials/" rel="noopener" target="_blank">Practice</a>, with a list of the materials, detailing how each is used and how it benefits the child.</li></ol>
+</div>
+</section><section class="section" id="sensorial-at-home"><h2>Sensorial at Home</h2>
+<div class="res-entry"><h3 class="material-name res-src">Montessori Family</h3>
+<div class="res-item"><span class="res-title"><em><a href="https://themontessorifamily.com/understanding-montessori-sensorial-materials-a-guide-for-parents/" rel="noopener" target="_blank">Understanding Montessori Sensorial Materials: A Guide for Parents</a></em></span></div>
+<p class="res-desc">Includes useful advice on ‘How to Bring Montessori Sensorial Learning into the Home’.</p>
+</div>
+<div class="res-entry"><h3 class="material-name res-src">The Little List</h3>
+<div class="res-item"><span class="res-title"><em>How to Make Your Own Montessori Sensorial Materials</em></span></div>
+<p class="res-desc">“Make your own Montessori sensorial materials with <a href="https://thelittlelist.wordpress.com/2011/05/19/make-your-own-montessori-sensorial-materials/" rel="noopener" target="_blank">these tutorials and free printables</a>.”</p>
+<p class="res-desc">A collection of useful links to different websites.</p>
+</div>
+<div class="res-entry"><h3 class="material-name res-src">The Global Montessori Network</h3>
+<div class="res-item"><span class="res-title"><em>Pairing Activities Using Montessori Sensorial Materials</em></span></div>
+<p class="res-desc">Includes a list of <a href="https://theglobalmontessorinetwork.org/resource/primary/pairing-activities-english/" rel="noopener" target="_blank">pairing activities</a> that can be easily set up at home.</p>
+<div class="res-item"><span class="res-title"><em>A Complete Guide on How to Setup Montessori at Home</em></span></div>
+<p class="res-desc">“Incorporating sensorial work <a href="https://theglobalmontessorinetwork.org/a-complete-guide-on-how-to-setup-montessori-at-home/" rel="noopener" target="_blank">into your home</a> can be done by <a href="https://theglobalmontessorinetwork.org/a-complete-guide-on-how-to-setup-montessori-at-home/" rel="noopener" target="_blank">creating an environment well-prepared</a> where children can explore, learn, and understand their world through the five senses.”</p>
+</div>
+<div class="res-entry"><h3 class="material-name res-src">Community Playthings</h3>
+<div class="res-item"><span class="res-title"><em>Sensory Play</em></span></div>
+<p class="res-desc">A wide range of <a href="https://www.communityplaythings.co.uk/learning-library/topics/learning-through-play/sensory-play" rel="noopener" target="_blank">interesting articles and ideas</a>.</p>
+<div class="mm-row" data-above="64" data-level="1"><div class="mm-imgs"><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:1.50054"><div class="pim" style="aspect-ratio:1.50054"><img alt="" class="doc-img" data-name="006.jpg" height="933" loading="lazy" src="images/006-480.jpg" data-full="images/006.jpg" width="1400"/></div></figure><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:2.14592"><div class="pim" style="aspect-ratio:2.14592"><img alt="" class="doc-img" data-name="007.jpg" height="466" loading="lazy" src="images/007-480.jpg" data-full="images/007.jpg" width="1000"/></div></figure><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:1.50150"><div class="pim" style="aspect-ratio:1.50150"><img alt="" class="doc-img" data-name="008.jpg" height="333" loading="lazy" src="images/008-480.jpg" data-full="images/008.jpg" width="500"/></div></figure><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:1.33333"><div class="pim" style="aspect-ratio:1.33333"><img alt="" class="doc-img" data-name="009.jpg" height="3000" loading="lazy" src="images/009-480.jpg" data-full="images/009.jpg" width="4000"/></div></figure></div></div>
+</div>
+</section><section class="section" id="sensorial-albums"><h2>Sensorial Albums</h2>
+<div class="res-item res-link"><span class="res-title"><em><a href="https://web.archive.org/web/20050212125253/http:/www.ux1.eiu.edu/~cfsjy/mts/_link.htm" rel="noopener" target="_blank">Shu-Chen Jenny Yen's Montessori Albums</a></em></span></div>
+<div class="res-item res-link"><span class="res-title"><em><a href="https://web.archive.org/web/20050223192844/http:/www.ux1.eiu.edu/~cfsjy/mts/sensor/intro.htm" rel="noopener" target="_blank">Sensorial-Motor Album Introduction</a></em></span></div>
+
+</section><section class="section" id="books"><h2>Books</h2><div class="mm-float"><div class="mm-imgs"><figure class="ph portrait" style="--h:180;--hg:180;--hp:180;--ar:0.83264;--w:149.87"><div class="pim" style="aspect-ratio:0.83264"><img alt="" class="doc-img" src="images/010-480.jpg" data-full="images/010.jpg" width="1393" height="1673" loading="lazy"></div></figure></div></div>
+<p>Below is a brief overview of how Montessori’s thinking on Sensorial education developed steadily across her major works, moving from detailed practical description to deeper psychological framing.</p>
+<div class="res-item res-book"><span class="res-title"><em>The Montessori Method</em></span><span class="meta">1909</span></div>
+<p class="res-pdfline"><span>Abridged and annotated by Gerald Lee Gutek</span><a class="pdf" href="https://www.arvindguptatoys.com/arvindgupta/montessori-new.pdf" rel="noopener" target="_blank">PDF</a><span>Unabridged</span><a class="pdf" href="https://dn790001.ca.archive.org/0/items/montessorimethod00montuoft/montessorimethod00montuoft.pdf" rel="noopener" target="_blank">PDF</a></p>
+<p>In her first book, Montessori -drawing on the earlier work of Itard and Séguin- explained the principles of isolating a single quality (colour, dimension, texture, sound, weight, temperature), arranging objects in graduated series, building in control of error, and using the materials to refine perception and prepare the intellect. This remains the foundational technical account of the Montessori materials and their exercises.</p>
+<div class="mm-float"><div class="mm-imgs"><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:1.94430"><div class="pim" style="aspect-ratio:1.94430;width:350px"><img alt="" class="doc-img" data-name="011.jpg" height="377" loading="lazy" src="images/011-480.jpg" data-full="images/011.jpg" width="733"/></div></figure></div></div>
+<div class="res-item res-book"><span class="res-title"><em>Dr. Montessori’s Own Handbook</em></span><span class="meta">1914</span></div>
+<p>Contains a more concise, practical guide to the sensorial apparatus, briefly describing the main materials -Cylinder Blocks, Pink Tower, Colour Tablets, Sound Boxes, Geometric Solids, and others- without the extensive theoretical discussion of the earlier book and practical focus resulted that the handbook being used as a working manual for teachers.<a class="pdf" href="https://dn790008.ca.archive.org/0/items/drmontessorisown00mont/drmontessorisown00mont_bw.pdf" rel="noopener" target="_blank">PDF</a><a class="pdf" href="https://dn790009.ca.archive.org/0/items/drmontessorisown01mont/drmontessorisown01mont.pdf" rel="noopener" target="_blank">PDF</a></p>
+<div class="res-item res-book"><span class="res-title"><em>The Advanced Montessori Method</em></span><span class="meta">1917-18</span></div>
+<p>Montessori extended the discussion beyond the early childhood years: the first volume focuses on spontaneous activity, attention, will, and intelligence and the second volume presents the elementary materials. Sensorial foundations continue to underpin the later work, which includes her thoughts on the refined discrimination of form, dimension, and how colour supports geometry, arithmetic, and grammar. Advanced materials such as the Binomial and Trinomial Cubes and Constructive Triangles are treated as natural extensions of the earlier sensorial exercises, showing how concrete sensory experience prepares the mind for abstraction.</p>
+<blockquote class="pullquote mm-italic"><p><strong><em>“</em></strong><em>The sensory education which prepares for the accurate perception of all the differential details in the qualities of things, is therefore the foundation of the observation of things and of phenomena which present themselves to our sense; and with this it helps us to collect from the external world the material for imagination.</em><strong><em>”</em></strong></p>
+<cite>- The Advanced Montessori Method, Volume I, p. 191.</cite></blockquote>
+<div class="res-item res-book"><span class="res-title"><em>The Secret of Childhood</em></span><span class="meta">1936</span></div>
+<p>This work shifted the emphasis from materials themselves to the inner developmental processes they serve. Montessori linked sensorial refinement to the sensitive periods, in particular the sensitive period for the refinement of the senses (ages 2-6). The materials are presented as responses to the child’s intense need to classify and order sensory impressions. She stressed that without this ordered sensory foundation, the child’s intelligence remains chaotic and clarified that the adult’s role is to prepare an environment that allows the child’s spontaneous exploration.</p>
+<div class="res-item res-book"><span class="res-title"><em>The Absorbent Mind</em></span><span class="meta">1949</span></div>
+<p>This work contains the most comprehensive <em>psychological</em> framework for the sensorial materials, which are portrayed as keys that help the absorbent mind organise the flood of impressions received from the environment. Montessori emphasised that the child from birth to six constructs their inner order through repeated, self-directed activity with concrete materials, and that this sensorial grounding is the indispensable basis for all later intellectual and cultural learning.</p>
+<div class="res-item res-book"><span class="res-title"><em>The Discovery of the Child</em></span><span class="meta">1948</span></div>
+<p>Forty years after she wrote The Montessori Method, Montessori published this thoroughly revised and expanded edition. The sections on the Sensorial apparatus are framed less as experimental stimuli and more as aids that enable the child to impose order on sensory chaos, develop concentration, and construct intelligence through free, repeated activity and the core principles of isolation, gradation, control of error, and limited quantity are restated with the benefit of decades of observation.</p>
+<blockquote class="pullquote"><p><strong><em>“</em></strong><em>The training and sharpening of the senses has the obvious advantage of enlarging the field of perception and of offering an ever more solid foundation for intellectual growth. The intellect builds up its store of practical ideas through contact with, and exploration of its environment. Without such concepts the intellect would lack precision and inspiration in its abstract operations.</em><strong><em>”</em></strong> <em> </em></p>
+</blockquote><p>Across all of these books Montessori’s core principles remained consistent: isolation of qualities, mathematical gradation, control of error, aesthetic appeal, and limited quantity. What changed was the framing: In her early writings Montessori largely focused on the scientific design and practical use of the materials, while in her later writings she integrated them more fully into a comprehensive vision of the child’s natural development.</p>
+<div class="mm-row" data-above="64" data-level="2"><div class="mm-imgs"><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:1.45078"><div class="pim" style="aspect-ratio:1.45078"><img alt="" class="doc-img" data-name="012.jpg" height="965" loading="lazy" src="images/012-480.jpg" data-full="images/012.jpg" width="1400"/></div></figure><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:1.48368"><div class="pim" style="aspect-ratio:1.48368"><img alt="" class="doc-img" data-name="013.jpg" height="674" loading="lazy" src="images/013-480.jpg" data-full="images/013.jpg" width="1000"/></div></figure><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:1.50054"><div class="pim" style="aspect-ratio:1.50054"><img alt="" class="doc-img" data-name="014.jpg" height="933" loading="lazy" src="images/014-480.jpg" data-full="images/014.jpg" width="1400"/></div></figure><figure class="ph landscape" style="--h:180;--hg:180;--hp:180;--ar:1.08932"><div class="pim" style="aspect-ratio:1.08932"><img alt="" class="doc-img" data-name="015.jpg" height="918" loading="lazy" src="images/015-480.jpg" data-full="images/015.jpg" width="1000"/></div></figure></div></div>
+</section></main><aside class="mc-band"><p>“I obtained most surprising results through their application, but I must confess that, while my efforts showed themselves in the intellectual progress of my pupils, a peculiar form of exhaustion prostrated me.</p><p>It was as if I gave to them some vital force from within me.”</p><p class="mc-by">- Maria Montessori.</p></aside><footer class="site-foot"><div class="site-foot-in"><span>© 2026 Montessori Mentor</span><a href="#top">Back to top</a></div></footer><div class="lightbox" id="lightbox">
+<button aria-label="Previous image" class="lb-nav lb-prev" id="lb-prev">‹</button>
+<img alt="" id="lightbox-img" src=""/>
+<button aria-label="Next image" class="lb-nav lb-next" id="lb-next">›</button>
+<div class="lb-counter" id="lb-counter"></div>
+</div>
+<script>(function(){
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightbox-img');
+  var prevBtn = document.getElementById('lb-prev'), nextBtn = document.getElementById('lb-next'), counter = document.getElementById('lb-counter');
+  var frame = document.createElement('div'); frame.className = 'lb-frame'; lbImg.parentNode.insertBefore(frame, lbImg); frame.appendChild(lbImg);
+  var group = [], idx = 0;
+  function groupOf(img){
+    var c = img.closest('.mm-imgs, .mm-pfig, .mm-trio');
+    return c ? Array.prototype.slice.call(c.querySelectorAll('img.doc-img')) : [img];
+  }
+  function show(i){
+    idx = Math.max(0, Math.min(group.length - 1, i));   // 22 Sept: a first and a last photo, no endless loop
+    var src = group[idx]; lbImg.src = src.getAttribute('data-full') || src.src;   // 26 Sept: the lightbox opens the full-size file
+    var rot = +src.getAttribute('data-rot') || 0, c = (src.getAttribute('data-crop') || '0,0,0,0').split(',').map(Number);
+    var W = src.naturalWidth || +src.getAttribute('width'), H = src.naturalHeight || +src.getAttribute('height');
+    var cw = 1 - c[0] - c[2], ch = 1 - c[1] - c[3], dw = W * cw, dh = H * ch;
+    if (rot % 180) { var t = dw; dw = dh; dh = t; }
+    var maxW = window.innerWidth * 0.9, maxH = window.innerHeight * 0.9, s = Math.min(maxW / dw, maxH / dh);
+    var fw = dw * s, fh = dh * s; frame.style.width = fw + 'px'; frame.style.height = fh + 'px';
+    lbImg.style.position = 'absolute'; lbImg.style.maxWidth = 'none'; lbImg.style.maxHeight = 'none';
+    if (rot % 180) {
+      lbImg.style.width = fh + 'px'; lbImg.style.height = fw + 'px'; lbImg.style.left = '50%'; lbImg.style.top = '50%';
+      lbImg.style.transform = 'translate(-50%,-50%) rotate(' + rot + 'deg)';
+    } else {
+      var iw = fw / cw, ih = fh / ch;
+      lbImg.style.width = iw + 'px'; lbImg.style.height = ih + 'px';
+      lbImg.style.left = (-c[0] * iw) + 'px'; lbImg.style.top = (-c[1] * ih) + 'px';
+      lbImg.style.transform = rot === 180 ? 'rotate(180deg)' : 'none';
+    }
+    var multi = group.length > 1;
+    prevBtn.style.display = nextBtn.style.display = multi ? 'flex' : 'none';
+    counter.style.display = multi ? 'block' : 'none'; counter.textContent = multi ? (idx + 1) + ' / ' + group.length : ''; prevBtn.style.visibility = idx === 0 ? 'hidden' : 'visible'; nextBtn.style.visibility = idx === group.length - 1 ? 'hidden' : 'visible';
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if (t && t.tagName === 'IMG' && t.classList.contains('doc-img')) { group = groupOf(t); show(group.indexOf(t)); lb.classList.add('open'); }
+    else if (t === prevBtn) show(idx - 1);
+    else if (t === nextBtn) show(idx + 1);
+    else if (t === lb || t === frame || t === lbImg) lb.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e){
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lb.classList.remove('open');
+    else if (e.key === 'ArrowLeft') show(idx - 1);
+    else if (e.key === 'ArrowRight') show(idx + 1);
+  });
+})();
+
+(function(){var b=document.querySelector('.menu-btn'),n=document.getElementById('site-nav');if(!n)return;
+if(b)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close the menu':'Open the menu');});
+var items=[].slice.call(n.querySelectorAll('.has-panel'));
+function closeAll(ex){items.forEach(function(li){if(li!==ex){li.classList.remove('open');var t=li.querySelector('.sub-toggle');if(t)t.setAttribute('aria-expanded','false');}});}
+items.forEach(function(li){var t=li.querySelector('.sub-toggle');t.addEventListener('click',function(e){e.stopPropagation();var o=!li.classList.contains('open');closeAll(li);li.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'true':'false');});});
+document.addEventListener('click',function(e){if(!n.contains(e.target))closeAll();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();if(document.activeElement&&n.contains(document.activeElement))document.activeElement.blur();}});})();
+
+(function(){var lb=document.getElementById('lightbox');if(!lb)return;var x0=null;   // phones: swipe between photos
+lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)<40)return;
+var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!=='none')b.click();});})();
+
+
+/* ===== Layout (24 Sept, clean) ===== */
+(function(){
+  var STD = 106, MIN = 106, ROW = 170, CLEAR = 48, GAP = 24;   // 26 Sept (your choice): every set beside text 106px, at every width (was 125, shrinking to 106)   // 26 Sept: sets 125px (was 153); floor 106 (was 130) - provisional, same proportion
+  var RGAP = 38.4, RMIN = 10, RSHRINK = 140;
+  var GRIDGAP = 16.8;
+  var PCAP = 140;                                                // 26 Sept (edits 2, 3): Purpose photos at most 140px - the height at which rows begin to give way                                            // 26 Sept (edits 4): photos in a grid 30% closer (was 24px), both ways                     // 26 Sept: row gaps 38px; below 140px photos the gaps shrink first, to 10px
+  function phone(){ return window.matchMedia('(max-width:640px)').matches; }
+  function q(sel, root){ return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  function shapes(root){ return q('figure.ph', root).map(function(f){
+    var m = /aspect-ratio:\s*([0-9.]+)/.exec(f.querySelector('.pim').getAttribute('style') || ''); return m ? parseFloat(m[1]) : 1; }); }
+  function sum(a){ return a.reduce(function(x, y){ return x + y; }, 0); }
+  function setH(root, h){ q('.pim', root).forEach(function(p){ p.style.setProperty('--mh', h.toFixed(2)); }); }
+  function ink(el){   // the letters: [left, right, top, bottom]
+    var r = document.createRange(), w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n, o = [1e9, -1e9, 1e9, -1e9];
+    while ((n = w.nextNode())) { if (!n.nodeValue.trim()) continue; r.selectNodeContents(n);
+      Array.prototype.forEach.call(r.getClientRects(), function(x){ if (!x.width) return; o[0] = Math.min(o[0], x.left); o[1] = Math.max(o[1], x.right); o[2] = Math.min(o[2], x.top); o[3] = Math.max(o[3], x.bottom); }); }
+    return o[1] > o[0] ? o : null;
+  }
+  function sets(){
+    q('.mm-set').forEach(function(s){
+      var tx = s.querySelector('.mm-text'), im = s.querySelector('.mm-imgs'), a = shapes(im), W = s.clientWidth, G = GAP * (a.length - 1);
+      tx.style.width = ''; tx.style.maxWidth = ''; im.style.marginTop = ''; im.style.position = ''; im.style.top = '';
+      if (phone()) return;
+      if (s.classList.contains('mm-intro')) {               // photo the height of its paragraph
+        var h = 200;
+        for (var i = 0; i < 12; i++) { setH(im, h); var t = tx.getBoundingClientRect().height; if (Math.abs(t - h) < 0.5) break; h = t; }
+        return;
+      }
+      if (s.hasAttribute('data-h')) {                         // fixed size: one-material columns, the formula square
+        var H0 = parseFloat(s.getAttribute('data-h')); setH(im, H0);
+        if (s.classList.contains('mm-formula')) { var k = ink(tx.querySelector('table') || tx); if (k) im.style.marginTop = (k[2] - s.getBoundingClientRect().top) + 'px'; }
+        else { tx.style.maxWidth = (W - H0 * sum(a) - G - CLEAR) + 'px'; centre(s);
+          var cl = s.getAttribute('data-centre-lines');   // 26 Sept: centred top to bottom between two of its lines (1-based)
+          if (cl) { var ps = q('.mm-text > p', s), ab = cl.split('-').map(Number), k1 = ink(ps[ab[0] - 1]), k2 = ink(ps[ab[1] - 1]);
+            var f = q('figure.ph', im).map(function(x){ return x.getBoundingClientRect(); });
+            var mid = (Math.min.apply(null, f.map(function(x){ return x.top; })) + Math.max.apply(null, f.map(function(x){ return x.bottom; }))) / 2;
+            if (k1 && k2) im.style.top = ((parseFloat(im.style.top) || 0) + (k1[2] + k2[3]) / 2 - mid).toFixed(2) + 'px'; } }
+        return;
+      }
+      tx.style.width = 'max-content'; var natural = Math.min(tx.getBoundingClientRect().width, W); tx.style.width = '';
+      if (s.hasAttribute('data-column')) {   // 26 Sept (edits 3, 7): the photos one above another, the column as tall as the text
+        var kc = ink(tx), n = a.length, gapc = GRIDGAP;
+        im.style.flexDirection = 'column'; im.style.gap = gapc + 'px'; im.style.alignItems = 'flex-end';
+        for (var jj = 0; jj < 6; jj++) {
+          var hc = parseFloat(s.getAttribute('data-column')) || (kc ? ((kc[3] - kc[2]) - gapc * (n - 1)) / n : STD);   // a number: that height
+          q('.pim', im).forEach(function(p){ p.style.setProperty('--mh', hc.toFixed(2)); });
+          tx.style.maxWidth = (W - Math.max.apply(null, a.map(function(r){ return r * hc; })) - CLEAR) + 'px'; kc = ink(tx);
+        }
+        centre(s); return;
+      }
+      if (s.getAttribute('data-match') === 'text') {       // photos as tall as the text beside them, shape kept
+        // The text keeps at least 55% of the width (as in your PDF). Photos grow to the text's height, but never wider than
+        // the space the text leaves; where the text is taller than that allows, the photos stay at the largest that fits.
+        var cap = (W - 0.55 * W - 2 * CLEAR - G) / sum(a), hm = Math.min(STD, cap);
+        if (s.hasAttribute('data-purpose')) {   // 26 Sept (edits 2, 3): never taller than 140px, nor than the photos in the row beneath
+          var rb = s.nextElementSibling; while (rb && !rb.classList.contains('mm-row') && !rb.matches('h2, .micro-label')) rb = rb.nextElementSibling;
+          var rp = rb && rb.classList.contains('mm-row') ? rb.querySelector('.pim') : null;
+          cap = Math.min(cap, PCAP, rp && rp.getBoundingClientRect().height ? rp.getBoundingClientRect().height : PCAP); hm = Math.min(hm, cap);
+        }
+        for (var j = 0; j < 20; j++) {
+          tx.style.maxWidth = Math.max(0.55 * W, W - sum(a) * hm - G - 2 * CLEAR) + 'px';
+          var kk = ink(tx), th = kk ? Math.min(kk[3] - kk[2], cap) : hm;
+          if (Math.abs(th - hm) < 0.5) break; hm = th;
+        }
+        setH(im, hm); tx.style.maxWidth = Math.max(0.55 * W, W - sum(a) * hm - G - 2 * CLEAR) + 'px';
+        var k3 = ink(tx); if (k3) tx.style.width = Math.ceil(k3[1] - tx.getBoundingClientRect().left + 1) + 'px';
+        centre(s);
+        if (s.getAttribute('data-valign') === 'top') {          // photos start level with the first line of the text
+          var k4 = ink(tx), ft = Math.min.apply(null, q('figure.ph', im).map(function(x){ return x.getBoundingClientRect().top; }));
+          if (k4) im.style.top = (parseFloat(im.style.top || '0') + k4[2] - ft).toFixed(2) + 'px';
+        }
+        return;
+      }
+      var right = s.getAttribute('data-align') === 'right', sides = right || s.getAttribute('data-at') === 'right' ? 1 : 2, least = right ? 100 : MIN;   // data-at=right (26 Sept): at the margin, the usual sizes   // right: photos at the margin, text kept on one line down to 100px photos
+      var H = STD * (parseFloat(s.getAttribute('data-scale')) || 1), room = W - natural - sides * CLEAR;
+      if (s.hasAttribute('data-likerows')) {   // 26 Sept (edits 2, 6): as tall as the rows above and below (the lower of the two)
+        var nb = function(dir){ var e = s[dir]; while (e && !e.classList.contains('mm-row')) e = e[dir]; return e ? e.querySelector('.pim').getBoundingClientRect().height : 0; };
+        var hs = [nb('previousElementSibling'), nb('nextElementSibling')].filter(Boolean); if (hs.length) H = Math.min.apply(null, hs);
+      }
+      if (sum(a) * H + G > room && !s.hasAttribute('data-likerows')) H = Math.max(least, (room - G) / sum(a));   // rows-matched sets keep their height; the text wraps
+      setH(im, H);
+      tx.style.maxWidth = (W - sum(a) * H - G - sides * CLEAR) + 'px';
+      var k2 = ink(tx); if (k2) tx.style.width = Math.ceil(k2[1] - tx.getBoundingClientRect().left + 1) + 'px';   // box = longest line
+      centre(s);
+    });
+  }
+  function pairs(){   // 25 Sept rule: sets beside one list (rows of photos stacked beside it) - the same height, lined up on one left edge
+    if (phone()) return;
+    var grp = {};
+    q('.mm-set[data-pair]').forEach(function(s){ (grp[s.getAttribute('data-pair')] = grp[s.getAttribute('data-pair')] || []).push(s); });
+    Object.keys(grp).forEach(function(k){
+      var g = grp[k]; if (g.length < 2) return;
+      var H = Math.min.apply(null, g.map(function(s){ return parseFloat(s.querySelector('.pim').style.getPropertyValue('--mh')) || STD; }));
+      g.forEach(function(s){ var im = s.querySelector('.mm-imgs'); setH(im, H); im.style.justifyContent = 'flex-start'; im.style.paddingLeft = '0px'; im.style.removeProperty('gap'); });
+      // one block: centred in the space beside the longest line of all their text, 48px clear either side at least
+      var widest = function(){ return Math.max.apply(null, g.map(function(t){ var r = q('figure.ph', t).map(function(x){ return x.getBoundingClientRect(); }); return r[r.length - 1].right - r[0].left; })); };
+      var tr = Math.max.apply(null, g.map(function(s){ var k0 = ink(s.querySelector('.mm-text')); return k0 ? k0[1] : s.getBoundingClientRect().left; })),
+          edge = g[0].getBoundingClientRect().right, room = edge - tr - 2 * CLEAR, w = widest();
+      if (w > room) {
+        var gp = Math.max.apply(null, g.map(function(t){ return GAP * (q('figure.ph', t).length - 1); }));
+        H = Math.max(MIN, H * (room - gp) / (w - gp)); g.forEach(function(s){ setH(s.querySelector('.mm-imgs'), H); }); w = widest();   // never under the set height (rule of 26 Sept)
+      }
+      {   // 26 Sept rule (all grids and pairs): every row as wide as the widest, by widening its gaps, so the outer edges line up
+        var spans = g.map(function(t){ var r = q('figure.ph', t).map(function(x){ return x.getBoundingClientRect(); }); return [r.length, r.reduce(function(a, x){ return a + x.width; }, 0)]; });
+        var wmax = Math.max.apply(null, g.map(function(t){ var r = q('figure.ph', t).map(function(x){ return x.getBoundingClientRect(); }); return r[r.length - 1].right - r[0].left; }));
+        g.forEach(function(t, i){ if (spans[i][0] > 1) t.querySelector('.mm-imgs').style.setProperty('gap', ((wmax - spans[i][1]) / (spans[i][0] - 1)).toFixed(2) + 'px', 'important'); });
+        w = widest();
+      }
+      var left = tr + (edge - tr - w) / 2;
+      g.forEach(function(s){
+        var im = s.querySelector('.mm-imgs'), f0 = q('figure.ph', im)[0].getBoundingClientRect();
+        im.style.paddingLeft = Math.max(0, left - f0.left).toFixed(2) + 'px';
+      });
+    });
+  }
+  function grids(){   // sets beside one list that a page asks to show as a grid (data-grid = the gap): rows as far apart as the
+                      // photos in a row (the same gap both ways), the whole grid centred vertically on the list's text (26 Sept)
+    if (phone()) return;
+    var grp = {};
+    q('.mm-set[data-grid]').forEach(function(s){ (grp[s.getAttribute('data-pair')] = grp[s.getAttribute('data-pair')] || []).push(s); });
+    Object.keys(grp).forEach(function(k){
+      var g = grp[k], gap = GRIDGAP, ks = g.map(function(s){ return ink(s.querySelector('.mm-text')); }).filter(Boolean);
+      if (!ks.length) return;
+      var mid = (Math.min.apply(null, ks.map(function(x){ return x[2]; })) + Math.max.apply(null, ks.map(function(x){ return x[3]; }))) / 2;
+      var hs = g.map(function(s){ return q('figure.ph', s)[0].getBoundingClientRect().height; }), total = hs.reduce(function(a, b){ return a + b; }, 0) + gap * (g.length - 1);
+      var top = mid - total / 2;
+      g.forEach(function(s, i){
+        var im = s.querySelector('.mm-imgs'), f0 = q('figure.ph', im)[0].getBoundingClientRect();
+        im.style.position = 'relative'; im.style.top = ((parseFloat(im.style.top) || 0) + top - f0.top).toFixed(2) + 'px';
+        top += hs[i] + gap;
+      });
+    });
+  }
+  function centre(s){   // the photos (with any captions) centred on the letters of the text, not on its box
+    var im = s.querySelector('.mm-imgs'), k = ink(s.querySelector('.mm-text')); if (!k) return;
+    var f = q('figure.ph', im).map(function(x){ return x.getBoundingClientRect(); });
+    var mid = (Math.min.apply(null, f.map(function(x){ return x.top; })) + Math.max.apply(null, f.map(function(x){ return x.bottom; }))) / 2;
+    var target = (k[2] + k[3]) / 2;
+    if (s.hasAttribute('data-vc-upper')) {                 // centred between two named lines of text
+      var line = function(t){ return q('main p').filter(function(p){ return p.textContent.indexOf(t) >= 0; })[0]; };
+      var u = ink(line(s.getAttribute('data-vc-upper'))), l = ink(line(s.getAttribute('data-vc-lower')));
+      if (u && l) target = (u[3] + l[2]) / 2;
+    }
+    im.style.position = 'relative'; im.style.top = (target - mid).toFixed(2) + 'px';
+  }
+  function rows(){
+    var mn = document.querySelector('main'), one = mn && mn.getAttribute('data-rows') === 'one';   // a page may ask for one height for all its rows
+    if (one && !phone()) {
+      // 29 Sept (seventh chat): the row gap rule of 26 Sept holds here too - while the photos would fall below 140px the
+      // gaps shrink first (down to 10px), and only then do the photos shrink; all rows keep one height
+      var all = q('.mm-row'), H1 = parseFloat(mn.getAttribute('data-row-h')) || ROW;
+      all.forEach(function(r){ r.style.gap = ''; });
+      var base1 = Math.min(RGAP, (window.innerWidth - 80) * RGAP / 1140);
+      all.forEach(function(r){ var a = shapes(r), n = a.length, S = sum(a), W = r.clientWidth, Hr;
+        if (n < 2) Hr = W / S;
+        else { var Hb = (W - base1 * (n - 1)) / S;
+          if (Hb >= RSHRINK) Hr = Hb;
+          else Hr = (W - RSHRINK * S) / (n - 1) >= RMIN ? RSHRINK : (W - RMIN * (n - 1)) / S; }
+        H1 = Math.min(H1, Hr); });
+      H1 = Math.floor(H1 * 100) / 100;
+      all.forEach(function(r){ var a = shapes(r), n = a.length; setH(r, H1);
+        if (n > 1) r.style.gap = Math.min(base1, (r.clientWidth - sum(a) * H1) / (n - 1)).toFixed(2) + 'px'; });
+      return;
+    }
+    var groups = {};
+    q('.mm-row').forEach(function(r){ (groups[r.getAttribute('data-level')] = groups[r.getAttribute('data-level')] || []).push(r); });
+    Object.keys(groups).forEach(function(k){
+      var g = groups[k];
+      g.forEach(function(r){ r.style.gap = ''; });
+      if (phone()) { g.forEach(function(r){ q('.pim', r).forEach(function(p){ p.style.removeProperty('--mh'); }); }); return; }
+      // 26 Sept rules: gaps 38px (a little less on narrow windows) while the photos are 140px or taller; below that the gaps
+      // shrink first, down to 10px, before the photos shrink further. Rows that follow each other: one height, and the same
+      // width - the shorter row's gaps widen to match the widest.
+      var base = Math.min(RGAP, (window.innerWidth - 80) * RGAP / 1140);
+      var info = g.map(function(r){ var a = shapes(r), n = a.length, S = sum(a), W = r.clientWidth, Hr;
+        if (n < 2) Hr = Math.min(ROW, W / S);
+        else { var H38 = (W - base * (n - 1)) / S;
+          if (H38 >= RSHRINK) Hr = Math.min(ROW, H38);
+          else { var gg = (W - RSHRINK * S) / (n - 1); Hr = gg >= RMIN ? RSHRINK : (W - RMIN * (n - 1)) / S; } }
+        return {r: r, n: n, S: S, W: W, Hr: Hr}; });
+      var H = Math.floor(Math.min.apply(null, info.map(function(x){ return x.Hr; })) * 100) / 100;
+      info.forEach(function(x){ x.gap = x.n < 2 ? 0 : Math.min(base, (x.W - x.S * H) / (x.n - 1)); x.w = x.S * H + x.gap * (x.n - 1); });
+      var wide = Math.max.apply(null, info.map(function(x){ return x.w; }));
+      info.forEach(function(x){
+        if (x.n > 1 && g.length > 1) x.gap = (wide - x.S * H) / (x.n - 1);
+        setH(x.r, H); if (x.n > 1) x.r.style.gap = x.gap.toFixed(2) + 'px';
+      });
+    });
+  }
+  function under(){   // a row whose photos are each centred under the photo above
+    q('.mm-row[data-under]').forEach(function(r){
+      var f = q('figure.ph', r); f.forEach(function(x){ x.style.marginLeft = ''; }); r.style.justifyContent = ''; r.style.gap = '';
+      if (phone()) return;
+      var above = r.previousElementSibling; if (!above || !above.classList.contains('mm-row')) return;
+      var c = q('.pim', above).map(function(p){ var b = p.getBoundingClientRect(); return (b.left + b.right) / 2; });
+      r.style.justifyContent = 'flex-start'; r.style.gap = '0px';
+      var x = r.getBoundingClientRect().left;
+      f.forEach(function(fig, i){ var w = fig.getBoundingClientRect().width, want = c[Math.min(i, c.length - 1)] - w / 2; fig.style.marginLeft = (want - x).toFixed(2) + 'px'; x = want + w; });
+    });
+  }
+  function rules(){   // beige rules as wide as the rows beside them, never wider than the page
+    q('.beige-rule').forEach(function(b){
+      var w = 0; [b.previousElementSibling, b.nextElementSibling].forEach(function(e){
+        if (e && e.classList.contains('mm-row')) { var p = q('.pim', e); if (p.length) w = Math.max(w, p[p.length - 1].getBoundingClientRect().right - p[0].getBoundingClientRect().left); } });
+      b.style.width = w && !phone() ? Math.round(w) + 'px' : '100%';
+    });
+  }
+  function bottom(el){   // what the eye sees as the bottom of the thing above a label
+    if (el.classList.contains('mm-row') || el.classList.contains('mm-set') || el.classList.contains('mm-float') || /^(HR|H1|H2|H3)$/.test(el.tagName) || el.classList.contains('beige-rule')) {
+      if (el.classList.contains('mm-set')) { var k = ink(el.querySelector('.mm-text')), r = el.querySelector('.mm-imgs').getBoundingClientRect(); return Math.max(r.bottom, k ? k[3] : r.bottom); }
+      if (/^H[123]$/.test(el.tagName)) { var kh = ink(el); return kh ? kh[3] : el.getBoundingClientRect().bottom; }
+      return el.getBoundingClientRect().bottom;
+    }
+    var k2 = ink(el); return k2 ? k2[3] : null;
+  }
+  function spacing(){   // 32px of clear space before a label, 24px before a sub-heading that follows text
+    q('main .micro-label, main .sub-label').forEach(function(l){
+      var want = parseFloat(l.getAttribute('data-want')) || (l.classList.contains('micro-label') ? 32 : 24), target = l, above = l.previousElementSibling;
+      if (!above && l.parentElement.classList.contains('mm-text')) { target = l.parentElement.parentElement; above = target.previousElementSibling; }
+      while (above && above.classList.contains('mm-float')) above = above.previousElementSibling;
+      if (!above) return;
+      if (!l.hasAttribute('data-want') && want === 24 && /(^| )(mm-row|mm-set|mm-float)( |$)/.test(above.className)) want = 32;   // rule: 32px before a sub-heading that follows photos
+      if (!l.hasAttribute('data-want') && want === 24 && (above.classList.contains('micro-label') || /^H[123]$/.test(above.tagName))) return;
+      var b = bottom(above), k = ink(l); if (b === null || !k) return;
+      above.style.marginBottom = '0px';
+      var cur = parseFloat(getComputedStyle(target).marginTop) || 0;
+      target.style.marginTop = Math.max(0, cur + want - (k[2] - b)).toFixed(2) + 'px';
+    });
+  }
+  function spaceAbove(){   // rows and sets with a set clear space above them
+    q('[data-above]').forEach(function(el){
+      if (phone()) { el.style.marginTop = ''; return; }
+      var above = el.previousElementSibling; while (above && above.classList.contains('mm-float')) above = above.previousElementSibling; if (!above) return;
+      var b = el.getAttribute('data-above-from') === 'text' ? (ink(above.querySelector('.mm-text') || above) || [0, 0, 0, null])[3] : bottom(above);
+      var t = Math.min.apply(null, q('.pim', el).map(function(p){ return p.getBoundingClientRect().top; }));
+      if (b === null || !isFinite(t)) return;
+      above.style.marginBottom = '0px';
+      var cur = parseFloat(getComputedStyle(el).marginTop) || 0;
+      el.style.setProperty('margin-top', Math.max(0, cur + parseFloat(el.getAttribute('data-above')) - (t - b)).toFixed(2) + 'px', 'important');
+    });
+  }
+
+  // ===== 26 Sept (queue item 12): the spacing table - every situation. On for a page whose settings set
+  // main[data-spacing=table] (The Practical Life Curriculum, for review); other pages keep spacing() and spaceAbove().
+  // Measured as the engine measures: the top and bottom of each line of text (ink()), photo edges.
+  function spaceTable(fresh){
+    var main = document.querySelector('main'), ph = phone(), items = [], floats = [];
+    function add(el, type, target, set){ items.push({el: el, type: type, target: target || el, set: set || null, nf: floats.length}); }
+    function walk(c0, set, firstTarget){
+      var first = firstTarget;
+      Array.prototype.forEach.call(c0.children, function(c){
+        if (c.nodeType !== 1 || getComputedStyle(c).display === 'none') return;
+        var cl = c.classList, tg = c.tagName, tgt = first || c; first = null;
+        if (tg === 'SCRIPT' || tg === 'STYLE' || cl.contains('mm-dots') || tg === 'NAV') return;
+        if (cl.contains('mm-float')) { if (ph) add(c, 'row', tgt, set); else floats.push(c.querySelector('.pim')); return; }
+        if (cl.contains('mm-row')) { add(c, 'row', tgt, set); return; }
+        if (cl.contains('mm-set')) {
+          var tx = c.querySelector('.mm-text');
+          if (tx && ink(tx)) { var n0 = items.length; walk(tx, c, c);
+            if (items.length > n0) { items[n0].firstInSet = true; items[items.length - 1].lastInSet = true; }
+            if (ph) add(c.querySelector('.mm-imgs'), 'strip', null, c); }
+          else add(c, 'row', tgt, set);
+          return;
+        }
+        if (tg === 'SECTION' || tg === 'ARTICLE' || (tg === 'DIV' && !c.className)) { walk(c, set, tgt === c ? null : tgt); return; }
+        if (cl.contains('mm-trio')) { add(c.querySelector('blockquote p'), 'quote', tgt, set); var ci = c.querySelector('blockquote cite'); if (ci) add(ci, 'cite', null, set);
+          if (ph) add(c, 'strip', null, set); return; }   // phones: the two photos below the quotation
+        if (tg === 'OL' && c.hasAttribute('data-cols')) { add(c, 'li', tgt, set); return; }   // a list in columns: one block (listColumns() spaces its lines)
+        if (tg === 'OL' || tg === 'UL') { Array.prototype.forEach.call(c.children, function(li, i){ add(li, 'li', i === 0 && tgt !== c ? tgt : li, set); }); return; }
+        if (tg === 'BLOCKQUOTE') { Array.prototype.filter.call(c.children, function(x){ return x.tagName === 'P' || x.tagName === 'CITE'; }).forEach(function(x, i){ add(x, x.tagName === 'CITE' ? 'cite' : 'quote', i === 0 ? tgt : x, set); }); return; }
+        if (tg === 'H2') { add(c, 'heading', tgt, set); return; }
+        if (cl.contains('micro-label') || cl.contains('sub-label')) { add(c, 'label', tgt, set); return; }
+        if (cl.contains('mm-table-wrap') || tg === 'TABLE') { add(c, 'table', tgt, set); return; }
+        add(c, 'text', tgt, set);
+      });
+    }
+    walk(main, null, null);
+    // lists: two or more short lines under a label, or three or more short lines anywhere; a list continues from one set
+    // into the next only when both sit beside the same list (data-pair)
+    var short = function(it){ return it.type === 'text' && it.el.textContent.trim().length <= 160 && !/:\s*$/.test(it.el.textContent); };
+    for (var i = 0; i < items.length; ) {
+      if (!short(items[i])) { i++; continue; }
+      var j = i;
+      while (j + 1 < items.length && short(items[j + 1]) && (items[j + 1].set === items[j].set ||
+             (items[j].set && items[j + 1].set && items[j].set.getAttribute('data-pair') && items[j].set.getAttribute('data-pair') === items[j + 1].set.getAttribute('data-pair')))) j++;
+      var n = j - i + 1, underLabel = i > 0 && items[i - 1].type === 'label';
+      if ((underLabel && n >= 2) || n >= 3) for (var k = i; k <= j; k++) items[k].list = true;
+      i = j + 1;
+    }
+    function want(a, b){
+      if (b.type === 'strip') return null;                                   // phones: the strip keeps its 12px below its text
+      if (b.type === 'heading') return 48;
+      if (b.type === 'label') return 24;   // 26 Sept rule: 24px above every sub-heading, whatever comes before (was 32)
+      if (b.type === 'row') return a.type === 'label' ? 16 : 32;   // 26 Sept: 32px above a row, as below it; 16px under the name of a material or activity (edits 6)
+      if (a.type === 'heading') return 29;
+      if (a.type === 'label') return 12;
+      if (a.type === 'row' || a.type === 'strip') return 32;
+      if (b.type === 'cite') return 15;
+      if (b.type === 'quote') return 32;
+      if (a.type === 'cite' || a.type === 'quote' || a.type === 'table') return 32;
+      if (a.type === 'li' && b.type === 'li') return 11;   // 26 Sept rule: every list, 11px between its lines (Word lists were 15)
+      if (a.type === 'li' || b.type === 'li') return 23;
+      if (b.type === 'table') return 21;
+      return a.list && b.list ? 11 : 21;
+    }
+    function top(it){ if (it.type === 'row' || it.type === 'strip') { var p = q('.pim', it.el).map(function(x){ return x.getBoundingClientRect().top; }); return p.length ? Math.min.apply(null, p) : it.el.getBoundingClientRect().top; }
+      var k = ink(it.el); return k ? k[2] : it.el.getBoundingClientRect().top; }
+    function bot(it){ if (it.type === 'row' || it.type === 'strip') { var p = q('.pim', it.el).map(function(x){ return x.getBoundingClientRect().bottom; }); return p.length ? Math.max.apply(null, p) : it.el.getBoundingClientRect().bottom; }
+      if (it.type === 'heading') { var kh = ink(it.el); return kh ? kh[3] : it.el.getBoundingClientRect().bottom; }
+      var k = ink(it.el); return k ? k[3] : it.el.getBoundingClientRect().bottom; }
+    function span(it){ if (it.type === 'row' || it.type === 'strip') return [0, 1e9];
+      var k = ink(it.el); return k ? [k[0], k[1]] : [0, 1e9]; }
+    function across(a, b){ return a[0] < b[1] && b[0] < a[1]; }
+    function clears(it){ var t = it.target; if (getComputedStyle(t).clear !== 'none') return true;
+      return t.tagName === 'H2' && t.parentElement && getComputedStyle(t.parentElement).clear !== 'none' && t === t.parentElement.firstElementChild; }
+    function photos(set){ var p = q('.pim', set.querySelector('.mm-imgs')).map(function(x){ return x.getBoundingClientRect(); }); return [Math.min.apply(null, p.map(function(x){ return x.top; })), Math.max.apply(null, p.map(function(x){ return x.bottom; }))]; }
+    // every margin between the things measured is set here, and only here
+    if (fresh) {   // the first pass of a layout starts from nothing; later passes correct what the one before left
+      items.forEach(function(it){ it.target.style.setProperty('margin-top', '0px', 'important'); it.target.style.setProperty('margin-bottom', '0px', 'important'); it.el.style.setProperty('margin-bottom', '0px', 'important');
+        if (it.type === 'heading') it.el.style.setProperty('padding-top', '0px', 'important');
+        if (it.target.tagName === 'BLOCKQUOTE') it.target.style.setProperty('padding-top', '0px', 'important'); });
+      q('main section, main .mm-text, main ol, main ul, main blockquote, main .mm-set').forEach(function(e){ e.style.setProperty('margin-bottom', '0px', 'important'); if (!items.some(function(it){ return it.target === e; })) e.style.setProperty('margin-top', '0px', 'important'); });
+    }
+    // measure once with every margin at 0; each margin then moves everything below it by the same amount
+    var T = items.map(top), B = items.map(bot), P = items.map(function(it){ return it.set && !ph ? photos(it.set) : null; }), X = items.map(span);
+    var F = floats.map(function(f){ var r = f.getBoundingClientRect(); return [r.left, r.right, r.top, r.bottom]; });
+    var done = new Set(); main.__space = {items: items, T: T, B: B, F: F, log: []};   // for the check and for debugging
+    for (var m = 1; m < items.length; m++) {
+      var a = items[m - 1], b = items[m], w = want(a, b); if (w === null || done.has(b.target)) continue;
+      var pt = b.type === 'heading' ? b.el : b.target, cl = clears(b);
+      var cur = parseFloat(cl ? pt.style.paddingTop : b.target.style.marginTop) || 0;
+      var need = cur + w - (T[m] - B[m - 1]);
+      if (!ph) {   // photos beside text never closer than 32px (48px above a heading) to what is above or below them,
+                   // where they would stand over or under it (a short label at the left, beside photos at the right, is not)
+        var ps = function(pp, set){ var r = q('.pim', set.querySelector('.mm-imgs')).map(function(x){ return x.getBoundingClientRect(); });
+          return [Math.min.apply(null, r.map(function(x){ return x.left; })), Math.max.apply(null, r.map(function(x){ return x.right; }))]; };
+        var big = b.type === 'heading' ? 48 : b.type === 'label' ? 24 : 32;
+        if (b.firstInSet && across(X[m - 1], ps(P[m], b.set)) && !(a.set && a.set.getAttribute('data-pair') && a.set.getAttribute('data-pair') === b.set.getAttribute('data-pair')))
+          need = Math.max(need, cur + 32 - (P[m][0] - B[m - 1]));
+        if (a.lastInSet && across(X[m], ps(P[m - 1], a.set)) && !(b.set && b.set.getAttribute('data-pair') && b.set.getAttribute('data-pair') === a.set.getAttribute('data-pair')))
+          need = Math.max(need, cur + big - (T[m] - P[m - 1][1]));
+        // a single photo at the margin: only what must pass below it (a heading, a quotation that clears it, a row) keeps
+        // its distance; text beside it wraps around it and is never pushed below it (fixed 26 Sept, "Observing the needs")
+        if (clears(b) || b.type === 'row') for (var f = 0; f < b.nf; f++) if (F[f][3] > B[m - 1] && across(X[m], [F[f][0], F[f][1]])) need = Math.max(need, cur + big - (T[m] - F[f][3]));
+      }
+      main.__space.log.push([m, a.type, b.type, w, +(T[m] - B[m - 1]).toFixed(1), +need.toFixed(1), cl]);
+      if (cl) {   // an element that clears a float: padding, because clearance swallows a margin
+        pt.style.setProperty('padding-top', Math.max(0, need).toFixed(2) + 'px', 'important');
+      } else b.target.style.setProperty('margin-top', need.toFixed(2) + 'px', 'important');
+      done.add(b.target);
+    }
+  }
+  // 26 Sept: a single photo at the margin straight after a section heading starts as far below the heading's blue line
+  // as the letters of the text beside it ("Observing the needs of the child")
+  function trio(){   // 26 Sept: the photos start level with the quotation's first line; the left one reaches the foot of the
+                     // attribution, the right one the quotation's last line (sizes settle over a few passes, as the text rewraps)
+    q('main .mm-trio').forEach(function(t){
+      var f = q('figure.ph', t), qp = t.querySelector('blockquote p'), ct = t.querySelector('blockquote cite');
+      f.forEach(function(x){ x.style.marginTop = '0px'; });
+      if (phone()) { f.forEach(function(x){ x.querySelector('.pim').style.removeProperty('--mh'); }); return; }
+      if (t.hasAttribute('data-h')) {   // 26 Sept: a set height (the rule), both photos level with the quotation's first line
+        var hh = parseFloat(t.getAttribute('data-h')); f.forEach(function(x){ x.querySelector('.pim').style.setProperty('--mh', hh + 'px'); });
+        var kq0 = ink(qp); if (kq0) f.forEach(function(x){ x.style.marginTop = (kq0[2] - x.querySelector('.pim').getBoundingClientRect().top).toFixed(2) + 'px'; });
+        return;
+      }
+      var arOf = function(x){ var m = /aspect-ratio:\s*([0-9.]+)/.exec(x.querySelector('.pim').getAttribute('style') || ''); return m ? parseFloat(m[1]) : 1; };
+      var W = t.clientWidth, arL = arOf(f[0]), arR = arOf(f[f.length - 1]);
+      for (var i = 0; i < 12; i++) {
+        var kq = ink(qp), kc = ct ? ink(ct) : kq; if (!kq) return;
+        var hL = kc[3] - kq[2], hR = kq[3] - kq[2], k = Math.min(1, 0.4 * W / (hL * arL + hR * arR));   // the two photos: at most 40% of the width
+        f[0].querySelector('.pim').style.setProperty('--mh', (hL * k).toFixed(2) + 'px');
+        f[f.length - 1].querySelector('.pim').style.setProperty('--mh', (hR * k).toFixed(2) + 'px');
+      }
+      var kq2 = ink(qp);
+      f.forEach(function(x){ x.style.marginTop = (kq2[2] - x.querySelector('.pim').getBoundingClientRect().top).toFixed(2) + 'px'; });
+    });
+  }
+  function purposeWrap(){   // 26 Sept rule (changed): the Purpose photo centred top to bottom on its paragraph, at the right;
+                            // the text runs close beside it, and full width above and below it where the paragraph is taller
+    q('main .mm-pwrap').forEach(function(w){
+      var sp = w.querySelector('.mm-pspacer'), pf = w.querySelector('.mm-pfig'), p = w.querySelector('p'), pims = q('.pim', pf);
+      if (phone()) { pims.forEach(function(x){ x.style.setProperty('--mh', '106'); }); sp.style.height = '0px'; return; }
+      var rb = w.nextElementSibling; while (rb && !rb.classList.contains('mm-row') && !rb.matches('h2, .micro-label')) rb = rb.nextElementSibling;
+      var rp = rb && rb.classList.contains('mm-row') ? rb.querySelector('.pim') : null;
+      var cap = Math.min(PCAP, rp && rp.getBoundingClientRect().height ? rp.getBoundingClientRect().height : PCAP);
+      var foot = w.hasAttribute('data-foot'), fixed = parseFloat(w.getAttribute('data-h')) || 0;   // data-foot: at the text's foot (NAMC)
+      var place = function(H){ pims.forEach(function(x){ x.style.setProperty('--mh', H.toFixed(2)); });
+        for (var r = 0; r < 8; r++) { var k = ink(p); if (!k) return; var t0 = w.getBoundingClientRect().top + parseFloat(getComputedStyle(w).paddingTop || 0);
+          sp.style.height = Math.max(0, (foot ? k[3] - H : (k[2] + k[3]) / 2 - H / 2) - t0).toFixed(2) + 'px'; } };
+      var fit = function(){ var f = pf.getBoundingClientRect(), k = ink(p); return k && (foot ? Math.abs(f.bottom - k[3]) < 0.75 : Math.abs((f.top + f.bottom) / 2 - (k[2] + k[3]) / 2) < 0.75); };
+      var H = fixed || cap;
+      if (fixed) place(H);
+      else for (var i = 0; i < 6; i++) { place(H); var k0 = ink(p); var H2 = Math.min(cap, k0[3] - k0[2]); if (Math.abs(H2 - H) < 0.5) break; H = H2; }
+      // if the lines keep re-flowing around the photo, it gives up a few pixels of height (at most 30) until it is centred
+      for (var d = 1; !fit() && d <= 30; d++) place(H - d);
+    });
+  }
+  function listColumns(){   // 26 Sept (edits 1): lines 15px apart, as in any Word list; the columns start level
+    q('main ol[data-cols]').forEach(function(ol){
+      var li = q('li', ol).filter(function(x){ return x.parentElement === ol; }), c = +ol.getAttribute('data-cols') || 2, r = Math.ceil(li.length / c);
+      ol.style.gridTemplateRows = 'repeat(' + r + ', auto)'; ol.style.rowGap = '0px';
+      li.forEach(function(x){ x.style.setProperty('margin-top', '0px', 'important'); x.style.setProperty('margin-bottom', '0px', 'important'); });
+      if (r > 1) { var a = ink(li[0]), b = ink(li[1]); if (a && b) ol.style.rowGap = Math.max(0, 11 - (b[2] - a[3])).toFixed(2) + 'px'; }   // 26 Sept rule: list lines 11px
+    });
+  }
+  function floatsUnderHeading(){
+    q('main .mm-float').forEach(function(f){
+      var h = f.previousElementSibling, t = f.nextElementSibling, p = f.querySelector('.pim');
+      if (!h || h.tagName !== 'H2' || !t || phone()) { if (p) f.style.removeProperty('margin-top'); return; }
+      var k = ink(t); if (!k) return;
+      // the tops of the letters themselves (what the eye sees), not the top of the line of type
+      var cs = getComputedStyle(t), c = document.createElement('canvas').getContext('2d');
+      c.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+      var m = c.measureText(t.textContent.trim().split(/\s+/).slice(0, 8).join(' '));
+      var letters = k[2] + (m.fontBoundingBoxAscent - m.actualBoundingBoxAscent);
+      var line = h.getBoundingClientRect().bottom, cur = parseFloat(getComputedStyle(f).marginTop) || 0;
+      f.style.setProperty('margin-top', (cur + (letters - line) - (p.getBoundingClientRect().top - line)).toFixed(2) + 'px', 'important');
+    });
+  }
+  function dots(){
+    q('.mm-dots').forEach(function(d){ d.parentNode.removeChild(d); });
+    if (!phone()) return;
+    q('.mm-row, .mm-set .mm-imgs').forEach(function(st){
+      var f = q('figure.ph', st); if (f.length < 2) return;
+      var d = document.createElement('div'); d.className = 'mm-dots';
+      f.forEach(function(){ d.appendChild(document.createElement('span')); }); d.firstChild.className = 'on';
+      (st.classList.contains('mm-row') ? st : st.parentNode).insertAdjacentElement('afterend', d);
+      st.addEventListener('scroll', function(){ var k = 0, best = 1e9;
+        f.forEach(function(x, i){ var dd = Math.abs(x.offsetLeft - st.offsetLeft - st.scrollLeft); if (dd < best) { best = dd; k = i; } });
+        q('span', d).forEach(function(s, i){ s.className = i === k ? 'on' : ''; }); }, {passive: true});
+    });
+  }
+  function layout(){
+    if (document.querySelector('main[data-spacing=table]')) {   // photos are re-centred after the margins change, twice to settle
+      dots(); listColumns(); for (var i = 0; i < 4; i++) { sets(); pairs(); grids(); rows(); under(); rules(); trio(); purposeWrap(); spaceTable(i === 0); } purposeWrap(); sets(); pairs(); grids(); floatsUnderHeading(); floatsUnderHeading(); }
+    else { sets(); pairs(); grids(); rows(); under(); rules(); spacing(); spaceAbove(); spacing(); spaceAbove(); dots(); listColumns(); floatsUnderHeading(); floatsUnderHeading(); }
+    document.documentElement.setAttribute('data-layout', 'done'); }
+  var pending = false;
+  function schedule(){ if (pending) return; pending = true; requestAnimationFrame(function(){ pending = false; layout(); }); }
+  window.addEventListener('resize', schedule);                          // every resize, so a brief one (zoom, print, capture) is always undone
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(document.querySelector('main'));
+  window.addEventListener('load', schedule);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+  q('img.doc-img').forEach(function(i){ if (!i.complete) i.addEventListener('load', schedule); });
+  layout();
+})();
+</script>
+<script id="mm-protect-js">/* Copy protection (28 Sept, TEMPLATE.md) */
+(function(){
+  var TEXT = 'main#content, .hero', PHOTOS = 'main#content img, #lightbox img';
+  function el(n){ return n && (n.nodeType === 1 ? n : n.parentElement); }
+  function inText(n){ n = el(n); return !!(n && n.closest && n.closest(TEXT)); }
+  function isPhoto(n){ n = el(n); return !!(n && n.tagName === 'IMG' && n.closest(PHOTOS)); }
+  function covers(s){   // any part of the selection inside the protected text (also select-all from menu to footer)
+    if (!s || !s.rangeCount) return false;
+    var zones = document.querySelectorAll(TEXT);
+    for (var i = 0; i < s.rangeCount; i++) { var r = s.getRangeAt(i);
+      for (var j = 0; j < zones.length; j++) if (r.intersectsNode(zones[j])) return true; }
+    return false; }
+  function noCopy(e){ if (inText(e.target) || covers(window.getSelection())) e.preventDefault(); }
+  document.addEventListener('copy', noCopy, true);
+  document.addEventListener('cut', noCopy, true);
+  document.addEventListener('contextmenu', function(e){ if (isPhoto(e.target)) e.preventDefault(); }, true);
+  document.addEventListener('dragstart', function(e){ if (isPhoto(e.target)) e.preventDefault(); }, true);
+})();
+</script>
+<script id="mm-menu-js">(function(){[].forEach.call(document.querySelectorAll('.menu .top.np-top'),function(a){a.addEventListener('click',function(e){var t=a.parentNode.querySelector('.sub-toggle');if(t){e.stopPropagation();t.click();}});});})();</script><script id="mm-foot-gap-js">(function(){
+ function half(el){var cs=getComputedStyle(el);
+  var c=document.createElement('canvas').getContext('2d');
+  c.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+'/'+cs.lineHeight+' '+cs.fontFamily;
+  var m=c.measureText('Hxg'),fh=m.fontBoundingBoxAscent+m.fontBoundingBoxDescent;
+  var lh=parseFloat(cs.lineHeight)||parseFloat(cs.fontSize)*1.2;return (lh-fh)/2;}
+ function low(m){var rg=document.createRange(),w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT),n,b=-1e9;
+  while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var pe=n.parentElement;
+   if(!pe||pe.closest('nav,script,style'))continue;
+   rg.selectNodeContents(n);var rs=rg.getClientRects(),h=half(pe);
+   for(var i=0;i<rs.length;i++)if(rs[i].width)b=Math.max(b,rs[i].bottom-h);}
+  [].forEach.call(m.querySelectorAll('img'),function(i){var r=i.getBoundingClientRect();if(r.height)b=Math.max(b,r.bottom);});
+  return b;}
+ function run(){var bd=document.querySelector('.mc-band'),m=document.querySelector('main');if(!bd||!m)return;
+  var G=40;
+  for(var k=0;k<6;k++){var lb=low(m);if(lb<-1e8)return;
+   var d=G-(bd.getBoundingClientRect().top-lb);if(Math.abs(d)<0.3)break;
+   var mt=parseFloat(getComputedStyle(bd).marginTop)||0;
+   bd.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}}
+ var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+ window.addEventListener('resize',run);
+ window.addEventListener('load',function(){run();setTimeout(run,700);
+  if(document.fonts)document.fonts.ready.then(function(){setTimeout(run,300);});});})();</script>
+
+</body>
+</html>

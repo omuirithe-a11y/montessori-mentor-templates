@@ -1,0 +1,97 @@
+-- width 1440
+words seen live 2526, on the page 2528
+replace: visible on live "artifacts," -> visible on page "artefacts,"
+delete: visible on live "as" -> visible on page ""
+replace: visible on live "showed" -> visible on page "shown"
+replace: visible on live "of" -> visible on page "for"
+insert: visible on live "" -> visible on page "to"
+insert: visible on live "" -> visible on page "of"
+replace: visible on live "frame," -> visible on page "frame."
+replace: visible on live "or" -> visible on page "of"
+replace: visible on live "categorization" -> visible on page "categorisation"
+insert: visible on live "" -> visible on page "a"
+replace: visible on live "equalize" -> visible on page "equalise"
+insert: visible on live "" -> visible on page "as"
+delete: visible on live "‘" -> visible on page ""
+images seen live 250, on the page 250
+"to": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"the": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"pressure": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"difference": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"Yoga-related": live rgb(0, 0, 0) upright bold -> page rgb(43, 43, 43) upright bold
+"books": live rgb(0, 0, 0) upright bold -> page rgb(43, 43, 43) upright bold
+"and": live rgb(0, 0, 0) upright bold -> page rgb(43, 43, 43) upright bold
+"cards": live rgb(0, 0, 0) upright bold -> page rgb(43, 43, 43) upright bold
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Giselle": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Shardlow": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"and": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Vicky": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Bowes.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"“": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Taeeun": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Yoo.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Rebecca": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Whitford.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Brian": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Russo.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Christiane": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Engel.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Sarah": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Jane": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Hinder.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"https://naturalearning.org/gardenyoga": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+-- width 390
+words seen live 2526, on the page 2528
+replace: visible on live "artifacts," -> visible on page "artefacts,"
+delete: visible on live "as" -> visible on page ""
+replace: visible on live "showed" -> visible on page "shown"
+replace: visible on live "of" -> visible on page "for"
+insert: visible on live "" -> visible on page "to"
+insert: visible on live "" -> visible on page "of"
+replace: visible on live "frame," -> visible on page "frame."
+replace: visible on live "or" -> visible on page "of"
+replace: visible on live "categorization" -> visible on page "categorisation"
+insert: visible on live "" -> visible on page "a"
+replace: visible on live "equalize" -> visible on page "equalise"
+insert: visible on live "" -> visible on page "as"
+delete: visible on live "‘" -> visible on page ""
+images seen live 250, on the page 250
+"to": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"the": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"pressure": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"difference": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+"Yoga-related": live rgb(0, 0, 0) upright bold -> page rgb(43, 43, 43) upright bold
+"books": live rgb(0, 0, 0) upright bold -> page rgb(43, 43, 43) upright bold
+"and": live rgb(0, 0, 0) upright bold -> page rgb(43, 43, 43) upright bold
+"cards": live rgb(0, 0, 0) upright bold -> page rgb(43, 43, 43) upright bold
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Giselle": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Shardlow": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"and": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Vicky": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Bowes.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"“": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Taeeun": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Yoo.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Rebecca": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Whitford.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Brian": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Russo.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Christiane": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Engel.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"by": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Sarah": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Jane": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"Hinder.": live rgb(0, 0, 0) upright regular -> page rgb(43, 43, 43) upright regular
+"https://naturalearning.org/gardenyoga": live rgb(30, 77, 123) upright regular underlined -> page rgb(4, 50, 255) upright regular underlined
+RESULT: 90 differences a reader sees (formatting, hidden or shown words, hidden or shown images) - each must be an allowed change or a template fault reported to the owner
