@@ -51,10 +51,21 @@ None of the 7 earlier pages has been checked for: height after scrolling, lines 
 ## Settled rules (do not put to the owner as decisions)
 Headings smaller than live; quotations without side margins and without lines beside them; spacing set by the template scripts; images beside text 150 px high or smaller; photos in a row under text that would be squeezed (owner's option C, 16 Oct); swipe rows below 831 px: each photo stops mid-screen, space added at both ends (owner 16 Oct, 1C); black/orange text shown as ink rgb(43,43,43); links rgb(4,50,255); typo and UK-spelling fixes; Sensorial only (28-29 Oct): images at most 200 px high at 641-830 px, the touch table's description on its own line at 641-665 px, a reference table's top line 6 px above its first row. Sources: claude/SETTLED.md, MASTER-DECISIONS.md, DECISIONS-27-oct.md, the 28 Oct record. Search the project before asking the owner (owner 28 Oct 18:02).
 
+## Owner-reported faults, 29 Oct 07:55 (files: GitHub handover-2026-10-29/owner-29oct/General.pdf, General.docx, General-page1.png)
+The owner sent a one-page document "General" with two faults and screenshots. Verbatim:
+1. **Menu Bar** - "The new sizes of the menu elements is too big. Return it to the previous size across all pages and change the template." Screenshots: "New/wrong" (menu names larger and closer together) and "Old/right" (smaller names, wider gaps, a line under the current page's name).
+2. **Table of Contents** - "Needs to align with the text below. At certain widths the contents drifts off the left margin. This needs to be fixed." Screenshots of The Montessori Curriculum page: left, the contents indented with the text; right, the contents against the left edge of the screen, out of line with the text below.
+
+Leads found so far (not established as causes):
+- The basic menu rules (.menu .top font-size 17px, 16px) are the same in all 9 live copies of 27 Oct and in the new Sensorial page, and have not changed in the Essay template since its first commit (5734ac5). So the size difference in the screenshots comes from other rules (font family or weight, later overrides, or a page-specific rule), or from a page not built on these templates. Which pages show "New/wrong" was not measured.
+- HANDOVER-16-oct-evening.md recorded: "Table of contents touches the screen edge at 641-1179 on Sensorial (same in the 15 Oct build); the same CSS rule is on all 20 pages (not measured on each)."
+- The Montessori Curriculum page (in the screenshots) is not one of the 9 pages rebuilt on 27-29 Oct.
+
 ## Open questions for the owner (known)
 1. Which pages to correct, and in what order (standing: do not correct until told).
 2. Whether to repair the spacing scripts' root cause (changes every page).
 3. Whether the next work also covers the Resources template.
+4. Where the two 29 Oct faults (menu size, table of contents) come first in the order - they affect all pages.
 
 ## Owner's standing rules from 28 Oct (in addition to START-HERE)
 Times read from the clock; answers only from evidence; plain English; "image", not "photo", in messages; the owner uploads, never the assistant; originals never edited; restart stopped agents at once; stop ineffective work; never search the Internet Archive; the templates on GitHub are the only source; "save this" means a download; the separate checker checks each package before it is sent; copies for the owner are sent without copy protection, named <slug>-NO-COPY-PROTECTION.zip.
