@@ -1545,6 +1545,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
   // 22 Oct: a bold label stands 45 below the letters above it
   function glBold(){
     q('main .micro-label.lbl-bold').forEach(function(l){
+      if (l.hasAttribute('data-gap')) return;   // 28 Oct 2026: a label with data-gap is spaced by mm-letter-gaps-js (inside an album, by the album style) - set here too, it took 33.3px after an album was opened and closed instead of its 22.3px at load
       var pv = l.previousElementSibling; while (pv && (pv.classList.contains('mm-float') || pv.classList.contains('mm-fspacer'))) pv = pv.previousElementSibling;
       var rule = null;
       if (!pv) { var sc = l.parentElement && l.parentElement.previousElementSibling; pv = sc && sc.lastElementChild; }
