@@ -1,0 +1,6 @@
+{"width": 1440, "variant": "0", "passes": 31, "busy_total_ms": 54065, "longest_ms": 2256, "main_height": 21883, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 3.85, "006": 3.57, "020": 3.96, "034": 4.38}}
+{"width": 1440, "variant": "F", "passes": 0, "busy_total_ms": 0, "longest_ms": 0, "main_height": 21883, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 0.82, "006": 0.84, "020": 0.78, "034": 0.78}}
+{"width": 390, "variant": "0", "passes": 43, "busy_total_ms": 42005, "longest_ms": 1238, "main_height": 49493, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 2.51, "006": 2.27, "020": 1.96, "034": 2.53}}
+{"width": 390, "variant": "F", "passes": 0, "busy_total_ms": 0, "longest_ms": 0, "main_height": 49493, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 0.79, "006": 0.78, "020": 0.79, "034": 0.78}}
+
+[exited with code 0]

@@ -1,0 +1,12 @@
+{"width": 1440, "variant": "0", "passes": 29, "busy_total_ms": 56070, "longest_ms": 2287, "main_height": 21883, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 3.63, "006": 2.91, "020": 2.81, "034": 3.22}}
+{"width": 1440, "variant": "A", "passes": 0, "busy_total_ms": 0, "longest_ms": 0, "main_height": 21883, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 0.84, "006": 0.78, "020": 0.78, "034": 0.79}}
+{"width": 1440, "variant": "B", "passes": 0, "busy_total_ms": 0, "longest_ms": 0, "main_height": 21883, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 0.8, "006": 0.78, "020": 0.78, "034": 0.78}}
+{"width": 1440, "variant": "C", "passes": 26, "busy_total_ms": 45764, "longest_ms": 2043, "main_height": 21883, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 2.09, "006": 3.06, "020": 3.61, "034": 2.49}}
+{"width": 1440, "variant": "D", "passes": 0, "busy_total_ms": 0, "longest_ms": 0, "main_height": 21883, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 0.78, "006": 0.75, "020": 0.76, "034": 0.76}}
+{"width": 1440, "variant": "E", "passes": 31, "busy_total_ms": 50686, "longest_ms": 2039, "main_height": 21883, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {"002": 3.78, "006": 2.45, "020": 2.8, "034": 2.95}}
+{"width": 390, "variant": "0", "passes": 43, "busy_total_ms": 43168, "longest_ms": 1220, "main_height": 49493, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {}}
+{"width": 390, "variant": "A", "passes": 0, "busy_total_ms": 0, "longest_ms": 0, "main_height": 49493, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {}}
+{"width": 390, "variant": "B", "passes": 0, "busy_total_ms": 0, "longest_ms": 0, "main_height": 49493, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {}}
+{"width": 390, "variant": "C", "passes": 34, "busy_total_ms": 35005, "longest_ms": 1307, "main_height": 49493, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {}}
+{"width": 390, "variant": "D", "passes": 0, "busy_total_ms": 0, "longest_ms": 0, "main_height": 49493, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {}}
+{"width": 390, "variant": "E", "passes": 47, "busy_total_ms": 42950, "longest_ms": 1361, "main_height": 49493, "vs_unchanged_page": "0 elements differ by >0.5px (largest 0.0)", "click_s": {}}
