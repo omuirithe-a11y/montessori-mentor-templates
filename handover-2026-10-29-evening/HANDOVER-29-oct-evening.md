@@ -8,8 +8,11 @@ The Project's knowledge store is 98% full (knowledge_size 1,964,188 of max 2,000
 project_info at 19:47 on 29 Oct): a new file or a larger rewrite may not fit. Today's full records are in GitHub. Adding
 today's lessons to LESSONS-LEARNED needs room first: text docs can be deleted with project_delete, but only with the owner's
 agreement, file by file. Candidates proposed to her 29 Oct (none deleted): the superseded AGENT-INSTRUCTION files of 27 Oct
-(-1236 to -1335 and rev12-rev14; rev15 is the last) and root copies that duplicate claude/ copies (HANDOVER-29-oct.md,
-LESSONS-LEARNED-27-28-oct.md, HANDOVER-27-oct-morning.md - each to be compared byte for byte before any delete).
+(-1236 to -1335 and rev12-rev14; rev15 is the last) and root-level files with the same names as claude/ files (HANDOVER-29-oct.md, LESSONS-LEARNED-27-28-oct.md,
+HANDOVER-27-oct-morning.md). They are NOT necessarily duplicates: HANDOVER-27-oct-morning.md was compared at 19:48 on 29 Oct
+and the two differ in section 5 (the root copy says three agents were running; the claude/ copy says they were stopped and
+nothing came back). The other two pairs are not compared. How much room any delete frees is not known (the tool gives no
+size per file).
 The full set of today's tools and records is in GitHub: omuirithe-a11y/montessori-mentor-templates, folder handover-2026-10-29-evening/.
 
 ## 1. What is done (each measured; evidence in the GitHub folder)
