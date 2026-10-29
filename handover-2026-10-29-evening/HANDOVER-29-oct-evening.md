@@ -29,6 +29,20 @@ owner wants it (nothing deleted; each step needs her agreement, file by file):
 - How much room any delete frees is not known: the tool gives no size per file.
 The full set of today's tools and records is in GitHub: omuirithe-a11y/montessori-mentor-templates, folder handover-2026-10-29-evening/.
 
+## 0. Questions for the owner, still open at 19:55 on 29 Oct - ask them first, one at a time (her rule)
+
+1. The Role of the Adult: confirm the six-item changes list (sample-page/the-role-of-the-adult.changes.txt) in her own words.
+   The v5 gate cannot pass that page without it.
+2. Finish testing tools-v5 first (about 23 min, worked out from today's runs), or start page work at once?
+3. Today's lessons into LESSONS-LEARNED-27-29-oct.md (a whole-file rewrite; the store is 98% full) - try it, or make room
+   first (no file deleted without her agreement), or leave them in this handover?
+4. A separate agent's check of the live The Role of the Adult with fix A - wanted?
+5. Where are the larger originals for each page (Drive folder or upload)?
+6. Does her 10:25 "no blurring" for Biography, Aun Aprendo and A Montessori Journey also cover larger originals for them?
+7. Large copies up to 2400 or 2900 px (pros and cons sent 19:14:19)?
+8. Is item 4 of her order building the next page from The Role of the Adult, and item 5 the templates? If so, which page first,
+   and what are its extra elements?
+
 ## 1. What is done (each measured; evidence in the GitHub folder)
 
 1. Both templates (Essay, Resources): menu back to its earlier sizes; table of contents lines up with the text at 641-1180.
@@ -81,7 +95,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:54, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:55, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
