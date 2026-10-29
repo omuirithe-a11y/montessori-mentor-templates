@@ -16,7 +16,8 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
      narrower (mm-image-gap-29oct and the glTopline edit); fix A (below).
    - checks on the final page: full check 122 widths "every width ok", narrowing 1280->390 sideways 0, height steady (1440 21883,
      390 49493), lines through text 0 at 390/430/641/700/830/1024/1440, gate_live.sh GATE PASSED 17:39.
-   - separate checker (on the page before fix A): READY, nothing outside the agreed list visibly changed.
+   - separate checker (on the page before fix A): READY, nothing outside the agreed list visibly changed. No separate agent has
+     checked the page WITH fix A (the live page) - Claude's own checks only. Do one at the start of the next chat if wanted.
    - owner kept: contents entries left-aligned (live was justified; no visible difference on this page); image 023 gap ~25px.
 3. Fix A - slow image opening (owner "yes" 17:19). Cause, measured on the live page: every image that finished loading made the
    page re-space itself from the top (line "q('img.doc-img').forEach(... addEventListener('load', schedule) ...)"); each pass
@@ -30,37 +31,41 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
 1. Images: put the owner's larger originals on every page (owner 19:14: "yes. each page needs the larger originals").
    - Images with children go through the faces rounds first (Project instructions), except where the owner has said no blurring
      is needed: 10:25, for Biography, Aun Aprendo and A Montessori Journey (their files in Drive folder 1xtrI7iS0_HAEtOvxueB5hXSy0cPoIaSr).
-   - Measured on The Role of the Adult (image_sizes.py, 19:2x): all 54 large images under 2900 px, 10 under 1600 px, smallest
+   - Measured on The Role of the Adult (image_sizes.py, run 19:24-19:25): all 54 large images under 2900 px, 10 under 1600 px, smallest
      494 px (048.jpg). Whether these are smaller than her originals is not known until she supplies the originals.
-   - OPEN: large copies up to 2400 (the build now) or 2900 (what Hostinger sends computers) - pros and cons sent at about 19:16;
-     not answered.
+   - OPEN: large copies up to 2400 (the build now) or 2900 (what Hostinger sends computers) - pros and cons sent at 19:14:19
+     (chat record); not answered.
 2. Fix the slow image opening (fix A) on the other live pages: 15 pages fetched live at 19:26 still have the line, all with
-   10 or more images loading as the reader scrolls (list and figures in section 3b). Measure each with speed_check.py first.
+   10 or more images loading as the reader scrolls (the 15 pages, with image counts, in section 3b). Measure each with speed_check.py first.
 3. Known faults, as soon as possible (owner 19:14: "fix all of these asap"): menu panels that do not close on a second click
-   (20 older pages, found 29 Oct morning); The History of Education scrolls sideways at 641; contents alignment on the older pages.
+   at desktop width (20 older pages, found in the morning of 29 Oct - the list of the 20 is NOT saved in any file found at 19:3x
+   (menu_toc.json, before.json, after.json, tocalign.json checked); measure again to find them); The History of Education scrolls sideways at 641 (source: the morning's
+   check, recorded only in this chat's summary - re-measure); contents alignment on the older pages.
 4. NOT ANSWERED: whether 4 is building the next page from The Role of the Adult (Biography, Aun Aprendo or A Montessori Journey -
    ask which first, and ask for their extra element kinds: Biography mm-cap; Aun Aprendo mm-name; A Montessori Journey
    formula-divider, sub-label) and 5 adding today's changes to both templates (only with her agreement). Build from the live
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:35, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:4x, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
 1. Check click speed before sending. The Role of the Adult passed the 13:28 gate with clicks of 3-5 s; the fault was found
-   14:23 and fixed 17:45. Of 14:23-17:19 (176 min), about 107 min was waiting for the owner (chat record: Claude's answers at
-   14:43:55, 15:39:58 and 16:59:47; her next messages at 15:30, 16:22 and 17:19), so Claude's own work was about 69 min. NOW: gate v4/v5 speed_check.py (limits
-   50 ms busy, 1.0 s per click, with a 0.7 s download delay; sources web.dev optimize-long-tasks and rail). Tested at 19:3x (tools-v4/TEST-RESULTS.txt): the
+   14:23, the fixed page sent 17:45 and uploaded 18:58. Of 14:23-17:19 (176 min), about 107 min was waiting for the owner (chat record: Claude's answers at
+   14:43:55, 15:39:58 and 16:59:47; her next messages at 15:30, 16:22 and 17:19), so Claude's own work was about 69 min.
+   NOW: gate v4/v5 speed_check.py (limits
+   50 ms busy, 1.0 s per click, with a 0.7 s download delay; sources web.dev optimize-long-tasks and rail). Tested 19:23-19:3x (tools-v4/TEST-RESULTS.txt): the
    unfixed page FAILS at 1440 (busy 2,379 ms at once, clicks 2.85-3.63 s) and at 390 (1,473 ms, 2.02-3.00 s); the fix-A page
-   passes at 1440 (no busy stretch, clicks 0.78-0.80 s); its 390 result and the full gate test are in that file. Limits not yet tried
+   passes at 1440 (no busy stretch, clicks 0.78-0.80 s) and at 390 (no busy stretch, clicks 0.77-0.79 s). The full gate test
+   result is in that file. Limits not yet tried
    on any other page - they may be too strict for brief busy moments (for example a menu opening).
 2. Find the cause in the code before changing it. Text over images: six probe scripts at 11:36-11:45 name image 023 and the
    quotation images (file times and contents); the cause found was that the quotation-line script skipped images that do not
    float - that these scripts found it is read from their names and times, not from a record of their output. The 30 px gaps:
    scripts from 11:59 to 12:23 (gap.py, gap2.py, gap3.py, probe7.py, probe8.py), with the owner's answers at 12:12 and 12:15 in
    between, before the causes were found (a stacked image cleared the text beside it; the image-spacing script removed the gap
-   above); CSS margins tried first were undone by margin collapse and the page's scripts (this chat's record). Slow clicks: one code recording (prof.py)
+   above); CSS margins tried first were undone by margin collapse and the page's scripts (this chat's summary of the earlier part of the day). Slow clicks: one code recording (prof.py)
    named the re-spacing script. Nothing enforces this; it is a working method.
 3. The gate makes the upload zip. The review copy (no copy protection) went live 14:16. The 18:58 upload replaced it, but that
    upload was needed for fix A anyway, so the wrong zip cost no extra upload this time - only the risk of a page without copy
@@ -74,13 +79,15 @@ Times are Asia/Shanghai, from file times, commit times and the chat. Where a fig
    record is not available to search). vfast.py resumes; any new long script must too. Not enforced.
 6. The separate checker took 48 min (its own report: 2,905,416 ms; 12:38-13:26) after Claude's own checks. Whether starting it earlier saves time on this
    2-processor machine is NOT measured - try it once, timed.
-7. Silence and misreading: a 7-minute run of measurements with no message; 16:22-16:30 spent answering a question the owner had
+7. Silence and misreading: a 7-minute run of measurements with no message (14:23, the owner's question, to 14:30:37, her
+   interruption - chat record); 16:22-16:30 spent answering a question the owner had
    not asked. About 15 min. Cannot be enforced by a tool.
 
 Not lessons (not proven): that more images means slower clicks (one page measured); that the image-size report finds small
 images before a build (it shows only the page's sizes - the owner's originals are not in the package).
 
 ## 3b. Tomorrow's biggest job and its cost (worked out, not measured on these pages)
+The 15 pages (images on the page, all loading as the reader scrolls): the-culture-curriculum 250, the-prepared-environment 214, the-sensorial-curriculum 208, the-practical-life-curriculum-2 163, the-mathematics-curriculum 153, a-montessori-journey 152, aun-aprendo 58, the-montessori-curriculum 36, play-varieties-and-characteristics 33, culture-resources 28, biography 23, the-role-of-the-assistant 20, essential-elements 19, sensorial-resources 14, mathematics-resources 12.
 Fix A on the 15 other live pages that still have the slow-click line (all 15 fetched live 19:26; every image on them loads as
 the reader scrolls). Each page: the one-line change, live_diff, full check, height, speed check, gate, and the owner's confirmed
 changes list. On The Role of the Adult (54 images) the full check took 7.5 min today (449 s). On 27-28 Oct full checks took: A Montessori
@@ -100,6 +107,8 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
   word for word, with the time) and fail without them; run image_sizes.py (report only); run speed_check.py (fails above 50 ms
   busy or 1.0 s per click); require copy protection in the checked zip; make <slug>-UPLOAD.zip (the checked zip) and
   <slug>-NO-COPY-PROTECTION-REVIEW-ONLY.zip. Fingerprints in tools-v5/FINGERPRINTS.txt.
+  To use in a new chat: copy tools-v5/ from GitHub to /home/claude/chk/v5 and run the gates from there. START-HERE does not yet
+  say this (not updated in this chat).
   NOT YET TESTED as a whole: v5 = v4 plus the confirmation file and image_sizes.py. send_gate.sh has never been run since its
   folder paths were changed (19:2x) - run it once on a template build before trusting it.
 - tools-v4/ - the version tested on 29 Oct (TEST-RESULTS.txt): speed_check fails the unfixed page at 1440 and 390 and passes
