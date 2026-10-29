@@ -48,20 +48,31 @@ Owner's decisions stand: The Role of the Adult is now the SAMPLE the other pages
    Education scrolls sideways at 641; contents alignment on the older pages.
 6. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred this chat by the owner; steps 2-4 done.
 
-## 3. What today taught (each from something that happened)
+## 3. What today taught - evidence, and whether anything enforces it (corrected 19:2x after the owner said the first list made claims it could not back)
 
-1. Measure before believing a record: the previous handover's menu lead was wrong; "1600" looked like a chat shrink but was the
-   file's real size. Check, then say.
-2. Ask, do not decide: every question asked got a quick answer and nothing was redone. One question at a time. Quote computer
-   figures only, at 1440 only.
-3. Never go quiet: a 7-minute run of measurements with no message in between. Send each finding as it comes.
-4. A fix is backed by evidence before it is offered: test several candidate fixes on copies with the same measurements, rank them
-   by the results, then ask. ("Possible fix" was rightly rejected as a guess.)
-5. Prove the change is the only change: one-line diff against the gated page; live_diff passes the new page AND fails the old one.
-6. Send the upload zip, not the review copy: the copy-protection-off review zip was uploaded at 14:16; the live check after upload
-   caught it. Label the upload zip clearly; check the live page after every upload.
-7. In this chat the owner asked for proof/evidence with every answer and not to quote her - this chat only, as she said.
-8. Stop background runs by task ID only, never pkill (ended my own task twice). Freeze a page while a separate checker reads it.
+Time, 29 Oct: 11:21-13:33 page corrected and sent (separate checker 12:38-13:26 = 48 min); 13:33-14:16 the review copy (copy
+protection OFF) was uploaded; 14:23-17:19 slow image opening found and six fixes tested; 17:19-17:45 fix A checked, gated, sent.
+
+1. Only agreed changes go out - ENFORCED: gate_live.sh runs live_diff.py (it passed the fix-A page and failed the 13:28 page).
+2. Click speed was not checked - the page passed the gate at 13:28 with clicks of 3-5 s, found only after upload. NOT ENFORCED.
+3. The review copy was uploaded (14:16) - the gate names only the review copy. NOT ENFORCED.
+4. The separate checker started after my checks and added 48 min. NOT ENFORCED.
+5. Testing several fixes on copies at once found the answer in one round (six fixes in about 25 min; fix A then passed every
+   check). A working method, NOT ENFORCED.
+6. Silence (7 min of runs with no message) and answering the wrong question (16:22-16:30) cost time. Cannot be enforced.
+
+Proposed to the owner, NOT DONE, each needs her go: (A) put the click-speed and busy-time test in the gate; (B) the gate also
+makes the upload zip (copy protection on) named UPLOAD; (C) start the separate checker as soon as the page is frozen, alongside
+the full check.
+
+## 2b. Order of work - the owner's order (19:14)
+1. Images: put the larger originals on every page (owner: "yes. each page needs the larger originals"), faces rounds for every
+   image with children; large copies 2400 or 2900 - waiting for her choice (pros and cons sent 19:1x).
+2. Fix the slow image opening on the other live pages.
+3. Known faults, as soon as possible: menu panels not closing (20 older pages); The History of Education sideways at 641;
+   contents alignment on the older pages.
+4. (her message ended at "4." - asked whether 4 is building the next page from The Role of the Adult, 5 the templates; not answered.)
+This order replaces section 2's order.
 
 ## 4. Tools
 
