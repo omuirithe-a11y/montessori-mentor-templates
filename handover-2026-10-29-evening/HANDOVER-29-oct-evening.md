@@ -3,7 +3,7 @@
 Read first, in this order, as the Project instructions say: claude/START-HERE.md, this file, claude/LESSONS-LEARNED-27-29-oct.md,
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 
-## 0. Questions for the owner, still open at 20:00 on 29 Oct - ask them first, one at a time (her rule)
+## 0. Questions for the owner, still open at 20:09 on 29 Oct - ask them first, one at a time (her rule)
 
 1. The Role of the Adult: confirm the six-item changes list (sample-page/the-role-of-the-adult.changes.txt) in her own words.
    The v5 gate cannot pass that page without it. (The page is already live with the v4-gated zip, so this blocks only a
@@ -19,9 +19,10 @@ claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 7. Large copies up to 2400 or 2900 px (pros and cons sent 19:14:19)?
 8. Is item 4 of her order building the next page from The Role of the Adult, and item 5 the templates? If so, which page first,
    and what are its extra elements?
-9. Item 2 of her order (fix A on the 15 other pages) is blocked by no question above, but the v5 gate needs a confirmed changes
-   list for every page: 15 confirmations. Would she confirm once, for all 15, a list that says only "fix A: the one image-load
-   line, nothing else" (each page's gate still proves nothing else changed)?
+9. ANSWERED 29 Oct 20:08 - the owner, word for word: "Fix A on the 15 pages: the one image-load line, nothing else – confirmed".
+   Saved as fixA-15-pages.confirmed.txt in the GitHub folder. For each of the 15 pages: its <zip>.changes.txt says only
+   "Fix A: the one image-load line, nothing else"; its <zip>.confirmed.txt is a copy of that file. It covers fix A only - any
+   other change to any of these pages needs its own confirmation.
 
 This replaces the morning's HANDOVER-29-oct.md as the newest handover. LESSONS-LEARNED-27-29-oct.md does NOT yet hold
 today's lessons - they are in section 3 below only.
@@ -89,7 +90,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
      number there, plus every page built again from the originals.
    - OPEN: large copies up to 2400 (the build now) or 2900 (what Hostinger sends computers) - pros and cons sent at 19:14:19
      (chat record); not answered.
-2. Fix the slow image opening (fix A) on the other live pages: 15 pages fetched live at 19:26 still have the line, all with
+2. Fix the slow image opening (fix A) on the other live pages (owner's confirmation for all 15: section 0, question 9): 15 pages fetched live at 19:26 still have the line, all with
    10 or more images loading as the reader scrolls (the 15 pages, with image counts, in section 3b). Measure each first: tools-v5 speed_check.py now takes a live page address (https://...) as well as a zip
    (file changed 19:37:02, NOT YET RUN on a live address).
 3. Known faults, as soon as possible (owner 19:14: "fix all of these asap"; no cause yet measured for any of the three): menu panels that do not close on a second click
@@ -102,7 +103,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:00, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:09, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
