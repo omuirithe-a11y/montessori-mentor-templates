@@ -1,0 +1,7 @@
+Changes from the live page downloaded 29 Oct 11:21:
+1. Table of contents lines up with the text at 641-1180 px (owner agreed 29 Oct). Its entries are left-aligned instead of justified: Claude's change, to stop the entries stretching; the owner kept it at 13:32.
+2. Font sizes at 641 px and wider: contents label 20, contents entries 18, headings 18, quotations and attributions 18 with line spacing 40. At 640 px and narrower: contents label 19, contents entries 17, headings 17.
+3. Image 023 stands above its quotation below 440 px (fixing text over the image).
+4. Text no longer runs over images at 320-830 px (the quotation-line script).
+5. 30 px above and 30 px below images that stand above their text, at 830 px and narrower (images 020, 028, 034, 046) - owner 29 Oct.
+6. Fix A - owner "yes" 29 Oct 17:19: an image that finishes loading re-spaces the page only if the page's size changed.

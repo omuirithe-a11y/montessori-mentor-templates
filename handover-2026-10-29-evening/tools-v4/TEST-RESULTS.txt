@@ -1,0 +1,27 @@
+gate v4 tests, 29 Oct 19:23
+== 1. speed_check on the 13:28 page (db67abdb, no fix A): must be SPEED FAULT
+1440 FAULT  longest busy stretch 2379 ms (limit 50), busy stretches 31, total 57112 ms | clicks {"012.jpg": 3.08, "022.jpg": 3.63, "033.jpg": 2.85, "046.jpg": 3.04} (limit 1.0 s)
+390 FAULT  longest busy stretch 1473 ms (limit 50), busy stretches 43, total 42696 ms | clicks {"012.jpg": 2.17, "022.jpg": 3.0, "033.jpg": 2.13, "046.jpg": 2.02} (limit 1.0 s)
+SPEED FAULT
+exit 1
+== 2. speed_check on the fix-A page (f9f4d428): must be SPEED OK
+1440 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"012.jpg": 0.8, "022.jpg": 0.78, "033.jpg": 0.8, "046.jpg": 0.78} (limit 1.0 s)
+390 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"012.jpg": 0.79, "022.jpg": 0.77, "033.jpg": 0.79, "046.jpg": 0.77} (limit 1.0 s)
+SPEED OK
+exit 0
+== 3. gate_live v4 on the fix-A page: must be GATE PASSED, UPLOAD identical to the 18:58 upload
+gate 19:33:43 the-role-of-the-adult f9f4d428
+changes checked (the owner confirms this list):
+  Changes from the live page downloaded 29 Oct 11:21:
+  1. Table of contents lines up with the text at 641-1180 px (owner agreed 29 Oct). Its entries are left-aligned instead of justified: Claude's change, to stop the entries stretching; the owner kept it at 13:32.
+  2. Font sizes at 641 px and wider: contents label 20, contents entries 18, headings 18, quotations and attributions 18 with line spacing 40. At 640 px and narrower: contents label 19, contents entries 17, headings 17.
+  3. Image 023 stands above its quotation below 440 px (fixing text over the image).
+  4. Text no longer runs over images at 320-830 px (the quotation-line script).
+  5. 30 px above and 30 px below images that stand above their text, at 830 px and narrower (images 020, 028, 034, 046) - owner 29 Oct.
+  6. Fix A - owner "yes" 29 Oct 17:19: an image that finishes loading re-spaces the page only if the page's size changed.
+code check: ALL CHECKS OK
+full check: 122 widths
+height 1440: {"1s": 21883, "4s": 21883, "scrolled": 21883, "largest margin": [40, "P.mm-gl.mm-gl-bq "]}
+  ok
+height 390: {"1s": 49493, "4s": 49493, "scrolled": 49493, "largest margin": [47, "P. When preparing a new environme"]}
+  ok

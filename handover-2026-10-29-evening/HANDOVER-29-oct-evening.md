@@ -8,7 +8,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
 
 1. Both templates (Essay, Resources): menu back to its earlier sizes; table of contents lines up with the text at 641-1180.
    GitHub commit 20ec0ee. The 10 rebuilt pages then matched the 28 older pages at 19 widths (separate checker PASS).
-2. The Role of the Adult - LIVE, uploaded by the owner 18:58, checked 19:0x:
+2. The Role of the Adult - LIVE, uploaded by the owner 18:58, checked 18:59 (live file fetched at 18:58:58 and compared with the zip):
    - live index.html byte-identical to the zip sent (fingerprint f9f4d428...); all 109 image files answer 200; copy protection ON.
    - changes from the 29 Oct 11:21 live download: contents alignment (mm-toc-align); font sizes (mm-type-29oct, 1440: contents label
      20, entries 18, headings 18, quotations 18/40); image 023 above its quotation under 440px (mm-quote-image-29oct); text over
@@ -25,28 +25,24 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    Six fixes were tested on copies before choosing (results table in the GitHub folder, speed-tests/results.txt): A and B and D
    removed all passes; C (wait 0.3 s) and E (fetch on hover) did not help. Live after upload: clicks 0.53-1.13 s (were 3.15-5.60).
 
-## 2. Plan for the next chats (one page per chat)
+## 2. Order of work - the owner's order of 29 Oct 19:14 (replaces the earlier plan). One page per chat.
 
-Owner's decisions stand: The Role of the Adult is now the SAMPLE the other pages are built from; the next stage starts in a new chat.
-
-1. Next page from the sample: Biography, Aun Aprendo or A Montessori Journey - ASK THE OWNER WHICH FIRST.
-   - Before building, ASK THE OWNER for the extra element kinds each needs (counted on the live pages 29 Oct 11:13: Biography
-     mm-cap; Aun Aprendo mm-name; A Montessori Journey formula-divider, sub-label). Do not guess them from the Word file.
-   - Owner 10:25: no blurring needed for any of the three. New Word files and PDFs: Drive folder 1xtrI7iS0_HAEtOvxueB5hXSy0cPoIaSr.
-   - Build from the live The Role of the Adult (download it fresh), not from the templates: the templates do not yet have fix A,
-     the 30/30 image gaps, the font sizes or the quotation-line edits.
-2. Fix A on the other live pages. The same line is in both templates, so pages built from them very likely have the slow
-   clicks. NOT MEASURED on any page but The Role of the Adult. First measure which pages have the line and their click times;
-   then ask the owner the order. Each page: one-line change, live_diff, full check, gate.
-3. Templates: add today's The Role of the Adult changes (fix A, 30/30 gaps, font sizes, quotation-line edits) to both templates -
-   only with the owner's agreement; it is recorded as "to do later".
-4. Images: the owner's originals are well beyond 1600px; the page's large copies are 1208-1600 (images 002, 004, 006, 008 checked;
-   probably from the Word file - not checked). Hostinger sends up to 2900 to computers, 1600 to phones (measured 25 Oct, owner
-   confirmed 29 Oct). OPEN QUESTIONS FOR THE OWNER: put the originals on The Role of the Adult (faces rounds needed - images with
-   children), and large copies up to 2400 (now) or 2900.
-5. Known faults, not fixed: 20 older pages have menu panels that do not close on a second click at desktop width; The History of
-   Education scrolls sideways at 641; contents alignment on the older pages.
-6. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred this chat by the owner; steps 2-4 done.
+1. Images: put the owner's larger originals on every page (owner 19:14: "yes. each page needs the larger originals").
+   - Images with children go through the faces rounds first (Project instructions), except where the owner has said no blurring
+     is needed: 10:25, for Biography, Aun Aprendo and A Montessori Journey (their files in Drive folder 1xtrI7iS0_HAEtOvxueB5hXSy0cPoIaSr).
+   - Measured on The Role of the Adult (image_sizes.py, 19:2x): all 54 large images under 2900 px, 10 under 1600 px, smallest
+     494 px (048.jpg). Whether these are smaller than her originals is not known until she supplies the originals.
+   - OPEN: large copies up to 2400 (the build now) or 2900 (what Hostinger sends computers) - pros and cons sent at about 19:16;
+     not answered.
+2. Fix the slow image opening (fix A) on the other live pages: 15 pages fetched live at 19:26 still have the line, all with
+   10 or more images loading as the reader scrolls (list and figures in section 3b). Measure each with speed_check.py first.
+3. Known faults, as soon as possible (owner 19:14: "fix all of these asap"): menu panels that do not close on a second click
+   (20 older pages, found 29 Oct morning); The History of Education scrolls sideways at 641; contents alignment on the older pages.
+4. NOT ANSWERED: whether 4 is building the next page from The Role of the Adult (Biography, Aun Aprendo or A Montessori Journey -
+   ask which first, and ask for their extra element kinds: Biography mm-cap; Aun Aprendo mm-name; A Montessori Journey
+   formula-divider, sub-label) and 5 adding today's changes to both templates (only with her agreement). Build from the live
+   The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
+5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
 ## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:35, checked statement by statement)
 
@@ -97,17 +93,16 @@ Not proven: that fix A behaves the same on the three Resources-template pages am
 Resources, Mathematics Resources) or on older builds - each is measured. "Every image loads as the reader scrolls" was counted
 on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since then.
 
-## 2b. Order of work - the owner's order (19:14)
-1. Images: put the larger originals on every page (owner: "yes. each page needs the larger originals"), faces rounds for every
-   image with children; large copies 2400 or 2900 - waiting for her choice (pros and cons sent 19:1x).
-2. Fix the slow image opening on the other live pages.
-3. Known faults, as soon as possible: menu panels not closing (20 older pages); The History of Education sideways at 641;
-   contents alignment on the older pages.
-4. (her message ended at "4." - asked whether 4 is building the next page from The Role of the Adult, 5 the templates; not answered.)
-This order replaces section 2's order.
+## 4. Tools (GitHub folder handover-2026-10-29-evening/)
 
-## 4. Tools
-
-- chk/v3 (GitHub folder tools-v3/): v2 plus fix A in live_diff.py's list. gate_live.sh <zip> <live folder> <full-check file> <out>.
-  visual_check.py fingerprint 68026417 (unchanged).
-- speed-tests/: click2.py, busy.py, prof.py, relayout.py, cause.py, test.py (the six-fix comparison), results.txt.
+- tools-v5/ - USE THIS. gate_live.sh (pages corrected from their live copy) and send_gate.sh (pages built from a template).
+  Both now: print <zip>.changes.txt (the changes in plain words) and <zip>.confirmed.txt (the owner's confirming words, copied
+  word for word, with the time) and fail without them; run image_sizes.py (report only); run speed_check.py (fails above 50 ms
+  busy or 1.0 s per click); require copy protection in the checked zip; make <slug>-UPLOAD.zip (the checked zip) and
+  <slug>-NO-COPY-PROTECTION-REVIEW-ONLY.zip. Fingerprints in tools-v5/FINGERPRINTS.txt.
+  NOT YET TESTED as a whole: v5 = v4 plus the confirmation file and image_sizes.py. send_gate.sh has never been run since its
+  folder paths were changed (19:2x) - run it once on a template build before trusting it.
+- tools-v4/ - the version tested on 29 Oct (TEST-RESULTS.txt): speed_check fails the unfixed page at 1440 and 390 and passes
+  the fix-A page at both; the full gate test result is in that file.
+- tools-v3/ - superseded. visual_check.py fingerprint 68026417 is unchanged in every version.
+- speed-tests/ - click2.py, busy.py, prof.py, relayout.py, cause.py, test.py (the six-fix comparison), results.txt.
