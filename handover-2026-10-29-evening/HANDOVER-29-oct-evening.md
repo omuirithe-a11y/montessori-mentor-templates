@@ -32,6 +32,9 @@ claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
    one extra character fails; the full corrected Role of the Adult fails). On all 15 pages, fetched 19:26, the old line appears
    exactly once and the size record fix A relies on (window.__mmSize) is set (checked 20:40). Use the confirmation only on the 15
    pages listed in section 3b. If a page's line does not match exactly, stop and ask: a reworded fix is not covered.
+   Also checked 20:41: the fix-A comparison's index test, run in memory on each of the 15 live index files with fix A applied,
+   passes on all 15 (index.html only - the images were not downloaded, so the file-by-file part is untested on these pages).
+   tools-v5-fixA/gate_live.sh calls the live_diff.py in its own folder (line 15, $C/live_diff.py), so it uses the fix-A version.
 
 This replaces the morning's HANDOVER-29-oct.md as the newest handover. LESSONS-LEARNED-27-29-oct.md does NOT yet hold
 today's lessons - they are in section 3 below only.
@@ -112,7 +115,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:40, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:41, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
