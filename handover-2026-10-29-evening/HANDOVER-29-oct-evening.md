@@ -115,7 +115,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:41, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:42, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
@@ -188,7 +188,9 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
 ## 4. Tools (GitHub folder handover-2026-10-29-evening/)
 
 - tools-v5-fixA/ - USE THIS for fix A on the 15 pages (section 0, question 9): tools-v5 with live_diff.py replaced by the
-  fix-A-only version. Fingerprints in tools-v5-fixA/FINGERPRINTS.txt.
+  fix-A-only version. Fingerprints in tools-v5-fixA/FINGERPRINTS.txt. Copy it to /home/claude/chk/v5-fixA in a new chat.
+  Tested: its comparison only (20:40-20:41). The whole fix-A gate has NOT been run end to end on any page - its first page
+  run is its first full test. Her rule "One page per chat" applies to these pages too: 15 pages, 15 chats.
 - tools-v5/ - USE THIS for everything else. gate_live.sh (pages corrected from their live copy) and send_gate.sh (pages built from a template).
   Both now: print <zip>.changes.txt (the changes in plain words) and <zip>.confirmed.txt (the owner's confirming words, copied
   word for word, with the time) and fail without them; run image_sizes.py (report only); run speed_check.py (fails above 50 ms
