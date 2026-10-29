@@ -191,6 +191,9 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
   fix-A-only version. Fingerprints in tools-v5-fixA/FINGERPRINTS.txt. Copy it to /home/claude/chk/v5-fixA in a new chat.
   Tested: its comparison only (20:40-20:41). The whole fix-A gate has NOT been run end to end on any page - its first page
   run is its first full test. Her rule "One page per chat" applies to these pages too: 15 pages, 15 chats.
+  Which of the 15 pages also have the other known faults is NOT known: the list of the 20 pages with the menu-panel fault is not
+  saved, and contents alignment was not checked page by page. A page fixed for fix A now and for another fault later is uploaded
+  twice, unless the owner confirms both changes for one gate run.
 - tools-v5/ - USE THIS for everything else. gate_live.sh (pages corrected from their live copy) and send_gate.sh (pages built from a template).
   Both now: print <zip>.changes.txt (the changes in plain words) and <zip>.confirmed.txt (the owner's confirming words, copied
   word for word, with the time) and fail without them; run image_sizes.py (report only); run speed_check.py (fails above 50 ms
