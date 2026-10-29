@@ -3,7 +3,7 @@
 Read first, in this order, as the Project instructions say: claude/START-HERE.md, this file, claude/LESSONS-LEARNED-27-29-oct.md,
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 
-## 0. Questions for the owner, still open at 20:22 on 29 Oct - ask them first, one at a time (her rule)
+## 0. Questions for the owner, still open at 20:31 on 29 Oct - ask them first, one at a time (her rule)
 
 1. The Role of the Adult: confirm the six-item changes list (sample-page/the-role-of-the-adult.changes.txt) in her own words.
    The v5 gate cannot pass that page without it. (The page is already live with the v4-gated zip, so this blocks only a
@@ -16,7 +16,9 @@ claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 5. ANSWERED 29 Oct 20:00 - the owner: "when i start work tomorrow they will be in google drive". So: at the start of the next
    chat, search Google Drive for them; ask her which folder only if the search does not find them. This was what blocked item 1
    of her order (section 2).
-6. Does her 10:25 "no blurring" for Biography, Aun Aprendo and A Montessori Journey also cover larger originals for them?
+6. SETTLED - not a question. Her words of 29 Oct 10:25: "no blurring needed for any of the three pages in drive" - the PAGES
+   (Biography, Aun Aprendo, A Montessori Journey), so no blurring for any of their images, originals included. Do not ask it
+   again (she called the question pointless, 20:30).
 7. Large copies up to 2400 or 2900 px (pros and cons sent 19:14:19)?
 8. Is item 4 of her order building the next page from The Role of the Adult, and item 5 the templates? If so, which page first,
    and what are its extra elements?
@@ -80,7 +82,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
 1. Images: put the owner's larger originals on every page (owner 19:14: "yes. each page needs the larger originals").
    - Images with children go through the faces rounds first (Project instructions), except where the owner has said no blurring
      is needed: 10:25, for the files of Biography, Aun Aprendo and A Montessori Journey in Drive folder
-     1xtrI7iS0_HAEtOvxueB5hXSy0cPoIaSr. Whether that also covers larger originals she supplies later for those pages: ASK.
+     1xtrI7iS0_HAEtOvxueB5hXSy0cPoIaSr. Her words say "pages", so this covers every image on those three pages, originals included (settled; section 0, question 6).
    - Measured on The Role of the Adult (image_sizes.py, run 19:24-19:25): all 54 large images under 2900 px, 10 under 1600 px, smallest
      494 px (048.jpg). Whether these are smaller than her originals is not known until she supplies the originals.
    - Where the originals are: the owner, 29 Oct 20:00 - "when i start work tomorrow they will be in google drive". Search Drive
@@ -104,7 +106,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:22, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:31, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
