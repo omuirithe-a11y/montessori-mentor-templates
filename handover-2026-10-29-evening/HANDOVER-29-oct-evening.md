@@ -81,8 +81,8 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
      1xtrI7iS0_HAEtOvxueB5hXSy0cPoIaSr. Whether that also covers larger originals she supplies later for those pages: ASK.
    - Measured on The Role of the Adult (image_sizes.py, run 19:24-19:25): all 54 large images under 2900 px, 10 under 1600 px, smallest
      494 px (048.jpg). Whether these are smaller than her originals is not known until she supplies the originals.
-   - FIRST ASK the owner where the originals are for each page (Drive folder or upload) - no file lists them, and without them
-     nothing in this item can start. Not estimated: the number of images is 54 to 250 per page; each image with children needs
+   - Where the originals are: the owner, 29 Oct 20:00 - "when i start work tomorrow they will be in google drive". Search Drive
+     first; ask her for the folder only if the search does not find them. Not estimated: the number of images is 54 to 250 per page; each image with children needs
      both faces rounds and her answers.
    - The 2400 limit is set in the Project's claude/workspace/tools/build_page.py: big.thumbnail((2400, 2400)), saved at JPEG
      quality 92 (found by a Project search at 19:44 - the line read, the file not run). Changing it to 2900 is one
