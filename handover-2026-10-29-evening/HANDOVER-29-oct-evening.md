@@ -39,8 +39,9 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    - FIRST ASK the owner where the originals are for each page (Drive folder or upload) - no file lists them, and without them
      nothing in this item can start. Not estimated: the number of images is 54 to 250 per page; each image with children needs
      both faces rounds and her answers.
-   - Which build file sets the 2400 limit is not checked in this chat (the 26 Oct record says the large file is "long side at
-     most 2400"; claude/checks/noblur-images-26oct.md); find it before changing it.
+   - The 2400 limit is set in the Project's claude/workspace/tools/build_page.py: big.thumbnail((2400, 2400)), saved at JPEG
+     quality 92 (found by a Project search at 19:44 - the line read, the file not run). Changing it to 2900 is one
+     number there, plus every page built again from the originals.
    - OPEN: large copies up to 2400 (the build now) or 2900 (what Hostinger sends computers) - pros and cons sent at 19:14:19
      (chat record); not answered.
 2. Fix the slow image opening (fix A) on the other live pages: 15 pages fetched live at 19:26 still have the line, all with
@@ -56,7 +57,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:41, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:44, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
@@ -128,6 +129,9 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
   say this (not updated in this chat).
   The Role of the Adult has its changes list (sample-page/the-role-of-the-adult.changes.txt) but NO confirmed.txt yet: the
   owner has not confirmed the list, so a v5 gate run on that page would fail until she does.
+  Time to finish testing, worked out from today's runs (not measured): each speed check took about 5.4 min (tests 1 and 2 ran
+  19:23 to before 19:33:43) and the v4 gate 6 min (19:33:43-19:39:46). Remaining: v5 gate, the missing-list case to the end,
+  send_gate.sh once, the speed check on one live address - about 23 min.
   NOT YET TESTED as a whole: v5 = v4 plus the confirmation file and image_sizes.py. send_gate.sh has never been run since its
   folder paths were changed (v4 file 19:22:53, v5 file 19:24:42) - run it once on a template build before trusting it.
 - tools-v4/ - TESTED 29 Oct 19:23-19:39 (TEST-RESULTS.txt): speed_check fails the unfixed page at 1440 and 390 and passes the
