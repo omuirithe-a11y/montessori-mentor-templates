@@ -25,3 +25,13 @@ height 1440: {"1s": 21883, "4s": 21883, "scrolled": 21883, "largest margin": [40
   ok
 height 390: {"1s": 49493, "4s": 49493, "scrolled": 49493, "largest margin": [47, "P. When preparing a new environme"]}
   ok
+speed 1440 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"012.jpg": 0.8, "022.jpg": 0.78, "033.jpg": 0.79, "046.jpg": 0.79} (limit 1.0 s)
+speed 390 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"012.jpg": 0.77, "022.jpg": 0.81, "033.jpg": 0.78, "046.jpg": 0.79} (limit 1.0 s)
+speed SPEED OK
+copy protection: present
+removed 1680 chars
+GATE PASSED - upload: gate4-out/the-role-of-the-adult-UPLOAD.zip (f9f4d428) | review only: gate4-out/the-role-of-the-adult-NO-COPY-PROTECTION-REVIEW-ONLY.zip
+the-role-of-the-adult-NO-COPY-PROTECTION-REVIEW-ONLY.zip
+the-role-of-the-adult-UPLOAD.zip
+UPLOAD zip byte-identical to the zip uploaded at 18:58
+== 4. gate without the changes list: printed 'changes list missing' (19:23:10 run)
