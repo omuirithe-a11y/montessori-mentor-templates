@@ -4,6 +4,9 @@ Read first, in this order, as the Project instructions say: claude/START-HERE.md
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 This replaces the morning's HANDOVER-29-oct.md as the newest handover. LESSONS-LEARNED-27-29-oct.md does NOT yet hold
 today's lessons - they are in section 3 below only.
+The Project's knowledge store is 98% full (1,964,188 of 2,000,000, project_info at 19:47 on 29 Oct): a new file or a larger
+rewrite may not fit. Today's full records are in GitHub; adding today's lessons to LESSONS-LEARNED needs room made first
+(only the owner can remove Project files she uploaded).
 The full set of today's tools and records is in GitHub: omuirithe-a11y/montessori-mentor-templates, folder handover-2026-10-29-evening/.
 
 ## 1. What is done (each measured; evidence in the GitHub folder)
