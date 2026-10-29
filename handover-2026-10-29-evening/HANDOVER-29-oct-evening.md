@@ -174,8 +174,8 @@ images before a build (it shows only the page's sizes - the owner's originals ar
 ## 3b. Tomorrow's biggest job and its cost (worked out, not measured on these pages)
 The 15 pages (images on the page, all loading as the reader scrolls): the-culture-curriculum 250, the-prepared-environment 214, the-sensorial-curriculum 208, the-practical-life-curriculum-2 163, the-mathematics-curriculum 153, a-montessori-journey 152, aun-aprendo 58, the-montessori-curriculum 36, play-varieties-and-characteristics 33, culture-resources 28, biography 23, the-role-of-the-assistant 20, essential-elements 19, sensorial-resources 14, mathematics-resources 12.
 Fix A on the 15 other live pages that still have the slow-click line (all 15 fetched live 19:26; every image on them loads as
-the reader scrolls). Each page: the one-line change, live_diff, full check, height, speed check, gate, and the owner's confirmed
-changes list. On The Role of the Adult (54 images) the full check took 7.5 min today (449 s). On 27-28 Oct full checks took: A Montessori
+the reader scrolls). Each page: the one-line change, then tools-v5-fixA/gate_live.sh (fix-A-only comparison, full check, height, speed check,
+copy protection) with the owner's 20:08 confirmation copied beside the zip. On The Role of the Adult (54 images) the full check took 7.5 min today (449 s). On 27-28 Oct full checks took: A Montessori
 Journey (152 images) 8 min 54 s, Biography (23 images) 15 min 32 s, The Role of the Adult - Resources 25 min 25 s, The
 Practical Life Curriculum (163 images) 1 h 28 min (LESSONS-LEARNED Lesson 16). Biography, with the fewest images, took longer
 than Journey - so image count did not decide the time; what else ran on the machine did (Lesson 15). Those 27-28 Oct runs shared the 2 processors with other runs, which slowed them (LESSONS-LEARNED Lesson 15) and vfast.py is
@@ -187,7 +187,9 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
 
 ## 4. Tools (GitHub folder handover-2026-10-29-evening/)
 
-- tools-v5/ - USE THIS. gate_live.sh (pages corrected from their live copy) and send_gate.sh (pages built from a template).
+- tools-v5-fixA/ - USE THIS for fix A on the 15 pages (section 0, question 9): tools-v5 with live_diff.py replaced by the
+  fix-A-only version. Fingerprints in tools-v5-fixA/FINGERPRINTS.txt.
+- tools-v5/ - USE THIS for everything else. gate_live.sh (pages corrected from their live copy) and send_gate.sh (pages built from a template).
   Both now: print <zip>.changes.txt (the changes in plain words) and <zip>.confirmed.txt (the owner's confirming words, copied
   word for word, with the time) and fail without them; run image_sizes.py (report only); run speed_check.py (fails above 50 ms
   busy or 1.0 s per click); require copy protection in the checked zip; make <slug>-UPLOAD.zip (the checked zip) and
