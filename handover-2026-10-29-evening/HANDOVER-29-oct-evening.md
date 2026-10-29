@@ -48,15 +48,16 @@ Owner's decisions stand: The Role of the Adult is now the SAMPLE the other pages
    Education scrolls sideways at 641; contents alignment on the older pages.
 6. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred this chat by the owner; steps 2-4 done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:3x)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:35, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
 1. Check click speed before sending. The Role of the Adult passed the 13:28 gate with clicks of 3-5 s; the fault was found
    14:23 and fixed 17:45. Of 14:23-17:19 (176 min), about 107 min was waiting for the owner (chat record: Claude's answers at
    14:43:55, 15:39:58 and 16:59:47; her next messages at 15:30, 16:22 and 17:19), so Claude's own work was about 69 min. NOW: gate v4/v5 speed_check.py (limits
-   50 ms busy, 1.0 s per click, with a 0.7 s download delay; sources web.dev optimize-long-tasks and rail). Tested so far: the
-   unfixed page FAILS at 1440 (2,379 ms, clicks 2.85-3.63 s); remaining tests in tools-v4/TEST-RESULTS.txt. Limits not yet tried
+   50 ms busy, 1.0 s per click, with a 0.7 s download delay; sources web.dev optimize-long-tasks and rail). Tested at 19:3x (tools-v4/TEST-RESULTS.txt): the
+   unfixed page FAILS at 1440 (busy 2,379 ms at once, clicks 2.85-3.63 s) and at 390 (1,473 ms, 2.02-3.00 s); the fix-A page
+   passes at 1440 (no busy stretch, clicks 0.78-0.80 s); its 390 result and the full gate test are in that file. Limits not yet tried
    on any other page - they may be too strict for brief busy moments (for example a menu opening).
 2. Find the cause in the code before changing it. Text over images: six probe scripts at 11:36-11:45 name image 023 and the
    quotation images (file times and contents); the cause found was that the quotation-line script skipped images that do not
@@ -65,14 +66,17 @@ Times are Asia/Shanghai, from file times, commit times and the chat. Where a fig
    between, before the causes were found (a stacked image cleared the text beside it; the image-spacing script removed the gap
    above); CSS margins tried first were undone by margin collapse and the page's scripts (this chat's record). Slow clicks: one code recording (prof.py)
    named the re-spacing script. Nothing enforces this; it is a working method.
-3. The gate makes the upload zip. The review copy (no copy protection) went live 14:16 and had to be uploaded again.
+3. The gate makes the upload zip. The review copy (no copy protection) went live 14:16. The 18:58 upload replaced it, but that
+   upload was needed for fix A anyway, so the wrong zip cost no extra upload this time - only the risk of a page without copy
+   protection staying live (it was live 14:16-18:58).
    NOW: gate v4/v5 make <slug>-UPLOAD.zip after checking copy protection is present. Being tested.
 4. Test several fixes on copies at once. Six fixes measured 16:31:53-16:59:15 (27 min); the one chosen passed every check it
    was put through (122 widths, height, lines, speed, gate). Not enforced. speed-tests/test.py does it but names this page's
    images; it must be made general before reuse.
 5. Long runs must save as they go. This morning's first all-pages measurement hit its time limit with nothing saved and was
-   rewritten (part of 08:07-10:28; that share not measured). vfast.py resumes; any new long script must too. Not enforced.
-6. The separate checker took 48 min (12:38-13:26) after Claude's own checks. Whether starting it earlier saves time on this
+   rewritten (part of 08:07-10:28; that share not measured; source: this chat's summary of the morning - the morning's own
+   record is not available to search). vfast.py resumes; any new long script must too. Not enforced.
+6. The separate checker took 48 min (its own report: 2,905,416 ms; 12:38-13:26) after Claude's own checks. Whether starting it earlier saves time on this
    2-processor machine is NOT measured - try it once, timed.
 7. Silence and misreading: a 7-minute run of measurements with no message; 16:22-16:30 spent answering a question the owner had
    not asked. About 15 min. Cannot be enforced by a tool.
@@ -83,12 +87,15 @@ images before a build (it shows only the page's sizes - the owner's originals ar
 ## 3b. Tomorrow's biggest job and its cost (worked out, not measured on these pages)
 Fix A on the 15 other live pages that still have the slow-click line (all 15 fetched live 19:26; every image on them loads as
 the reader scrolls). Each page: the one-line change, live_diff, full check, height, speed check, gate, and the owner's confirmed
-changes list. On The Role of the Adult (54 images) the full check took 7.5 min. On larger pages it took far longer on 27-28 Oct:
-A Montessori Journey 8 min 54 s, Biography 15 min 32 s, The Role of the Adult - Resources 25 min 25 s, The Practical Life
-Curriculum 1 h 28 min (LESSONS-LEARNED Lesson 16). Those 27-28 Oct runs shared the 2 processors with other runs, which slowed them (LESSONS-LEARNED Lesson 15) and vfast.py is
+changes list. On The Role of the Adult (54 images) the full check took 7.5 min today (449 s). On 27-28 Oct full checks took: A Montessori
+Journey (152 images) 8 min 54 s, Biography (23 images) 15 min 32 s, The Role of the Adult - Resources 25 min 25 s, The
+Practical Life Curriculum (163 images) 1 h 28 min (LESSONS-LEARNED Lesson 16). Biography, with the fewest images, took longer
+than Journey - so image count did not decide the time; what else ran on the machine did (Lesson 15). Those 27-28 Oct runs shared the 2 processors with other runs, which slowed them (LESSONS-LEARNED Lesson 15) and vfast.py is
 faster, so these figures may overstate; the speed check's time on a 250-image page is not measured either. Measure the first
 large page's gate time, then estimate the rest from it.
-Not proven: that fix A behaves the same on pages built from the Resources template or older builds - each is measured.
+Not proven: that fix A behaves the same on the three Resources-template pages among the 15 (Culture Resources, Sensorial
+Resources, Mathematics Resources) or on older builds - each is measured. "Every image loads as the reader scrolls" was counted
+on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since then.
 
 ## 2b. Order of work - the owner's order (19:14)
 1. Images: put the larger originals on every page (owner: "yes. each page needs the larger originals"), faces rounds for every
