@@ -2,7 +2,8 @@
 
 Read first, in this order, as the Project instructions say: claude/START-HERE.md, this file, claude/LESSONS-LEARNED-27-29-oct.md,
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
-This replaces the morning's HANDOVER-29-oct.md as the newest handover.
+This replaces the morning's HANDOVER-29-oct.md as the newest handover. LESSONS-LEARNED-27-29-oct.md does NOT yet hold
+today's lessons - they are in section 3 below only.
 The full set of today's tools and records is in GitHub: omuirithe-a11y/montessori-mentor-templates, folder handover-2026-10-29-evening/.
 
 ## 1. What is done (each measured; evidence in the GitHub folder)
@@ -57,7 +58,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:46, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:47, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
@@ -139,8 +140,9 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
   19:23 to before 19:33:43) and the v4 gate 6 min (19:33:43-19:39:46). Remaining: v5 gate, the missing-list case to the end,
   send_gate.sh once, the speed check on one live address - about 23 min.
   NOT YET TESTED as a whole: v5 = v4 plus the confirmation file and image_sizes.py. send_gate.sh has never been run since its
-  folder paths were changed; a run on The Role of the Adult can show only that every step runs (it would fail at the template code
-  check, because that page is not template-built) - a real test needs a template build (v4 file 19:22:53, v5 file 19:24:42) - run it once on a template build before trusting it.
+  folder paths were changed (v4 file 19:22:53, v5 file 19:24:42). A run on The Role of the Adult can show only that every step
+  runs - it would fail at the template code check, because that page is not template-built. Run it once on a template build
+  before trusting it.
 - tools-v4/ - TESTED 29 Oct 19:23-19:39 (TEST-RESULTS.txt): speed_check fails the unfixed page at 1440 and 390 and passes the
   fix-A page at both; the full gate passes the fix-A page and its UPLOAD zip equals the 18:58 upload. The missing-list case was
   only seen printing its message (a 60-second run), not run to GATE FAILED.
