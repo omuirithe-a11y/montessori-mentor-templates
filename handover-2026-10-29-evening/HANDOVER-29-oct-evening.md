@@ -36,12 +36,17 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
      1xtrI7iS0_HAEtOvxueB5hXSy0cPoIaSr. Whether that also covers larger originals she supplies later for those pages: ASK.
    - Measured on The Role of the Adult (image_sizes.py, run 19:24-19:25): all 54 large images under 2900 px, 10 under 1600 px, smallest
      494 px (048.jpg). Whether these are smaller than her originals is not known until she supplies the originals.
+   - FIRST ASK the owner where the originals are for each page (Drive folder or upload) - no file lists them, and without them
+     nothing in this item can start. Not estimated: the number of images is 54 to 250 per page; each image with children needs
+     both faces rounds and her answers.
+   - Which build file sets the 2400 limit is not checked in this chat (the 26 Oct record says the large file is "long side at
+     most 2400"; claude/checks/noblur-images-26oct.md); find it before changing it.
    - OPEN: large copies up to 2400 (the build now) or 2900 (what Hostinger sends computers) - pros and cons sent at 19:14:19
      (chat record); not answered.
 2. Fix the slow image opening (fix A) on the other live pages: 15 pages fetched live at 19:26 still have the line, all with
    10 or more images loading as the reader scrolls (the 15 pages, with image counts, in section 3b). Measure each first: tools-v5 speed_check.py now takes a live page address (https://...) as well as a zip
    (file changed 19:37:02, NOT YET RUN on a live address).
-3. Known faults, as soon as possible (owner 19:14: "fix all of these asap"): menu panels that do not close on a second click
+3. Known faults, as soon as possible (owner 19:14: "fix all of these asap"; no cause yet measured for any of the three): menu panels that do not close on a second click
    at desktop width (20 older pages, found in the morning of 29 Oct - the list of the 20 is NOT saved in any file found in a search made before 19:36
    (menu_toc.json, before.json, after.json, tocalign.json checked); measure again to find them); The History of Education scrolls sideways at 641 (source: the morning's
    check, recorded only in this chat's summary - re-measure); contents alignment on the older pages.
@@ -51,7 +56,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:40, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:41, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
@@ -88,6 +93,12 @@ Times are Asia/Shanghai, from file times, commit times and the chat. Where a fig
 7. Silence and misreading: a 7-minute run of measurements with no message (14:23, the owner's question, to 14:30:37, her
    interruption - chat record); 16:22-16:30 spent answering a question the owner had
    not asked. About 15 min. Cannot be enforced by a tool.
+
+8. Times typed instead of read: twice in this chat a revision time was typed ahead of the clock ("19:4x" written at 19:36,
+   "19:38" written at 19:37; commit times 19:36:22 and 19:37:17). A written rule (Lesson 26, START-HERE item 40) did not stop it.
+   What worked: the command that saves the file sets the time itself (python reading the clock), used from 19:37:29 on.
+9. Each check round is only as good as what it reads: the gate test's changes list was corrected at 19:24, before the gate
+   step read it (19:33:43) - safe only because the step had not started. Freeze every file a running check will read.
 
 Not lessons (not proven): that more images means slower clicks (one page measured); that the image-size report finds small
 images before a build (it shows only the page's sizes - the owner's originals are not in the package).
