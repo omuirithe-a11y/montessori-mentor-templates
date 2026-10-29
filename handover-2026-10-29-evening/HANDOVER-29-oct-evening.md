@@ -3,12 +3,13 @@
 Read first, in this order, as the Project instructions say: claude/START-HERE.md, this file, claude/LESSONS-LEARNED-27-29-oct.md,
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 
-## 0. Questions for the owner, still open at 20:09 on 29 Oct - ask them first, one at a time (her rule)
+## 0. Questions for the owner, still open at 20:22 on 29 Oct - ask them first, one at a time (her rule)
 
 1. The Role of the Adult: confirm the six-item changes list (sample-page/the-role-of-the-adult.changes.txt) in her own words.
    The v5 gate cannot pass that page without it. (The page is already live with the v4-gated zip, so this blocks only a
    future v5 run on it.)
-2. Finish testing tools-v5 first (about 23 min, worked out from today's runs), or start page work at once?
+2. ANSWERED 29 Oct 20:00 ("test now"): tools-v5 tested 20:00-20:22 - see section 4. Still untested: send_gate.sh (needs a
+   template build).
 3. Today's lessons into LESSONS-LEARNED-27-29-oct.md (a whole-file rewrite; the store is 98% full) - try it, or make room
    first (no file deleted without her agreement), or leave them in this handover?
 4. A separate agent's check of the live The Role of the Adult with fix A - wanted?
@@ -92,7 +93,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
      (chat record); not answered.
 2. Fix the slow image opening (fix A) on the other live pages (owner's confirmation for all 15: section 0, question 9): 15 pages fetched live at 19:26 still have the line, all with
    10 or more images loading as the reader scrolls (the 15 pages, with image counts, in section 3b). Measure each first: tools-v5 speed_check.py now takes a live page address (https://...) as well as a zip
-   (file changed 19:37:02, NOT YET RUN on a live address).
+   (first run on a live address 29 Oct 20:06-20:15: the-culture-curriculum fails badly - see section 4).
 3. Known faults, as soon as possible (owner 19:14: "fix all of these asap"; no cause yet measured for any of the three): menu panels that do not close on a second click
    at desktop width (20 older pages, found in the morning of 29 Oct - the list of the 20 is NOT saved in any file found in a search made before 19:36
    (menu_toc.json, before.json, after.json, tocalign.json checked); measure again to find them); The History of Education scrolls sideways at 641 (source: the morning's
@@ -103,7 +104,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:09, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:22, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
@@ -184,15 +185,21 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
   say this (not updated in this chat).
   The Role of the Adult has its changes list (sample-page/the-role-of-the-adult.changes.txt) but NO confirmed.txt yet: the
   owner has not confirmed the list, so a v5 gate run on that page would fail until she does.
-  Time to finish testing, worked out from today's runs (not measured): each speed check took about 5.4 min (tests 1 and 2 ran
-  19:23 to before 19:33:43) and the v4 gate 6 min (19:33:43-19:39:46). Remaining: v5 gate, the missing-list case to the end,
-  send_gate.sh once, the speed check on one live address - about 23 min.
-  NOT YET TESTED as a whole: v5 = v4 plus the confirmation file and image_sizes.py. send_gate.sh has never been run since its
+  Test times measured 29 Oct: v5 gate on The Role of the Adult about 6 min (A 20:00:39-20:06:46; C 20:15:51-20:21:56); speed
+  check on the live 250-image Culture Curriculum 545 s.
+  TESTED 29 Oct 20:00:39-20:21:56 (tools-v5/TEST-RESULTS.txt): (A) with the changes list but no confirmation - printed
+  "owner's confirmation missing", every other step passed, GATE FAILED, no zip made; (B) speed check on the live
+  the-culture-curriculum (250 images, real network, 545 s): SPEED FAULT - busy up to 2,244 ms at 1440 and 2,150 ms at 390;
+  clicks 5.07 s and 21.25 s at 1440, 17.6 s at 390, and 5 of the 8 clicks "did not open" within the 20 s limit (whether the
+  page or the click was at fault in those 5 is not established); (C) with no changes list and no confirmation - printed both
+  missing, GATE FAILED, no zip made. In A the four 390 click times equalled the 1440 ones; in C they differed, so A's match
+  looks like coincidence (not proven).
+  Still untested in v5: send_gate.sh has never been run since its
   folder paths were changed (v4 file 19:22:53, v5 file 19:24:42). A run on The Role of the Adult can show only that every step
   runs - it would fail at the template code check, because that page is not template-built. Run it once on a template build
   before trusting it.
 - tools-v4/ - TESTED 29 Oct 19:23-19:39 (TEST-RESULTS.txt): speed_check fails the unfixed page at 1440 and 390 and passes the
   fix-A page at both; the full gate passes the fix-A page and its UPLOAD zip equals the 18:58 upload. The missing-list case was
-  only seen printing its message (a 60-second run), not run to GATE FAILED.
+  run to the end in v5 (test C): GATE FAILED.
 - tools-v3/ - superseded. visual_check.py fingerprint 68026417 is unchanged in every version.
 - speed-tests/ - click2.py, busy.py, prof.py, relayout.py, cause.py, test.py (the six-fix comparison), results.txt.
