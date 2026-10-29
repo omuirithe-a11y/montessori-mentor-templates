@@ -115,7 +115,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:44, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:49, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
@@ -163,9 +163,11 @@ Times are Asia/Shanghai, from file times, commit times and the chat. Where a fig
 10. Say a file "now says" something only after reading it back from the saved copy. Four times in this chat Claude told
    the owner a file said something it did not (times of Claude's answers, chat record): 19:45:10 (the reason in lesson 9),
    19:45:49 ("the handover records both"), 19:54:53 ("the handover already records all three as open"), 20:42:34 ("now stated
-   as unknown"). Each was found in the next answer and then made true. Three more answers overstated a read-back: 19:46:42 and
+   as unknown"). Each was found in the next answer and then made true. Four more answers overstated a read-back: 19:46:42, 19:52:11 and
    19:52:47 called a Project search a read-back; 19:53:56 called the Project copy "byte-identical" when only the GitHub copy
-   was fingerprinted. (Found by searching the chat record for the phrases used - other wordings may have been missed.)
+   was fingerprinted. (Found at 20:49 by listing every sentence in Claude's answers since 19:05 that says a file "now says / has /
+   records" something, "is in it", was "read back", is "byte-identical" or has "the same fingerprint" - 70 sentences - and
+   checking each against what was done; a claim worded in some other way could still be missed.)
    Writing this lesson down at 19:46 did not stop the later ones. What held: make the change, read the saved copy, then report - never the other way round. Read back the Project copy too: it is the one the next chat reads.
    What each check proves: md5 of the local file = md5 of git show HEAD:<file> proves the GitHub copy is the same file. The
    Project copy cannot be fingerprinted (project_read returns text only); a full project_read proves its content, a
