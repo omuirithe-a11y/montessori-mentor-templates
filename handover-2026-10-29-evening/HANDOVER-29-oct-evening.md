@@ -2,6 +2,22 @@
 
 Read first, in this order, as the Project instructions say: claude/START-HERE.md, this file, claude/LESSONS-LEARNED-27-29-oct.md,
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
+## 0. Questions for the owner, still open at 19:55 on 29 Oct - ask them first, one at a time (her rule)
+
+1. The Role of the Adult: confirm the six-item changes list (sample-page/the-role-of-the-adult.changes.txt) in her own words.
+   The v5 gate cannot pass that page without it. (The page is already live with the v4-gated zip, so this blocks only a
+   future v5 run on it.)
+2. Finish testing tools-v5 first (about 23 min, worked out from today's runs), or start page work at once?
+3. Today's lessons into LESSONS-LEARNED-27-29-oct.md (a whole-file rewrite; the store is 98% full) - try it, or make room
+   first (no file deleted without her agreement), or leave them in this handover?
+4. A separate agent's check of the live The Role of the Adult with fix A - wanted?
+5. Where are the larger originals for each page (Drive folder or upload)? This blocks item 1 of her order (section 2), her
+   first priority - nothing in it can start without them.
+6. Does her 10:25 "no blurring" for Biography, Aun Aprendo and A Montessori Journey also cover larger originals for them?
+7. Large copies up to 2400 or 2900 px (pros and cons sent 19:14:19)?
+8. Is item 4 of her order building the next page from The Role of the Adult, and item 5 the templates? If so, which page first,
+   and what are its extra elements?
+
 This replaces the morning's HANDOVER-29-oct.md as the newest handover. LESSONS-LEARNED-27-29-oct.md does NOT yet hold
 today's lessons - they are in section 3 below only.
 The Project's knowledge store is 98% full (knowledge_size 1,964,188 of max 2,000,000 - the unit is not stated by the tool;
@@ -28,20 +44,6 @@ owner wants it (nothing deleted; each step needs her agreement, file by file):
 - LESSONS-LEARNED-27-28-oct.md (root and claude/): not compared.
 - How much room any delete frees is not known: the tool gives no size per file.
 The full set of today's tools and records is in GitHub: omuirithe-a11y/montessori-mentor-templates, folder handover-2026-10-29-evening/.
-
-## 0. Questions for the owner, still open at 19:55 on 29 Oct - ask them first, one at a time (her rule)
-
-1. The Role of the Adult: confirm the six-item changes list (sample-page/the-role-of-the-adult.changes.txt) in her own words.
-   The v5 gate cannot pass that page without it.
-2. Finish testing tools-v5 first (about 23 min, worked out from today's runs), or start page work at once?
-3. Today's lessons into LESSONS-LEARNED-27-29-oct.md (a whole-file rewrite; the store is 98% full) - try it, or make room
-   first (no file deleted without her agreement), or leave them in this handover?
-4. A separate agent's check of the live The Role of the Adult with fix A - wanted?
-5. Where are the larger originals for each page (Drive folder or upload)?
-6. Does her 10:25 "no blurring" for Biography, Aun Aprendo and A Montessori Journey also cover larger originals for them?
-7. Large copies up to 2400 or 2900 px (pros and cons sent 19:14:19)?
-8. Is item 4 of her order building the next page from The Role of the Adult, and item 5 the templates? If so, which page first,
-   and what are its extra elements?
 
 ## 1. What is done (each measured; evidence in the GitHub folder)
 
