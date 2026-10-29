@@ -53,15 +53,17 @@ Owner's decisions stand: The Role of the Adult is now the SAMPLE the other pages
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
 1. Check click speed before sending. The Role of the Adult passed the 13:28 gate with clicks of 3-5 s; the fault was found
-   14:23 and fixed 17:45. Of 14:23-17:19, much was waiting for the owner's replies (her messages came 15:30, 16:22, 17:19 after
-   Claude's answers 14:3x, 15:4x, 17:0x) - Claude's own working time is not split out. NOW: gate v4/v5 speed_check.py (limits
+   14:23 and fixed 17:45. Of 14:23-17:19 (176 min), about 107 min was waiting for the owner (chat record: Claude's answers at
+   14:43:55, 15:39:58 and 16:59:47; her next messages at 15:30, 16:22 and 17:19), so Claude's own work was about 69 min. NOW: gate v4/v5 speed_check.py (limits
    50 ms busy, 1.0 s per click, with a 0.7 s download delay; sources web.dev optimize-long-tasks and rail). Tested so far: the
    unfixed page FAILS at 1440 (2,379 ms, clicks 2.85-3.63 s); remaining tests in tools-v4/TEST-RESULTS.txt. Limits not yet tried
    on any other page - they may be too strict for brief busy moments (for example a menu opening).
-2. Find the cause in the code before changing it. Text over images: six probe scripts in 9 minutes (11:36-11:45) found that the
-   quotation-line script skipped images that do not float; fixed once. The 30 px gaps: about five scripts from 11:59 to 12:23
-   before the causes were found (a stacked image cleared the text beside it; the image-spacing script removed the gap above);
-   CSS margins tried first were undone by margin collapse and the page's scripts. Slow clicks: one code recording (prof.py)
+2. Find the cause in the code before changing it. Text over images: six probe scripts at 11:36-11:45 name image 023 and the
+   quotation images (file times and contents); the cause found was that the quotation-line script skipped images that do not
+   float - that these scripts found it is read from their names and times, not from a record of their output. The 30 px gaps:
+   scripts from 11:59 to 12:23 (gap.py, gap2.py, gap3.py, probe7.py, probe8.py), with the owner's answers at 12:12 and 12:15 in
+   between, before the causes were found (a stacked image cleared the text beside it; the image-spacing script removed the gap
+   above); CSS margins tried first were undone by margin collapse and the page's scripts (this chat's record). Slow clicks: one code recording (prof.py)
    named the re-spacing script. Nothing enforces this; it is a working method.
 3. The gate makes the upload zip. The review copy (no copy protection) went live 14:16 and had to be uploaded again.
    NOW: gate v4/v5 make <slug>-UPLOAD.zip after checking copy protection is present. Being tested.
@@ -83,7 +85,9 @@ Fix A on the 15 other live pages that still have the slow-click line (all 15 fet
 the reader scrolls). Each page: the one-line change, live_diff, full check, height, speed check, gate, and the owner's confirmed
 changes list. On The Role of the Adult (54 images) the full check took 7.5 min. On larger pages it took far longer on 27-28 Oct:
 A Montessori Journey 8 min 54 s, Biography 15 min 32 s, The Role of the Adult - Resources 25 min 25 s, The Practical Life
-Curriculum 1 h 28 min (LESSONS-LEARNED Lesson 16). So the 15 pages may take most of a day; the six with 150-250 images most.
+Curriculum 1 h 28 min (LESSONS-LEARNED Lesson 16). Those 27-28 Oct runs shared the 2 processors with other runs, which slowed them (LESSONS-LEARNED Lesson 15) and vfast.py is
+faster, so these figures may overstate; the speed check's time on a 250-image page is not measured either. Measure the first
+large page's gate time, then estimate the rest from it.
 Not proven: that fix A behaves the same on pages built from the Resources template or older builds - each is measured.
 
 ## 2b. Order of work - the owner's order (19:14)
