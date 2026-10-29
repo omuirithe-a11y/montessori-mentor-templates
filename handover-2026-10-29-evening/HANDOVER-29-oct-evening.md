@@ -40,9 +40,9 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
      (chat record); not answered.
 2. Fix the slow image opening (fix A) on the other live pages: 15 pages fetched live at 19:26 still have the line, all with
    10 or more images loading as the reader scrolls (the 15 pages, with image counts, in section 3b). Measure each first: tools-v5 speed_check.py now takes a live page address (https://...) as well as a zip
-   (changed 19:3x, NOT YET RUN on a live address).
+   (file changed 19:37:02, NOT YET RUN on a live address).
 3. Known faults, as soon as possible (owner 19:14: "fix all of these asap"): menu panels that do not close on a second click
-   at desktop width (20 older pages, found in the morning of 29 Oct - the list of the 20 is NOT saved in any file found at 19:3x
+   at desktop width (20 older pages, found in the morning of 29 Oct - the list of the 20 is NOT saved in any file found in a search made before 19:36
    (menu_toc.json, before.json, after.json, tocalign.json checked); measure again to find them); The History of Education scrolls sideways at 641 (source: the morning's
    check, recorded only in this chat's summary - re-measure); contents alignment on the older pages.
 4. NOT ANSWERED: whether 4 is building the next page from The Role of the Adult (Biography, Aun Aprendo or A Montessori Journey -
@@ -51,15 +51,15 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:37, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:38, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
 1. Check click speed before sending. The Role of the Adult passed the 13:28 gate with clicks of 3-5 s; the fault was found
    14:23, the fixed page sent 17:45 and uploaded 18:58. Of 14:23-17:19 (176 min), about 107 min was waiting for the owner (chat record: Claude's answers at
-   14:43:55, 15:39:58 and 16:59:47; her next messages at 15:30, 16:22 and 17:19), so Claude's own work was about 69 min.
+   14:43:55, 15:39:58 and 16:59:47; her next messages at 15:30, 16:22 and 17:19), so Claude's own work was about 69 min (her messages are known to the minute only: 46 + 42 + 19 min of waiting).
    NOW: gate v4/v5 speed_check.py (limits
-   50 ms busy, 1.0 s per click, with a 0.7 s download delay; sources web.dev optimize-long-tasks and rail). Tested 19:23-19:3x (tools-v4/TEST-RESULTS.txt): the
+   50 ms busy, 1.0 s per click, with a 0.7 s download delay; sources web.dev optimize-long-tasks and rail). Tests started 19:23 (tools-v4/TEST-RESULTS.txt): the
    unfixed page FAILS at 1440 (busy 2,379 ms at once, clicks 2.85-3.63 s) and at 390 (1,473 ms, 2.02-3.00 s); the fix-A page
    passes at 1440 (no busy stretch, clicks 0.78-0.80 s) and at 390 (no busy stretch, clicks 0.77-0.79 s). The full gate test
    result is in that file. Limits not yet tried
@@ -74,7 +74,8 @@ Times are Asia/Shanghai, from file times, commit times and the chat. Where a fig
 3. The gate makes the upload zip. The review copy (no copy protection) went live 14:16. The 18:58 upload replaced it, but that
    upload was needed for fix A anyway, so the wrong zip cost no extra upload this time - only the risk of a page without copy
    protection staying live (it was live 14:16-18:58).
-   NOW: gate v4/v5 make <slug>-UPLOAD.zip after checking copy protection is present. Being tested.
+   NOW: gate v4/v5 make <slug>-UPLOAD.zip after checking copy protection is present. Under test from 19:23: the full gate on the fix-A page had passed the changes list, code check, 122 widths and height at
+   1440 and 390 by 19:37; the speed step and the UPLOAD comparison are in TEST-RESULTS.txt.
 4. Test several fixes on copies at once. Six fixes measured 16:31:53-16:59:15 (27 min); the one chosen passed every check it
    was put through (122 widths, height, lines, speed, gate). Not enforced. speed-tests/test.py does it but names this page's
    images; it must be made general before reuse.
@@ -116,7 +117,7 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
   The Role of the Adult has its changes list (sample-page/the-role-of-the-adult.changes.txt) but NO confirmed.txt yet: the
   owner has not confirmed the list, so a v5 gate run on that page would fail until she does.
   NOT YET TESTED as a whole: v5 = v4 plus the confirmation file and image_sizes.py. send_gate.sh has never been run since its
-  folder paths were changed (19:2x) - run it once on a template build before trusting it.
+  folder paths were changed (v4 file 19:22:53, v5 file 19:24:42) - run it once on a template build before trusting it.
 - tools-v4/ - the version tested on 29 Oct (TEST-RESULTS.txt): speed_check fails the unfixed page at 1440 and 390 and passes
   the fix-A page at both; the full gate test result is in that file.
 - tools-v3/ - superseded. visual_check.py fingerprint 68026417 is unchanged in every version.
