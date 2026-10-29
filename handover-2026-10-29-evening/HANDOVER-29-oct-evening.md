@@ -13,8 +13,8 @@ owner wants it (nothing deleted; each step needs her agreement, file by file):
 - NOT candidates: the 27 Oct AGENT-INSTRUCTION files. LESSONS-LEARNED cites them as evidence by name (Lesson 1 cites
   /home/claude/reports/AGENT-INSTRUCTION-27oct-1240.md line 3; Lesson 2 the -1240, -1245, -1255, -1300 and -1325 files). Those
   /home/claude/reports paths do not exist on this machine (checked 19:52) and no AGENT-INSTRUCTION file is in the GitHub repository
-  (its 199 files listed, 19:52), and Google Drive has none (search 19:53: title
-  or text, no match). The 27 Oct chat "Fixing 9 pages" (https://claude.ai/chat/6563fac0-7704-4194-9908-4b14e4d21ad0) holds the
+  (its 199 files listed, 19:52), and Google Drive has none (search 19:53, by title
+  or text: one result, an unrelated PDF from 2018, GSA-LSYM_2018sc.pdf). The 27 Oct chat "Fixing 9 pages" (https://claude.ai/chat/6563fac0-7704-4194-9908-4b14e4d21ad0) holds the
   text of at least the -1240 file as written (search 19:53); the other files' text there is not checked. The records repository
   was not searched: it was archived on 20 Oct, before these files existed (START-HERE). So the Project copies are the only
   complete copies found - keep them.
