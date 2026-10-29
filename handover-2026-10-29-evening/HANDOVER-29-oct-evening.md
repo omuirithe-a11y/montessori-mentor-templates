@@ -3,7 +3,7 @@
 Read first, in this order, as the Project instructions say: claude/START-HERE.md, this file, claude/LESSONS-LEARNED-27-29-oct.md,
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 
-## 0. Questions for the owner, still open at 20:31 on 29 Oct - ask them first, one at a time (her rule)
+## 0. Questions for the owner, still open at 20:40 on 29 Oct - ask them first, one at a time (her rule)
 
 1. The Role of the Adult: confirm the six-item changes list (sample-page/the-role-of-the-adult.changes.txt) in her own words.
    The v5 gate cannot pass that page without it. (The page is already live with the v4-gated zip, so this blocks only a
@@ -26,7 +26,12 @@ claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 9. ANSWERED 29 Oct 20:08 - the owner, word for word: "Fix A on the 15 pages: the one image-load line, nothing else – confirmed".
    Saved as fixA-15-pages.confirmed.txt in the GitHub folder. For each of the 15 pages: its <zip>.changes.txt says only
    "Fix A: the one image-load line, nothing else"; its <zip>.confirmed.txt is a copy of that file. It covers fix A only - any
-   other change to any of these pages needs its own confirmation.
+   other change to any of these pages needs its own confirmation. USE tools-v5-fixA/ for these pages, NOT tools-v5/: the v5
+   comparison (live_diff.py) is written for The Role of the Adult's own changes and would fail on every other page. The fix-A
+   version allows exactly one change - the image-load line, found once - and nothing else (tested 20:40: a fix-A-only copy passes;
+   one extra character fails; the full corrected Role of the Adult fails). On all 15 pages, fetched 19:26, the old line appears
+   exactly once and the size record fix A relies on (window.__mmSize) is set (checked 20:40). Use the confirmation only on the 15
+   pages listed in section 3b. If a page's line does not match exactly, stop and ask: a reworded fix is not covered.
 
 This replaces the morning's HANDOVER-29-oct.md as the newest handover. LESSONS-LEARNED-27-29-oct.md does NOT yet hold
 today's lessons - they are in section 3 below only.
@@ -107,7 +112,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:31, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:40, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
