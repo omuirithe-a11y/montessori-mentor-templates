@@ -4,9 +4,12 @@ Read first, in this order, as the Project instructions say: claude/START-HERE.md
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 This replaces the morning's HANDOVER-29-oct.md as the newest handover. LESSONS-LEARNED-27-29-oct.md does NOT yet hold
 today's lessons - they are in section 3 below only.
-The Project's knowledge store is 98% full (1,964,188 of 2,000,000, project_info at 19:47 on 29 Oct): a new file or a larger
-rewrite may not fit. Today's full records are in GitHub; adding today's lessons to LESSONS-LEARNED needs room made first
-(only the owner can remove Project files she uploaded).
+The Project's knowledge store is 98% full (knowledge_size 1,964,188 of max 2,000,000 - the unit is not stated by the tool;
+project_info at 19:47 on 29 Oct): a new file or a larger rewrite may not fit. Today's full records are in GitHub. Adding
+today's lessons to LESSONS-LEARNED needs room first: text docs can be deleted with project_delete, but only with the owner's
+agreement, file by file. Candidates proposed to her 29 Oct (none deleted): the superseded AGENT-INSTRUCTION files of 27 Oct
+(-1236 to -1335 and rev12-rev14; rev15 is the last) and root copies that duplicate claude/ copies (HANDOVER-29-oct.md,
+LESSONS-LEARNED-27-28-oct.md, HANDOVER-27-oct-morning.md - each to be compared byte for byte before any delete).
 The full set of today's tools and records is in GitHub: omuirithe-a11y/montessori-mentor-templates, folder handover-2026-10-29-evening/.
 
 ## 1. What is done (each measured; evidence in the GitHub folder)
@@ -61,7 +64,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:47, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:48, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
