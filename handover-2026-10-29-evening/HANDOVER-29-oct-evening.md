@@ -103,8 +103,9 @@ Times are Asia/Shanghai, from file times, commit times and the chat. Where a fig
    list) had not started; it began at 19:33:43 and printed the corrected list. Checking first made it safe; not editing at all
    would have been safer.
 10. Say a file "now says" something only after reading it back from the saved copy. At 19:44 Claude told the owner the
-   handover gave the reason for lesson 9 when that line had not been changed (found 19:45; corrected in commit ca405f4). Since
-   then each change is read back from the saved GitHub copy (git show HEAD:<file>) before it is reported.
+   handover gave the reason for lesson 9 when that line had not been changed (found 19:45; corrected in commit ca405f4). Done so
+   far for lessons 9 and 10 only (read back from the saved GitHub copy with git show HEAD:<file>, 19:45 and 19:46) - a method,
+   not yet a habit shown over time. Read back the Project copy too: it is the one the next chat reads.
 
 Not lessons (not proven): that more images means slower clicks (one page measured); that the image-size report finds small
 images before a build (it shows only the page's sizes - the owner's originals are not in the package).
@@ -138,7 +139,8 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
   19:23 to before 19:33:43) and the v4 gate 6 min (19:33:43-19:39:46). Remaining: v5 gate, the missing-list case to the end,
   send_gate.sh once, the speed check on one live address - about 23 min.
   NOT YET TESTED as a whole: v5 = v4 plus the confirmation file and image_sizes.py. send_gate.sh has never been run since its
-  folder paths were changed (v4 file 19:22:53, v5 file 19:24:42) - run it once on a template build before trusting it.
+  folder paths were changed; a run on The Role of the Adult can show only that every step runs (it would fail at the template code
+  check, because that page is not template-built) - a real test needs a template build (v4 file 19:22:53, v5 file 19:24:42) - run it once on a template build before trusting it.
 - tools-v4/ - TESTED 29 Oct 19:23-19:39 (TEST-RESULTS.txt): speed_check fails the unfixed page at 1440 and 390 and passes the
   fix-A page at both; the full gate passes the fix-A page and its UPLOAD zip equals the 18:58 upload. The missing-list case was
   only seen printing its message (a 60-second run), not run to GATE FAILED.
