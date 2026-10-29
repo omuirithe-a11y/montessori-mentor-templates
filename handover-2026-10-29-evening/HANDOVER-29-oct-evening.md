@@ -3,7 +3,7 @@
 Read first, in this order, as the Project instructions say: claude/START-HERE.md, this file, claude/LESSONS-LEARNED-27-29-oct.md,
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 
-## 0. Questions for the owner, still open at 19:57 on 29 Oct - ask them first, one at a time (her rule)
+## 0. Questions for the owner, still open at 20:00 on 29 Oct - ask them first, one at a time (her rule)
 
 1. The Role of the Adult: confirm the six-item changes list (sample-page/the-role-of-the-adult.changes.txt) in her own words.
    The v5 gate cannot pass that page without it. (The page is already live with the v4-gated zip, so this blocks only a
@@ -12,8 +12,9 @@ claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 3. Today's lessons into LESSONS-LEARNED-27-29-oct.md (a whole-file rewrite; the store is 98% full) - try it, or make room
    first (no file deleted without her agreement), or leave them in this handover?
 4. A separate agent's check of the live The Role of the Adult with fix A - wanted?
-5. Where are the larger originals for each page (Drive folder or upload)? This blocks item 1 of her order (section 2), her
-   first priority - nothing in it can start without them.
+5. ANSWERED 29 Oct 20:00 - the owner: "when i start work tomorrow they will be in google drive". So: at the start of the next
+   chat, search Google Drive for them; ask her which folder only if the search does not find them. This was what blocked item 1
+   of her order (section 2).
 6. Does her 10:25 "no blurring" for Biography, Aun Aprendo and A Montessori Journey also cover larger originals for them?
 7. Large copies up to 2400 or 2900 px (pros and cons sent 19:14:19)?
 8. Is item 4 of her order building the next page from The Role of the Adult, and item 5 the templates? If so, which page first,
@@ -101,7 +102,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:57, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 20:00, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
