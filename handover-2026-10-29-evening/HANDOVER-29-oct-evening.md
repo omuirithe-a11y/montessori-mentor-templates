@@ -6,15 +6,17 @@ This replaces the morning's HANDOVER-29-oct.md as the newest handover. LESSONS-L
 today's lessons - they are in section 3 below only.
 The Project's knowledge store is 98% full (knowledge_size 1,964,188 of max 2,000,000 - the unit is not stated by the tool;
 project_info at 19:47 on 29 Oct): a new file or a larger rewrite may not fit. Today's full records are in GitHub. Adding
-today's lessons to LESSONS-LEARNED: the tool has no append, so the whole file (about 70 KB, read in full this chat) must be
-written again with the addition - possible only if the store has room for the larger file; not tried. Room-making, if the
+today's lessons to LESSONS-LEARNED: the tool has no append, so the whole file (size not measured - the tool gives none; it was read in full this chat) must be
+written again with the addition - possible only if the store has room for the larger file; not tried, and what the tool does
+when a write does not fit is not known. Room-making, if the
 owner wants it (nothing deleted; each step needs her agreement, file by file):
-- NOT candidates: the 27 Oct AGENT-INSTRUCTION files - LESSONS-LEARNED cites them as evidence by name (for example the -1240,
-  -1245, -1255 and -1300 files in Lessons 1 and 2), so deleting them breaks its references.
+- NOT candidates: the 27 Oct AGENT-INSTRUCTION files. LESSONS-LEARNED cites them as evidence by name (Lesson 1 cites
+  /home/claude/reports/AGENT-INSTRUCTION-27oct-1240.md line 3; Lesson 2 the -1240, -1245, -1255, -1300 and -1325 files). Those
+  /home/claude/reports paths were in a past session and are gone, so the Project copies are the only surviving copies.
 - HANDOVER-27-oct-morning.md (root) and claude/HANDOVER-27-oct-morning.md: compared in full at 19:48 - NOT identical. They
   differ in section 5: the root copy says three agents were running; the claude/ copy says they were stopped and nothing came
-  back, so the claude/ copy holds the later state (the root copy's created_at, 26 Oct 23:06 UTC, is later than the claude/
-  copy's 22:57 - why is not known).
+  back, so the claude/ copy holds the later state. Its earlier created_at (22:57 against 23:06 UTC) does not contradict this:
+  created_at is the first save, not the last - this handover's created_at stayed 11:06:28 UTC through every rewrite today.
 - HANDOVER-29-oct.md (root) and claude/HANDOVER-29-oct.md: identical when both were read in full at the start of this chat
   (source: this chat's summary); not compared again.
 - LESSONS-LEARNED-27-28-oct.md (root and claude/): not compared.
@@ -73,7 +75,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:48, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:51, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
