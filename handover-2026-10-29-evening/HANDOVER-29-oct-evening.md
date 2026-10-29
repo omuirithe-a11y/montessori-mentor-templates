@@ -18,6 +18,9 @@ claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 7. Large copies up to 2400 or 2900 px (pros and cons sent 19:14:19)?
 8. Is item 4 of her order building the next page from The Role of the Adult, and item 5 the templates? If so, which page first,
    and what are its extra elements?
+9. Item 2 of her order (fix A on the 15 other pages) is blocked by no question above, but the v5 gate needs a confirmed changes
+   list for every page: 15 confirmations. Would she confirm once, for all 15, a list that says only "fix A: the one image-load
+   line, nothing else" (each page's gate still proves nothing else changed)?
 
 This replaces the morning's HANDOVER-29-oct.md as the newest handover. LESSONS-LEARNED-27-29-oct.md does NOT yet hold
 today's lessons - they are in section 3 below only.
@@ -98,7 +101,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:55, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:57, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
