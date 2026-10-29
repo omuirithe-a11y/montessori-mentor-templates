@@ -12,11 +12,12 @@ when a write does not fit is not known. Room-making, if the
 owner wants it (nothing deleted; each step needs her agreement, file by file):
 - NOT candidates: the 27 Oct AGENT-INSTRUCTION files. LESSONS-LEARNED cites them as evidence by name (Lesson 1 cites
   /home/claude/reports/AGENT-INSTRUCTION-27oct-1240.md line 3; Lesson 2 the -1240, -1245, -1255, -1300 and -1325 files). Those
-  /home/claude/reports paths were in a past session and are gone, so the Project copies are the only surviving copies.
+  /home/claude/reports paths do not exist on this machine (checked 19:52) and no AGENT-INSTRUCTION file is in the GitHub repository
+  (its 199 files listed, 19:52), so the Project copies are the only copies found.
 - HANDOVER-27-oct-morning.md (root) and claude/HANDOVER-27-oct-morning.md: compared in full at 19:48 - NOT identical. They
   differ in section 5: the root copy says three agents were running; the claude/ copy says they were stopped and nothing came
   back, so the claude/ copy holds the later state. Its earlier created_at (22:57 against 23:06 UTC) does not contradict this:
-  created_at is the first save, not the last - this handover's created_at stayed 11:06:28 UTC through every rewrite today.
+  created_at is the first save, not the last - this handover's created_at read 11:06:28 UTC in both full reads (19:46 and 19:47), after many rewrites.
 - HANDOVER-29-oct.md (root) and claude/HANDOVER-29-oct.md: identical when both were read in full at the start of this chat
   (source: this chat's summary); not compared again.
 - LESSONS-LEARNED-27-28-oct.md (root and claude/): not compared.
@@ -75,7 +76,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:51, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:52, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
