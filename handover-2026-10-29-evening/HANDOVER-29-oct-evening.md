@@ -2,12 +2,14 @@
 
 Read first, in this order, as the Project instructions say: claude/START-HERE.md, this file, claude/LESSONS-LEARNED-27-29-oct.md,
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
+This replaces the morning's HANDOVER-29-oct.md as the newest handover.
 The full set of today's tools and records is in GitHub: omuirithe-a11y/montessori-mentor-templates, folder handover-2026-10-29-evening/.
 
 ## 1. What is done (each measured; evidence in the GitHub folder)
 
 1. Both templates (Essay, Resources): menu back to its earlier sizes; table of contents lines up with the text at 641-1180.
-   GitHub commit 20ec0ee. The 10 rebuilt pages then matched the 28 older pages at 19 widths (separate checker PASS).
+   GitHub commit 20ec0ee. The 10 rebuilt pages then matched the 28 older pages at 19 widths (separate checker PASS - source:
+   this chat's summary of the morning; the checker's report file was not saved to GitHub).
 2. The Role of the Adult - LIVE, uploaded by the owner 18:58, checked 18:59 (live file fetched at 18:58:58 and compared with the zip):
    - live index.html byte-identical to the zip sent (fingerprint f9f4d428...); all 109 image files answer 200; copy protection ON.
    - changes from the 29 Oct 11:21 live download: contents alignment (mm-toc-align); font sizes (mm-type-29oct, 1440: contents label
@@ -30,13 +32,15 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
 
 1. Images: put the owner's larger originals on every page (owner 19:14: "yes. each page needs the larger originals").
    - Images with children go through the faces rounds first (Project instructions), except where the owner has said no blurring
-     is needed: 10:25, for Biography, Aun Aprendo and A Montessori Journey (their files in Drive folder 1xtrI7iS0_HAEtOvxueB5hXSy0cPoIaSr).
+     is needed: 10:25, for the files of Biography, Aun Aprendo and A Montessori Journey in Drive folder
+     1xtrI7iS0_HAEtOvxueB5hXSy0cPoIaSr. Whether that also covers larger originals she supplies later for those pages: ASK.
    - Measured on The Role of the Adult (image_sizes.py, run 19:24-19:25): all 54 large images under 2900 px, 10 under 1600 px, smallest
      494 px (048.jpg). Whether these are smaller than her originals is not known until she supplies the originals.
    - OPEN: large copies up to 2400 (the build now) or 2900 (what Hostinger sends computers) - pros and cons sent at 19:14:19
      (chat record); not answered.
 2. Fix the slow image opening (fix A) on the other live pages: 15 pages fetched live at 19:26 still have the line, all with
-   10 or more images loading as the reader scrolls (the 15 pages, with image counts, in section 3b). Measure each with speed_check.py first.
+   10 or more images loading as the reader scrolls (the 15 pages, with image counts, in section 3b). Measure each first: tools-v5 speed_check.py now takes a live page address (https://...) as well as a zip
+   (changed 19:3x, NOT YET RUN on a live address).
 3. Known faults, as soon as possible (owner 19:14: "fix all of these asap"): menu panels that do not close on a second click
    at desktop width (20 older pages, found in the morning of 29 Oct - the list of the 20 is NOT saved in any file found at 19:3x
    (menu_toc.json, before.json, after.json, tocalign.json checked); measure again to find them); The History of Education scrolls sideways at 641 (source: the morning's
@@ -47,7 +51,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:36, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:38, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
@@ -109,6 +113,8 @@ on the 08:09 copies; the 19:26 fetch showed each page's file unchanged since the
   <slug>-NO-COPY-PROTECTION-REVIEW-ONLY.zip. Fingerprints in tools-v5/FINGERPRINTS.txt.
   To use in a new chat: copy tools-v5/ from GitHub to /home/claude/chk/v5 and run the gates from there. START-HERE does not yet
   say this (not updated in this chat).
+  The Role of the Adult has its changes list (sample-page/the-role-of-the-adult.changes.txt) but NO confirmed.txt yet: the
+  owner has not confirmed the list, so a v5 gate run on that page would fail until she does.
   NOT YET TESTED as a whole: v5 = v4 plus the confirmation file and image_sizes.py. send_gate.sh has never been run since its
   folder paths were changed (19:2x) - run it once on a template build before trusting it.
 - tools-v4/ - the version tested on 29 Oct (TEST-RESULTS.txt): speed_check fails the unfixed page at 1440 and 390 and passes

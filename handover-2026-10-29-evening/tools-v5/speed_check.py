@@ -1,4 +1,4 @@
-"""speed_check.py <package.zip> [widths=1440,390]   (29 Oct 2026, after The Role of the Adult's slow clicks)
+"""speed_check.py <package.zip | https://live page address/> [widths=1440,390]   (29 Oct 2026, after The Role of the Adult's slow clicks)
 Checks that the page answers a click quickly. Every image download is delayed 0.7 s, to stand in for the internet.
 At each width: load, wait 4 s, scroll top to bottom in 700 px steps with 1.2 s pauses, and record every stretch the page is busy
 (the browser's own long-task report: any stretch over 50 ms when a click cannot be handled). Then, in a fresh window, click four
@@ -10,10 +10,13 @@ import sys, os, time, zipfile, tempfile, shutil, threading, http.server, functoo
 from playwright.sync_api import sync_playwright
 Z = sys.argv[1]; WS = [int(x) for x in (sys.argv[2] if len(sys.argv) > 2 else '1440,390').split(',')]
 BUSY_MAX, CLICK_MAX, DELAY = 50, 1.0, 0.7   # 50 ms: Google's definition of a long task, during which a click cannot be handled (web.dev/articles/optimize-long-tasks); 1.0 s: beyond 1 s users lose focus (web.dev/articles/rail) - the 0.7 s download delay counts inside it
-t = tempfile.mkdtemp(); zipfile.ZipFile(Z).extractall(t); slug = sorted(os.listdir(t))[0]
-H = functools.partial(type('Q', (http.server.SimpleHTTPRequestHandler,), {'log_message': lambda *a: None}), directory=t)
-srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), H); threading.Thread(target=srv.serve_forever, daemon=True).start()
-URL = 'http://127.0.0.1:%d/%s/' % (srv.server_address[1], slug)
+if Z.startswith('https://'):   # v5: a live page - the real network instead of the 0.7 s delay (the limits stay the same)
+    t = tempfile.mkdtemp(); URL = Z; DELAY = 0
+else:
+    t = tempfile.mkdtemp(); zipfile.ZipFile(Z).extractall(t); slug = sorted(os.listdir(t))[0]
+    H = functools.partial(type('Q', (http.server.SimpleHTTPRequestHandler,), {'log_message': lambda *a: None}), directory=t)
+    srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), H); threading.Thread(target=srv.serve_forever, daemon=True).start()
+    URL = 'http://127.0.0.1:%d/%s/' % (srv.server_address[1], slug)
 INIT = "(function reg(){if(!document.documentElement)return setTimeout(reg,0);window.__lt=[];try{new PerformanceObserver(l=>l.getEntries().forEach(e=>window.__lt.push(e.duration))).observe({type:'longtask'})}catch(e){}})();"
 def route(r):
     if '/images/' in r.request.url: time.sleep(DELAY)
