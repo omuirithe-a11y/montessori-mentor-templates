@@ -18,7 +18,8 @@ claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
    of her order (section 2).
 6. SETTLED - not a question. Her words of 29 Oct 10:25: "no blurring needed for any of the three pages in drive" - the PAGES
    (Biography, Aun Aprendo, A Montessori Journey), so no blurring for any of their images, originals included. Do not ask it
-   again (she called the question pointless, 20:30).
+   again. The owner, 20:30 and 20:36: the question was "bullshit" - not neutral: the answer was already in her 10:25 words, so
+   asking it was wrong. Lesson: before asking her anything, read her earlier words on it; if they answer it, do not ask.
 7. Large copies up to 2400 or 2900 px (pros and cons sent 19:14:19)?
 8. Is item 4 of her order building the next page from The Role of the Adult, and item 5 the templates? If so, which page first,
    and what are its extra elements?
