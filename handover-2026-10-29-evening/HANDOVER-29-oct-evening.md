@@ -57,7 +57,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:44, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:45, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
@@ -98,8 +98,10 @@ Times are Asia/Shanghai, from file times, commit times and the chat. Where a fig
 8. Times typed instead of read: twice in this chat a revision time was typed ahead of the clock ("19:4x" written at 19:36,
    "19:38" written at 19:37; commit times 19:36:22 and 19:37:17). A written rule (Lesson 26, START-HERE item 40) did not stop it.
    What worked: the command that saves the file sets the time itself (python reading the clock), used from 19:37:29 on.
-9. Each check round is only as good as what it reads: the gate test's changes list was corrected at 19:24, before the gate
-   step read it (19:33:43) - safe only because the step had not started. Freeze every file a running check will read.
+9. Freeze every file a running check will read. The gate test's changes list was corrected at 19:24 while the test was
+   running. Before the edit, the results file was read and showed only test 1's heading, so the gate step (which reads the
+   list) had not started; it began at 19:33:43 and printed the corrected list. Checking first made it safe; not editing at all
+   would have been safer.
 
 Not lessons (not proven): that more images means slower clicks (one page measured); that the image-size report finds small
 images before a build (it shows only the page's sizes - the owner's originals are not in the package).
