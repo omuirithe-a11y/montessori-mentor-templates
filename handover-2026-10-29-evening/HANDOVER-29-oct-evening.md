@@ -48,22 +48,43 @@ Owner's decisions stand: The Role of the Adult is now the SAMPLE the other pages
    Education scrolls sideways at 641; contents alignment on the older pages.
 6. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred this chat by the owner; steps 2-4 done.
 
-## 3. What today taught - evidence, and whether anything enforces it (corrected 19:2x after the owner said the first list made claims it could not back)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:3x)
 
-Time, 29 Oct: 11:21-13:33 page corrected and sent (separate checker 12:38-13:26 = 48 min); 13:33-14:16 the review copy (copy
-protection OFF) was uploaded; 14:23-17:19 slow image opening found and six fixes tested; 17:19-17:45 fix A checked, gated, sent.
+Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
-1. Only agreed changes go out - ENFORCED: gate_live.sh runs live_diff.py (it passed the fix-A page and failed the 13:28 page).
-2. Click speed was not checked - the page passed the gate at 13:28 with clicks of 3-5 s, found only after upload. NOT ENFORCED.
-3. The review copy was uploaded (14:16) - the gate names only the review copy. NOT ENFORCED.
-4. The separate checker started after my checks and added 48 min. NOT ENFORCED.
-5. Testing several fixes on copies at once found the answer in one round (six fixes in about 25 min; fix A then passed every
-   check). A working method, NOT ENFORCED.
-6. Silence (7 min of runs with no message) and answering the wrong question (16:22-16:30) cost time. Cannot be enforced.
+1. Check click speed before sending. The Role of the Adult passed the 13:28 gate with clicks of 3-5 s; the fault was found
+   14:23 and fixed 17:45. Of 14:23-17:19, much was waiting for the owner's replies (her messages came 15:30, 16:22, 17:19 after
+   Claude's answers 14:3x, 15:4x, 17:0x) - Claude's own working time is not split out. NOW: gate v4/v5 speed_check.py (limits
+   50 ms busy, 1.0 s per click, with a 0.7 s download delay; sources web.dev optimize-long-tasks and rail). Tested so far: the
+   unfixed page FAILS at 1440 (2,379 ms, clicks 2.85-3.63 s); remaining tests in tools-v4/TEST-RESULTS.txt. Limits not yet tried
+   on any other page - they may be too strict for brief busy moments (for example a menu opening).
+2. Find the cause in the code before changing it. Text over images: six probe scripts in 9 minutes (11:36-11:45) found that the
+   quotation-line script skipped images that do not float; fixed once. The 30 px gaps: about five scripts from 11:59 to 12:23
+   before the causes were found (a stacked image cleared the text beside it; the image-spacing script removed the gap above);
+   CSS margins tried first were undone by margin collapse and the page's scripts. Slow clicks: one code recording (prof.py)
+   named the re-spacing script. Nothing enforces this; it is a working method.
+3. The gate makes the upload zip. The review copy (no copy protection) went live 14:16 and had to be uploaded again.
+   NOW: gate v4/v5 make <slug>-UPLOAD.zip after checking copy protection is present. Being tested.
+4. Test several fixes on copies at once. Six fixes measured 16:31:53-16:59:15 (27 min); the one chosen passed every check it
+   was put through (122 widths, height, lines, speed, gate). Not enforced. speed-tests/test.py does it but names this page's
+   images; it must be made general before reuse.
+5. Long runs must save as they go. This morning's first all-pages measurement hit its time limit with nothing saved and was
+   rewritten (part of 08:07-10:28; that share not measured). vfast.py resumes; any new long script must too. Not enforced.
+6. The separate checker took 48 min (12:38-13:26) after Claude's own checks. Whether starting it earlier saves time on this
+   2-processor machine is NOT measured - try it once, timed.
+7. Silence and misreading: a 7-minute run of measurements with no message; 16:22-16:30 spent answering a question the owner had
+   not asked. About 15 min. Cannot be enforced by a tool.
 
-Proposed to the owner, NOT DONE, each needs her go: (A) put the click-speed and busy-time test in the gate; (B) the gate also
-makes the upload zip (copy protection on) named UPLOAD; (C) start the separate checker as soon as the page is frozen, alongside
-the full check.
+Not lessons (not proven): that more images means slower clicks (one page measured); that the image-size report finds small
+images before a build (it shows only the page's sizes - the owner's originals are not in the package).
+
+## 3b. Tomorrow's biggest job and its cost (worked out, not measured on these pages)
+Fix A on the 15 other live pages that still have the slow-click line (all 15 fetched live 19:26; every image on them loads as
+the reader scrolls). Each page: the one-line change, live_diff, full check, height, speed check, gate, and the owner's confirmed
+changes list. On The Role of the Adult (54 images) the full check took 7.5 min. On larger pages it took far longer on 27-28 Oct:
+A Montessori Journey 8 min 54 s, Biography 15 min 32 s, The Role of the Adult - Resources 25 min 25 s, The Practical Life
+Curriculum 1 h 28 min (LESSONS-LEARNED Lesson 16). So the 15 pages may take most of a day; the six with 150-250 images most.
+Not proven: that fix A behaves the same on pages built from the Resources template or older builds - each is measured.
 
 ## 2b. Order of work - the owner's order (19:14)
 1. Images: put the larger originals on every page (owner: "yes. each page needs the larger originals"), faces rounds for every
