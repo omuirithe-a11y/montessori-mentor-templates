@@ -3,7 +3,7 @@
 Read first, in this order, as the Project instructions say: claude/START-HERE.md, this file, claude/LESSONS-LEARNED-27-29-oct.md,
 claude/WHAT-THE-CHECKS-COVER-v5.md, claude/ELEMENTS-TO-CHECK-v11-additions.md.
 
-## 0. Questions for the owner, still open at 19:55 on 29 Oct - ask them first, one at a time (her rule)
+## 0. Questions for the owner, still open at 19:57 on 29 Oct - ask them first, one at a time (her rule)
 
 1. The Role of the Adult: confirm the six-item changes list (sample-page/the-role-of-the-adult.changes.txt) in her own words.
    The v5 gate cannot pass that page without it. (The page is already live with the v4-gated zip, so this blocks only a
