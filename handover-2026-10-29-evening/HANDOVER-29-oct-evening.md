@@ -130,6 +130,9 @@ Times are Asia/Shanghai, from file times, commit times and the chat. Where a fig
    handover gave the reason for lesson 9 when that line had not been changed (found 19:45; corrected in commit ca405f4). Done so
    far for lessons 9 and 10 only (read back from the saved GitHub copy with git show HEAD:<file>, 19:45 and 19:46) - a method,
    not yet a habit shown over time. Read back the Project copy too: it is the one the next chat reads.
+   What each check proves: md5 of the local file = md5 of git show HEAD:<file> proves the GitHub copy is the same file. The
+   Project copy cannot be fingerprinted (project_read returns text only); a full project_read proves its content, a
+   project_search proves only what the search index holds. Use a full project_read for the Project copy.
 
 Not lessons (not proven): that more images means slower clicks (one page measured); that the image-size report finds small
 images before a build (it shows only the page's sizes - the owner's originals are not in the package).
