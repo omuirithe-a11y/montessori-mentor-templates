@@ -13,9 +13,10 @@ owner wants it (nothing deleted; each step needs her agreement, file by file):
 - NOT candidates: the 27 Oct AGENT-INSTRUCTION files. LESSONS-LEARNED cites them as evidence by name (Lesson 1 cites
   /home/claude/reports/AGENT-INSTRUCTION-27oct-1240.md line 3; Lesson 2 the -1240, -1245, -1255, -1300 and -1325 files). Those
   /home/claude/reports paths do not exist on this machine (checked 19:52) and no AGENT-INSTRUCTION file is in the GitHub repository
-  (its 199 files listed, 19:52), and Google Drive has none (search 19:53, by title
-  or text: one result, an unrelated PDF from 2018, GSA-LSYM_2018sc.pdf). The 27 Oct chat "Fixing 9 pages" (https://claude.ai/chat/6563fac0-7704-4194-9908-4b14e4d21ad0) holds the
-  text of at least the -1240 file as written (search 19:53); the other files' text there is not checked. The records repository
+  (its 199 files listed, 19:52), and a Google Drive search found none (19:53; one query: title contains "AGENT-INSTRUCTION" or text contains the
+  -1240 file's opening words; one result, an unrelated PDF from 2018, GSA-LSYM_2018sc.pdf - other wordings not tried). The 27 Oct chat "Fixing 9 pages" (https://claude.ai/chat/6563fac0-7704-4194-9908-4b14e4d21ad0) shows the
+  -1240 file being written (search 19:53 - the result showed only its first lines, steps 0-3, not the whole file); whether the
+  chat holds the whole text of any of these files is not checked. The records repository
   was not searched: it was archived on 20 Oct, before these files existed (START-HERE). So the Project copies are the only
   complete copies found - keep them.
 - HANDOVER-27-oct-morning.md (root) and claude/HANDOVER-27-oct-morning.md: compared in full at 19:48 - NOT identical. They
@@ -80,7 +81,7 @@ The full set of today's tools and records is in GitHub: omuirithe-a11y/montessor
    The Role of the Adult, not the templates: the templates lack fix A, the 30/30 gaps, the font sizes and the quotation edits.
 5. Workspace set-up step 1 (copy claude/workspace from the Project) was deferred by the owner in this chat; steps 2-4 were done.
 
-## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:53, checked statement by statement)
+## 3. Advice for tomorrow - lessons from 29 Oct, each with its evidence and its limits (revised 19:54, checked statement by statement)
 
 Times are Asia/Shanghai, from file times, commit times and the chat. Where a figure is worked out, not measured, it says so.
 
