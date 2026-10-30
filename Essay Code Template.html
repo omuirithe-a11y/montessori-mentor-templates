@@ -1733,22 +1733,11 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
         else { s2.style.height = '0px'; f.style.removeProperty('margin-top'); f.style.setProperty('margin-top', (want - pim.getBoundingClientRect().top + (parseFloat(getComputedStyle(f).marginTop) || 0)).toFixed(2) + 'px', 'important'); } };
       var err = function(){ var k0 = ink(block[0]), k1 = ink(block[block.length - 1]), r = pim.getBoundingClientRect();
         return mode === 'above' ? k1[3] - r.bottom : r.top - (k0[2] + (k1[3] - k0[2] - Hp) / 2); };
-      if (mode === 'above') {
-        // 30 Sept (eleventh chat): the text wraps ABOVE - whole lines above the photo (its top on a line), its bottom as
-        // near the lowest line as it goes without a line left below it
-        var best = null;
-        for (var kk = 1; kk <= 3; kk++) { place(kk * lh); var e1 = err(); if (e1 >= -1 && e1 < lh - 1 && (best === null || e1 < best[1])) best = [kk, e1]; }
-        if (best) place(best[0] * lh); else place(Math.max(0, Htn - Hp));
-      } else {
-        // centred: the text re-flows as the photo moves, so try the centre of each layout and keep the nearest
-        place(0); var q0 = ink(block[0]), q1 = ink(block[block.length - 1]);   // start as before: from the text with the photo at its top
-        var bestC = null, h = (q0 && q1) ? (q1[3] - q0[2] - Hp) / 2 : (Htn - Hp) / 2;
-        for (var it = 0; it < 8; it++) { place(h); var e2 = err(); if (bestC === null || Math.abs(e2) < Math.abs(bestC[1])) bestC = [h, e2];
-          if (Math.abs(e2) < 0.5) break; h = h - e2; }
-        if (Math.abs(bestC[1]) > 2) {   // the text re-flows a line as the photo moves: try positions around it, keep the nearest
-          var c0 = bestC[0]; for (var hh3 = c0 - lh; hh3 <= c0 + lh; hh3 += 2) { place(hh3); var e3 = err(); if (Math.abs(e3) < Math.abs(bestC[1])) bestC = [hh3, e3]; } }
-        place(bestC[0]);
-      }
+      // 30 Oct 2026 (owner 13:05, "yes"; her rule of 20 Oct: "side photos always align with the first line of the text"): the
+      // photo's top is level with the top of the capitals of its paragraph's first line (it was centred on the paragraph: 30 Sept, 27 Oct)
+      var cs0 = getComputedStyle(block[0]), cv0 = document.createElement('canvas').getContext('2d');
+      cv0.font = cs0.fontStyle + ' ' + cs0.fontWeight + ' ' + cs0.fontSize + ' ' + cs0.fontFamily;
+      var mH0 = cv0.measureText('H'); place(Math.max(0, (mH0.fontBoundingBoxAscent || 0) - (mH0.actualBoundingBoxAscent || 0)));
       // 30 Sept fix: text reflows as the photo moves; if the photo ended up below the lowest line, lift it until it is not
       for (var it2 = 0; it2 < 6; it2++) {
         var kl = ink(block[block.length - 1]), pb = pim.getBoundingClientRect().bottom, k0b = ink(block[0]);
@@ -2287,5 +2276,13 @@ html body main h2.mm-hc-00B050{color:#00B050 !important;font-size:20px !importan
   window.addEventListener('load',function(){later(400);setTimeout(run,2000);setTimeout(run,3500);if(document.fonts)document.fonts.ready.then(function(){later(300);});});
   window.addEventListener('resize',function(){later(500);});
 })();
-</script></body>
+</script><script id="mm-fit-column-30oct">/* 30 Oct 2026 (owner 12:50, "yes": an image beside text never runs past the text column): an image wider than its
+   column is shrunk to the column's width, keeping its shape (Aun Aprendo's Beckett image, 2:1, ran 18px past the text at 390) */
+(function(){function fit(){var ps=document.querySelectorAll('main .mm-float .pim');for(var i=0;i<ps.length;i++){var p=ps[i];
+p.style.removeProperty('width');p.style.removeProperty('height');var c=p.parentElement,cw=c.getBoundingClientRect().width;
+if(cw>0&&p.getBoundingClientRect().width>cw+0.5){p.style.setProperty('width',cw+'px','important');p.style.setProperty('height','auto','important');}}}
+var t;function later(){clearTimeout(t);t=setTimeout(fit,100);}
+if(document.readyState!=='loading')fit();else document.addEventListener('DOMContentLoaded',fit);
+window.addEventListener('load',fit);window.addEventListener('resize',later);})();</script>
+</body>
 </html>

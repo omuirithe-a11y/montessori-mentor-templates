@@ -8,7 +8,7 @@ Do these first, in this order. Everything further down stays in force; this sect
 2. Read the Project's saved preferences (the memory file preferences.md for this Project) before any work. The 28 Oct note "image descriptions are not necessary anymore" is there; it was missed on 30 Oct.
 3. Read claude/DECISIONS-LOG.md: every decision the owner makes, one line each, her words and the time. Add a line the moment she decides something.
 4. Current versions: Essay Code Template sha256 3ebaef3a0922e9ea... (commit 13175ad, 30 Oct); check tools: handover-2026-10-29-evening/tools-v5 in the same repository.
-5. First-build checks: workspace/tools/run_checks.sh runs the 122 widths, the height and lines through text side by side, then the speed check alone (other checks running at the same time would distort its timings). Every check still runs.
+5. First-build checks: workspace/tools/run_checks.sh runs the 122 widths, the height, lines through text and the speed check one after another, with nothing else running (lessons 15 and 40: 2 processors). One page at a time, from start to delivery: when asked to streamline, change the order of the work (lesson 7).
 6. Reporting what was checked: one table, every item marked "checked (how)" or "not checked".
 7. Questions to the owner: all open ones together, in one message.
 8. End of each chat: changed working files go to GitHub workspace/ with new fingerprints (sha256sum -c must pass on a fresh clone); the Project holds the rules and notes.
