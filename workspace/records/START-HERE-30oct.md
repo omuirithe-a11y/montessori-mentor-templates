@@ -1,6 +1,6 @@
 # Montessori Mentor website - start here
 
-Last updated 30 Oct 2026, 15:5x (Asia/Shanghai).
+Last updated 30 Oct 2026, 16:1x (Asia/Shanghai).
 
 Fresh start: 12-13 Oct 2026. The old rule layers (skills, plugin, hooks, project rules) are retired. This file is the only current record.
 
@@ -20,7 +20,7 @@ Do these first, in this order. Everything further down stays in force; this sect
 
 ## Plan - current (30 Oct 2026, 15:3x; replaces the order of work in HANDOVER-29-oct-evening section 2 where they differ)
 Each item names the owner's decision behind it (claude/DECISIONS-LOG.md). One page per chat.
-1. Aun Aprendo (live since 30 Oct, by 15:16): the after-upload checks - "Before a page is finished" below, items 1-7 (widths, swiping, menu panels, spacing 641-830, alignment, hero/contents/footer at tablet widths, browser errors), and each live image checked to be the right picture (compared as pictures: Hostinger sends WebP, so a byte comparison cannot match). Owner 15:37: "run them now". Its live click speed was measured 15:33: about 1 s per image from the cloud machine; the owner sees about 4 s (she uses a VPN; to be looked at again 31 Oct, her words "let's see how it is tomorow").
+1. Aun Aprendo (live since 30 Oct, by 15:16): the after-upload checks - "Before a page is finished" below, items 1-7 (widths, swiping, menu panels, spacing 641-830, alignment, hero/contents/footer at tablet widths, browser errors), and each live image checked to be the right picture (compared as pictures: Hostinger sends WebP, so a byte comparison cannot match). Owner 15:37: "run them now". Its live click speed was measured 15:33: about 1 s per image from the cloud machine; the owner sees about 4 s (she uses a VPN; to be looked at again 31 Oct, her words "let's see how it is tomorow"). RESULTS 30 Oct 15:5x-16:1x: tools/check_page.py on the live page at 1280/768/390 - errors none, sideways none, menu panels 8 of 8 open and close, images not loaded 0, beige lines 30 (36 at 390), nothing flagged; 390 shows 8 paragraphs not justified (phones are left-aligned by the 23 Oct rule). All 123 live images (61 on-page, 61 large, hero) compared as pictures with the upload file: same size, largest difference 0.21 on a 0-255 scale (two different pictures on the page differ by at least 29). NOT DONE: swiping (the swipe script, scratchpad swipe3.py, is unreliable - it moved no rows on The Role of the Adult and 12 of 13 on Aun Aprendo; not trusted either way), the keyboard skip link and tab order.
 2. Image file names: NOT changed per build (owner 15:3x, "No"). Visitors who saw a page before a rebuild may see old pictures under the same names for up to 7 days (Hostinger: cache-control max-age 604800).
 3. The Essay template faults found on The Role of the Adult test copy (rota-30oct-c: image 022 22 px past the column at 320; image 023 10 px above its quotation at 641-830; speed fault) - first find whether the 30 Oct changes cause them; then quick-look every page built from the template (lesson 6). Template work, no page.
 4. send_gate.sh to require the placement check (place_check.py) and the screenshot review. Tool work, no page.
