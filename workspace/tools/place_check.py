@@ -6,6 +6,9 @@ Three placement checks the 122-width check missed on 30 Oct (Aun Aprendo), measu
   TOP     an image beside text (floated, 641 px and wider) has its top level with the top of the capitals of the first line
           of the paragraph beside it, within 1 px - the owner's rule of 20 Oct ("side photos always align with the first line
           of the text"); widths 641-1920.
+  GAP     an image standing above its text (830 px and narrower, not floating, not in a quotation) is 30 px from the baseline of
+          the last line above (when that is a paragraph or list) and 30 px above the capitals of the first line below, within 1 px -
+          the owner's rule of 29 Oct (30 above, 30 below); widths 320-830.
   ROWS    (only with --rows-one-width: a page the owner made an exception, Aun Aprendo 30 Oct 12:50) every row of images
           starts and ends at the same edges; widths 831-1920 (at 830 and narrower rows swipe).
 Prints one line per check and width with a fault, then PLACE OK or PLACE FAULT. Exit 0 only on PLACE OK."""
@@ -29,6 +32,13 @@ for(const f of m.querySelectorAll('.mm-float')){if(getComputedStyle(f).cssFloat=
   if(top>=1e9)continue;const st=getComputedStyle(n);cv.font=st.fontStyle+' '+st.fontWeight+' '+st.fontSize+' '+st.fontFamily;const mm=cv.measureText('H');
   const off=pim.getBoundingClientRect().top-(top+mm.fontBoundingBoxAscent-mm.actualBoundingBoxAscent);
   if(Math.abs(off)>1)out.top.push([(pim.querySelector('img').getAttribute('src')||'').split('/').pop(),Math.round(off*10)/10,n.textContent.trim().slice(0,30)])}
+out.gap=[];const base=el=>{const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let t,q=null,f=null;while(t=w.nextNode()){if(!t.nodeValue.trim())continue;const rg=document.createRange();rg.selectNodeContents(t);for(const x of rg.getClientRects())if(x.width&&(!q||x.bottom>=q.bottom)){q=x;f=t.parentElement}}if(!q)return null;const st=getComputedStyle(f);cv.font=st.fontStyle+' '+st.fontWeight+' '+st.fontSize+' '+st.fontFamily;const mm=cv.measureText('H');return q.top+(q.height-(mm.fontBoundingBoxAscent+mm.fontBoundingBoxDescent))/2+mm.fontBoundingBoxAscent};
+const capTop=el=>{const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let t;while(t=w.nextNode()){if(!t.nodeValue.trim())continue;const rg=document.createRange(),i=t.nodeValue.search(/\S/);rg.setStart(t,i);rg.setEnd(t,i+1);const q=rg.getClientRects()[0];if(!q)continue;const st=getComputedStyle(t.parentElement);cv.font=st.fontStyle+' '+st.fontWeight+' '+st.fontSize+' '+st.fontFamily;const mm=cv.measureText('H');return q.top+(q.height-(mm.fontBoundingBoxAscent+mm.fontBoundingBoxDescent))/2+mm.fontBoundingBoxAscent-mm.actualBoundingBoxAscent}return null};
+for(const f of m.querySelectorAll('.mm-float')){if(f.closest('blockquote')||getComputedStyle(f).cssFloat!=='none')continue;const ps=[...f.querySelectorAll('.pim')];if(!ps.length)continue;const top=Math.min(...ps.map(p=>p.getBoundingClientRect().top)),bot=Math.max(...ps.map(p=>p.getBoundingClientRect().bottom));const nm=(ps[0].querySelector('img').getAttribute('src')||'').split('/').pop();
+  let pv=f.previousElementSibling;while(pv&&(pv.classList.contains('mm-fspacer')||(pv.classList.contains('mm-float')&&!pv.textContent.trim())))pv=pv.previousElementSibling;
+  if(pv&&/^(P|UL|OL)$/.test(pv.tagName)&&!pv.classList.contains('mm-gl')&&pv.textContent.trim()){const b=base(pv);if(b!==null&&Math.abs(top-b-30)>1)out.gap.push([nm,'above',Math.round((top-b)*10)/10])}
+  let nx=f.nextElementSibling;while(nx&&(nx.classList.contains('mm-gl')||nx.classList.contains('mm-fspacer')))nx=nx.nextElementSibling;
+  if(nx&&!nx.querySelector('.pim')&&nx.textContent.trim()){const c=capTop(nx);if(c!==null&&Math.abs(c-bot-30)>1)out.gap.push([nm,'below',Math.round((c-bot)*10)/10])}}
 if(rows){const e=[...m.querySelectorAll('.mm-row')].map(r=>{const is=[...r.querySelectorAll('img')].map(i=>i.getBoundingClientRect()).filter(q=>q.width>0);return is.length?[Math.round(is[0].left),Math.round(is[is.length-1].right)]:null}).filter(x=>x);
   const L=e.map(x=>x[0]),R=e.map(x=>x[1]);out.rows=(Math.max(...L)-Math.min(...L)>1||Math.max(...R)-Math.min(...R)>1)?e:[]}
 return out}"""
@@ -41,6 +51,7 @@ with sync_playwright() as p:
         r = pg.evaluate(JS, ROWS and w >= 831)
         if r['col']: bad += 1; print('%4d COLUMN fault: image past the text column [image, left, right, column left, column right]: %s' % (w, r['col']))
         if w >= 641 and r['top']: bad += 1; print('%4d TOP fault: image top not level with the first line capitals [image, px off, text]: %s' % (w, r['top']))
+        if w <= 830 and r['gap']: bad += 1; print('%4d GAP fault: stacked image not 30 px from the text [image, side, px]: %s' % (w, r['gap']))
         if r['rows']: bad += 1; print('%4d ROWS fault: rows do not share their edges: %s' % (w, r['rows']))
     b.close()
 print('widths %d, package %s' % (len(W), os.path.basename(Z)))
