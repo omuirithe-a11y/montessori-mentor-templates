@@ -5,7 +5,7 @@
 # 28 Oct 2026 (owner 20:46 "do it"; Anthropic: "a deterministic gate ... blocks ... until it passes").
 # Makes send-named/<slug>-NO-COPY-PROTECTION.zip ONLY if: code check OK; the full check was run on THIS zip and every
 # FAULT line is allowed; height is the same at 4 s and after scrolling at 1440 and 390, with no margin over 150 px.
-set -u; Z=$1; C=$2; T=$3; L=$4; F=$5; A=$6; O=$7; G=/home/claude/chk/v6   # v7 (30 Oct 18:4x): kept beside the workspace tools; it calls the v6 check scripts
+set -u; Z=$1; C=$2; T=$3; L=$4; F=$5; A=$6; O=$7; G=/home/claude/chk/v6   # v7 (30 Oct 18:2x): kept beside the workspace tools (written 18:2x); it calls the v6 check scripts
 SHA=$(sha256sum "$Z" | cut -d' ' -f1); SLUG=$(unzip -Z1 "$Z" | head -1 | cut -d/ -f1); bad=0
 echo "gate $(TZ=Asia/Shanghai date +%H:%M:%S) $SLUG ${SHA:0:8}"
 if [ -s "$Z.changes.txt" ]; then echo "changes checked (the owner confirms this list):"; sed 's/^/  /' "$Z.changes.txt"; else echo "changes list missing: $Z.changes.txt"; bad=1; fi
@@ -26,7 +26,7 @@ python3 -I $G/image_sizes.py "$Z" | cut -c1-600   # v5: report only
 timeout 1200 python3 -I $G/speed_check.py "$Z" 1440,390 | sed 's/^/speed /'; [ ${PIPESTATUS[0]} = 0 ] || bad=1
 p=$(unzip -p "$Z" "$SLUG/index.html" | grep -o 'id="mm-protect"\|id="mm-protect-js"' | sort | uniq -c | awk '{print $1}' | tr '\n' ' ')
 [ "$p" = "1 1 " ] && echo "copy protection: present" || { echo "copy protection: MISSING in the checked zip ($p)"; bad=1; }
-# v7 (30 Oct 18:4x, plan item 4; owner 16:22 "implement them all"): also requires the placement check, lines through text (every
+# v7 (30 Oct 18:2x, plan item 4; owner 16:22 "implement them all"): also requires the placement check, lines through text (every
 # width reads 0), the format check and the separate checker's screenshot review - <zip>.place.txt, .lines.txt, .format.txt,
 # .screens.txt, each saved after the zip was made
 for k in place lines format screens; do f="$Z.$k.txt"; if [ ! -s "$f" ] || [ "$f" -ot "$Z" ]; then echo "$k: missing or older than the zip"; bad=1; continue; fi
