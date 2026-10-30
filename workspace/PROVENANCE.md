@@ -28,3 +28,9 @@ The templates (Essay, Resources, org-rule) are not copied here: the master copie
 - tools/convert_curriculum.py: identical except two invisible characters (a zero-width space, a no-break space on line
   157) that cannot be seen in the Project text; taken as the local ones.
 - Every other file: NOT compared with the Project.
+
+## Added 30 Oct, after 11:54 ("implement all 8")
+- tools/run_checks.sh: runs the first-build checks with the tools-v5 tools unchanged - the 122 widths, the height and lines
+  through text side by side, then the speed check alone. Tested 11:56-12:01 on the Aun Aprendo build b1 with 2 widths for
+  the 122-width part: every part ran and gave the same figures as the separate runs of 10:33-10:53 (height 4711 / 7241).
+- QUICK-START.md: the quick start prepared for the top of claude/START-HERE.md (not yet in START-HERE).
