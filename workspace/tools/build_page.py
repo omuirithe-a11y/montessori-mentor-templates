@@ -1053,6 +1053,24 @@ def main():
         hit_ = [x for x in main_el.find_all(['p', 'div']) if _nzb(x.get_text()).startswith(st_) and not x.find(['p', 'div'])]
         if len(hit_) != 1: report.append(('settings', 'WARNING: LATE_HTML matched %d' % len(hit_), st_)); continue
         hit_[0].clear(); hit_[0].append(BeautifulSoup(html_, 'html.parser')); report.append(('settings', 'line set by the page settings (late)', st_))
+    # 30 Oct 2026 (Aun Aprendo; the 27 Oct order "Use the template's own name-line markup and class for those lines"): each
+    # line named in NAME_LINES (by how it starts) becomes the template's name line <p class="mm-name">, as on the live page,
+    # whether the converter made it a heading or a two-colour text line; a section left without a heading joins the one before
+    for st_ in S.get('NAME_LINES', []):
+        hit_ = [x for x in main_el.find_all(['h2', 'h3', 'p']) if _nzb(x.get_text()).startswith(st_) and not x.find(['p', 'div'])]
+        if len(hit_) != 1: report.append(('settings', 'WARNING: NAME_LINES matched %d' % len(hit_), st_)); continue
+        x_ = hit_[0]; np_ = main_el.new_tag('p', attrs={'class': 'mm-name'}) if hasattr(main_el, 'new_tag') else BeautifulSoup('<p class="mm-name"></p>', 'html.parser').p
+        np_.string = re.sub(r'\s+', ' ', x_.get_text()).strip()
+        sec_ = x_.find_parent('section'); prv_ = sec_.find_previous_sibling('section') if sec_ is not None else None
+        x_.replace_with(np_)
+        pv_ = np_.find_previous_sibling()
+        if pv_ is None or pv_.name != 'p' or 'mm-gl' not in (pv_.get('class') or []):   # the template's beige line before each name line, as live
+            gl_ = BeautifulSoup('<p class="mm-gl"> </p>', 'html.parser').p
+            np_.insert_before(gl_); np_.insert_before(NavigableString('\n'))
+        if sec_ is not None and prv_ is not None and sec_.find(['h2', 'h3']) is None:
+            for y_ in list(sec_.contents): prv_.append(y_.extract())
+            sec_.decompose()
+        report.append(('text', 'a name line (the template\'s mm-name) with the beige line before it, as on the live page', st_))
     for sec in main_el.find_all('section'):
         if not sec.get_text().strip() and not sec.find('img'): sec.decompose()
     # 21 Oct 2026 (user rule: "every photo on every page includes a description (alt text), from now on"): the page

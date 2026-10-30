@@ -82,3 +82,9 @@ ALT_TEXT = {
  "image60.jpg": "Two women looking at their phones at a hot pot restaurant table.",
  "image58.jpg": "Three adults raising their glasses at a table outside a restaurant.",
 }
+# NAME_LINES (30 Oct 2026): the nine group-name lines as the template's name lines, blue 20px, as on the live page; the
+# live page has no contents box (NO_TOC). Fault found 30 Oct: the build had 7 of them as headings in a contents box and 2 as
+# grey text lines. Owner 24 Oct 15:54: "If there's a fault error mistake typo etc correct it immediately".
+NAME_LINES = ['Laura in Chennai', 'Pete and all my colleagues in Tokyo', 'Suly and Sammi and Heyao and Alison', 'Serena in Beijing',
+              'Nana in Shanghai', 'Marion and Olga and Stephanie', 'Crystal in Taipei', 'Naomi in Shanghai', 'Fiona and Lele in Beijing']
+NO_TOC = True

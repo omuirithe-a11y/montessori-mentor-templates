@@ -34,3 +34,7 @@ The templates (Essay, Resources, org-rule) are not copied here: the master copie
   through text side by side, then the speed check alone. Tested 11:56-12:01 on the Aun Aprendo build b1 with 2 widths for
   the 122-width part: every part ran and gave the same figures as the separate runs of 10:33-10:53 (height 4711 / 7241).
 - QUICK-START.md: the quick start prepared for the top of claude/START-HERE.md (not yet in START-HERE).
+- 12:1x: tools/build_page.py - NAME_LINES page setting: named lines become the template's name line (p.mm-name) with the
+  template's beige line before each, as on the live page. pages/aun-aprendo.py - NAME_LINES (the nine group names) and
+  NO_TOC. Measured on build b2 against the live page at 1440, 830 and 390: all nine lines the same colour, size, beige line
+  and gaps as live.
