@@ -1,6 +1,6 @@
 # Montessori Mentor website - start here
 
-Last updated 30 Oct 2026, 16:3x (Asia/Shanghai).
+Last updated 30 Oct 2026, 18:3x (Asia/Shanghai).
 
 Fresh start: 12-13 Oct 2026. The old rule layers (skills, plugin, hooks, project rules) are retired. This file is the only current record.
 
@@ -30,6 +30,8 @@ Each item names the owner's decision behind it (claude/DECISIONS-LOG.md). One pa
    c. The 7 pages WITH copy protection: fix A alone (owner 15:3x "Fix A alone now"; her 29 Oct 20:08 confirmation), tools-v5-fixA/gate_live.sh: the-prepared-environment, the-montessori-curriculum, play-varieties-and-characteristics, culture-resources, the-role-of-the-assistant, essential-elements, mathematics-resources.
    On all 14 the old image-load line appears exactly once (checked 15:4x). The larger originals come later, page by page.
    d. DELIVERY: index.html ONLY (decided 30 Oct 16:1x from the evidence; the owner called asking about it a "Bullshit question"). Hostinger sends back re-compressed images, never the uploaded files (Aun Aprendo 057.jpg: 975,999 bytes uploaded, 720,736 sent back as JPEG, WebP otherwise), so an upload rebuilt from the live site would replace the originals with worse copies. The owner uploads the one index.html into public_html/<page>/, replacing the old one; the images on the server stay untouched. Every check still runs on a full copy (the downloaded images, for checking only).
+   f. Gate (owner 16:57 and 17:08): gate_fixa.sh replaces send_gate.sh for these 14 pages, with one exception - the page is compared byte for byte with the live page (only the agreed changes may differ) instead of with the current Essay template. It also runs send_gate's file and image-shape checks and image-size report, and requires the placement check, lines through text, the format check and the screenshot review.
+   g. The Culture Curriculum, first build checked 30 Oct 17:09-18:2x (fix A + copy protection; check files in /home/claude/mm/fixa/checks-the-culture-curriculum): 122 widths - only the allowed squeezed text at 1020-1050; height steady; format "nothing changed that a reader sees" (2,528 words, 250 images); screenshots against live pixel-identical in all 53 (separate checker); clicks 0.77-0.79 s (were 5-21 s live, 29 Oct); BUT speed FAULT (213 busy stretches at 1440, longest 351 ms, limit 50), lines through text FAULT (same counts as the live page at every width measured: 32-97 per width), placement FAULT (two images 16 px below their text, image tops 6-68 px off - the page predates the 30 Oct template rules). So the gate cannot pass Culture as the gate stands; the owner decides.
    e. Tools (30 Oct): workspace/tools/fixa/ - fetch_live.py (index.html byte for byte, downloaded twice and compared; images for checking), make_fix.py (fix A, plus copy protection with --protect, inserted as build_page.py does), live_diff2.py (the code check: only those changes, live page otherwise byte for byte), gate_fixa.sh (gate_live.sh v5 with live_diff2, allowed faults as an argument, and index.html as the only file delivered).
 6. Menu panels that do not close on a second click (20 older pages; the list is not saved - measure again to find them).
 7. The History of Education scrolls sideways at 641 px (re-measure first).
