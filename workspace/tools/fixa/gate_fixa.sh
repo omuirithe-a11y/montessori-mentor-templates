@@ -35,4 +35,4 @@ for k in place lines format screens; do f="$Z.$k.txt"; if [ ! -s "$f" ] || [ "$f
     screens) tail -1 "$f" | grep -q 'NO UNLISTED FAULTS SEEN' && echo "screenshot review: NO UNLISTED FAULTS SEEN" || { echo "screenshot review: $(tail -1 "$f" | cut -c1-120)"; bad=1; } ;;
   esac; done
 mkdir -p "$O/$SLUG-UPLOAD"
-if [ $bad = 0 ]; then cp "$Z.index.html" "$O/$SLUG-UPLOAD/index.html" && unzip -p "$Z" "$SLUG/index.html" | cmp -s - "$O/$SLUG-UPLOAD/index.html" && echo "GATE PASSED - deliver ONLY: $O/$SLUG-UPLOAD/index.html (into public_html/$SLUG/, replacing index.html; images untouched)"; else echo "GATE FAILED: nothing made"; fi
+if [ $bad = 0 ]; then cp "$Z.index.html" "$O/$SLUG-UPLOAD/index.html" && unzip -p "$Z" "$SLUG/index.html" | cmp -s - "$O/$SLUG-UPLOAD/index.html" && (cd "$O/$SLUG-UPLOAD" && rm -f "../$SLUG-UPLOAD.zip" && zip -q "../$SLUG-UPLOAD.zip" index.html) && echo "GATE PASSED - deliver: $O/$SLUG-UPLOAD.zip (holds ONLY index.html: unzip, upload index.html into public_html/$SLUG/, replacing the old one; images untouched)"; else echo "GATE FAILED: nothing made"; fi
