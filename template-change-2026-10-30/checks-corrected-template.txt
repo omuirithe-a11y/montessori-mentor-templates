@@ -1,0 +1,16 @@
+build exit 0
+1
+== start 10:33:35
+aun full: RESULT: every width ok widths 122
+aun height 1440: {"1s": 4711, "4s": 4711, "scrolled": 4711, "largest margin": [48, "DIV.mm-row "]}
+aun height 390: {"1s": 7241, "4s": 7241, "scrolled": 7241, "largest margin": [42, "P.mm-wordline Pete and all my colleagues in "]}
+aun speed:
+1440 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"013.jpg": 0.78, "025.jpg": 0.75, "037.jpg": 0.8, "049.jpg": 0.79} (limit 1.0 s)
+390 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"013.jpg": 0.79, "025.jpg": 0.77, "037.jpg": 0.77, "049.jpg": 0.78} (limit 1.0 s)
+SPEED OK
+rota full: RESULT: every width ok widths 122
+rota height 1440: {"1s": 21061, "4s": 21061, "scrolled": 21061, "largest margin": [40, "P.mm-gl.mm-gl-bq "]}
+rota height 390: {"1s": 45271, "4s": 45271, "scrolled": 45271, "largest margin": [42, "P. When preparing a new environme"]}
+== end 10:53:48
+
+[exited with code 0]
