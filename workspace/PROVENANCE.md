@@ -38,3 +38,6 @@ The templates (Essay, Resources, org-rule) are not copied here: the master copie
   template's beige line before each, as on the live page. pages/aun-aprendo.py - NAME_LINES (the nine group names) and
   NO_TOC. Measured on build b2 against the live page at 1440, 830 and 390: all nine lines the same colour, size, beige line
   and gaps as live.
+- 12:3x: tools/build_page.py - a page with no headings keeps the template's own empty contents box (the template hides it),
+  as on the live Aun Aprendo page; removing it had changed the template's code (code check part 1). pages/aun-aprendo.py -
+  NO_TOC taken out again. Build b3: code check part 1 down to the one added style block (mm-wrap).

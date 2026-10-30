@@ -1204,9 +1204,9 @@ def main():
         k = len(re.findall(r'<div class="toc-grid[^"]*">.*?</div></nav>', t, re.S)); assert k == 1, ('toc', k)
         t = re.sub(r'(<div class="toc-grid[^"]*">).*?(</div></nav>)', lambda m: m.group(1) + lis + m.group(2), t, flags=re.S)
     else:
-        t = s1(r'<nav aria-label="Contents" class="toc-wrap toc">.*?</nav>', '', t)
-        t = t.replace('<div class="toc-rule-wrap"><div class="beige-rule"></div></div>', '')
-        report.append(('contents', 'none - ' + ('your command' if a.no_toc else 'the Word file has no headings'), ''))
+        # 30 Oct 2026: the template's own contents box is kept, empty - the template hides an empty one, as on the live Aun
+        # Aprendo page; removing it changed the template's code outside the content slots (code check part 1)
+        report.append(('contents', 'none - ' + ('your command' if a.no_toc else 'the Word file has no headings') + "; the template's empty contents box kept (the template hides it)", ''))
     t = s1(r'<section class="section"></section>', content.replace('\\', '\\\\') if False else content, t) if t.count('<section class="section"></section>') == 1 else t
     # long web addresses written out in the text break onto the next line instead of pushing the page sideways (20 Oct 2026)
     # 22 Oct 2026 04:07 (user: "Inner list markers: use \"o\"."): lists inside a list item are marked o, as Word and the PDF
