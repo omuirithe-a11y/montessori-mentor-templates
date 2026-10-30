@@ -1,5 +1,7 @@
 # Montessori Mentor website - start here
 
+Last updated 30 Oct 2026, 15:1x (Asia/Shanghai).
+
 Fresh start: 12-13 Oct 2026. The old rule layers (skills, plugin, hooks, project rules) are retired. This file is the only current record.
 
 ## Quick start (30 Oct 2026, 11:54 - the owner's words: "implement all 8")
@@ -7,11 +9,14 @@ Do these first, in this order. Everything further down stays in force; this sect
 1. Workspace: from GitHub, not the Project. Attach omuirithe-a11y/montessori-mentor-templates (add_repo, push access), clone it, copy its workspace/ folder to /home/claude/mm and its Essay and Resources Code Templates and org-rule.html to /home/claude/mm/templates/. Then, in workspace/, run `sha256sum -c FINGERPRINTS.txt`: every line must say OK, otherwise stop and tell the owner. workspace/PROVENANCE.md says where each file came from. This replaces step 1 of "Set up the workspace first" below (steps 3 and 4 still apply; yunet.onnx is in workspace/faces/). The Project's claude/workspace/ is the older copy: reference only, never copied in again.
 2. Read the Project's saved preferences (the memory file preferences.md for this Project) before any work. The 28 Oct note "image descriptions are not necessary anymore" is there; it was missed on 30 Oct.
 3. Read claude/DECISIONS-LOG.md: every decision the owner makes, one line each, her words and the time. Add a line the moment she decides something.
-4. Current versions: Essay Code Template sha256 3ebaef3a0922e9ea... (commit 13175ad, 30 Oct); check tools: handover-2026-10-29-evening/tools-v5 in the same repository.
-5. First-build checks: workspace/tools/run_checks.sh runs the 122 widths, the height, lines through text and the speed check one after another, with nothing else running (lessons 15 and 40: 2 processors). One page at a time, from start to delivery: when asked to streamline, change the order of the work (lesson 7).
+4. Current versions (updated 30 Oct 15:1x): Essay Code Template sha256 b1015370b02e5217... (GitHub commit 9bee918, 30 Oct: an image beside text stays inside the text column and starts level with its first line's capitals; an image standing above its text has 30 px above and 30 px below - the owner's "yes" 12:50, 13:05, 14:04). Replaces 3ebaef3a (commit 13175ad). Check tools: handover-2026-10-29-evening/tools-v5 in the same repository, plus workspace/tools/run_checks.sh and workspace/tools/place_check.py. The code check (strip_compare.py) must be pinned to the current template's sha256 (on 30 Oct a copy, /home/claude/chk/v6, was pinned to b1015370).
+5. First-build checks: workspace/tools/run_checks.sh runs the 122 widths, the height, lines through text, the placement check (place_check.py: images inside the text column; tops of images beside text level with the first line's capitals; 30 px above and below an image standing above its text; with --rows-one-width, rows of images sharing their edges) and the speed check, one after another, with nothing else running (lessons 15 and 40: 2 processors). Also on the first build: the code check, the format check, and screenshots against live (scratchpad vslive.py at 1440, 768 and 390) looked at by a separate agent. One page at a time, from start to delivery: when asked to streamline, change the order of the work (lesson 7).
 6. Reporting what was checked: one table, every item marked "checked (how)" or "not checked".
 7. Questions to the owner: all open ones together, in one message.
 8. End of each chat: changed working files go to GitHub workspace/ with new fingerprints (sha256sum -c must pass on a fresh clone); the Project holds the rules and notes.
+9. Documents (the owner, 30 Oct 15:12, standing): "always update starthere and  the other documents immediately, the updated most recent document superseding the older versions in each instance". Update the document in place the moment something changes (a decision, a version, a lesson, a check), read the saved copy back, then report. No new numbered copy beside the old one.
+10. Not settled (30 Oct): rule 5 below ("do not ask questions until I write 'ask your questions now'", 23 Oct) and item 7 above (11:54, "all open ones together, in one message") - which applies is the owner's to say.
+11. Found 30 Oct 15:09: the Project also holds top-level START-HERE.md (two, created 30 Oct 12:32) and DECISIONS-LOG.md (two, created 12:02 and 12:32), besides claude/START-HERE.md and claude/DECISIONS-LOG.md. Who made them is not known; not read. The Project instructions name claude/START-HERE.md as the only START-HERE, and claude/DECISIONS-LOG.md is the log kept. The Project store was 99.1% full (1,982,186 of 2,000,000) at 15:08.
 
 ## At the start of each chat
 Read this file, then read the newest HANDOVER file in the Project files (added 18 Oct 2026). Then read claude/MASTER-DECISIONS.md (added 20 Oct 2026).
