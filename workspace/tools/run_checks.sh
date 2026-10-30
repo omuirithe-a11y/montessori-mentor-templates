@@ -1,12 +1,12 @@
 #!/bin/bash
-# run_checks.sh <checks dir> <package.zip> <out dir> [widths for the 122-width check, default all]
+# run_checks.sh <checks dir> <package.zip> <out dir> [widths for the 122-width check, default all] [--rows-one-width]
 # 30 Oct 2026 (owner 11:54: "implement all 8" - item 5). Runs the first-build checks with the SAME tools, unchanged:
 #   one after another, nothing else running (30 Oct 13:5x, lessons 15 and 40: the machine has 2 processors; more browsers at
 #   once is not faster): the 122 widths (vfast.py, 2 workers), the height (stable.py at 1440 and 390), lines through text
 #   (lines.py at 8 widths), then the speed check (speed_check.py).
 # Every check still runs; nothing is skipped. Each writes its own file in <out dir>; SUMMARY.txt lists their last lines.
 set -u
-C=$(cd "$1" && pwd); Z=$(cd "$(dirname "$2")" && pwd)/$(basename "$2"); O=$3; WID=${4:-all}
+C=$(cd "$1" && pwd); Z=$(cd "$(dirname "$2")" && pwd)/$(basename "$2"); O=$3; WID=${4:-all}; ROWSARG=${5:-}; G=$(dirname "$(readlink -f "$0")")
 mkdir -p "$O"; O=$(cd "$O" && pwd)
 echo "start $(date '+%H:%M:%S')  package sha256 $(sha256sum "$Z" | cut -c1-16)" > "$O/SUMMARY.txt"
 # 1. the 122 widths
@@ -20,8 +20,10 @@ for i in $(seq 50); do PORT=$(grep -o 'port [0-9]*' "$T.port" | grep -o '[0-9]*'
 ( for w in 320 390 430 641 700 830 1024 1440; do python3 "$C/lines.py" "http://127.0.0.1:$PORT/$SLUG/" $w 2>&1 | tail -1; done ) > "$O/lines.txt" 2>&1
 kill $PS 2>/dev/null; rm -rf "$T" "$T.port"
 echo "widths, height and lines done $(date '+%H:%M:%S')" >> "$O/SUMMARY.txt"
-# 4. the speed check
+# 4. placement (30 Oct 13:5x): images inside the text column, image tops level with the first line, rows (place_check.py)
+python3 "$G/place_check.py" "$Z" $ROWSARG > "$O/place.txt" 2>&1; E5=$?
+# 5. the speed check
 python3 "$C/speed_check.py" "$Z" > "$O/speed.txt" 2>&1; E4=$?
 { echo "122 widths (exit $E1): $(tail -1 "$O/full.txt" 2>/dev/null)"; echo "height:"; cat "$O/height.txt"; echo "lines through text:"; cat "$O/lines.txt";
-  echo "speed (exit $E4): $(tail -1 "$O/speed.txt")"; echo "end $(date '+%H:%M:%S')"; } >> "$O/SUMMARY.txt"
+  echo "placement (exit $E5): $(tail -1 "$O/place.txt")"; echo "speed (exit $E4): $(tail -1 "$O/speed.txt")"; echo "end $(date '+%H:%M:%S')"; } >> "$O/SUMMARY.txt"
 cat "$O/SUMMARY.txt"

@@ -51,3 +51,6 @@ The templates (Essay, Resources, org-rule) are not copied here: the master copie
 - 12:5x-13:1x: build_page.py - shown copies 960 px on the longer side, quality 85, as the live pages' (were width 960,
   quality 88); ROWS_ONE_GROUP page setting (all image rows one width). pages/aun-aprendo.py - ROWS_ONE_GROUP (owner 12:50).
   check-tools-v6-test/strip_compare.py pinned to the template under test (25b728e6...).
+- 13:5x: tools/place_check.py (new): images inside the text column; image tops level with the first line's capitals
+  (owner's rule 20 Oct); rows sharing their edges (pages the owner made an exception, --rows-one-width). Proven on Aun
+  Aprendo: build b3 PLACE FAULT (COLUMN at 320-390, TOP, ROWS), b5 PLACE FAULT (TOP), b6 PLACE OK. run_checks.sh runs it.
