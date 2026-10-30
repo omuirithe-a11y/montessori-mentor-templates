@@ -1,6 +1,6 @@
 # Montessori Mentor website - start here
 
-Last updated 30 Oct 2026, 15:1x (Asia/Shanghai).
+Last updated 30 Oct 2026, 15:3x (Asia/Shanghai).
 
 Fresh start: 12-13 Oct 2026. The old rule layers (skills, plugin, hooks, project rules) are retired. This file is the only current record.
 
@@ -17,6 +17,17 @@ Do these first, in this order. Everything further down stays in force; this sect
 9. Documents (the owner, 30 Oct 15:12, standing): "always update starthere and  the other documents immediately, the updated most recent document superseding the older versions in each instance". Update the document in place the moment something changes (a decision, a version, a lesson, a check), read the saved copy back, then report. No new numbered copy beside the old one.
 10. Not settled (30 Oct): rule 5 below ("do not ask questions until I write 'ask your questions now'", 23 Oct) and item 7 above (11:54, "all open ones together, in one message") - which applies is the owner's to say.
 11. Found 30 Oct 15:09: the Project also holds top-level START-HERE.md (two, created 30 Oct 12:32) and DECISIONS-LOG.md (two, created 12:02 and 12:32), besides claude/START-HERE.md and claude/DECISIONS-LOG.md. Who made them is not known; not read. The Project instructions name claude/START-HERE.md as the only START-HERE, and claude/DECISIONS-LOG.md is the log kept. The Project store was 99.1% full (1,982,186 of 2,000,000) at 15:08.
+
+## Plan - current (30 Oct 2026, 15:3x; replaces the order of work in HANDOVER-29-oct-evening section 2 where they differ)
+Each item names the owner's decision behind it (claude/DECISIONS-LOG.md). One page per chat.
+1. Aun Aprendo (live since 30 Oct, by 15:16): the after-upload checks - "Before a page is finished" below, items 1-7 (widths, swiping, menu panels, spacing 641-830, alignment, hero/contents/footer at tablet widths, browser errors), and each live image checked to be the right picture (compared as pictures: Hostinger sends WebP, so a byte comparison cannot match). Owner 15:37: "run them now". Its live click speed was measured 15:33: about 1 s per image from the cloud machine; the owner sees about 4 s (she uses a VPN; to be looked at again 31 Oct, her words "let's see how it is tomorow").
+2. Image file names: NOT changed per build (owner 15:3x, "No"). Visitors who saw a page before a rebuild may see old pictures under the same names for up to 7 days (Hostinger: cache-control max-age 604800).
+3. The Essay template faults found on The Role of the Adult test copy (rota-30oct-c: image 022 22 px past the column at 320; image 023 10 px above its quotation at 641-830; speed fault) - first find whether the 30 Oct changes cause them; then quick-look every page built from the template (lesson 6). Template work, no page.
+4. send_gate.sh to require the placement check (place_check.py) and the screenshot review. Tool work, no page.
+5. Fix A on the 14 remaining live pages - fix A ALONE, one line, image files untouched (owner 15:3x "Fix A alone now"; her 29 Oct 20:08 confirmation covers it), with tools-v5-fixA/gate_live.sh; MOST IMAGES FIRST (owner 15:3x): the-culture-curriculum, the-prepared-environment, the-sensorial-curriculum, the-practical-life-curriculum-2, the-mathematics-curriculum, a-montessori-journey, the-montessori-curriculum, play-varieties-and-characteristics, culture-resources, biography, the-role-of-the-assistant, essential-elements, sensorial-resources, mathematics-resources. After each upload: the live checks, click speed included. The larger originals come later, page by page.
+6. Menu panels that do not close on a second click (20 older pages; the list is not saved - measure again to find them).
+7. The History of Education scrolls sideways at 641 px (re-measure first).
+8. End of 30 Oct: copy protection on the live pages still without it (owner 09:38: 9 pages; Aun Aprendo now has it); the 30 Oct handover.
 
 ## At the start of each chat
 Read this file, then read the newest HANDOVER file in the Project files (added 18 Oct 2026). Then read claude/MASTER-DECISIONS.md (added 20 Oct 2026).
