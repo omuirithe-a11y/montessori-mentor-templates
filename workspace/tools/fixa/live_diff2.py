@@ -29,6 +29,41 @@ refs = set(re.findall(r'(?:src|data-full)="(images/[^"]+)"', idx) + re.findall(r
 if refs - names: bad.append('images named but not in the check zip: %s' % sorted(refs - names)[:5])
 if os.path.exists(Z + '.index.html') and open(Z + '.index.html', encoding='utf-8').read() != idx: bad.append('the delivered index.html differs from the checked one')
 if not os.path.exists(Z + '.index.html'): bad.append('the delivered index.html is missing')
+# 30 Oct 16:5x (owner 16:57: accepted only "if it checks everything send_gate.sh checks"): part 8 of send_gate's code check
+# (strip_compare.py, checks-v6), the same rules: the hero is images/hero.jpg; every file the page names (src, data-full, srcset,
+# links to image/PDF files) exists; every image box's shape (aspect-ratio) and every width/height pair is within 1% of its file;
+# PDF-placed boxes (div.mm-pdf) are only listed, as in send_gate
+from bs4 import BeautifulSoup
+from PIL import Image
+import tempfile, io
+ps8 = BeautifulSoup(idx, 'html.parser'); f8 = []
+def fbytes(v):
+    n = slug + '/' + v
+    return zf.read(n) if n in zf.namelist() else None
+hero8 = ps8.select_one('.hero'); hu = re.findall(r"url\(['\"]?([^'\")]+)", hero8.get('style', '')) if hero8 else []
+if hu != ['images/hero.jpg']: f8.append('hero image is %s, must be images/hero.jpg' % hu)
+r8 = set(hu)
+for e in ps8.find_all(True):
+    for a in ('src', 'data-full', 'href'):
+        v = e.get(a)
+        if v and not re.match(r'^(https?:|mailto:|#|/|tel:|data:|javascript:)', v) and (a != 'href' or re.search(r'\.(jpe?g|png|gif|webp|pdf)$', v, re.I)): r8.add(v)
+    for part in (e.get('srcset') or '').split(','):
+        v = part.strip().split(' ')[0]
+        if v and not re.match(r'^(https?:|/|data:)', v): r8.add(v)
+for v in sorted(r8):
+    if fbytes(v) is None: f8.append('missing file: ' + v)
+def size(v):
+    b = fbytes(v); return Image.open(io.BytesIO(b)).size if b else None
+for pim in ps8.select('main#content .pim'):
+    if pim.find_parent('div', class_='mm-pdf') is not None: continue
+    m = re.search(r'aspect-ratio:\s*([0-9.]+)', pim.get('style') or ''); im = pim.find('img')
+    if not im or not m: continue
+    src = im.get('data-full') or im.get('src'); sz = size(src or '')
+    if sz and abs(float(m.group(1)) - sz[0] / sz[1]) / (sz[0] / sz[1]) > 0.01: f8.append('%s: aspect-ratio %s but the file is %dx%d' % (src, m.group(1), sz[0], sz[1]))
+for im in ps8.select('main#content img[width][height]'):
+    sz = size(im.get('data-full') or im.get('src') or '')
+    if sz and abs(int(im['width']) / int(im['height']) - sz[0] / sz[1]) / (sz[0] / sz[1]) > 0.01: f8.append('%s: width/height %s x %s but the file is %dx%d' % (im.get('src'), im['width'], im['height'], sz[0], sz[1]))
+bad += f8
 print('%s: %d images named, index.html %d chars (live %d)%s' % (slug, len(refs), len(idx), len(live), ', fix A + copy protection' if prot else ', fix A alone'))
 print('\n'.join('FAULT: ' + b for b in bad) if bad else 'ALL CHECKS OK')
 sys.exit(1 if bad else 0)

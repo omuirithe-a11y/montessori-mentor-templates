@@ -21,6 +21,7 @@ for W in 1440 390; do o=$(timeout 900 python3 $C/stable.py $W "$Z" 2>/dev/null |
   python3 -I -c "
 import json,sys;r=json.loads(sys.argv[1].split(' ',1)[1]);ok=r['4s']==r['scrolled'] and r.get('closed again',r['4s'])==r['4s'] and r['largest margin'][0]<=150 and r.get('largest margin, open',[0])[0]<=150
 print('  ok' if ok else '  FAULT');sys.exit(0 if ok else 1)" "$o" || bad=1; done
+python3 -I $C/image_sizes.py "$Z" | cut -c1-600   # as send_gate.sh v5: report only (owner 16:57)
 timeout 1800 python3 -I $C/speed_check.py "$Z" 1440,390 | sed 's/^/speed /'; [ ${PIPESTATUS[0]} = 0 ] || bad=1
 p=$(unzip -p "$Z" "$SLUG/index.html" | grep -o 'id="mm-protect"\|id="mm-protect-js"' | sort | uniq -c | awk '{print $1}' | tr '\n' ' ')
 [ "$p" = "1 1 " ] && echo "copy protection: present" || { echo "copy protection: MISSING ($p)"; bad=1; }
