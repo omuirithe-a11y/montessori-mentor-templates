@@ -214,7 +214,7 @@ def check(build, settings_path):
     f = []
     ft_ = M[1280]['first_tab']
     if not ft_ or not (ft_[1] or '').startswith('#'): f.append('first Tab lands on %s, not a skip link' % (ft_,))
-    f += ['photo with no description: %s' % s for s in M[1280]['noAlt']]
+    # (photo descriptions no longer checked: 28 Oct 2026, owner: image descriptions (alt text) "are not necessary anymore"; 30 Oct 12:26 "yes" to removing the rule everywhere)
     put('A11Y', f, 1)
     # PROTECT (C1)
     f = []

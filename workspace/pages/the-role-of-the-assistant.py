@@ -4,31 +4,10 @@
 
 # 22 Oct 2026 23:15: the user updated the Word file and PDF in Drive; Word renamed the photos (same pictures) - names here are the new ones
 # (faces/rename-23.json: new name <- old name; blurred copies in faces/photos-23)
-# user rule 21 Oct ("every photo on every page includes a description"): each photo described from the photo itself
+# user rule 21 Oct ("every photo on every page includes a description"): each photo described from the photo itself  [REPLACED 28 Oct: no descriptions]
 # 23 Oct 2026 11:4x: the user's new Word file (20 photos, Drive 09:23). The 8 photos kept from 22 Oct keep their descriptions
 # (matched by picture); the 4 removed photos' descriptions are dropped; the 12 new photos are described from the photos themselves
-ALT_TEXT = {
- 'image2.jpeg': 'A young woman sitting on a low chair beside a boy painting at an easel in front of a world map',
- 'image3.JPG': 'A young woman helping two children in red shirts working at a table',
- 'image4.jpeg': 'A teacher sitting on the floor in the middle of a circle of children in red and blue uniforms',
- 'image5.JPG': 'A teacher and a group of children sitting in a circle on an outdoor terrace, clapping',
- 'image6.jpeg': 'A teacher with a flute sitting on the floor with a small group of children',
- 'image7.jpeg': 'A teacher playing a flute to a circle of children sitting on the classroom floor',
- 'image8.JPG': 'A young woman doing a small girl\'s hair as the girl sits at a table with a wooden mirror stand',
- 'image9.JPG': 'A teacher on a low chair reading a picture book to a group of children sitting on the floor',
- 'image10.JPG': 'A young woman and a small girl working together over a bowl at a table while another girl watches',
- 'image11.JPG': 'Two girls working with the Pink Tower on a mat while a teacher sits beside them',
- 'image12.JPG': 'A young woman and a small girl re-potting a plant on newspaper on the floor',
- 'image13.JPG': 'A girl in a star-print jacket working with letter cards on a mat beside a young woman',
- 'image14.JPG': 'A teacher holding a cake with candles while a girl blows them out and other children watch',
- 'image15.JPG': 'A teacher dancing hand in hand with children in a classroom',
- 'image16.jpg': 'Children eating lunch together at a long table with a teacher at the far end',
- 'image17.jpg': 'A teacher sitting outdoors with scissors and a card, facing a large group of children in hats and high-visibility vests',
- 'image18.jpg': 'A young woman in a face mask folding paper with two children at a table',
- 'image19.jpg': 'A teacher showing picture cards to two boys sitting beside a mat',
- 'image20.jpg': 'A young woman and two children planting seedlings in the school garden',
- 'image21.jpg': 'A young woman sitting on the floor while two children fold cloths on a mat beside a clothes-drying rack',
-}
+ALT_TEXT = {}   # 28 Oct 2026, owner: image descriptions (alt text) "are not necessary anymore"; 30 Oct 12:26 "yes" to removing the rule everywhere
 
 # 22 Oct 2026 23:16 (user, queued): "remove the table of contents"
 NO_TOC = True

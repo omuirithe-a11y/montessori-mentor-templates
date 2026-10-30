@@ -41,3 +41,10 @@ The templates (Essay, Resources, org-rule) are not copied here: the master copie
 - 12:3x: tools/build_page.py - a page with no headings keeps the template's own empty contents box (the template hides it),
   as on the live Aun Aprendo page; removing it had changed the template's code (code check part 1). pages/aun-aprendo.py -
   NO_TOC taken out again. Build b3: code check part 1 down to the one added style block (mm-wrap).
+- 12:1x-12:3x: build_page.py - dash joining dropped (owner 12:18 "drop it like the live page"); the build's own labels the
+  template never reads left out (data-name except for CENTRE_ON, landscape/portrait, --ar/--hg); the mm-wrap style only when
+  the page has something it styles; no image descriptions (owner 28 Oct; 12:26 "yes"). extra_checks.py check V and
+  rule_checks.py's description check removed; rules.json X4 and TO-ADD item 10 updated; the four page settings with
+  descriptions emptied (Prepared Environment, Role of the Assistant, Classroom Management, Observations).
+  check-tools-v6-test/strip_compare.py also lists any image with a description (none allowed since 28 Oct).
+- records/START-HERE-30oct.md: the copy of claude/START-HERE.md as written to the Project on 30 Oct 12:2x (shortened, quick start).

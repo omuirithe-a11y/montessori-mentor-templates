@@ -21,11 +21,8 @@ PHONE_GAPS = (42, 35.2)
 # question from the 5.3 chat, not decided here
 OL_AT_MARGIN = True   # user rule, 20 Oct 2026
 
-# 21 Oct 2026 (user rule: "every photo on every page includes a description (alt text), from now on"): words from the pictures
-ALT_TEXT = {   # user rule 21 Oct (photo descriptions); words from the pictures themselves
- 'image1.jpg': 'The NCMPS rubric sheet, Observing in the Prepared Environment, a form with rows of criteria and tick boxes',
- 'image2.png': 'The Leuven Scale chart: five levels of involvement, from extremely low to extremely high, with descriptions, key indicators and examples',
-}
+# 21 Oct 2026 (user rule: "every photo on every page includes a description (alt text), from now on"): words from the pictures  [REPLACED 28 Oct: no descriptions]
+ALT_TEXT = {}   # 28 Oct 2026, owner: image descriptions (alt text) "are not necessary anymore"; 30 Oct 12:26 "yes" to removing the rule everywhere
 
 # gaps the user approved (the gap check U skips them), by the start of the line above the gap:
 U_ALLOWED = [   # user 22 Oct 04:06 ("NCMPS picture ... 128.6 ... - ok") and 04:07 ("Word's 12pt space after a line ... 14 on the page for each 6pt in Word - ok")

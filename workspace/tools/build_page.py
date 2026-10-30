@@ -77,6 +77,7 @@ def site_rules(text_html, report, spaced=False):
             s = re.sub(pat, sub, s)
         dash = node.parent.name != 'span' or 'mm-nb' not in (node.parent.get('class') or [])
         dash = dash and re.search(r'(?:^|(?<=\s))-\w', s) is not None and not gaps
+        dash = False   # 30 Oct 2026 (owner 12:18, "drop it like the live page"): a dash written against the next word is no longer held to it
         if dash:   # 20 Oct (5.2 "School -in Houston" broke after the dash): a dash written against the next word stays with it
             if s.replace(' ', '') != o.replace('\u00a0', '').replace(' ', ''): report.append(('text', o.strip()[:70], s.strip()[:70]))
             bits = re.split(r'((?:^|(?<=\s))-\w+)', s)
@@ -1073,12 +1074,9 @@ def main():
         report.append(('text', 'a name line (the template\'s mm-name) with the beige line before it, as on the live page', st_))
     for sec in main_el.find_all('section'):
         if not sec.get_text().strip() and not sec.find('img'): sec.decompose()
-    # 21 Oct 2026 (user rule: "every photo on every page includes a description (alt text), from now on"): the page
-    # settings' ALT_TEXT, by the Word picture's name; a photo without one is reported
-    for im_ in main_el.select('img.doc-img'):
-        nm_ = im_.get('data-name') or ''
-        if S.get('ALT_TEXT', {}).get(nm_): im_['alt'] = S['ALT_TEXT'][nm_]; report.append(('photos', 'description', nm_))
-        elif not im_.get('alt'): report.append(('photos', 'WARNING: no description', nm_))
+    # 28 Oct 2026, owner: image descriptions (alt text) "are not necessary anymore"; 30 Oct 12:26 "yes" to removing the rule everywhere (replaces the 21 Oct rule "every photo
+    # on every page includes a description"): no image gets a description; any ALT_TEXT in page settings is not used
+    for im_ in main_el.select('img.doc-img'): im_['alt'] = ''
     # photos numbered in page order, after any reordering (Hostinger names 001, 002 ... in page order)
     CROP, TURN = {}, {}
     for dr in d.element.body.iter(qn('w:drawing')):
@@ -1184,6 +1182,22 @@ def main():
             _left_css += '@media %s{html body main .mm-left%d,html body main .mm-left%d *{text-align:left !important;text-align-last:auto !important}}' % (_media, _k, _k)
             report.append(('settings', 'line not justified', '%s at %s' % (_start, _media)))
         content = str(_sp)
+    # 30 Oct 2026 (owner 12:15-12:18; her rules of 15 Oct "remove such additions when found" and 27 Oct "The templates are in
+    # github. They are the source"): the build's own labels the template never reads are left out of the page - the picture's
+    # Word name (data-name, kept only where CENTRE_ON needs it), the classes landscape/portrait, and the inline --ar / --hg
+    _keep_nm = set((S.get('CENTRE_ON') or {}).keys()); _sp = BeautifulSoup(content, 'html.parser'); _kc = 0
+    for _e in _sp.find_all(True):
+        if _e.has_attr('data-name') and _e['data-name'] not in _keep_nm: del _e['data-name']; _kc += 1
+        if _e.get('class'):
+            _c = [c for c in _e['class'] if c not in ('landscape', 'portrait')]
+            if len(_c) != len(_e['class']): _e['class'] = _c; _kc += 1
+            if not _e['class']: del _e['class']
+        if _e.get('style') and re.search(r'--(?:ar|hg)\s*:', _e['style']):
+            _st = ';'.join(x for x in _e['style'].split(';') if x.strip() and not re.match(r'\s*--(?:ar|hg)\s*:', x))
+            if _st: _e['style'] = _st
+            else: del _e['style']
+            _kc += 1
+    content = str(_sp); report.append(('code', "the build's own labels the template never reads left out", '%d places' % _kc))
     # 5 template
     t = open(TEMPLATES[a.template], encoding='utf-8').read()
     def s1(pat, rep, txt):
@@ -1210,7 +1224,8 @@ def main():
     t = s1(r'<section class="section"></section>', content.replace('\\', '\\\\') if False else content, t) if t.count('<section class="section"></section>') == 1 else t
     # long web addresses written out in the text break onto the next line instead of pushing the page sideways (20 Oct 2026)
     # 22 Oct 2026 04:07 (user: "Inner list markers: use \"o\"."): lists inside a list item are marked o, as Word and the PDF
-    if 'id="mm-wrap"' not in t: t = t.replace('</head>', '<style id="mm-wrap">main a{overflow-wrap:anywhere}main p.mm-numline{position:relative;padding-left:30px}main p.mm-under{padding-left:30px}main ul.mm-wi,main ol.mm-wi{margin-left:0 !important;padding-left:0 !important}main .mm-wi>li{position:relative;padding-left:var(--wt) !important}main .mm-wi>li::before{position:absolute;left:var(--wm) !important}main .mm-wi.mm-wr>li::before{left:auto !important;right:calc(100% - var(--wm)) !important;text-align:right}main .mm-lab{display:inline-block;min-width:8em;text-indent:0}main li > p.mm-licont{margin:8px 0 0 !important;text-indent:0 !important}main ul.mm-inner{margin:8px 0 0 !important;padding-left:24px !important}main ul.mm-inner > li::before{content:\"o\" !important}main .mm-lsp{display:inline-block;width:24px;white-space:pre}main p.mm-hanglab{padding-left:8em !important;text-indent:-8em !important}main p.mm-pairend{margin-bottom:30px !important}@media (max-width:640px){main p.mm-hanglab{padding-left:0 !important;text-indent:0 !important}main p.mm-hanglab .mm-lab{min-width:0;margin-right:.6em}}main p.mm-numline .mm-n{position:absolute;left:0}main ol.mm-lroman>li::before{content:counter(mmn,lower-roman) "."}main ol.mm-mk-alpha-paren>li::before{content:counter(mmn,lower-alpha) ")"}main ol.mm-uroman>li::before{content:counter(mmn,upper-roman) "."}main ol.mm-lalpha>li::before{content:counter(mmn,lower-alpha) "."}main ol.mm-ualpha>li::before{content:counter(mmn,upper-alpha) "."}</style></head>', 1)
+    _wrap_used = bool(re.search(r'<a\s', content) or re.search(r'class="[^"]*\b(?:mm-numline|mm-under|mm-wi|mm-lab|mm-licont|mm-inner|mm-lsp|mm-hanglab|mm-pairend|mm-n|mm-lroman|mm-mk-alpha-paren|mm-uroman|mm-lalpha|mm-ualpha)\b', content))   # 30 Oct 2026: the block only where the page has something it styles
+    if 'id="mm-wrap"' not in t and _wrap_used: t = t.replace('</head>', '<style id="mm-wrap">main a{overflow-wrap:anywhere}main p.mm-numline{position:relative;padding-left:30px}main p.mm-under{padding-left:30px}main ul.mm-wi,main ol.mm-wi{margin-left:0 !important;padding-left:0 !important}main .mm-wi>li{position:relative;padding-left:var(--wt) !important}main .mm-wi>li::before{position:absolute;left:var(--wm) !important}main .mm-wi.mm-wr>li::before{left:auto !important;right:calc(100% - var(--wm)) !important;text-align:right}main .mm-lab{display:inline-block;min-width:8em;text-indent:0}main li > p.mm-licont{margin:8px 0 0 !important;text-indent:0 !important}main ul.mm-inner{margin:8px 0 0 !important;padding-left:24px !important}main ul.mm-inner > li::before{content:\"o\" !important}main .mm-lsp{display:inline-block;width:24px;white-space:pre}main p.mm-hanglab{padding-left:8em !important;text-indent:-8em !important}main p.mm-pairend{margin-bottom:30px !important}@media (max-width:640px){main p.mm-hanglab{padding-left:0 !important;text-indent:0 !important}main p.mm-hanglab .mm-lab{min-width:0;margin-right:.6em}}main p.mm-numline .mm-n{position:absolute;left:0}main ol.mm-lroman>li::before{content:counter(mmn,lower-roman) "."}main ol.mm-mk-alpha-paren>li::before{content:counter(mmn,lower-alpha) ")"}main ol.mm-uroman>li::before{content:counter(mmn,upper-roman) "."}main ol.mm-lalpha>li::before{content:counter(mmn,lower-alpha) "."}main ol.mm-ualpha>li::before{content:counter(mmn,upper-alpha) "."}</style></head>', 1)
     if 'mm-org-rule' in content and 'mm-org-rule-js' not in t:   # beige lines 30/30, letters to letters (20 Oct 2026)
         _at = '<script id="mm-kind-gaps-js">' if '<script id="mm-kind-gaps-js">' in t else '</body>'   # 22 Oct 2026: before the template's spacing scripts, which hook into it
         t = t.replace(_at, open(os.path.join(WS, 'templates', 'org-rule.html'), encoding='utf-8').read() + _at, 1)

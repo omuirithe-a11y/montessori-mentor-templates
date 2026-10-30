@@ -283,7 +283,7 @@
   },
   {
    "id": "X4",
-   "rule": "Keyboard skip link, tab order; every photo has a description",
+   "rule": "Keyboard skip link, tab order (photo descriptions removed: 28 Oct 2026, owner: image descriptions (alt text) \"are not necessary anymore\"; 30 Oct 12:26 \"yes\" to removing the rule everywhere)",
    "figures": "",
    "source": "START-HERE finishing list 7; user 21 Oct 21:35 \"all photos to include descriptions in future\"",
    "check": "rule_checks:A11Y"

@@ -158,6 +158,8 @@ print('== 6. LINKS, IMAGES AND DESCRIPTIONS CHANGED')
 for x in difflib.unified_diff([repr(x) for x in ll], [repr(x) for x in pl], 'live links', 'page links', n=0, lineterm=''): print(x)
 for x in difflib.unified_diff([str(x[0]) for x in li_], [str(x[0]) for x in pi], 'live images', 'page images', n=0, lineterm=''): print(x)
 print('descriptions:'); [print(s, '->', a) for s, a in pi]
+_dn = [s_ for s_, a_ in pi if (a_ or '').strip()]   # 30 Oct 2026: owner 28 Oct, image descriptions "are not necessary anymore" - none allowed
+print('-- images with a description (none allowed since 28 Oct): %d' % len(_dn) + ('' if not _dn else ' - ' + ', '.join(map(str, _dn))))
 ptext = ' '.join(pw)
 nm = []
 for src, a in pi:

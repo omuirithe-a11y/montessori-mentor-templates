@@ -1,11 +1,11 @@
 """Extra page checks (21 Oct 2026, 5.5 - the user: "Measure every gap on the rendered page in pixels against the template's
-figures"; "every photo on every page includes a description"; the page against Word). Run after fault_checks.py.
+figures"; "every photo on every page includes a description" (replaced 28 Oct: no descriptions); the page against Word). Run after fault_checks.py.
 Usage: python3 tools/extra_checks.py <docx> <preview folder or index.html> [page settings]
    (a gap the user has approved is named in the settings' U_ALLOWED by the start of the line above it)
 U  gaps: every pair of neighbouring text blocks at 1280, letters to letters (baseline above to the top of the capitals
    below); within one kind of pair, every gap within 1px of the most common one. A different gap is listed - each is
    either fixed or put to the user.
-V  descriptions: every photo (img.doc-img) has a description.
+(V, descriptions, removed: 28 Oct 2026, owner: image descriptions (alt text) "are not necessary anymore"; 30 Oct 12:26 "yes" to removing the rule everywhere)
 W  first-line indents: a plain Word paragraph with a first-line indent has the same indent on the page (1px).
 """
 import sys, os, re, asyncio, collections, docx
@@ -53,9 +53,7 @@ for k, xs in g.items():
         if abs(v - mode) > 1 and len(xs) > 1 and not any(a.replace('[photo beside] ', '').startswith(s[:30]) for s in ALLOWED): fu.append('%s: %s (most %s) - "%s" / "%s"' % (k, v, mode, a, b))
 print('U gaps, one per kind of pair (1280)', 'FAIL' if fu else 'PASS', '(%d pairs, %d kinds)' % (len(R['out']), len(g)))
 for f in fu: print('     -', f)
-fv = [n for n, a in R['alts'] if not a]
-print('V photo descriptions', 'FAIL' if fv else 'PASS', '(%d photos)' % len(R['alts']))
-for f in fv: print('     - no description:', f)
+fv = []   # check V removed: 28 Oct 2026, owner: image descriptions (alt text) "are not necessary anymore"; 30 Oct 12:26 "yes" to removing the rule everywhere
 nz = lambda t: re.sub(r'[^a-z0-9]', '', t.lower())[:60]
 ind = {k: v for k, v in R['ind']}
 fw, n = [], 0

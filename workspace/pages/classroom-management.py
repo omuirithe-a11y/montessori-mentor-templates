@@ -92,19 +92,8 @@ html body main h2.mm-hc-EE0000,html body main h2.mm-hc-FF0000,html body main .se
 # blurred on this page, which the faces check (rule P2) holds the page to; the user has not yet been shown this list
 FACES_BLUR = ['1a', '1b', '1c', '1d', '2a', '2b', '3a', '3b', '4a', '4b', '5a', '5b', '5c', '5d', '8a', '9a']   # user 22 Oct 14:57: 6a and 8b not blurred ("none of those children need to be blurred")
 
-# 21 Oct 2026 18:3x (START-HERE finishing list 7, "photo descriptions"): each photo described for screen readers, from the photo itself
-ALT_TEXT = {   # user rule (START-HERE finishing list 7: photo descriptions); words from the photos
- 'image2.jpeg': 'Two children sitting on artificial grass in a playground, facing each other',
- 'image3.png': 'Two children sitting on the floor either side of a small round table with an object on it',
- 'image4.jpg': 'Two children sitting on grass facing each other, one holding out her hands',
- 'image5.jpg': 'Two children sitting on a window seat facing each other, a plant between them',
- 'image6.jpeg': 'Two children kneeling on cushions at a small table with a plant, in a classroom',
- 'image10.jpeg': 'A child working on a floor mat with wooden number cards and bead materials',
- 'image9.jpeg': 'Two children working together on a floor mat with a tray of wooden pieces',
- 'image8.jpeg': 'A child at a table working with a tray of shape insets and coloured pencils',
- 'image7.jpg': 'A child at a table working with a long bead chain and number tickets',
- 'image12.jpeg': 'Book cover: Positive Discipline in the Montessori Classroom by Jane Nelsen and Chip DeLorenzo',
-}
+# 21 Oct 2026 18:3x (START-HERE finishing list 7, "photo descriptions"): each photo described for screen readers, from the photo itself  [REPLACED 28 Oct: no descriptions]
+ALT_TEXT = {}   # 28 Oct 2026, owner: image descriptions (alt text) "are not necessary anymore"; 30 Oct 12:26 "yes" to removing the rule everywhere
 
 # 21 Oct 2026 18:4x (user: "fix the faults on the page"), the user's standing rules for every page, where the Essay template differs:
 CSS += """

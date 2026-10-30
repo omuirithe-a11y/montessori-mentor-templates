@@ -11,7 +11,7 @@
 | 7 | Faces: round-1 and round-2 sheets published as preview pages; the user's answers between | To build |
 | 8 | Faces script reads every photo (5.4: reads 4 of 5) | To fix |
 | 9 | Check script: errors, sideways, hero, beige lines, footer, strip, justification, photos, menu at 1280/768/390 | Done (tools/check_page.py) |
-| 10 | Check script: 641 and 830, swiping and dots, photo placement vs PDF, even spacing, tab order, skip link, photo descriptions | To add |
+| 10 | Check script: 641 and 830, swiping and dots, photo placement vs PDF, even spacing, tab order, skip link (photo descriptions removed 30 Oct: not necessary, owner 28 Oct) | To add |
 | 11 | Batch script for the end of day: all live pages (footer, menu, menu links, justification), check each, one zip | To build |
 | 12 | Photo rules: white-background masking (records: site/mask_white.py), Gemini mark removal (site/gemini_mark.py) | To add |
 | 13 | Menu read from a current live page, with lists of linked and not-yet-made entries | To add |
