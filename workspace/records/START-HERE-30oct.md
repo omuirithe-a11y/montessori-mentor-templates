@@ -1,6 +1,6 @@
 # Montessori Mentor website - start here
 
-Last updated 30 Oct 2026, 15:3x (Asia/Shanghai).
+Last updated 30 Oct 2026, 15:5x (Asia/Shanghai).
 
 Fresh start: 12-13 Oct 2026. The old rule layers (skills, plugin, hooks, project rules) are retired. This file is the only current record.
 
@@ -24,7 +24,11 @@ Each item names the owner's decision behind it (claude/DECISIONS-LOG.md). One pa
 2. Image file names: NOT changed per build (owner 15:3x, "No"). Visitors who saw a page before a rebuild may see old pictures under the same names for up to 7 days (Hostinger: cache-control max-age 604800).
 3. The Essay template faults found on The Role of the Adult test copy (rota-30oct-c: image 022 22 px past the column at 320; image 023 10 px above its quotation at 641-830; speed fault) - first find whether the 30 Oct changes cause them; then quick-look every page built from the template (lesson 6). Template work, no page.
 4. send_gate.sh to require the placement check (place_check.py) and the screenshot review. Tool work, no page.
-5. Fix A on the 14 remaining live pages - fix A ALONE, one line, image files untouched (owner 15:3x "Fix A alone now"; her 29 Oct 20:08 confirmation covers it), with tools-v5-fixA/gate_live.sh; MOST IMAGES FIRST (owner 15:3x): the-culture-curriculum, the-prepared-environment, the-sensorial-curriculum, the-practical-life-curriculum-2, the-mathematics-curriculum, a-montessori-journey, the-montessori-curriculum, play-varieties-and-characteristics, culture-resources, biography, the-role-of-the-assistant, essential-elements, sensorial-resources, mathematics-resources. After each upload: the live checks, click speed included. The larger originals come later, page by page.
+5. Fix A on the 14 remaining live pages, all in the 30 Oct chat (owner 15:5x "Yes, all in this chat" - an exception to "One page per chat" for this work only), most images first (owner 15:3x). Checks one page at a time, nothing else running; after each upload the live checks (click speed included) before the next page.
+   a. Once, first: a new version of the fix-A comparison allowing exactly two changes - fix A and copy protection - tested on all 7 pages below and on one copy with an extra change, which it must reject (lessons 10, 31).
+   b. The 7 pages WITHOUT copy protection (checked 30 Oct 15:41): fix A + copy protection in one upload (owner 15:49 "Yes"): the-culture-curriculum, the-sensorial-curriculum, the-practical-life-curriculum-2, the-mathematics-curriculum, a-montessori-journey, biography, sensorial-resources. On the-culture-curriculum only, the squeezed text at 1020-1050 px, if still found, is allowed (owner 15:5x "Allow it this time").
+   c. The 7 pages WITH copy protection: fix A alone (owner 15:3x "Fix A alone now"; her 29 Oct 20:08 confirmation), tools-v5-fixA/gate_live.sh: the-prepared-environment, the-montessori-curriculum, play-varieties-and-characteristics, culture-resources, the-role-of-the-assistant, essential-elements, mathematics-resources.
+   On all 14 the old image-load line appears exactly once (checked 15:4x). The larger originals come later, page by page.
 6. Menu panels that do not close on a second click (20 older pages; the list is not saved - measure again to find them).
 7. The History of Education scrolls sideways at 641 px (re-measure first).
 8. End of 30 Oct: copy protection on the live pages still without it (owner 09:38: 9 pages; Aun Aprendo now has it); the 30 Oct handover.
