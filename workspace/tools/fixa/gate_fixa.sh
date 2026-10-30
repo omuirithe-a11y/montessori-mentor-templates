@@ -31,7 +31,8 @@ p=$(unzip -p "$Z" "$SLUG/index.html" | grep -o 'id="mm-protect"\|id="mm-protect-
 for k in place lines format screens; do f="$Z.$k.txt"; if [ ! -s "$f" ] || [ "$f" -ot "$Z" ]; then echo "$k: missing or older than the zip"; bad=1; continue; fi
   case $k in
     place) tail -1 "$f" | grep -q '^PLACE OK$' && echo "placement: PLACE OK" || { echo "placement: $(tail -1 "$f")"; bad=1; } ;;
-    lines) if grep -q 'line-through-text [1-9]' "$f"; then echo "lines through text: FAULT"; bad=1; else echo "lines through text: 0 at $(grep -c 'line-through-text 0' "$f") widths"; fi ;;
+    lines) n0=$(grep -c 'line-through-text 0$' "$f"); nl=$(grep -c . "$f")   # 30 Oct 17:5x: every line must read "... line-through-text 0" (a CROSS line or any other line fails - Culture printed CROSS lines and the old test let them through)
+           if [ "$n0" -ge 8 ] && [ "$n0" = "$nl" ]; then echo "lines through text: 0 at $n0 widths"; else echo "lines through text: FAULT ($n0 of $nl lines read 0)"; bad=1; fi ;;
     format) echo "format: $(tail -1 "$f" | cut -c1-160)"; grep -q '^RESULT' "$f" || bad=1 ;;
     screens) tail -1 "$f" | grep -q 'NO UNLISTED FAULTS SEEN' && echo "screenshot review: NO UNLISTED FAULTS SEEN" || { echo "screenshot review: $(tail -1 "$f" | cut -c1-120)"; bad=1; } ;;
   esac; done
