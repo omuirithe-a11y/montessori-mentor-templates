@@ -48,3 +48,6 @@ The templates (Essay, Resources, org-rule) are not copied here: the master copie
   descriptions emptied (Prepared Environment, Role of the Assistant, Classroom Management, Observations).
   check-tools-v6-test/strip_compare.py also lists any image with a description (none allowed since 28 Oct).
 - records/START-HERE-30oct.md: the copy of claude/START-HERE.md as written to the Project on 30 Oct 12:2x (shortened, quick start).
+- 12:5x-13:1x: build_page.py - shown copies 960 px on the longer side, quality 85, as the live pages' (were width 960,
+  quality 88); ROWS_ONE_GROUP page setting (all image rows one width). pages/aun-aprendo.py - ROWS_ONE_GROUP (owner 12:50).
+  check-tools-v6-test/strip_compare.py pinned to the template under test (25b728e6...).

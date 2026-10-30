@@ -1129,7 +1129,9 @@ def main():
             report.append(('photo', k, 'WARNING: %s has a mostly white edge (%.0f%%) - an object on white? If so, name it in MASK_WHITE; a book cover or page keeps its white' % (name, _edge * 100)))
         # 30 Oct 2026 (owner 09:09, "Up to 2900 px - yes"): the large copy up to 2900 on its long side (was 2400), never enlarged
         big = im.copy(); big.thumbnail((2900, 2900)); big.save(os.path.join(imgdir, k + '.jpg'), quality=92)
-        sw_ = a.shown_width; sm = im.copy(); sm.thumbnail((sw_, 10000)); sm.save(os.path.join(imgdir, '%s-%d.jpg' % (k, sw_)), quality=88)
+        # 30 Oct 2026 12:5x: the shown copy fits in a square of the shown size (its longer side), quality 85 - as the live pages'
+        # copies (live Aun Aprendo 003-960.jpg: 726x960, quality 85); width-only sizing made upright images up to 1.75x heavier
+        sw_ = a.shown_width; sm = im.copy(); sm.thumbnail((sw_, sw_)); sm.save(os.path.join(imgdir, '%s-%d.jpg' % (k, sw_)), quality=85)
         img['src'] = 'images/%s-%d.jpg' % (k, sw_); img['data-full'] = 'images/%s.jpg' % k
         report.append(('photo', k, name + ' %dx%d' % im.size + (' (scaled to 2900 long side)' if max(im.size) > 2900 else '')))
     content = ''.join(str(c) for c in main_el.contents)
@@ -1182,6 +1184,12 @@ def main():
             _left_css += '@media %s{html body main .mm-left%d,html body main .mm-left%d *{text-align:left !important;text-align-last:auto !important}}' % (_media, _k, _k)
             report.append(('settings', 'line not justified', '%s at %s' % (_start, _media)))
         content = str(_sp)
+    # 30 Oct 2026 (owner 12:50, Aun Aprendo: "this page is an exception ... if the images don't align on the edge they will look
+    # bad"): ROWS_ONE_GROUP - every image row in one group (no data-level), so the template gives them all one width, as live
+    if S.get('ROWS_ONE_GROUP'):
+        _sp = BeautifulSoup(content, 'html.parser'); _rk = 0
+        for _r in _sp.select('div.mm-row[data-level]'): del _r['data-level']; _rk += 1
+        content = str(_sp); report.append(('settings', 'image rows in one group (one width), as live', '%d rows' % _rk))
     # 30 Oct 2026 (owner 12:15-12:18; her rules of 15 Oct "remove such additions when found" and 27 Oct "The templates are in
     # github. They are the source"): the build's own labels the template never reads are left out of the page - the picture's
     # Word name (data-name, kept only where CENTRE_ON needs it), the classes landscape/portrait, and the inline --ar / --hg

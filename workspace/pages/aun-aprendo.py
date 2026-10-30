@@ -33,3 +33,5 @@ ALT_TEXT = {}   # 30 Oct 2026: none - owner 28 Oct, image descriptions "are not 
 # grey text lines. Owner 24 Oct 15:54: "If there's a fault error mistake typo etc correct it immediately".
 NAME_LINES = ['Laura in Chennai', 'Pete and all my colleagues in Tokyo', 'Suly and Sammi and Heyao and Alison', 'Serena in Beijing',
               'Nana in Shanghai', 'Marion and Olga and Stephanie', 'Crystal in Taipei', 'Naomi in Shanghai', 'Fiona and Lele in Beijing']
+# ROWS_ONE_GROUP (owner 30 Oct 12:50): this page's image rows all one width, edges lined up, as on the live page
+ROWS_ONE_GROUP = True
