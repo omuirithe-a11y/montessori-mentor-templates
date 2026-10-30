@@ -1,0 +1,54 @@
+<style id="mm-res-live-css">
+/* 21 Oct 2026 13:40 (user: "use culture resources live page to build the resources section on this page"): the live Culture
+   Resources page's own figures for its entries - descriptions 37.2px apart line to line (36 on phones), a book cover beside an
+   entry 168 high (180 on phones) */
+html body main section:has(> h2.mm-hc-00B050) p.res-desc{line-height:37.2px !important}
+html body main section:has(> h2.mm-hc-00B050) .res-entry > h3.material-name{margin-top:0 !important;margin-bottom:0 !important}   /* the space above an entry is set on the entry, so the name's own margin cannot fold into it */
+html body main section:has(> h2.mm-hc-00B050) .mm-float .pim{height:168px !important;width:auto !important}
+html body main section:has(> h2.mm-hc-00B050) .res-entry > .mm-float{float:right !important;clear:right;width:auto !important;margin:0 0 8px 24px !important;display:block !important}   /* the live page keeps a cover beside its entry at every width */
+@media (max-width:640px){html body main section:has(> h2.mm-hc-00B050) p.res-desc{line-height:36px !important}
+ html body main section:has(> h2.mm-hc-00B050) .mm-float .pim{height:180px !important}}
+</style>
+<script id="mm-res-live-js">
+/* 21 Oct 2026 18:2x: desktop head 29.5 (was 31) - set by this script's own measure, it gave 32 in pixels against the live page's 30.5 in pixels.
+   21 Oct 2026: the spaces in the Resources part, letters to letters, as the live Culture Resources page measures at 1280 and 390
+   (Playwright + Chromium, 21 Oct 13:4x): set after every layout of the page, three passes */
+(function(){
+  var D={head:29.5,entry:{'res-desc':43.8,'res-item':44},in:{'material-name>res-desc':19.3,'material-name>res-item':19,'res-desc>res-desc':25,'res-item>res-desc':18.7,'res-desc>res-item':33.8,'res-item>res-item':18}};
+  var P={head:30,entry:{'res-desc':44.5,'res-item':48.3},in:{'material-name>res-desc':18.6,'material-name>res-item':18.3,'res-desc>res-desc':25.8,'res-item>res-desc':23,'res-desc>res-item':34.5,'res-item>res-item':18.3}};
+  var cv=document.createElement('canvas').getContext('2d');
+  function ink(el,top,nob){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,v=null,r=document.createRange();
+    while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var pe=n.parentElement;if(pe.closest('a.pdf,.mm-float'))continue;var c=getComputedStyle(pe);if(c.display==='none')continue;
+      cv.font=c.fontStyle+' '+c.fontWeight+' '+c.fontSize+' '+c.fontFamily;var fm=cv.measureText('Hg'),s=n.nodeValue;
+      for(var i=0;i<s.length;i++){if(!s[i].trim())continue;r.setStart(n,i);r.setEnd(n,i+1);var b=r.getClientRects()[0];if(!b||!b.width)continue;
+        var base=b.top+(b.height-(fm.fontBoundingBoxAscent+fm.fontBoundingBoxDescent))/2+fm.fontBoundingBoxAscent,m=cv.measureText(s[i]);
+        var y=top?base-m.actualBoundingBoxAscent:base+m.actualBoundingBoxDescent;v=v===null?y:(top?Math.min(v,y):Math.max(v,y));}}
+    if(!top&&!nob)[].forEach.call(el.querySelectorAll('a.pdf'),function(a){if(a.closest('.mm-float'))return;var q=a.getBoundingClientRect();if(q.height)v=v===null?q.bottom:Math.max(v,q.bottom);});
+    return v;}
+  function kind(e){return (e.className||'').split(' ')[0];}
+  function set(el,want,from,to){if(from===null||to===null)return;var mt=parseFloat(getComputedStyle(el).marginTop)||0;el.style.setProperty('margin-top',(mt+want-(to-from)).toFixed(2)+'px','important');}
+  function run(){var sec=document.querySelector('main section:has(> h2.mm-hc-00B050)');if(!sec)return;var F=window.innerWidth<=640?P:D;
+    var h=sec.querySelector(':scope > h2'),ents=[].slice.call(sec.querySelectorAll(':scope > .res-entry'));if(!h||!ents.length)return;
+    for(var k=0;k<3;k++){
+      var hb=parseFloat(getComputedStyle(h).borderBottomWidth)>0?h.getBoundingClientRect().bottom:ink(h,false);
+      set(ents[0],F.head,hb,ink(ents[0],true));
+      ents.forEach(function(e,i){
+        var kids=[].filter.call(e.children,function(x){return !x.classList.contains('mm-float')&&x.textContent.trim();});
+        for(var j=1;j<kids.length;j++){var w=F.in[kind(kids[j-1])+'>'+kind(kids[j])];if(kids[j].tagName==='P'&&kids[j].querySelector('strong')&&kids[j].textContent.trim()===kids[j].querySelector('strong').textContent.trim())w=40;   /* user 21 Oct 19:41: a bold line inside an entry (Materials for Trainers, Supporting Materials) 40 above */
+        if(w!==undefined&&!kids[j].hasAttribute('data-gap'))set(kids[j],w,ink(kids[j-1],false),ink(kids[j],true));}   /* 22 Oct 2026: a line with its own letters-to-letters space (data-gap) is left to letter-gaps */
+        var pr=e.previousElementSibling;if(i>0&&pr&&pr.classList.contains('mm-org-rule'))return;   /* user 21 Oct 19:39-19:40: a beige line between entries keeps its own 30/30 (org-rule) */
+        if(i>0){var pk=[].filter.call(ents[i-1].children,function(x){return !x.classList.contains('mm-float')&&x.textContent.trim();}).pop();
+          var we=F.entry[pk?kind(pk):'res-desc'];if(we===undefined)we=F.entry['res-desc'];set(e,we,ink(ents[i-1],false,true),ink(e,true));}   /* between entries, as the live page measures: from the last letters, a PDF badge left out */
+      });}
+  }
+  function tops(){var sec=document.querySelector('main section:has(> h2.mm-hc-00B050)');if(!sec)return;   /* a cover beside an entry starts level with the top of the letters of its first line (your 20 Oct rule), at every width */
+    [].forEach.call(sec.querySelectorAll('.res-entry > .mm-float'),function(f){var e=f.parentElement,pim=f.querySelector('.pim');if(!pim)return;
+      for(var k=0;k<3;k++){var t=ink(e,true);if(t===null)return;var mt=parseFloat(getComputedStyle(f).marginTop)||0;f.style.setProperty('margin-top',(mt+t-pim.getBoundingClientRect().top).toFixed(2)+'px','important');}});}
+  var run0=run;run=function(){run0();tops();if(window.__mmKeepSize)window.__mmKeepSize();};
+  window.__mmResLive=run;
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+  window.addEventListener('load',function(){setTimeout(run,900);setTimeout(run,2000);});
+  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,500);});
+  document.addEventListener('load',function(e){if(e.target&&e.target.tagName==='IMG')setTimeout(run,200);},true);
+})();
+</script>

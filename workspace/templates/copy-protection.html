@@ -1,0 +1,26 @@
+<!-- Copy protection, taken from the live Role of the Adult page on 20 Oct 2026. Add only when a page is published: the style block goes at the end of <head>, the script just before </body>. -->
+<style id="mm-protect">/* Copy protection (28 Sept, TEMPLATE.md) */
+html,body,main#content,.hero{-webkit-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none}
+main#content img,#lightbox img{-webkit-touch-callout:none;-webkit-user-drag:none;user-drag:none}
+</style>
+<script id="mm-protect-js">/* Copy protection (28 Sept, TEMPLATE.md) */
+(function(){
+  var TEXT = 'body', PHOTOS = 'main#content img, #lightbox img';
+  function el(n){ return n && (n.nodeType === 1 ? n : n.parentElement); }
+  function inText(n){ n = el(n); return !!(n && n.closest && n.closest(TEXT)); }
+  function isPhoto(n){ n = el(n); return !!(n && n.tagName === 'IMG' && n.closest(PHOTOS)); }
+  function covers(s){   // any part of the selection inside the protected text (also select-all from menu to footer)
+    if (!s || !s.rangeCount) return false;
+    var zones = document.querySelectorAll(TEXT);
+    for (var i = 0; i < s.rangeCount; i++) { var r = s.getRangeAt(i);
+      for (var j = 0; j < zones.length; j++) if (r.intersectsNode(zones[j])) return true; }
+    return false; }
+  function noCopy(e){ if (inText(e.target) || covers(window.getSelection())) e.preventDefault(); }
+  document.addEventListener('copy', noCopy, true);
+  document.addEventListener('cut', noCopy, true);
+  document.addEventListener('paste', function(e){ e.preventDefault(); }, true);
+  document.addEventListener('selectstart', function(e){ e.preventDefault(); }, true);
+  document.addEventListener('contextmenu', function(e){ if (isPhoto(e.target)) e.preventDefault(); }, true);
+  document.addEventListener('dragstart', function(e){ if (isPhoto(e.target)) e.preventDefault(); }, true);
+})();
+</script>

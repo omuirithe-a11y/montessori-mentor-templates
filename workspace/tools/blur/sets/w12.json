@@ -1,0 +1,225 @@
+{
+ "src": "/home/claude/mm/word12/out",
+ "work": "/home/claude/mm/word12/out/work",
+ "media": "/home/claude/mm/word12/Word images 12.docx.media",
+ "out": "/home/claude/mm/blur2/m_w12",
+ "docx": "/home/claude/mm/word12/Word images 12.docx",
+ "prev": "/home/claude/mm/blur2/outw12/faces.json",
+ "answers": {
+  "8-d": {
+   "add_oval": true,
+   "oval_scale": 0.9,
+   "mesh_only": true,
+   "note": "23:47 'the ear or hair or neck have been blurred 8d' and 23:5x 'it's missing her nose each time' -> no mesh on this profile: the oval (0.9) centred on her eye, nose and mouth points added, labels cut back to the box"
+  },
+  "8-a": {
+   "note": "23:17 'needs to be edited in some way - moved, deepened' -> re-centred on the five points by the method; say if more is needed"
+  },
+  "4-a": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:47 'blurring not covering enough 4a' -> mesh re-fitted where found, oval added where not"
+  },
+  "6-b": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:47 'blurring not covering enough 6b' -> mesh re-fitted where found, oval added where not"
+  },
+  "8-c": {
+   "cut": [
+    [
+     930,
+     570,
+     986,
+     585
+    ],
+    [
+     930,
+     585,
+     983,
+     600
+    ],
+    [
+     968,
+     600,
+     983,
+     640
+    ]
+   ],
+   "note": "check 06:0x (agent, v19): the teacher's sleeve and card in front of the mouth lay inside - hand cut in front of the mouth and chin (26 Oct 06:3x) | check 06:4x (agent, v20): the blur reached the teacher's sleeve and card in front of the face - hand cuts along the profile, about 0.03 w in front of the skin (26 Oct 06:5x)"
+  },
+  "2-b": {
+   "cut": [
+    [
+     900,
+     330,
+     986,
+     365
+    ],
+    [
+     900,
+     365,
+     989,
+     395
+    ],
+    [
+     900,
+     395,
+     993,
+     409
+    ],
+    [
+     900,
+     409,
+     983,
+     415
+    ],
+    [
+     900,
+     415,
+     992,
+     440
+    ]
+   ],
+   "note": "check 06:4x (agent, v20): the blur reached the bin and shelf in front of the face - hand cuts along the profile, about 0.03 w in front of the skin (26 Oct 06:5x) | check 07:2x-07:3x (agent, v21): the eye-and-nose cut stopped behind the area's edge - moved to the checker's measured line, x 989 (26 Oct 07:4x) | check 07:4x (agent, v21b): under the nose the shelf lip stayed inside - a step at the checker's measured line (x 993, y 395-409) (26 Oct 07:5x)"
+  },
+  "5-a": {
+   "cut": [
+    [
+     568,
+     380,
+     700,
+     450
+    ],
+    [
+     559,
+     452,
+     700,
+     472
+    ],
+    [
+     568,
+     450,
+     700,
+     500
+    ],
+    [
+     550,
+     500,
+     700,
+     540
+    ],
+    [
+     540,
+     540,
+     700,
+     600
+    ],
+    [
+     553,
+     447,
+     700,
+     476
+    ]
+   ],
+   "note": "check 06:4x (agent, v20): the blur reached the shelf and box in front of the face - hand cuts along the profile, about 0.03 w in front of the skin (26 Oct 06:5x) | check 07:2x-07:3x (agent, v21): the cut ran through the nose - moved forward to the checker's measured line, x 568 (26 Oct 07:4x) | check 07:4x (agent, v21b): a box edge in the hollow between nose and lip stayed inside - a step at the checker's measured line (x 559, y 452-472) (26 Oct 07:5x) | check 07:5x (agent, v21c): the short step was smoothed away by the feather - a longer step further back as the checker measured (x 553, y 447-476) (26 Oct 07:5x)"
+  },
+  "10-b": {
+   "note": "check 06:4x (agent, v20): the blur reached the neighbour's T-shirt and sleeve in front of the face - hand cuts along the profile, about 0.03 w in front of the skin (26 Oct 06:5x) | check 07:2x-07:3x (agent, v21): the cut ran through the eye and nose - moved forward to the checker's measured line, x 417 (26 Oct 07:4x) | check 07:4x (agent, v21b): the sleeve in front of the mouth and chin was inside - stepped cuts following the checker's measured skin line (413/418/404/394) (26 Oct 07:5x) | check 07:5x (agent, v21c): the brow edge in the v21b table was wrong (skin ends at full x 1150-1170) - stepped cuts from the checker's re-measured line (410/406/418/402/404/390/380) (26 Oct 07:5x) | check 07:5x (agent, v21d): brow, top of the mouth and the card under the jaw 1-6 px past the allowance - the checker's longer cuts (405 / 403 / 384-369 diagonal), the nose step kept (26 Oct 07:5x) | check 08:0x (agent, v21e): the brow and the card corner still 0.063-0.072 w - the checker's block cuts (x 402 over y 700-740; x 374 over y 832-856 - 3 px further back than suggested, because the area grows 0.03 w after the cut) (26 Oct 08:0x)",
+   "cut": [
+    [
+     413,
+     560,
+     520,
+     678
+    ],
+    [
+     410,
+     678,
+     520,
+     692
+    ],
+    [
+     406,
+     692,
+     520,
+     740
+    ],
+    [
+     418,
+     740,
+     520,
+     773
+    ],
+    [
+     402,
+     773,
+     520,
+     785
+    ],
+    [
+     404,
+     785,
+     520,
+     806
+    ],
+    [
+     390,
+     806,
+     520,
+     823
+    ],
+    [
+     380,
+     823,
+     520,
+     900
+    ],
+    [
+     405,
+     709,
+     520,
+     733
+    ],
+    [
+     403,
+     764,
+     520,
+     792
+    ],
+    [
+     384,
+     830,
+     520,
+     836
+    ],
+    [
+     377,
+     836,
+     520,
+     842
+    ],
+    [
+     369,
+     842,
+     520,
+     848
+    ],
+    [
+     402,
+     700,
+     520,
+     740
+    ],
+    [
+     374,
+     832,
+     520,
+     856
+    ]
+   ]
+  }
+ },
+ "candidates_ok": [],
+ "candidates_note": "26 Oct 01:4x: the three 0.5-0.9 RetinaFace candidates (8@1012,590 an ear; 9@678,69 back of a head; 12@944,1076 an ear) judged by Claude by eye: none is a face."
+}

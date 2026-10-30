@@ -1,0 +1,7 @@
+main h2:not(.mm-hc-00B050),main .section h2:not(.mm-hc-00B050){color:#0432FF !important;font-size:18px !important;font-weight:400 !important;border-bottom:0 !important;padding-bottom:0 !important}
+main h2.mm-hc-EE0000,main .section h2.mm-hc-EE0000,main h3.mm-hc-EE0000{color:#EE0000 !important}
+main h2.mm-hc-FF0000,main .section h2.mm-hc-FF0000,main h3.mm-hc-FF0000{color:#FF0000 !important}
+main .mm-float .pim{height:150px !important;width:auto !important}
+main .micro-label[data-word-bold="1"]{font-weight:700 !important}
+main p em,main li em,main p i,main li i{font-style:italic !important}main .micro-label em,main .micro-label i{font-style:italic !important}
+main em *,main i *,main blockquote p *{font-style:inherit !important}

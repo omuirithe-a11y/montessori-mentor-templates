@@ -1,0 +1,362 @@
+{
+ "src": "/home/claude/mm/w220/build/the-prepared-environment/faces",
+ "work": "/home/claude/mm/w220/build/the-prepared-environment/faces/work",
+ "media": "/home/claude/mm/p220/2.2.0 The Prepared Environment.docx.media",
+ "out": "/home/claude/mm/blur2/m_pe",
+ "docx": "/home/claude/mm/p220/2.2.0 The Prepared Environment.docx",
+ "prev": "/home/claude/mm/blur2/out220/faces.json",
+ "answers": {
+  "17-a": {
+   "note": "23:45 'blurring completely missed 17a' -> the face is in extra_faces with hand points (adjusted box); blurred by the method"
+  },
+  "20-a": {
+   "feather": 0.14,
+   "note": "23:45 'edges too hard' -> feather softer than standard; 26 Oct 10:17 'blurring not covering enough 20ab' -> mesh re-fitted (item 15), area grown 0.08 w, feather 0.14 w (softer than the standard 0.08, so the edges stay soft, but no longer so wide that the eyes and mouth near the edge keep too little blur) (10:18)",
+   "refit": true,
+   "grow": 0.08
+  },
+  "20-b": {
+   "feather": 0.14,
+   "note": "23:45 'edges too hard' -> feather softer than standard; 26 Oct 10:17 'blurring not covering enough 20ab' -> mesh re-fitted (item 15), area grown 0.08 w, feather 0.14 w (softer than the standard 0.08, so the edges stay soft, but no longer so wide that the eyes and mouth near the edge keep too little blur) (10:18)",
+   "refit": true,
+   "grow": 0.08
+  },
+  "25-c": {
+   "feather": 0.2,
+   "note": "23:45 'edges too hard' -> feather sigma 0.2 on this face (item 15)"
+  },
+  "19-b": {
+   "mesh_only": true,
+   "oval_scale": 0.9,
+   "note": "23:45 'the ear or hair or neck have been blurred' -> cut back to the mesh outline where found; where there is no mesh, the oval scaled to 0.9 and the face shown again"
+  },
+  "26-a": {
+   "mesh_only": true,
+   "oval_scale": 0.9,
+   "note": "23:45 'the ear or hair or neck have been blurred' -> cut back to the mesh outline where found; where there is no mesh, the oval scaled to 0.9 and the face shown again"
+  },
+  "26-b": {
+   "mesh_only": true,
+   "oval_scale": 0.9,
+   "note": "23:45 'the ear or hair or neck have been blurred' -> cut back to the mesh outline where found; where there is no mesh, the oval scaled to 0.9 and the face shown again"
+  },
+  "43-b": {
+   "mesh_only": true,
+   "oval_scale": 0.9,
+   "note": "23:45 'the ear or hair or neck have been blurred' -> cut back to the mesh outline where found; where there is no mesh, the oval scaled to 0.9 and the face shown again"
+  },
+  "70-k": {
+   "mesh_only": true,
+   "oval_scale": 0.9,
+   "note": "23:45 'the ear or hair or neck have been blurred' -> cut back to the mesh outline where found; where there is no mesh, the oval scaled to 0.9 and the face shown again"
+  },
+  "71-d": {
+   "mesh_only": true,
+   "oval_scale": 0.9,
+   "note": "23:45 'the ear or hair or neck have been blurred' -> cut back to the mesh outline where found; where there is no mesh, the oval scaled to 0.9 and the face shown again"
+  },
+  "71-e": {
+   "mesh_only": true,
+   "oval_scale": 0.9,
+   "note": "23:45 'the ear or hair or neck have been blurred' -> cut back to the mesh outline where found; where there is no mesh, the oval scaled to 0.9 and the face shown again | check 06:0x (agent part 2, v19): the ear still inside - hand cut over the ear (26 Oct 06:3x) | check 06:5x (agent part 2, v20): the area ran down the neck to the collar - hand cut below the jaw and behind it (26 Oct 06:5x) | check 07:2x-07:3x (agent, v21): a piece of area was left on the back of the neck and the main area ran 0.15 w down the neck behind the lobe - cut (26 Oct 07:4x)",
+   "cut": [
+    [
+     838,
+     418,
+     872,
+     458
+    ],
+    [
+     880,
+     440,
+     930,
+     520
+    ],
+    [
+     840,
+     486,
+     930,
+     520
+    ],
+    [
+     868,
+     420,
+     935,
+     486
+    ],
+    [
+     855,
+     458,
+     935,
+     486
+    ]
+   ]
+  },
+  "71-f": {
+   "mesh_only": true,
+   "oval_scale": 0.9,
+   "note": "23:45 'the ear or hair or neck have been blurred' -> cut back to the mesh outline where found; where there is no mesh, the oval scaled to 0.9 and the face shown again"
+  },
+  "114-e": {
+   "mesh_only": true,
+   "oval_scale": 0.9,
+   "note": "23:45 'the ear or hair or neck have been blurred' -> cut back to the mesh outline where found; where there is no mesh, the oval scaled to 0.9 and the face shown again"
+  },
+  "2-d": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "27-a": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "31-g": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "42-c": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "63-d": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "68-i": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "68-k": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "70-i": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "70-j": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "78-h": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "81-b": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "83-b": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "91-a": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "93-a": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "118-a": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "119-a": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "137-b": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "146-a": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "147-a": {
+   "refit": true,
+   "add_oval": true,
+   "grow": 0.08,
+   "note": "23:45 'blurring not covering enough 147a' -> mesh re-fitted; the nose tip and lips still lay on the edge (check 03:13), so the area is grown 0.08 of the face width outwards on this face instead of 0.03"
+  },
+  "147-b": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "157-a": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "212-c": {
+   "refit": true,
+   "add_oval": true,
+   "note": "23:45 'blurring not covering enough' -> mesh re-fitted where found (larger outline kept); where there is no mesh, the oval centred on the five points added"
+  },
+  "144-d": {
+   "cut": [
+    [
+     227.54182754182756,
+     308.8803088803089,
+     263.5778635778636,
+     368.0823680823681
+    ],
+    [
+     200,
+     308,
+     240,
+     352
+    ]
+   ],
+   "note": "check 03:54 (agent part 3): the hand box holds the ear in its middle - hand cut over the ear (item 15), 26 Oct 04:1x | check 06:5x (agent part 3, v20): the face's five points were on the ear, leaving the eye on the area's edge - hand points placed on the eye, nose and mouth and the ear cut widened to the whole ear (26 Oct 07:0x)"
+  },
+  "166-b": {
+   "cut": [
+    [
+     1281.9402338674752,
+     332.61152013858816,
+     1361.628410567345,
+     388.04677349501947
+    ]
+   ],
+   "note": "check 03:54 (agent part 3): the oval reached the neighbouring child's head below - hand cut along her hairline (item 15), 26 Oct 04:1x"
+  },
+  "20-h": {
+   "cut": [
+    [
+     574,
+     480.5,
+     600,
+     546.9
+    ]
+   ],
+   "note": "check 03:55 (agent part 1): the table post that hides half the face lay inside the oval - hand cut over the post (item 15), 26 Oct 04:1x | check 06:5x (agent part 1, v20): the cut began 3-4 px before the post and left the corner of the eye sharp - cut moved to start at the post (26 Oct 06:5x)"
+  },
+  "78-j": {
+   "oval_only": true,
+   "note": "check 06:0x (agent part 2, v19): the labels near her points were the girl in front's skin - the oval alone on her face (26 Oct 06:3x)"
+  },
+  "36-c": {
+   "oval_only": true,
+   "note": "check 06:1x (agent part 1, v19): the area missed the left half of a small, soft face - the oval alone, and the box moved to cover the whole face (adjust_faces.json 36 c: [17,11,42,37]) (26 Oct 06:3x)"
+  },
+  "70-g": {
+   "cut": [
+    [
+     1100,
+     550,
+     1160,
+     575
+    ],
+    [
+     1100,
+     575,
+     1172,
+     597
+    ],
+    [
+     1100,
+     597,
+     1182,
+     640
+    ]
+   ],
+   "note": "check 06:5x (agent part 2, v20): the area ran 0.35-0.39 w in front of the face onto the dark shelf - hand cuts along the profile (26 Oct 06:5x)"
+  },
+  "97-a": {
+   "cut": [
+    [
+     70,
+     377,
+     130,
+     400
+    ],
+    [
+     100,
+     362,
+     130,
+     377
+    ],
+    [
+     116.7,
+     327.9,
+     144.5,
+     355.7
+    ]
+   ],
+   "note": "check 06:5x (agent part 2, v20): the area reached 97-b's hair and magenta sweater under her chin - hand cut (26 Oct 06:5x) | check 07:2x-07:3x (agent, v21): the spill onto 97-b's hair to the right of the cheek was not cut (only the sweater was) - cut right of the cheek edge (full x 210) (26 Oct 07:4x)"
+  },
+  "31-i": {
+   "add": [
+    [
+     145,
+     240,
+     160,
+     264
+    ]
+   ],
+   "note": "check 06:5x (agent part 1, v20): no skin found; the area lay on the wall in front of the face - the cheek added by hand (26 Oct 06:5x) | check 06:5x (agent part 1, v20): and the wall in front of the profile cut (26 Oct 06:5x)",
+   "cut": [
+    [
+     161,
+     228,
+     185,
+     272
+    ]
+   ]
+  },
+  "191-d": {
+   "cut": [
+    [
+     434.6,
+     353.4,
+     527.0,
+     367.2
+    ],
+    [
+     437.4,
+     367.2,
+     529.8,
+     388.0
+    ]
+   ],
+   "note": "check 07:2x-07:3x (agent, v21): the shelf in front of the profile lay inside (the detector's nose point is on the shelf) - cut left of the skin (full x 1141/1147) (26 Oct 07:4x)"
+  },
+  "191-c": {
+   "cut": [
+    [
+     588.9,
+     526.6,
+     704.4,
+     579.7
+    ]
+   ],
+   "note": "check 07:2x-07:3x (agent, v21): the neighbour's hair in front of the brow and eye lay inside (the nose point is 0.2 w in front of the nose) - cut left of the profile (full x 1525) (26 Oct 07:4x)"
+  }
+ },
+ "candidates_ok": [
+  "20@557,484"
+ ],
+ "answers_source": "w220/.../faces/review2.json 23:45; keep_unblurred.json carries 2b 8h 24abd 78g 97d 139cd 169e 202a 213c; by_rule carries adults incl. 78-e, 191-e and the printed 193-aa",
+ "candidates_note": "26 Oct 02:1x: 47 RetinaFace 0.5-0.9 candidates judged by Claude by eye (m_pe/candidates.jpg): one is a child's face not yet lettered - image 20, the girl in purple behind the pole, looking down, face showing (20@557,484) - accepted; the rest are backs of heads, ears, hands, objects, drawings, printed images on boards (139 x5, 193 x2, 194, 94), and three adults (63@848,259, 64@700,130, 190@521,176 - adults are left by rule and not lettered when only this pass finds them)."
+}

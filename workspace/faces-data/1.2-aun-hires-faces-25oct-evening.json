@@ -1,0 +1,699 @@
+{
+ "saved": "2026-10-26 00:1x Shanghai",
+ "source_folder": "fx/aun",
+ "note": "The evening of 25 Oct: the user's answers to the lighter-blur sheets (word for word), the faces she said to leave (keep_unblurred), the rules incl. adults (by_rule), and the per-face edits of the trial run (blur_edits; the trial script run_set.py is NOT the agreed method). The agreed method on file is still START-HERE Faces item 3 (v8), rejected 25 Oct 20:23; no replacement is agreed yet.",
+ "keep_unblurred": {
+  "6": "c,k,n",
+  "7": "b,f,i",
+  "13": "n",
+  "16": "e,i",
+  "26": "c"
+ },
+ "by_rule": {
+  "_checked": true,
+  "1": {
+   "b": "adult",
+   "c": "adult - at the back",
+   "a": "a printed portrait on the wall (published image)"
+  },
+  "2": {
+   "a": "adult",
+   "b": "adult"
+  },
+  "3": {
+   "e": "adult",
+   "g": "adult",
+   "o": "adult"
+  },
+  "4": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult",
+   "e": "adult",
+   "f": "adult"
+  },
+  "5": {
+   "a": "adult"
+  },
+  "6": {
+   "a": "adult",
+   "d": "adult"
+  },
+  "7": {},
+  "8": {
+   "i": "adult"
+  },
+  "9": {
+   "b": "adult"
+  },
+  "10": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult"
+  },
+  "14": {
+   "a": "adult"
+  },
+  "15": {
+   "a": "adult"
+  },
+  "16": {
+   "a": "adult"
+  },
+  "17": {
+   "b": "adult"
+  },
+  "18": {
+   "a": "adult"
+  },
+  "19": {
+   "a": "adult"
+  },
+  "20": {
+   "k": "adult"
+  },
+  "21": {
+   "b": "adult",
+   "d": "a framed picture on the shelf (printed)"
+  },
+  "22": {
+   "f": "adult"
+  },
+  "23": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult",
+   "e": "adult",
+   "f": "adult",
+   "g": "adult",
+   "h": "adult",
+   "i": "adult",
+   "j": "adult",
+   "k": "adult"
+  },
+  "24": {
+   "a": "adult"
+  },
+  "25": {
+   "a": "adult"
+  },
+  "27": {
+   "a": "adult",
+   "b": "adult"
+  },
+  "28": {
+   "a": "adult",
+   "b": "adult"
+  },
+  "29": {
+   "a": "adult",
+   "b": "adult"
+  },
+  "30": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult"
+  },
+  "11": {
+   "f": "adult - the teacher with long auburn hair, seated at the left (adults review 25 Oct 23:27, user: \"all adults\" no blurring)"
+  }
+ },
+ "blur_edits": {
+  "11": {
+   "c": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   },
+   "d": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   },
+   "e": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   }
+  },
+  "12": {
+   "j": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   }
+  },
+  "18": {
+   "b": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   }
+  },
+  "19": {
+   "b": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   }
+  },
+  "22": {
+   "c": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   },
+   "d": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   }
+  }
+ },
+ "extra_faces": {
+  "3": [
+   {
+    "box": [
+     1214.7,
+     868.2,
+     1296.5,
+     979.2
+    ],
+    "lm": [
+     [
+      1231,
+      916
+     ],
+     [
+      1241,
+      918
+     ],
+     [
+      1214,
+      927
+     ],
+     [
+      1214,
+      944
+     ],
+     [
+      1220,
+      942
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "pass2 3-2"
+   }
+  ],
+  "7": [
+   {
+    "box": [
+     395.1,
+     661.6,
+     456.5,
+     733.5
+    ],
+    "lm": null,
+    "lm_by_hand": false,
+    "from": "pass2 7-5"
+   },
+   {
+    "box": [
+     345,
+     488,
+     378,
+     525
+    ],
+    "lm": [
+     [
+      360,
+      505
+     ],
+     [
+      370,
+      504
+     ],
+     [
+      374,
+      513
+     ],
+     [
+      364,
+      519
+     ],
+     [
+      371,
+      519
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "check 25 Oct: missed child"
+   },
+   {
+    "box": [
+     380,
+     532,
+     410,
+     565
+    ],
+    "lm": null,
+    "lm_by_hand": false,
+    "from": "check 25 Oct: missed child"
+   }
+  ],
+  "9": [
+   {
+    "box": [
+     315,
+     585,
+     395,
+     655
+    ],
+    "lm": [
+     [
+      346,
+      604
+     ],
+     [
+      356,
+      607
+     ],
+     [
+      378,
+      622
+     ],
+     [
+      362,
+      640
+     ],
+     [
+      374,
+      640
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "pass2 9-1"
+   },
+   {
+    "box": [
+     1235,
+     325,
+     1300,
+     390
+    ],
+    "lm": [
+     [
+      1250,
+      345
+     ],
+     [
+      1268,
+      350
+     ],
+     [
+      1280,
+      365
+     ],
+     [
+      1262,
+      378
+     ],
+     [
+      1275,
+      378
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "pass2 9-2"
+   }
+  ],
+  "12": [
+   {
+    "box": [
+     166.1,
+     604.6,
+     222.5,
+     702.8
+    ],
+    "lm": [
+     [
+      199,
+      643
+     ],
+     [
+      205,
+      645
+     ],
+     [
+      216,
+      656
+     ],
+     [
+      210,
+      666
+     ],
+     [
+      215,
+      668
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "pass2 12-4"
+   }
+  ],
+  "13": [
+   {
+    "box": [
+     656.8,
+     358.8,
+     691.4,
+     411.7
+    ],
+    "lm": null,
+    "lm_by_hand": false,
+    "from": "pass2 13-1"
+   }
+  ],
+  "16": [
+   {
+    "box": [
+     873.5,
+     325.0,
+     884.5,
+     339.6
+    ],
+    "lm": [
+     [
+      877,
+      330
+     ],
+     [
+      881,
+      331
+     ],
+     [
+      879,
+      334
+     ],
+     [
+      877,
+      336
+     ],
+     [
+      881,
+      336
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "pass2 16-1"
+   },
+   {
+    "box": [
+     950,
+     375,
+     990,
+     420
+    ],
+    "lm": [
+     [
+      960,
+      390
+     ],
+     [
+      975,
+      392
+     ],
+     [
+      972,
+      402
+     ],
+     [
+      963,
+      412
+     ],
+     [
+      973,
+      413
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "check 25 Oct: missed child"
+   },
+   {
+    "box": [
+     1222,
+     350,
+     1255,
+     392
+    ],
+    "lm": null,
+    "lm_by_hand": false,
+    "from": "check 25 Oct: missed child"
+   }
+  ],
+  "20": [
+   {
+    "box": [
+     1168.8,
+     302.1,
+     1221.6,
+     355.6
+    ],
+    "lm": [
+     [
+      1178,
+      315
+     ],
+     [
+      1206,
+      319
+     ],
+     [
+      1192,
+      321
+     ],
+     [
+      1189,
+      326
+     ],
+     [
+      1196,
+      326
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "pass2 20-1"
+   }
+  ],
+  "26": [
+   {
+    "box": [
+     470,
+     292,
+     505,
+     330
+    ],
+    "lm": [
+     [
+      475,
+      314
+     ],
+     [
+      494,
+      310
+     ],
+     [
+      486,
+      318
+     ],
+     [
+      487,
+      322
+     ],
+     [
+      494,
+      323
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "check 25 Oct: missed child"
+   },
+   {
+    "box": [
+     520,
+     328,
+     558,
+     365
+    ],
+    "lm": [
+     [
+      530,
+      338
+     ],
+     [
+      545,
+      342
+     ],
+     [
+      544,
+      350
+     ],
+     [
+      533,
+      356
+     ],
+     [
+      542,
+      358
+     ]
+    ],
+    "lm_by_hand": true,
+    "from": "check 25 Oct: missed child"
+   }
+  ]
+ },
+ "hand_points": {
+  "7": {
+   "f": [
+    [
+     788,
+     316
+    ],
+    [
+     814,
+     318
+    ],
+    [
+     806,
+     332
+    ],
+    [
+     795,
+     346
+    ],
+    [
+     810,
+     347
+    ]
+   ]
+  },
+  "12": {
+   "i": [
+    [
+     1380,
+     531
+    ],
+    [
+     1391,
+     534
+    ],
+    [
+     1371,
+     544
+    ],
+    [
+     1368,
+     555
+    ],
+    [
+     1377,
+     558
+    ]
+   ]
+  },
+  "14": {
+   "e": [
+    [
+     792,
+     563
+    ],
+    [
+     817,
+     561
+    ],
+    [
+     811,
+     575
+    ],
+    [
+     813,
+     580
+    ],
+    [
+     828,
+     578
+    ]
+   ]
+  },
+  "22": {
+   "c": [
+    [
+     855,
+     310
+    ],
+    [
+     870,
+     311
+    ],
+    [
+     852,
+     323
+    ],
+    [
+     855,
+     341
+    ],
+    [
+     866,
+     343
+    ]
+   ],
+   "e": [
+    [
+     1010,
+     416
+    ],
+    [
+     1028,
+     430
+    ],
+    [
+     997,
+     437
+    ],
+    [
+     989,
+     450
+    ],
+    [
+     1010,
+     456
+    ]
+   ]
+  }
+ },
+ "adjust_faces": {
+  "20": {
+   "w": [
+    1165,
+    302,
+    1222,
+    340
+   ]
+  }
+ },
+ "review": {
+  "answered": "2026-10-25 20:23-20:24 Shanghai",
+  "answer": "I have reviewed the pages and the blurring is wrong and needs to be changed. Issues:\nThe scan often misses the parts of the face\nThis rigid-lines model is to defined and the blur needs to have softer edges\nThe blurring is inconsistent: sometimes it's extremely intense and other times you can recognise the child because the blurring is barely there\nThe options are to refine the current model or to use another one. What other accurate models are available?\nThis is a selection to illustrate the problem.\nThe problems are not limited to those photos, the problems are on all photos",
+  "result": "REJECTED - all faces; the blur method itself is to change before any sheet is remade",
+  "images_sent": 14,
+  "lighter_blur_sheet_answer": {
+   "answered": "2026-10-25 23:26 Shanghai",
+   "sheet": "Aun-Aprendo-lighter-blur.html",
+   "answer": "aun Aprendo\nBlurring needs to be edited in some way - moved, deepened, etc\n11cde\t12j\t18b\t19b\t22cd\t\nNo Blurring\n6c\t6k \t7b\t7f\t13n\tall adults\n6n\t7i\t16e\t16i\t26c"
+  }
+ }
+}

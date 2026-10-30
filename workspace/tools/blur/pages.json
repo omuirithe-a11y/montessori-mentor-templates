@@ -1,0 +1,96 @@
+{
+ "the-prepared-environment": {
+  "children": "yes",
+  "images": 214,
+  "state": "page-checked",
+  "set": "pe",
+  "words": "no chnages to the prepared environemnt blurring (26 Oct 10:31)",
+  "note": "90 images with a face to blur; rebuilt 26 Oct on templates 6acd357; pixel check after her answer PASSED 14:06",
+  "changed": "2026-10-26 14:1x"
+ },
+ "the-mathematics-curriculum": {
+  "children": "yes",
+  "images": 11,
+  "state": "sent",
+  "set": "w12",
+  "words": "Word-images-no edits (26 Oct 10:22); those blurrings are agreed (26 Oct 14:08)",
+  "note": "images 6,14,15,19,21,23,115,121,128,135,141 -> page files 007,015,016,020,022,024,116,122,129,136,142; swapped into the live page, not rebuilt. Also 5 bigger images with no children (33,36,38,41 need faces; 119 no blurring)",
+  "changed": "2026-10-26 14:16"
+ },
+ "play-varieties-and-characteristics": {
+  "children": "yes",
+  "images": 1,
+  "state": "sent",
+  "set": "w12",
+  "words": "Word-images-no edits (26 Oct 10:22); those blurrings are agreed (26 Oct 14:08)",
+  "note": "image 33 -> page file 034; swapped into the live page",
+  "changed": "2026-10-26 14:16"
+ },
+ "aun-aprendo": {
+  "children": "yes",
+  "images": 30,
+  "state": "round2-answered",
+  "set": "aun",
+  "words": "aun aprendo - no edits (26 Oct 10:21)",
+  "note": "her 25 Oct placements: images 25-27 replaced by U15/U16, Naomi row, Geneva row, 54 and 57 replaced",
+  "changed": "2026-10-26 14:1x"
+ },
+ "a-montessori-journey": {
+  "children": "no",
+  "images": 113,
+  "state": "no-blur-needed",
+  "words": "A Montessori Journey - no blurring required (26 Oct 13:33)",
+  "note": "her 25 Oct placements: Geneva row, Naomi row, image 130 off the page, U2/U3 for image 79",
+  "changed": "2026-10-26 14:1x"
+ },
+ "biography": {
+  "children": "no",
+  "images": 6,
+  "state": "no-blur-needed",
+  "words": "Biography - no blurring required (26 Oct 13:34)",
+  "changed": "2026-10-26 14:1x"
+ },
+ "the-culture-curriculum": {
+  "children": "not checked",
+  "images": 19,
+  "state": "new",
+  "words": "No blurring needed for the following: The Culture Curriculum - 61, 182, 194, 223 (26 Oct 13:40)",
+  "note": "15 still to check for faces: 33,38,58,59,60,63,65,73,77,145,186,190,222,224,227",
+  "changed": "2026-10-26 14:1x"
+ },
+ "the-role-of-the-adult": {
+  "children": "not checked",
+  "images": 4,
+  "state": "new",
+  "note": "images 29,36,52,55 - she named no exceptions for this page, so all 4 go through the faces steps",
+  "changed": "2026-10-26 14:1x"
+ },
+ "the-practical-life-curriculum-2": {
+  "children": "no",
+  "images": 4,
+  "state": "no-blur-needed",
+  "words": "No blurring needed for the new images on the following pages: The Practical Life Curriculum (26 Oct 13:40)",
+  "changed": "2026-10-26 14:1x"
+ },
+ "the-role-of-the-adult-resources": {
+  "children": "no",
+  "images": 2,
+  "state": "no-blur-needed",
+  "words": "No blurring needed for the new images on the following pages: The Role of the Adult  Resources (26 Oct 13:40)",
+  "changed": "2026-10-26 14:1x"
+ },
+ "sensorial-resources": {
+  "children": "no",
+  "images": 1,
+  "state": "no-blur-needed",
+  "words": "No blurring needed for the new images on the following pages: Sensorial Resources (26 Oct 13:40)",
+  "changed": "2026-10-26 14:1x"
+ },
+ "the-sensorial-curriculum": {
+  "children": "no",
+  "images": 1,
+  "state": "no-blur-needed",
+  "words": "No blurring needed for the new images on the following pages: The Sensorial Curriculum (26 Oct 13:40)",
+  "changed": "2026-10-26 14:1x"
+ }
+}

@@ -1,0 +1,47 @@
+<script id="mm-pdf-column-js">/* 20 Oct 2026, every Resources page (your words, 19:1x: "when PDF are close by each other like this. place them in a
+   column"): PDF badges on neighbouring lines - paragraphs that follow one another with nothing between them - stand in
+   one column: 24 after the longest text of the group, or further where the PDF puts its links further (data-tabx, the
+   PDF's place in points, scaled by how much wider the page's text is than the PDF's). Where the column would run past the
+   right margin (phones), each badge stands 24 after its text, and a badge that drops to a line of its own starts at the
+   margin. A badge with no neighbour stays 24 after its text. */
+(function(){
+ function textEnd(a){var p=a.closest('p'),r=document.createRange();r.setStart(p,0);r.setEndBefore(a);
+  var rs=[].filter.call(r.getClientRects(),function(q){return q.width>0.5;});return rs.length?rs[rs.length-1]:null;}
+ function badge(p){var a=p.lastElementChild;if(a&&a.matches('span.mm-bj'))a=a.lastElementChild;return a&&a.matches('a.pdf')?a:null;}
+ function groups(){var out=[],seen=new Set();
+  [].forEach.call(document.querySelectorAll('main p > a.pdf, main p > span.mm-bj > a.pdf'),function(a){var p=a.closest('p');if(seen.has(p)||badge(p)!==a)return;
+   var s=p;while(s.previousElementSibling&&s.previousElementSibling.tagName==='P')s=s.previousElementSibling;
+   var g=[];for(var x=s;x&&x.tagName==='P';x=x.nextElementSibling){seen.add(x);var b=badge(x);if(b)g.push(b);}
+   out.push(g);});return out;}
+ function wrapped(bs){bs.forEach(function(a){a.style.setProperty('margin-left','24px','important');var e=textEnd(a);
+  if(false){   /* 22 Oct 2026: replaced by joinBadges - the 20 Oct "a badge on a line of its own starts at the margin" no longer happens */
+   var e2=textEnd(a);if(e2&&a.getBoundingClientRect().top<=e2.top+e2.height/2){   /* it fits beside the text only without its 24: it starts the next line, at the margin */
+    var br=document.createElement('br');br.className='mm-bbr';a.parentNode.insertBefore(br,a);}}});}
+ /* 22 Oct 2026 (the 5.5 rule now in the templates, user: "phones: 24 after each title"): a badge never stands alone at the start of a line -
+    the space before it is taken out (its 24 is its own margin), so the title's last word goes to the next line with it */
+ function joinBadges(){[].forEach.call(document.querySelectorAll('main p > a.pdf'),function(a){
+   var t=a.previousSibling;while(t&&t.nodeType===3&&!t.nodeValue.trim()){var q=t.previousSibling;t.parentNode.removeChild(t);t=q;}   /* the space before the badge: its 24 is its own margin */
+   if(!t)return;var sp=document.createElement('span');sp.className='mm-bj';sp.style.whiteSpace='nowrap';
+   if(t.nodeType===3){var s=t.nodeValue.replace(/\s+$/,''),m=s.match(/\S+$/);if(!m)return;t.nodeValue=s.slice(0,m.index);sp.appendChild(document.createTextNode(m[0]));}
+   else{var w=document.createTreeWalker(t,NodeFilter.SHOW_TEXT),n,last=null;while((n=w.nextNode()))if(n.nodeValue.trim())last=n;if(!last||last.parentNode!==t)return;   /* a word inside a coloured span or link: a copy of that element holds it */
+     var s2=last.nodeValue.replace(/\s+$/,''),m2=s2.match(/\S+$/);if(!m2)return;last.nodeValue=s2.slice(0,m2.index);var c=t.cloneNode(false);c.appendChild(document.createTextNode(m2[0]));sp.appendChild(c);}
+   a.parentNode.insertBefore(sp,a);sp.appendChild(a);});}   /* the last word and its badge in one unbreakable span */
+ function run(){joinBadges();[].forEach.call(document.querySelectorAll('main br.mm-bbr'),function(b){b.parentNode.removeChild(b);});
+  var G=groups(),all=[].concat.apply([],G);if(!all.length)return;
+  all.forEach(function(a){a.style.setProperty('margin-left','24px','important');});
+  if(window.innerWidth<=640){wrapped(all);return;}
+  all.forEach(function(a){a.style.setProperty('margin-left','0px','important');});
+  var ks=all.filter(function(a){return +a.dataset.tw>0;}).map(function(a){var e=textEnd(a);return e?(e.right-a.closest('p').getBoundingClientRect().left)/+a.dataset.tw:null;}).filter(Boolean).sort(function(x,y){return x-y;});
+  var k=ks.length?ks[Math.floor(ks.length/2)]:0;
+  G.forEach(function(g){
+   if(g.length<2){wrapped(g);return;}
+   var col=0,ok=true,info=g.map(function(a){var e=textEnd(a),p=a.closest('p').getBoundingClientRect();return {a:a,e:e,p:p,w:a.getBoundingClientRect().width};});
+   info.forEach(function(x){if(!x.e){ok=false;return;}col=Math.max(col,x.e.right-x.p.left+24);if(k&&x.a.dataset.tabx)col=Math.max(col,+x.a.dataset.tabx*k);});
+   info.forEach(function(x){if(ok&&x.p.left+col+x.w>x.p.right+0.5)ok=false;});
+   if(!ok){wrapped(g);return;}
+   info.forEach(function(x){x.a.style.setProperty('margin-left',(x.p.left+col-x.e.right).toFixed(2)+'px','important');});});
+  document.documentElement.setAttribute('data-pdf-column','done');}
+ var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+ window.addEventListener('load',function(){run();setTimeout(run,500);if(document.fonts)document.fonts.ready.then(run);});
+ window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,120);});run();
+})();</script>

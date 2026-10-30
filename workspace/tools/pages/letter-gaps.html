@@ -1,0 +1,40 @@
+<script id="mm-letter-gaps-js">
+/* 22 Oct 2026 (5.5, the user's queued edits: spaces letters to letters): a block with data-gap stands that far below the
+   text above it - from the baseline of the last line above to the top of the capitals of its first line (the measure the
+   gap check U uses). Set after every layout of the page, three passes; every width. */
+(function(){
+  var cv=document.createElement('canvas').getContext('2d');
+  function met(el){var s=getComputedStyle(el);cv.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;var t=cv.measureText('H');return [t.fontBoundingBoxAscent,t.fontBoundingBoxDescent,t.actualBoundingBoxAscent];}
+  function ok(n){var e=n.parentElement;return n.nodeValue.trim()&&e&&!e.closest('script,style,a.pdf,.mm-float,figure')&&e.getClientRects().length;}
+  function lineOf(n,last){var r=document.createRange();r.selectNodeContents(n);var qs=[].filter.call(r.getClientRects(),function(q){return q.height>=5&&q.width>=1;});if(!qs.length)return null;
+    var q=last?qs[qs.length-1]:qs[0],m=met(n.parentElement),b=(q.top+q.bottom)/2+(m[0]-m[1])/2;return {b:b,t:b-m[2]};}
+  function firstTop(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){if(!ok(n))continue;var l=lineOf(n,false);if(l)return l.t;}return null;}
+  function lastBase(el){var m=document.querySelector('main'),w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT),n,best=null;
+    while((n=w.nextNode())){if(el.contains(n))break;if(!(el.compareDocumentPosition(n)&Node.DOCUMENT_POSITION_PRECEDING))continue;if(!ok(n))continue;var l=lineOf(n,true);if(l)best=best===null?l.b:Math.max(best,l.b);}
+    return best;}
+  function tgt(el){var t=el;while(t.parentElement&&t.parentElement.tagName==='SECTION'&&t.parentElement.firstElementChild===t)t=t.parentElement;return t;}
+  /* a photo standing between the text above and this block (phones: the photo is no longer beside the text) - the gap is the template's, not set here */
+  function photoBetween(el){var p=el.previousElementSibling;while(p&&p.matches('.mm-float'))return getComputedStyle(p).float==='none';return false;}
+  function run(){[].forEach.call(document.querySelectorAll('main [data-gap]'),function(el){var want=parseFloat((window.innerWidth<=640&&el.getAttribute('data-gap-phone'))||el.getAttribute('data-gap'));if(photoBetween(el))return;
+    for(var k=0;k<3;k++){var a=lastBase(el),b=firstTop(el);if(a===null||b===null)return;var d=want-(b-a);if(Math.abs(d)<0.05)break;var t=tgt(el),mt=parseFloat(getComputedStyle(t).marginTop)||0;
+      /* 22 Oct 2026 (5.5 "all bold: 40/20"): a bold label's space above is the template's own (its spacing engine sets the label's
+         margin again after every layout, from data-want): the difference goes into data-want, so both agree and nothing fights */
+      if(el.classList.contains('micro-label')){var ds=parseFloat(el.getAttribute('data-want'));if(isNaN(ds))ds=32;var nd=(ds+d).toFixed(2);el.setAttribute('data-want',nd);t.style.setProperty('margin-top',(mt+d).toFixed(2)+'px');continue;}
+      t.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}});}
+  /* a beige line with data-rule-gap: that far from the baseline above to the line, and from the line to the top of the capitals below */
+  function rules(){[].forEach.call(document.querySelectorAll('main [data-rule-gap]'),function(g){var want=parseFloat(g.getAttribute('data-rule-gap'));if(!g.getBoundingClientRect().width)return;
+    for(var k=0;k<3;k++){var a=lastBase(g);if(a===null)break;var d=want-(g.getBoundingClientRect().top-a);if(Math.abs(d)<0.05)break;var mt=parseFloat(getComputedStyle(g).marginTop)||0;g.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}
+    var nx=g.nextElementSibling;if(!nx)return;var wb=parseFloat(g.getAttribute('data-rule-gap-below'));if(!isNaN(wb))want=wb;   /* 22 Oct 2026 (5.5, user 14:00 "change all to 40/25"): a heading under a beige line keeps the headings' space above */
+    
+    for(var j=0;j<3;j++){var b=firstTop(nx);if(b===null)break;var e=want-(b-g.getBoundingClientRect().bottom);if(Math.abs(e)<0.05)break;var t=tgt(nx);if(t===nx&&nx.firstElementChild&&nx.tagName!=='SECTION')t=nx;var m2=parseFloat(getComputedStyle(t).marginTop)||0;t.style.setProperty('margin-top',(m2+e).toFixed(2)+'px','important');}});}
+  var run0=run;run=function(){rules();run0();if(window.__mmKeepSize)window.__mmKeepSize();};
+  window.__mmLetterGaps=run;
+  /* the template's photo-top script re-runs the beige-line script (window.__mmOrgRun) on its own timers: this runs after it each time */
+  var orr=window.__mmOrgRun;if(orr)window.__mmOrgRun=function(){orr();run();};
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+  /* after the beige-line script (load +500, +1400; resize +200) and the template's own passes, which run on their own timers */
+  window.addEventListener('load',function(){setTimeout(run,700);setTimeout(run,1800);setTimeout(run,3000);if(document.fonts)document.fonts.ready.then(function(){setTimeout(run,300);});});
+  window.addEventListener('resize',function(){clearTimeout(run.t);clearTimeout(run.t2);run.t=setTimeout(run,600);run.t2=setTimeout(run,1500);});
+  document.addEventListener('load',function(e){if(e.target&&e.target.tagName==='IMG')setTimeout(run,250);},true);
+})();
+</script>

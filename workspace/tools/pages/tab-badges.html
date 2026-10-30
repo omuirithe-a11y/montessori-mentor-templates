@@ -1,0 +1,29 @@
+<script id="mm-tab-badges-js">/* 20 Oct 2026 (5.2, "the PDF boxes are in the wrong place. check where they should be"): each PDF badge stands where
+   the PDF puts its PDF link - Word's tab stops - scaled from the PDF's points to the page by how much wider the page's
+   text is than the PDF's (the middle value over all the lines). Where a line's text is too long for its place, or the
+   badges would run past the right margin, every badge stands 24 after its text (the old rule), so they never mix. */
+(function(){
+ function textEnd(a){var p=a.parentElement,r=document.createRange();r.setStart(p,0);r.setEndBefore(a);
+  var rs=[].filter.call(r.getClientRects(),function(q){return q.width>0.5;});return rs.length?rs[rs.length-1]:null;}
+ function wrapped(bs){bs.forEach(function(a){a.style.setProperty('margin-left','24px','important');var e=textEnd(a);   /* a badge that drops to a line of its own starts at the margin, not 24 in */
+  if(e&&a.getBoundingClientRect().top>e.top+e.height/2){a.style.setProperty('margin-left','0px','important');
+   var e2=textEnd(a);if(e2&&a.getBoundingClientRect().top<=e2.top+e2.height/2){   /* it fits beside the text only without its 24: it starts the next line, at the margin */
+    var br=document.createElement('br');br.className='mm-bbr';a.parentNode.insertBefore(br,a);}}});}
+ function run(){var bs=[].slice.call(document.querySelectorAll('main a.pdf[data-tabx]'));if(!bs.length)return;
+  [].forEach.call(document.querySelectorAll('main br.mm-bbr'),function(b){b.parentNode.removeChild(b);});
+  wrapped(bs);
+  if(window.innerWidth<=640)return;
+  [].forEach.call(document.querySelectorAll('main br.mm-bbr'),function(b){b.parentNode.removeChild(b);});
+  bs.forEach(function(a){a.style.setProperty('margin-left','0px','important');});
+  var info=bs.map(function(a){var e=textEnd(a),p=a.parentElement.getBoundingClientRect();
+   return {a:a,e:e,p:p,w:a.getBoundingClientRect().width,tx:+a.dataset.tabx,tw:+a.dataset.tw};});
+  var ks=info.filter(function(x){return x.e&&x.tw>0;}).map(function(x){return (x.e.right-x.p.left)/x.tw;}).sort(function(a,b){return a-b;});
+  if(!ks.length)return;var k=ks[Math.floor(ks.length/2)],ok=true;
+  info.forEach(function(x){if(!x.e){ok=false;return;}x.m=x.p.left+x.tx*k-x.e.right;
+   if(x.m<24||x.p.left+x.tx*k+x.w>x.p.right+0.5)ok=false;});
+  if(ok)info.forEach(function(x){x.a.style.setProperty('margin-left',x.m.toFixed(2)+'px','important');});else wrapped(bs);
+  document.documentElement.setAttribute('data-tab-badges',ok?'pdf':'after-text');}
+ var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+ window.addEventListener('load',function(){run();setTimeout(run,500);if(document.fonts)document.fonts.ready.then(run);});
+ window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,120);});run();
+})();</script>

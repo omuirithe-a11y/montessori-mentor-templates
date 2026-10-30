@@ -1,0 +1,246 @@
+{
+ "src": "/home/claude/mm/fx/aun",
+ "work": "/home/claude/mm/fx/aun/work",
+ "media": "/home/claude/mm/fx/Aun Aprendo hi-res.docx.media",
+ "out": "/home/claude/mm/blur2/m_aun",
+ "docx": "/home/claude/mm/fx/Aun Aprendo hi-res.docx",
+ "prev": "/home/claude/mm/blur2/outaun/faces.json",
+ "answers": {
+  "11-c": {
+   "refit": true,
+   "note": "23:26 'Blurring needs to be edited in some way - moved, deepened, etc' -> re-centred on the eye, nose and mouth points by the method, mesh re-fitted where found; say if more is needed"
+  },
+  "11-d": {
+   "refit": true,
+   "note": "23:26 'Blurring needs to be edited in some way - moved, deepened, etc' -> re-centred on the eye, nose and mouth points by the method, mesh re-fitted where found; say if more is needed"
+  },
+  "11-e": {
+   "refit": true,
+   "note": "23:26 'Blurring needs to be edited in some way - moved, deepened, etc' -> re-centred on the eye, nose and mouth points by the method, mesh re-fitted where found; say if more is needed"
+  },
+  "12-j": {
+   "refit": true,
+   "note": "23:26 'Blurring needs to be edited in some way - moved, deepened, etc' -> re-centred on the eye, nose and mouth points by the method, mesh re-fitted where found; say if more is needed"
+  },
+  "18-b": {
+   "refit": true,
+   "note": "23:26 'Blurring needs to be edited in some way - moved, deepened, etc' -> re-centred on the eye, nose and mouth points by the method, mesh re-fitted where found; say if more is needed"
+  },
+  "19-b": {
+   "refit": true,
+   "note": "23:26 'Blurring needs to be edited in some way - moved, deepened, etc' -> re-centred on the eye, nose and mouth points by the method, mesh re-fitted where found; say if more is needed | check 06:5x (agent part 2, v20): the hat brim was inside the area - hand cut along the brim (26 Oct 06:5x) | check 07:2x-07:3x (agent, v21): the brim print still reached 0.146 w into the area - cuts taken about 8 px lower along the brim (26 Oct 07:4x) | check 07:4x (agent, v21b): brim print still inside and the lower chin outside - cuts following the checker's measured brim edge, and the chin added by hand as the checker measured it (26 Oct 07:5x) | check 07:5x (agent, v21c): a patch of the brim's dark underside lay at the top of the area - cut where the checker suggested (x 362-376, y 320-336) (26 Oct 07:5x)",
+   "cut": [
+    [
+     250,
+     300,
+     300,
+     406
+    ],
+    [
+     300,
+     300,
+     310,
+     396
+    ],
+    [
+     310,
+     300,
+     320,
+     389
+    ],
+    [
+     320,
+     300,
+     330,
+     380
+    ],
+    [
+     330,
+     300,
+     340,
+     365
+    ],
+    [
+     340,
+     300,
+     350,
+     348
+    ],
+    [
+     350,
+     300,
+     360,
+     332
+    ],
+    [
+     360,
+     300,
+     372,
+     322
+    ],
+    [
+     362,
+     320,
+     376,
+     336
+    ]
+   ],
+   "add": [
+    [
+     312,
+     410,
+     349,
+     424
+    ],
+    [
+     312,
+     424,
+     343,
+     442
+    ]
+   ]
+  },
+  "22-c": {
+   "refit": true,
+   "note": "23:26 'Blurring needs to be edited in some way - moved, deepened, etc' -> re-centred on the eye, nose and mouth points by the method, mesh re-fitted where found; say if more is needed"
+  },
+  "22-d": {
+   "refit": true,
+   "note": "23:26 'Blurring needs to be edited in some way - moved, deepened, etc' -> re-centred on the eye, nose and mouth points by the method, mesh re-fitted where found; say if more is needed"
+  },
+  "7-h": {
+   "add": [
+    [
+     350,
+     488,
+     374,
+     506
+    ]
+   ],
+   "note": "check 06:5x (agent part 1, v20): the forehead between the goggle strap and the hair was outside the area - added by hand (26 Oct 06:5x)"
+  },
+  "9-e": {
+   "cut": [
+    [
+     1236,
+     318,
+     1260,
+     348
+    ]
+   ],
+   "note": "check 06:5x (agent part 1, v20): the ear was inside the area - hand cut over the ear (26 Oct 06:5x)"
+  },
+  "7-g": {
+   "cut": [
+    [
+     404,
+     722,
+     432,
+     738
+    ]
+   ],
+   "note": "check 06:5x (agent part 1, v20): the strap's printed clip under the chin was inside - hand cut over the clip (26 Oct 06:5x)"
+  },
+  "20-s": {
+   "cut": [
+    [
+     1266,
+     346,
+     1310,
+     400
+    ],
+    [
+     1252,
+     357,
+     1266,
+     400
+    ]
+   ],
+   "note": "check 06:5x (agent part 2, v20): 20-p's hood in front of the mouth was inside the area - hand cut along the hood's edge (26 Oct 06:5x)"
+  },
+  "20-x": {
+   "cut": [
+    [
+     1090,
+     640,
+     1150,
+     680
+    ],
+    [
+     1090,
+     680,
+     1129,
+     694
+    ],
+    [
+     1090,
+     694,
+     1113,
+     706
+    ]
+   ],
+   "note": "check 06:5x (agent part 2, v20): the knitted hat was inside the area - hand cut along the hat (26 Oct 06:5x) | check 07:2x-07:3x (agent, v21): the knit still reached 0.12 w into the area - cuts taken about 4 px further along the hat (26 Oct 07:4x)"
+  },
+  "12-k": {
+   "note": "check 06:5x (agent part 2, v20): the neighbour's cardigan along the profile was inside the area - hand cut in front of the profile (26 Oct 06:5x) | check 07:2x (agent part 2, v21): the cut was placed behind the profile and took the nose and lips out - cut removed; the v20 area (passed by the v20 check, a thin cardigan rim) stands (26 Oct 07:4x) | check 07:4x (agent, v21b): the restored v20 area held 14% of 12-j's cardigan - stepped cuts 2 px in front of the checker's measured profile line (26 Oct 07:5x) | check 07:5x (agent, v21c): the cardigan still lay along the chin up to 0.097 w - the chin steps moved to the checker's suggested x 208/206/202, the lip step kept at the measured lip line (26 Oct 07:5x)",
+   "cut": [
+    [
+     211,
+     596,
+     260,
+     606
+    ],
+    [
+     212,
+     606,
+     260,
+     616
+    ],
+    [
+     213,
+     616,
+     260,
+     626
+    ],
+    [
+     221,
+     626,
+     260,
+     655
+    ],
+    [
+     220,
+     655,
+     260,
+     662
+    ],
+    [
+     208,
+     662,
+     260,
+     668
+    ],
+    [
+     206,
+     668,
+     260,
+     675
+    ],
+    [
+     202,
+     675,
+     260,
+     700
+    ]
+   ]
+  }
+ },
+ "candidates_ok": [
+  "2@781,176"
+ ],
+ "answers_source": "fx/review.json 23:26; keep_unblurred.json carries 6c 6k 7b 7f 13n 6n 7i 16e 16i 26c; by_rule carries the adults incl. 11-f (23:27)",
+ "candidates_note": "26 Oct 02:3x: 7 RetinaFace 0.5-0.9 candidates judged by Claude by eye: 2@781,176 - a small dark face at the edge of the mirror in image 2, which I cannot decide - accepted and blurred (red unless the owner says otherwise); the others are a hand, a cheek with no eye showing (12), a face hidden behind a raised arm (16), objects (27 x2) and the back of an adult's head (29).",
+ "undecided": [],
+ "hand_points_note": "26 Oct 02:4x: hand points placed by Claude by eye for 13-m (child looking down, face in shadow) and 16-h (child behind a raised arm, one eye showing) - both hand-added faces had none and the tool refused them (item 10).",
+ "undecided_note": "2-c was undecided at 02:3x; by rule 03:2x: not a face (mirror frame)."
+}

@@ -1,0 +1,394 @@
+{
+ "_about": "Every rule a Montessori Mentor page is checked against (21 Oct 2026). Each rule: what, figures, source (where it is written and its date), check (tool:id). A rule with check null has no automatic check yet. Retired rules are left out (the 16 Oct Word sheet and its numbers, retired 20 Oct 15:17).",
+ "rules": [
+  {
+   "id": "W1",
+   "rule": "Page words = Word file words",
+   "figures": "site rules only: short dashes, no spaces round /, UK spelling, 'Lead Guide'; user's TEXT_EDITS",
+   "source": "START-HERE rule 7; preferences 13 Oct, 20 Oct 22:10",
+   "check": "fault_checks:H, fault_checks:H2"
+  },
+  {
+   "id": "W2",
+   "rule": "Italic, bold, underline as Word",
+   "figures": "letter by letter",
+   "source": "review procedure 20 Oct (step 7)",
+   "check": "fault_checks:C"
+  },
+  {
+   "id": "W3",
+   "rule": "Heading colours as Word",
+   "figures": "every h2, h3",
+   "source": "review procedure 20 Oct (step 7)",
+   "check": "fault_checks:B"
+  },
+  {
+   "id": "W4",
+   "rule": "List numbers as Word/PDF",
+   "figures": "every item",
+   "source": "review procedure 20 Oct (step 7)",
+   "check": "fault_checks:F"
+  },
+  {
+   "id": "W5",
+   "rule": "Beige lines where Word/PDF has line pictures",
+   "figures": "page settings may leave out or add (quoted)",
+   "source": "review procedure 20 Oct (step 7)",
+   "check": "fault_checks:D"
+  },
+  {
+   "id": "W6",
+   "rule": "Tab gaps and space runs kept",
+   "figures": "no gap > 60px mid-line",
+   "source": "20 Oct fault list",
+   "check": "fault_checks:G, fault_checks:I"
+  },
+  {
+   "id": "W7",
+   "rule": "Orange in Word shows black",
+   "figures": "text colour",
+   "source": "preferences",
+   "check": "rule_checks:ORANGE"
+  },
+  {
+   "id": "W8",
+   "rule": "Blue in Word = material/activity names, not sub-headings",
+   "figures": "",
+   "source": "preferences",
+   "check": null
+  },
+  {
+   "id": "P1",
+   "rule": "Photos = PDF pictures, PDF order, shape kept (resized, not cropped)",
+   "figures": "shape within 5%",
+   "source": "preferences 13/19 Oct; review step 5",
+   "check": "fault_checks:A"
+  },
+  {
+   "id": "P2",
+   "rule": "Children's faces blurred, adults not",
+   "figures": "every face in faces.json",
+   "source": "README; START-HERE",
+   "check": "rule_checks:FACES"
+  },
+  {
+   "id": "P3",
+   "rule": "Photos beside text: top level with first line's letters",
+   "figures": "within 1px, 1440 1280 768 390",
+   "source": "preferences 20 Oct",
+   "check": "fault_checks:P (1280, 768), rule_checks:FLOATTOP (1440, 390)"
+  },
+  {
+   "id": "P4",
+   "rule": "Phones: photo groups are swipe rows with dots; each photo stops in the middle; a row that fits stays still, no dots",
+   "figures": "390",
+   "source": "preferences 16 Oct",
+   "check": "rule_checks:SWIPE"
+  },
+  {
+   "id": "P5",
+   "rule": "Objects on white: white masked",
+   "figures": "",
+   "source": "preferences",
+   "check": null
+  },
+  {
+   "id": "P6",
+   "rule": "No text over photos, photos over footer, photos over photos, photos loading late",
+   "figures": "1280 768 390",
+   "source": "review procedure 20 Oct (step 4)",
+   "check": "fault_checks:E"
+  },
+  {
+   "id": "L1",
+   "rule": "Numbered lists start at the left margin",
+   "figures": "number at 0, within 0.5px, 1440 1280 768 390",
+   "source": "preferences 20 Oct",
+   "check": "rule_checks:LISTMARGIN"
+  },
+  {
+   "id": "L2",
+   "rule": "Lists at Word's indents",
+   "figures": "",
+   "source": "settings comment only (5.4, 20 Oct 21:3x 'fix them') - not found quoted; clashes with L1",
+   "check": "fault_checks:K"
+  },
+  {
+   "id": "T1",
+   "rule": "Text justified, every page",
+   "figures": "every wrapped paragraph and list line",
+   "source": "preferences 18 Oct",
+   "check": "check_page (paragraphs > 90 characters only), rule_checks:JUSTIFY"
+  },
+  {
+   "id": "T2",
+   "rule": "Slash breaks allowed",
+   "figures": "<wbr> after every / between letters",
+   "source": "preferences 21 Oct",
+   "check": "fault_checks:S"
+  },
+  {
+   "id": "T3",
+   "rule": "Space kept after labels and numbers when copied",
+   "figures": "no-break space",
+   "source": "21 Oct (5.4 check)",
+   "check": "fault_checks:T"
+  },
+  {
+   "id": "T4",
+   "rule": "Short dashes only",
+   "figures": "no en/em dash on the page",
+   "source": "preferences",
+   "check": "rule_checks:DASHES"
+  },
+  {
+   "id": "B1",
+   "rule": "Beige lines #D9C9AB",
+   "figures": "exact",
+   "source": "preferences 18 Oct",
+   "check": "rule_checks:LINECOLOUR"
+  },
+  {
+   "id": "B2",
+   "rule": "No transparent or invisible lines",
+   "figures": "no border/line element with opacity 0, visibility hidden or transparent colour",
+   "source": "preferences 16 Oct",
+   "check": "rule_checks:NOINVISIBLE"
+  },
+  {
+   "id": "B3",
+   "rule": "No elements added that the user did not ask for",
+   "figures": "every added style/script block named in this file",
+   "source": "preferences 15 Oct",
+   "check": "rule_checks:ADDED"
+  },
+  {
+   "id": "Q1",
+   "rule": "Quotations 18px, 40px line to line (phones 17/38), italic",
+   "figures": "",
+   "source": "SETTLED 18 Oct",
+   "check": "rule_checks:QUOTE"
+  },
+  {
+   "id": "Q2",
+   "rule": "Attributions on their own line, same size, upright",
+   "figures": "",
+   "source": "SETTLED 18 Oct",
+   "check": "rule_checks:QUOTE"
+  },
+  {
+   "id": "N1",
+   "rule": "Name lines: beige line to letters 30, name to text 20, indent 0 (phones 36 / 30.3)",
+   "figures": "",
+   "source": "MASTER-DECISIONS 20 Oct 15:46",
+   "check": "rule_checks:NAMELINES"
+  },
+  {
+   "id": "F1",
+   "rule": "Footer band 40 above (letters or photo to band)",
+   "figures": "40",
+   "source": "SETTLED 18 Oct",
+   "check": "rule_checks:FOOTER"
+  },
+  {
+   "id": "F2",
+   "rule": "Footer band navy #1E4D7B, padding 40 / 30",
+   "figures": "",
+   "source": "SETTLED 18 Oct",
+   "check": "rule_checks:FOOTER"
+  },
+  {
+   "id": "F3",
+   "rule": "Footer quotation in three lines, breaks after 'confess that,' and 'prostrated me.'; overflow words go with 'It was as if...'",
+   "figures": "18/40 italic; attribution upright",
+   "source": "SETTLED 18 Oct; preferences 20 Oct",
+   "check": "rule_checks:FOOTER"
+  },
+  {
+   "id": "F4",
+   "rule": "Strip: '© 2026 Montessori Mentor' left, 'Back to top' right, 15px #6B6B6B, cream",
+   "figures": "",
+   "source": "SETTLED 18 Oct; preferences",
+   "check": "rule_checks:FOOTER"
+  },
+  {
+   "id": "M1",
+   "rule": "Menu panels open on click, close on second click, not on hover",
+   "figures": "every panel, 1280 768 390",
+   "source": "preferences 16 Oct",
+   "check": "check_page (open/close), rule_checks:NOHOVER"
+  },
+  {
+   "id": "M2",
+   "rule": "No lines under menu entries; no numbers shown",
+   "figures": "",
+   "source": "preferences",
+   "check": "rule_checks:MENU"
+  },
+  {
+   "id": "M3",
+   "rule": "Menu panels cream #F5EEE3 on computers; phones navy",
+   "figures": "",
+   "source": "SETTLED 18 Oct",
+   "check": "rule_checks:MENU"
+  },
+  {
+   "id": "M4",
+   "rule": "A category's own page not listed in its own panel; Administration panel sub-headings Teachers, Children, Parents in blue, not bold",
+   "figures": "",
+   "source": "SETTLED 18 Oct",
+   "check": "rule_checks:MENU"
+  },
+  {
+   "id": "M5",
+   "rule": "Light blue #8FC6FF and pale #E7EEF5 only in the menu; otherwise one blue #0432FF (footer band navy, F2)",
+   "figures": "",
+   "source": "SETTLED 17 Oct item 7",
+   "check": "rule_checks:BLUES"
+  },
+  {
+   "id": "H1",
+   "rule": "Hero rotates on Play and Education only",
+   "figures": "",
+   "source": "preferences",
+   "check": "rule_checks:HERO"
+  },
+  {
+   "id": "C1",
+   "rule": "Copy protection on the Hostinger copy only; preview copy and paste work",
+   "figures": "",
+   "source": "START-HERE rule 13; preferences 15/17 Oct",
+   "check": "rule_checks:PROTECT"
+  },
+  {
+   "id": "X1",
+   "rule": "No errors, no sideways scroll, photos loaded",
+   "figures": "every width",
+   "source": "START-HERE finishing list 7",
+   "check": "check_page"
+  },
+  {
+   "id": "X2",
+   "rule": "Measured at 1440, 1280, 768 and 390",
+   "figures": "",
+   "source": "SETTLED 20 Oct",
+   "check": "rule_checks runs 1440 1280 768 390; fault_checks and check_page run 1280 768 390"
+  },
+  {
+   "id": "X3",
+   "rule": "Spacing between 641 and 830",
+   "figures": "",
+   "source": "START-HERE finishing list 4",
+   "check": "rule_checks runs 641 and 830"
+  },
+  {
+   "id": "X4",
+   "rule": "Keyboard skip link, tab order; every photo has a description",
+   "figures": "",
+   "source": "START-HERE finishing list 7; user 21 Oct 21:35 \"all photos to include descriptions in future\"",
+   "check": "rule_checks:A11Y"
+  },
+  {
+   "id": "X5",
+   "rule": "Live page checked as uploaded",
+   "figures": "",
+   "source": "START-HERE finishing list 1",
+   "check": null
+  },
+  {
+   "id": "X6",
+   "rule": "Other live pages: the 3px menu fault and alignment",
+   "figures": "",
+   "source": "START-HERE finishing list 8",
+   "check": null
+  },
+  {
+   "id": "X7",
+   "rule": "A separate agent checks the page",
+   "figures": "",
+   "source": "review procedure 20 Oct (step 12); START-HERE rule 18",
+   "check": null
+  },
+  {
+   "id": "X8",
+   "rule": "Page compared with the template, byte for byte",
+   "figures": "",
+   "source": "review procedure 20 Oct (step 9)",
+   "check": "rule_checks:TEMPLATE"
+  }
+ ],
+ "page_5.3": [
+  {
+   "id": "S1",
+   "rule": "Blue headings 20px, no line (phones 18)",
+   "source": "user 21 Oct 11:25 (queued 'go')",
+   "check": "rule_checks:HEADINGS"
+  },
+  {
+   "id": "S2",
+   "rule": "Red headings 20px (phones 18), no blue line under them",
+   "source": "user 21 Oct 11:25, 13:35",
+   "check": "rule_checks:HEADINGS"
+  },
+  {
+   "id": "S3",
+   "rule": "40 under each 'Right:'",
+   "source": "user 21 Oct 11:25",
+   "check": "rule_checks:GAPS"
+  },
+  {
+   "id": "S4",
+   "rule": "No beige line above 'Managing children who are not yet normalised'; beige lines 30/30 above 'Managing children who need help...' and 'Managing Colleagues'",
+   "source": "user 21 Oct 11:25, 13:34",
+   "check": "fault_checks:D, rule_checks:GAPS"
+  },
+  {
+   "id": "S5",
+   "rule": "No table of contents",
+   "source": "user 21 Oct 11:28",
+   "check": "rule_checks:NOTOC"
+  },
+  {
+   "id": "S6",
+   "rule": "Links #0432FF",
+   "source": "user 21 Oct 13:19",
+   "check": "rule_checks:LINKS"
+  },
+  {
+   "id": "S7",
+   "rule": "'Discipline Problems', 'Dismissal', 'Monticello Montessori General Classroom Expectations' underlined",
+   "source": "user 21 Oct 13:29, 13:32",
+   "check": "rule_checks:UNDERLINE"
+  },
+  {
+   "id": "S8",
+   "rule": "'Monticello Montessori' a link to https://mmlions.org/, link blue",
+   "source": "user 21 Oct 13:31-13:32",
+   "check": "rule_checks:LINKS"
+  },
+  {
+   "id": "S9",
+   "rule": "23 under the Monticello label; 30 above 'Once again'",
+   "source": "user 21 Oct 13:33",
+   "check": "rule_checks:GAPS"
+  },
+  {
+   "id": "S10",
+   "rule": "Resources section at the live Culture Resources page's figures",
+   "source": "user 21 Oct 13:39",
+   "check": "rule_checks:RESLIVE"
+  },
+  {
+   "id": "S11",
+   "rule": "Labels regular, as the template",
+   "source": "user 21 Oct 11:16 ('correct ... so your page follows the template')",
+   "check": "fault_checks:C (LABELS_AS_TEMPLATE)"
+  },
+  {
+   "id": "S12",
+   "rule": "Hero left as it is",
+   "source": "user 21 Oct 12:34 ('C')",
+   "check": null
+  }
+ ]
+}

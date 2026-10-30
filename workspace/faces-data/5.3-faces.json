@@ -1,0 +1,309 @@
+{
+ "page": "5.3 Classroom Management",
+ "word_file": "5.3 Classroom Management.docx (Google Drive, 18,002,977 bytes, changed 21 Oct 2026)",
+ "faces_folder": "build/classroom-management/faces (working copies 1600 long side)",
+ "detections": {
+  "image2.jpeg": {
+   "photo": 1,
+   "faces": [
+    [
+     679.0,
+     250.9,
+     714.5,
+     296.7,
+     0.894
+    ],
+    [
+     1058.5,
+     331.9,
+     1144.8,
+     478.7,
+     0.857
+    ],
+    [
+     462.2,
+     438.1,
+     529.4,
+     522.7,
+     0.796
+    ],
+    [
+     1494.1,
+     173.0,
+     1534.3,
+     222.6,
+     0.763
+    ]
+   ]
+  },
+  "image3.png": {
+   "photo": 2,
+   "faces": [
+    [
+     1281.4,
+     280.4,
+     1382.2,
+     434.1,
+     0.897
+    ],
+    [
+     382.7,
+     331.0,
+     475.1,
+     488.7,
+     0.895
+    ]
+   ]
+  },
+  "image4.jpg": {
+   "photo": 3,
+   "faces": [
+    [
+     1132.5,
+     319.4,
+     1272.5,
+     503.2,
+     0.927
+    ],
+    [
+     478.5,
+     344.4,
+     627.0,
+     534.6,
+     0.779
+    ]
+   ]
+  },
+  "image5.jpg": {
+   "photo": 4,
+   "faces": [
+    [
+     994.9,
+     357.4,
+     1096.0,
+     530.3,
+     0.883
+    ],
+    [
+     375.5,
+     349.1,
+     479.7,
+     537.2,
+     0.88
+    ]
+   ]
+  },
+  "image6.jpeg": {
+   "photo": 5,
+   "faces": [
+    [
+     143.6,
+     256.2,
+     183.3,
+     319.6,
+     0.896
+    ],
+    [
+     955.7,
+     373.6,
+     1012.5,
+     470.0,
+     0.858
+    ],
+    [
+     568.0,
+     364.4,
+     633.9,
+     461.5,
+     0.85
+    ]
+   ]
+  },
+  "image7.jpg": {
+   "photo": 6,
+   "faces": []
+  },
+  "image8.jpeg": {
+   "photo": 7,
+   "faces": []
+  },
+  "image9.jpeg": {
+   "photo": 8,
+   "faces": [
+    [
+     281.6,
+     238.1,
+     399.3,
+     405.4,
+     0.819
+    ]
+   ]
+  },
+  "image10.jpeg": {
+   "photo": 9,
+   "faces": [
+    [
+     297.1,
+     570.4,
+     412.0,
+     719.3,
+     0.878
+    ]
+   ]
+  },
+  "image12.jpeg": {
+   "photo": 10,
+   "faces": [
+    [
+     31.9,
+     106.6,
+     47.3,
+     126.2,
+     0.771
+    ],
+    [
+     171.9,
+     89.6,
+     182.5,
+     102.2,
+     0.766
+    ],
+    [
+     35.1,
+     86.3,
+     44.0,
+     97.7,
+     0.762
+    ]
+   ]
+  }
+ },
+ "added_by_hand": {
+  "5": [
+   {
+    "box": [
+     1500,
+     298,
+     1538,
+     362
+    ],
+    "lm": null,
+    "lm_by_hand": false
+   }
+  ],
+  "6": [
+   {
+    "box": [
+     688.9,
+     339.2,
+     852.6,
+     503.9
+    ],
+    "lm": null,
+    "lm_by_hand": false
+   }
+  ],
+  "8": [
+   {
+    "box": [
+     1034.5,
+     344.8,
+     1219.6,
+     471.7
+    ],
+    "lm": null,
+    "lm_by_hand": false
+   }
+  ]
+ },
+ "hand_points": {
+  "9": {
+   "a": [
+    [
+     362,
+     630
+    ],
+    [
+     380,
+     632
+    ],
+    [
+     396,
+     648
+    ],
+    [
+     402,
+     664
+    ],
+    [
+     416,
+     661
+    ]
+   ]
+  }
+ },
+ "by_rule": {
+  "10": {
+   "a": "book cover - a published picture",
+   "b": "book cover - a published picture",
+   "c": "book cover - a published picture"
+  },
+  "_checked": "22 Oct 2026 17:1x: every detected face looked at twice - close-ups of all 18 (all-faces.png) and every whole photo with its boxes (whole-NN.jpg); all 20 second-pass candidates judged on the whole photos (checks.json); no adults, blindfolded children, drawings or objects among the faces to blur"
+ },
+ "keep_unblurred": {
+  "6": "a",
+  "8": "b"
+ },
+ "answers": [
+  {
+   "date": "22 Oct 2026 14:57 (Beijing)",
+   "sheet": "faces-5.3-6a-8b.png (6a and 8b only)",
+   "words": "none of those chidren need to be blurred. next"
+  },
+  {
+   "sheet": "round1.html",
+   "url": "https://claude.ai/artifact/VwGSXTMck3Ke5uB7mwhRw1",
+   "date": "22 Oct 2026 17:29 (Beijing)",
+   "words": "no changes to the blurring"
+  }
+ ],
+ "checks": {
+  "pass2_checked_by_eye": "22 Oct 2026 17:0x, each candidate on the whole photo (whole-NN.jpg)",
+  "real_faces_added": {
+   "5-3": "5d girl with glasses at the back table",
+   "6-1": "6a boy bending over the table",
+   "8-2": "8b boy in green stripes"
+  },
+  "not_faces": {
+   "1-1": "the shoulder of the boy's black jacket",
+   "2-1": "drawing on the height chart",
+   "2-2": "drawing on the height chart",
+   "4-1": "T-shirt print",
+   "4-2": "T-shirt print",
+   "5-1": "two children seen from behind",
+   "5-2": "a hand",
+   "7-1": "table edge and pencils",
+   "7-2": "chair seat",
+   "8-1": "trousers",
+   "8-3": "a hand",
+   "9-1": "4px speck on the bead cubes",
+   "9-2": "4px speck",
+   "9-3": "4px speck",
+   "10-1": "book cover",
+   "10-2": "book cover",
+   "10-3": "book cover"
+  },
+  "detected_faces_checked_by_eye": "all 18: 15 children on photos 1-5, 8, 9; 10a-c printed on the book cover",
+  "5d_box": "22 Oct 17:1x: the second-pass box covered only hair; set by hand to the visible cheek and glasses at the hair edge (1500,298)-(1538,362) on the 1600 copy",
+  "outdoor_photos_1_3": "blurred by rule, not in question: your own school photos taken outdoors are blurred - 5 Oct (4.1 Play: playground photos 2, 3, 4, 5, 28, 29 blurred by rule; you: \"blurring is accurate\"), 6 Oct (A Montessori Journey card, outdoors: you: \"Blur the photos\"), 18 Oct (1.2 Aun Aprendo: outing and playground photos blurred, you left only 6 single faces)",
+  "sheet_notes": [
+   "Watermarks and date stamps: none - all four corners of the 9 photos checked (corners.jpg; the white line at the foot of photo 3 is a thread on the grass).",
+   "Children with their faces turned fully away, nothing to blur: photo 5 (two girls at the back table), photo 7 (the girl at the table). Photo 2: the legs in the mirror are an adult's - no face.",
+   "Photos 1 and 3 (outdoors) are blurred as your own school photos taken outdoors have been: 5 Oct (4.1 Play), 6 Oct (A Montessori Journey card), 18 Oct (1.2 Aun Aprendo).",
+   "5d (orange): a girl seen from behind; only the edge of her cheek and her glasses show beside her hair. She gets the even blur, as a face with no eye and mouth points does (START-HERE Faces 3), like Sensorial #120b (profile, even blur; your \"all correct\", 28 Sept)."
+  ],
+  "points_checked": "22 Oct 2026: the eye, nose and mouth points of all 15 detected faces looked at in close-up (points.jpg). 14 place the stronger blur on the eyes and mouth. 9a: the mouth points were on the cheek and jaw and the second eye point on the nose, so the lips would get only the base blur - points placed by hand (hand_points.json), rule of 28 Sept."
+ },
+ "blurred": "16 faces on 7 photos, v7, 22 Oct 2026 17:3x: 1a-d, 2a-b, 3a-b, 4a-b, 5a-d (5d even blur), 8a, 9a (hand-placed points); not blurred 6a, 8b (your answer 14:57); 10a-c book cover (photo deleted from the page)",
+ "coverage_check": "every blurred face looked at in close-up after blurring (after-blur.jpg): hairline to jaw, ears not covered"
+}

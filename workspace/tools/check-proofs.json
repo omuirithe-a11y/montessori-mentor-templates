@@ -1,0 +1,177 @@
+{
+ "A": {
+  "code": "a4cd151991ebecff6dad5fa225f99647864298485e5d2af6270ddac7907ab1e2",
+  "page": "5.4",
+  "fault_put_in": "two photo files swapped",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/A",
+  "caught": [
+   "photo 2 is not Word's image2.JPG (difference 1.50)",
+   "photo 3 is not Word's image3.JPG (difference 1.50)",
+   "photos not in the PDF order: page shows PDF pictures [1, 3, 2, 4, 5]"
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "C": {
+  "code": "9ea88ae82814e5b6b8738d73767fdb7f37800f65c42240ac707f778e3b04f7df",
+  "page": "5.4",
+  "fault_put_in": "the first italic word made upright",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-nvc31afs/C",
+  "caught": [
+   "italic lost: \"are\" (in \"...tial,butiftherearenewmembersofthe...\")"
+  ],
+  "at": "2026-10-21T13:35:19"
+ },
+ "D": {
+  "code": "99f617f2703d1895112bd4ea2ccdad86eb8bdbcdb5d83fe4ef1bc5d29bc0dbe5",
+  "page": "5.1",
+  "fault_put_in": "the first beige line removed",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-xxejzrn8/D",
+  "caught": [
+   "page has 1 beige lines, PDF 2",
+   "line 1: page puts it before \"Here is an alternative list of ques\", PDF before \"In order for us to get to know a li\""
+  ],
+  "at": "2026-10-21T14:21:05"
+ },
+ "G": {
+  "code": "91abae7de028632abe6520a23510c51e68afd80ba235b282c79090ad2515b801",
+  "page": "5.4",
+  "fault_put_in": "a 154 px gap put in the middle of a line",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/G",
+  "caught": [
+   "154px gap mid-line: \"Materials Readiness Inventory, repair, c\""
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "H": {
+  "code": "6e54476059bdd3e6a22551e1681d1e25bc26201f0d821845ccabbe7b506e66b4",
+  "page": "5.4",
+  "fault_put_in": "the report shows a misspelt word",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-f792ph0_/H",
+  "caught": [
+   "replace: \"consumables\" -> \"consumabels\""
+  ],
+  "at": "2026-10-21T14:20:25"
+ },
+ "H2": {
+  "code": "9e80d7b56f9ce6d2ca801b58779170ed2c6437f44b9341f99f9de0968453b67d",
+  "page": "5.2",
+  "fault_put_in": "a word misspelt on the page",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-tizrrub_/H2",
+  "caught": [
+   "insert: Word \"\" -> page \"o\" (in \"...ssoriSchool,Saskatooon,Canada.MariaMontes...\")"
+  ],
+  "at": "2026-10-21T12:26:27"
+ },
+ "K": {
+  "code": "2af00beb988e871285fa36810d3346e4dea98be36b28e5ada69b7232bc29fdb5",
+  "page": "5.4",
+  "fault_put_in": "list text moved off Word's indent",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-f9vgh3y7/K",
+  "caught": [
+   "\"Who’ll be managing the class?This i\": page marker 0.0, text 60.0; Word 0.0, 28.4",
+   "\"Guide the children,\": page marker 75.6, text 60.0; Word 75.6, 96.0",
+   "\"Who’ll be giving presentations?Most\": page marker 0.0, text 60.0; Word 0.0, 28.4"
+  ],
+  "at": "2026-10-21T15:05:36"
+ },
+ "P": {
+  "code": "abb7f636d15a9320e5748473f6aee0959409ca5720f59a7cc523da0d3c69c396",
+  "page": "5.4",
+  "fault_put_in": "photos moved 25 px down",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/P",
+  "caught": [
+   "1280: image2.JPG (centred on \"others using the same steps\", beside \"Many children are already fami\") off by 25.0px"
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "S": {
+  "code": "795a027e905f7171cd9468f2f181b6b2584112236514925290d1474176855beb",
+  "page": "5.4",
+  "fault_put_in": "the breaks after slashes removed",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/S",
+  "caught": [
+   "no break after \"/\" in \" - marking materials/snack/folders/toothb\"",
+   "no break after \"/\" in \"king materials/snack/folders/toothbrushes\"",
+   "no break after \"/\" in \"erials/snack/folders/toothbrushes/cups fo\""
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "T": {
+  "code": "23b6a7d42ff62c6b73277d155746315f0ed05d111103981b277b21ba2e1ef8a9",
+  "page": "5.4",
+  "fault_put_in": "the space after the labels made an ordinary trailing space",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/T",
+  "caught": [
+   "no space kept after \"Classroom Flow \"",
+   "no space kept after \"Order and Aesthetics \"",
+   "no space kept after \"Materials Readiness \""
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "B": {
+  "code": "46382cf1900d6ac5e8d5e63389982c912cfadf42457ff557c552181e5deb96ef",
+  "page": "5.4",
+  "fault_put_in": "the first heading recoloured red",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-i5g4__4v/B",
+  "caught": [
+   "\"Introduction\" is rgb(255, 0, 0), Word #0432FF"
+  ],
+  "at": "2026-10-21T11:48:41"
+ },
+ "E": {
+  "code": "49db80755cc8506827a5fb53912ebde731cc3a63703aad336b2a57b5565f06bc",
+  "page": "5.4",
+  "fault_put_in": "photos pushed 300 px left, over the text",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-i5g4__4v/E",
+  "caught": [
+   "1280: text over photo: \"toothbrushes/\"",
+   "1280: text over photo: \"cups for water.\"",
+   "1280: text over photo: \"There are more than 10 of puzz\""
+  ],
+  "at": "2026-10-21T11:48:41"
+ },
+ "F": {
+  "code": "d25ee09d4c1204c3706760e1e2321b8e4e4ef1f12c89355ed77e09fe458d0d27",
+  "page": "5.4",
+  "fault_put_in": "the a) b) c) list drawn as 1. 2. 3.",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-wbtn89qk/F",
+  "caught": [
+   "\"Guide the children,\": page 1., PDF i",
+   "\"Anticipate issues and head them off\": page 2., PDF ii",
+   "\"Less talk, more action.\": page 3., PDF iii"
+  ],
+  "at": "2026-10-21T11:54:31"
+ },
+ "PAGE": {
+  "code": "a59aa742181402551051b13ac7f3ec7c955d0f5f20110e57b5271026d3bc1263",
+  "page": "5.1",
+  "fault_put_in": "the footer script set to 60 on phones (the photo 20 px further from the band)",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-ek9uu673/PAGE",
+  "caught": [
+   "390  errors:none  sideways:False  hero gap 41.0  lines [...]  footer gap 60.0 <<  strip 133.5  not justified:0  photos not loaded:0"
+  ],
+  "at": "2026-10-21T14:00:50"
+ },
+ "J": {
+  "code": "5fb50b373530a7bb4ddbfa919c07620ed96ffd6c064729dcf5d27abbc5871b72",
+  "page": "5.2",
+  "fault_put_in": "every PDF badge moved 30 px right (column no longer 24 after the longest)",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-d0oz8xfz/J",
+  "caught": [
+   "390: badge on its own line 30px in from the margin: \"International Montessori Schoo\"",
+   "390: badge on its own line 30px in from the margin: \"Brilliant Star Montessori Scho\"",
+   "390: badge on its own line 30px in from the margin: \"Cornerstone Montessori, Britis\""
+  ],
+  "at": "2026-10-21T12:27:11"
+ },
+ "I": {
+  "code": "30054c86a8fa7f5beeb58bbe76ccf74d49ca90d4708c492edf7ccca32e162122",
+  "page": "5.1",
+  "fault_put_in": "the run of spaces after \"Shortlist:\" made one space",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-ubz9xqyv/I",
+  "caught": [
+   "gap lost after \"Shortlist:\""
+  ],
+  "at": "2026-10-21T14:00:03"
+ }
+}

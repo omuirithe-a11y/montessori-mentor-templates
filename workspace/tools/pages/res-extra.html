@@ -1,0 +1,65 @@
+<script id="mm-res-extra-js">
+/* 22 Oct 2026 (5.5, the user's queued edits):
+   1. "PDF in close proximity": PDF badges on neighbouring Resources title lines (title lines that follow one another, each
+      ending in a badge) stand in one column, 24 after the longest title. Phones (640 and below): each badge 24 after its text.
+   2. A photo beside text with data-bottom-on: its bottom level with the bottom of the letters (baseline) of the line that
+      holds those words - computers, where the photo stands beside the text. */
+(function(){
+  var cv=document.createElement('canvas').getContext('2d');
+  /* a title line's badge: its last element is the badge, or a .meta holding only the badge (the Resources converter's markup) */
+  function bdg(x){var a=x.lastElementChild;if(!a)return null;if(a.matches('a.pdf'))return a;if(a.matches('.meta')&&a.children.length===1&&a.firstElementChild.matches('a.pdf')&&a.textContent.trim()===a.firstElementChild.textContent.trim())return a;return null;}
+  function groups(){var out=[],seen=new Set();
+    /* 22 Oct 2026 (5.5, user 11:55: "only the groups I show share a PDF column"): groups named in the page settings (data-pdf-group) are the only columns */
+    var named=document.querySelectorAll('main .res-item[data-pdf-group]');
+    if(named.length){var by={};[].forEach.call(named,function(it){if(!bdg(it))return;var k=it.getAttribute('data-pdf-group');(by[k]=by[k]||[]).push(it);});
+      [].forEach.call(document.querySelectorAll('main .res-item'),function(it){if(bdg(it)&&!it.hasAttribute('data-pdf-group'))out.push([it]);});
+      Object.keys(by).forEach(function(k){out.push(by[k]);});return out;}
+    [].forEach.call(document.querySelectorAll('main .res-item'),function(it){if(seen.has(it))return;var g=[];
+      for(var x=it;x&&x.classList&&x.classList.contains('res-item');x=x.nextElementSibling){seen.add(x);if(bdg(x))g.push(x);}   /* title lines one after another, as the template groups paragraphs */
+      if(g.length)out.push(g);});return out;}
+  function textRight(it){var a=bdg(it),r=document.createRange();r.setStart(it,0);r.setEndBefore(a);var rs=[].filter.call(r.getClientRects(),function(q){return q.width>0.5;});return rs.length?rs[rs.length-1].right:null;}
+  function cols(){var G=groups();
+    G.forEach(function(g){g.forEach(function(it){bdg(it).style.removeProperty('margin-left');});});
+    if(window.innerWidth<=640)return;
+    G.forEach(function(g){if(g.length<2)return;var R=g.map(textRight);if(R.some(function(x){return x===null;}))return;
+      var col=Math.max.apply(null,R)+24;
+      g.forEach(function(it){var a=bdg(it),m=parseFloat(getComputedStyle(a).marginLeft)||0;a.style.setProperty('margin-left',(m+col-a.getBoundingClientRect().left).toFixed(2)+'px','important');});});
+    document.documentElement.setAttribute('data-res-pdf-column','done');}
+  function baseOf(words){var m=document.querySelector('main'),w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT),n;
+    while((n=w.nextNode())){var i=n.nodeValue.indexOf(words);if(i<0)continue;var r=document.createRange();r.setStart(n,i);r.setEnd(n,i+words.length);var qs=[].filter.call(r.getClientRects(),function(q){return q.width>0;});if(!qs.length)return null;
+      var q=qs[qs.length-1],s=getComputedStyle(n.parentElement);cv.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;var t=cv.measureText('H');return (q.top+q.bottom)/2+(t.fontBoundingBoxAscent-t.fontBoundingBoxDescent)/2;}
+    return null;}
+  function bottoms(){[].forEach.call(document.querySelectorAll('main img[data-bottom-on]'),function(im){var f=im.closest('.mm-float'),pim=im.closest('.pim')||im;if(!f)return;
+    if(window.innerWidth<=640||getComputedStyle(f).float==='none'){pim.style.removeProperty('height');pim.style.removeProperty('width');f.style.removeProperty('margin-top');return;}
+    /* 22 Oct 2026 (5.5, user 12:37 "make that image 100 high"): with data-height the photo is that tall and is moved up or down so its bottom meets that baseline */
+    /* 22 Oct 2026 (5.5, user 13:40 "fill the space above, 30 below the line above"): with data-fill-gap the photo fills the
+       empty space above it, its top that far below the lowest line of text above it in its own column, at every width */
+    var G=parseFloat(im.getAttribute('data-fill-gap'));
+    if(!isNaN(G)){pim.style.setProperty('width','auto','important');pim.style.setProperty('aspect-ratio',getComputedStyle(pim).aspectRatio||'auto');
+      for(var g=0;g<10;g++){var bb=baseOf(im.getAttribute('data-bottom-on'));if(bb===null)return;var q0=pim.getBoundingClientRect(),lb=null;
+        var w0=document.createTreeWalker(document.querySelector('main'),NodeFilter.SHOW_TEXT),n0,rr=document.createRange();
+        while((n0=w0.nextNode())){if(!(f.compareDocumentPosition(n0)&Node.DOCUMENT_POSITION_PRECEDING))break;var e0=n0.parentElement;if(!n0.nodeValue.trim()||!e0||!e0.getClientRects().length||e0.closest('.mm-float,figure,script,style'))continue;
+          var s0=getComputedStyle(e0);cv.font=s0.fontStyle+' '+s0.fontWeight+' '+s0.fontSize+' '+s0.fontFamily;var t0=cv.measureText('H');
+          for(var i0=0;i0<n0.nodeValue.length;i0++){if(!n0.nodeValue[i0].trim())continue;rr.setStart(n0,i0);rr.setEnd(n0,i0+1);var c0=rr.getClientRects()[0];if(!c0||!c0.width||c0.right<q0.left||c0.left>q0.right)continue;
+            var b0=(c0.top+c0.bottom)/2+(t0.fontBoundingBoxAscent-t0.fontBoundingBoxDescent)/2;if(b0<bb&&(lb===null||b0>lb))lb=b0;}}
+        if(lb===null)return;var want=bb-(lb+G);if(Math.abs(want-q0.height)<0.3&&Math.abs(bb-q0.bottom)<0.3)break;
+        pim.style.setProperty('height',want.toFixed(2)+'px','important');
+        for(var j1=0;j1<8;j1++){var b3=baseOf(im.getAttribute('data-bottom-on'));if(b3===null)return;var d3=b3-pim.getBoundingClientRect().bottom;if(Math.abs(d3)<0.3)break;var mt3=parseFloat(getComputedStyle(f).marginTop)||0;f.style.setProperty('margin-top',(mt3+d3).toFixed(2)+'px','important');}}
+      return;}
+    var H=parseFloat(im.getAttribute('data-height'));
+    if(H){pim.style.setProperty('height',H+'px','important');pim.style.setProperty('width','auto','important');pim.style.setProperty('aspect-ratio',getComputedStyle(pim).aspectRatio||'auto');
+      for(var j=0;j<8;j++){var b2=baseOf(im.getAttribute('data-bottom-on'));if(b2===null)return;var d2=b2-pim.getBoundingClientRect().bottom;if(Math.abs(d2)<0.3)break;var mt=parseFloat(getComputedStyle(f).marginTop)||0;f.style.setProperty('margin-top',(mt+d2).toFixed(2)+'px','important');}
+      return;}
+    /* the photo keeps its top (the template's place); its height is set so its bottom meets that baseline - wider or narrower, the text re-wraps, so a few passes */
+    for(var k=0;k<8;k++){var b=baseOf(im.getAttribute('data-bottom-on'));if(b===null)return;var q=pim.getBoundingClientRect(),d=b-q.bottom;if(Math.abs(d)<0.3)break;
+      pim.style.setProperty('height',(q.height+d).toFixed(2)+'px','important');pim.style.setProperty('width','auto','important');pim.style.setProperty('aspect-ratio',getComputedStyle(pim).aspectRatio||'auto');}});}
+  function run(){cols();bottoms();if(window.__mmKeepSize)window.__mmKeepSize();}
+  window.__mmResExtra=run;
+  /* the template's photo-top script re-runs the beige-line script (window.__mmOrgRun) on its own timers: this runs after it each time */
+  var orr=window.__mmOrgRun;if(orr)window.__mmOrgRun=function(){orr();run();};
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+  window.addEventListener('load',function(){run();setTimeout(run,800);setTimeout(run,2000);if(document.fonts)document.fonts.ready.then(run);});
+  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,300);});
+  document.addEventListener('load',function(e){if(e.target&&e.target.tagName==='IMG')setTimeout(run,250);},true);
+})();
+</script>

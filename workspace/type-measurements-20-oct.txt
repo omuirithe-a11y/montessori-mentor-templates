@@ -1,0 +1,781 @@
+== 1a name, separate line: 88 on 10 pages; The Role of the Adult 0
+   pages: administration, essential-elements, montessori-scope-and-sequence, parent-resources, play-varieties-and-characteristics, the-history-of-education, the-mathematics-curriculum, the-montessori-curriculum, the-practical-life-curriculum-2, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('20px', '400', 'n', '#0432FF', 0, 36, 25) 45
+     ('20px', '400', 'n', '#0432FF', 0, 36, 37) 15
+     ('20px', '400', 'n', '#0432FF', 0, 80, 23) 7
+     ('20px', '400', 'n', '#0432FF', 0, 64, 36) 5
+     ('20px', '400', 'n', '#0432FF', 0, 80, 36) 4
+     ('20px', '400', 'n', '#0432FF', 0, 64, 23) 4
+     ('20px', '400', 'n', '#00B050', 0, 36, 42) 3
+     ('20px', '400', 'n', '#0432FF', 0, 62, 23) 1
+     ('20px', '400', 'n', '#0432FF', 0, 70, 36) 1
+     ('20px', '400', 'n', '#0432FF', 0, 59, 23) 1
+     ('20px', '400', 'n', '#0432FF', 0, 36, 12) 1
+     ('20px', '400', 'n', '#0432FF', 0, 36, 27) 1
+   phones (390) mean above 44.9 (n=88), below 29.6 (n=88)
+
+== 1c name, no line: 39 on 8 pages; The Role of the Adult 0
+   pages: montessori-scope-and-sequence, play-varieties-and-characteristics, resources, the-history-of-education, the-mathematics-curriculum, the-montessori-curriculum, the-practical-life-curriculum-2, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('20px', '400', 'n', '#0432FF', 0, 25, 23) 6
+     ('20px', '400', 'n', '#0432FF', 0, 36, 25) 4
+     ('20px', '400', 'n', '#0432FF', 0, 53, 23) 3
+     ('20px', '400', 'n', '#0432FF', 0, 39, 25) 2
+     ('20px', '400', 'n', '#0432FF', 0, 62, 23) 2
+     ('20px', '400', 'n', '#0432FF', 590, 62, 23) 2
+     ('20px', '400', 'n', '#0432FF', 0, 44, 23) 2
+     ('20px', '400', 'n', '#0432FF', 580, -249, 23) 2
+     ('20px', '400', 'n', '#0432FF', 0, None, 25) 1
+     ('20px', '400', 'n', '#0432FF', 31, 39, 40) 1
+     ('20px', '400', 'n', '#0432FF', 31, 40, 37) 1
+     ('20px', '400', 'n', '#0432FF', 31, 39, 42) 1
+     ('20px', '400', 'n', '#00B050', 0, 36, 42) 1
+     ('20px', '400', 'n', '#0432FF', 0, 80, 36) 1
+     ('20px', '400', 'n', '#0432FF', 0, 42, 23) 1
+     ('20px', '400', 'n', '#0432FF', 0, 62, 26) 1
+     ('20px', '400', 'n', '#0432FF', 590, -1043, 26) 1
+     ('20px', '400', 'n', '#0432FF', 0, 64, 23) 1
+     ('20px', '400', 'n', '#0432FF', 0, 54, 23) 1
+     ('20px', '400', 'n', '#0432FF', 0, 67, 23) 1
+     ('20px', '400', 'n', '#0432FF', 0, 47, 25) 1
+     ('20px', '400', 'n', '#0432FF', 119, 36, 25) 1
+     ('20px', '400', 'n', '#0432FF', 248, 36, 25) 1
+     ('20px', '400', 'n', '#0432FF', 0, 36, 37) 1
+   phones (390) mean above 45.9 (n=38), below 26.6 (n=39)
+
+== 2c photo row: 144 on 8 pages; The Role of the Adult 10
+   pages: a-montessori-journey, aun-aprendo, biography, the-culture-curriculum, the-history-of-montessori-education, the-role-of-the-adult, the-sensorial-curriculum, timeline
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 40, 36, 30) 14
+     ('18px', '400', 'n', '#2B2B2B', 40, 30, 30) 10
+     ('18px', '400', 'n', '#2B2B2B', 0, 37, 70) 10
+     ('18px', '400', 'n', '#2B2B2B', 0, 37, 48) 10
+     ('18px', '400', 'n', '#2B2B2B', 0, 37, 67) 9
+     ('18px', '400', 'n', '#2B2B2B', 0, 46, 41) 7
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 30) 7
+     ('18px', '400', 'n', '#2B2B2B', 0, 48, 70) 7
+     ('18px', '400', 'n', '#2B2B2B', 0, 37, 97) 6
+     ('18px', '400', 'n', '#2B2B2B', 0, 53, 63) 6
+     ('18px', '400', 'n', '#2B2B2B', 0, 48, 48) 4
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 31) 3
+     ('18px', '400', 'n', '#2B2B2B', 40, 30, 51) 3
+     ('18px', '400', 'n', '#2B2B2B', 40, 26, 30) 3
+     ('18px', '400', 'n', '#2B2B2B', 40, 30, 31) 2
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 24) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 48, 67) 2
+     ('18px', '400', 'n', '#2B2B2B', 40, 29, None) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 53, 46) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 53, 35) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 53, 29) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 53, 36) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 41, 40) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 46, 40) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 45, 41) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 27, 30) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 24, 24) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 24, 30) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 24, 33) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 23, None) 1
+     ('18px', '400', 'n', '#2B2B2B', 316, 36, 36) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 36, 29) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 48, 97) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 21, 67) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 37, 77) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 20, 63) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 20, 62) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 42, 28) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 47, 23) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 43, 29) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 37, 23) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 45, 21) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 53, 32) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 32, 63) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 53, 21) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 21, 42) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 41, 51) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 45, 55) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 53, 62) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 38, 48) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 21, None) 1
+   Role of the Adult styles: [(('18px', '400', 'n', '#2B2B2B', 0, 46, 41), 7), (('18px', '400', 'n', '#2B2B2B', 0, 41, 40), 1), (('18px', '400', 'n', '#2B2B2B', 0, 46, 40), 1)]
+   phones (390) mean above 25.6 (n=144), below 8.8 (n=142)
+
+== 2d PDF photo row: 60 on 6 pages; The Role of the Adult 0
+   pages: essential-elements, montessori-scope-and-sequence, play-varieties-and-characteristics, the-mathematics-curriculum, the-montessori-curriculum, the-practical-life-curriculum-2
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 0, 45, 46) 8
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 64) 5
+     ('18px', '400', 'n', '#2B2B2B', 0, 45, 30) 5
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 70) 4
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 30) 4
+     ('18px', '400', 'n', '#2B2B2B', 0, 30, 46) 4
+     ('18px', '400', 'n', '#2B2B2B', 0, 37, 30) 3
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 38) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 36, 64) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 52) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 52, 46) 2
+     ('16px', '400', 'i', '#2B2B2B', 261, 39, 70) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 36) 1
+     ('16px', '400', 'i', '#0432FF', 248, 39, 54) 1
+     ('16px', '400', 'i', '#0432FF', 226, 54, 54) 1
+     ('16px', '400', 'i', '#0432FF', 270, 54, 54) 1
+     ('16px', '400', 'i', '#0432FF', 284, 54, 52) 1
+     ('16px', '400', 'i', '#0432FF', 310, 52, 70) 1
+     ('16px', '400', 'i', '#0432FF', 143, 39, 51) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 48) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 48, 51) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 59) 1
+     ('16px', '400', 'i', '#2B2B2B', 160, 62, 16) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 68, 52) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 62) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 30, 47) 1
+     ('18px', '400', 'n', '#2B2B2B', 116, 39, 30) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 37, 46) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 45, 48) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 48, 46) 1
+   phones (390) mean above 40.4 (n=60), below 46.2 (n=60)
+
+== 2e photo set: 43 on 3 pages; The Role of the Adult 1
+   pages: the-culture-curriculum, the-role-of-the-adult, the-sensorial-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 0, 30, 30) 4
+     ('18px', '400', 'n', '#2B2B2B', 0, 42, 42) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 29, 29) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 39, 30) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 29, 68) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 48, 38) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 31, 55) 2
+     ('18px', '400', 'n', '#2B2B2B', 48, 34, 34) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 32, 34) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 27, 34) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 23, 12) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 12, 31) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 33, 2) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 37, 19) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 48, 42) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 42, 32) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 25, 53) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 29, 53) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 39, 39) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 30, 39) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 10, 47) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 29, 34) 1
+     ('17px', '400', 'n', '#2B2B2B', 0, 36, 36) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 29, 48) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 23, 48) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 30, 29) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 23, 51) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 31, 38) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 31, 29) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 40, 38) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 29, 38) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 18, -21) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 38, 68) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 39, 48) 1
+   Role of the Adult styles: [(('18px', '400', 'n', '#2B2B2B', 48, 34, 34), 1)]
+   phones (390) mean above 36.7 (n=43), below 18.7 (n=43)
+
+== 3a list in columns: 1 on 1 pages; The Role of the Adult 0
+   pages: the-mathematics-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 62, 38, 39) 1
+   phones (390) mean above 35.9 (n=1), below 39 (n=1)
+
+== 3b blocks in columns: 4 on 2 pages; The Role of the Adult 0
+   pages: the-mathematics-curriculum, the-montessori-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 0, 49, 57) 1
+     ('18px', '400', 'n', '#00B050', 0, 49, 56) 1
+     ('20px', '400', 'n', '#0432FF', 0, 42, 56) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, 35) 1
+   phones (390) mean above 43.8 (n=4), below 50.8 (n=4)
+
+== 3c line in cells: 1 on 1 pages; The Role of the Adult 0
+   pages: the-culture-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 0, 32, 42) 1
+   phones (390) mean above 31 (n=1), below 41 (n=1)
+
+== 4 underline: 28 on 9 pages; The Role of the Adult 1
+   pages: montessori-scope-and-sequence, play-varieties-and-characteristics, the-culture-curriculum, the-mathematics-curriculum, the-montessori-curriculum, the-practical-life-curriculum-2, the-role-of-the-adult, the-story-of-san-lorenzo, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', None, None, None) 21
+     ('18px', '400', 'i', '#2B2B2B', None, None, None) 4
+     ('18px', '400', 'n', '#2B2B2B', 48, 41, -12) 1
+     ('18px', '400', 'n', '#2B2B2B', 128, -12, 36) 1
+     ('18px', '400', 'i', '#0432FF', None, None, None) 1
+   Role of the Adult styles: [(('18px', '400', 'n', '#2B2B2B', None, None, None), 1)]
+   phones (390) mean above 14 (n=2), below 11.5 (n=2)
+
+== 6a indented list: 4 on 4 pages; The Role of the Adult 0
+   pages: play-varieties-and-characteristics, the-mathematics-curriculum, the-montessori-curriculum, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, 41) 2
+     ('18px', '400', 'n', '#2B2B2B', 31, 38, 49) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, 35) 1
+   phones (390) mean above 39.0 (n=4), below 40.5 (n=4)
+
+== 6b indented paragraph: 21 on 2 pages; The Role of the Adult 0
+   pages: parent-resources, resources
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 31, 36, 36) 12
+     ('18px', '400', 'n', '#2B2B2B', 31, 36, 41) 3
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, 36) 2
+     ('18px', '400', 'n', '#2B2B2B', 31, 36, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 37, 36) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 42, 41) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, None) 1
+   phones (390) mean above 36.0 (n=21), below 35.9 (n=20)
+
+== 7 tab line (mm-t): 56 on 4 pages; The Role of the Adult 1
+   pages: play-varieties-and-characteristics, the-culture-curriculum, the-role-of-the-adult, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 409, 29, 29) 17
+     ('18px', '400', 'n', '#2B2B2B', 24, 29, 29) 15
+     ('18px', '400', 'n', '#2B2B2B', 795, 29, 29) 11
+     ('18px', '400', 'i', '#2B2B2B', 38, 46, 28) 1
+     ('18px', '400', 'i', '#2B2B2B', 0, 25, 36) 1
+     ('18px', '400', 'n', '#2B2B2B', 24, 29, -600) 1
+     ('18px', '400', 'n', '#2B2B2B', 409, 29, -641) 1
+     ('18px', '400', 'n', '#2B2B2B', 795, -641, 29) 1
+     ('18px', '400', 'n', '#2B2B2B', 795, 29, -601) 1
+     ('18px', '400', 'n', '#2B2B2B', 24, 29, -326) 1
+     ('18px', '400', 'n', '#2B2B2B', 409, -326, 29) 1
+     ('18px', '400', 'n', '#2B2B2B', 409, 29, -356) 1
+     ('18px', '400', 'n', '#2B2B2B', 795, -356, 29) 1
+     ('18px', '400', 'n', '#2B2B2B', 795, 29, -316) 1
+     ('18px', '400', 'i', '#2B2B2B', 72, 43, 37) 1
+     ('18px', '400', 'i', '#2B2B2B', 62, 38, 36) 1
+   Role of the Adult styles: [(('18px', '400', 'i', '#2B2B2B', 38, 46, 28), 1)]
+   phones (390) mean above 27.7 (n=56), below 27.5 (n=54)
+
+== 7b tab stops from Word: 2 on 2 pages; The Role of the Adult 0
+   pages: the-history-of-education, the-mathematics-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 0, 25, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 49, 49) 1
+   phones (390) mean above 35.5 (n=2), below 41 (n=2)
+
+== 8a caption above (p): 25 on 2 pages; The Role of the Adult 0
+   pages: essential-elements, the-mathematics-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('16px', '400', 'i', '#2B2B2B', 261, 39, 12) 1
+     ('16px', '400', 'i', '#2B2B2B', 528, -191, 12) 1
+     ('16px', '400', 'i', '#2B2B2B', 804, -191, 12) 1
+     ('16px', '400', 'i', '#2B2B2B', 832, 37, 12) 1
+     ('16px', '400', 'i', '#2B2B2B', 989, -191, 12) 1
+     ('16px', '400', 'i', '#0432FF', 248, 39, 12) 1
+     ('16px', '400', 'i', '#0432FF', 732, -191, 12) 1
+     ('16px', '400', 'i', '#0432FF', 226, 54, 12) 1
+     ('16px', '400', 'i', '#0432FF', 819, -191, 12) 1
+     ('16px', '400', 'i', '#0432FF', 270, 54, 12) 1
+     ('16px', '400', 'i', '#0432FF', 788, -191, 12) 1
+     ('16px', '400', 'i', '#0432FF', 284, 54, 12) 1
+     ('16px', '400', 'i', '#0432FF', 800, -191, 12) 1
+     ('16px', '400', 'i', '#0432FF', 310, 52, 12) 1
+     ('16px', '400', 'i', '#0432FF', 534, -191, 12) 1
+     ('16px', '400', 'i', '#0432FF', 778, -193, 12) 1
+     ('16px', '400', 'i', '#0432FF', 143, 39, 12) 1
+     ('16px', '400', 'i', '#0432FF', 309, -191, 12) 1
+     ('16px', '400', 'i', '#0432FF', 628, -191, 12) 1
+     ('16px', '400', 'i', '#0432FF', 887, -191, 12) 1
+     ('16px', '400', 'i', '#2B2B2B', 947, 10, -800) 1
+     ('16px', '400', 'i', '#2B2B2B', 963, 10, -222) 1
+     ('16px', '400', 'i', '#2B2B2B', 160, 62, 12) 1
+     ('16px', '400', 'i', '#2B2B2B', 505, -191, 12) 1
+     ('16px', '400', 'i', '#2B2B2B', 849, -191, 12) 1
+   phones (390) mean above 26.0 (n=25), below 13.1 (n=25)
+
+== 8b caption below (figcaption): 10 on 2 pages; The Role of the Adult 0
+   pages: biography, the-story-of-san-lorenzo
+   styles (size, weight, style, colour, indent, above, below): count
+     ('15px', '400', 'n', '#2B2B2B', 1080, 11, -192) 2
+     ('15px', '400', 'n', '#2B2B2B', 1082, 11, -192) 1
+     ('15px', '400', 'n', '#2B2B2B', 1081, 11, -192) 1
+     ('15px', '400', 'n', '#2B2B2B', 1075, 11, -192) 1
+     ('15px', '400', 'n', '#2B2B2B', 316, 11, -201) 1
+     ('15px', '400', 'n', '#2B2B2B', 466, 11, -201) 1
+     ('15px', '400', 'n', '#2B2B2B', 704, 11, 36) 1
+     ('15px', '400', 'n', '#2B2B2B', 1049, 11, -192) 1
+     ('15px', '400', 'n', '#2B2B2B', 1030, 11, -220) 1
+   phones (390) mean above 11.0 (n=10), below 22.3 (n=8)
+
+== 9 mm-line beige line: 31 on 5 pages; The Role of the Adult 0
+   pages: a-montessori-journey, aun-aprendo, biography, glossary, the-story-of-san-lorenzo
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 40, 30, 31) 16
+     ('18px', '400', 'n', '#2B2B2B', 40, 30, 30) 5
+     ('18px', '400', 'n', '#2B2B2B', 40, 36, 31) 4
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 31) 3
+     ('18px', '400', 'n', '#2B2B2B', 0, 36, 31) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 31, 31) 1
+   phones (390) mean above 23.6 (n=31), below 31.6 (n=31)
+
+== 14 line under contents: 3 on 3 pages; The Role of the Adult 0
+   pages: administration, essential-elements, the-practical-life-curriculum-2
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 0, None, 36) 3
+   phones (390) mean above - (n=0), below 35.3 (n=3)
+
+== 18 beige line p.mm-gl: 186 on 10 pages; The Role of the Adult 67
+   pages: administration, essential-elements, montessori-scope-and-sequence, parent-resources, play-varieties-and-characteristics, the-history-of-education, the-montessori-curriculum, the-practical-life-curriculum-2, the-role-of-the-adult, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('2px', '400', 'n', '#2B2B2B', 0, 35, 36) 96
+     ('0px', '400', 'n', '#2B2B2B', 0, 45, 1) 59
+     ('2px', '400', 'n', '#2B2B2B', 0, 30, 36) 14
+     ('2px', '400', 'n', '#2B2B2B', 0, 35, 30) 7
+     ('0px', '400', 'n', '#2B2B2B', 0, 40, 1) 4
+     ('0px', '400', 'n', '#2B2B2B', 0, 45, 0) 2
+     ('0px', '400', 'n', '#2B2B2B', 0, 44, 1) 1
+     ('0px', '400', 'n', '#2B2B2B', 0, 43, 1) 1
+     ('2px', '400', 'n', '#2B2B2B', 0, 35, 34) 1
+     ('2px', '400', 'n', '#2B2B2B', 0, 34, 36) 1
+   Role of the Adult styles: [(('0px', '400', 'n', '#2B2B2B', 0, 45, 1), 59), (('0px', '400', 'n', '#2B2B2B', 0, 40, 1), 4), (('0px', '400', 'n', '#2B2B2B', 0, 45, 0), 2)]
+   phones (390) mean above 37.9 (n=186), below 21.9 (n=182)
+
+== 18b beige line div: 30 on 6 pages; The Role of the Adult 2
+   pages: the-culture-curriculum, the-first-casa-dei-bambini, the-history-of-montessori-education, the-role-of-the-adult, the-sensorial-curriculum, timeline
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 40, 35, 31) 17
+     ('18px', '400', 'n', '#2B2B2B', 0, 25, 21) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 10, 20) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 28, 33) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 35, 31) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 26, 27) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 25, 21) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 30, 31) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 35, 23) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 19, 21) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 34, 24) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 34, 31) 1
+   Role of the Adult styles: [(('18px', '400', 'n', '#2B2B2B', 0, 28, 33), 1), (('18px', '400', 'n', '#2B2B2B', 0, 35, 31), 1)]
+   phones (390) mean above 28.0 (n=30), below 27.8 (n=30)
+
+== 10 centred line: 12 on 4 pages; The Role of the Adult 0
+   pages: the-history-of-montessori-education, the-practical-life-curriculum-2, timeline, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 366, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 294, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 276, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 302, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 358, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 96, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 315, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 304, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 388, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 46, 35) 1
+     ('18px', '400', 'n', '#EE0000', 486, None, 54) 1
+     ('18px', '400', 'n', '#2B2B2B', 192, None, 36) 1
+   phones (390) mean above 29.7 (n=10), below 31.2 (n=12)
+
+== 11 table: 7 on 4 pages; The Role of the Adult 0
+   pages: montessori-scope-and-sequence, play-varieties-and-characteristics, the-montessori-curriculum, the-practical-life-curriculum-2
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#0432FF', 0, 52, 35) 2
+     ('18px', '400', 'n', '#EE0000', 0, 52, 67) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 37, 28) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 53, 28) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 53, 35) 1
+     ('18px', '400', 'n', '#0432FF', 0, 53, 35) 1
+   phones (390) mean above 43.4 (n=7), below 33 (n=7)
+
+== 12 area heading: 25 on 3 pages; The Role of the Adult 0
+   pages: the-culture-curriculum, the-mathematics-curriculum, the-montessori-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('22px', '400', 'n', '#EE0000', 0, 57, 38) 7
+     ('22px', '400', 'n', '#EE0000', 0, 52, 38) 4
+     ('20px', '700', 'n', '#2B2B2B', 0, 56, 37) 3
+     ('22px', '400', 'n', '#EE0000', 0, None, 38) 2
+     ('20px', '700', 'n', '#2B2B2B', 0, 51, 37) 2
+     ('22px', '400', 'n', '#0432FF', 0, None, 33) 1
+     ('22px', '400', 'n', '#0432FF', 0, 82, 33) 1
+     ('22px', '400', 'n', '#0432FF', 0, 77, 33) 1
+     ('22px', '400', 'n', '#0432FF', 0, -979, 33) 1
+     ('22px', '400', 'n', '#0432FF', 0, -194, 33) 1
+     ('22px', '400', 'n', '#0432FF', 0, -337, 33) 1
+     ('22px', '400', 'n', '#00B050', 0, -306, 33) 1
+   phones (390) mean above 56.8 (n=18), below 36.1 (n=25)
+
+== 13 list inside list: 4 on 3 pages; The Role of the Adult 0
+   pages: play-varieties-and-characteristics, the-mathematics-curriculum, the-montessori-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 93, 25, 25) 2
+     ('18px', '400', 'n', '#2B2B2B', 93, 41, 41) 1
+     ('18px', '400', 'n', '#2B2B2B', 93, 41, -237) 1
+   phones (390) mean above 32 (n=4), below 32 (n=4)
+
+== 15a quotation (base): 74 on 7 pages; The Role of the Adult 45
+   pages: the-culture-curriculum, the-mathematics-curriculum, the-montessori-curriculum, the-practical-life-curriculum-2, the-role-of-the-adult, the-sensorial-curriculum, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'i', '#2B2B2B', 38, 46, 46) 32
+     ('18px', '400', 'i', '#2B2B2B', 31, 36, 35) 15
+     ('18px', '400', 'i', '#2B2B2B', 38, 41, 46) 4
+     ('18px', '400', 'i', '#2B2B2B', 38, 58, 46) 3
+     ('18px', '400', 'i', '#2B2B2B', 31, 38, 49) 3
+     ('18px', '400', 'i', '#2B2B2B', 31, 36, 36) 3
+     ('18px', '400', 'i', '#2B2B2B', 38, 46, 45) 2
+     ('18px', '400', 'i', '#2B2B2B', 38, 46, 44) 1
+     ('18px', '400', 'i', '#2B2B2B', 38, 44, 46) 1
+     ('18px', '400', 'i', '#2B2B2B', 38, 45, 44) 1
+     ('18px', '400', 'i', '#2B2B2B', 38, 46, 41) 1
+     ('18px', '400', 'i', '#2B2B2B', 72, 43, 37) 1
+     ('18px', '400', 'i', '#2B2B2B', 31, 38, 38) 1
+     ('18px', '400', 'i', '#2B2B2B', 93, 38, 35) 1
+     ('18px', '400', 'i', '#2B2B2B', 31, 38, 64) 1
+     ('18px', '400', 'i', '#2B2B2B', 79, 36, 36) 1
+     ('18px', '400', 'i', '#2B2B2B', 38, 21, 25) 1
+     ('18px', '400', 'i', '#2B2B2B', 38, 21, 60) 1
+     ('18px', '400', 'i', '#2B2B2B', 62, 38, 36) 1
+   Role of the Adult styles: [(('18px', '400', 'i', '#2B2B2B', 38, 46, 46), 32), (('18px', '400', 'i', '#2B2B2B', 38, 41, 46), 4), (('18px', '400', 'i', '#2B2B2B', 38, 58, 46), 3)]
+   phones (390) mean above 38.2 (n=74), below 32.4 (n=73)
+
+== 15b centred quotation: 19 on 2 pages; The Role of the Adult 0
+   pages: play-varieties-and-characteristics, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'i', '#2B2B2B', 240, None, 36) 1
+     ('18px', '400', 'i', '#2B2B2B', 199, 36, 35) 1
+     ('18px', '400', 'i', '#2B2B2B', 328, 36, 35) 1
+     ('18px', '400', 'i', '#2B2B2B', 46, 67, 37) 1
+     ('18px', '400', 'i', '#2B2B2B', 195, 36, 35) 1
+     ('18px', '400', 'i', '#2B2B2B', 265, 36, 39) 1
+     ('18px', '400', 'i', '#2B2B2B', 97, 36, 31) 1
+     ('18px', '400', 'i', '#2B2B2B', 102, 31, 31) 1
+     ('18px', '400', 'i', '#2B2B2B', 256, 31, 37) 1
+     ('18px', '400', 'i', '#2B2B2B', 83, 36, 36) 1
+     ('18px', '400', 'i', '#2B2B2B', 298, 36, 35) 1
+     ('18px', '400', 'i', '#2B2B2B', 202, 36, 35) 1
+     ('18px', '400', 'i', '#2B2B2B', 238, 36, 35) 1
+     ('18px', '400', 'i', '#2B2B2B', 141, 25, 36) 1
+     ('18px', '400', 'i', '#2B2B2B', 337, 36, 45) 1
+     ('18px', '400', 'i', '#2B2B2B', 3, 36, 41) 1
+     ('18px', '400', 'i', '#2B2B2B', 2, 36, 35) 1
+     ('18px', '400', 'i', '#2B2B2B', 31, 36, None) 1
+     ('18px', '400', 'i', '#2B2B2B', 328, 49, 36) 1
+   phones (390) mean above 35.2 (n=18), below 35.3 (n=18)
+
+== 15c quotation, no indent: 7 on 2 pages; The Role of the Adult 0
+   pages: play-varieties-and-characteristics, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'i', '#2B2B2B', 31, 36, 36) 3
+     ('18px', '400', 'i', '#2B2B2B', 31, 36, 41) 2
+     ('18px', '400', 'i', '#2B2B2B', 0, 25, 36) 1
+     ('18px', '400', 'i', '#2B2B2B', 328, 49, 36) 1
+   phones (390) mean above 33.7 (n=7), below 36.7 (n=7)
+
+== 15d credit span: 31 on 2 pages; The Role of the Adult 0
+   pages: play-varieties-and-characteristics, the-montessori-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', None, None, None) 31
+   phones (390) mean above - (n=0), below - (n=0)
+
+== 15e credit cite: 63 on 6 pages; The Role of the Adult 38
+   pages: the-mathematics-curriculum, the-montessori-curriculum, the-practical-life-curriculum-2, the-role-of-the-adult, the-sensorial-curriculum, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 86, 28, 46) 32
+     ('18px', '400', 'n', '#2B2B2B', 79, 31, 35) 13
+     ('18px', '400', 'n', '#2B2B2B', 86, 28, 45) 2
+     ('18px', '400', 'n', '#2B2B2B', 86, 28, 44) 2
+     ('18px', '400', 'n', '#2B2B2B', 90, 28, 46) 2
+     ('18px', '400', 'n', '#2B2B2B', 31, 31, 36) 2
+     ('18px', '400', 'n', '#2B2B2B', 31, 38, 49) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 25, 49) 1
+     ('18px', '400', 'n', '#2B2B2B', 93, 25, 64) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 31, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 42, 23, 36) 1
+     ('18px', '400', 'n', '#2B2B2B', 79, 31, 36) 1
+     ('18px', '400', 'n', '#2B2B2B', 86, 28, 25) 1
+     ('18px', '400', 'n', '#2B2B2B', 86, 28, 60) 1
+     ('18px', '400', 'n', '#2B2B2B', 124, 23, 36) 1
+     ('18px', '400', 'n', '#2B2B2B', 422, 89, 36) 1
+   Role of the Adult styles: [(('18px', '400', 'n', '#2B2B2B', 86, 28, 46), 32), (('18px', '400', 'n', '#2B2B2B', 86, 28, 45), 2), (('18px', '400', 'n', '#2B2B2B', 86, 28, 44), 2)]
+   phones (390) mean above 27.3 (n=63), below 30.8 (n=62)
+
+== 16 story card: 23 on 2 pages; The Role of the Adult 0
+   pages: home, play
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', -180, 96, -419) 2
+     ('18px', '400', 'n', '#2B2B2B', 211, -419, -419) 2
+     ('18px', '400', 'n', '#2B2B2B', 603, -419, 66) 2
+     ('18px', '400', 'n', '#2B2B2B', -180, 103, -382) 2
+     ('18px', '400', 'n', '#2B2B2B', -180, 66, -457) 2
+     ('18px', '400', 'n', '#2B2B2B', 211, -457, -457) 2
+     ('18px', '400', 'n', '#2B2B2B', 603, -457, 103) 2
+     ('18px', '400', 'n', '#2B2B2B', -180, 66, -382) 1
+     ('18px', '400', 'n', '#2B2B2B', 211, -382, -419) 1
+     ('18px', '400', 'n', '#2B2B2B', 603, -419, 103) 1
+     ('18px', '400', 'n', '#2B2B2B', 211, -382, -382) 1
+     ('18px', '400', 'n', '#2B2B2B', 603, -382, None) 1
+     ('18px', '400', 'n', '#2B2B2B', 603, -457, 66) 1
+     ('18px', '400', 'n', '#2B2B2B', 211, -382, -457) 1
+     ('18px', '400', 'n', '#2B2B2B', -180, 103, -457) 1
+     ('18px', '400', 'n', '#2B2B2B', 211, -457, None) 1
+   phones (390) mean above 55.2 (n=23), below 54 (n=21)
+
+== 17 lettered list: 2 on 2 pages; The Role of the Adult 0
+   pages: parent-resources, the-story-of-san-lorenzo
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 93, 41, 41) 1
+     ('18px', '400', 'n', '#2B2B2B', 38, 34, 34) 1
+   phones (390) mean above 36 (n=2), below 36 (n=2)
+
+== L1 bold label: 242 on 8 pages; The Role of the Adult 18
+   pages: montessori-scope-and-sequence, play-varieties-and-characteristics, the-culture-curriculum, the-mathematics-curriculum, the-montessori-curriculum, the-practical-life-curriculum-2, the-role-of-the-adult, the-sensorial-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '700', 'n', '#2B2B2B', 0, 38, 23) 35
+     ('18px', '700', 'n', '#2B2B2B', 0, 49, 25) 27
+     ('18px', '700', 'n', '#2B2B2B', 0, 40, 23) 22
+     ('18px', '700', 'n', '#2B2B2B', 0, 41, 25) 21
+     ('18px', '700', 'n', '#2B2B2B', 0, 51, 31) 17
+     ('18px', '700', 'n', '#2B2B2B', 0, 51, 23) 12
+     ('18px', '700', 'n', '#2B2B2B', 0, 38, 25) 11
+     ('18px', '700', 'n', '#2B2B2B', 0, 46, 25) 11
+     ('18px', '700', 'n', '#2B2B2B', 409, 29, 29) 7
+     ('18px', '700', 'n', '#2B2B2B', 795, 29, 29) 7
+     ('18px', '700', 'n', '#2B2B2B', 0, 36, 25) 7
+     ('18px', '700', 'n', '#2B2B2B', 0, 23, 25) 7
+     ('18px', '700', 'n', '#2B2B2B', 0, 37, 25) 7
+     ('18px', '700', 'n', '#2B2B2B', 24, 29, 29) 6
+     ('18px', '700', 'n', '#2B2B2B', 0, 35, 23) 4
+     ('18px', '700', 'n', '#2B2B2B', 0, 29, 23) 4
+     ('18px', '700', 'n', '#2B2B2B', 0, 50, 23) 2
+     ('18px', '700', 'n', '#2B2B2B', 0, 25, 31) 2
+     ('18px', '700', 'n', '#2B2B2B', 0, 36, 23) 2
+     ('18px', '700', 'n', '#2B2B2B', 0, 49, 44) 2
+     ('18px', '700', 'n', '#2B2B2B', 0, 40, 21) 2
+     ('18px', '700', 'n', '#2B2B2B', 0, 40, 48) 2
+     ('18px', '700', 'n', '#2B2B2B', 0, 46, 23) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 41, 23) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 31, 46) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 41, 31) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 70, 23) 1
+     ('18px', '700', 'n', '#2B2B2B', 24, 32, 29) 1
+     ('18px', '700', 'n', '#2B2B2B', 409, -948, 29) 1
+     ('18px', '700', 'n', '#2B2B2B', 795, 29, -938) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 31, 23) 1
+     ('18px', '400', 'n', '#00B050', 0, 49, 25) 1
+     ('18px', '400', 'n', '#ED7D31', 393, -124, 25) 1
+     ('18px', '700', 'n', '#7030A0', 787, -124, 25) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 47, 25) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 47, 35) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 25, 25) 1
+     ('20px', '400', 'n', '#EE0000', 0, 62, 23) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 52, 31) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 41, 45) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 37, 36) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 36, 36) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 32, 23) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 23, 23) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 21, 23) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, 40, 39) 1
+     ('18px', '700', 'n', '#2B2B2B', 0, -21, 23) 1
+   Role of the Adult styles: [(('18px', '700', 'n', '#2B2B2B', 0, 51, 23), 12), (('18px', '700', 'n', '#2B2B2B', 0, 50, 23), 2), (('18px', '700', 'n', '#2B2B2B', 0, 46, 23), 1)]
+   phones (390) mean above 37.8 (n=242), below 24.5 (n=241)
+
+== L2 blue label: 28 on 3 pages; The Role of the Adult 1
+   pages: the-culture-curriculum, the-role-of-the-adult, the-sensorial-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#0432FF', 0, 38, 23) 10
+     ('18px', '400', 'n', '#0432FF', 24, 32, 29) 6
+     ('18px', '400', 'n', '#0432FF', 24, 29, 29) 3
+     ('18px', '400', 'n', '#0432FF', 409, 29, 29) 2
+     ('18px', '400', 'n', '#0432FF', 795, 29, 29) 2
+     ('18px', '400', 'n', '#0432FF', 0, 29, 23) 2
+     ('18px', '400', 'n', '#0432FF', 0, 33, 23) 1
+     ('18px', '400', 'n', '#0432FF', 409, -600, 29) 1
+     ('18px', '400', 'n', '#0432FF', 0, 34, 23) 1
+   Role of the Adult styles: [(('18px', '400', 'n', '#0432FF', 0, 33, 23), 1)]
+   phones (390) mean above 30.7 (n=28), below 24.0 (n=28)
+
+== L3 sub-label: 104 on 3 pages; The Role of the Adult 0
+   pages: the-sensorial-curriculum, the-story-of-san-lorenzo, timeline
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 40, 54, 26) 49
+     ('18px', '400', 'n', '#2B2B2B', 0, 48, 28) 37
+     ('18px', '400', 'n', '#2B2B2B', 0, 39, 28) 7
+     ('18px', '400', 'n', '#2B2B2B', 0, 42, 28) 3
+     ('18px', '400', 'n', '#2B2B2B', 0, 56, 28) 2
+     ('18px', '400', 'n', '#2B2B2B', 0, 28, 10) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 36, 19) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 50, 28) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 29, 28) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 23, 28) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 38, 28) 1
+   phones (390) mean above 47.6 (n=104), below 24.9 (n=104)
+
+== L4 glossary term: 43 on 1 pages; The Role of the Adult 0
+   pages: glossary
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 40, 54, 26) 42
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 26) 1
+   phones (390) mean above 51.8 (n=43), below 24 (n=43)
+
+== L5 dated heading: 26 on 2 pages; The Role of the Adult 0
+   pages: a-montessori-journey, aun-aprendo
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 31) 8
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 27) 4
+     ('18px', '400', 'n', '#2B2B2B', 40, 30, 32) 3
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 32) 3
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 28) 2
+     ('18px', '400', 'n', '#2B2B2B', 40, 31, 26) 2
+     ('18px', '400', 'n', '#2B2B2B', 40, None, 27) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 30, 28) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 56, 26) 1
+     ('18px', '400', 'n', '#2B2B2B', 40, 30, 31) 1
+   phones (390) mean above 31 (n=25), below 28.2 (n=26)
+
+== C1 coloured word (mm-wcol): 73 on 10 pages; The Role of the Adult 0
+   pages: administration, essential-elements, montessori-scope-and-sequence, parent-resources, play-varieties-and-characteristics, the-culture-curriculum, the-history-of-education, the-mathematics-curriculum, the-montessori-curriculum, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#0432FF', None, None, None) 32
+     ('18px', '400', 'n', '#EE0000', None, None, None) 18
+     ('18px', '400', 'n', '#1D1D20', None, None, None) 6
+     ('18px', '400', 'n', '#00B050', None, None, None) 5
+     ('18px', '400', 'n', '#FB0207', None, None, None) 2
+     ('18px', '400', 'n', '#FF0000', None, None, None) 1
+     ('18px', '400', 'n', '#0000FF', None, None, None) 1
+     ('18px', '400', 'n', '#2CC171', None, None, None) 1
+     ('18px', '400', 'n', '#ED2AFB', None, None, None) 1
+     ('18px', '400', 'n', '#FBEF32', None, None, None) 1
+     ('18px', '400', 'n', '#66CCFF', None, None, None) 1
+     ('18px', '400', 'n', '#CC66FF', None, None, None) 1
+     ('18px', '400', 'n', '#FFFFFF', None, None, None) 1
+     ('18px', '400', 'n', '#996633', None, None, None) 1
+     ('18px', '400', 'n', '#222222', None, None, None) 1
+   phones (390) mean above - (n=0), below - (n=0)
+
+== C2 blue word (mm-blue): 83 on 4 pages; The Role of the Adult 0
+   pages: a-montessori-journey, aun-aprendo, glossary, timeline
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#0432FF', None, None, None) 70
+     ('18px', '400', 'n', '#0432FF', 40, 31, -12) 8
+     ('18px', '400', 'n', '#0432FF', 40, 30, -12) 4
+     ('18px', '400', 'n', '#0432FF', 40, None, -12) 1
+   phones (390) mean above 30 (n=12), below -12 (n=13)
+
+== C3 coloured paragraph/label (mm-wc): 44 on 8 pages; The Role of the Adult 0
+   pages: administration, parent-resources, play-varieties-and-characteristics, the-culture-curriculum, the-history-of-education, the-mathematics-curriculum, the-montessori-curriculum, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#EE0000', 0, 36, 21) 10
+     ('18px', '400', 'n', '#0432FF', 24, 32, 29) 6
+     ('18px', '400', 'n', '#0432FF', 24, 29, 29) 3
+     ('18px', '400', 'n', '#0432FF', 409, 29, 29) 2
+     ('18px', '400', 'n', '#0432FF', 795, 29, 29) 2
+     ('18px', '400', 'n', '#00B050', 0, 25, 25) 2
+     ('18px', '400', 'n', '#0432FF', 0, 25, 25) 2
+     ('18px', '400', 'n', '#0432FF', 0, 21, 25) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 41, 41) 1
+     ('18px', '400', 'n', '#FF0000', 31, 45, 31) 1
+     ('18px', '400', 'n', '#0432FF', 31, 45, 31) 1
+     ('18px', '400', 'n', '#0432FF', 409, -600, 29) 1
+     ('18px', '400', 'n', '#EE0000', 0, 42, 21) 1
+     ('18px', '400', 'n', '#00B050', 0, 49, 25) 1
+     ('18px', '400', 'n', '#ED7D31', 393, -124, 25) 1
+     ('18px', '400', 'n', '#00B050', 0, 49, 38) 1
+     ('18px', '400', 'n', '#FB0207', 0, 25, 49) 1
+     ('18px', '400', 'n', '#FB0207', 0, 25, 25) 1
+     ('18px', '400', 'n', '#00B050', 0, 25, 49) 1
+     ('18px', '400', 'n', '#FF40FF', 152, 51, 31) 1
+     ('18px', '400', 'n', '#0432FF', 0, 18, 31) 1
+     ('18px', '400', 'n', '#009051', 0, 51, 31) 1
+     ('18px', '400', 'n', '#00B050', 0, 36, 36) 1
+     ('18px', '400', 'n', '#0432FF', 0, 36, 36) 1
+   phones (390) mean above 32.3 (n=44), below 27.2 (n=44)
+
+== C4 red (mm-red): 2 on 2 pages; The Role of the Adult 0
+   pages: the-mathematics-curriculum, timeline
+   styles (size, weight, style, colour, indent, above, below): count
+     ('20px', '400', 'n', '#EE0000', 0, 62, 23) 1
+     ('18px', '400', 'n', '#EE0000', 486, None, 54) 1
+   phones (390) mean above 62 (n=1), below 36.5 (n=2)
+
+== N1 numbered line (mm-num): 59 on 1 pages; The Role of the Adult 0
+   pages: the-culture-curriculum
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 24, 29, 29) 19
+     ('18px', '400', 'n', '#2B2B2B', 409, 29, 29) 19
+     ('18px', '400', 'n', '#2B2B2B', 795, 29, 29) 17
+     ('18px', '400', 'n', '#2B2B2B', 24, 29, -948) 1
+     ('18px', '400', 'n', '#2B2B2B', 409, 29, -948) 1
+     ('18px', '400', 'n', '#2B2B2B', 795, -948, 29) 1
+     ('18px', '400', 'n', '#2B2B2B', 795, 29, -900) 1
+   phones (390) mean above 27 (n=59), below 27 (n=58)
+
+== R1 resource title: 9 on 2 pages; The Role of the Adult 0
+   pages: administration, the-history-of-education
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#0432FF', 0, 21, 25) 4
+     ('18px', '400', 'n', '#0432FF', 0, 21, 41) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 25, 25) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 21, 25) 1
+     ('18px', '400', 'n', '#0432FF', 0, 21, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 0, 42, 35) 1
+   phones (390) mean above 21.4 (n=9), below 28.2 (n=9)
+
+== H plain section heading: 27 on 3 pages; The Role of the Adult 9
+   pages: the-role-of-the-adult, the-sensorial-curriculum, the-story-of-san-lorenzo
+   styles (size, weight, style, colour, indent, above, below): count
+     ('24px', '500', 'n', '#0432FF', 0, 55, 46) 5
+     ('24px', '500', 'n', '#0432FF', 0, 55, 45) 5
+     ('20px', '500', 'n', '#2B2B2B', 0, 31, 34) 3
+     ('24px', '500', 'n', '#0432FF', 0, 41, 58) 2
+     ('24px', '500', 'n', '#0432FF', 0, 55, 56) 2
+     ('24px', '500', 'n', '#0432FF', 0, None, 46) 1
+     ('24px', '500', 'n', '#0432FF', 0, 41, 46) 1
+     ('24px', '500', 'n', '#0432FF', 0, 40, 46) 1
+     ('24px', '500', 'n', '#0432FF', 0, 55, 58) 1
+     ('24px', '500', 'n', '#0432FF', 0, None, 37) 1
+     ('24px', '500', 'n', '#0432FF', 0, 60, 46) 1
+     ('24px', '500', 'n', '#0432FF', 0, 46, 56) 1
+     ('24px', '500', 'n', '#0432FF', 0, 58, 46) 1
+     ('24px', '500', 'n', '#0432FF', 0, 46, 49) 1
+     ('24px', '500', 'n', '#0432FF', 0, 42, 45) 1
+   Role of the Adult styles: [(('24px', '500', 'n', '#0432FF', 0, 55, 46), 3), (('24px', '500', 'n', '#0432FF', 0, 41, 58), 2), (('24px', '500', 'n', '#0432FF', 0, None, 46), 1)]
+   phones (390) mean above 50.2 (n=25), below 45.1 (n=27)
+
+== O plain numbered list: 34 on 10 pages; The Role of the Adult 2
+   pages: montessori-scope-and-sequence, play-varieties-and-characteristics, the-culture-curriculum, the-history-of-education, the-mathematics-curriculum, the-montessori-curriculum, the-practical-life-curriculum-2, the-role-of-the-adult, the-sensorial-curriculum, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, 41) 8
+     ('18px', '400', 'n', '#2B2B2B', 31, 25, 49) 6
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, 35) 4
+     ('18px', '400', 'n', '#2B2B2B', 31, 25, 41) 2
+     ('18px', '400', 'n', '#2B2B2B', 37, 34, 34) 1
+     ('18px', '400', 'n', '#2B2B2B', 37, 23, 34) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, 36) 1
+     ('18px', '400', 'n', '#2B2B2B', 30, 34, -198) 1
+     ('18px', '400', 'n', '#2B2B2B', 825, -316, 26) 1
+     ('18px', '400', 'n', '#2B2B2B', 78, 34, -192) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 25, 25) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 25, 35) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 38, 25) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 25, 38) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 25, 57) 1
+     ('18px', '400', 'n', '#2B2B2B', 621, -237, 41) 1
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, 52) 1
+     ('18px', '400', 'n', '#2B2B2B', 16, 34, -151) 1
+   Role of the Adult styles: [(('18px', '400', 'n', '#2B2B2B', 37, 34, 34), 1), (('18px', '400', 'n', '#2B2B2B', 37, 23, 34), 1)]
+   phones (390) mean above 32.1 (n=34), below 36.8 (n=34)
+
+== U plain bulleted list: 27 on 10 pages; The Role of the Adult 5
+   pages: montessori-scope-and-sequence, resources, the-culture-curriculum, the-mathematics-curriculum, the-montessori-curriculum, the-practical-life-curriculum-2, the-role-of-the-adult, the-sensorial-curriculum, the-story-of-san-lorenzo, why-this-website
+   styles (size, weight, style, colour, indent, above, below): count
+     ('18px', '400', 'n', '#2B2B2B', 48, 34, 34) 11
+     ('18px', '400', 'n', '#2B2B2B', 31, 41, 41) 2
+     ('18px', '400', 'n', '#2B2B2B', 54, 29, 26) 2
+     ('18px', '400', 'n', '#2B2B2B', 48, 34, -178) 1
+     ('18px', '400', 'n', '#2B2B2B', 93, 41, 39) 1
+     ('18px', '400', 'n', '#2B2B2B', 93, 41, 41) 1
+     ('18px', '400', 'n', '#2B2B2B', 439, -244, 26) 1
+     ('18px', '400', 'n', '#2B2B2B', 825, -203, 26) 1
+     ('18px', '400', 'n', '#2B2B2B', 54, 29, -387) 1
+     ('18px', '400', 'n', '#2B2B2B', 439, 29, 26) 1
+     ('18px', '400', 'n', '#2B2B2B', 825, -279, 26) 1
+     ('18px', '400', 'n', '#2B2B2B', 439, 29, -244) 1
+     ('18px', '400', 'n', '#2B2B2B', 62, 25, 49) 1
+     ('18px', '400', 'n', '#2B2B2B', 621, 41, 47) 1
+     ('18px', '400', 'n', '#2B2B2B', 56, 41, 52) 1
+   Role of the Adult styles: [(('18px', '400', 'n', '#2B2B2B', 48, 34, 34), 4), (('18px', '400', 'n', '#2B2B2B', 48, 34, -178), 1)]
+   phones (390) mean above 32.2 (n=27), below 31.5 (n=27)
+

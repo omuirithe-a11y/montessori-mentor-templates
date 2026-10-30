@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+"""Formatting proof, run unedited (checks-v3: every difference printed, no limit; 27 Oct 2026, 14:1x: computers 1440 and phones 390; also words and images the reader can see on the live page but not on the finished page, or the reverse).
+usage: python3 format_check.py <finished package .zip> <live page folder (holding index.html)>
+Opens both in Chromium at 1440 and compares, word by word in the text area, the colour, italic, bold and underline the
+reader actually sees. Every difference is printed; each must be a template fault reported to the owner."""
+import sys, os, zipfile, tempfile, threading, http.server, functools, asyncio, difflib
+from playwright.async_api import async_playwright
+Z, LIVE = sys.argv[1], sys.argv[2]
+tmp = tempfile.mkdtemp(prefix='fc-'); zipfile.ZipFile(Z).extractall(tmp)
+import atexit, shutil; atexit.register(shutil.rmtree, tmp, True)   # v7: the unpacked copy is deleted when the check ends (copies filled the disk on 27 Oct)
+idx = [os.path.join(r, 'index.html') for r, d, f in os.walk(tmp) if 'index.html' in f]; assert len(idx) == 1
+class Q(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *a): pass
+def serve(d):
+    s = http.server.ThreadingHTTPServer(('127.0.0.1', 0), functools.partial(Q, directory=d)); threading.Thread(target=s.serve_forever, daemon=True).start(); return s.server_address[1]
+pp, lp = serve(os.path.dirname(idx[0])), serve(os.path.abspath(LIVE))
+JS = r"""() => { const clipRect = e => { let r = e.getBoundingClientRect(); let L = r.left, T = r.top, Rr = r.right, B = r.bottom;   for (let a = e.parentElement; a && a !== document.documentElement; a = a.parentElement) { const s = getComputedStyle(a);     if (s.display === 'none' || s.visibility === 'hidden' || s.opacity === '0') return null;
+    if (a.tagName === 'DETAILS' && !a.open) { const sm = a.querySelector(':scope > summary'); if (!sm || !sm.contains(e)) return null; }     if (/(hidden|clip)/.test(s.overflow + s.overflowX + s.overflowY)) { const q = a.getBoundingClientRect(); L = Math.max(L, q.left); T = Math.max(T, q.top); Rr = Math.min(Rr, q.right); B = Math.min(B, q.bottom); if (Rr - L < 1 || B - T < 1) return null; } }   return {left: L, top: T, right: Rr, bottom: B, width: Rr - L, height: B - T}; };  const m = document.querySelector('main#content'), out = [], w = document.createTreeWalker(m, NodeFilter.SHOW_TEXT); let n;
+ while ((n = w.nextNode())) { const e = n.parentElement; if (!n.nodeValue.trim() || e.closest('script,style')) continue; const s = getComputedStyle(e); if (s.display === 'none') continue;
+  let u = false; for (let a = e; a && a !== m.parentElement; a = a.parentElement) if (getComputedStyle(a).textDecorationLine.includes('underline')) { u = true; break; }
+  const r0 = document.createRange(); r0.selectNodeContents(n); const rs = [...r0.getClientRects()].filter(q => q.width > 0.5 && q.height > 0.5); if (!rs.length || clipRect(e) === null || s.visibility === 'hidden' || parseFloat(s.opacity) === 0 || parseFloat(s.fontSize) < 4) continue;
+  for (const word of n.nodeValue.split(/\s+/)) if (word) out.push([word, s.color, s.fontStyle === 'italic' ? 'italic' : 'upright', parseInt(s.fontWeight) >= 600 ? 'bold' : 'regular', u ? 'underlined' : '']); }
+ const imgs = [...m.querySelectorAll('img')].filter(i => { const s = getComputedStyle(i), r = i.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1 && clipRect(i) !== null; }).map(i => (i.getAttribute('src') || '').replace(/-(480|960)\.jpg$/, '.jpg'));
+ return [out, imgs]; }"""
+async def grab(b, port, W):
+    ph = W <= 640; ctx = await b.new_context(viewport={'width': W, 'height': 900}, is_mobile=ph, has_touch=ph); pg = await ctx.new_page(); await pg.goto('http://127.0.0.1:%d/' % port, wait_until='load', timeout=60000)
+    await pg.evaluate("async () => { const h = document.documentElement.scrollHeight; for (let y = 0; y < h; y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 30)); } scrollTo(0, 0); await document.fonts.ready; [...document.images].forEach(i => { i.loading = 'eager'; }); await Promise.race([Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.addEventListener('load', r); i.addEventListener('error', r); }))), new Promise(r => setTimeout(r, 20000))]); await new Promise(r => setTimeout(r, 1500)); }"); r = await pg.evaluate(JS); await ctx.close(); return r
+async def main():
+    async with async_playwright() as p:
+        b = await p.chromium.launch(); res = {W: (await grab(b, lp, W), await grab(b, pp, W)) for W in (1440, 390)}; await b.close()
+    n = 0
+    for W, (LL, PP) in res.items():
+      (L, LI), (P, PI) = LL, PP
+      print('-- width', W)
+      gone = []
+      for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, [x[0] for x in L], [x[0] for x in P], autojunk=False).get_opcodes():
+        if tag != 'equal': gone.append('%s: visible on live "%s" -> visible on page "%s"' % (tag, ' '.join(x[0] for x in L[i1:i2])[:200], ' '.join(x[0] for x in P[j1:j2])[:200]))
+      print('words seen live %d, on the page %d' % (len(L), len(P))); [print(g) for g in gone]; n += len(gone)
+      d = list(difflib.unified_diff(LI, PI, 'images seen live', 'images seen on page', n=0, lineterm=''))
+      print('images seen live %d, on the page %d' % (len(LI), len(PI))); [print(x) for x in d]; n += sum(1 for x in d if x[:1] in '+-' and x[:3] not in ('+++', '---'))
+      for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, [x[0] for x in L], [x[0] for x in P], autojunk=False).get_opcodes():
+        if tag != 'equal': continue
+        for a, c in zip(L[i1:i2], P[j1:j2]):
+            if a[1:] != c[1:]:
+                n += 1
+                print('"%s": live %s -> page %s' % (a[0], ' '.join(x for x in a[1:] if x), ' '.join(x for x in c[1:] if x)))
+    print('RESULT:', 'nothing changed that a reader sees' if not n else '%d differences a reader sees (formatting, hidden or shown words, hidden or shown images) - each must be an allowed change or a template fault reported to the owner' % n)
+asyncio.run(main())

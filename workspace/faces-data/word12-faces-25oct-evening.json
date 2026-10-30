@@ -1,0 +1,249 @@
+{
+ "saved": "2026-10-26 00:1x Shanghai",
+ "source_folder": "word12/out",
+ "note": "The evening of 25 Oct: the user's answers to the lighter-blur sheets (word for word), the faces she said to leave (keep_unblurred), the rules incl. adults (by_rule), and the per-face edits of the trial run (blur_edits; the trial script run_set.py is NOT the agreed method). The agreed method on file is still START-HERE Faces item 3 (v8), rejected 25 Oct 20:23; no replacement is agreed yet.",
+ "keep_unblurred": {
+  "2": "c",
+  "6": "c",
+  "8": "e,g"
+ },
+ "by_rule": {
+  "8": {
+   "b": "adult - the teacher in the mask",
+   "f": "facing away - no eyes, nose or mouth showing (checked 24 Oct)"
+  },
+  "_checked": true
+ },
+ "blur_edits": {
+  "8": {
+   "a": {
+    "sigma": 0.25,
+    "grow": 0.15
+   },
+   "d": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   }
+  },
+  "4": {
+   "a": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   }
+  },
+  "6": {
+   "b": {
+    "mesh": true,
+    "grow": 0.06,
+    "sigma": 0.15
+   }
+  }
+ },
+ "extra_faces": {
+  "4": [
+   {
+    "box": [
+     992,
+     342,
+     1064,
+     402
+    ],
+    "lm": [
+     [
+      1035,
+      364
+     ],
+     [
+      1055,
+      360
+     ],
+     [
+      1025,
+      380
+     ],
+     [
+      1009,
+      388
+     ],
+     [
+      1023,
+      392
+     ]
+    ],
+    "lm_by_hand": true
+   }
+  ],
+  "8": [
+   {
+    "box": [
+     469,
+     328,
+     486,
+     347
+    ],
+    "lm": [
+     [
+      480,
+      334
+     ],
+     [
+      487,
+      334
+     ],
+     [
+      486,
+      340
+     ],
+     [
+      482,
+      345
+     ],
+     [
+      487,
+      345
+     ]
+    ],
+    "lm_by_hand": true
+   }
+  ]
+ },
+ "hand_points": {
+  "9": {
+   "a": [
+    [
+     630,
+     724
+    ],
+    [
+     645,
+     728
+    ],
+    [
+     622,
+     759
+    ],
+    [
+     596,
+     781
+    ],
+    [
+     612,
+     778
+    ]
+   ]
+  },
+  "12": {
+   "g": [
+    [
+     43,
+     971
+    ],
+    [
+     61,
+     970
+    ],
+    [
+     60,
+     977
+    ],
+    [
+     66,
+     981
+    ],
+    [
+     74,
+     981
+    ]
+   ],
+   "e": [
+    [
+     572,
+     858
+    ],
+    [
+     598,
+     855
+    ],
+    [
+     590,
+     868
+    ],
+    [
+     580,
+     877
+    ],
+    [
+     601,
+     878
+    ]
+   ]
+  },
+  "3": {
+   "b": [
+    [
+     838,
+     446
+    ],
+    [
+     862,
+     452
+    ],
+    [
+     852,
+     482
+    ],
+    [
+     818,
+     500
+    ],
+    [
+     834,
+     505
+    ]
+   ]
+  },
+  "7": {
+   "a": [
+    [
+     496,
+     315
+    ],
+    [
+     521,
+     310
+    ],
+    [
+     524,
+     354
+    ],
+    [
+     512,
+     392
+    ],
+    [
+     542,
+     389
+    ]
+   ]
+  }
+ },
+ "adjust_faces": null,
+ "review": {
+  "answered": "2026-10-25 20:23-20:24 Shanghai",
+  "answer": "I have reviewed the pages and the blurring is wrong and needs to be changed. Issues:\nThe scan often misses the parts of the face\nThis rigid-lines model is to defined and the blur needs to have softer edges\nThe blurring is inconsistent: sometimes it's extremely intense and other times you can recognise the child because the blurring is barely there\nThe options are to refine the current model or to use another one. What other accurate models are available?\nThis is a selection to illustrate the problem.\nThe problems are not limited to those photos, the problems are on all photos",
+  "result": "REJECTED - all faces; the blur method itself is to change before any sheet is remade",
+  "images_sent": 14,
+  "lighter_blur_sheet_answer": {
+   "answered": "2026-10-25 23:17 Shanghai",
+   "sheet": "Word-images-lighter-blur.html",
+   "answer": "Word edits:\nBlurring needs to be edited in some way - moved, deepened, etc\n8a\t8d\t\n\nNo Blurring\n2c\t6c\t8e\t8g"
+  },
+  "lighter_blur_sheet_2_answer": {
+   "answered": "2026-10-25 23:47 Shanghai",
+   "sheet": "Word-images-lighter-blur-2.html",
+   "answer": "word images\nthe ear or hair or neck have been blurred   8d.  \nblurring not covering enough 4a   6b."
+  }
+ }
+}

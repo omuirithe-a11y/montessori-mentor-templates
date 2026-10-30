@@ -1,0 +1,16 @@
+<script id="mm-swipe-middle-js">
+/* 21 Oct 2026 (preferences 16 Oct: "in swipe rows each photo stops in the middle of the screen (space added at both ends)"):
+   below 831 the first and last photo of a swipe row get the space at the row's ends that lets them stop in the middle too */
+(function(){
+  function run(){var ph=window.innerWidth<=830;
+    [].forEach.call(document.querySelectorAll('main .mm-row'),function(r){
+      if(!ph||r.scrollWidth<=r.clientWidth+1){r.style.removeProperty('padding-left');r.style.removeProperty('padding-right');return;}
+      var p=[].slice.call(r.querySelectorAll('.ph')).filter(function(x){return x.getBoundingClientRect().width>0;});if(!p.length)return;
+      var W=r.clientWidth;
+      r.style.setProperty('padding-left',Math.max(0,(W-p[0].getBoundingClientRect().width)/2).toFixed(1)+'px','important');
+      r.style.setProperty('padding-right',Math.max(0,(W-p[p.length-1].getBoundingClientRect().width)/2).toFixed(1)+'px','important');});}
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+  window.addEventListener('load',function(){run();setTimeout(run,800);});
+  window.addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,300);});
+})();
+</script>
