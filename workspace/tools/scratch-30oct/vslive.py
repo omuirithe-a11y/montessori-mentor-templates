@@ -6,7 +6,7 @@ def serve(d):
     H = functools.partial(type('Q', (http.server.SimpleHTTPRequestHandler,), {'log_message': lambda *a: None}), directory=d)
     s = http.server.ThreadingHTTPServer(('127.0.0.1', 0), H); threading.Thread(target=s.serve_forever, daemon=True).start(); return s.server_address[1]
 d = tempfile.mkdtemp(); zipfile.ZipFile(Z).extractall(d); pb = serve(d); pl = serve(os.path.dirname(LIVE.rstrip('/')))
-urls = {'live': 'http://127.0.0.1:%d/%s/' % (pl, os.path.basename(LIVE.rstrip('/'))), 'new': 'http://127.0.0.1:%d/aun-aprendo/' % pb}
+urls = {'live': 'http://127.0.0.1:%d/%s/' % (pl, os.path.basename(LIVE.rstrip('/'))), 'new': 'http://127.0.0.1:%d/%s/' % (pb, zipfile.ZipFile(Z).namelist()[0].split('/')[0])}   # 30 Oct 17:1x: page name from the zip (was fixed to aun-aprendo)
 JS = "async()=>{document.querySelectorAll('img').forEach(i=>i.loading='eager');for(let y=0;y<document.body.scrollHeight;y+=600){window.scrollTo(0,y);await new Promise(r=>setTimeout(r,40))}window.scrollTo(0,0);await Promise.race([Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r}))),new Promise(r=>setTimeout(r,15000))]);await new Promise(r=>setTimeout(r,1500))}"
 with sync_playwright() as p:
     b = p.chromium.launch()
