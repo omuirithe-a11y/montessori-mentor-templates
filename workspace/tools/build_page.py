@@ -1220,6 +1220,8 @@ def main():
            '<div class="hero" style="background-image:url(\'images/hero.jpg\')%s"><h1><span>%s</span></h1></div>' % (pos, a.title), t)
     heads = [((h.get('id') or (h.find_parent('section') or {}).get('id')), h.get_text().strip()) for h in BeautifulSoup(content, 'html.parser').find_all('h2')]
     heads = [x for x in heads if x[0]]
+    if S.get('TOC_ONLY'):   # 31 Oct 2026 (8.1): the contents box lists only these headings (the page's main sections); the others stay on the page as headings
+        heads = [x for x in heads if x[1] in S['TOC_ONLY']]
     if S.get('NO_TOC'): a.no_toc = True   # a page setting, so the page keeps it at every rebuild (21 Oct)
     if heads and not a.no_toc:
         # 31 Oct 2026 (8.1, code check part 1): the contents lists are the template's own - the Resources template has three
