@@ -1,0 +1,4 @@
+# tools/v7 (31 Oct 2026)
+- assemble_from_live.py <template.html> <live index.html> <out folder>: a page rebuilt on the current Essay template from the live page (owner 31 Oct 14:53: "in this instance building from the live page counts as a rebuild") - the template's code everywhere; title, hero title, contents, menu entries and main's content from live; image descriptions removed (28 Oct rule); copy protection added for the hostinger copy.
+- strip_compare.py: the code check, pinned to Essay template sha256 2cf796ee (commit 396c6e9). Needs /home/claude/reports/copy-protection.html (= workspace/templates/copy-protection.html). Re-pin when the template changes. Tested 31 Oct: planted footer fault -> FAULT; Culture build 2 -> ALL CHECKS OK.
+- place_check.py (v2): an image inside a group that scrolls sideways is measured by the part the group shows. Tested 31 Oct: Culture build 2 PLACE OK; same group made non-scrolling PLACE FAULT.
