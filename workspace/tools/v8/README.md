@@ -1,0 +1,7 @@
+# workspace/tools/v8 (31 Oct 2026, The Culture Curriculum build 3)
+- strip_compare.py: the code check, pinned to the Essay Code Template sha256 0c226cab (commit 3fc5dea). Its Resources Code Template pin (138b5e0c) is NOT the current GitHub Resources template (3f884aae, 31 Oct): re-pin and test it before the first Resources page.
+- send_gate.sh: send_gate_v7.sh with its check-script folder set to handover-2026-10-29-evening/tools-v5-fixA (chk/v6 does not exist in new sessions). GATE PASSED on Culture build 3 (19:02); GATE FAILED on a planted build (run started 19:02:48, saved 19:26; code check NOT ACCEPTABLE).
+- place_check.py: placement check v2 - a scrolling image row is measured by the part it shows. Same file as tools/v7/place_check.py.
+- heading_gap.py: gap from a heading's last baseline to an image straight after it (same reference as the template's mm-image-gap-29oct). Build 3: 30 px at 390/641/768/830; build 2: 17 px.
+- assemble.py: builds a page from the template and the live page's content (title, hero h1, contents, menu, main); image descriptions blanked. Same file as tools/v7/assemble_from_live.py.
+Check with: sha256sum -c FINGERPRINTS.txt (in this folder).

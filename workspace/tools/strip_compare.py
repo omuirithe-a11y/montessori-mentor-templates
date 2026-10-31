@@ -19,9 +19,9 @@ if PAGE.endswith('.zip'):
     assert top == {slug}, 'STOP: the zip must hold one folder named %s (the live page\'s folder); it holds %s' % (slug, sorted(top))
     print('zip folder name:', slug, '- matches the live page')
 H = lambda f: hashlib.sha256(open(f, 'rb').read()).hexdigest()
-FIX = {'Essay Code Template.html': '5eb09bb938b608173b266b84cbeea2b599ce657bd871a6f0aa517a6664357937',
+FIX = {'Essay Code Template.html': '0c226cab01f9dbbe6af25378df9df04c8798910820e5a53d7613b432fce5cd5f',
        'Resources Code Template.html': '138b5e0c9781bb748f01d8bc7044e543133f75f122dbb63b1e04f08a3e649a41'}
-assert os.path.basename(TPL) in FIX and H(TPL) == FIX[os.path.basename(TPL)], 'STOP: the template is not the GitHub commit 5734ac5 file'
+assert os.path.basename(TPL) in FIX and H(TPL) == FIX[os.path.basename(TPL)], 'STOP: the template is not the template pinned 31 Oct (sha256 0c226cab)'
 assert H('/home/claude/reports/copy-protection.html') == '0d180ad65627bb99f5edd29c476727c29d68a34efccd4ab5fd8f64a777026ce4', 'STOP: copy-protection.html has been changed'
 print('template and copy protection fingerprints: correct')
 PROT = open('/home/claude/reports/copy-protection.html', encoding='utf-8').read()

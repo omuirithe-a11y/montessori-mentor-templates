@@ -1,8 +1,6 @@
 54ff37988e5c63152c47c1a4b248adca57b9ed42bd1a20f90931bb3f4b0c318c  strip_compare.py
-76dab971f9498e53960940bc9286d7ab2cad94edad60862e10b0dfa31c5bfb7b  place_check.py
 7e8993e3beda980ae07427285d17da5b8ec6f185edd70e8fffe8e55671f6f011  send_gate.sh
+76dab971f9498e53960940bc9286d7ab2cad94edad60862e10b0dfa31c5bfb7b  place_check.py
 ebdf9cfc3ec19f9f60e9a2c8cc0d880fa8be11d54ce64092971c598de237c0b3  heading_gap.py
-# 31 Oct 2026, The Culture Curriculum build 3. strip_compare.py: code check pinned to Essay template 0c226cab (commit 3fc5dea).
-# send_gate.sh: send_gate_v7 with its check-script folder set to handover-2026-10-29-evening/tools-v5-fixA (chk/v6 does not exist);
-#   GATE PASSED on Culture build 3 (19:02), GATE FAILED on a planted build (19:02-19:26, code check NOT ACCEPTABLE).
-# place_check.py: placement check v2 (scrolling image rows measured by their visible part). heading_gap.py: image-after-heading gap, same reference as mm-image-gap-29oct.
+f665c268092ac5ea449c5e4bc0f779e878126f1d51380999699b83d26c66df57  assemble.py
+4247224187c484d4ce313dd3f218cc6db58ec819dd6caa7750226e62ef0584ab  README.md
