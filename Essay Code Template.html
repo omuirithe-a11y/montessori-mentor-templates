@@ -2150,13 +2150,13 @@ window.__mmKeepSize=function(){var m=document.querySelector('main');if(m&&window
       var ss=t.closest('.mm-set'),ns=ss&&getComputedStyle(ss).display!=='block'&&ss.nextElementSibling,nm=ns?parseFloat(getComputedStyle(ns).marginTop)||0:0,ny=ns&&nm<0?ns.getBoundingClientRect().top:null;   /* 28 Oct 2026: a line moved inside a set of text beside photos moves the lines under it; the block after the set, pulled up beside the photos to stand below that text (spaceTable), moves with them - it stayed put and the text ran over it (The Sensorial Curriculum, Examples of Extensions, 831-1440) */
       if(el.classList.contains('micro-label')){var ds=parseFloat(el.getAttribute('data-want'));if(isNaN(ds))ds=32;el.setAttribute('data-want',(ds+d).toFixed(2));t.style.setProperty('margin-top',(mt+d).toFixed(2)+'px');if(ny!==null)ns.style.setProperty('margin-top',(nm+d-(ns.getBoundingClientRect().top-ny)).toFixed(2)+'px','important');continue;}
       t.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');if(ny!==null)ns.style.setProperty('margin-top',(nm+d-(ns.getBoundingClientRect().top-ny)).toFixed(2)+'px','important');}});}
-  function run(){run0();if(window.__mmKeepSize)window.__mmKeepSize();}
+  function run(){run0();if(window.__mmKeepSize)window.__mmKeepSize();var r=document.querySelector('main').getBoundingClientRect();run.sz=[r.width,r.height];}
   window.__mmLetterGaps=run;
   var orr=window.__mmOrgRun;if(orr)window.__mmOrgRun=function(){orr();run();};
   var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
   window.addEventListener('load',function(){setTimeout(run,700);setTimeout(run,1800);setTimeout(run,3000);if(document.fonts)document.fonts.ready.then(function(){setTimeout(run,300);});});
   window.addEventListener('resize',function(){clearTimeout(run.t);clearTimeout(run.t2);run.t=setTimeout(run,600);run.t2=setTimeout(run,1500);});
-  document.addEventListener('load',function(e){if(e.target&&e.target.tagName==='IMG')setTimeout(run,250);},true);
+  document.addEventListener('load',function(e){if(e.target&&e.target.tagName==='IMG'){clearTimeout(run.ti);run.ti=setTimeout(function(){var r=document.querySelector('main').getBoundingClientRect(),m=run.sz;if(m&&Math.abs(r.width-m[0])<=1&&Math.abs(r.height-m[1])<=1)return;run();},250);}},true);   /* 31 Oct 2026 (owner 08:19, fix Culture's faults): an image that loads re-measures the gaps only if the page's size changed since the last measuring (images have fixed boxes; measuring after every image kept the page busy for ~37 s while scrolling) */
 })();
 </script>
 <style id="mm-refline-css">/* 29 Oct 2026: a reference table's top line 6px above its first row (was 17px: with the template's spacing it ran through the heading above, 'Key Areas and Examples') */main .ref-table .ref-row:first-child::before{top:-6px !important}</style><script id="mm-matname-gap-js">/* 29 Oct 2026: the beige lines drawn ABOVE letters - a material name's line (h3.material-name::before) and a reference table's top line (.ref-row:first-child::before, 17px above its first row) - were pulled into the text above them by the letters-to-letters spacing (The Sensorial Curriculum: 14 places at 700px, 20 at 1440px; live none). After every layout (when the page marks data-layout) a material name keeps at least the template's own 20px above it, and a reference table's top line is drawn 6px above its first row (style below; it was 17px, through the heading above the table), then the page's size is recorded so this does not set off another layout. */
@@ -2276,6 +2276,26 @@ html body main h2.mm-hc-00B050{color:#00B050 !important;font-size:20px !importan
       if(pv&&/^(P|UL|OL)$/.test(pv.tagName)&&!pv.classList.contains('mm-gl')&&pv.textContent.trim()){
         for(var k2=0;k2<4;k2++){var bl=baseLast(pv);if(bl===null)break;var top=Math.min.apply(null,[].map.call(ims,function(p){return p.getBoundingClientRect().top;}));var d2=30-(top-bl);if(Math.abs(d2)<0.3)break;
           f.style.setProperty('margin-top',((parseFloat(getComputedStyle(f).marginTop)||0)+d2).toFixed(2)+'px','important');}}
+    });
+  }
+  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
+  function later(d){clearTimeout(run.t);run.t=setTimeout(run,d);}
+  window.addEventListener('load',function(){later(400);setTimeout(run,2000);setTimeout(run,3500);if(document.fonts)document.fonts.ready.then(function(){later(300);});});
+  window.addEventListener('resize',function(){later(500);});
+})();
+</script><script id="mm-float-captop-31oct">/* 31 Oct 2026 (owner 08:19 "fix the culture curriculum faults"; her rule of 20 Oct: "side photos always align with the first line of the text", applied to the Essay template 30 Oct 13:05): an image floating beside a paragraph has its top level with the top of the capitals of that paragraph's first line */
+(function(){
+  var cv=document.createElement('canvas').getContext('2d');
+  function capTop(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var r=document.createRange(),i=n.nodeValue.search(/\S/);r.setStart(n,i);r.setEnd(n,i+1);var q=r.getClientRects()[0];if(!q)continue;var s=getComputedStyle(n.parentElement);cv.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;var m=cv.measureText('H');return q.top+((m.fontBoundingBoxAscent||0)-(m.actualBoundingBoxAscent||0));}return null;}
+  function run(){
+    [].forEach.call(document.querySelectorAll('main .mm-float'),function(f){
+      if(f.closest('blockquote')||getComputedStyle(f).cssFloat==='none')return;
+      var nx=f.nextElementSibling;while(nx&&(nx.classList.contains('mm-gl')||nx.classList.contains('mm-fspacer')||nx.classList.contains('mm-float')))nx=nx.nextElementSibling;
+      if(!nx||nx.tagName!=='P')return;
+      var ims=f.querySelectorAll('.pim');if(!ims.length)return;
+      for(var k=0;k<4;k++){var top=Math.min.apply(null,[].map.call(ims,function(p){return p.getBoundingClientRect().top;}));var tp=capTop(nx);if(tp===null)return;var d=tp-top;if(Math.abs(d)<0.3)break;
+        var sp=f.previousElementSibling;if(sp&&sp.classList.contains('mm-fspacer')){var h0=parseFloat(sp.style.height)||0,h1=h0+d;if(h1>=0){sp.style.height=h1.toFixed(2)+'px';continue;}sp.style.height='0px';d=h1;}   /* the image is held down by its spacer: change the spacer, so the text keeps wrapping around the image where it now is */
+        if(d>0)f.style.setProperty('margin-top',((parseFloat(getComputedStyle(f).marginTop)||0)+d).toFixed(2)+'px','important');else break;}
     });
   }
   var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
