@@ -1072,6 +1072,8 @@ def main():
             for y_ in list(sec_.contents): prv_.append(y_.extract())
             sec_.decompose()
         report.append(('text', 'a name line (the template\'s mm-name) with the beige line before it, as on the live page', st_))
+    if S.get('POST_MAIN'):   # 31 Oct 2026 (8.1, owner 21:45 "Ok" to fixing the first-build faults in the build settings): a page's own
+        S['POST_MAIN'](main_el, s, report)   # function in its settings file, run on the converted text area; it must use only the template's own classes (the code check proves it)
     for sec in main_el.find_all('section'):
         if not sec.get_text().strip() and not sec.find('img'): sec.decompose()
     # 28 Oct 2026, owner: image descriptions (alt text) "are not necessary anymore"; 30 Oct 12:26 "yes" to removing the rule everywhere (replaces the 21 Oct rule "every photo
@@ -1220,9 +1222,14 @@ def main():
     heads = [x for x in heads if x[0]]
     if S.get('NO_TOC'): a.no_toc = True   # a page setting, so the page keeps it at every rebuild (21 Oct)
     if heads and not a.no_toc:
-        half = (len(heads) + 1) // 2
-        cols = [heads[:half], heads[half:]]
-        lis = ''.join('<ul class="toc-groups">%s</ul>' % ''.join('<li><a href="#%s">%s</a></li>' % h for h in c) for c in cols)
+        # 31 Oct 2026 (8.1, code check part 1): the contents lists are the template's own - the Resources template has three
+        # empty <ul class="toc-essays"> columns (mm-toc3), the Essay template two toc-groups; the entries are shared out over them
+        _tm = re.search(r'<div class="toc-grid[^"]*">(.*?)</div></nav>', t, re.S)
+        _uls = re.findall(r'<ul class="([^"]+)"></ul>', _tm.group(1)) if _tm else []
+        if not _uls: _uls = ['toc-groups', 'toc-groups']
+        _n = len(_uls); per = -(-len(heads) // _n)
+        cols = [heads[i * per:(i + 1) * per] for i in range(_n)]
+        lis = ''.join('<ul class="%s">%s</ul>' % (_uls[i], ''.join('<li><a href="#%s">%s</a></li>' % h for h in c)) for i, c in enumerate(cols))
         k = len(re.findall(r'<div class="toc-grid[^"]*">.*?</div></nav>', t, re.S)); assert k == 1, ('toc', k)
         t = re.sub(r'(<div class="toc-grid[^"]*">).*?(</div></nav>)', lambda m: m.group(1) + lis + m.group(2), t, flags=re.S)
     else:
@@ -1312,6 +1319,11 @@ def main():
         _r = subprocess.run([sys.executable, os.path.join(T, 'menu_sync.py'), a.menu_from, a.folder, _tmp], capture_output=True, text=True)
         if _r.returncode: sys.exit('menu_sync failed: ' + _r.stderr[-500:])
         t = open(_tmp, encoding='utf-8').read(); report.append(('menu', 'live menu from ' + a.menu_from, _r.stdout.strip().split(' | ', 1)[-1]))
+        # 31 Oct 2026 (8.1, a new page): the live menu shows a page not yet built as plain text; this page's own entry becomes its link, marked
+        _np = '<span class="np">%s</span>' % a.menu if a.menu else None
+        if _np and 'href="/%s/"' % a.folder not in t and t.count(_np) == 1:
+            t = t.replace(_np, '<a href="/%s/" aria-current="page">%s</a>' % (a.folder, a.menu))
+            report.append(('menu', 'own entry, plain text in the live menu, made a link and marked', a.menu))
     pv = os.path.join(out, 'preview'); hs = os.path.join(out, 'hostinger', a.folder)
     for dd in (pv, hs):
         if os.path.exists(dd): shutil.rmtree(dd)
