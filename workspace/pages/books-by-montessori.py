@@ -260,6 +260,25 @@ def POST_MAIN(main, s, report):
     p.clear(); p.append(BeautifulSoup(sp + html, 'html.parser'))
     report.append(('settings', 'key lines indented as Word (page setting)', 'AI / P / E'))
 
+    # owner 1 Nov 03:47: "Delete the whole Montessori World Educational Institute section" - its heading, introduction and the
+    # book lists under its nine sub-headings (Child Development/Learning ... On The Subject of Montessori Education) go; the
+    # beige line and the chronological list after it stay, joined to the section before
+    first = main.find(id='the-montessori-world-educational-institute')
+    last = main.find(id='on-the-subject-of-montessori-education')
+    assert first is not None and last is not None
+    prev = first.find_previous_sibling('section')
+    n = 0
+    while True:
+        nxt = first.find_next_sibling('section')
+        if first is last: break
+        first.decompose(); n += 1; first = nxt
+    kids = [c for c in last.children if getattr(c, 'name', None)]
+    k = next(i for i, c in enumerate(kids) if 'beige-rule' in (c.get('class') or []))
+    for c in kids[:k]: c.decompose()
+    for c in list(last.contents): prev.append(c.extract())
+    last.decompose()
+    report.append(('settings', 'Montessori World Educational Institute section left out (owner 1 Nov 03:47 "Delete the whole ... section"): %d sections' % (n + 1), ''))
+
     # code check (fault 20): only the template's classes and settings in the content
     for e in main.select('span.mm-wcol'):
         st = (e.get('style') or '').upper()
@@ -301,7 +320,9 @@ def _drop_covers_grid(main, report):
 
 # 31 Oct 22:3x: the contents box lists the page's main sections only - the headings in Word's red and green (the colours the
 # Word file gives its section headings); the blue sub-headings (Stress, Nutrition ...) stay on the page as headings
-TOC_ONLY = ['So many books, so little time', 'The Montessori World Educational Institute', 'Bibliography', 'The Montessori Foundation']
+# owner 1 Nov 03:47 "No table of contents" (the template hides its empty contents box; this list is no longer used)
+NO_TOC = True
+TOC_ONLY = ['So many books, so little time', 'Bibliography', 'The Montessori Foundation']
 
 # 31 Oct 22:5x: typo corrected (owner 27 Oct: "correct all typos on every page. do not ask about this again"): "**whole child" -> "whole child"
 TEXT_EDITS = [('**whole child', 'whole child'),
