@@ -277,6 +277,12 @@ def POST_MAIN(main, s, report):
     for c in kids[:k]: c.decompose()
     for c in list(last.contents): prev.append(c.extract())
     last.decompose()
+    # its lead-in line "Here's a different perspective on what constitutes a Reading List..." (Word: between two beige lines, just
+    # before the section heading) goes with it, with one of its two beige lines (checker b17 fault 1)
+    lead = next(x for x in main.find_all('p') if norm(x.get_text()).startswith('Here\u2019s a different perspective'))
+    nx = lead.find_next_sibling()
+    assert nx is not None and 'beige-rule' in (nx.get('class') or [])
+    nx.decompose(); lead.decompose()
     report.append(('settings', 'Montessori World Educational Institute section left out (owner 1 Nov 03:47 "Delete the whole ... section"): %d sections' % (n + 1), ''))
 
     # code check (fault 20): only the template's classes and settings in the content
