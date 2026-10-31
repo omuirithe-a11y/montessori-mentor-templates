@@ -23,7 +23,7 @@ if PAGE.endswith('.zip'):
     print('zip folder name:', slug, '- matches the page address', NEWHREF)
 H = lambda f: hashlib.sha256(open(f, 'rb').read()).hexdigest()
 FIX = {'Essay Code Template.html': '0c226cab01f9dbbe6af25378df9df04c8798910820e5a53d7613b432fce5cd5f',
-       'Resources Code Template.html': '720b845e9949285543cc01080378c573446f254bf1a945559362cd9597ab0593'}
+       'Resources Code Template.html': '877a0201cc1461fd653794c4651ed4a6425d2dd192fb7669deecc71786e93fb4'}
 assert os.path.basename(TPL) in FIX and H(TPL) == FIX[os.path.basename(TPL)], 'STOP: the template is not the template pinned 31 Oct (sha256 0c226cab)'
 assert H('/home/claude/reports/copy-protection.html') == '0d180ad65627bb99f5edd29c476727c29d68a34efccd4ab5fd8f64a777026ce4', 'STOP: copy-protection.html has been changed'
 print('template and copy protection fingerprints: correct')

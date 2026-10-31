@@ -122,7 +122,10 @@ def _res_item(pcs):
         i += 1
     th = _pieces_html(title).replace('<span class="mm-blue">', '').replace('</span>', '') if title else ''
     mh = _pieces_html(meta)
-    if mh.strip() == 'PDF': mh = '<span class="mm-blue">PDF</span>'   # 1948: "PDF" in Word with no link
+    if mh.strip() == 'PDF':   # 1948: "PDF" in Word with no link. Owner 1 Nov 02:58 "find a link": no free copy of the book was found
+        # (searched 1 Nov 03:0x: the web, Scribd (a 5-page condensed version), academia.edu (unreachable), the Italian edition);
+        # the badge links the publisher Montessori-Pierson's English e-books page, which lists the book
+        mh = ''; badges.append('<a class="pdf" href="https://montessori-pierson.com/pages/ebooks" rel="noopener" target="_blank">PDF</a>')
     return '<div class="res-item"><span class="res-title"><em>%s</em></span>%s%s</div>' % (th, (' <span class="meta">%s</span>' % mh) if mh.strip() else '', ''.join(badges))
 
 
@@ -267,6 +270,12 @@ def _drop_covers_grid(main, report):
     by = [x for x in main.find_all('p') if x.get_text(strip=True) == 'By Maria Montessori']
     if len(by) == 1: by[0].decompose(); report.append(('settings', 'line "By Maria Montessori" left out (owner 31 Oct 22:29 "remove it")', ''))
     else: report.append(('settings', 'WARNING: "By Maria Montessori" line found %d times' % len(by), ''))
+    # owner 1 Nov 02:58 ("Obviously it should go ... YES!"): the beige line that came after the grid goes, so "This list comes
+    # from Montessori Album" no longer sits alone between two lines
+    src = next((x for x in main.find_all('p') if x.get_text(strip=True).startswith('This list comes from')), None)
+    nx = src.find_next_sibling() if src is not None else None
+    if nx is not None and 'beige-rule' in (nx.get('class') or []): nx.decompose(); report.append(('settings', 'beige line after the grid left out (owner 1 Nov 02:58)', ''))
+    else: report.append(('settings', 'WARNING: beige line after "This list comes from" not found', ''))
     report.append(('settings', 'covers grid left out (owner 31 Oct 22:14 "delete that grid . don\'t use it on the page")', ''))
 
 # 31 Oct 22:3x: the contents box lists the page's main sections only - the headings in Word's red and green (the colours the
