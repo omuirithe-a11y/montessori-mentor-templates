@@ -126,7 +126,10 @@ def _res_item(pcs):
         # (searched 1 Nov 03:0x: the web, Scribd (a 5-page condensed version), academia.edu (unreachable), the Italian edition);
         # the badge links the publisher Montessori-Pierson's English e-books page, which lists the book
         mh = ''; badges.append('<a class="pdf" href="https://montessori-pierson.com/pages/ebooks" rel="noopener" target="_blank">PDF</a>')
-    return '<div class="res-item"><span class="res-title"><em>%s</em></span>%s%s</div>' % (th, (' <span class="meta">%s</span>' % mh) if mh.strip() else '', ''.join(badges))
+    # 1 Nov (checker b12 fault 2): a space before each badge - on phones the template sets the line as text, and with no space
+    # the last word of the title and the badges were one unbreakable piece ("Dr. Montessori's Own" / "Handbook PDF PDF");
+    # wider than 640 px the line is a flex row, where the spaces have no effect
+    return '<div class="res-item"><span class="res-title"><em>%s</em></span>%s%s</div>' % (th, (' <span class="meta">%s</span>' % mh) if mh.strip() else '', ''.join(' ' + b for b in badges))
 
 
 def POST_MAIN(main, s, report):
@@ -197,7 +200,10 @@ def POST_MAIN(main, s, report):
     out = []
     for i, (it, ds) in enumerate(ents):
         fl = str(floats[0]) if (i == 0 and floats) else ''   # the cover beside its description, as in Word and the PDF
-        out.append('<div class="res-entry">%s%s%s</div>' % (it, fl, ''.join('<p class="res-desc">%s</p>' % d for d in ds)))
+        # 1 Nov (checker b11 faults 3, 12): the template's book line (.res-item.res-book: 35px above each book, 3.5px to its
+        # description) - the books were 8px apart and the first sat on the paragraph above, unlike Word's blank lines
+        it = it.replace('<div class="res-item">', '<div class="res-item res-book">', 1)
+        out.append('%s%s%s' % (it, fl, ''.join('<p class="res-desc">%s</p>' % d for d in ds)))
     frag = BeautifulSoup(''.join(out), 'html.parser')
     for x in list(frag.contents)[::-1]: rstart.insert_after(x)
     report.append(('settings', 'reading list in the template\'s entry style: %d books, the cover beside the first' % len(ents), 'owner 22:34-22:37'))
@@ -231,6 +237,21 @@ def POST_MAIN(main, s, report):
         a, b = t.split('20th', 1); sp_ = s.new_tag('sup'); sp_.string = 'th'
         t.replace_with(NavigableString(a + '20'), sp_, NavigableString(b))   # 22:5x: a real tag, so "th" stays after "20" (checker b8 fault 1)
         report.append(('settings', 'superscript as Word (page setting)', '20th Century'))
+
+    # 1 Nov (checker b11 fault 9): the quoted summary under "A Resource for the Global Montessori Community" and its badge
+    # is a description, as every other text under a title and badge on the page (the template's res-desc)
+    q = next(x for x in main.find_all('p') if norm(x.get_text()).startswith('\u2018The Montessori Bibliography Online (MBO)'))
+    q['class'] = ['res-desc']
+    # 1 Nov (checker b11 faults 4, 5): a word joiner before the badges was tried and does not stop the browser wrapping a badge
+    # alone on phones (the badges are boxes); that needs a template rule - not done here
+
+    # 1 Nov (checker b14 fault 1): Word's blank line before the italic note "'Other Books of Interest'- in case ..." (PDF page 3),
+    # so the note is not read as a fifth book; an empty line, as Word's empty paragraph
+    note = next(x for x in main.find_all('p') if norm(x.get_text()).startswith('\u2018Other Books of Interest\u2019'))
+    note.insert_before(BeautifulSoup('<p><br/></p>', 'html.parser'))
+    em = note.find('em')   # the dash written against the quote ("'-"), spaced as the site's other dashes (typo rule)
+    if em is not None and em.string and em.string.endswith('\u2019- '): em.string = em.string[:-2] + ' - '
+    report.append(('settings', 'blank line before the Other Books of Interest note, as Word', 'b14 fault 1'))
 
     # fault 17: the AI / P / E key lines indented as Word (the template's 24px spacer, twice)
     p = next(x for x in main.find_all('p') if norm(x.get_text()).startswith('AI = Assistance to Infancy'))
@@ -283,4 +304,20 @@ def _drop_covers_grid(main, report):
 TOC_ONLY = ['So many books, so little time', 'The Montessori World Educational Institute', 'Bibliography', 'The Montessori Foundation']
 
 # 31 Oct 22:5x: typo corrected (owner 27 Oct: "correct all typos on every page. do not ask about this again"): "**whole child" -> "whole child"
-TEXT_EDITS = [('**whole child', 'whole child')]
+TEXT_EDITS = [('**whole child', 'whole child'),
+              # 1 Nov (checker b12 fault 7; owner: UK spelling, typos corrected without asking)
+              ('not to mold them', 'not to mould them'), ('focus toward the', 'focus towards the'),
+              # 1 Nov (checker b13 faults 1-5): typos corrected (owner 27 Oct: "correct all typos on every page")
+              ('an authorative/', 'an authoritative/'),
+              ('responsibility, and social contribution', 'responsibility, and social contribution.'),
+              ('act as respectful guides', 'act as respectful guides.'),
+              ('in London -having just returned', 'in London - having just returned'), ('in India- which', 'in India - which'),
+              ('future directions for the MBO.', 'future directions for the MBO.\u2019'),
+              # (checker b13 fault 6; owner 26 Oct: words inside a quotation stay as written) - the site's UK spelling
+              # rule had changed them; put back as the quoted source writes them
+              ('training centre in North America', 'training center in North America'),
+              ('links to digitised source materials', 'links to digitized source materials'),
+              ('hyperlinks to digitised source material', 'hyperlinks to digitized source material'),
+              # (checker b13 fault 9): number ranges kept on one line (non-breaking hyphen U+2011, which looks the same)
+              ('aged 3-6', 'aged 3\u20116'), ('ages 12-18', 'ages 12\u201118'), ('AMI\u2019s 3-6', 'AMI\u2019s 3\u20116'),
+              ('ages 7-12', 'ages 7\u201112'), ('June 1-12', 'June 1\u201112'), ('ages 0-3', 'ages 0\u20113'), ('ages 3-6', 'ages 3\u20116')]
