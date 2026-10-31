@@ -5,3 +5,5 @@
 - heading_gap.py: gap from a heading's last baseline to an image straight after it (same reference as the template's mm-image-gap-29oct). Build 3: 30 px at 390/641/768/830; build 2: 17 px.
 - assemble.py: builds a page from the template and the live page's content (title, hero h1, contents, menu, main); image descriptions blanked. Same file as tools/v7/assemble_from_live.py.
 Check with: sha256sum -c FINGERPRINTS.txt (in this folder).
+- 31 Oct 20:3x: strip_compare.py (here and tools/strip_compare.py) re-pinned to the current Resources Code Template, sha256 3f884aae (commit 20ec0ee); the Essay pin 0c226cab unchanged. Tested both ways on Sensorial Resources rebuilt from its live page on that template (assemble_res.py): ALL CHECKS OK; the same page with the old menu size line put back: NOT ACCEPTABLE (3 lines differ); the old copy (pin 138b5e0c) STOPs on the current template.
+- assemble_res.py: assemble.py with the contents box matched as toc-grid with any extra class (the Resources template's "toc-grid mm-toc3"), for the test above.
