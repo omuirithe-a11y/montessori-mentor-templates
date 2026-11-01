@@ -854,15 +854,15 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
 
 /* ===== Layout (24 Sept, clean) ===== */
 (function(){
-  var STD = 153, MIN = 106, ROW = 170, CLEAR = 48, GAP = 24;   // 26 Sept (your choice): every set beside text 106px, at every width (was 125, shrinking to 106)   // 26 Sept: sets 125px (was 153); floor 106 (was 130) - provisional, same proportion
-  var RGAP = 38.4, RMIN = 10, RSHRINK = 140;
+  var STD = 153, MIN = 106, ROW = 150, CLEAR = 48, GAP = 24;   /* 1 Nov 2026 (owner 14:34): rows of images at most 150 px high on computers (was 170) */   // 26 Sept (your choice): every set beside text 106px, at every width (was 125, shrinking to 106)   // 26 Sept: sets 125px (was 153); floor 106 (was 130) - provisional, same proportion
+  var RGAP = 38.4, RMIN = 10, RSHRINK = 120;   /* 1 Nov 2026 (owner 14:34): a row that does not fit shrinks to 120 px before its gaps shrink (was 140) */
   var GRIDGAP = 16.8;
   var PCAP = 140;                                                // 26 Sept (edits 2, 3): Purpose photos at most 140px - the height at which rows begin to give way                                            // 26 Sept (edits 4): photos in a grid 30% closer (was 24px), both ways                     // 26 Sept: row gaps 38px; below 140px photos the gaps shrink first, to 10px
   function phone(){ return window.matchMedia('(max-width:830px)').matches; }   // 19 Oct 2026: 830, as the live Sensorial page
   function phone640(){ return window.matchMedia('(max-width:640px)').matches; }
   function q(sel, root){ return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
   function shapes(root){ return q('figure.ph', root).map(function(f){
-    var ps = q('.pim', f), s = 0; ps.forEach(function(p){ var m = /aspect-ratio:\s*([0-9.]+)/.exec(p.getAttribute('style') || ''); s += m ? parseFloat(m[1]) : 1; }); return s + (ps.length - 1) * 24 / 170; }); }   // 27 Oct 2026 (owner, 19:01: fix them all) (4): a pair in one figure is as wide as both photos and the 24 between them
+    var ps = q('.pim', f), s = 0; ps.forEach(function(p){ var m = /aspect-ratio:\s*([0-9.]+)/.exec(p.getAttribute('style') || ''); s += m ? parseFloat(m[1]) : 1; }); return s + (ps.length - 1) * 24 / ROW; }); }   // 27 Oct 2026 (owner, 19:01: fix them all) (4): a pair in one figure is as wide as both photos and the 24 between them
   function sum(a){ return a.reduce(function(x, y){ return x + y; }, 0); }
   function setH(root, h){ q('.pim', root).forEach(function(p){ p.style.setProperty('--mh', h.toFixed(2)); }); }
   function ink(el){   // the letters: [left, right, top, bottom]
@@ -2079,7 +2079,7 @@ html body main h2.mm-hc-0432FF{color:#0432FF !important;font-size:18px !importan
 html body main h2.mm-hc-EE0000{color:#EE0000 !important;font-size:18px !important;font-weight:400 !important;border-bottom:0 !important;padding-bottom:0 !important}
 html body main h2.mm-hc-FF0000{color:#FF0000 !important;font-size:18px !important;font-weight:400 !important;border-bottom:0 !important;padding-bottom:0 !important}
 /* Item 2: above 830, a photo beside text 150 high */
-@media (min-width:831px){html body main .mm-float .pim{height:150px !important;width:auto !important}}
+@media (min-width:831px){html body main .mm-float .pim{height:120px !important;width:auto !important}}   /* 1 Nov 2026 (owner 14:34): 120 (was 150) */
 /* Item 3: labels marked bold in Word are bold */
 html body main [data-word-bold="1"]{font-weight:700 !important}
 /* Item 4: quotations not offset; first line of every paragraph 48 (the template's one-line rule stays) */
