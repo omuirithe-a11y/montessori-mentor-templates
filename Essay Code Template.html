@@ -71,7 +71,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--active);outline-off
 .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px}
 .toc ul{list-style:none;margin:0;padding:0}
 .toc li{margin:0 0 10px}
-.toc a{font-size:19px;line-height:1.35;color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.toc a{font-size:19px;line-height:1.35;color:#2B2B2B;text-decoration:none;border-bottom:1px solid transparent}
+/* 1 Nov 2026 (owner 20:57): at 830 px and narrower, two titles above a row of images each start on their own line, at the left edge */
+@media (max-width:830px){html body main .mm-twocap>span{display:block;text-align:left;margin-left:0}}
 .toc a:hover{color:var(--head);border-bottom-color:var(--head)}
 .toc-groups a{display:flex;align-items:baseline;gap:8px}
 .toc-num{flex:0 0 22px;font-weight:600;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
