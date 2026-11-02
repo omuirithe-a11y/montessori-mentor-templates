@@ -135,8 +135,13 @@ for li in ps.select('.menu li'):
     for e in [li] + li.find_all(True):
         for c in e.get('class', []):
             if c not in tli: bad.add('menu class %s (not on the template\'s menu entries)' % c)
-mh = {a.get('href') for a in ps.select('.menu a[href]')}; lh = {a.get('href') for a in BeautifulSoup(lraw, 'html.parser').select('.menu a[href]')} | {NEWHREF}
-if mh != lh: bad.add('menu links differ from the menu reference plus %s: missing %s, extra %s' % (NEWHREF, sorted(lh - mh), sorted(mh - lh)))
+mh = {a.get('href') for a in ps.select('.menu a[href]')}; lref = {a.get('href') for a in BeautifulSoup(lraw, 'html.parser').select('.menu a[href]')}; lh = lref | {NEWHREF}
+# 2 Nov 2026 (owner 10:28: "I agree to change the code check for a page with no live version so that a page not yet in the menu passes
+# when its menu links are exactly the menu links of the reference page, on every Resources page built before the menus are updated,
+# starting with 8.3 Picture Books"): a page whose address is not in the reference menu may have exactly the reference menu's links
+if NEWHREF not in lref and mh == lref:
+    print('menu: %s is not yet in the menu; the page\'s menu links are exactly the menu reference\'s (owner 2 Nov 10:28)' % NEWHREF)
+elif mh != lh: bad.add('menu links differ from the menu reference plus %s: missing %s, extra %s' % (NEWHREF, sorted(lh - mh), sorted(mh - lh)))
 print('menu: %d distinct links' % len(mh))
 print('== 3. CONTENT CLEANED'); print('\n'.join(sorted(bad)))
 print('OK' if not bad else 'FAULT: %d items the template does not use' % len(bad)); ok &= not bad
