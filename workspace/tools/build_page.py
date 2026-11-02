@@ -1137,6 +1137,7 @@ def main():
         img['src'] = 'images/%s-%d.jpg' % (k, sw_); img['data-full'] = 'images/%s.jpg' % k
         report.append(('photo', k, name + ' %dx%d' % im.size + (' (scaled to 2900 long side)' if max(im.size) > 2900 else '')))
     content = ''.join(str(c) for c in main_el.contents)
+    KEEP.extend(S.get('KEEP_SPELLING', []))   # 2 Nov 2026 (owner 26 Oct 15:57: names, published titles and words inside a quotation keep their spelling): phrases a page's settings name
     content = site_rules(content, report, S.get('DASH_SPACES'))
     for old_, new_ in S.get('TEXT_EDITS', []):   # 20 Oct 23:34: wording the user changed from the Word file
         k_ = content.count(H(old_, quote=False)); content = content.replace(H(old_, quote=False), H(new_, quote=False)); report.append(('text', 'changed by the user (%d found)' % k_, old_ + ' -> ' + new_))

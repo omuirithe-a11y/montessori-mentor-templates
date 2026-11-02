@@ -76,6 +76,7 @@ def POST_MAIN(main, s, report):
 
     paras = D.paragraphs
     in_list = []
+    blank = False   # an empty Word paragraph just before (2 Nov review: Word's blank line between entries starts a new entry)
     for i, p in enumerate(paras):
         if i == 0: continue   # the title (the hero)
         pcs = _runs(p, qn)
@@ -97,8 +98,10 @@ def POST_MAIN(main, s, report):
                 add(str(floats[fi])); fi += 1
             if not txt: continue
         elif lines and not txt:
-            close(); out.append('<div class="beige-rule mm-org-rule"></div>'); continue
-        if not txt: continue
+            close(); out.append('<div class="beige-rule mm-org-rule"></div>'); blank = False; continue
+        if not txt:
+            blank = True; continue
+        was_blank, blank = blank, False
         if num:
             in_list.append(_pieces_html(pcs).replace('<span class="mm-blue">', '').replace('</span>', '')); continue
         green, red, blue = _share(pcs, GREENS), _share(pcs, REDS), _share(pcs, BLUES)
@@ -108,7 +111,7 @@ def POST_MAIN(main, s, report):
         if red > 0.5 or (first is not None and first[1] in REDS and red > 0.3):
             close(); entry = []
             body, badges = _split_badges(pcs)
-            entry.append('<h3 class="material-name res-src">%s%s</h3>' % (_strip_col(_pieces_html(body)), ''.join(' ' + b for b in badges)))
+            entry.append('<h3 class="material-name res-src">%s%s</h3>' % (_src_html(body), ''.join(' ' + b for b in badges)))
             continue
         if '\t' in txt and first is not None and first[1] in BLUES and not first[3] and _plain(pcs).split('\t')[0].strip() and 'PDF' not in _plain(pcs).split('\t', 1)[1]:
             lab, rest = _split_tab(pcs)   # a blue label, a tab, then its text (Learning to Read ...)
@@ -118,6 +121,10 @@ def POST_MAIN(main, s, report):
             add(re.sub(r'<span class="res-title"><em>(.*?)</em></span>', r'<span class="res-title">\1</span>', _res_item(pcs), count=1)); continue   # titles upright, as Word (8.1's were italic)
         if p.runs and all((r.font.underline or not r.text.strip()) for r in p.runs) and not any(x[3] for x in pcs):
             add('<p class="mm-ul"><u>%s</u></p>' % _pieces_html(pcs)); continue   # the <u> as the converter writes it (build_page.py 20 Oct rule); the template underlines nothing by class
+        if was_blank and entry is not None:
+            # a plain line after Word's blank line inside an open entry ("Montessori Education", "Society of Antiquaries of London",
+            # "They also have a selection ..."): an entry of its own, as Word and the PDF space it (2 Nov build 6 review, items 19 and NEW 3)
+            close(); entry = []; report.append(('settings', 'a new entry after Word\'s blank line', txt[:40]))
         cls = ' class="res-desc"' if entry is not None else ''
         add('<p%s>%s</p>' % (cls, _tabbed(pcs)))
     if in_list: add('<ol>%s</ol>' % ''.join('<li>%s</li>' % x for x in in_list))
@@ -127,6 +134,13 @@ def POST_MAIN(main, s, report):
     main.append(BeautifulSoup('<section class="section">%s</section>' % ''.join(out), 'html.parser'))
     for a in main.find_all('a'):
         if re.sub(r'\s+', ' ', a.get_text()).strip() == 'PDF' and 'pdf' not in (a.get('class') or []): a['class'] = (a.get('class') or []) + ['pdf']
+    from bs4 import NavigableString
+    for a in main.select('p a.pdf'):   # a badge in running text keeps to the word before it (2 Nov build 6 review, NEW 5: "Lower Elementary" / PDF at 390;
+        pv = a.previous_sibling       # no space character holds an inline-block badge: the Resources template's span.mm-keep, owner's agreement 2 Nov)
+        if isinstance(pv, NavigableString) and pv.strip():
+            txt = str(pv).rstrip(); k = txt.rfind(' ') + 1
+            keep = BeautifulSoup('<span class="mm-keep"></span>', 'html.parser').span
+            pv.replace_with(NavigableString(txt[:k])); a.insert_before(keep); keep.append(NavigableString(txt[k:] + ' ')); keep.append(a.extract())
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
 
@@ -142,8 +156,17 @@ def _tabbed(pcs):
             parts.append(cur); cur = []
         else: cur.append(x)
     parts.append(cur)
-    hs = [_pieces_html(c) for c in parts]
-    return '<span class="mm-lsp"> </span>'.join(h for h in hs if h.strip()) if len(hs) > 1 else hs[0]
+    # 2 Nov build 6 review (NEW 5, NEW 6): a PDF link after a tab is the badge of the words before it - joined to them by a narrow
+    # no-break space (U+202F: the build turns U+00A0 into a plain space), as a title and its badge are (the badge's own 24 px margin is the gap), so the badge never starts a line
+    # away from its words at 390 and is not 48 px from them on computers
+    hs = []
+    for c in parts:
+        h = _pieces_html(c)
+        if not h.strip(): continue
+        if hs and ''.join(x[0] for x in c).strip() == 'PDF' and all(x[3] for x in c if x[0].strip()):
+            hs[-1] = hs[-1].rstrip() + '\u202f' + h; continue
+        hs.append(h)
+    return '<span class="mm-lsp"> </span>'.join(hs) if len(parts) > 1 else _pieces_html(parts[0])
 
 
 def _strip_col(h): return re.sub(r'<span class="(mm-blue|mm-hc-EE0000)">(.*?)</span>', r'\2', h)
@@ -169,3 +192,30 @@ def _split_tab(pcs):
         if x[0] == '\t': seen = True; continue
         (rest if seen else lab).append(x)
     return lab, rest
+
+
+def _src_html(pcs):
+    # a red source line in Word's own colours (2 Nov reviews: 8.3 NEW 4 the TES/NATE "/", 8.4 N5 the abbreviation links, N6 "(AMI)"):
+    # red words and red links are red (the template's source-line colour); a link Word leaves in its link colour is a link
+    # (a.mm-link); words Word sets black are black (span.mm-ink) - classes of the Resources Code Template (owner's agreement 2 Nov)
+    html = []; i = 0
+    while i < len(pcs):
+        t, col, it, href, sup = pcs[i]
+        if href:
+            txt = ''; j = i; cols = set()
+            while j < len(pcs) and pcs[j][3] == href:
+                txt += pcs[j][0]
+                if pcs[j][0].strip(): cols.add(pcs[j][1])
+                j += 1
+            core = txt.strip(); lead = ' ' if txt[:1].isspace() else ''; tail = ' ' if txt[-1:].isspace() and len(txt) > 1 else ''
+            cls = ' class="pdf"' if core == 'PDF' else ('' if cols & set(REDS) else ' class="mm-link"')
+            html.append('%s<a%s href="%s" rel="noopener" target="_blank">%s</a>%s' % (lead, cls, _esc(href), _esc(core), tail)); i = j; continue
+        if t in ('\t', '\n'): html.append(' '); i += 1; continue
+        txt = t; j = i + 1
+        while j < len(pcs) and not pcs[j][3] and pcs[j][0] not in ('\t', '\n') and pcs[j][1] == col: txt += pcs[j][0]; j += 1
+        core = txt.strip(); lead = txt[:len(txt) - len(txt.lstrip())]; tail = txt[len(txt.rstrip()):]
+        if not core: html.append(' ' if txt else ''); i = j; continue
+        h = _esc(core)
+        if col == '000000': h = '<span class="mm-ink">%s</span>' % h
+        html.append((' ' if lead else '') + h + (' ' if tail else '')); i = j
+    return re.sub(r' {2,}', ' ', ''.join(html)).strip()
