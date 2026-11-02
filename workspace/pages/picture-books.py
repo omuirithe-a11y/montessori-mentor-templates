@@ -117,7 +117,7 @@ def POST_MAIN(main, s, report):
         if blue > 0.5:
             add(re.sub(r'<span class="res-title"><em>(.*?)</em></span>', r'<span class="res-title">\1</span>', _res_item(pcs), count=1)); continue   # titles upright, as Word (8.1's were italic)
         if p.runs and all((r.font.underline or not r.text.strip()) for r in p.runs) and not any(x[3] for x in pcs):
-            add('<p class="mm-ul">%s</p>' % _pieces_html(pcs)); continue
+            add('<p class="mm-ul"><u>%s</u></p>' % _pieces_html(pcs)); continue   # the <u> as the converter writes it (build_page.py 20 Oct rule); the template underlines nothing by class
         cls = ' class="res-desc"' if entry is not None else ''
         add('<p%s>%s</p>' % (cls, _tabbed(pcs)))
     if in_list: add('<ol>%s</ol>' % ''.join('<li>%s</li>' % x for x in in_list))
