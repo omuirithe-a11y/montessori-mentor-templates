@@ -54,6 +54,16 @@ else
   row "3. Workspace and templates copied" FAILED "not copied, because the fingerprints failed"
 fi
 
+# 3b. The copy-protection file where the code checks read it (2 Nov 2026: strip_compare.py and strip_compare_nolive.py open
+# /home/claude/reports/copy-protection.html and STOP if it is missing or not sha256 0d180ad6...; a new session has no such folder)
+CP_WANT=0d180ad65627bb99f5edd29c476727c29d68a34efccd4ab5fd8f64a777026ce4
+mkdir -p /home/claude/reports && cp "$MM/templates/copy-protection.html" /home/claude/reports/copy-protection.html 2>/dev/null
+if [ "$(sha256sum /home/claude/reports/copy-protection.html 2>/dev/null | cut -d' ' -f1)" = "$CP_WANT" ]; then
+  row "3b. Copy-protection file for the code checks" succeeded "/home/claude/reports/copy-protection.html, fingerprint 0d180ad6 matches"
+else
+  row "3b. Copy-protection file for the code checks" FAILED "missing or fingerprint differs"
+fi
+
 # 4. Libraries
 pip install --break-system-packages -q pymupdf python-docx >/dev/null 2>&1
 if libs=$(python3 -W ignore -c "import fitz, docx, cv2, PIL, bs4, playwright; print('fitz docx cv2 PIL bs4 playwright')" 2>&1); then

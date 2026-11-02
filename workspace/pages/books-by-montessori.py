@@ -153,7 +153,8 @@ def POST_MAIN(main, s, report):
     # template's own entry style, as the live Culture Resources page: each year a red source line (h3.material-name.res-src),
     # each book a res-item (blue title, PDF badges in one column), each description a res-desc under its book
     w0 = next(i for i, p in enumerate(paras) if p.text.strip().startswith('The following is a chronological list'))
-    w1 = next(i for i, p in enumerate(paras) if i > w0 and p.text.strip().startswith('This list comes from'))
+    # 2 Nov: in the 1 Nov Word file the owner removed "This list comes from Montessori Album" herself; the list ends at "Montessori Nuggets"
+    w1 = next(i for i, p in enumerate(paras) if i > w0 and p.text.strip().startswith(('This list comes from', 'Montessori Nuggets')))
     start = next(e for e in main.find_all('p') if norm(e.get_text()).startswith('The following is a chronological list'))
     stop = next(e for e in start.find_all_next() if e.name == 'div' and 'beige-rule' in (e.get('class') or []))
     nodes = []
@@ -225,12 +226,46 @@ def POST_MAIN(main, s, report):
     # fault 7: Required Readings and Recommended Readings by Maria Montessori in two columns, as Word (the template's
     # two-column list, .materials-table)
     for lead in ('By Dr Maria Montessori:', 'By Dr Maria Montessori -'):
-        p = next(x for x in main.find_all('p') if norm(x.get_text()) == lead)
+        p = next((x for x in main.find_all('p') if norm(x.get_text()) == lead), None)
+        if p is None: report.append(('settings', 'line "%s" not in the 1 Nov Word file as written before (nothing to do)' % lead, '')); continue
         ul = p.find_next_sibling()
-        assert ul is not None and ul.name == 'ul', lead
+        if ul is None or ul.name != 'ul':   # 2 Nov: report what the 1 Nov Word file gives there, instead of stopping the build
+            report.append(('settings', 'WARNING: no list after "%s" - found %s' % (lead, ul.name if ul is not None else 'nothing'), '')); continue
         # 22:5x (checker b8 faults 2-4): the template's two-column list is at most 640 px wide - titles broke ("Vol." / "1"),
         # the columns sat 8 px apart in height and squeezed on phones; the lists stay in one column, as the other lists on the page
         report.append(('settings', 'list kept in one column (the template\'s two-column list is too narrow for these titles)', lead))
+
+    # 2 Nov (checker, 2 Nov build 1, faults 1-2): the 1 Nov Word file has the Key Principles / Key Areas labels as their own
+    # paragraphs (no tab), so each label sat between two paragraph gaps; the label goes on the line straight above its text, as the
+    # live page and the PDF (label, then its text, then the gap)
+    for head in ('Key Principles Summarised', 'Key Areas and Examples of Materials'):
+        h = next((x for x in main.find_all('h2') if norm(x.get_text()).replace('Summarized', 'Summarised') == head), None)
+        if h is None: continue
+        sec = h.find_parent('section'); n = 0
+        for lab in list(sec.find_all('p', recursive=False)):
+            kids = [c for c in lab.contents if not (isinstance(c, NavigableString) and not c.strip())]
+            if len(kids) == 1 and getattr(kids[0], 'name', None) == 'em':
+                nx = lab.find_next_sibling()
+                if nx is not None and nx.name == 'p' and nx.find('em') is None:
+                    lab.append(s.new_tag('br'))
+                    for c in list(nx.contents): lab.append(c.extract())
+                    nx.decompose(); n += 1
+        report.append(('settings', 'label on the line straight above its text, as live and the PDF (2 Nov checker fault 2): %d' % n, head))
+    # the reading lists: the book titles under each "By Dr Maria Montessori" line set as one block, line under line, as the PDF
+    # (single-spaced, a gap only before the next "By ..." line); live had bullets, which the 1 Nov Word file no longer has
+    for lead in ('By Dr Maria Montessori:', 'By Dr Maria Montessori'):
+        bp = next((x for x in main.find_all('p') if norm(x.get_text()) == lead), None)
+        if bp is None: continue
+        group = []; nx = bp.find_next_sibling()
+        while nx is not None and nx.name == 'p' and not norm(nx.get_text()).startswith('By ') and norm(nx.get_text()) and not nx.get('class'):
+            group.append(nx); nx = nx.find_next_sibling()
+        if len(group) > 1:
+            first = group[0]
+            for g in group[1:]:
+                first.append(s.new_tag('br'))
+                for c in list(g.contents): first.append(c.extract())
+                g.decompose()
+        report.append(('settings', 'book titles under "%s" set line under line, as the PDF (2 Nov checker fault 1): %d titles' % (lead, len(group)), ''))
 
     # fault 18: Word's superscript "th"
     for t in main.find_all(string=re.compile(r'20th Century')):
@@ -265,6 +300,10 @@ def POST_MAIN(main, s, report):
     # beige line and the chronological list after it stay, joined to the section before
     first = main.find(id='the-montessori-world-educational-institute')
     last = main.find(id='on-the-subject-of-montessori-education')
+    if first is None and last is None and not any(norm(x.get_text()).startswith('Here\u2019s a different perspective') for x in main.find_all('p')):
+        # 2 Nov: the owner removed the section from the 1 Nov Word file herself - nothing to leave out
+        report.append(('settings', 'Montessori World Educational Institute section: not in the 1 Nov Word file (removed by the owner) - nothing left out', ''))
+        _post_tail(main, s, report, norm); return
     assert first is not None and last is not None
     prev = first.find_previous_sibling('section')
     n = 0
@@ -285,6 +324,10 @@ def POST_MAIN(main, s, report):
     nx.decompose(); lead.decompose()
     report.append(('settings', 'Montessori World Educational Institute section left out (owner 1 Nov 03:47 "Delete the whole ... section"): %d sections' % (n + 1), ''))
 
+    _post_tail(main, s, report, norm)
+
+
+def _post_tail(main, s, report, norm):
     # code check (fault 20): only the template's classes and settings in the content
     for e in main.select('span.mm-wcol'):
         st = (e.get('style') or '').upper()
@@ -307,7 +350,7 @@ def _drop_covers_grid(main, report):
     """Owner 31 Oct 22:14: "delete that grid . don't use it on the page" - the Word table of 23 covers with their titles
     is left out, with the line picture (623 x 2) the converter had placed as an image just above it."""
     t = main.select_one('div.mm-table-wrap')
-    if t is None: report.append(('settings', 'WARNING: covers grid not found', '')); return
+    if t is None: report.append(('settings', 'covers grid: not in the 1 Nov Word file (removed by the owner) - nothing left out', '')); return
     prev = t.find_previous_sibling()
     if prev is not None and 'mm-float' in (prev.get('class') or []) and prev.find('img') is not None:
         prev.decompose()
