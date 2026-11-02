@@ -163,6 +163,19 @@ def POST_MAIN(main, s, report):
     assert fi == len(floats) and ri == len(rows), (fi, len(floats), ri, len(rows))
     main.clear()
     main.append(BeautifulSoup('<section class="section">%s</section>' % ''.join(out), 'html.parser'))
+
+    # 8.4 build 9 review A1: each green heading opens a section of its own (as the converter's pages and 8.1), so the template's
+    # heading rules (first entry 25 px below the heading; 51 px above a heading with no beige line above) apply to every heading alike
+    _sec = main.find('section', class_='section'); _cur = _sec
+    for _h in list(_sec.find_all('h2', recursive=False)):
+        if _h.previous_sibling is None: continue
+        _new = BeautifulSoup('<section class="section"></section>', 'html.parser').section
+        _cur.insert_after(_new); _cur = _new
+        _x = _h
+        while _x is not None:
+            _n = _x.next_sibling
+            if _x is not _h and getattr(_x, 'name', None) == 'h2': break
+            _new.append(_x.extract()); _x = _n
     for a in main.find_all('a'):
         if re.sub(r'\s+', ' ', a.get_text()).strip() == 'PDF' and 'pdf' not in (a.get('class') or []): a['class'] = (a.get('class') or []) + ['pdf']
     from bs4 import NavigableString
@@ -225,6 +238,19 @@ def POST_MAIN(main, s, report):
         for x in new_: tn.insert_before(x)
         tn.extract()
     report.append(('settings', 'contents box: the green headings, with ids', str(len(seen))))
+
+    # owner 2 Nov 18:07 (question 1 of 4, her screenshot of "Building Effective Teacher Mentoring Communities"): a line that is only a link,
+    # straight under a red name, is a blue title line (div.res-item > span.res-title), spaced as every other title
+    for _h in main.select('h3.res-src'):
+        _p = _h.find_next_sibling()
+        if _p is None or _p.name != 'p': continue
+        _k = [c for c in _p.contents if not (isinstance(c, str) and not c.strip())]
+        if not _k or getattr(_k[0], 'name', None) != 'a' or 'pdf' in (_k[0].get('class') or []): continue
+        if not all(getattr(c, 'name', None) == 'span' and 'mm-blue' in (c.get('class') or []) for c in _k[1:]): continue
+        _it = BeautifulSoup('<div class="res-item"><span class="res-title"></span></div>', 'html.parser').div
+        _t = _it.span
+        for c in list(_p.contents): _t.append(c.extract())
+        _p.replace_with(_it); report.append(('settings', 'link line under a red name as a title line (owner 2 Nov 18:07)', _t.get_text()[:40]))
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
 
@@ -299,7 +325,13 @@ def _src_html(pcs):
             core = txt.strip(); lead = ' ' if txt[:1].isspace() else ''; tail = ' ' if txt[-1:].isspace() and len(txt) > 1 else ''
             cls = ' class="pdf"' if core == 'PDF' else ('' if cols & set(REDS) else ' class="mm-link"')
             html.append('%s<a%s href="%s" rel="noopener" target="_blank">%s</a>%s' % (lead, cls, _esc(href), _esc(core), tail)); i = j; continue
-        if t == '\t': html.append('<span class="mm-lsp"> </span>'); i += 1; continue   # owner 2 Nov 16:24 (queued): "a clear separation between the organisations and their acronym" - the template's 24 px space
+        if t == '\t':   # 8.4 build 9 review A2: the spacer kept with the word before it (span.mm-keep), so a short name that wraps starts at the margin
+            prev = html[-1] if html else ''
+            mt = re.search(r'(\S+)$', prev)
+            if mt and not prev.endswith('>'):
+                html[-1] = prev[:mt.start()] + '<span class="mm-keep">' + mt.group(1) + '<span class="mm-lsp"> </span></span>'
+            else: html.append('<span class="mm-lsp"> </span>')
+            i += 1; continue   # owner 2 Nov 16:24 (queued): "a clear separation between the organisations and their acronym" - the template's 24 px space
         if t == '\n': html.append(' '); i += 1; continue
         txt = t; j = i + 1
         while j < len(pcs) and not pcs[j][3] and pcs[j][0] not in ('\t', '\n') and pcs[j][1] == col: txt += pcs[j][0]; j += 1

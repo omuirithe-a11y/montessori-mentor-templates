@@ -21,7 +21,7 @@ CAPTION_SOURCES = ['Far left', 'Far right']   # owner 2 Nov 16:20 (queued)
 QUOTE_PLAIN = ['In the early modern era']   # owner 2 Nov 16:20 (queued)
 NAME_LINKS = ['Montessori Education']   # owner 2 Nov 16:03 (queued)
 SPLIT_LABEL = ['London Museum']   # owner 2 Nov 15:34
-TEXT_EDITS = [('Sometime ivory was used', 'Sometimes ivory was used'), ('BookTrust is rhe UK', 'BookTrust is the UK'), ('the Unites States government', 'the United States government'), ('Why is it called "The Horn Book?', 'Why is it called "The Horn Book"?')]   # typos (owner 27 Oct: correct all typos); the last three from the 8.3 build 12 review   # typo (owner 27 Oct: correct all typos; her 15:34 screenshot has "Sometimes")
+TEXT_EDITS = [('Sometime ivory was used', 'Sometimes ivory was used'), ('BookTrust is rhe UK', 'BookTrust is the UK'), ('the Unites States government', 'the United States government'), ('Why is it called "The Horn Book?', 'Why is it called "The Horn Book"?'), ('piece of wood..', 'piece of wood.')]   # typos (owner 27 Oct: correct all typos); the last three from the 8.3 build 12 review   # typo (owner 27 Oct: correct all typos; her 15:34 screenshot has "Sometimes")
 NO_RULE_BEFORE = ['Hornbooks']   # owner 2 Nov 15:31: "Delete the divider above Hornbooks"
 
 
@@ -62,6 +62,7 @@ def POST_MAIN(main, s, report):
     floats = [x.extract() for x in main.select('div.mm-float')]
     rows = [x.extract() for x in main.select('div.mm-row')]
     if len(floats) > 1: floats[1]['class'] = floats[1].get('class', []) + ['mm-left']
+    if len(floats) > 1: floats[1]['class'] = floats[1].get('class', []) + ['mm-initial']   # owner 2 Nov 18:23: the Victorian Web's decorative "A" (the second image beside text, the one on the left) is a decorative first letter (template class mm-initial)
     report.append(('settings', 'the Victorian Web "A" image on the left, as Word and the PDF (template .mm-float.mm-left)', ''))
     for f in floats:
         for e in [f] + f.find_all(True):
@@ -128,6 +129,10 @@ def POST_MAIN(main, s, report):
             # the name line moves to the blue title straight below it (if the next line is not a blue title, it stays on the name line)
             pend_badges = (len(entry) - 1, _src_html(body), badges) if badges else None
             continue
+        if was_blank and entry is not None and pb is None:
+            # 8.3 build 14 review A4: any line after Word's blank line inside an open entry starts an entry of its own - a blue title
+            # too ("The Horn Book Magazine"), so it stands 51 px below, as "Society of Antiquaries of London" after the same blank line
+            close(); entry = []; was_blank = False; report.append(('settings', 'a new entry after Word\'s blank line', txt[:40]))
         if '\t' in txt and first is not None and first[1] in BLUES and not first[3] and _plain(pcs).split('\t')[0].strip() and 'PDF' not in _plain(pcs).split('\t', 1)[1]:
             lab, rest = _split_tab(pcs)   # a blue label, a tab, then its text (Learning to Read ...)
             add('<p class="mm-hanglab"><span class="mm-lab"><span class="mm-blue">%s</span> </span>%s</p>' % (_strip_col(_pieces_html(lab)), _pieces_html(rest)))
@@ -175,6 +180,19 @@ def POST_MAIN(main, s, report):
     assert fi == len(floats) and ri == len(rows), (fi, len(floats), ri, len(rows))
     main.clear()
     main.append(BeautifulSoup('<section class="section">%s</section>' % ''.join(out), 'html.parser'))
+
+    # 8.4 build 9 review A1: each green heading opens a section of its own (as the converter's pages and 8.1), so the template's
+    # heading rules (first entry 25 px below the heading; 51 px above a heading with no beige line above) apply to every heading alike
+    _sec = main.find('section', class_='section'); _cur = _sec
+    for _h in list(_sec.find_all('h2', recursive=False)):
+        if _h.previous_sibling is None: continue
+        _new = BeautifulSoup('<section class="section"></section>', 'html.parser').section
+        _cur.insert_after(_new); _cur = _new
+        _x = _h
+        while _x is not None:
+            _n = _x.next_sibling
+            if _x is not _h and getattr(_x, 'name', None) == 'h2': break
+            _new.append(_x.extract()); _x = _n
     for a in main.find_all('a'):
         if re.sub(r'\s+', ' ', a.get_text()).strip() == 'PDF' and 'pdf' not in (a.get('class') or []): a['class'] = (a.get('class') or []) + ['pdf']
     from bs4 import NavigableString
@@ -191,6 +209,22 @@ def POST_MAIN(main, s, report):
             txt = str(pv).rstrip(); k = 0 if tab_unit else txt.rfind(' ') + 1   # a label after a tab ("Lower Elementary PDF") is kept whole (8.3 build 12 review, fault 7)
             keep = BeautifulSoup('<span class="mm-keep"></span>', 'html.parser').span
             pv.replace_with(NavigableString(txt[:k])); a.insert_before(keep); keep.append(NavigableString(txt[k:] + ' ')); keep.append(a.extract())
+    for a in main.select('p a'):   # 8.3 build 14 review A3: a short link such as "2 to 4" is not split across two lines (span.mm-keep)
+        if re.fullmatch(r'\d+\s+to\s+\d+', a.get_text().strip()) and a.find_parent('span', class_='mm-keep') is None:
+            k_ = BeautifulSoup('<span class="mm-keep"></span>', 'html.parser').span; a.insert_before(k_); k_.append(a.extract())
+
+    # owner 2 Nov 18:07 (question 1 of 4, her screenshot of "Building Effective Teacher Mentoring Communities"): a line that is only a link,
+    # straight under a red name, is a blue title line (div.res-item > span.res-title), spaced as every other title
+    for _h in main.select('h3.res-src'):
+        _p = _h.find_next_sibling()
+        if _p is None or _p.name != 'p': continue
+        _k = [c for c in _p.contents if not (isinstance(c, str) and not c.strip())]
+        if not _k or getattr(_k[0], 'name', None) != 'a' or 'pdf' in (_k[0].get('class') or []): continue
+        if not all(getattr(c, 'name', None) == 'span' and 'mm-blue' in (c.get('class') or []) for c in _k[1:]): continue
+        _it = BeautifulSoup('<div class="res-item"><span class="res-title"></span></div>', 'html.parser').div
+        _t = _it.span
+        for c in list(_p.contents): _t.append(c.extract())
+        _p.replace_with(_it); report.append(('settings', 'link line under a red name as a title line (owner 2 Nov 18:07)', _t.get_text()[:40]))
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
 

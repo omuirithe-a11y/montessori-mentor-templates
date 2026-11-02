@@ -411,8 +411,15 @@ def _post_tail(main, s, report, norm):
     for t in list(main.find_all(string=lambda x: x is not None and 'The MBO is accessible at' in x)):
         a_, b_ = str(t).split('The MBO is accessible at', 1)
         if not a_.strip(): continue
-        new_t = _NS('The MBO is accessible at' + b_)
-        t.insert_before(_NS(a_.rstrip())); t.insert_before(_BS('<br/>', 'html.parser').br); t.replace_with(new_t); nm += 1
+        # n5 review B11: a paragraph of its own, as live (with the paragraph gap above it), not a line break
+        par = t.find_parent('p')
+        newp = _BS('<p></p>', 'html.parser').p
+        if par.get('class'): newp['class'] = par['class']
+        newp.append(_NS('The MBO is accessible at' + b_))
+        nx = t.next_sibling
+        while nx is not None:
+            n2 = nx.next_sibling; newp.append(nx.extract()); nx = n2
+        t.replace_with(_NS(a_.rstrip())); par.insert_after(newp); nm += 1
     report.append(('settings', '"The MBO is accessible at" on its own line, as live (n4 review A2)', str(nm)))
 
 def _drop_covers_grid(main, report):
