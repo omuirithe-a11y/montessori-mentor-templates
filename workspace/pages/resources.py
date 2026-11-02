@@ -11,7 +11,11 @@ LISTS = [('Education (including Montessori)', 'Ambitious Teaching.'),
          ('A collection of online resources including', 'Parenting, etc.')]   # owner 2 Nov 15:59 (queued); n3 review A1, A2: the lines between the lists (the bibliography line, "A collection ...") too, so every line of each list is evenly spaced, as in the PDF
 DROP = ['[ Claude:']
 
-TEXT_EDITS = [('It is divided into two sections:', 'It is divided into four sections:')]   # owner 2 Nov 08:45 "Four sections"
+TEXT_EDITS = [('It is divided into two sections:', 'It is divided into four sections:'),   # owner 2 Nov 08:45 "Four sections"
+              ('Executive Functions,', 'Executive Functions'), ('Language and Culture,', 'Language and Culture'),   # owner 2 Nov 20:39 (queued, screenshot): "remove the commas"
+              ('Introductions to Montessori,', 'Introductions to Montessori'), ('general organisations,', 'general organisations'),
+              ('general organizations,', 'general organizations'), ('The Montessori curriculum,', 'The Montessori curriculum'),
+              ('online resources including', 'online resources including:')]   # owner 2 Nov 20:39 (queued, screenshot): "add a colon"
 # "organizations" -> "organisations": done by the build's own UK-spelling rule
 
 HEADING_LINKS = {'Books by Maria Montessori': '/books-by-montessori/',
@@ -54,8 +58,8 @@ def POST_MAIN(main, s, report):
     from bs4 import BeautifulSoup as _BS
     for first, last in LISTS:
         ps = [x for x in main.find_all('p')]
-        i = next((k for k, x in enumerate(ps) if norm(x.get_text()) == first), None)
-        j = next((k for k, x in enumerate(ps) if norm(x.get_text()) == last), None)
+        i = next((k for k, x in enumerate(ps) if norm(x.get_text()).rstrip(':') == first.rstrip(':')), None)
+        j = next((k for k, x in enumerate(ps) if norm(x.get_text()).rstrip(':') == last.rstrip(':')), None)
         if i is None or j is None or j <= i: report.append(('settings', 'WARNING: list not found', first)); continue
         head = ps[i]
         for x in ps[i + 1:j + 1]:

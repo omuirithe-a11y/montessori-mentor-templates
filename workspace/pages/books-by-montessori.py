@@ -299,9 +299,13 @@ def POST_MAIN(main, s, report):
     # Bibliography Online, just above" - the heading as the MBO heading above it: the template's blue heading, no red class
     for h in main.find_all('h2'):
         if norm(h.get_text()) == 'The Montessori Foundation':
-            h['class'] = [c for c in (h.get('class') or []) if c != 'mm-hc-EE0000']
-            if not h['class']: del h['class']
-            report.append(('settings', 'The Montessori Foundation blue, as The Montessori Bibliography Online (owner 2 Nov 15:56)', ''))
+            # owner 2 Nov 20:38 (queued, screenshot of the heading): "both in red" - red again (the template's red class, colour only);
+            # its spacing stays as the 15:56 edit made it (to be measured at the build against the MBO heading above)
+            h['class'] = [c for c in (h.get('class') or []) if c != 'mm-hc-EE0000'] + ['mm-hc-EE0000']
+            _n = h.find_next_sibling()
+            h['data-gap'] = '40'   # and 40 above it, as above The Montessori Bibliography Online (n7: 40; n9 with the red class: 56)
+            if _n is not None: _n['data-gap'] = '25'   # the red class brings the template's red-heading gap (35.6 measured on build n8); 25, as under The Montessori Bibliography Online (owner 15:56)
+            report.append(('settings', 'The Montessori Foundation red (owner 2 Nov 20:38; spacing as 15:56)', ''))
 
     # fault 18: Word's superscript "th"
     for t in main.find_all(string=re.compile(r'20th Century')):
@@ -313,13 +317,14 @@ def POST_MAIN(main, s, report):
     # is a description, as every other text under a title and badge on the page (the template's res-desc)
     q = next(x for x in main.find_all('p') if norm(x.get_text()).startswith('\u2018The Montessori Bibliography Online (MBO)'))
     q['class'] = ['res-desc']
+    q['data-gap'] = '25.7'   # owner 2 Nov 20:36 (queued, screenshot "A Resource for the Global Montessori Community PDF" / the MBO quotation): "spacing too big" - the same gap as under a blue title and its badge (25.7 px letters to letters, as under "Great Big List…" on 8.3)
     # 1 Nov (checker b11 faults 4, 5): a word joiner before the badges was tried and does not stop the browser wrapping a badge
     # alone on phones (the badges are boxes); that needs a template rule - not done here
 
     # 1 Nov (checker b14 fault 1): Word's blank line before the italic note "'Other Books of Interest'- in case ..." (PDF page 3),
     # so the note is not read as a fifth book; an empty line, as Word's empty paragraph
     note = next(x for x in main.find_all('p') if norm(x.get_text()).startswith('\u2018Other Books of Interest\u2019'))
-    note.insert_before(BeautifulSoup('<p><br/></p>', 'html.parser'))
+    # owner 2 Nov 20:36 (queued): no large space between the list and this note - "A space larger than between the list items, yes, but not huge": the empty line is left out, the ordinary paragraph gap remains
     em = note.find('em')   # the dash written against the quote ("'-"), spaced as the site's other dashes (typo rule)
     if em is not None and em.string and em.string.endswith('\u2019- '): em.string = em.string[:-2] + ' - '
     report.append(('settings', 'blank line before the Other Books of Interest note, as Word', 'b14 fault 1'))
@@ -406,6 +411,35 @@ def _post_tail(main, s, report, norm):
             keep.append(b.extract())
         nk += 1
     report.append(('settings', 'badges ending a paragraph kept with the word before them (n4 review A1)', str(nk)))
+    # owner 2 Nov 20:48 (queued, screenshot of the red heading "So many books, so little time"): "divider above" - the template's beige
+    # line straight above that heading (at the end of the section before it, as the template places its lines)
+    for _h in main.find_all('h2'):
+        if norm(_h.get_text()) == 'So many books, so little time':
+            _sec = _h.find_parent('section'); _pv = _sec.find_previous_sibling('section') if _sec is not None and _sec.find(True) is _h else None
+            _ln = _BS('<div class="beige-rule mm-org-rule"></div>', 'html.parser').div
+            (_pv.append(_ln) if _pv is not None else _h.insert_before(_ln))
+            report.append(('settings', 'beige line above "So many books, so little time" (owner 2 Nov 20:48)', 'end of the section before' if _pv is not None else 'before the heading'))
+    # owner 2 Nov 20:47 (queued, answer A): "Montessori Nuggets" a red name line of its own, like the other organisations, with the
+    # sentence below it as its description, starting "Have a very detailed list…" (an entry of the template's: div.res-entry, h3 red name, p.res-desc)
+    for _p in main.find_all('p'):
+        _a = _p.find('a')
+        if _a is None or norm(_a.get_text()) != 'Montessori Nuggets' or _p.contents[0] is not _a: continue
+        _ent = _BS('<div class="res-entry"><h3 class="material-name res-src"></h3></div>', 'html.parser').div
+        _ent.h3.append(_a.extract())
+        _rest = _p.contents[0] if _p.contents else None
+        if isinstance(_rest, _NS): _rest.replace_with(_NS(str(_rest).lstrip()[:1].upper() + str(_rest).lstrip()[1:]))
+        _p['class'] = ['res-desc']; _p.insert_before(_ent); _ent.append(_p.extract())
+        report.append(('settings', 'Montessori Nuggets a red name line (owner 2 Nov 20:47)', ''))
+        break
+    # owner 2 Nov 20:34 (queued): the four "Other Books of Interest" lines spaced as the lists above them - one paragraph, line under line
+    _first = next((p for p in main.find_all('p') if norm(p.get_text()) == 'Maria Montessori, An Anthology'), None)
+    if _first is not None:
+        _n = 0
+        for _x in list(_first.find_next_siblings('p'))[:3]:
+            if not norm(_x.get_text()) or _x.find('em'): break
+            _first.append(_BS('<br/>', 'html.parser')); [_first.append(c.extract()) for c in list(_x.contents)]; _x.decompose(); _n += 1
+        report.append(('settings', '"Other Books of Interest" lines line under line (owner 2 Nov 20:34)', str(_n + 1)))
+    else: report.append(('settings', 'WARNING: "Maria Montessori, An Anthology" not found', ''))
     # n4 review A2: "The MBO is accessible at <address>" on its own line, as live (joined to the paragraph, the line before it was stretched at 768)
     nm = 0
     for t in list(main.find_all(string=lambda x: x is not None and 'The MBO is accessible at' in x)):

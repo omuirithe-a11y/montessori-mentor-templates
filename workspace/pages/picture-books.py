@@ -235,7 +235,7 @@ def POST_MAIN(main, s, report):
             _f['data-gap'] = '51'; report.append(('settings', 'blue title opening an entry: 51 px below the entry above (8.3 b15 review)', _f.get_text()[:40]))
     for _p in main.find_all('p'):
         _t = re.sub(r'\s+', ' ', _p.get_text()).strip()
-        if _t in ('London Museum', 'Society of Antiquaries of London') or _t.startswith(('Far left, from the', 'Far right, from the')):
+        if _t.startswith(('Far left, from the', 'Far right, from the')):   # owner 2 Nov 20:47: London Museum and Society of Antiquaries of London are now red name lines, spaced by the template as every name line
             _n = _p.find_next_sibling()
             if _n is not None and _n.name == 'p': _n['data-gap'] = '21'; report.append(('settings', 'quotation 21 px below its label (8.3 b15 review)', _t))
     # 8.3 build 16 review: (1) "Far right, from ..." has Word's empty line above it (Word paragraph 139): 51 px below the quotation above,
@@ -254,8 +254,65 @@ def POST_MAIN(main, s, report):
     # (letters to letters, the paragraph gap at 641 px and wider) and the first of them 32 px below the blue title too, at every width
     for _p in main.find_all('p'):
         _t = re.sub(r'\s+', ' ', _p.get_text()).strip()
-        if _t.startswith('It’s Never too Early'):   # 8.3 b18 check: a gap set on the Wordless lines (measured from a line whose badge can wrap later) let them overlap at 320-350 and 570-690 px; they keep the template's paragraph gap (32 px)
-            _p['data-gap'] = '32'; report.append(('settings', 'A Selection line 32 px below the line above (8.3 b17 review)', _t[:30]))
+        if _t.startswith('It’s Never too Early') or _t.startswith('Wordless Picture Books'):
+            # owner 2 Nov 20:42 (queued, screenshot of the four lines under "A Selection"): "in blue" - the three black lines become blue title
+            # lines, as "100 Brilliant Non-Fiction Books…" above them (the template's title line and its badge; title lines that follow one
+            # another share one badge column). Replaces the 32 px gap set on "It's Never too Early…" (8.3 b17 review)
+            _bd = _p.find('a', class_='pdf')
+            if _bd is None: continue
+            _bd = _bd.extract()
+            for _k in _p.select('span.mm-keep'): _k.unwrap()
+            _txt = re.sub(r'\s+', ' ', _p.get_text()).strip()
+            _it = BeautifulSoup('<div class="res-item"><span class="res-title"></span> </div>', 'html.parser').div
+            _it.span.string = _txt; _it.append(_bd)
+            _p.replace_with(_it); report.append(('settings', 'A Selection line as a blue title line (owner 2 Nov 20:42)', _txt[:30]))
+            continue; report.append(('settings', 'A Selection line 32 px below the line above (8.3 b17 review)', _t[:30]))
+    # owner 2 Nov 20:41 (queued, screenshot of "Montessori Education"): "in red" - its name line's link red, as the other red names
+    for _h in main.select('h3.res-src'):
+        if re.sub(r'\s+', ' ', _h.get_text()).strip() == 'Montessori Education':
+            for _a in _h.select('a.mm-link'):
+                _a['class'] = [c for c in _a['class'] if c != 'mm-link']
+                if not _a['class']: del _a['class']
+            report.append(('settings', 'Montessori Education red (owner 2 Nov 20:41)', ''))
+    # owner 2 Nov 20:47 (queued, screenshots of "London Museum", "The Horn Book Magazine", "Society of Antiquaries of London"): "red" - each
+    # becomes a red name line (the template's h3.material-name.res-src; its link red, as the other red names); the 51 px gap set on
+    # "The Horn Book Magazine" title line is no longer needed (a name line opening an entry gets the entry gap from the template)
+    for _el in list(main.select('p, div.res-item')):
+        _t = re.sub(r'\s+', ' ', _el.get_text()).strip()
+        if _t in ('London Museum', 'The Horn Book Magazine', 'Society of Antiquaries of London'):
+            _h = BeautifulSoup('<h3 class="material-name res-src"></h3>', 'html.parser').h3
+            _src = _el.find('span', class_='res-title') or _el
+            for c in list(_src.contents): _h.append(c.extract())
+            for _a in _h.select('a.mm-link'):
+                _a['class'] = [c for c in _a['class'] if c != 'mm-link']
+                if not _a['class']: del _a['class']
+            if _t == 'London Museum': _h['data-gap'] = '51'   # inside The Victorian Web's entry: 51 px below the text above, as a name line opening an entry (the build 20 measure: 53.2)
+            _el.replace_with(_h); report.append(('settings', 'red name line (owner 2 Nov 20:47)', _t))
+    # owner 2 Nov 20:49 (queued, screenshot): "Add 'why is it called the horn book' to the sentence above it" - the link joins the end
+    # of the paragraph above ("... and the core of our company.' Why is it called "The Horn Book"?")
+    for _p in main.find_all('p'):
+        if re.sub(r'\s+', ' ', _p.get_text()).strip().startswith('Why is it called'):
+            _pv = _p.find_previous_sibling('p')
+            if _pv is None: break
+            _pv.append(' ')
+            for c in list(_p.contents): _pv.append(c.extract())
+            _p.decompose(); report.append(('settings', '"Why is it called..." joined to the paragraph above (owner 2 Nov 20:49)', '')); break
+    # owner 2 Nov 20:50 (queued, screenshot): "there are in the wrong order - the newberry library is the ornaisation and should be in red etc"
+    # - The Newberry Library is the red name line, first; "Old School Classroom Technology" the blue title line under it (16:20's red undone)
+    for _h in main.select('h3.res-src'):
+        if re.sub(r'\s+', ' ', _h.get_text()).strip() != 'Old School Classroom Technology': continue
+        _nx = _h.find_next_sibling()
+        if _nx is None or re.sub(r'\s+', ' ', _nx.get_text()).strip() != 'The Newberry Library': break
+        _src = _nx.find('span', class_='res-title') or _nx
+        _name = BeautifulSoup('<h3 class="material-name res-src"></h3>', 'html.parser').h3
+        for c in list(_src.contents): _name.append(c.extract())
+        for _a in _name.select('a.mm-link'):
+            _a['class'] = [c for c in _a['class'] if c != 'mm-link']
+            if not _a['class']: del _a['class']
+        _ti = BeautifulSoup('<div class="res-item"><span class="res-title"></span></div>', 'html.parser').div
+        _ti.span.string = 'Old School Classroom Technology'
+        _h.replace_with(_name); _nx.replace_with(_ti)
+        report.append(('settings', 'The Newberry Library red name, Old School Classroom Technology blue title under it (owner 2 Nov 20:50)', '')); break
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
 
