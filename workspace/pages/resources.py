@@ -7,8 +7,8 @@
 # Owner 2 Nov 08:45: "Four sections".
 
 NO_TOC = True
-LISTS = [('Education (including Montessori)', 'Book Lists etc.'), ('Executive Functions,', 'Ambitious Teaching.'),
-         ('Introductions to Montessori,', 'Parenting, etc.')]   # owner 2 Nov 15:59 (queued)
+LISTS = [('Education (including Montessori)', 'Ambitious Teaching.'),
+         ('A collection of online resources including', 'Parenting, etc.')]   # owner 2 Nov 15:59 (queued); n3 review A1, A2: the lines between the lists (the bibliography line, "A collection ...") too, so every line of each list is evenly spaced, as in the PDF
 DROP = ['[ Claude:']
 
 TEXT_EDITS = [('It is divided into two sections:', 'It is divided into four sections:')]   # owner 2 Nov 08:45 "Four sections"

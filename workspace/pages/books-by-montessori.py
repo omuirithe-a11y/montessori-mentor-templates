@@ -381,6 +381,39 @@ def _post_tail(main, s, report, norm):
     for a in main.find_all('a'):   # every PDF link is the template's PDF badge
         if norm(a.get_text()) == 'PDF' and 'pdf' not in (a.get('class') or []): a['class'] = (a.get('class') or []) + ['pdf']
     report.append(('settings', 'Word colours as the template\'s classes; PDF links as badges (page setting)', 'fault 20'))
+    # 2 Nov n4 review A1: badges ending a description paragraph ("The Discovery of the Child (1948) PDF PDF", "A Resource for the
+    # Global Montessori Community PDF") keep to the word before them - the Resources template's span.mm-keep (owner's agreement 2 Nov 13:19)
+    from bs4 import BeautifulSoup as _BS, NavigableString as _NS
+    nk = 0
+    for p in main.find_all('p'):
+        kids = [c for c in p.contents if not (isinstance(c, _NS) and not c.strip())]
+        bs = []
+        for c in reversed(kids):
+            if getattr(c, 'name', None) == 'a' and 'pdf' in (c.get('class') or []): bs.insert(0, c)
+            else: break
+        if not bs: continue
+        pv = bs[0].previous_sibling
+        while isinstance(pv, _NS) and not pv.strip(): pv = pv.previous_sibling
+        if pv is None: continue
+        keep = _BS('<span class="mm-keep"></span>', 'html.parser').span
+        if isinstance(pv, _NS):
+            txt = str(pv).rstrip(); k = txt.rfind(' ') + 1
+            bs[0].insert_before(keep); pv.replace_with(_NS(txt[:k])); keep.append(_NS(txt[k:] + ' '))
+        else:
+            pv.insert_after(keep); keep.append(pv.extract()); keep.append(_NS(' '))
+        for k_, b in enumerate(bs):
+            if k_: keep.append(_NS(' '))
+            keep.append(b.extract())
+        nk += 1
+    report.append(('settings', 'badges ending a paragraph kept with the word before them (n4 review A1)', str(nk)))
+    # n4 review A2: "The MBO is accessible at <address>" on its own line, as live (joined to the paragraph, the line before it was stretched at 768)
+    nm = 0
+    for t in list(main.find_all(string=lambda x: x is not None and 'The MBO is accessible at' in x)):
+        a_, b_ = str(t).split('The MBO is accessible at', 1)
+        if not a_.strip(): continue
+        new_t = _NS('The MBO is accessible at' + b_)
+        t.insert_before(_NS(a_.rstrip())); t.insert_before(_BS('<br/>', 'html.parser').br); t.replace_with(new_t); nm += 1
+    report.append(('settings', '"The MBO is accessible at" on its own line, as live (n4 review A2)', str(nm)))
 
 def _drop_covers_grid(main, report):
     """Owner 31 Oct 22:14: "delete that grid . don't use it on the page" - the Word table of 23 covers with their titles

@@ -1,5 +1,5 @@
-# 8.4 Websites - page settings (2 Nov 2026, Resources Code Template 1a89e1c1), made from 8.3 Picture Books' settings (pages/picture-books.py)
-# Word file: 8.3 Picture Books.docx (Drive 1myTm7zv6IX7xQFJYzWVR0Z1KjyAHlV8W, saved 1 Nov 14:09, sha256 ef4ea8d5...); PDF 83ae0c07...
+# 8.4 Websites - page settings (2 Nov 2026, Resources Code Template 1a89e1c1, now d85d9d19), made from 8.3 Picture Books' settings (pages/picture-books.py)
+# Word file: 8.4 Websites.docx (Drive, saved 1 Nov); the next lines describe 8.3, whose settings these were made from - 8.3 Picture Books.docx (Drive 1myTm7zv6IX7xQFJYzWVR0Z1KjyAHlV8W, saved 1 Nov 14:09, sha256 ef4ea8d5...); PDF 83ae0c07...
 # Owner 2 Nov 08:44: address /picture-books/. 2 Nov 08:52: no faces to be blurred. 2 Nov 09:50: "8.3".
 # First build (raw converter output) faults: red organisations and blue titles made headings (sections), Word colours as inline
 # styles, a 2167 px runaway margin at 1440, text over the cover rows at 320-610 px, text over text at 360-470 and 390 px.
@@ -22,7 +22,7 @@ TOC_SPLIT = [3, 4]   # owner 2 Nov 16:22 (queued): two columns as the PDF - 3 he
 TEXT_EDITS = [('theDevelopmental', 'the Developmental'), ('sectioncontains', 'section contains'), ('colleting', 'collecting'),
               ('teachings.’They', 'teachings.’ They'), ('students-and teachers-to', 'students - and teachers - to'),
               ('affiliations -including AMS and AMI- ensuring', 'affiliations - including AMS and AMI - ensuring'),
-              ('Project, ‘A collaborative', 'Project, “A collaborative'),
+              ('‘A collaborative project', '“A collaborative project'),
               ('it has become primary U.S.', 'it has become the primary U.S.'),   # owner 2 Nov 15:37
               ('The ‘Historical journals “collects', 'The ‘Historical journals’ section “collects')]   # owner 2 Nov 15:42 (A)   # N4b: the quotation closes with ” and Word 138 opens the same quotation with “   # 8.4 build 2 review N4a   # typos (owner 27 Oct: correct all typos); Word's long dashes as spaced short dashes
 # owner 26 Oct 15:57: names and words inside a quotation keep their spelling (8.4 first-build faults 8)
@@ -181,7 +181,14 @@ def POST_MAIN(main, s, report):
     for a in main.select('p a.pdf'):   # a badge in running text keeps to the word before it (2 Nov build 6 review, NEW 5: "Lower Elementary" / PDF at 390;
         pv = a.previous_sibling       # no space character holds an inline-block badge: the Resources template's span.mm-keep, owner's agreement 2 Nov)
         if isinstance(pv, NavigableString) and pv.strip():
-            txt = str(pv).rstrip(); k = txt.rfind(' ') + 1
+            lsp = pv.previous_sibling
+            tab_unit = getattr(lsp, 'name', None) == 'span' and 'mm-lsp' in (lsp.get('class') or [])
+            if not tab_unit and a.parent.name == 'p' and a.find_next_sibling() is None and any(
+                    q is not None and q.name == 'p' and q.find_all(True, recursive=False) and (q.find_all(True, recursive=False)[-1].name == 'a' and 'pdf' in (q.find_all(True, recursive=False)[-1].get('class') or [])
+                        or q.find_all(True, recursive=False)[-1].select_one(':scope > a.pdf:last-child') is not None)
+                    for q in (a.parent.find_previous_sibling(), a.parent.find_next_sibling())):
+                continue   # 8.3 build 12 review, fault 5: a badge ending a line whose neighbouring line also ends in a badge is left to the template's 20 Oct badge column (one column; phones: 24 after the text, or the margin)
+            txt = str(pv).rstrip(); k = 0 if tab_unit else txt.rfind(' ') + 1   # a label after a tab ("Lower Elementary PDF") is kept whole (8.3 build 12 review, fault 7)
             keep = BeautifulSoup('<span class="mm-keep"></span>', 'html.parser').span
             pv.replace_with(NavigableString(txt[:k])); a.insert_before(keep); keep.append(NavigableString(txt[k:] + ' ')); keep.append(a.extract())
     # the green headings get ids, so the template's contents box lists them (8.4 build 2 review N1: the box was empty and hidden)
@@ -195,6 +202,28 @@ def POST_MAIN(main, s, report):
         nx = sp.next_sibling
         if sp.string and sp.string.endswith('Scal') and isinstance(nx, NavigableString) and nx.startswith('e'):
             sp.string = sp.string + 'e'; nx.replace_with(NavigableString(nx[1:]))
+    # 8.4 build 7 review 3, 4: a lone punctuation mark Word colours red or blue inside black text (the comma after "Montessori Glossary
+    # Community Project", the opening quote mark of the Greenspring quotation) is a colour slip: shown in the text colour, as "Scale" (N2)
+    for sp in main.select('p span.mm-blue, p span[class^="mm-hc-"]'):
+        if re.fullmatch(r'[\s,.;:‘’“”\'"()!?-]+', sp.get_text() or ''): sp.unwrap()
+    # 8.4 build 7 review 5: a blue phrase of several words (span.mm-blue, inline-block in the template) cannot break, so the line
+    # before it is stretched or left short ("Developmental Environment Rating Scale"): each word its own blue span, the spaces between them
+    for sp in main.select('p span.mm-blue'):
+        w = (sp.string or '').split(' ')
+        if sp.string is None or len(w) < 2: continue
+        for k_, x in enumerate(w):
+            if k_: sp.insert_before(NavigableString(' '))
+            n = BeautifulSoup('<span class="mm-blue"></span>', 'html.parser').span; n.string = x; sp.insert_before(n)
+        sp.decompose()
+    # 8.4 build 7 review 7: an age range ("6 - 12") is not split across two lines: the template's span.mm-keep (nowrap)
+    for tn in list(main.find_all(string=re.compile(r'\d+ - \d+'))):
+        if tn.find_parent(['a', 'h2', 'h3']) is not None or tn.find_parent('span', class_='mm-keep') is not None: continue
+        parts = re.split(r'(\d+ - \d+)', str(tn)); new_ = []
+        for k_, x in enumerate(parts):
+            if k_ % 2: n = BeautifulSoup('<span class="mm-keep"></span>', 'html.parser').span; n.string = x; new_.append(n)
+            elif x: new_.append(NavigableString(x))
+        for x in new_: tn.insert_before(x)
+        tn.extract()
     report.append(('settings', 'contents box: the green headings, with ids', str(len(seen))))
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
@@ -237,7 +266,9 @@ def _split_badges(pcs):
             if acc.strip() == 'PDF':
                 badges.append('<a class="pdf" href="%s" rel="noopener" target="_blank">PDF</a>' % _esc(href)); i = j; continue
         if t == '\t':
-            if body and body[-1][0] not in (' ', '\t'): body.append(('\t',) + tuple(pcs[i][1:]))   # kept as a tab: the 24 px spacer before the short name (owner 2 Nov 16:24)
+            if body and body[-1][0] != '\t' and body[-1][0].strip() == '' : body.pop()   # 8.4 build 7 review 1: a space before the tab (NAMTA, MPPI) gives way to it
+            if body and body[-1][0][-1:] == ' ': body[-1] = (body[-1][0].rstrip(),) + tuple(body[-1][1:])   # "Action " (PMAI): no space as well as the spacer
+            if body and body[-1][0] != '\t': body.append(('\t',) + tuple(pcs[i][1:]))   # kept as a tab: the 24 px spacer before the short name (owner 2 Nov 16:24)
             i += 1; continue
         body.append(pcs[i]); i += 1
     while body and body[-1][0] in ('\t', ' '): body.pop()   # no spacer at the end of a name line

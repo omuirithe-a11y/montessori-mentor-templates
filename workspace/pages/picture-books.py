@@ -21,7 +21,7 @@ CAPTION_SOURCES = ['Far left', 'Far right']   # owner 2 Nov 16:20 (queued)
 QUOTE_PLAIN = ['In the early modern era']   # owner 2 Nov 16:20 (queued)
 NAME_LINKS = ['Montessori Education']   # owner 2 Nov 16:03 (queued)
 SPLIT_LABEL = ['London Museum']   # owner 2 Nov 15:34
-TEXT_EDITS = [('Sometime ivory was used', 'Sometimes ivory was used')]   # typo (owner 27 Oct: correct all typos; her 15:34 screenshot has "Sometimes")
+TEXT_EDITS = [('Sometime ivory was used', 'Sometimes ivory was used'), ('BookTrust is rhe UK', 'BookTrust is the UK'), ('the Unites States government', 'the United States government'), ('Why is it called "The Horn Book?', 'Why is it called "The Horn Book"?')]   # typos (owner 27 Oct: correct all typos); the last three from the 8.3 build 12 review   # typo (owner 27 Oct: correct all typos; her 15:34 screenshot has "Sometimes")
 NO_RULE_BEFORE = ['Hornbooks']   # owner 2 Nov 15:31: "Delete the divider above Hornbooks"
 
 
@@ -181,7 +181,14 @@ def POST_MAIN(main, s, report):
     for a in main.select('p a.pdf'):   # a badge in running text keeps to the word before it (2 Nov build 6 review, NEW 5: "Lower Elementary" / PDF at 390;
         pv = a.previous_sibling       # no space character holds an inline-block badge: the Resources template's span.mm-keep, owner's agreement 2 Nov)
         if isinstance(pv, NavigableString) and pv.strip():
-            txt = str(pv).rstrip(); k = txt.rfind(' ') + 1
+            lsp = pv.previous_sibling
+            tab_unit = getattr(lsp, 'name', None) == 'span' and 'mm-lsp' in (lsp.get('class') or [])
+            if not tab_unit and a.parent.name == 'p' and a.find_next_sibling() is None and any(
+                    q is not None and q.name == 'p' and q.find_all(True, recursive=False) and (q.find_all(True, recursive=False)[-1].name == 'a' and 'pdf' in (q.find_all(True, recursive=False)[-1].get('class') or [])
+                        or q.find_all(True, recursive=False)[-1].select_one(':scope > a.pdf:last-child') is not None)
+                    for q in (a.parent.find_previous_sibling(), a.parent.find_next_sibling())):
+                continue   # 8.3 build 12 review, fault 5: a badge ending a line whose neighbouring line also ends in a badge is left to the template's 20 Oct badge column (one column; phones: 24 after the text, or the margin)
+            txt = str(pv).rstrip(); k = 0 if tab_unit else txt.rfind(' ') + 1   # a label after a tab ("Lower Elementary PDF") is kept whole (8.3 build 12 review, fault 7)
             keep = BeautifulSoup('<span class="mm-keep"></span>', 'html.parser').span
             pv.replace_with(NavigableString(txt[:k])); a.insert_before(keep); keep.append(NavigableString(txt[k:] + ' ')); keep.append(a.extract())
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
