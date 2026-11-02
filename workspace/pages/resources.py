@@ -7,6 +7,8 @@
 # Owner 2 Nov 08:45: "Four sections".
 
 NO_TOC = True
+LISTS = [('Education (including Montessori)', 'Book Lists etc.'), ('Executive Functions,', 'Ambitious Teaching.'),
+         ('Introductions to Montessori,', 'Parenting, etc.')]   # owner 2 Nov 15:59 (queued)
 DROP = ['[ Claude:']
 
 TEXT_EDITS = [('It is divided into two sections:', 'It is divided into four sections:')]   # owner 2 Nov 08:45 "Four sections"
@@ -46,3 +48,18 @@ def POST_MAIN(main, s, report):
     # the inline first-line indent the converter wrote on the last line (the template allows no inline style in the content)
     for e in main.find_all(style=True):
         if 'text-indent' in e['style']: del e['style']; report.append(('settings', 'inline indent left out (template rule)', norm(e.get_text())[:40]))
+    # owner 2 Nov 15:59 (queued 15:53): "The spacing between the heading and the first item on the list (Education (including Montessori)
+    # is good. Make this the same spacing between all items in the lists." - the items of each list set line under line in one paragraph
+    # (the line spacing is the gap the heading has to the first item; measured after the build)
+    from bs4 import BeautifulSoup as _BS
+    for first, last in LISTS:
+        ps = [x for x in main.find_all('p')]
+        i = next((k for k, x in enumerate(ps) if norm(x.get_text()) == first), None)
+        j = next((k for k, x in enumerate(ps) if norm(x.get_text()) == last), None)
+        if i is None or j is None or j <= i: report.append(('settings', 'WARNING: list not found', first)); continue
+        head = ps[i]
+        for x in ps[i + 1:j + 1]:
+            head.append(_BS('<br/>', 'html.parser'))
+            for c in list(x.contents): head.append(c.extract())
+            x.decompose()
+        report.append(('settings', 'list items line under line (owner 2 Nov 15:59)', '%s ... %s' % (first, last)))

@@ -1232,6 +1232,11 @@ def main():
         if not _uls: _uls = ['toc-groups', 'toc-groups']
         _n = len(_uls); per = -(-len(heads) // _n)
         cols = [heads[i * per:(i + 1) * per] for i in range(_n)]
+        if S.get('TOC_SPLIT'):   # 2 Nov 2026 (owner 16:22, 8.4: "two columns, not three ... to match the layout of the PDF"): how many entries go in each column
+            _k = 0; cols = []
+            for _c in S['TOC_SPLIT']: cols.append(heads[_k:_k + _c]); _k += _c
+            assert _k == len(heads) and len(cols) <= _n, ('TOC_SPLIT', S['TOC_SPLIT'], len(heads), _n)
+            cols += [[] for _ in range(_n - len(cols))]
         lis = ''.join('<ul class="%s">%s</ul>' % (_uls[i], ''.join('<li><a href="#%s">%s</a></li>' % h for h in c)) for i, c in enumerate(cols))
         k = len(re.findall(r'<div class="toc-grid[^"]*">.*?</div></nav>', t, re.S)); assert k == 1, ('toc', k)
         t = re.sub(r'(<div class="toc-grid[^"]*">).*?(</div></nav>)', lambda m: m.group(1) + lis + m.group(2), t, flags=re.S)

@@ -267,6 +267,42 @@ def POST_MAIN(main, s, report):
                 g.decompose()
         report.append(('settings', 'book titles under "%s" set line under line, as the PDF (2 Nov checker fault 1): %d titles' % (lead, len(group)), ''))
 
+    # owner 2 Nov 15:52: "make the space between the author and the title the same as between the titles. also remove the colons after
+    # all the author names" - each "By ..." line joins the paragraph of titles under it (a line break, so the gap is the titles' own),
+    # and loses its colon
+    nby = 0
+    for bp in [x for x in main.find_all('p') if re.match(r'By [A-Z]', norm(x.get_text())) and len(norm(x.get_text())) < 60 and not x.get('class')]:
+        for t in bp.find_all(string=True)[::-1]:
+            if t.strip():
+                if t.rstrip().endswith(':'): t.replace_with(NavigableString(t.rstrip()[:-1].rstrip()))
+                break
+        nx = bp.find_next_sibling()
+        if nx is not None and nx.name == 'p' and not nx.get('class') and norm(nx.get_text()) and not norm(nx.get_text()).startswith('By '):
+            bp.append(s.new_tag('br'))
+            for c in list(nx.contents): bp.append(c.extract())
+            nx.decompose(); nby += 1
+    report.append(('settings', 'author line joined to its titles, no colon (owner 2 Nov 15:52)', str(nby)))
+
+    # owner 2 Nov 15:54 (queued 15:53): "Remove all dividers above these headings" - no beige line straight above a green heading
+    nrm = 0
+    for r in main.select('.beige-rule'):
+        nx = r.find_next_sibling()
+        while nx is not None and nx.name == 'div' and not nx.get_text(strip=True) and not nx.find('img'): nx = nx.find_next_sibling()
+        if nx is None and r.parent is not None and r.parent.name == 'section':
+            ns = r.parent.find_next_sibling(); nx = ns.find(True) if ns is not None else None
+        if nx is not None and nx.name == 'section': nx = nx.find(True)   # a line between two sections: the next section's first element
+        if nx is not None and nx.name == 'h2':
+            r.decompose(); nrm += 1   # the space above it: the template (owner 2 Nov 16:08)
+    report.append(('settings', 'beige lines above green headings left out (owner 2 Nov 15:54)', str(nrm)))
+
+    # owner 2 Nov 15:56 (queued): "The Montessori Foundation should be in blue, and the spacing should match the spacing under The Montessori
+    # Bibliography Online, just above" - the heading as the MBO heading above it: the template's blue heading, no red class
+    for h in main.find_all('h2'):
+        if norm(h.get_text()) == 'The Montessori Foundation':
+            h['class'] = [c for c in (h.get('class') or []) if c != 'mm-hc-EE0000']
+            if not h['class']: del h['class']
+            report.append(('settings', 'The Montessori Foundation blue, as The Montessori Bibliography Online (owner 2 Nov 15:56)', ''))
+
     # fault 18: Word's superscript "th"
     for t in main.find_all(string=re.compile(r'20th Century')):
         a, b = t.split('20th', 1); sp_ = s.new_tag('sup'); sp_.string = 'th'

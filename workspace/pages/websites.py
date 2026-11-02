@@ -18,10 +18,13 @@ GREENS = ('00B050',)
 # Word and the PDF have a contents list (Word paragraphs 0-11, ending with a line picture): the template's own contents box
 # ("Table of contents", owner preference) lists the green headings; Word's copy of the list is not repeated in the text.
 TOC_END = 11
+TOC_SPLIT = [3, 4]   # owner 2 Nov 16:22 (queued): two columns as the PDF - 3 headings on the left, 4 on the right (template 2-column rule, item 10)
 TEXT_EDITS = [('theDevelopmental', 'the Developmental'), ('sectioncontains', 'section contains'), ('colleting', 'collecting'),
               ('teachings.’They', 'teachings.’ They'), ('students-and teachers-to', 'students - and teachers - to'),
               ('affiliations -including AMS and AMI- ensuring', 'affiliations - including AMS and AMI - ensuring'),
-              ('Project, ‘A collaborative', 'Project, “A collaborative')]   # N4b: the quotation closes with ” and Word 138 opens the same quotation with “   # 8.4 build 2 review N4a   # typos (owner 27 Oct: correct all typos); Word's long dashes as spaced short dashes
+              ('Project, ‘A collaborative', 'Project, “A collaborative'),
+              ('it has become primary U.S.', 'it has become the primary U.S.'),   # owner 2 Nov 15:37
+              ('The ‘Historical journals “collects', 'The ‘Historical journals’ section “collects')]   # owner 2 Nov 15:42 (A)   # N4b: the quotation closes with ” and Word 138 opens the same quotation with “   # 8.4 build 2 review N4a   # typos (owner 27 Oct: correct all typos); Word's long dashes as spaced short dashes
 # owner 26 Oct 15:57: names and words inside a quotation keep their spelling (8.4 first-build faults 8)
 KEEP_SPELLING = ['offering programs', 'online training programs', 'mentoring programs', 'strong training centers', 'and behavioral qualities', 'Recognized Organ']
 
@@ -85,6 +88,7 @@ def POST_MAIN(main, s, report):
     paras = D.paragraphs
     in_list = []
     pending_rule = False
+    pend_badges = None
     blank = False   # an empty Word paragraph just before (2 Nov review: Word's blank line between entries starts a new entry)
     for i, p in enumerate(paras):
         if i <= TOC_END: continue   # Word's contents list and its line (the template's contents box lists the headings)
@@ -113,22 +117,36 @@ def POST_MAIN(main, s, report):
         if not txt:
             blank = True; continue
         was_blank, blank = blank, False
+        pb, pend_badges = pend_badges, None   # a name line's badge waiting for the line straight below (owner 2 Nov 16:06)
         if lines and not photos: pending_rule = True
         if num:
             in_list.append(_pieces_html(pcs).replace('<span class="mm-blue">', '').replace('</span>', '')); continue
         green, red, blue = _share(pcs, GREENS), _share(pcs, REDS), _share(pcs, BLUES)
         first = next((x for x in pcs if x[0].strip()), None)
         if green > 0.6:
-            close(); out.append('<h2 class="mm-hc-00B050">%s</h2>' % _strip_col(_pieces_html(pcs))); continue
+            close()
+            if out and 'beige-rule' in out[-1]:   # owner 2 Nov 15:54 (queued 15:53): "Remove all dividers above these headings" (green headings)
+                out.pop(); report.append(('settings', 'beige line above a green heading left out (owner 2 Nov 15:54)', txt))
+            out.append('<h2 class="mm-hc-00B050">%s</h2>' % _strip_col(_pieces_html(pcs))); continue   # spacing above: the template (owner 2 Nov 16:08 "On all pages and in the template")
         if red > 0.5 or (first is not None and first[1] in REDS and red > 0.3):
             close(); entry = []
             body, badges = _split_badges(pcs)
             entry.append('<h3 class="material-name res-src">%s%s</h3>' % (_src_html(body), ''.join(' ' + b for b in badges)))
+            # owner 2 Nov 16:06 (queued): "Place the PDF on the same line as the title it refers to, not on the line with the author" - a badge on
+            # the name line moves to the blue title straight below it (if the next line is not a blue title, it stays on the name line)
+            pend_badges = (len(entry) - 1, _src_html(body), badges) if badges else None
             continue
         if '\t' in txt and first is not None and first[1] in BLUES and not first[3] and _plain(pcs).split('\t')[0].strip() and 'PDF' not in _plain(pcs).split('\t', 1)[1]:
             lab, rest = _split_tab(pcs)   # a blue label, a tab, then its text (Learning to Read ...)
             add('<p class="mm-hanglab"><span class="mm-lab"><span class="mm-blue">%s</span> </span>%s</p>' % (_strip_col(_pieces_html(lab)), _pieces_html(rest)))
             continue
+        if pb is not None:
+            k, nm, bd = pb
+            if blue > 0.5 and 'PDF' not in _plain(pcs):
+                entry[k] = '<h3 class="material-name res-src">%s</h3>' % nm
+                item = re.sub(r'<span class="res-title"><em>(.*?)</em></span>', r'<span class="res-title">\1</span>', _res_item(pcs), count=1)
+                assert item.endswith('</div>'), item[-40:]
+                add(item[:-6] + ''.join(' ' + x for x in bd) + '</div>'); report.append(('settings', 'PDF badge moved to the title below its name (owner 2 Nov 16:06)', txt[:40])); continue
         if blue > 0.5:
             add(re.sub(r'<span class="res-title"><em>(.*?)</em></span>', r'<span class="res-title">\1</span>', _res_item(pcs), count=1)); continue   # titles upright, as Word (8.1's were italic)
         if p.runs and all((r.font.underline or not r.text.strip()) for r in p.runs) and not any(x[3] for x in pcs):
@@ -219,9 +237,10 @@ def _split_badges(pcs):
             if acc.strip() == 'PDF':
                 badges.append('<a class="pdf" href="%s" rel="noopener" target="_blank">PDF</a>' % _esc(href)); i = j; continue
         if t == '\t':
-            if body and body[-1][0] != ' ': body.append((' ',) + tuple(pcs[i][1:]))
+            if body and body[-1][0] not in (' ', '\t'): body.append(('\t',) + tuple(pcs[i][1:]))   # kept as a tab: the 24 px spacer before the short name (owner 2 Nov 16:24)
             i += 1; continue
         body.append(pcs[i]); i += 1
+    while body and body[-1][0] in ('\t', ' '): body.pop()   # no spacer at the end of a name line
     return body, badges
 
 
@@ -249,7 +268,8 @@ def _src_html(pcs):
             core = txt.strip(); lead = ' ' if txt[:1].isspace() else ''; tail = ' ' if txt[-1:].isspace() and len(txt) > 1 else ''
             cls = ' class="pdf"' if core == 'PDF' else ('' if cols & set(REDS) else ' class="mm-link"')
             html.append('%s<a%s href="%s" rel="noopener" target="_blank">%s</a>%s' % (lead, cls, _esc(href), _esc(core), tail)); i = j; continue
-        if t in ('\t', '\n'): html.append(' '); i += 1; continue
+        if t == '\t': html.append('<span class="mm-lsp"> </span>'); i += 1; continue   # owner 2 Nov 16:24 (queued): "a clear separation between the organisations and their acronym" - the template's 24 px space
+        if t == '\n': html.append(' '); i += 1; continue
         txt = t; j = i + 1
         while j < len(pcs) and not pcs[j][3] and pcs[j][0] not in ('\t', '\n') and pcs[j][1] == col: txt += pcs[j][0]; j += 1
         core = txt.strip(); lead = txt[:len(txt) - len(txt.lstrip())]; tail = txt[len(txt.rstrip()):]

@@ -16,6 +16,13 @@ BLUES, REDS = _H['BLUES'], _H['REDS']
 GREENS = ('00B050',)
 
 NO_TOC = True
+RED_NAMES = ['Old School Classroom Technology']   # owner 2 Nov 16:20 (queued, her screenshot)
+CAPTION_SOURCES = ['Far left', 'Far right']   # owner 2 Nov 16:20 (queued)
+QUOTE_PLAIN = ['In the early modern era']   # owner 2 Nov 16:20 (queued)
+NAME_LINKS = ['Montessori Education']   # owner 2 Nov 16:03 (queued)
+SPLIT_LABEL = ['London Museum']   # owner 2 Nov 15:34
+TEXT_EDITS = [('Sometime ivory was used', 'Sometimes ivory was used')]   # typo (owner 27 Oct: correct all typos; her 15:34 screenshot has "Sometimes")
+NO_RULE_BEFORE = ['Hornbooks']   # owner 2 Nov 15:31: "Delete the divider above Hornbooks"
 
 
 def _share(pcs, cols):
@@ -76,6 +83,7 @@ def POST_MAIN(main, s, report):
 
     paras = D.paragraphs
     in_list = []
+    pend_badges = None
     blank = False   # an empty Word paragraph just before (2 Nov review: Word's blank line between entries starts a new entry)
     for i, p in enumerate(paras):
         if i == 0: continue   # the title (the hero)
@@ -102,21 +110,35 @@ def POST_MAIN(main, s, report):
         if not txt:
             blank = True; continue
         was_blank, blank = blank, False
+        pb, pend_badges = pend_badges, None   # a name line's badge waiting for the line straight below (owner 2 Nov 16:06)
         if num:
             in_list.append(_pieces_html(pcs).replace('<span class="mm-blue">', '').replace('</span>', '')); continue
         green, red, blue = _share(pcs, GREENS), _share(pcs, REDS), _share(pcs, BLUES)
         first = next((x for x in pcs if x[0].strip()), None)
         if green > 0.6:
-            close(); out.append('<h2 class="mm-hc-00B050">%s</h2>' % _strip_col(_pieces_html(pcs))); continue
-        if red > 0.5 or (first is not None and first[1] in REDS and red > 0.3):
+            close()
+            if txt in NO_RULE_BEFORE and out and 'beige-rule' in out[-1]:   # owner 2 Nov 15:31: "Delete the divider above Hornbooks"
+                out.pop(); report.append(('settings', 'beige line before the heading left out (owner 2 Nov 15:31)', txt))
+            out.append('<h2 class="mm-hc-00B050">%s</h2>' % _strip_col(_pieces_html(pcs))); continue   # spacing above: the template (owner 2 Nov 16:08 "On all pages and in the template")
+        if red > 0.5 or (first is not None and first[1] in REDS and red > 0.3) or txt in RED_NAMES:   # RED_NAMES: owner 2 Nov 16:20 (queued)
             close(); entry = []
             body, badges = _split_badges(pcs)
             entry.append('<h3 class="material-name res-src">%s%s</h3>' % (_src_html(body), ''.join(' ' + b for b in badges)))
+            # owner 2 Nov 16:06 (queued): "Place the PDF on the same line as the title it refers to, not on the line with the author" - a badge on
+            # the name line moves to the blue title straight below it (if the next line is not a blue title, it stays on the name line)
+            pend_badges = (len(entry) - 1, _src_html(body), badges) if badges else None
             continue
         if '\t' in txt and first is not None and first[1] in BLUES and not first[3] and _plain(pcs).split('\t')[0].strip() and 'PDF' not in _plain(pcs).split('\t', 1)[1]:
             lab, rest = _split_tab(pcs)   # a blue label, a tab, then its text (Learning to Read ...)
             add('<p class="mm-hanglab"><span class="mm-lab"><span class="mm-blue">%s</span> </span>%s</p>' % (_strip_col(_pieces_html(lab)), _pieces_html(rest)))
             continue
+        if pb is not None:
+            k, nm, bd = pb
+            if blue > 0.5 and 'PDF' not in _plain(pcs):
+                entry[k] = '<h3 class="material-name res-src">%s</h3>' % nm
+                item = re.sub(r'<span class="res-title"><em>(.*?)</em></span>', r'<span class="res-title">\1</span>', _res_item(pcs), count=1)
+                assert item.endswith('</div>'), item[-40:]
+                add(item[:-6] + ''.join(' ' + x for x in bd) + '</div>'); report.append(('settings', 'PDF badge moved to the title below its name (owner 2 Nov 16:06)', txt[:40])); continue
         if blue > 0.5:
             add(re.sub(r'<span class="res-title"><em>(.*?)</em></span>', r'<span class="res-title">\1</span>', _res_item(pcs), count=1)); continue   # titles upright, as Word (8.1's were italic)
         if p.runs and all((r.font.underline or not r.text.strip()) for r in p.runs) and not any(x[3] for x in pcs):
@@ -125,7 +147,28 @@ def POST_MAIN(main, s, report):
             # a plain line after Word's blank line inside an open entry ("Montessori Education", "Society of Antiquaries of London",
             # "They also have a selection ..."): an entry of its own, as Word and the PDF space it (2 Nov build 6 review, items 19 and NEW 3)
             close(); entry = []; report.append(('settings', 'a new entry after Word\'s blank line', txt[:40]))
+            if txt in NAME_LINKS:   # owner 2 Nov 16:03 (queued): "Make the spacing under 'Montessori Education' the same as under the other
+                # organisations" - the link line is the entry's name line (h3.res-src), its link in Word's link colour (a.mm-link, template 2 Nov 13:19)
+                entry.append('<h3 class="material-name res-src">%s</h3>' % _src_html(pcs)); report.append(('settings', 'link line as the entry\'s name line (owner 2 Nov 16:03)', txt)); continue
         cls = ' class="res-desc"' if entry is not None else ''
+        cap = next((k for k in CAPTION_SOURCES if txt.startswith(k + ':')), None)
+        if cap:   # owner 2 Nov 16:20 (queued, her screenshot): "Far left, from the <link>" on one line, the quotation below in “ ”
+            links = [x for x in pcs if x[3] and x[0].strip()]
+            href = links[0][3] if links else None
+            words = ''.join(x[0] for x in links).strip()
+            q = ''.join(x[0] for x in pcs if not x[3] and x[0] != '\t')
+            q = q[len(cap) + 1:].strip().strip('‘’').strip()
+            q = re.sub(r'\s+', ' ', q)
+            add('<p%s>%s, from the <a href="%s" rel="noopener" target="_blank">%s</a></p>' % (cls, cap, _esc(href or ''), _esc(words)))
+            add('<p%s>“%s”</p>' % (cls, _esc(q))); report.append(('settings', 'caption: source line, then the quotation (owner 2 Nov 16:20)', cap)); continue
+        if any(txt.startswith(k) for k in QUOTE_PLAIN):   # owner 2 Nov 16:20 (queued, her screenshot): upright, in “ ”
+            add('<p%s>“%s”</p>' % (cls, _pieces_html([(x[0], x[1], False, x[3], x[4]) for x in pcs]).strip())); continue
+        lab0 = next((k for k in SPLIT_LABEL if txt.startswith(k + ':')), None)
+        if lab0:   # owner 2 Nov 15:34: "Change the page so it looks like that - seperate line" (her screenshot: the label on its own line, the quotation below in ‘ ’)
+            lab, rest = _split_tab(pcs)
+            body = _pieces_html(rest).strip()
+            add('<p%s>%s</p>' % (cls, re.sub(r'\s*:\s*$', '', _pieces_html(lab).strip())))
+            add('<p%s>‘%s’</p>' % (cls, body)); report.append(('settings', 'label on its own line above its quotation (owner 2 Nov 15:34)', lab0)); continue
         add('<p%s>%s</p>' % (cls, _tabbed(pcs)))
     if in_list: add('<ol>%s</ol>' % ''.join('<li>%s</li>' % x for x in in_list))
     close()
