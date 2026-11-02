@@ -54,6 +54,8 @@ def POST_MAIN(main, s, report):
 
     floats = [x.extract() for x in main.select('div.mm-float')]
     rows = [x.extract() for x in main.select('div.mm-row')]
+    if len(floats) > 1: floats[1]['class'] = floats[1].get('class', []) + ['mm-left']
+    report.append(('settings', 'the Victorian Web "A" image on the left, as Word and the PDF (template .mm-float.mm-left)', ''))
     for f in floats:
         for e in [f] + f.find_all(True):
             if e.has_attr('data-side'): del e['data-side']   # the template does not read it (code check)
@@ -117,7 +119,7 @@ def POST_MAIN(main, s, report):
         if p.runs and all((r.font.underline or not r.text.strip()) for r in p.runs) and not any(x[3] for x in pcs):
             add('<p class="mm-ul">%s</p>' % _pieces_html(pcs)); continue
         cls = ' class="res-desc"' if entry is not None else ''
-        add('<p%s>%s</p>' % (cls, _pieces_html(pcs)))
+        add('<p%s>%s</p>' % (cls, _tabbed(pcs)))
     if in_list: add('<ol>%s</ol>' % ''.join('<li>%s</li>' % x for x in in_list))
     close()
     assert fi == len(floats) and ri == len(rows), (fi, len(floats), ri, len(rows))
@@ -129,6 +131,19 @@ def POST_MAIN(main, s, report):
 
 
 def _plain(pcs): return ''.join(x[0] for x in pcs)
+
+
+def _tabbed(pcs):
+    # Word tabs in an ordinary paragraph: the template's 24 px spacer (span.mm-lsp), so linked words on either side of a tab
+    # do not run together ("2 to 4 4 to 6") and the groups after "lists for:" stay apart (fault list 22, 23, 37)
+    parts = []; cur = []
+    for x in pcs:
+        if x[0] == '\t':
+            parts.append(cur); cur = []
+        else: cur.append(x)
+    parts.append(cur)
+    hs = [_pieces_html(c) for c in parts]
+    return '<span class="mm-lsp"> </span>'.join(h for h in hs if h.strip()) if len(hs) > 1 else hs[0]
 
 
 def _strip_col(h): return re.sub(r'<span class="(mm-blue|mm-hc-EE0000)">(.*?)</span>', r'\2', h)
