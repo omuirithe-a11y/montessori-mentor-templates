@@ -43,7 +43,12 @@ with sync_playwright() as p:
             except Exception: clicks[f.split('/')[-1]] = 'did not open'
             pg.evaluate("()=>{const l=document.getElementById('lightbox');if(l)l.classList.remove('open')}"); pg.wait_for_timeout(400)
         c.close()
-        longest = round(max(lt or [0])); wok = longest <= BUSY_MAX and all(isinstance(v, float) and v <= CLICK_MAX for v in clicks.values()) and len(clicks) > 0
+        # v6 (2 Nov 2026, owner 08:59: "I agree to change the speed check so that a page with no images is judged on its busy time alone,
+        # on every page checked with it, starting with 8.0 Resources."): a page with no image to open (no img.doc-img[data-full]) has no
+        # clicks to time, so it is judged on the busy stretches alone; a page WITH images still needs every click timed and within the limit
+        longest = round(max(lt or [0])); noimg = len(full) == 0
+        wok = longest <= BUSY_MAX and (noimg or (all(isinstance(v, float) and v <= CLICK_MAX for v in clicks.values()) and len(clicks) > 0))
+        if noimg: print('%d  no images on the page - judged on busy time alone (owner 2 Nov 08:59)' % w, flush=True)
         ok = ok and wok
         print('%d %s  longest busy stretch %d ms (limit %d), busy stretches %d, total %d ms | clicks %s (limit %.1f s)' % (w, 'ok' if wok else 'FAULT', longest, BUSY_MAX, len(lt), round(sum(lt)), json.dumps(clicks), CLICK_MAX), flush=True)
     b.close()
