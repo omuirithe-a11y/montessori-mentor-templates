@@ -1,0 +1,8 @@
+const {chromium}=require('playwright');const http=require('http');const fs=require('fs');const path=require('path');
+const [root,page_]=process.argv.slice(2);
+const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]);if(p.endsWith('/'))p+='index.html';const f=path.join(root,p);fs.readFile(f,(e,d)=>{if(e){r.statusCode=404;r.end();return;}r.setHeader('content-type',{'.html':'text/html','.jpg':'image/jpeg'}[path.extname(f)]||'application/octet-stream');r.end(d);});}).listen(0,async()=>{
+ const b=await chromium.launch();
+ for(const w of [390,430,520,640,641,1440]){const p=await b.newPage({viewport:{width:w,height:900}});await p.goto(`http://127.0.0.1:${srv.address().port}/${page_}/`,{waitUntil:'load'});await p.waitForTimeout(2500);
+  const r=await p.evaluate(()=>{const f=document.querySelector('main .mm-initial');const im=f.querySelector('img').getBoundingClientRect();const t=f.nextElementSibling;const cv=document.createElement('canvas').getContext('2d');const s=getComputedStyle(t);cv.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;const m=cv.measureText('H');const rg=document.createRange();const n=[...t.childNodes].find(x=>x.nodeType===3&&x.nodeValue.trim());rg.setStart(n,0);rg.setEnd(n,1);const q=rg.getClientRects()[0];const base=(q.top+q.bottom)/2+(m.fontBoundingBoxAscent-m.fontBoundingBoxDescent)/2;const cap=base-m.actualBoundingBoxAscent;return {imgTop:Math.round(im.top*10)/10,capTop:Math.round(cap*10)/10,diff:Math.round((cap-im.top)*10)/10,mt:getComputedStyle(f).marginTop};});
+  console.log(w,JSON.stringify(r));await p.close();}
+ await b.close();srv.close();});

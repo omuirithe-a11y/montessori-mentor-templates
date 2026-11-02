@@ -1,0 +1,9 @@
+const {chromium}=require('playwright');const http=require('http');const fs=require('fs');const path=require('path');const [root]=process.argv.slice(2);
+const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]);if(p.endsWith('/'))p+='index.html';fs.readFile(path.join(root,p),(e,d)=>{if(e){r.statusCode=404;r.end();return;}r.setHeader('content-type',p.endsWith('.html')?'text/html':'application/octet-stream');r.end(d);});}).listen(0,async()=>{const b=await chromium.launch();
+for(const w of [1440,768,390]){const p=await b.newPage({viewport:{width:w,height:900}});await p.goto(`http://127.0.0.1:${srv.address().port}/books-by-montessori/`);await p.waitForTimeout(2500);
+const r=await p.evaluate(()=>{const cv=document.createElement('canvas').getContext('2d');
+ function lines(t,stop){const w=document.createTreeWalker(document.querySelector('main'),NodeFilter.SHOW_TEXT);let n,on=false,out=[];while((n=w.nextNode())){if(!on&&n.nodeValue.includes(t))on=true;if(!on)continue;if(stop&&n.nodeValue.includes(stop)){out.push(['STOP',n]);break;}out.push(['',n]);}
+  const bl=[];out.forEach(([k,n])=>{const s=getComputedStyle(n.parentElement);cv.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;const m=cv.measureText('H');const r=document.createRange();r.selectNodeContents(n);[...r.getClientRects()].forEach(q=>{if(q.width<2)return;const base=(q.top+q.bottom)/2+(m.fontBoundingBoxAscent-m.fontBoundingBoxDescent)/2;bl.push(Math.round(base*10)/10);});});
+  const u=[...new Set(bl)].sort((a,b)=>a-b);return u.slice(1).map((x,i)=>Math.round((x-u[i])*10)/10);}
+ return {other:lines('Maria Montessori, An Anthology','in case you haven'),required:lines('By Dr Maria Montessori','Recommended'),mbo:lines('A Resource for the Global','makes information')};});
+console.log(w,JSON.stringify(r));await p.close();}await b.close();srv.close();});

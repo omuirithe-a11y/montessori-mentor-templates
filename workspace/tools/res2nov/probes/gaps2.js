@@ -1,0 +1,11 @@
+const {chromium}=require('playwright');const http=require('http');const fs=require('fs');const path=require('path');
+const [root,page_]=process.argv.slice(2);const pairs=JSON.parse(process.argv[4]);
+const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]);if(p.endsWith('/'))p+='index.html';const f=path.join(root,p);fs.readFile(f,(e,d)=>{if(e){r.statusCode=404;r.end();return;}r.setHeader('content-type',{'.html':'text/html','.jpg':'image/jpeg'}[path.extname(f)]||'application/octet-stream');r.end(d);});}).listen(0,async()=>{
+ const b=await chromium.launch();
+ for(const w of [1440,768,390]){const p=await b.newPage({viewport:{width:w,height:900}});await p.goto(`http://127.0.0.1:${srv.address().port}/${page_}/`,{waitUntil:'load'});await p.waitForTimeout(2500);
+  const r=await p.evaluate((pairs)=>{const cv=document.createElement('canvas').getContext('2d');
+   function find(t){const w=document.createTreeWalker(document.querySelector('main'),NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode())){if(n.nodeValue.includes(t))return n.parentElement.closest('p,h3,h2,div.res-item,li');}return null;}
+   function lines(el){const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let n,out=[];while((n=w.nextNode())){if(!n.nodeValue.trim())continue;const s=getComputedStyle(n.parentElement);cv.font=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;const m=cv.measureText('H');const r=document.createRange();r.selectNodeContents(n);[...r.getClientRects()].forEach(q=>{if(q.width<1)return;const mid=(q.top+q.bottom)/2;const base=mid+(m.fontBoundingBoxAscent-m.fontBoundingBoxDescent)/2;out.push({base,cap:base-m.actualBoundingBoxAscent});});}return out;}
+   return pairs.map(([a,b])=>{const B=find(b);let A=a==="PREV"?(B.previousElementSibling||(B.parentElement.previousElementSibling&&B.parentElement.previousElementSibling.lastElementChild)):find(a);if(!A||!B)return [a,b,'NF'];const la=lines(A),lb=lines(B);const base=Math.max(...la.map(x=>x.base));const cap=Math.min(...lb.map(x=>x.cap));return [a.slice(0,25),b.slice(0,25),Math.round((cap-base)*10)/10];});},pairs);
+  console.log(w);r.forEach(x=>console.log('  ',x.join(' | ')));await p.close();}
+ await b.close();srv.close();});
