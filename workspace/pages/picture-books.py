@@ -153,8 +153,8 @@ def POST_MAIN(main, s, report):
         cls = ' class="res-desc"' if entry is not None else ''
         cap = next((k for k in CAPTION_SOURCES if txt.startswith(k + ':')), None)
         if cap:   # owner 2 Nov 16:20 (queued, her screenshot): "Far left, from the <link>" on one line, the quotation below in “ ”
-            links = [x for x in pcs if x[3] and x[0].strip()]
-            href = links[0][3] if links else None
+            links = [x for x in pcs if x[3]]   # every piece of the link, spaces too ("Victoria and Albert Museum")
+            href = next((x[3] for x in links if x[0].strip()), None)
             words = ''.join(x[0] for x in links).strip()
             q = ''.join(x[0] for x in pcs if not x[3] and x[0] != '\t')
             q = q[len(cap) + 1:].strip().strip('‘’').strip()
