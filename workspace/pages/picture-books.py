@@ -129,7 +129,7 @@ def POST_MAIN(main, s, report):
             # the name line moves to the blue title straight below it (if the next line is not a blue title, it stays on the name line)
             pend_badges = (len(entry) - 1, _src_html(body), badges) if badges else None
             continue
-        if was_blank and entry is not None and pb is None:
+        if was_blank and entry is not None and pb is None and blue > 0.5:
             # 8.3 build 14 review A4: any line after Word's blank line inside an open entry starts an entry of its own - a blue title
             # too ("The Horn Book Magazine"), so it stands 51 px below, as "Society of Antiquaries of London" after the same blank line
             close(); entry = []; was_blank = False; report.append(('settings', 'a new entry after Word\'s blank line', txt[:40]))
@@ -225,6 +225,37 @@ def POST_MAIN(main, s, report):
         _t = _it.span
         for c in list(_p.contents): _t.append(c.extract())
         _p.replace_with(_it); report.append(('settings', 'link line under a red name as a title line (owner 2 Nov 18:07)', _t.get_text()[:40]))
+    # 8.3 build 15 review: (1) a blue title that opens an entry ("The Horn Book Magazine") stands 51 px below the entry above, as an
+    # entry with a red name or a plain line does (the template's letters-to-letters data-gap); (2) a label line and the quotation under it
+    # ("London Museum", "Society of Antiquaries of London", "Far left, from ...", "Far right, from ...") 21 px apart, as under a red name
+    for _e in main.select('div.res-entry'):
+        _pv = _e.find_previous_sibling()
+        _f = _e.find(True, recursive=False)
+        if _pv is not None and _pv.name == 'div' and 'res-entry' in (_pv.get('class') or []) and _f is not None and _f.name == 'div' and 'res-item' in (_f.get('class') or []):
+            _f['data-gap'] = '51'; report.append(('settings', 'blue title opening an entry: 51 px below the entry above (8.3 b15 review)', _f.get_text()[:40]))
+    for _p in main.find_all('p'):
+        _t = re.sub(r'\s+', ' ', _p.get_text()).strip()
+        if _t in ('London Museum', 'Society of Antiquaries of London') or _t.startswith(('Far left, from the', 'Far right, from the')):
+            _n = _p.find_next_sibling()
+            if _n is not None and _n.name == 'p': _n['data-gap'] = '21'; report.append(('settings', 'quotation 21 px below its label (8.3 b15 review)', _t))
+    # 8.3 build 16 review: (1) "Far right, from ..." has Word's empty line above it (Word paragraph 139): 51 px below the quotation above,
+    # as between two entries; (2) no spaces around a slash (owner's preference, "Junk/Adventure"): "Supplement / National" in the TES/NATE
+    # name line, with a line break allowed after the slash (as the build's slash rule)
+    for _p in main.find_all('p'):
+        if re.sub(r'\s+', ' ', _p.get_text()).strip().startswith('Far right, from the'): _p['data-gap'] = '51'
+    from bs4 import NavigableString as _NS2
+    for _sp in main.select('h3 span.mm-ink'):
+        if _sp.get_text() == '/':
+            _a, _b = _sp.previous_sibling, _sp.next_sibling
+            if isinstance(_a, _NS2): _a.replace_with(_NS2(str(_a).rstrip()))
+            if isinstance(_b, _NS2): _b.replace_with(_NS2(str(_b).lstrip()))
+            _sp.insert_after(BeautifulSoup('<wbr/>', 'html.parser').wbr); report.append(('settings', 'no spaces around the slash (owner preference)', 'TES/NATE'))
+    # 8.3 build 17 review A1: the lines under "A Selection" evenly spaced, as in the PDF - the three black lines 32 px apart
+    # (letters to letters, the paragraph gap at 641 px and wider) and the first of them 32 px below the blue title too, at every width
+    for _p in main.find_all('p'):
+        _t = re.sub(r'\s+', ' ', _p.get_text()).strip()
+        if _t.startswith('It’s Never too Early') or _t.startswith('Wordless Picture Books'):
+            _p['data-gap'] = '32'; report.append(('settings', 'A Selection line 32 px below the line above (8.3 b17 review)', _t[:30]))
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
 

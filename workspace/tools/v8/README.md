@@ -26,3 +26,4 @@ Check with: sha256sum -c FINGERPRINTS.txt (in this folder).
 - 2 Nov 2026 16:2x: Resources Code Template sha256 d85d9d19 (owner 16:06, 16:17, 16:27 agreements: 21 px under an underlined line; 51 px above a green heading with no line above; two-column contents box when only two columns are filled). Code checks re-pinned.
 - 2 Nov 17:2x: Resources Code Template 2a7c6203 (owner 17:20: at 640 px and narrower a title line's PDF badges stay with its last word, patch_2nov_f); strip_compare*.py re-pinned, tested both ways.
 - 2 Nov 18:2x: Resources Code Template d79408f4 (owner 18:23 decorative first letter at 390-640; 18:26 no justify at 641-830; 18:26 no extra contents gap on phones - patch_2nov_ghi); strip_compare*.py re-pinned, tested both ways.
+- 2 Nov 19:2x: Resources Code Template 38fd0f9b (patch g corrected: the decorative first letter's top level with the first line's capitals at 390-640, owner's 20 Oct rule); strip_compare*.py re-pinned, tested both ways.
