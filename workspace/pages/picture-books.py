@@ -254,7 +254,7 @@ def POST_MAIN(main, s, report):
     # (letters to letters, the paragraph gap at 641 px and wider) and the first of them 32 px below the blue title too, at every width
     for _p in main.find_all('p'):
         _t = re.sub(r'\s+', ' ', _p.get_text()).strip()
-        if _t.startswith('It’s Never too Early') or _t.startswith('Wordless Picture Books'):
+        if _t.startswith('It’s Never too Early'):   # 8.3 b18 check: a gap set on the Wordless lines (measured from a line whose badge can wrap later) let them overlap at 320-350 and 570-690 px; they keep the template's paragraph gap (32 px)
             _p['data-gap'] = '32'; report.append(('settings', 'A Selection line 32 px below the line above (8.3 b17 review)', _t[:30]))
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
