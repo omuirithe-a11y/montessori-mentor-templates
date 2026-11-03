@@ -34,6 +34,20 @@ Set up (method item 1; Claude does this):
     curl -sS -o models/face_landmarker.task https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task
     curl -sS -o blur2/models/selfie_multiclass_256x256.tflite https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/latest/selfie_multiclass_256x256.tflite
     yunet.onnx as step 4 above. Check each model's SHA-256 against method item 1; the tools STOP if anything is missing.
+    Or in one command: copy workspace/tools/blur/ to /home/claude/mm/blur2/, then python3 blur2/setup_blur.py (prints READY or STOP).
+
+Older folder names (found 3 Nov 2026, 8.2 Books of Interest; owner 08:55 "Update all revevant docs with this information"):
+the blur tools still look for faces.py and yunet.onnx under folder names from before the GitHub workspace. setup_blur.py
+looks for /home/claude/mm/w220/tools/faces.py or /home/claude/mm/ws/tools/faces.py, and STOPs with "tools/faces.py is
+missing" when neither exists; page.py runs /home/claude/mm/w220/tools/faces.py; and faces.py, run from there, reads its
+model from /home/claude/mm/w220/faces/yunet.onnx (otherwise "Can't read ONNX file"). The files themselves are in
+/home/claude/mm/tools/faces.py and /home/claude/mm/faces/yunet.onnx after setup_workspace.sh. Before setup_blur.py, point
+the old names at them (the same files, nothing copied):
+    mkdir -p /home/claude/mm/ws /home/claude/mm/w220
+    ln -sfn /home/claude/mm/tools /home/claude/mm/ws/tools
+    ln -sfn /home/claude/mm/tools /home/claude/mm/w220/tools
+    ln -sfn /home/claude/mm/faces /home/claude/mm/w220/faces
+Tested 3 Nov 08:4x-08:5x: with these, setup_blur.py printed READY and page.py find ran YuNet and RetinaFace on 8.2.
 
 Steps (one set = one page's images with children; <set.json> = blur2/sets/<set>.json, which holds its folders, answers, hand fixes and cuts):
     python3 tools/faces.py restore|detect|pass2 ...      finding faces (YuNet) - unchanged; every face checked by eye
