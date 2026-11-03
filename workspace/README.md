@@ -34,6 +34,22 @@ Set up (method item 1; Claude does this):
     curl -sS -o models/face_landmarker.task https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task
     curl -sS -o blur2/models/selfie_multiclass_256x256.tflite https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/latest/selfie_multiclass_256x256.tflite
     yunet.onnx as step 4 above. Check each model's SHA-256 against method item 1; the tools STOP if anything is missing.
+
+Start the build at once (3 Nov 2026; owner 09:25 "B", her words 09:28: "I agree to a change to the lock: a preview build from
+the round 1 blurred images, with no upload zip, so every check can run on it while the faces rounds go on. If my answers change
+any face, only those images and their checks are redone."; 09:28 "add this update to all relevant projects documents files etc -
+about starting the build immediately"). Agreed for 8.2 Books of Interest. The page is not held back while the faces rounds go on:
+  1. As soon as the round 1 run has made blur2/m_<set>/images, copy those images into a folder under the Word file's own media
+     names (matched by content if Word has renumbered them), and write a record JSON {"page": "<folder>", "words": "<her words>",
+     "said": "<date time>"}.
+  2. python3 tools/build_page.py ... --photos <that folder> --faces-preview <record>  -> a PREVIEW build (prints FACES PREVIEW and
+     NO UPLOAD ZIP; a record for another page, or without her words, is refused; without --faces-preview the faces locks apply).
+  3. Run every first-build check on it at once (code, 122 widths, height, lines, placement, speed, format, screenshots, review).
+  4. After each of her faces answers, replace only the images whose faces changed and redo only their image checks.
+  5. The upload zip comes only from the final build through faces/photos-final and every lock (round 2 answer, sheet check,
+     pixel check after her answer), then send_gate.
+Tested 3 Nov 09:4x: wrong page refused, record without words refused, --photos without the record refused (photos-final rule);
+8.2 build 1 (build-82/b1, 09:28) made with no upload zip.
     Or in one command: copy workspace/tools/blur/ to /home/claude/mm/blur2/, then python3 blur2/setup_blur.py (prints READY or STOP).
 
 Older folder names (found 3 Nov 2026, 8.2 Books of Interest; owner 08:55 "Update all revevant docs with this information"):

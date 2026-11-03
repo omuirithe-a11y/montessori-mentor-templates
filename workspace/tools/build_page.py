@@ -171,7 +171,20 @@ def main():
     ap.add_argument('--settings', help='page settings file (pages/<folder>.py): ROW_ORDER, DROP, LIST_FROM, CSS')
     ap.add_argument('--shown-width', type=int, default=480, help='width of the copy shown on the page (the page\'s own: 480, or 960 on Biography, Aun Aprendo, A Montessori Journey) - 30 Oct 2026')
     ap.add_argument('--no-blur', help='record file (JSON) of the owner\'s own words that this page needs no blurring (30 Oct 2026)')
+    ap.add_argument('--faces-preview', help='record file (JSON) of the owner\'s words allowing a PREVIEW build from blurred images before her last faces answer; never an upload zip (3 Nov 2026)')
     a = ap.parse_args()
+    # 3 Nov 2026 (owner 09:25, "B" - for 8.2 Books of Interest: "a preview build from the round 1 blurred images, with no upload zip,
+    # so every check can run on it while the faces rounds go on"): --faces-preview <record> with --photos <blurred images>. The record
+    # holds her words, when said, and the page; any other page is refused. The faces locks below are passed over for the PREVIEW only:
+    # the upload zip is never made on this route (the final build still goes through photos-final and every lock).
+    _fp = None
+    if a.faces_preview:
+        try: _fp = json.load(open(a.faces_preview, encoding='utf-8'))
+        except Exception as _e: sys.exit('Refused: --faces-preview record %s cannot be read (%s).' % (a.faces_preview, _e))
+        if not str(_fp.get('words', '')).strip() or not str(_fp.get('said', '')).strip(): sys.exit('Refused: --faces-preview record has no owner\'s words or time.')
+        if _fp.get('page') != a.folder: sys.exit('Refused: --faces-preview record is for page "%s", not "%s".' % (_fp.get('page'), a.folder))
+        if not a.photos or not os.path.isdir(a.photos): sys.exit('Refused: --faces-preview needs --photos <folder of blurred images>.')
+        if a.no_blur or a.no_faces: sys.exit('Refused: --faces-preview cannot be used with --no-blur or --no-faces.')
     # 30 Oct 2026 (owner 09:24, "I agree to the no-blur option in the build tool"): a page the owner has said needs no blurring is
     # built from the Word originals, with no faces rounds. Only with a record file holding her words, the page's folder name and
     # the Word file's SHA-256 - a page not named, a Word file changed since, or a record without her words is refused.
@@ -200,13 +213,14 @@ def main():
     # 26 Oct 2026 (the owner 14:03, "fix all of these now"): the old routes are closed. Blurred copies come only from
     # faces/photos-final, made by blur2/page.py handoff under the agreed method; photos-full and any other folder are the
     # retired v8 route and are refused, so a page cannot be built from them by habit or by a copied command line.
-    if a.photos and os.path.basename(os.path.abspath(a.photos.rstrip('/'))) != 'photos-final':
+    if _fp: print('FACES PREVIEW (owner %s, "%s"): built from %s before her last faces answer - preview only, NO upload zip.' % (_fp['said'], _fp['words'], a.photos))
+    if a.photos and not _fp and os.path.basename(os.path.abspath(a.photos.rstrip('/'))) != 'photos-final':
         sys.exit('Refused: --photos %s. Since 26 Oct 2026 a page is built only from faces/photos-final (the agreed blur '
                  'method version 22). Make it with: python3 blur2/page.py handoff <set> --faces <build/<address>/faces>'
                  % a.photos)
-    if a.photos and not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(a.photos.rstrip('/'))), 'review2.json')):
+    if a.photos and not _fp and not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(a.photos.rstrip('/'))), 'review2.json')):
         sys.exit('Refused: no faces round 2 answer recorded (review2.json beside the faces folder). Make the round 2 sheet, send it and record the answer.')
-    if a.photos:   # 22 Oct 2026 (user 23:11, "yes i do"): the faces round 2 lock - a page is not built from blurred photos while a round 2
+    if a.photos and not _fp:   # 22 Oct 2026 (user 23:11, "yes i do"): the faces round 2 lock - a page is not built from blurred photos while a round 2
         # sheet (faces/round2.html) waits for the user's answer: review2.json must hold it ("sheet": "round2.html", "words": the
         # user's words), recorded after the sheet was made (round 2 of START-HERE "Faces" was skipped on 2.1.2, 22 Oct)
         _fd = os.path.dirname(os.path.abspath(a.photos.rstrip('/'))); _r2 = os.path.join(_fd, 'round2.html'); _a2 = os.path.join(_fd, 'review2.json')
@@ -1345,7 +1359,11 @@ def main():
     # 25 Oct 2026 (user 13:07, "guarantee that all of these steps are used every time"): no upload zip until the checking
     # agent has measured the last faces sheet - faces/sheet-check.json {"sheet": "round2.html", "pass": true, "by": "<agent>",
     # "measured": "<pixels outside the outlines>"}, recorded after that sheet was made. The preview is still built for checking.
-    if a.photos and os.path.basename(os.path.abspath(a.photos.rstrip('/'))) == 'photos-final':
+    if _fp:   # 3 Nov 2026 (owner 09:25 "B"): a faces preview never gets an upload zip
+        if os.path.exists(z): os.remove(z)
+        print('NO UPLOAD ZIP: faces preview build (owner %s, "%s").' % (_fp['said'], _fp['words']))
+        report.append(('faces', 'NO UPLOAD ZIP - faces preview before the owner\'s last answer', '%s "%s"' % (_fp['said'], _fp['words']))); z = None
+    elif a.photos and os.path.basename(os.path.abspath(a.photos.rstrip('/'))) == 'photos-final':
         # 26 Oct 2026 (method v22): the old round 2 check (sheet-check.json) is about the retired method and does not count here;
         # the upload zip needs faces/sheet-check-final.json - the separate agent's passed check of the sheet named in
         # review2.json "final" (copied from blur2/m_<set>/sheet-check.json)
