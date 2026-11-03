@@ -6,3 +6,7 @@
 11 -> 12 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (replaced the 32 between paragraphs of one entry)
 18 -> 19 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (replaced the 32 between paragraphs of one entry)
 23 -> 24 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (replaced the 32 between paragraphs of one entry)
+6 -> 7 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (lines of one entry; the rule replaced the 32 between paragraphs of one entry)
+7 -> 8 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (lines of one entry; the rule replaced the 32 between paragraphs of one entry)
+8 -> 9 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (lines of one entry; the rule replaced the 32 between paragraphs of one entry)
+16 -> 17 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (lines of one entry; the rule replaced the 32 between paragraphs of one entry)

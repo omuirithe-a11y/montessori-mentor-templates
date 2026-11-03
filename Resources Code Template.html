@@ -1894,6 +1894,8 @@ var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t
     /* 3 Nov 2026 (owner 12:45, pair side by side): in the right column of a pair standing side by side, the left column is not the text above */
     var pg=el.closest&&el.closest('.mm-pair'),lc=null;if(pg&&getComputedStyle(pg).display==='grid'&&pg.firstElementChild&&!pg.firstElementChild.contains(el))lc=pg.firstElementChild;
     while((n=w.nextNode())){if(el.contains(n))break;if(!(el.compareDocumentPosition(n)&Node.DOCUMENT_POSITION_PRECEDING))continue;if(lc&&lc.contains(n))continue;if(!ok(n))continue;var l=lineOf(n,true);if(l)best=best===null?l.b:Math.max(best,l.b);}
+    /* 4 Nov 2026 (8.3 t7 check: text over text at 350-730 px): a PDF badge that wrapped onto a line of its own, below the last line of letters above, counts as that line - measured from the badge's bottom, so the next line never runs over it */
+    if(best!==null)[].forEach.call(m.querySelectorAll('a.pdf'),function(a){if(el.contains(a)||!(el.compareDocumentPosition(a)&Node.DOCUMENT_POSITION_PRECEDING))return;if(lc&&lc.contains(a))return;var q=a.getBoundingClientRect();if(!q.height||q.top<best)return;best=Math.max(best,q.bottom);});
     return best;}
   function tgt(el){var t=el;while(t.parentElement&&t.parentElement.tagName==='SECTION'&&t.parentElement.firstElementChild===t)t=t.parentElement;return t;}
   /* a photo standing between the text above and this block (phones: the photo is no longer beside the text) - the gap is the template's, not set here */
