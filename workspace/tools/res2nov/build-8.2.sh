@@ -5,3 +5,7 @@ python3 tools/build_page.py --docx "src/8.2/8.2 Books - Education, Parenting, Ch
 # 3 Nov 14:52 (lesson 8 and 44): when the build makes the upload zip, every check runs on that exact zip (the gate needs it), never on a copy first
 if [ -s $O/books-of-interest.zip ]; then mkdir -p $O/gate; cp $O/books-of-interest.zip $O/gate/books-of-interest.zip; cp $O/gate/books-of-interest.zip $O/books-of-interest-b$B-CHECK-ONLY.zip; echo "BUILT b$B (checks on the upload zip $O/gate/books-of-interest.zip)"; bash tools/res2nov/all-nolive-8.2-shots-first.sh $B $O/gate/books-of-interest.zip
 else echo BUILT b$B; bash tools/res2nov/all-nolive-8.2-shots-first.sh $B; fi
+# 3 Nov 18:2x (owner "faster but maintain accuracy", item 4): the check results go beside the upload zip for the gate at once
+if [ -s $O/gate/books-of-interest.zip ]; then Z=$O/gate/books-of-interest.zip; C=$O/checks
+  cp $C/place-v2.txt $Z.place.txt; grep "line-through-text" $C/lines_v2.txt > $Z.lines.txt; cp $C/format-word.txt $Z.format.txt; cp $C/space.txt $Z.space.txt
+  cp build-82/CHANGE-LIST-8.2.md $Z.changes.txt; echo "GATE FILES READY (screens: the reviewer's report, copied when it is in)"; fi

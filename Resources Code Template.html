@@ -1750,7 +1750,7 @@ var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t
     [].forEach.call(el.querySelectorAll('.pim, a.pdf'),function(p){if(window.innerWidth>640&&p.closest('.mm-fitlines'))return;var q=p.getBoundingClientRect();if(!q.height)return;t=Math.min(t,q.top);b=Math.max(b,q.bottom);});
     return [t,b];}
   function run(){[].forEach.call(document.querySelectorAll('main .mm-org-rule'),function(r){
-      var a=r.previousElementSibling,n=r.nextElementSibling;if(!a||!n)return;
+      var a=r.previousElementSibling,n=r.nextElementSibling;if(!n&&r.parentElement&&r.parentElement.tagName==='SECTION'&&r.parentElement.nextElementSibling)n=r.parentElement.nextElementSibling.firstElementChild;   /* 3 Nov 2026: a line that ends its section is placed too (it was skipped: 20 under images instead of 30) */if(!a||!n)return;
       if(a.lastElementChild)a.lastElementChild.style.setProperty('margin-bottom','0px','important');
       /* 20 Oct 22:5x: the neighbours' own margins (a section's top margin, a list's last line) no longer add to the 30/30 */
       a.style.setProperty('margin-bottom','0px','important');n.style.setProperty('margin-top','0px','important');if(a.lastElementChild&&a.lastElementChild.matches('ul,ol')&&a.lastElementChild.lastElementChild)a.lastElementChild.lastElementChild.style.setProperty('margin-bottom','0px','important');   /* only a list's last line */
@@ -1771,7 +1771,7 @@ var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t
    the space round each kind of line, letters to letters, set by mm-letter-gaps-js after every layout. A space a page's
    settings set (data-gap already there) wins. Computers and phones alike.
      blue headings 40 above / 25 below (a heading under a beige line: 40 from the line)
-     bold lines 40 above / 40 below; numbered lines that start in bold 40 above
+     bold lines 40 above / 25 below (3 Nov 2026, owner 1 Nov 14:45 and 3 Nov 17:42; was 40 / 40); numbered lines that start in bold 40 above
      underlined lines 40 above / 15 below
      beige lines 30 / 30 */
 (function(){
@@ -1793,7 +1793,7 @@ var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t
       var s=h.parentElement&&h.parentElement.tagName==='SECTION'&&h.parentElement.firstElementChild===h?h.parentElement:h,pv=s.previousElementSibling;
       if(!pv)return;var lp=pv.tagName==='SECTION'?pv.lastElementChild:pv;if(!rule(lp))set(h,51);});
     [].forEach.call(m.querySelectorAll('p,div.micro-label'),function(e){if(e.querySelector('p,div,li')||!nz(e.textContent)||e.closest('blockquote,figure,.mm-float'))return;
-      if(share(e,bold)>=0.9){set(e,40);set(next(e),40);}
+      if(share(e,bold)>=0.9){set(e,40);set(next(e),25);}   /* 3 Nov 2026 (owner 1 Nov 14:45 "spacing under bold lines = 25 everywhere. on the template"; 3 Nov 17:42 "yes it does" - the Resources template too): 25 under a bold line (was 40) */
       else if(share(e,under)>=0.9){set(e,40);set(next(e),21);}   /* 2 Nov 2026 (owner 16:04): 21 below, as under a name line (was 15) */});
     /* 2 Nov 2026 (owner's agreement): an entry that starts with plain text (no source line) stands as far below the entry above as an entry with a source line, 51 letters to letters */
     [].forEach.call(m.querySelectorAll('.res-entry + .res-entry > p:first-child'),function(p){set(p,51);});
@@ -1899,9 +1899,10 @@ var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t
   /* a beige line with data-rule-gap: that far from the baseline above to the line, and from the line to the top of the capitals below */
   function rules(){[].forEach.call(document.querySelectorAll('main [data-rule-gap]'),function(g){var want=parseFloat(g.getAttribute('data-rule-gap'));if(!g.getBoundingClientRect().width)return;
     /* 2 Nov 2026 (owner 10:49: "I agree to change the Resources Code Template so that a beige line straight after images that reach below the text above it is placed 30 px below the images, at every width, on every page built from the Resources template, starting with 8.3 Picture Books"): such a line is placed by mm-org-rule-js, which measures the images too, not here from the text above them */
-    var pv=g.previousElementSibling,lb=lastBase(g);if(pv&&lb!==null&&[].some.call(pv.querySelectorAll('.pim'),function(x){var q=x.getBoundingClientRect();return q.height&&q.bottom>lb;}))return;
-    for(var k=0;k<3;k++){var a=lastBase(g);if(a===null)break;var d=want-(g.getBoundingClientRect().top-a);if(Math.abs(d)<0.05)break;var mt=parseFloat(getComputedStyle(g).marginTop)||0;g.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}
-    var nx=g.nextElementSibling;if(!nx)return;if(nx.firstElementChild&&nx.firstElementChild.matches('.mm-float')&&getComputedStyle(nx.firstElementChild).float==='none')return;   /* 27 Oct 2026 (owner agreement 15:14, change 3): on phones a photo stands first below the line - the 30 to the photo is mm-org-rule-js's; measured to the text here it pulled the photo up over the line and the text above */var wb=parseFloat(g.getAttribute('data-rule-gap-below'));if(!isNaN(wb))want=wb;   /* 22 Oct 2026 (5.5, user 14:00 "change all to 40/25"): a heading under a beige line keeps the headings' space above */
+    var pv=g.previousElementSibling,lb=lastBase(g);var skipAbove=!!(pv&&lb!==null&&[].some.call(pv.querySelectorAll('.pim'),function(x){var q=x.getBoundingClientRect();return q.height&&q.bottom>lb;}));
+    /* 3 Nov 2026 (the 22 Oct "beige lines 30 / 30"): after images only the space ABOVE the line is left to mm-org-rule-js; the space below is set here as for every line (it was skipped too, so a heading under such a line stood 5 px lower) */
+    if(!skipAbove)for(var k=0;k<3;k++){var a=lastBase(g);if(a===null)break;var d=want-(g.getBoundingClientRect().top-a);if(Math.abs(d)<0.05)break;var mt=parseFloat(getComputedStyle(g).marginTop)||0;g.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}
+    var nx=g.nextElementSibling;if(!nx&&g.parentElement&&g.parentElement.tagName==='SECTION'&&g.parentElement.nextElementSibling)nx=g.parentElement.nextElementSibling.firstElementChild;   /* 3 Nov 2026: a line that ends its section is spaced to the first line of the next section too (it was left unset: a heading under it stood 19 or 24) */if(!nx)return;if(nx.firstElementChild&&nx.firstElementChild.matches('.mm-float')&&getComputedStyle(nx.firstElementChild).float==='none')return;   /* 27 Oct 2026 (owner agreement 15:14, change 3): on phones a photo stands first below the line - the 30 to the photo is mm-org-rule-js's; measured to the text here it pulled the photo up over the line and the text above */var wb=parseFloat(g.getAttribute('data-rule-gap-below'));if(!isNaN(wb))want=wb;   /* 22 Oct 2026 (5.5, user 14:00 "change all to 40/25"): a heading under a beige line keeps the headings' space above */
     
     for(var j=0;j<4;j++){var b=firstTop(nx);if(b===null)break;var e=want-(b-g.getBoundingClientRect().bottom);if(Math.abs(e)<0.05)break;var mb=parseFloat(getComputedStyle(g).marginBottom)||0;g.style.setProperty('margin-bottom',(mb+e).toFixed(2)+'px','important');}   /* 22 Oct 2026: the space below goes on the line's own bottom margin (as the beige-line script does) - a margin on the block below collapsed into it and did not add */
   });}

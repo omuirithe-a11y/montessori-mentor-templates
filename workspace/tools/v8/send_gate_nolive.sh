@@ -33,11 +33,12 @@ p=$(unzip -p "$Z" "$SLUG/index.html" | grep -o 'id="mm-protect"\|id="mm-protect-
 # v7 (30 Oct 18:2x, plan item 4; owner 16:22 "implement them all"): also requires the placement check, lines through text (every
 # width reads 0), the format check and the separate checker's screenshot review - <zip>.place.txt, .lines.txt, .format.txt,
 # .screens.txt, each saved after the zip was made
-for k in place lines format screens; do f="$Z.$k.txt"; if [ ! -s "$f" ] || [ "$f" -ot "$Z" ]; then echo "$k: missing or older than the zip"; bad=1; continue; fi
+for k in place lines format screens space; do f="$Z.$k.txt"; if [ ! -s "$f" ] || [ "$f" -ot "$Z" ]; then echo "$k: missing or older than the zip"; bad=1; continue; fi
   case $k in
     place) tail -1 "$f" | grep -q '^PLACE OK$' && echo "placement: PLACE OK" || { echo "placement: $(tail -1 "$f")"; bad=1; } ;;
     lines) n0=$(grep -c 'line-through-text 0$' "$f"); nl=$(grep -c . "$f"); if [ "$n0" -ge 8 ] && [ "$n0" = "$nl" ]; then echo "lines through text: 0 at $n0 widths"; else echo "lines through text: FAULT ($n0 of $nl lines read 0)"; bad=1; fi ;;
     format) echo "format: $(tail -1 "$f" | cut -c1-160)"; grep -q '^RESULT' "$f" || bad=1 ;;
+    space) tail -1 "$f" | grep -q '^RESULT: SPACING OK$' && echo "spacing against the PDF: SPACING OK ($(grep -c '^ *[0-9]* |' "$f") gaps)" || { echo "spacing against the PDF: $(tail -1 "$f")"; bad=1; } ;;   # 3 Nov 2026 (owner 17:08-17:23): spacecheck.py, 13 widths
     screens) tail -1 "$f" | grep -q 'NO UNLISTED FAULTS SEEN' && echo "screenshot review: NO UNLISTED FAULTS SEEN" || { echo "screenshot review: $(tail -1 "$f" | cut -c1-120)"; bad=1; } ;;
   esac; done
 if [ $bad = 0 ]; then cp "$Z" "$O/$SLUG-UPLOAD.zip" && cmp -s "$Z" "$O/$SLUG-UPLOAD.zip" && python3 -I $G/strip_protect.py "$Z" "$O/$SLUG-NO-COPY-PROTECTION-REVIEW-ONLY.zip" && echo "GATE PASSED - upload: $O/$SLUG-UPLOAD.zip (${SHA:0:8}) | review only: $O/$SLUG-NO-COPY-PROTECTION-REVIEW-ONLY.zip"; else echo "GATE FAILED: nothing made"; fi

@@ -24,3 +24,6 @@ The style rule "main .mm-pair > div > :first-child{margin-top:0 !important}" is 
 
 ## Second template change, 03 Nov 15:04 (owner 15:02, "yes" to: "add a rule to the Resources Code Template so that the four Forest Bluff entries with Discussion Guide links are set flush left instead of justified")
 Added to style mm-res-3nov-a: html body main p.mm-left{text-align:left !important}. Used on 8.2 only, on the four Forest Bluff entries that hold the Discussion Guide links (pages/books-of-interest.py). Fingerprint f07114f0 -> d1c2db87. Quick test on build 9: the four entries flush left at 960 and 1440; every Discussion Guide link on one line at 390, 768 and 1440; the pair unchanged.
+
+## Third template change, 03 Nov 17:56 (owner 1 Nov 14:45 "spacing under bold lines = 25 everywhere. on the template and on this page"; 3 Nov 17:42 "yes it does" - the Resources template too)
+mm-kind-gaps-js: a bold line has 25 below it (letters to letters), was 40 (22 Oct). 40 above is unchanged. Every page built from the Resources template; live Resources pages change only when rebuilt. Fingerprint d1c2db87 -> 0c0419ef.

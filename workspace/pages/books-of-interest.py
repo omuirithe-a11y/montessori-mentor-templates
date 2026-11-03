@@ -52,6 +52,7 @@ TAB_COMMA = [138]   # "The Montessori Way<tab>Tim Seldin" (fault 27)
 CLOSE_QUOTE = [275]
 ROW_CONTINUES = [133]   # Word anchors row 3's images in two paragraphs (132: image9, image10; 133: image11, image12) - one row (8.2 b3: row 4 was placed here)
 LINE_BEFORE_TEXT = [134, 214]   # a line picture in the heading's own paragraph stands ABOVE its text, as the PDF draws it (8.4's rule puts it after)
+BREAK_BEFORE = []   # the PDF has a blank line here that Word does not mark ("Dr. Lillard shows that science ..." under its title)
 RED_AS_TEXT = [214, 252, 269]   # b4 review 6: the red 'following list' lines are lines of text (red), not entry names, so their lists are spaced as the other lists
 BOLD_LINES = [15, 27, 81, 88, 92, 97, 102, 106, 109, 112, 115]   # b4 review 11: bold in Word and the PDF
 GAP_LINES = [81, 88, 92, 97, 102, 106, 109, 112, 115]   # b4 review 12: the MWEI category lines have a blank line above them in the PDF
@@ -257,6 +258,11 @@ def POST_MAIN(main, s, report):
         (entry if entry is not None else out).append(h)
 
     paras = D.paragraphs
+    _nb = [bool(x.text.strip()) for x in D.paragraphs]   # owner 3 Nov 17:02 (edits 2-3): Word's groups of lines (no blank line between) are template entries
+    _sa = lambda x: (x.paragraph_format.space_after or 0) > 0 or (x.paragraph_format.space_before or 0) > 0
+    # a group ends at Word's blank line or at a paragraph with space after it (the trainers' list: 12 pt after each name line)
+    _gap_after = [(x.paragraph_format.space_after or 0) > 0 for x in D.paragraphs]
+    _gap_before = [(x.paragraph_format.space_before or 0) > 0 for x in D.paragraphs]
     in_list = []
     pending_rule = False
     pend_badges = None
@@ -281,7 +287,10 @@ def POST_MAIN(main, s, report):
                 # always inside a res-entry; a line straight after a bare row is pulled up over it by the template's spacing)
                 close()
                 if lines: out.append('<div class="beige-rule mm-org-rule"></div>')
-                out.append('<div class="res-entry">%s</div>' % str(rows[ri])); report.append(('settings', 'row %d of images placed at Word paragraph %d' % (ri + 1, i), '')); ri += 1
+                if ri == 0 and not lines: out.append('<div class="beige-rule mm-org-rule"></div>')   # owner 16:57 (edit 1): "Divider 30/30 above and below the photos" - the first row
+                out.append('<div class="res-entry">%s</div>' % str(rows[ri]))
+                if ri == 0: out.append('<div class="beige-rule mm-org-rule"></div>')
+                report.append(('settings', 'row %d of images placed at Word paragraph %d' % (ri + 1, i), '')); ri += 1
             elif photos == 1 and fi < len(floats):
                 add(str(floats[fi])); fi += 1
             if not txt: continue
@@ -290,6 +299,8 @@ def POST_MAIN(main, s, report):
         if not txt:
             blank = True; continue
         was_blank, blank = blank, False
+        _brk = was_blank or (i > 0 and _gap_after[i - 1]) or _gap_before[i] or i in BREAK_BEFORE
+        _grp = i + 1 < len(_nb) and _nb[i + 1] and not _gap_after[i] and not _gap_before[i + 1]
         pb, pend_badges = pend_badges, None   # a name line's badge waiting for the line straight below (owner 2 Nov 16:06)
         if lines and not photos:
             if i in LINE_BEFORE_TEXT: close(); out.append('<div class="beige-rule mm-org-rule"></div>')
@@ -306,13 +317,13 @@ def POST_MAIN(main, s, report):
         if i == AMI_PARA:   # owner 3 Nov 12:35 (2A): the contents entry jumps to this paragraph; no heading
             close(); out.append('<p id="ami-trainers-reading-recommendations">%s</p>' % _tabbed(pcs)); continue
         if i in PAIR_LABELS:   # owner 11:45 (3) and 12:45: Required / Recommended Reading side by side (template div.mm-pair)
-            close(); out.append('<!--pair-%d-->' % PAIR_LABELS.index(i)); out.append('<p><strong>%s</strong></p>' % _pieces_html(pcs)); continue
-        if i in BOLD_LINES:
-            close(); out.append('<p%s><strong>%s</strong></p>' % (' data-gap="51"' if i in GAP_LINES else '', _pieces_html(pcs))); continue
+            close(); out.append('<!--pair-%d-->' % PAIR_LABELS.index(i)); out.append('<p data-gap="51"><strong>%s</strong></p>' % _pieces_html(pcs)); continue   # the entry gap above each list's label (template entry size)
+        if i in BOLD_LINES:   # owner 17:00 (edit 3): a bold category and its books are one template entry, as the PDF (page 4)
+            close(); entry = ['<p class="res-desc" data-gap="51"><strong>%s</strong></p>' % _pieces_html(pcs)]; continue   # the entry gap above a category (template entry size), its books close under it
         if i in RED_AS_TEXT:
             close(); out.append('<p>%s</p>' % _pieces_html(pcs)); continue
-        if PAIR_LABELS[0] < i <= PAIR_END:
-            out.append('<p>%s</p>' % _pieces_html(pcs))
+        if PAIR_LABELS[0] < i <= PAIR_END:   # owner 17:23: the lines of one list sit together (template within-entry spacing, res-desc)
+            out.append('<p class="res-desc">%s</p>' % _pieces_html(pcs))
             if i == PAIR_END: out.append('<!--pair-end-->')
             continue
         if red > 0.5 or (first is not None and first[1] in REDS and red > 0.3):
@@ -335,13 +346,24 @@ def POST_MAIN(main, s, report):
                 assert item.endswith('</div>'), item[-40:]
                 add(item[:-6] + ''.join(' ' + x for x in bd) + '</div>'); report.append(('settings', 'PDF badge moved to the title below its name (owner 2 Nov 16:06)', txt[:40])); continue
         if blue > 0.5:
+            if _brk and entry is not None and not (PAIR_LABELS[0] <= i <= PAIR_END): close()   # a blue label after a break starts its own group
             add(re.sub(r'<span class="res-title"><em>(.*?)</em></span>', r'<span class="res-title">\1</span>', _res_item(pcs), count=1)); continue   # titles upright, as Word (8.1's were italic)
         if p.runs and all((r.font.underline or not r.text.strip()) for r in p.runs) and not any(x[3] for x in pcs):
             add('<p class="mm-ul"><u>%s</u></p>' % _pieces_html(pcs)); continue   # the <u> as the converter writes it (build_page.py 20 Oct rule); the template underlines nothing by class
-        if was_blank and entry is not None:
+        if _brk and _grp and not (PAIR_LABELS[0] <= i <= PAIR_END):
+            close()
+            # owner 17:02 (edit 2): a line after Word's blank line with more lines straight under it opens a template entry (title, description, name together)
+            entry = []; add('<p class="res-desc">%s</p>' % _tabbed(pcs)); continue   # the first line of a group sits as close to the next as the rest (template within-entry gap)
+        if _brk and not _grp and not (PAIR_LABELS[0] <= i <= PAIR_END):
+            close(); entry = []; add('<p class="res-desc">%s</p>' % _tabbed(pcs)); close(); continue   # owner 17:23: one line apart = one entry (template entry gap)
+        if _brk and entry is not None:
             # a plain line after Word's blank line inside an open entry ("Montessori Education", "Society of Antiquaries of London",
             # "They also have a selection ..."): an entry of its own, as Word and the PDF space it (2 Nov build 6 review, items 19 and NEW 3)
             close(); entry = []; report.append(('settings', 'a new entry after Word\'s blank line', txt[:40]))
+        if entry is None and not _brk and i > 0 and _nb[i - 1] and not _gap_after[i - 1] and out and re.match(r'<(p|div class="res-item")[ >]', out[-1]) and not (PAIR_LABELS[0] <= i <= PAIR_END):
+            # owner 17:02/17:23: a line straight under another (no blank line, no space in Word) joins it - the group's first line went out
+            # through another branch (a blue label, a red text line, a quotation's first line); both go into one template entry
+            _f = out.pop(); entry = [re.sub(r'^<p>', '<p class="res-desc">', _f)]
         cls = ' class="res-desc"' if entry is not None else ''
         add('<p%s>%s</p>' % (cls, _tabbed(pcs)))
     if in_list: add('<ol>%s</ol>' % ''.join('<li>%s</li>' % x for x in in_list))
@@ -350,7 +372,8 @@ def POST_MAIN(main, s, report):
     assert fi == len(floats) and ri == len(rows), (fi, len(floats), ri, len(rows))
     main.clear()
     _html = ''.join(out)
-    _html, _k = re.subn(r'<!--pair-0-->(.*?)<!--pair-1-->(.*?)<!--pair-end-->', r'<div class="mm-pair"><div>\1</div><div>\2</div></div>', _html, flags=re.S)
+    # 3 Nov 17:4x: each list of the pair is one template entry, so its lines are spaced as every other entry's (template res-desc + res-desc)
+    _html, _k = re.subn(r'<!--pair-0-->(.*?)<!--pair-1-->(.*?)<!--pair-end-->', r'<div class="mm-pair"><div><div class="res-entry">\1</div></div><div><div class="res-entry">\2</div></div></div>', _html, flags=re.S)
     assert _k == 1, 'pair'
     _html = re.sub(r'<a ([^>]*?)href="([^"]*)#mmred"([^>]*)>(.*?)</a>', r'<a \1href="\2"\3><span class="mm-hc-EE0000">\4</span></a>', _html, flags=re.S)
     for _t in [ITALIC_TITLES[k] for k in range(243, 249)]:   # b4 review 10: the DVD titles are links; the link text in italics, inside its quotation marks
@@ -362,10 +385,16 @@ def POST_MAIN(main, s, report):
     _html = re.sub(r'<a ([^>]*)>((?:Abridged )?Discussion Guide PDF)</a>', r'<a class="mm-keep" \1>\2</a>', _html)
     assert _n == 5, ('Discussion Guide links', _n)
     # owner 15:02 (template agreement): the entries holding those links are set flush left (template class mm-left), so a moved link leaves no spread line
-    _parts = re.split(r'(<p>(?:(?!</p>).)*?class="mm-keep".*?</p>)', _html, flags=re.S)
-    _k = sum(1 for x in _parts if x.startswith('<p>') and 'class="mm-keep"' in x)
-    _html = ''.join(('<p class="mm-left">' + x[3:]) if (x.startswith('<p>') and 'class="mm-keep"' in x) else x for x in _parts)
+    _parts = re.split(r'(<p(?: class="res-desc")?>(?:(?!</p>).)*?class="mm-keep".*?</p>)', _html, flags=re.S)
+    _isk = lambda x: x.startswith('<p') and 'class="mm-keep"' in x and '</p>' in x
+    _k = sum(1 for x in _parts if _isk(x))
+    _html = ''.join((re.sub(r'^<p(?: class="res-desc")?>', lambda m: '<p class="res-desc mm-left">' if 'res-desc' in m.group(0) else '<p class="mm-left">', x)) if _isk(x) else x for x in _parts)
     assert _k == 4, ('Discussion Guide entries', _k)
+    # owner 17:23 (the template's sizes): every entry after another entry or text stands the template's entry gap (51 letters to letters) below it;
+    # the template's own rule covers only an entry straight after an entry, so a group whose first line came from a label or a red line had less
+    # only after text (after an image row or a divider the template's 30 holds - a gap measured from the text above would pull the entry up over them)
+    _html = re.sub(r'(</p>(?:</div>)?)(<div class="res-entry">)<p class="res-desc">(?!<strong>)', r'\1\2<p class="res-desc" data-gap="51">', _html)
+    _html = re.sub(r'(</p>(?:</div>)?)(<div class="res-entry">)<div class="res-item">', r'\1\2<div class="res-item" data-gap="51">', _html)   # a group that opens with a blue label line
     report.append(('settings', 'Required and Recommended Reading as a pair, side by side on computers (owner 11:45, template 12:45)', ''))
     main.append(BeautifulSoup('<section class="section">%s</section>' % _html, 'html.parser'))
 
