@@ -237,7 +237,7 @@ def POST_MAIN(main, s, report):
         _t = re.sub(r'\s+', ' ', _p.get_text()).strip()
         if _t.startswith(('Far left, from the', 'Far right, from the')):   # owner 2 Nov 20:47: London Museum and Society of Antiquaries of London are now red name lines, spaced by the template as every name line
             _n = _p.find_next_sibling()
-            if _n is not None and _n.name == 'p': _n['data-gap'] = '21'; report.append(('settings', 'quotation 21 px below its label (8.3 b15 review)', _t))
+            if _n is not None and _n.name == 'p': _n['data-gap'] = '25'; report.append(('settings', 'quotation 25 below its label (8.3 b15 review; 25 by the owner 3 Nov 19:31 "Lines of one entry: 25")', _t))
     # 8.3 build 16 review: (1) "Far right, from ..." has Word's empty line above it (Word paragraph 139): 51 px below the quotation above,
     # as between two entries; (2) no spaces around a slash (owner's preference, "Junk/Adventure"): "Supplement / National" in the TES/NATE
     # name line, with a line break allowed after the slash (as the build's slash rule)
