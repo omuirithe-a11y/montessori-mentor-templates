@@ -1931,7 +1931,9 @@ var off=(parseFloat(f.style.paddingTop)||0)+(parseFloat(f.style.marginTop)||0)+t
   function nav(){var n=document.querySelector('nav.toc-wrap');return n&&n.getBoundingClientRect().height>0&&n.textContent.trim()?n:null;}
   var m=document.querySelector('main');if(!m)return;
   /* the element after a first sentence: 66 below it, set before the gap script's first run (it reads data-gap) */
-  if(!nav()){var bl=blocks(m);if(bl.length>1)bl[1].setAttribute('data-gap',String(GAP));}
+  if(!nav()){var bl=blocks(m),k=1;   /* 4 Nov 2026: an introduction of several paragraphs is one element (8.1: its two paragraphs stay together); the 66 goes to the first element after it */
+    while(k<bl.length&&bl[k].tagName==='P'&&bl[0].tagName==='P'&&bl[k].parentElement===bl[0].parentElement&&bl[k].previousElementSibling===bl[k-1]&&!bl[k].closest('.res-entry'))k++;
+    if(k<bl.length)bl[k].setAttribute('data-gap',String(GAP));}
   function fit(el,above,want){if(want===undefined)want=GAP;for(var k=0;k<4;k++){var a=above(),b=firstTop(el);if(a===null||b===null)return;var d=want-(b-a);if(Math.abs(d)<0.05)return;var mt=parseFloat(getComputedStyle(el).marginTop)||0;el.style.setProperty('margin-top',(mt+d).toFixed(2)+'px','important');}}
   function run(){var h=document.querySelector('.hero');if(!h)return;var hb=function(){return h.getBoundingClientRect().bottom;};var n=nav(),bl=blocks(m);if(!bl.length)return;var x=bl[0];
     for(var e=x.parentElement;e&&e!==m.parentElement;e=e.parentElement)e.style.setProperty('margin-top','0px','important');

@@ -232,7 +232,7 @@ def POST_MAIN(main, s, report):
         _pv = _e.find_previous_sibling()
         _f = _e.find(True, recursive=False)
         if _pv is not None and _pv.name == 'div' and 'res-entry' in (_pv.get('class') or []) and _f is not None and _f.name == 'div' and 'res-item' in (_f.get('class') or []):
-            _f['data-gap'] = '51'; report.append(('settings', 'blue title opening an entry: 51 px below the entry above (8.3 b15 review)', _f.get_text()[:40]))
+            _f['data-gap'] = '40'   # 4 Nov 2026: the gap between entries is 40 (owner 3 Nov 19:32; was 51); report.append(('settings', 'blue title opening an entry: 51 px below the entry above (8.3 b15 review)', _f.get_text()[:40]))
     for _p in main.find_all('p'):
         _t = re.sub(r'\s+', ' ', _p.get_text()).strip()
         if _t.startswith(('Far left, from the', 'Far right, from the')):   # owner 2 Nov 20:47: London Museum and Society of Antiquaries of London are now red name lines, spaced by the template as every name line
@@ -242,7 +242,7 @@ def POST_MAIN(main, s, report):
     # as between two entries; (2) no spaces around a slash (owner's preference, "Junk/Adventure"): "Supplement / National" in the TES/NATE
     # name line, with a line break allowed after the slash (as the build's slash rule)
     for _p in main.find_all('p'):
-        if re.sub(r'\s+', ' ', _p.get_text()).strip().startswith('Far right, from the'): _p['data-gap'] = '51'
+        if re.sub(r'\s+', ' ', _p.get_text()).strip().startswith('Far right, from the'): _p['data-gap'] = '40'   # 4 Nov 2026: the gap between entries is 40 (owner 3 Nov 19:32; was 51)
     from bs4 import NavigableString as _NS2
     for _sp in main.select('h3 span.mm-ink'):
         if _sp.get_text() == '/':
@@ -286,7 +286,7 @@ def POST_MAIN(main, s, report):
             for _a in _h.select('a.mm-link'):
                 _a['class'] = [c for c in _a['class'] if c != 'mm-link']
                 if not _a['class']: del _a['class']
-            if _t == 'London Museum': _h['data-gap'] = '51'   # inside The Victorian Web's entry: 51 px below the text above, as a name line opening an entry (the build 20 measure: 53.2)
+            if _t == 'London Museum': _h['data-gap'] = '40'   # 4 Nov 2026: the gap between entries is 40 (owner 3 Nov 19:32; was 51)   # inside The Victorian Web's entry: 51 px below the text above, as a name line opening an entry (the build 20 measure: 53.2)
             _el.replace_with(_h); report.append(('settings', 'red name line (owner 2 Nov 20:47)', _t))
     # owner 2 Nov 20:49 (queued, screenshot): "Add 'why is it called the horn book' to the sentence above it" - the link joins the end
     # of the paragraph above ("... and the core of our company.' Why is it called "The Horn Book"?")
