@@ -317,7 +317,7 @@ def POST_MAIN(main, s, report):
     # is a description, as every other text under a title and badge on the page (the template's res-desc)
     q = next(x for x in main.find_all('p') if norm(x.get_text()).startswith('\u2018The Montessori Bibliography Online (MBO)'))
     q['class'] = ['res-desc']
-    q['data-gap'] = '25.7'   # owner 2 Nov 20:36 (queued, screenshot "A Resource for the Global Montessori Community PDF" / the MBO quotation): "spacing too big" - the same gap as under a blue title and its badge (25.7 px letters to letters, as under "Great Big List…" on 8.3)
+    q['data-gap'] = '25'   # 4 Nov: 25, the gap under a blue title since 3 Nov 19:31 (was 25.7) - owner 2 Nov 20:36 (queued, screenshot "A Resource for the Global Montessori Community PDF" / the MBO quotation): "spacing too big" - the same gap as under a blue title and its badge (25.7 px letters to letters, as under "Great Big List…" on 8.3)
     # 1 Nov (checker b11 faults 4, 5): a word joiner before the badges was tried and does not stop the browser wrapping a badge
     # alone on phones (the badges are boxes); that needs a template rule - not done here
 
@@ -475,6 +475,13 @@ def _post_tail(main, s, report, norm):
     nx['data-gap'] = '25'; tog += 1
     k = _p('AI = Assistance to Infancy')
     assert tog == 8
+    # 4 Nov (t8 separate review fault 1; owner 3 Nov 19:32 "Between entries: 40"): the two reading-list books after
+    # "If you're looking to delve a little deeper" are entries (title, badges, description) outside an entry block - 40 above each
+    nb = 0
+    for b in main.select('div.res-item.res-book'):
+        if b.find_parent(class_='res-entry') is None: b['data-gap'] = '40'; nb += 1
+    assert nb == 2, nb
+    report.append(('settings', 'reading-list books 40 apart (between entries, 4 Nov)', str(nb)))
     report.append(('settings', 'lines together in the PDF set 25 apart (spacing check, 4 Nov)', str(tog)))
 
 def _drop_covers_grid(main, report):

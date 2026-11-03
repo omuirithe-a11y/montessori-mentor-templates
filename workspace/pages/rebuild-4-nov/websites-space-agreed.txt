@@ -1,0 +1,5 @@
+# 8.4 Websites: spacing the owner ordered, by name (her words from records/DECISIONS-LOG.md and DECISIONS-LOG-3-nov.md)
+6 -> 7 | 2 Nov 16:22 "Table of contents to have two columns, not three and to match the layout of the PDF" (the contents box in two columns)
+97 -> 98 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (replaced the 32 between paragraphs of one entry)
+125 -> 127 | 2 Nov 15:54 "Remove all dividers above these headings"; 3 Nov 19:53 "Green headings: no divider straight above a green heading"
+144 -> 147 | 2 Nov 15:54 "Remove all dividers above these headings"; 3 Nov 19:53 "Green headings: no divider straight above a green heading"

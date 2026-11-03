@@ -4,3 +4,8 @@
 107 -> 108 | 3 Nov: "Lines of one entry: 25 between every line" (the 1936 entry: title and its description)
 108 -> 109 | 3 Nov: "Between entries: 40 from the last line of one entry to the first line of the next" (1936 to 1937)
 110 -> 111 | 3 Nov: "Lines of one entry: 25 between every line" (the 1939 entry's two titles)
+121 -> 122 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (books of one year's entry; the rule replaced the 32 between paragraphs of one entry)
+123 -> 124 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (books of one year's entry; the rule replaced the 32 between paragraphs of one entry)
+125 -> 126 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (books of one year's entry; the rule replaced the 32 between paragraphs of one entry)
+127 -> 128 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (books of one year's entry; the rule replaced the 32 between paragraphs of one entry)
+131 -> 132 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (books of one year's entry; the rule replaced the 32 between paragraphs of one entry)
