@@ -1147,7 +1147,8 @@ def main():
         big = im.copy(); big.thumbnail((2900, 2900)); big.save(os.path.join(imgdir, k + '.jpg'), quality=92)
         # 30 Oct 2026 12:5x: the shown copy fits in a square of the shown size (its longer side), quality 85 - as the live pages'
         # copies (live Aun Aprendo 003-960.jpg: 726x960, quality 85); width-only sizing made upright images up to 1.75x heavier
-        sw_ = a.shown_width; sm = im.copy(); sm.thumbnail((sw_, sw_)); sm.save(os.path.join(imgdir, '%s-%d.jpg' % (k, sw_)), quality=85)
+        sw_ = a.shown_width; _sz = S.get('SHOWN_SIZE', {}).get(name, sw_)   # 3 Nov 2026 (8.2 fault 73): a wide panorama gets a bigger shown copy, so it is never shown larger than its file
+        sm = im.copy(); sm.thumbnail((_sz, _sz)); sm.save(os.path.join(imgdir, '%s-%d.jpg' % (k, sw_)), quality=85)
         img['src'] = 'images/%s-%d.jpg' % (k, sw_); img['data-full'] = 'images/%s.jpg' % k
         report.append(('photo', k, name + ' %dx%d' % im.size + (' (scaled to 2900 long side)' if max(im.size) > 2900 else '')))
     content = ''.join(str(c) for c in main_el.contents)
@@ -1237,6 +1238,9 @@ def main():
     heads = [x for x in heads if x[0]]
     if S.get('TOC_ONLY'):   # 31 Oct 2026 (8.1): the contents box lists only these headings (the page's main sections); the others stay on the page as headings
         heads = [x for x in heads if x[1] in S['TOC_ONLY']]
+    for _pos, _id, _tx in S.get('TOC_EXTRA', []):   # 3 Nov 2026 (owner 12:35, 8.2 "2A"): a contents entry with no heading - it jumps to an element with that id
+        assert ('id="%s"' % _id) in content, ('TOC_EXTRA: no element with id', _id)
+        heads.insert(_pos, (_id, _tx))
     if S.get('NO_TOC'): a.no_toc = True   # a page setting, so the page keeps it at every rebuild (21 Oct)
     if heads and not a.no_toc:
         # 31 Oct 2026 (8.1, code check part 1): the contents lists are the template's own - the Resources template has three

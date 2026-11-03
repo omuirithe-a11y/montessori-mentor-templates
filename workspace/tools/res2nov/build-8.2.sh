@@ -1,0 +1,7 @@
+# 17:58 item 1: one command makes build N of 8.2, its check zip, a quick look at the changed places, then every check (screenshots first).
+B=${1:?usage: build-8.2.sh <build number>}; cd /home/claude/mm; O=build-82/b$B
+python3 tools/build_page.py --docx "src/8.2/8.2 Books - Education, Parenting, Child Development.docx" --pdf "src/8.2/8.2 Books - Education, Parenting, Child Development.pdf" --template resources --title "Books of Interest" --folder books-of-interest --menu-from live/resources/index.html --settings pages/books-of-interest.py --photos build-82/faces/photos-final --hero "src/hero/IMG_20230412_121423 2.jpg" --section-href /resources/ --out $O > build-82/b$B.log 2>&1 || { tail -5 build-82/b$B.log; exit 1; }
+(cd $O/hostinger && rm -f ../books-of-interest-b$B-CHECK-ONLY.zip && zip -qr ../books-of-interest-b$B-CHECK-ONLY.zip books-of-interest)
+# 3 Nov 14:52 (lesson 8 and 44): when the build makes the upload zip, every check runs on that exact zip (the gate needs it), never on a copy first
+if [ -s $O/books-of-interest.zip ]; then mkdir -p $O/gate; cp $O/books-of-interest.zip $O/gate/books-of-interest.zip; cp $O/gate/books-of-interest.zip $O/books-of-interest-b$B-CHECK-ONLY.zip; echo "BUILT b$B (checks on the upload zip $O/gate/books-of-interest.zip)"; bash tools/res2nov/all-nolive-8.2-shots-first.sh $B $O/gate/books-of-interest.zip
+else echo BUILT b$B; bash tools/res2nov/all-nolive-8.2-shots-first.sh $B; fi
