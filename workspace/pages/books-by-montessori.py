@@ -455,6 +455,27 @@ def _post_tail(main, s, report, norm):
             n2 = nx.next_sibling; newp.append(nx.extract()); nx = n2
         t.replace_with(_NS(a_.rstrip())); par.insert_after(newp); nm += 1
     report.append(('settings', '"The MBO is accessible at" on its own line, as live (n4 review A2)', str(nm)))
+    # 4 Nov (owner 3 Nov 17:23, the spacing check: "Word and the PDF decide which lines are together", the template the sizes):
+    # lines together in the PDF that the page set apart - 25, as lines of one entry (owner 3 Nov: "Lines of one entry: 25")
+    tog = 0
+    p1 = next(x for x in main.find_all('p') if norm(x.get_text()).startswith('This short, practical guide is an introduction'))
+    p1['data-gap'] = '25'; tog += 1   # PDF page 1: the introduction's two paragraphs, no space between
+    hl = main.find_all('p', class_='mm-hanglab')
+    assert [norm(x.get_text()).split(' ')[0] for x in hl] == ['Writing', 'Reading', 'Arithmetic'], [x.get_text() for x in hl]
+    for x in hl[1:]: x['data-gap'] = '25'; tog += 1   # PDF page 1: Writing / Reading / Arithmetic line under line
+    k = next(x for x in main.find_all('p') if norm(x.get_text()).startswith('AI = Assistance to Infancy'))
+    k['data-gap'] = '25'; tog += 1   # PDF page 6: the key straight under "This list is as many ..."
+    # t4 separate review faults 1-3 (PDF pages 2, 3, 5: line under line, 23 px at 90 dpi)
+    def _p(start):
+        return next(x for x in main.find_all('p') if norm(x.get_text()).startswith(start))
+    for start in ('‘This list is as many', 'By Mario M. Montessori, Jnr', 'By E.M. Standing'):
+        _p(start)['data-gap'] = '25'; tog += 1
+    q = next(x for x in main.find_all('p') if norm(x.get_text()).endswith('the text will be provided for students.'))
+    nx = q.find_next_sibling('p'); assert nx is not None and norm(nx.get_text()).startswith('By Dr Maria Montessori')
+    nx['data-gap'] = '25'; tog += 1
+    k = _p('AI = Assistance to Infancy')
+    assert tog == 8
+    report.append(('settings', 'lines together in the PDF set 25 apart (spacing check, 4 Nov)', str(tog)))
 
 def _drop_covers_grid(main, report):
     """Owner 31 Oct 22:14: "delete that grid . don't use it on the page" - the Word table of 23 covers with their titles
