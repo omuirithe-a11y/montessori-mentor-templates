@@ -317,9 +317,9 @@ def POST_MAIN(main, s, report):
         if i == AMI_PARA:   # owner 3 Nov 12:35 (2A): the contents entry jumps to this paragraph; no heading
             close(); out.append('<p id="ami-trainers-reading-recommendations">%s</p>' % _tabbed(pcs)); continue
         if i in PAIR_LABELS:   # owner 11:45 (3) and 12:45: Required / Recommended Reading side by side (template div.mm-pair)
-            close(); out.append('<!--pair-%d-->' % PAIR_LABELS.index(i)); out.append('<p data-gap="51"><strong>%s</strong></p>' % _pieces_html(pcs)); continue   # the entry gap above each list's label (template entry size)
+            close(); out.append('<!--pair-%d-->' % PAIR_LABELS.index(i)); out.append('<p data-gap="40"><strong>%s</strong></p>' % _pieces_html(pcs)); continue   # the entry gap above each list's label (template entry size)
         if i in BOLD_LINES:   # owner 17:00 (edit 3): a bold category and its books are one template entry, as the PDF (page 4)
-            close(); entry = ['<p class="res-desc" data-gap="51"><strong>%s</strong></p>' % _pieces_html(pcs)]; continue   # the entry gap above a category (template entry size), its books close under it
+            close(); entry = ['<p class="res-desc" data-gap="40"><strong>%s</strong></p>' % _pieces_html(pcs)]; continue   # the entry gap above a category (template entry size), its books close under it
         if i in RED_AS_TEXT:
             close(); out.append('<p>%s</p>' % _pieces_html(pcs)); continue
         if PAIR_LABELS[0] < i <= PAIR_END:   # owner 17:23: the lines of one list sit together (template within-entry spacing, res-desc)
@@ -393,8 +393,12 @@ def POST_MAIN(main, s, report):
     # owner 17:23 (the template's sizes): every entry after another entry or text stands the template's entry gap (51 letters to letters) below it;
     # the template's own rule covers only an entry straight after an entry, so a group whose first line came from a label or a red line had less
     # only after text (after an image row or a divider the template's 30 holds - a gap measured from the text above would pull the entry up over them)
-    _html = re.sub(r'(</p>(?:</div>)?)(<div class="res-entry">)<p class="res-desc">(?!<strong>)', r'\1\2<p class="res-desc" data-gap="51">', _html)
-    _html = re.sub(r'(</p>(?:</div>)?)(<div class="res-entry">)<div class="res-item">', r'\1\2<div class="res-item" data-gap="51">', _html)   # a group that opens with a blue label line
+    _html = re.sub(r'(</p>(?:</div>)?)(<div class="res-entry">)<p class="res-desc">(?!<strong>)', r'\1\2<p class="res-desc" data-gap="40">', _html)
+    _html = re.sub(r'(</p>(?:</div>)?)(<div class="res-entry">)<div class="res-item">', r'\1\2<div class="res-item" data-gap="40">', _html)   # a group that opens with a blue label line
+    # owner 3 Nov 19:16 (queued, go 20:01): "Ramya Sridhar, AMI 3-6 Trainer - these names not to be italics" - every trainer name line upright
+    _html, _nt = re.subn(r'<em>([^<]*, AMI [^<]*Trainer[^<]*)</em>', r'\1', _html)
+    assert _nt == 8, ('trainer name lines', _nt)
+    report.append(('settings', 'trainer name lines upright (owner 3 Nov 19:16)', str(_nt)))
     report.append(('settings', 'Required and Recommended Reading as a pair, side by side on computers (owner 11:45, template 12:45)', ''))
     main.append(BeautifulSoup('<section class="section">%s</section>' % _html, 'html.parser'))
 
@@ -410,6 +414,19 @@ def POST_MAIN(main, s, report):
             _n = _x.next_sibling
             if _x is not _h and getattr(_x, 'name', None) == 'h2': break
             _new.append(_x.extract()); _x = _n
+    # owner 3 Nov 20:51 "yes": the red MWEI heading stands 40 below the text above it, like the green headings (was 56)
+    _mw = [h for h in main.find_all('h2') if 'World Educational Institute' in h.get_text()]
+    assert len(_mw) == 1, ('MWEI heading', len(_mw)); _mw[0]['data-gap'] = '40'
+    # owner 3 Nov 19:53 "Green headings: no divider straight above a green heading" and her 19:58-20:01 screenshots: those dividers are
+    # taken out of the page code (her 16 Oct rule: no invisible lines - delete them from the code); the template also drops any at load
+    _rm = 0
+    for _h in main.find_all('h2', class_='mm-hc-00B050'):
+        _s = _h.parent if (_h.parent.name == 'section' and _h.parent.find(True) is _h) else _h
+        _pv = _s.find_previous_sibling()
+        if _pv is not None and _pv.name == 'section': _pv = _pv.find_all(True, recursive=False)[-1] if _pv.find_all(True, recursive=False) else None
+        if _pv is not None and 'beige-rule' in (_pv.get('class') or []): _pv.decompose(); _rm += 1
+    assert _rm == 4, ('dividers above green headings', _rm)
+    report.append(('settings', 'dividers straight above a green heading removed from the code (owner 19:53-20:01)', str(_rm)))
     for a in main.find_all('a'):
         if re.sub(r'\s+', ' ', a.get_text()).strip() == 'PDF' and 'pdf' not in (a.get('class') or []): a['class'] = (a.get('class') or []) + ['pdf']
     from bs4 import NavigableString

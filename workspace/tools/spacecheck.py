@@ -215,6 +215,16 @@ for w in WIDTHS:
             rows.append((w, None, None, k, 'sameness', None, '%s..%s' % (min(v), max(v)), None, 'FAULT UNEVEN (%d gaps: %s)' % (len(v), ', '.join('%g' % x for x in sorted(set(v)))))); faults += 1
     if pg['sw'] > pg['iw']: rows.append((w, None, None, 'sideways', '', None, pg['sw'], None, 'FAULT sideways scroll')); faults += 1
 
+# 3 Nov 2026 (owner 19:58-20:01): differences she ordered, by name - a file named by SPACE_AGREED, one per line: "a -> b | her words"
+# (Word paragraph numbers as printed in this report). Such a FAULT is printed AGREED with her words and not counted.
+AGREED = {}
+if os.environ.get('SPACE_AGREED'):
+    for _l in open(os.environ['SPACE_AGREED']):
+        if '->' in _l and not _l.startswith('#'):
+            _k, _, _why = _l.partition('|'); _a, _b = [int(x) for x in _k.split('->')]; AGREED[(_a, _b)] = _why.strip()
+for _i, _x in enumerate(rows):
+    if (_x[1], _x[2]) in AGREED and str(_x[-1]).startswith('FAULT'):
+        rows[_i] = _x[:-1] + ('AGREED (owner: %s) - was: %s' % (AGREED[(_x[1], _x[2])], _x[-1]),); faults -= 1
 with open(os.path.join(OUT, 'spacecheck.txt'), 'w') as f:
     f.write('spacecheck %s | PDF line pitch %.2f pt | tolerance %.2f line\n' % (os.path.abspath(PAGEDIR), PPITCH, TOL))
     f.write('PDF kinds (median ratio): %s\n' % ', '.join('%s %.2f' % (k, v) for k, v in sorted(kind_med.items())))

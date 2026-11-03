@@ -13,9 +13,18 @@ with sync_playwright() as p:
     b = p.chromium.launch()
     for w in (1440, 768, 390):
         pg = b.new_page(viewport={'width': w, 'height': 900}); pg.goto(url, wait_until='load'); pg.evaluate(JS)
-        H = pg.evaluate("document.documentElement.scrollHeight"); im = Image.new("RGB", (w, H))
+        # 3 Nov 21:3x: full_page capture resizes the window for each 4000 px piece; the template re-measures after every resize, and a
+        # piece taken in that moment showed headings 56 instead of 40 (build 19 review). The window is now made page-tall ONCE, the page
+        # is given time to settle, and the height is read again until it holds; the pieces are then taken with no further resize.
+        H = pg.evaluate("document.documentElement.scrollHeight")
+        for _ in range(5):
+            pg.set_viewport_size({"width": w, "height": H}); pg.wait_for_timeout(2500)
+            H2 = pg.evaluate("document.documentElement.scrollHeight")
+            if H2 == H: break
+            H = H2
+        im = Image.new("RGB", (w, H))
         for y0 in range(0, H, 4000):
-            hh = min(4000, H - y0); im.paste(Image.open(io.BytesIO(pg.screenshot(full_page=True, clip={"x": 0, "y": y0, "width": w, "height": hh}))).convert("RGB"), (0, y0))
+            hh = min(4000, H - y0); im.paste(Image.open(io.BytesIO(pg.screenshot(clip={"x": 0, "y": y0, "width": w, "height": hh}))).convert("RGB"), (0, y0))
         pg.close()
         seg = 1400 if w > 500 else 1600; n = 0
         for y in range(0, im.height, seg):
