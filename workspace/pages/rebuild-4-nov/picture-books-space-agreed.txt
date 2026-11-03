@@ -1,0 +1,8 @@
+# 8.3 Picture Books: spacing the owner ordered, by name (her words from records/DECISIONS-LOG.md)
+112 -> 115 | 2 Nov 15:31 (screenshot 101 Great Picture Books for Preschoolers / beige line / green Hornbooks): "Delete the divider above Hornbooks"
+52 -> 53 | 2 Nov 20:42 (the A Selection lines): "in blue" - title lines of one entry, 25 apart (3 Nov: "Lines of one entry: 25 between every line")
+53 -> 54 | 2 Nov 20:42 (the A Selection lines): "in blue" - title lines of one entry, 25 apart (3 Nov: "Lines of one entry: 25 between every line")
+54 -> 55 | 2 Nov 20:42 (the A Selection lines): "in blue" - title lines of one entry, 25 apart (3 Nov: "Lines of one entry: 25 between every line")
+11 -> 12 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (replaced the 32 between paragraphs of one entry)
+18 -> 19 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (replaced the 32 between paragraphs of one entry)
+23 -> 24 | 3 Nov 19:31 "yES!" to "Lines of one entry: 25 between every line" (replaced the 32 between paragraphs of one entry)

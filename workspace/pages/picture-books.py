@@ -313,6 +313,12 @@ def POST_MAIN(main, s, report):
         _ti.span.string = 'Old School Classroom Technology'
         _h.replace_with(_name); _nx.replace_with(_ti)
         report.append(('settings', 'The Newberry Library red name, Old School Classroom Technology blue title under it (owner 2 Nov 20:50)', '')); break
+    # 4 Nov (owner 3 Nov 19:31 "Lines of one entry: 25 between every line"; the PDF has the list straight under its sentence):
+    # the numbered list under "So we are looking for these 6 things:" - every line of that entry 25 apart
+    _ols = [o for o in main.select('div.res-entry ol')]
+    assert len(_ols) == 1, len(_ols)
+    for _li in _ols[0].find_all('li', recursive=False): _li['data-gap'] = '25'
+    report.append(('settings', 'numbered list lines of one entry 25 apart (4 Nov)', str(len(_ols[0].find_all('li', recursive=False)))))
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
 
