@@ -28,3 +28,4 @@ Each build folder holds CHANGES.txt (the change list she confirmed), REVIEW.md (
 - Lessons 66-72: Project claude/LESSONS-LEARNED-27-29-oct.md.
 - Message checker brief: tools/briefs/MESSAGE-CHECK.md.
 - GitHub: page settings, spacecheck, queues, change lists and these records are in commit 15e8d53 (workspace/).
+- Previews of the f14174ee rebuilds (section headings 60): 8.1 t16 claude.ai/artifact/GNBaJgb5YWRqoXnRzPKn9d; 8.2 b31 claude.ai/artifact/B2YkhEKnZi2BbhQSm48wTw; 8.3 t14 claude.ai/artifact/4TWT4V2ysNf4yVbhz3A18Z. Open question to her (11:3x): check and re-send these three now, or upload the zips she has and leave it for the next rebuild.
