@@ -15,8 +15,8 @@ Each build folder holds CHANGES.txt (the change list she confirmed), REVIEW.md (
 
 ## Next
 1. After she uploads: check each live page against its upload zip (index.html byte-identical, images unchanged, menu layout B).
-2. Open questions to her, one at a time: should these 4 Nov page edits become Resources template rules - 50 above red name lines (Picture Books 07:46, Websites 07:48), 60 above section headings (Websites 07:51), 50 above the headings on Resources (07:33)? Until she answers, they live only in the page settings (pages/*.py).
-3. Template: Resources Code Template ea36d904 (GitHub 0c56930), 4 Nov 11:15 - years 52 / books in a year 40 (owner "Yes"). The zips sent today were built on c6e5bee0 (8.1 t14 had the same gaps as a page setting); each page takes ea36d904 at its next rebuild.
+2. Template rules (owner 11:15 and 11:16, "Yes change the template now and in GitHub"): all five of her 4 Nov spacing edits are now Resources template rules - years 52 / books in a year 40; red name lines 50; section headings 60; headings that link to a page 50. Template f14174ee (GitHub 6e01790, fingerprints 869c6a9). The matching page settings were removed.
+3. Rebuilt on f14174ee, not yet full-checked or sent: 8.0 t12, 8.1 t16, 8.2 b31, 8.3 t14, 8.4 t11. Against the zips sent today, at 1440: 8.0 and 8.4 identical; 8.1, 8.2, 8.3 differ only in green section headings, now 60 (8.1 Bibliography; 8.2 Books on Teaching, Book Lists; 8.3 Hornbooks). Code check ALL CHECKS OK on all five. The zips she has (old template) are still valid; if she wants the section headings at 60 on those three pages, they need the full checks, review and gate, then new zips.
 4. Hourly lessons review reminders are set by send_later in this chat only; a new chat sets its own.
 
 ## Changed tools
