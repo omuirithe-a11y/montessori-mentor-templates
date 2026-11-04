@@ -21,7 +21,7 @@ CAPTION_SOURCES = ['Far left', 'Far right']   # owner 2 Nov 16:20 (queued)
 QUOTE_PLAIN = ['In the early modern era']   # owner 2 Nov 16:20 (queued)
 NAME_LINKS = ['Montessori Education']   # owner 2 Nov 16:03 (queued)
 SPLIT_LABEL = ['London Museum']   # owner 2 Nov 15:34
-TEXT_EDITS = [('Sometime ivory was used', 'Sometimes ivory was used'), ('BookTrust is rhe UK', 'BookTrust is the UK'), ('the Unites States government', 'the United States government'), ('Why is it called "The Horn Book?', 'Why is it called "The Horn Book"?'), ('piece of wood..', 'piece of wood.')]   # typos (owner 27 Oct: correct all typos); the last three from the 8.3 build 12 review   # typo (owner 27 Oct: correct all typos; her 15:34 screenshot has "Sometimes")
+TEXT_EDITS = [('Sometime ivory was used', 'Sometimes ivory was used'), ('BookTrust is rhe UK', 'BookTrust is the UK'), ('the Unites States government', 'the United States government'), ('Why is it called "The Horn Book?', 'Why is it called "The Horn Book"?'), ('piece of wood..', 'piece of wood.'), ('the direct ancestors of modern children\'s picture books.', 'the direct ancestor of modern picture books.')]   # 4 Nov (owner 13:25): "not 'ancestors' but 'ancestor'. Also, delete the word \"children's\""   # typos (owner 27 Oct: correct all typos); the last three from the 8.3 build 12 review   # typo (owner 27 Oct: correct all typos; her 15:34 screenshot has "Sometimes")
 NO_RULE_BEFORE = ['Hornbooks']   # owner 2 Nov 15:31: "Delete the divider above Hornbooks"
 
 

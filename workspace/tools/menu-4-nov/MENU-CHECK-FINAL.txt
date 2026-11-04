@@ -1,0 +1,85 @@
+home | 1440 | OK | height live/new 2669/2669 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+home | 390 | OK | height live/new 5559/5559 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+a-montessori-journey | 1440 | OK | height live/new 10818/10818 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+a-montessori-journey | 390 | OK | height live/new 13871/13871 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+administration | 1440 | OK | height live/new 3035/3035 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+administration | 390 | OK | height live/new 4765/4765 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+aun-aprendo | 1440 | OK | height live/new 5917/5917 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+aun-aprendo | 390 | OK | height live/new 8507/8507 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+beginning-of-the-year-for-teachers | 1440 | OK | height live/new 9033/9033 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+beginning-of-the-year-for-teachers | 390 | OK | height live/new 15804/15804 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+biography | 1440 | OK | height live/new 5786/5786 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+biography | 390 | OK | height live/new 12636/12636 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+classroom-management | 1440 | OK | height live/new 12509/12509 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+classroom-management | 390 | OK | height live/new 23413/23413 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+culture-resources | 1440 | OK | height live/new 19578/19578 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+culture-resources | 390 | OK | height live/new 32753/32753 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+curriculum-scope-and-sequence-resources | 1440 | OK | height live/new 12020/12020 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+curriculum-scope-and-sequence-resources | 390 | OK | height live/new 23650/23650 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+essential-elements-resources | 1440 | OK | height live/new 6392/6392 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+essential-elements-resources | 390 | OK | height live/new 11528/11528 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+essential-elements | 1440 | OK | height live/new 10374/10374 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+essential-elements | 390 | OK | height live/new 28709/28709 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+glossary | 1440 | OK | height live/new 7882/7882 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+glossary | 390 | OK | height live/new 14391/14391 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+mathematics-resources | 1440 | OK | height live/new 9609/9609 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+mathematics-resources | 390 | OK | height live/new 17132/17132 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+montessori-scope-and-sequence | 1440 | OK | height live/new 8187/8187 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+montessori-scope-and-sequence | 390 | OK | height live/new 15069/15069 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+observations-for-teachers | 1440 | FAULT | height live/new 15173/15174 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+observations-for-teachers | 390 | OK | height live/new 27929/27929 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+parent-resources | 1440 | OK | height live/new 2059/2059 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+parent-resources | 390 | OK | height live/new 2904/2904 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+play-varieties-and-characteristics | 1440 | OK | height live/new 11974/11974 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+play-varieties-and-characteristics | 390 | OK | height live/new 27102/27102 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+play | 1440 | OK | height live/new 3887/3887 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+play | 390 | OK | height live/new 8103/8103 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+practical-life-resources | 1440 | OK | height live/new 7002/7002 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+practical-life-resources | 390 | OK | height live/new 9269/9269 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+school-handbook | 1440 | OK | height live/new 4690/4690 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+school-handbook | 390 | OK | height live/new 6913/6913 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+sensorial-resources | 1440 | OK | height live/new 5280/5280 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+sensorial-resources | 390 | OK | height live/new 8794/8794 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+staff | 1440 | OK | height live/new 3847/3847 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+staff | 390 | OK | height live/new 5211/5211 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-culture-curriculum | 1440 | OK | height live/new 21454/21454 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-culture-curriculum | 390 | OK | height live/new 29104/29104 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-first-casa-dei-bambini | 1440 | OK | height live/new 5156/5156 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-first-casa-dei-bambini | 390 | OK | height live/new 11334/11334 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-history-of-education | 1440 | OK | height live/new 6820/6820 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-history-of-education | 390 | OK | height live/new 13012/13012 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-history-of-montessori-education | 1440 | OK | height live/new 3449/3449 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-history-of-montessori-education | 390 | OK | height live/new 5735/5735 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-mathematics-curriculum | 1440 | OK | height live/new 28061/28061 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-mathematics-curriculum | 390 | FAULT | height live/new 65494/65852 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-montessori-curriculum | 1440 | OK | height live/new 15776/15776 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-montessori-curriculum | 390 | OK | height live/new 38862/38862 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-practical-life-curriculum-2 | 1440 | FAULT | height live/new 22498/23016 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-practical-life-curriculum-2 | 390 | OK | height live/new 59395/59395 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-prepared-environment | 1440 | OK | height live/new 23113/23113 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-prepared-environment | 390 | FAULT | height live/new 40170/40171 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-role-of-the-adult-resources | 1440 | OK | height live/new 7516/7516 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-role-of-the-adult-resources | 390 | OK | height live/new 14955/14955 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-role-of-the-adult | 1440 | FAULT | height live/new 22874/22872 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-role-of-the-adult | 390 | OK | height live/new 50588/50588 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-role-of-the-assistant | 1440 | OK | height live/new 3852/3852 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-role-of-the-assistant | 390 | OK | height live/new 5656/5656 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-sensorial-curriculum | 1440 | FAULT | height live/new 30588/30580 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-sensorial-curriculum | 390 | FAULT | height live/new 45711/45670 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-story-of-san-lorenzo | 1440 | OK | height live/new 5910/5910 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+the-story-of-san-lorenzo | 390 | OK | height live/new 12446/12446 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+timeline | 1440 | OK | height live/new 8796/8796 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+timeline | 390 | OK | height live/new 12859/12859 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+why-this-website | 1440 | OK | height live/new 10338/10338 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+why-this-website | 390 | OK | height live/new 22695/22695 | errors 0/0 | menu: /books-by-montessori/ /books-of-interest/ /picture-books/ /websites/
+RESULT: 7 FAULTS
+
+Height re-test (hcheck3.js, images blocked, live and new each loaded twice):
+observations-for-teachers 1440 live 15173, new 15173, live 15173, new 15173
+the-mathematics-curriculum 390 live 65494, new 65494, live 65852, new 65494
+the-practical-life-curriculum-2 1440 live 22986, new 23016, live 23016, new 23016
+the-prepared-environment 390 live 40171, new 40171, live 40171, new 40171
+the-role-of-the-adult 1440 live 22872, new 22872, live 22872, new 22872
+the-sensorial-curriculum 1440 live 30588, new 30580, live 30580, new 30580
+the-sensorial-curriculum 390 live 45670, new 45670, live 45670, new 45670
+Every new height equals a height the live page itself gave; on 3 pages the live page differed between its own loads. RESULT: menu links right on all 37 pages at 1440 and 390; the 7 height flags are loading variance.
