@@ -169,3 +169,6 @@ Open questions, asked one at a time after her round 1 faces answer (lesson 72): 
 ## 4 Nov 23:3x: hourly lessons review (22:3x to 23:3x), The English Curriculum
 Not followed since 22:3x: none found. Checked against the lessons: build 5's fix tested with the placement check (v2, the current one - START-HERE 1 Nov: run_checks.sh still runs the old v1, whose SUMMARY line read "PLACE FAULT (8)" against v2's 7; v2 is the one gone by); the speed fault profiled to its cause before any question (lesson 62); every reply through the message checker (both drafts corrected before sending); nothing run beside the checks; no question asked while her round 1 faces answer is open (lesson 72).
 Waiting for her round 1 faces answer. Next review 00:3x (reminder set).
+
+## 5 Nov 00:4x: hourly lessons review (23:3x to 00:4x), The English Curriculum
+No work since 23:3x (waiting for her round 1 faces answer), so nothing to review and nothing sent to her. The hourly reminder is not set again while no work runs; the reviews start again, on the hour, when work resumes on her answer.
