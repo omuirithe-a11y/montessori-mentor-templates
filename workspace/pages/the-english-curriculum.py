@@ -73,9 +73,9 @@ def SOUP_FIX(sp, report):
         row = lb.find_next_sibling('div')
         figs = row.select('figure') if row is not None else []
         if len(figs) == 4:
-            h = ('<div class="mm-wcols2"><div><p class="centred mm-hc-0432FF">Letter Bingo: learning</p><div class="mm-row" data-above="40" data-level="1"><div class="mm-imgs">%s%s</div></div></div>'
-                 '<div><p class="centred mm-hc-0432FF">Letter Bingo: teaching</p><div class="mm-row" data-above="40" data-level="1"><div class="mm-imgs">%s%s</div></div></div></div>') % tuple(str(f) for f in figs)
-            row.decompose(); n = replace(lb, h); merge_section(n); report.append(('settings', 'Letter Bingo: two captions over two pairs of images, as the PDF', ''))
+            h = ('<p class="centred mm-hc-0432FF">Letter Bingo: learning</p><div class="mm-row" data-above="40" data-level="91"><div class="mm-imgs">%s%s</div></div>'
+                 '<p class="centred mm-hc-0432FF">Letter Bingo: teaching</p><div class="mm-row" data-above="40" data-level="92"><div class="mm-imgs">%s%s</div></div>') % tuple(str(f) for f in figs)
+            row.decompose(); n = replace(lb, h); merge_section(n); report.append(('settings', 'Letter Bingo: each caption over its two images (one pair under the other; the template has no side-by-side captioned groups)', ''))
     # Series 3-5: blue, as Series 1-2 and the PDF
     for p in m.select('p.mm-hanglab'):
         lab = p.find('span', class_='mm-lab')
@@ -136,12 +136,12 @@ def SOUP_FIX(sp, report):
         flo = [c.find_parent('div', class_='mm-float') for c in cards]
         last = next((p for p in m.select('p.mm-hanglab') if _t(p).startswith('Word Families')), None)
         if last is not None and all(flo):
-            row = _BS('<div class="mm-row" data-above="40" data-level="1"><div class="mm-imgs"></div></div>', 'html.parser').div
+            row = _BS('<div class="mm-row" data-above="40" data-level="93"><div class="mm-imgs"></div></div>', 'html.parser').div
             for c in cards: row.select_one('.mm-imgs').append(c.find_parent('figure').extract())
             for f in flo: f.decompose()
             last.insert_after(row); report.append(('settings', 'Word Study cards: one row after the list (they overlapped beside it)', ''))
     # p19: the four labels each over its image (Blue Series, Green Series, Action Cards - Set 2, Puzzle Words)
-    lab = next((p for p in m.find_all('p') if _t(p).startswith('The Blue Series')), None)
+    lab = next((p for p in m.find_all('p') if _t(p).startswith('The Blue Series') and 'Puzzle Words' in _t(p)), None)
     if lab is not None:
         imgs = {n: m.select_one('img[data-full="images/%s.jpg"]' % n) for n in ('145', '146', '147', '148')}
         if all(imgs.values()):
@@ -152,13 +152,20 @@ def SOUP_FIX(sp, report):
                 f = f.extract(); f['class'] = (f.get('class') or []) + ['mm-cf']
                 f.insert(0, _BS('<figcaption class="mm-cap">%s</figcaption>' % cap, 'html.parser').figcaption); figs.append(f)
                 if old is not None and not old.find('figure'): old.decompose()
-            row = _BS('<div class="mm-row" data-above="40" data-level="1"><div class="mm-imgs"></div></div>', 'html.parser').div
+            row = _BS('<div class="mm-row" data-above="40" data-level="94"><div class="mm-imgs"></div></div>', 'html.parser').div
             for f in figs: row.select_one('.mm-imgs').append(f)
             lab.insert_before(row); lab.decompose(); report.append(('settings', 'p19: each label over its image, as the PDF', ''))
     # an image Word uses twice: placed at both places (p2 beside the text: image1 = 046; p19 Early Readers row: image136 = 134, 4th of 5)
     f1 = m.select_one('img[data-full="images/001.jpg"]'); f46 = m.select_one('img[data-full="images/046.jpg"]')
     if f1 is not None and f46 is not None:
         f1.find_parent('figure').insert_after(_BS(str(f46.find_parent('figure')), 'html.parser').figure); report.append(('settings', 'image1 (046) also beside the p2 text, as Word', ''))
+        fl = f1.find_parent('div', class_='mm-float'); para = fl.find_next_sibling() if fl is not None else None
+        if fl is not None and para is not None and para.name == 'p':   # the two images side by side beside their paragraph, as the PDF (one set)
+            st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '168'})
+            tx = sp.new_tag('div', attrs={'class': 'mm-text'}); im = sp.new_tag('div', attrs={'class': 'mm-imgs'})
+            fl.insert_before(st); tx.append(para.extract())
+            for f in fl.find_all('figure'): im.append(f.extract())
+            fl.decompose(); st.append(tx); st.append(im)
     f134 = m.select_one('img[data-full="images/134.jpg"]'); f152 = m.select_one('img[data-full="images/152.jpg"]')
     if f134 is not None and f152 is not None:
         f152.find_parent('figure').insert_before(_BS(str(f134.find_parent('figure')), 'html.parser').figure); report.append(('settings', 'image136 (134) also in the Early Readers row, as Word', ''))

@@ -19,7 +19,7 @@ You have not seen this work being made. Check it as items 20-23 of the blur meth
 4. Whole images for missed faces: look at every one of the 165 images whole (the 121 result images and the 44 left off, from media/), enlarge any doubtful spot, and name any child's face with an eye showing that is not lettered. Backs of heads, ears or cheeks with no eye, faces hidden behind objects, printed pictures, and adults are not missed faces. Adults must be left; say where you checked them.
 
 ## Write
-- /home/claude/mm/blur2/m_eng/sheet-check.json: {"pass": true|false, "when": "<clock time from `date`>", "sheet_sha256": "<sha256 of eng-sheet.html>", "faces_blurred": N, "faces_left": N, "missed": [...], "failed": [...], "notes": "..."}. pass is true only if nothing failed and no face was missed.
+- /home/claude/mm/blur2/m_eng/sheet-check.json: {"pass": true|false, "when": "<clock time from `date`>", "sheet": "eng-sheet.html", "parts": {"counts and byte-identity": true|false, "item 21 measures": true|false, "item 22 by eye": true|false, "whole images for missed faces": true|false}, "time": "<clock time>", "summary": "<one line>", "sheet_sha256": "<sha256 of eng-sheet.html>", "faces_blurred": N, "faces_left": N, "missed": [...], "failed": [...], "notes": "..."}. pass is true only if nothing failed and no face was missed.
 - /home/claude/mm/blur2/m_eng/sheet-check-report.md: the report, in the shape of the example, with a "For the owner" section for anything she should know (numbered by the sheet's image numbers), a "Could not check" line, and the last line "PASS" or "FAIL: <what>".
 
 Rules: every time from `date`, never typed ahead; every figure from a file or a command you ran; say "image", never "photo"; plain words; no claims beyond what you looked at.
