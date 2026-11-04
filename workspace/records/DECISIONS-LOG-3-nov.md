@@ -138,3 +138,11 @@ Next review 21:3x (reminder set).
 
 ## 4 Nov 21:2x: round 1 sheet check v2 FAILED - The English Curriculum (claude/checks/english-curriculum-faces-round1-check-v2.md)
 The four faces from check v1 were confirmed covered. Check v2 found: image 141, the boy at the far right of the group at the back facing the camera - RetinaFace had found him (0.91) but my notes had ruled that face "a printed picture on the wall"; and 123-g ruled "not a face - a patch of wall" when it is a child in profile with the eye showing. Both looked at by me enlarged: the checker is right. Both rules withdrawn; 283 blurred, 48 left (41 by rule, 7 by her words). Run 6 stopped on a box I first wrote at the original's scale for 141 (fixed to the 1200x1600 working copy; every hand-added face now read back against its copy's size before a run). Run 8 sheet made; check v3 by a separate agent started.
+
+## 4 Nov 21:3x: hourly lessons review (20:3x to 21:3x), The English Curriculum
+Lessons file unchanged since read in full at 19:2x (last additions 66-72, 10:56). Not followed since 20:3x:
+- Lesson 31 (read back before trusting), twice: (1) the hand-added face for 141 was written at the original image's scale, not the 1200x1600 working copy - run 6 stopped; (2) the 123-g withdrawal was first written in the wrong place in write_faces_files.py (the "rules" branch, not "rf_reject"), and run 7 went ahead with 123-g still left - found only from my own before/after crop. Now: the read-back prints every hand-added face against its copy's size AND every by_rule entry withdrawn or kept against the list intended, before any run.
+- Lesson 4 (search the records before acting): I wrote a hand-added face for 141 without first checking whether a finder already had him; RetinaFace had (141-d), wrongly ruled a printed picture. The rule, not a missing face, was the fault.
+- Saved preference (preview link at the end of every reply naming the page): missed in the 21:2x draft; the message checker caught it and the sent reply carries it.
+- Held: every reply through the message checker since 20:3x; every finding of the separate checks looked at by me enlarged before changing anything; nothing else run beside the checks.
+Next review 22:3x (reminder set).
