@@ -1,0 +1,51 @@
+<title>Montessori Mentor Required Checks</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; rows grouped by topic, each row = rule, quoted source, how it is checked */
+:root{--bg:#F7F3EC;--panel:#FFFDF8;--fg:#2B2B2B;--muted:#6B6255;--line:#D9C9AB;--blue:#0432FF;--red:#C8102E;--have:#2E6B3A;--new:#9A4B00;--eye:#3B4E8C;
+  --serif:'EB Garamond',Georgia,'Times New Roman',serif;--sans:'Source Sans 3',system-ui,-apple-system,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1C1A17;--panel:#25221E;--fg:#ECE6DC;--muted:#B3A996;--line:#5A4F3D;--blue:#8EA2FF;--red:#FF7A85;--have:#7CC48A;--new:#F0A65A;--eye:#A9B8F0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1C1A17;--panel:#25221E;--fg:#ECE6DC;--muted:#B3A996;--line:#5A4F3D;--blue:#8EA2FF;--red:#FF7A85;--have:#7CC48A;--new:#F0A65A;--eye:#A9B8F0;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);font-size:18px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+main{max-width:860px;margin:0 auto;display:grid;gap:36px}
+h1{font-size:34px;font-weight:400;margin:0;text-wrap:balance}
+h2{font-size:22px;font-weight:600;color:var(--red);margin:0 0 4px;text-wrap:balance;display:flex;gap:10px;align-items:baseline}
+h2 .n{font-family:var(--sans);font-size:14px;color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums}
+.lead{color:var(--muted);margin:0;max-width:65ch}
+.sum{font-family:var(--sans);font-size:15px;display:flex;flex-wrap:wrap;gap:8px 18px;font-variant-numeric:tabular-nums}
+.sum b{font-weight:600}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:10px;z-index:2;display:flex;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.bar input{flex:1 1 220px;min-width:0;font:15px var(--sans);padding:8px 10px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:4px}
+.bar button{font:14px var(--sans);padding:7px 12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:4px;cursor:pointer}
+.bar button[aria-pressed="true"]{border-color:var(--fg);font-weight:600}
+.bar :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+section{display:grid;gap:12px}
+.row{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:6px;min-width:0}
+.top{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-family:var(--sans);font-size:13px;color:var(--muted)}
+.id{font-variant-numeric:tabular-nums;letter-spacing:.03em}
+.tag{padding:1px 8px;border-radius:10px;border:1px solid currentColor;font-weight:600}
+.tag.have{color:var(--have)}.tag.new{color:var(--new)}.tag.eye{color:var(--eye)}
+.item{margin:0;font-size:19px}
+blockquote{margin:0;padding-left:14px;border-left:2px solid var(--line);font-style:italic;color:var(--fg);overflow-wrap:anywhere}
+.src{margin:0;font-family:var(--sans);font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+</style>
+<main>
+<header style="display:grid;gap:12px">
+<h1>Required checks for every page</h1>
+<p class="lead">DRAFT for your reading. Every rule found in your preferences, the decisions logs, START-HERE, MASTER-DECISIONS, Lessons Learned, the check documents and the templates' notes, each with its source in your words or the lesson's. Nothing here takes effect until you agree to it. Rules later replaced are left out of this page and kept in the list as superseded.</p>
+<div class="sum"><span><b>{{N}}</b> current rules</span><span><b>{{HAVE}}</b> with a check that exists</span><span><b>{{NEW}}</b> needing a check written</span><span><b>{{EYE}}</b> judged by eye (an agent)</span><span><b>{{SUP}}</b> superseded, not shown</span><span><b>{{BLD}}</b> my own settings, for your yes or no (at the end)</span></div>
+</header>
+<div class="bar" role="search">
+<input id="q" type="search" placeholder="Find a rule (for example: columns, 40, beige)" aria-label="Find a rule">
+<button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="have" aria-pressed="false">Check exists</button><button type="button" data-f="new" aria-pressed="false">Check to write</button><button type="button" data-f="eye" aria-pressed="false">By eye</button>
+</div>
+{{BODY}}
+</main>
+<script>
+(function(){var q=document.getElementById('q'),f='all';
+function run(){var t=q.value.trim().toLowerCase();document.querySelectorAll('section').forEach(function(s){var n=0;s.querySelectorAll('.row').forEach(function(r){var ok=(f==='all'||r.querySelector('.tag').classList.contains(f))&&(!t||r.textContent.toLowerCase().indexOf(t)>-1);r.hidden=!ok;if(ok)n++});s.hidden=!n})}
+q.addEventListener('input',run);document.querySelectorAll('.bar button').forEach(function(b){b.addEventListener('click',function(){f=b.dataset.f;document.querySelectorAll('.bar button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});run()})})})();
+</script>
