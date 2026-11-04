@@ -468,11 +468,14 @@ def _post_tail(main, s, report, norm):
     # t4 separate review faults 1-3 (PDF pages 2, 3, 5: line under line, 23 px at 90 dpi)
     def _p(start):
         return next(x for x in main.find_all('p') if norm(x.get_text()).startswith(start))
-    for start in ('‘This list is as many', 'By Mario M. Montessori, Jnr', 'By E.M. Standing'):
-        _p(start)['data-gap'] = '25'; tog += 1
+    _p('‘This list is as many')['data-gap'] = '25'; tog += 1
+    # 4 Nov queued edits 1-2 (owner 07:06 "Thee are three different authors, so there needs to be seperation between them";
+    # "also, there needs to be a space above montessori"): each author with their books is an entry - 40 (3 Nov "Between entries: 40")
+    for start in ('By Mario M. Montessori, Jnr', 'By E.M. Standing'):
+        _p(start)['data-gap'] = '40'; tog += 1
     q = next(x for x in main.find_all('p') if norm(x.get_text()).endswith('the text will be provided for students.'))
     nx = q.find_next_sibling('p'); assert nx is not None and norm(nx.get_text()).startswith('By Dr Maria Montessori')
-    nx['data-gap'] = '25'; tog += 1
+    nx['data-gap'] = '40'; tog += 1
     k = _p('AI = Assistance to Infancy')
     assert tog == 8
     # 4 Nov (t8 separate review fault 1; owner 3 Nov 19:32 "Between entries: 40"): the two reading-list books after
@@ -483,6 +486,17 @@ def _post_tail(main, s, report, norm):
     assert nb == 2, nb
     report.append(('settings', 'reading-list books 40 apart (between entries, 4 Nov)', str(nb)))
     report.append(('settings', 'lines together in the PDF set 25 apart (spacing check, 4 Nov)', str(tog)))
+    # 4 Nov (owner 07:21 "the spacing above them needs to be slighty bigger so they are more clearlu sifferentiated"; her 07:22-07:23
+    # examples at 40; the preview of 07:24 (books 40 apart, years 52) - her 07:32 "Ok"): in the chronological list each year 52 below
+    # the text above it, and each later book inside a year 40 below the book above it
+    _ny = _nb = 0
+    for _h in main.select('div.res-entry > h3.material-name'):
+        if not re.fullmatch(r'\d{4}', _h.get_text().strip()): continue
+        _h['data-gap'] = '52'; _ny += 1
+        _its = [c for c in _h.parent.find_all(recursive=False) if 'res-item' in (c.get('class') or [])]
+        for _it in _its[1:]: _it['data-gap'] = '40'; _nb += 1
+    assert (_ny, _nb) == (18, 12), (_ny, _nb)
+    report.append(('settings', 'chronological list: years 52, books inside a year 40 (owner 4 Nov 07:21-07:32)', '%d/%d' % (_ny, _nb)))
 
 def _drop_covers_grid(main, report):
     """Owner 31 Oct 22:14: "delete that grid . don't use it on the page" - the Word table of 23 covers with their titles

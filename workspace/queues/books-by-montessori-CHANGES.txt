@@ -1,0 +1,12 @@
+8.1 Books by Montessori, rebuild t14 (4 Nov), against the live page (uploaded 2 Nov, zip d85b9572). Measured at 1440 px, letters to letters.
+1. The words, links, colours, images and order are the same as live (format check against live).
+2. Top image to the introduction: 66 (live 61.5); the introduction to "Key Principles Summarised": 66 (live 40) - template rule of 3 Nov, 66 under the top image and 66 from that element to the next.
+3. Dividers: 40 above and 40 below each of the 4 dividers (live 30, and 24 below the one above "So many books, so little time") - 3 Nov: dividers 40/40.
+4. "Bibliography": 40 below the text above it (live 51) - 3 Nov: every heading 40 below the text above it.
+5. The chronological list: each year 52 below the text above it (live 51 or 50.8, 17 places; 53.2 below "The following is a chronological list ...") - your 4 Nov 07:21 change, agreed 07:32 ("Ok") on the preview; 25 under each year (live 21, 18 places); 25 under "Montessori Nuggets" (live 21.3) - 3 Nov: "Between entries: 40" and "Lines of one entry: 25".
+6. Lines that sit together in your PDF are now 25 apart (live 39.2) - your 3 Nov rule "Lines of one entry: 25". They are: the introduction's two paragraphs; Writing / Reading / Arithmetic; "Have a very detailed list here." to "'This list is as many ...", and that paragraph to the AI / P / E key.
+7. Title to its description: 25 (live 25.7, 15 places); each book inside a year 40 below the book above it (12 places; live 40.8 in 6, 25 in 6) - your 4 Nov 07:21 change, agreed 07:32; "A Resource for the Global Montessori Community" to the MBO quotation 25 (live 25.7).
+8. The two reading-list books after "If you're looking to delve a little deeper ...": 40 above each (live 56.2) - 3 Nov: "Between entries: 40".
+9. In the reading list, "(1909)" and "(1936)" follow their titles after a space, as in your PDF (live set them apart in a column); a PDF badge on a title line of its own follows the title's last word, 24 after it, so no badge stands alone on a line - your 2 Nov 17:20 rule, now at every width where needed. The badges after "(1948)" in its running text stand about 4 px further out (a word space), as on live.
+10. The Resources menu: layout B, as in the menu zip sent on 3 Nov.
+11. The authors' groups stand apart: "... provided for students." to "By Dr Maria Montessori", "Understanding the Human Being." to "By Mario M. Montessori, Jnr", and "Education for Human Development" to "By E.M. Standing": 40 (live 39.2) - your 4 Nov 07:06 edits.

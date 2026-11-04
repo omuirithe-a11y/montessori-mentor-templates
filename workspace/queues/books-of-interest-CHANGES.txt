@@ -1,0 +1,13 @@
+8.2 Books of Interest, build 30 (4 Nov), against build 19 (the build uploaded). Measured at 1440 px, letters to letters.
+1. The words (apart from items 8, 10 and 12), colours, images and order are the same as build 19, and the links, apart from items 6 and 7 (the image files are exactly the same).
+2. Lines of one entry: 25 (build 19: 25.2 in 69 places) - 3 Nov: "Lines of one entry: 25 between every line".
+3. The line under an underlined heading line (Magazines, Videos, and four more): 25 (build 19: 25.7 in 6 places).
+4. The Resources menu: layout B, as in the menu zip sent on 3 Nov - Books by Montessori, Books of Interest, Picture Books and Websites are links (build 19 had the old menu, with plain-text entries).
+5. The divider under "Montessori and Your Child: A Primer for Parents, Terry Malloy" is gone; the row of images is 40 under that line - your 4 Nov 07:10 "remove this divider".
+6. The 7 book titles in the Desert Sky Montessori list are no longer links; they stay in italics - your 4 Nov 07:11 "remove all of these links".
+7. The 8 book titles in the Forest Bluff list are no longer links; they stay in italics; the Discussion Guide links and the two web addresses stay - your 4 Nov 07:13 "remove those links".
+8. "Here’s a different perspective, and a very different Reading List" ends without "…" - your 4 Nov 07:40 "Remove the ...".
+9. The line under "The Montessori World Educational Institute": 25 (build 19: 35.6) - your 4 Nov 07:40 "make the space under mwei 25".
+10. No quotation marks before "Reading Recommendations from the Trainers" or after the last "Rukmini Ramachandran, AMI 3-6 Trainer" - your 4 Nov 07:53 "remove the quotation marks."
+11. Under the last "Rukmini Ramachandran, AMI 3-6 Trainer", to "AMI limit their recommendations to books ...": 50 (build 19: 40) - your 4 Nov 07:54 "make it 50".
+12. Required and Recommended Reading: a short dash between the author and the title in all 18 lines (Montessori, Maria - From Childhood to Adolescence; Montessori, Mario Jr. - Education for Human Development) - your 4 Nov 07:56 "insert short dashes".

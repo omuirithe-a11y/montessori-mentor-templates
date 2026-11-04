@@ -208,7 +208,13 @@ for w in WIDTHS:
             if not ok: faults += 1
     # every gap of one kind the same size (within 1 px) - the template's "sameness"
     byk = collections.defaultdict(list)
+    # 4 Nov 2026 08:4x: a gap the owner ordered by name (SPACE_AGREED) is her size, not the template's - left out of the sameness groups
+    _AGK = set()
+    if os.environ.get('SPACE_AGREED'):
+        for _l in open(os.environ['SPACE_AGREED']):
+            if '->' in _l and not _l.startswith('#'): _AGK.add(tuple(int(t) for t in _l.partition('|')[0].split('->')))
     for x in rows:
+        if (x[1], x[2]) in _AGK: continue
         if x[0] == w and x[6] is not None and x[3] != 'image between' and not str(x[8]).startswith('columns'): (byk['divider and image row'] if x[3] == 'divider and image row' else byk[(x[3].split(' | ')[0] + ('' if not any(t_ in str(B_TAG.get((w, x[1]), '')) for t_ in ('STRONG', 'DIV.res-item')) else ' after ' + str(B_TAG.get((w, x[1]), '')))) if x[3].split(' | ')[0] in ('together', 'apart') else x[3].split(' | ')[0] + ' ' + str(B_TAG.get((w, x[1]), '')) + ' -> ' + str(B_TAG.get((w, x[2]), ''))]).append(x[6])
     for k, v in byk.items():
         if len(v) > 2 and max(v) - min(v) > 1.5:

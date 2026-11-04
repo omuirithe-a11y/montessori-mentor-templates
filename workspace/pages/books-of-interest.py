@@ -417,6 +417,28 @@ def POST_MAIN(main, s, report):
     # owner 3 Nov 20:51 "yes": the red MWEI heading stands 40 below the text above it, like the green headings (was 56)
     _mw = [h for h in main.find_all('h2') if 'World Educational Institute' in h.get_text()]
     assert len(_mw) == 1, ('MWEI heading', len(_mw)); _mw[0]['data-gap'] = '40'
+    # 4 Nov (owner 07:40 "make the space under mwei 25", her screenshot): the line under the MWEI heading 25 below it (was 35.6)
+    _mn = _mw[0].find_next(lambda t: t.name in ('p', 'div') and t.get_text(strip=True))
+    while _mn is not None and _mn.name == 'div' and _mn.find('p') is not None and not _mn.get_text(strip=True).startswith('MWEI'): _mn = _mn.find_next('p')
+    if _mn is not None and _mn.name == 'div': _mn = _mn.find('p')
+    assert _mn is not None and ' '.join(_mn.get_text().split()).startswith('MWEI was established'), ('line under MWEI', _mn and _mn.get_text()[:40])
+    _mn['data-gap'] = '25'; report.append(('settings', 'line under the MWEI heading 25 (owner 4 Nov 07:40)', ''))
+    # 4 Nov (owner 07:54 "what is the spacing under Rukmini Ramachandran, AMI 3-6 Trainer" - 40; "make it 50"): the paragraph after the
+    # trainers' list ("AMI limit their recommendations ...") 50 below the last trainer's name
+    _al = [x for x in main.find_all('p') if ' '.join(x.get_text().split()).startswith('AMI limit their recommendations')]
+    assert len(_al) == 1, len(_al); _al[0]['data-gap'] = '50'
+    report.append(('settings', 'AMI limit ... 50 below the trainers list (owner 4 Nov 07:54)', ''))
+    # 4 Nov (owner 07:56 "insert short dashes, e.g. Montessori, Maria - From Childhood to Adolescence", her screenshot of Required and
+    # Recommended Reading): a short dash between the author and the title in every line of the two lists
+    _nd = 0
+    for _p in main.find_all('p'):
+        _c = [c for c in _p.contents if not (isinstance(c, str) and not c.strip())]
+        if len(_c) == 2 and isinstance(_c[0], str) and getattr(_c[1], 'name', None) == 'em':
+            _a = ' '.join(str(_c[0]).split())
+            if _a in ('Montessori, Maria', 'Montessori, Mario Jr.,'):
+                _c[0].replace_with(_a.rstrip(',') + ' - '); _nd += 1
+    assert _nd == 18, ('author - title dashes', _nd)
+    report.append(('settings', 'short dash between author and title in Required / Recommended Reading (owner 4 Nov 07:56)', str(_nd)))
     # owner 3 Nov 19:53 "Green headings: no divider straight above a green heading" and her 19:58-20:01 screenshots: those dividers are
     # taken out of the page code (her 16 Oct rule: no invisible lines - delete them from the code); the template also drops any at load
     _rm = 0
@@ -427,6 +449,44 @@ def POST_MAIN(main, s, report):
         if _pv is not None and 'beige-rule' in (_pv.get('class') or []): _pv.decompose(); _rm += 1
     assert _rm == 4, ('dividers above green headings', _rm)
     report.append(('settings', 'dividers straight above a green heading removed from the code (owner 19:53-20:01)', str(_rm)))
+    # 4 Nov queued edit (owner 07:10 "remove this divider", her screenshot): the divider under "Montessori and Your Child: A Primer
+    # for Parents, Terry Malloy", above the image row - taken out of the code
+    _tm = [x for x in main.find_all('p') if ' '.join(x.get_text().split()) == 'Montessori and Your Child: A Primer for Parents, Terry Malloy']
+    _rd = 0
+    for _x in _tm:
+        _e = _x.parent if 'res-entry' in (_x.parent.get('class') or []) else _x
+        _nx = _e.find_next_sibling()
+        if _nx is not None and 'beige-rule' in (_nx.get('class') or []): _nx.decompose(); _rd += 1
+    assert _rd == 1, ('divider under Terry Malloy', _rd, len(_tm))
+    report.append(('settings', 'divider under Terry Malloy removed (owner 4 Nov 07:10)', str(_rd)))
+    # 4 Nov queued edit (owner 07:11 "remove all of these links", her screenshot): the 7 book titles in the Desert Sky Montessori list
+    # (The Self-Driven Child ... The Art of Happiness in a Troubled World) stay italic, without their links
+    _ds = [x for x in main.find_all('p') if ' '.join(x.get_text().split()).startswith('The following list comes from Desert Sky Montessori')]
+    assert len(_ds) == 1, ('Desert Sky line', len(_ds))
+    _e = _ds[0].parent if 'res-entry' in (_ds[0].parent.get('class') or []) else _ds[0]
+    _ul = 0; _sib = _e.find_next_sibling()
+    while _sib is not None and 'res-entry' in (_sib.get('class') or []) and _sib.find('a') is not None and _sib.find('a').find_parent('p') is not None and _ul < 7:
+        for _a in _sib.find_all('a'): _a.unwrap(); _ul += 1
+        _sib = _sib.find_next_sibling()
+    assert _ul == 7, ('Desert Sky links removed', _ul)
+    report.append(('settings', 'Desert Sky book links removed, titles kept italic (owner 4 Nov 07:11)', str(_ul)))
+    # 4 Nov queued edit (owner 07:13 "remove those links", her 5 screenshots): the 8 linked book titles of the Forest Bluff list, from
+    # "Montessori from the Start" to "The Montessori Toddler" - the title links come off, the titles stay italic; the Discussion Guide
+    # links and the web addresses stay
+    _fb = [x for x in main.find_all('p') if ' '.join(x.get_text().split()).startswith('“Montessori from the Start')]
+    assert len(_fb) == 1, ('Forest Bluff first line', len(_fb))
+    _e = _fb[0].parent if 'res-entry' in (_fb[0].parent.get('class') or []) else _fb[0]
+    _run = [_e]
+    for _sib in _e.find_next_siblings():
+        _run.append(_sib)
+        if 'Simone Davies.”' in _sib.get_text(): break
+    _ut = []
+    for _x in _run:
+        for _a in _x.find_all('a'):
+            _k = [c for c in _a.contents if not (isinstance(c, str) and not c.strip())]
+            if len(_k) == 1 and getattr(_k[0], 'name', None) == 'em': _ut.append(' '.join(_a.get_text().split())); _a.unwrap()
+    assert len(_ut) == 8, ('Forest Bluff title links removed', _ut)
+    report.append(('settings', 'Forest Bluff title links removed, titles kept italic (owner 4 Nov 07:13)', str(len(_ut))))
     for a in main.find_all('a'):
         if re.sub(r'\s+', ' ', a.get_text()).strip() == 'PDF' and 'pdf' not in (a.get('class') or []): a['class'] = (a.get('class') or []) + ['pdf']
     from bs4 import NavigableString
@@ -641,3 +701,9 @@ def _src_html(pcs):
         if col == '000000': h = '<span class="mm-ink">%s</span>' % h
         html.append((' ' if lead else '') + h + (' ' if tail else '')); i = j
     return re.sub(r' {2,}', ' ', ''.join(html)).strip()
+
+# 4 Nov (owner 07:40 "Here’s a different perspective, and a very different Reading List… Remove the ..."): the ellipsis goes
+TEXT_EDITS = [('and a very different Reading List…', 'and a very different Reading List'),
+              # 4 Nov (owner 07:53 "remove the quotation marks.", her screenshots of the opening and closing marks of the trainers' list)
+              ('“Reading Recommendations from the Trainers', 'Reading Recommendations from the Trainers'),
+              ('Rukmini Ramachandran, AMI 3-6 Trainer”', 'Rukmini Ramachandran, AMI 3-6 Trainer')]

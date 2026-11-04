@@ -319,6 +319,48 @@ def POST_MAIN(main, s, report):
     assert len(_ols) == 1, len(_ols)
     for _li in _ols[0].find_all('li', recursive=False): _li['data-gap'] = '25'
     report.append(('settings', 'numbered list lines of one entry 25 apart (4 Nov)', str(len(_ols[0].find_all('li', recursive=False)))))
+    # 4 Nov queued edit (owner 07:15 "adjust the spacing so the three categories are more distinct", her screenshot): in "Forest Bluff
+    # also have lists for:" the space between one category's PDF badge and the next category is 48 (the site's tab), not 24 - so the
+    # badge stays 24 after its own word and each category stands apart
+    _fl = [p for p in main.find_all('p') if ' '.join(p.get_text().split()).startswith('Forest Bluff also have lists for:')]
+    assert len(_fl) == 1, len(_fl)
+    _gs = [s for s in _fl[0].find_all('span', class_='mm-lsp') if s.find_previous_sibling('span', class_='mm-keep') is not None]
+    assert len(_gs) == 2, len(_gs)
+    for _s in _gs:   # 4 Nov 09:0x (t12 review faults 1 and 3): no inline width (the code check refuses it), and the space must not start a line -
+        # two of the template's 24 spacers, moved inside the category's own keep-together span after its badge, so a break falls after them
+        _k = _s.find_previous_sibling('span', class_='mm-keep'); _s.extract(); _k.append(_s)
+        _k.append(BeautifulSoup('<span class="mm-lsp"> </span>', 'html.parser').span)
+    report.append(('settings', 'Forest Bluff lists: 48 between the categories (owner 4 Nov 07:15)', str(len(_gs))))
+    # 4 Nov (owner 07:43 "Picture Books - 40 above these three sub-headings", her screenshot): Learning to Read, Reading to Learn and
+    # Reading for Fun each 40 below the text above
+    _hl = [p for p in main.select('p.mm-hanglab') if ' '.join(p.get_text().split()).startswith(('Learning to Read', 'Reading to Learn', 'Reading for Fun'))]
+    assert len(_hl) == 3, len(_hl)
+    for _p in _hl: _p['data-gap'] = '40'
+    report.append(('settings', 'Learning to Read / Reading to Learn / Reading for Fun 40 above (owner 4 Nov 07:43)', '3'))
+    # 4 Nov (owner 07:44 "40 above", her screenshot of the "Primary PDF" line; 07:45 "40 above", her screenshot of the four lines under
+    # "A Selection"): each of these lines 40 below the line above it
+    _t40 = ['Primary', '100 Brilliant Non-Fiction Books for Children and Young People',
+            'It’s Never too Early to Start - a selection of contemporary books for the under 5’s', 'Wordless Picture Books 1', 'Wordless Picture Books 2']
+    _n40 = 0
+    for _it in main.select('div.res-item'):
+        _ti = _it.find('span', class_='res-title')
+        if _ti is not None and ' '.join(_ti.get_text().split()).replace('–', '-') in _t40: _it['data-gap'] = '40'; _n40 += 1
+        elif _ti is not None and ' '.join(_ti.get_text().split()).startswith(('Primary', '100 Brilliant', 'It’s Never too Early', 'Wordless Picture Books')): report.append(('settings', 'WARNING near-miss title', _ti.get_text()[:60]))
+    assert _n40 == 5, ('Primary / A Selection lines', _n40, [' '.join(x.get_text().split())[:50] for x in main.find_all(string=lambda t: t and ('Wordless' in t or 'Brilliant' in t or 'Never too' in t or t.strip() == 'Primary'))])
+    report.append(('settings', 'Primary and the four A Selection lines 40 above (owner 4 Nov 07:44, 07:45)', str(_n40)))
+    # 4 Nov (owner 07:46 "from this section and to the end, make it 50 above all those red", her screenshot from "Margaret River Primary
+    # School"): every red name line from there to the end of the page 50 below the text above it; one straight under a divider or a row
+    # of images keeps the divider's / images' 40 (dividers 40/40, 3 Nov)
+    _reds = main.select('div.res-entry > h3.material-name')
+    _st = next(i for i, h in enumerate(_reds) if ' '.join(h.get_text().split()).startswith('Margaret River Primary School'))
+    _n50 = _k40 = 0
+    for _h in _reds[_st:]:
+        # 4 Nov 09:0x (t12 review fault 2): a red name inside an entry (London Museum, after The Victorian Web's image and text) counts too
+        _pv = _h.parent.find_previous_sibling() if _h.parent.find(True) is _h else _h.find_previous_sibling()
+        if _pv is not None and _pv.name == 'h2': continue
+        if _pv is not None and ('beige-rule' in (_pv.get('class') or []) or _pv.select_one('.mm-row') is not None or 'mm-row' in (_pv.get('class') or [])): _k40 += 1; continue
+        _h['data-gap'] = '50'; _n50 += 1
+    report.append(('settings', 'red name lines 50 above from Margaret River Primary School to the end (owner 4 Nov 07:46); under a divider or images kept 40', '%d / %d' % (_n50, _k40)))
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
 

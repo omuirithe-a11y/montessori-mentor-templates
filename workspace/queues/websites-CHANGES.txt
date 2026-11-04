@@ -1,0 +1,10 @@
+8.4 Websites, rebuild t10 (4 Nov), against the live page (uploaded 2 Nov, zip 82b2d55a). Measured at 1440 px, letters to letters.
+1. The words, links, colours, image and order are the same as live, except: "Professional Development: " is taken out of the four green headings and their four Table of contents entries, which now read Teacher Training, Montessori Albums, Mentoring and Tools for Teachers (live: "Professional Development: Teacher Training", "Professional Development: Montessori Albums", "Professional Development: Mentoring", "Professional Development: Tools for Teachers") - owner 4 Nov 07:17 and 07:19. The contents links still go to the same headings. Format check against live: those 4 headings, at 1440 and at 390, and nothing else.
+2. Top image to "Table of contents": 66 (live 35); the contents box to the first heading: 66 (live 92) - template rule of 3 Nov, 66 under the top image and 66 from that element to the next.
+3. Above each red organisation name line that follows text: 50, in 37 places (live 50.8 in 35, 51 in 1, 53.2 in 1) - owner 4 Nov 07:48. A red name straight under a green heading keeps the heading's gap: 46, as live.
+   Above each green heading after the first: 60, in 6 places (live 51 in all 6) - owner 4 Nov 07:51. The first heading keeps 66 under the contents box (item 2).
+   The one other gap between entries, the Center for Montessori Studies text to "If you need a little more guidance …": 40 (live 51) - 3 Nov: "Between entries: 40".
+   25 from each red name line to the line under it (live 21 or 21.3 in 42 places) - 3 Nov: "Lines of one entry: 25".
+4. Paragraphs of one entry, and each title line to the text under it: 25 (live 32 in 3 places, 25.7 in 4) - 3 Nov: "Lines of one entry: 25 between every line" (replaced the 32).
+5. PDF badges: no badge squeezed or alone on a line at any width; the Arlington badge 24 after "AMS", as live; the Montessori Public Works badge in running text about 4 px further out (a word space), as on live.
+6. The Resources menu: layout B, as in the menu zip sent on 3 Nov.

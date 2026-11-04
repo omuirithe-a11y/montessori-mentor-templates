@@ -1,0 +1,18 @@
+8.3 Picture Books, rebuild t13 (4 Nov), against the live page (uploaded 2 Nov, zip 4ae2e0a8). Measured at 1440 px, letters to letters.
+1. The words, links, colours, images and order are the same as live (format check against live).
+2. Top image to the introduction: 66 (live 61.5); the introduction to "Library of Congress": 66 (live 53.2) - template rule of 3 Nov, 66 under the top image and 66 from that element to the next.
+3. Above every red name line from "Margaret River Primary School" to the end of the page: 50, in 24 places, London Museum included (live 51 or 50.8; 53.2 above The Victorian Web) - your 4 Nov 07:46 edit. The red name lines straight under a divider, Margaret River Primary School and NRICH, keep 40 (see 6).
+4. Other gaps between entries, and between an entry and a green heading below it: 40 (live 51) - 3 Nov: "Between entries: 40" and "every heading stands 40 below the text above it". The places: "Reading for Fun" to "They also have a selection...", "101 Great Picture Books for Preschoolers" to Hornbooks, and above "Far right, from the Library of Congress".
+5. Lines of one entry: 25 - 3 Nov: "Lines of one entry: 25 between every line". The places:
+   - under each red name line (live 21 or 21.3, 28 places);
+   - under "Far left / Far right, from the ..." (live 21);
+   - paragraphs of one entry (live 32, 3 places);
+   - the numbered list under "So we are looking for these 6 things:" (live 37.2 below the sentence, 22 between its lines);
+   - title to description (live 25.7).
+6. Dividers: 40 above and 40 below (live 30 or 31), images included - 3 Nov: dividers 40/40.
+7. An image straight under text: 40 below it (live 32.2) - 3 Nov: images straight under text 40.
+8. 40 above Learning to Read, Reading to Learn and Reading for Fun (live 39.2) - your 4 Nov 07:43 edit; 40 above Forest Bluff's "Primary PDF" (live 40.8) and above each of the four lines under "A Selection" (live 21 above the first, 25 between the others) - your 4 Nov 07:44 and 07:45 edits.
+9. "Forest Bluff also have lists for:": 48 (the site's tab) from each PDF badge to the next category (live 24) - your 4 Nov 07:15 edit. "for:" to "Lower Elementary" stays 24, as live.
+10. PDF badges never stand alone on a line or squeezed: where the A Selection column does not fit beside its longest title, each badge follows its title's last word, 24 after it (on live, at some narrower widths, the badges dropped onto lines of their own and one was squeezed); The Times Educational Supplement and Children's Literature Gems keep their badge after their last word - your 2 Nov 17:20 rule, now at every width where needed.
+11. The Resources menu: layout B, as in the menu zip sent on 3 Nov.
+13. "Forest Bluff also have lists for:": the space after each PDF badge stays on the same line as its category, so no category is pushed in from the left; a category therefore moves to the next line a little sooner as the window narrows - your 4 Nov 09:51 "Yes".

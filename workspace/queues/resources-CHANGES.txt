@@ -1,0 +1,6 @@
+8.0 Resources, rebuild t11 (4 Nov), against the live page (uploaded 2 Nov, zip 32553971). Measured at 1440 px, letters to letters.
+1. The words, links, colours and order are the same as live (checked: the page's text is identical; format check against live: nothing changed that a reader sees).
+2. Top image to the introduction: 66 (live 60.5) - template rule of 3 Nov: "66 from the top image to the first element below it".
+3. The introduction to the heading "Books by Maria Montessori": 66 (live 40) - template rule of 3 Nov: "and 66 from that element to the next element".
+4. "Books of Interest", "Picture Books" and "Websites": 50 below the text above (live 40) - your 4 Nov 07:33 "above these three = 50". Every other gap is as live.
+5. The Resources menu: layout B (Books by Montessori and Books of Interest in column 1, Picture Books and Websites in column 2), as in the menu zip sent 3 Nov.

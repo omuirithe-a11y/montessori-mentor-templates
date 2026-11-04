@@ -1,0 +1,4 @@
+# 8.4 Websites - queued edits (owner 4 Nov 07:05 "Queue the followig edits")
+
+1. 4 Nov 07:17, word for word: "Remove the words 'Professional Development'" - with her screenshot of the Table of contents. Written into pages/websites.py (PAGE_CODE_REPLACE): the four contents entries read Teacher Training, Montessori Albums, Mentoring, Tools for Teachers; the headings on the page are unchanged (tested on t9's code: 4 replaced). Not built; waiting for "go".
+   Changed 4 Nov 07:19 (her "yes they should" to "Tell me if the headings should change too"): the four headings on the page lose "Professional Development: " as well (ids kept). Written into POST_MAIN in pages/websites.py; the contents box is built from the headings, so it follows; the PAGE_CODE_REPLACE taken out (tested on t9's code: 4 headings changed).

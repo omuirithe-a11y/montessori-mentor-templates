@@ -1,0 +1,4 @@
+# 8.1 Books by Montessori - queued edits (owner 4 Nov 07:05 "Queue the followig edits")
+
+1. 4 Nov 07:06, word for word: "Thee are three different authors, so there needs to be seperation between them" - with her screenshot (queue-0706-authors.png): By Silvana Quattrocchi Montanaro / Understanding the Human Being. / By Mario M. Montessori, Jnr / Education for Human Development / By E.M. Standing / Maria Montessori: Her Life and Work. Now all 25 apart (t13). The three author groups (author line with its book) to stand apart. Not built; waiting for "go".
+2. 4 Nov 07:06, word for word: "also, there needs to be a space above montessori" - with her screenshot (queue-0706-montessori.png): By Dr Maria Montessori / The Secret of Childhood / The Discovery of the Child / The Absorbent Mind. A gap above "By Dr Maria Montessori" (now 25 from "... provided for students." in t13). Not built; waiting for "go".
