@@ -9,7 +9,7 @@ All five passed tools/v8 send gate (GATE PASSED) and the upload zips were sent t
 | 8.0 Resources | build-res/resources/t11 | send/resources-UPLOAD.zip (84fb260e) | claude.ai/artifact/QJnYsWR7ox6FqVMYFdRVBi |
 | 8.1 Books by Montessori | build-res/books-by-montessori/t16 | send/books-by-montessori-UPLOAD.zip (b5bebc3f) | claude.ai/artifact/GNBaJgb5YWRqoXnRzPKn9d |
 | 8.2 Books of Interest | build-82/b31 | send/books-of-interest-UPLOAD.zip (2d374994) | claude.ai/artifact/B2YkhEKnZi2BbhQSm48wTw |
-| 8.3 Picture Books | build-res/picture-books/t14 | send/picture-books-UPLOAD.zip (02c701dd) | claude.ai/artifact/4TWT4V2ysNf4yVbhz3A18Z |
+| 8.3 Picture Books | build-res/picture-books/t15 (t14 02c701dd is live) | send/picture-books-UPLOAD.zip (004eebd8, sent 14:2x, not yet uploaded) | claude.ai/artifact/4TWT4V2ysNf4yVbhz3A18Z |
 | 8.4 Websites | build-res/websites/t10 | send/websites-UPLOAD.zip (33a1b368) | claude.ai/artifact/2nHfsR2g344BPcRvfykZPP |
 
 Each build folder holds CHANGES.txt (the change list she confirmed), REVIEW.md (separate review), checks/, gate.txt, and EDIT-QUEUE.md one level up (her words).
@@ -26,7 +26,7 @@ Each build folder holds CHANGES.txt (the change list she confirmed), REVIEW.md (
 0. 13:2x check: all five live Resources pages are byte-identical to the five zips in the table (she has uploaded them). The other 37 live pages still have the OLD Resources menu (3 Nov 42-page menu zip never uploaded; that zip also has "Froëbel" on 27 pages, so do not use it). Template menus have 9 entries as plain text that are links live (Essential Elements Resources, The Role of The Adult, The Role of The Adult Resources, The Role of the Assistant, Staff, School Handbook, Classroom Management, Beginning of the year for Teachers, Observations for Teachers); Essay and Resources templates disagree on The Role of The Adult. Template change needs her words.
 1. After she uploads: check each live page against its upload zip (index.html byte-identical, images unchanged, menu layout B).
 2. Template rules (owner 11:15 and 11:16, "Yes change the template now and in GitHub"): all five of her 4 Nov spacing edits are now Resources template rules - years 52 / books in a year 40; red name lines 50; section headings 60; headings that link to a page 50. Template f14174ee (GitHub 6e01790, fingerprints 869c6a9). The matching page settings were removed.
-3. Rebuilt on f14174ee, not yet full-checked or sent: 8.0 t12, 8.1 t16, 8.2 b31, 8.3 t14, 8.4 t11. Against the zips sent today, at 1440: 8.0 and 8.4 identical; 8.1, 8.2, 8.3 differ only in green section headings, now 60 (8.1 Bibliography; 8.2 Books on Teaching, Book Lists; 8.3 Hornbooks). Code check ALL CHECKS OK on all five. The zips she has (old template) are still valid; if she wants the section headings at 60 on those three pages, they need the full checks, review and gate, then new zips.
+3. (DONE 13:0x - superseded: all three re-sent, see the table.) Rebuilt on f14174ee: 8.0 t12, 8.1 t16, 8.2 b31, 8.3 t14, 8.4 t11. Against the zips sent today, at 1440: 8.0 and 8.4 identical; 8.1, 8.2, 8.3 differ only in green section headings, now 60 (8.1 Bibliography; 8.2 Books on Teaching, Book Lists; 8.3 Hornbooks). Code check ALL CHECKS OK on all five. The zips she has (old template) are still valid; if she wants the section headings at 60 on those three pages, they need the full checks, review and gate, then new zips.
 4. Hourly lessons review reminders are set by send_later in this chat only; a new chat sets its own.
 
 ## Changed tools
