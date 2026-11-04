@@ -201,6 +201,13 @@ def SOUP_FIX(sp, report):
                 h = '<p><span class="mm-t">␉</span>%s<span class="mm-t">%s</span>%s</p>' % (lab_h, '␉' * ntab, val)
             replace(ln, h)
         report.append(('settings', 'Symbol Box list as Word (indent, one value column)', kind))
+
+    # a side image level with the first line of text, never the label above it (owner 20 Oct): image 003 moved after the bold label "Storytelling and book readings"
+    im3 = m.select_one('img[data-full="images/003.jpg"]')
+    fl3 = im3.find_parent('div', class_='mm-float') if im3 is not None else None
+    nx3 = fl3.find_next_sibling() if fl3 is not None else None
+    if nx3 is not None and 'micro-label' in (nx3.get('class') or []) and _t(nx3).startswith('Storytelling'):
+        nx3.insert_after(fl3.extract()); report.append(('settings', 'image 003 level with the first line of text, after its label', ''))
     # Word's trailing tabs at the end of a list line ("Conversation<tab>") made those lines a different kind of paragraph: dropped
     k = 0
     for t_ in m.select('span.mm-t'):
