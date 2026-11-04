@@ -15,8 +15,8 @@ Each build folder holds CHANGES.txt (the change list she confirmed), REVIEW.md (
 
 ## Next
 1. After she uploads: check each live page against its upload zip (index.html byte-identical, images unchanged, menu layout B).
-2. Open question to her (10:5x): which 4 Nov edits become Resources template rules for every page - years 52 / books in a year 40 (her 07:21 "applies to all such elements"), 50 above red names, 60 above section headings. Until she answers, they live only in the page settings (pages/*.py).
-3. Template: Resources Code Template c6e5bee0 (GitHub 245897a). Not changed on 4 Nov after 04:4x.
+2. Open questions to her, one at a time: should these 4 Nov page edits become Resources template rules - 50 above red name lines (Picture Books 07:46, Websites 07:48), 60 above section headings (Websites 07:51), 50 above the headings on Resources (07:33)? Until she answers, they live only in the page settings (pages/*.py).
+3. Template: Resources Code Template ea36d904 (GitHub 0c56930), 4 Nov 11:15 - years 52 / books in a year 40 (owner "Yes"). The zips sent today were built on c6e5bee0 (8.1 t14 had the same gaps as a page setting); each page takes ea36d904 at its next rebuild.
 4. Hourly lessons review reminders are set by send_later in this chat only; a new chat sets its own.
 
 ## Changed tools
@@ -27,3 +27,4 @@ Each build folder holds CHANGES.txt (the change list she confirmed), REVIEW.md (
 - Decisions: records/DECISIONS-LOG-3-nov.md (4 Nov entries at the end) -> Project claude/DECISIONS-LOG-3-nov.md.
 - Lessons 66-72: Project claude/LESSONS-LEARNED-27-29-oct.md.
 - Message checker brief: tools/briefs/MESSAGE-CHECK.md.
+- GitHub: page settings, spacecheck, queues, change lists and these records are in commit 15e8d53 (workspace/).
