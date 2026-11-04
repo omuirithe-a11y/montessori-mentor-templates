@@ -110,3 +110,4 @@ The owner's decisions on 3 Nov, one line each, her words and the time (Asia/Shan
 - 4 Nov 15:30: "Build it using the essai template" - The English Curriculum is built on the Essay Code Template.
 - 4 Nov 17:52: "Uploaded" - Drive 3.5.0 The English Curriculum.docx (396,146,891 bytes, sha256 183a9075) and .pdf (63,680,487 bytes, sha256 f204969d), both uploaded 17:50, downloaded 17:52 to /home/claude/eng35/src. 169 images, 23 PDF pages.
 - 4 Nov 18:08: "yes" - to: "may I make a preview build from the round 1 blurred images, with no upload zip, so the checks can run while the faces rounds go on (as you agreed for 8.2 on 3 Nov)?" - agreed for The English Curriculum (her 18:08 "ok" to four questions together was not taken as an answer; asked again one at a time).
+- 4 Nov 18:09: "The English Curriculum" - the page title and hero title (the Word file's title line is "The English Language Curriculum"; the menu says "The English Curriculum").
