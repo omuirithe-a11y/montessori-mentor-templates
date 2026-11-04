@@ -337,6 +337,13 @@ def main():
         row.replace_with(fl)
         report.append(('photo', 'beside its text, as the PDF', ', '.join(f_.find('img').get('data-name', '') for f_ in figs_)))
     for ps_ in main_el.select('div.pdf-set'):
+        if a.template == 'essay':   # 4 Nov 2026 (3.5.0 review b1, faults 29-30): on the Essay template a set of images beside text is the template's own set (mm-set mm-col, styled in the template; as the live Culture page's sets)
+            ps_['class'] = ['mm-set', 'mm-col']; ps_.attrs.pop('data-pair', None)
+            for d_ in ps_.find_all('div', recursive=False):
+                if 'ps-text' in (d_.get('class') or []): d_['class'] = ['mm-text']
+                elif 'ps-imgs' in (d_.get('class') or []): d_['class'] = ['mm-imgs']
+            report.append(('photo', 'a set of images beside text, as the template\'s image set (mm-set mm-col)', ', '.join(i_.get('data-name', '') for i_ in ps_.select('img'))))
+            continue
         report.append(('photo', 'WARNING: a set of photos beside text (no template style yet) - check the page', ', '.join(i_.get('data-name', '') for i_ in ps_.select('img'))))
     for row in main_el.select('div.photo-row'):
         row.name = 'div'; row['class'] = ['mm-row']; row['data-above'] = '40'; row['data-level'] = '1'
@@ -1223,6 +1230,41 @@ def main():
             if _st: _e['style'] = _st
             else: del _e['style']
             _kc += 1
+    if a.template == 'essay':   # 4 Nov 2026 (3.5.0, the first Essay page with no live version; review b1 faults 16-23 and code check section 3):
+        # the build's Resources-style marks become the Essay template's own: Word colours as the template's colour classes, no inline colours,
+        # no classes the template never reads; a first-line indent of 48 px as the template's own tab stop (span.mm-t, every 48 px)
+        if callable(S.get('SOUP_FIX')): S['SOUP_FIX'](_sp, report)   # 4 Nov 2026 (3.5.0): page-specific fixes written in the page settings as a function of the page code
+        _hc = {'0432FF': '0432FF', '0000FF': '0432FF', '0061F2': '0432FF', 'EE0000': 'EE0000', 'FF0000': 'EE0000'}
+        _ink = {'0A1B27', '222222', '000000'}
+        _ec = 0
+        for _e in _sp.find_all(True):
+            _st = _e.get('style') or ''
+            _m = re.search(r'(?:^|;)\s*color\s*:\s*#([0-9A-Fa-f]{6})', _st)
+            if _m:
+                _c = _m.group(1).upper(); _rest = ';'.join(x for x in _st.split(';') if x.strip() and not re.match(r'\s*color\s*:', x))
+                if _c in _hc or _c in _ink:
+                    if _rest: _e['style'] = _rest
+                    else: del _e['style']
+                    if _c in _hc: _e['class'] = [x for x in (_e.get('class') or []) if x != 'mm-wcol'] + ['mm-hc-' + _hc[_c]]
+                    elif 'mm-wcol' in (_e.get('class') or []): _e['class'] = [x for x in _e['class'] if x != 'mm-wcol']
+                    if not _e.get('class'): _e.attrs.pop('class', None)
+                    _ec += 1
+            if 'mm-blue' in (_e.get('class') or []): _e['class'] = [x for x in _e['class'] if x != 'mm-blue'] + ['mm-hc-0432FF']; _ec += 1
+            for _cl in ('mm-form', 'mm-wordline', 'mm-ul'):
+                if _cl in (_e.get('class') or []):
+                    _e['class'] = [x for x in _e['class'] if x != _cl]; _ec += 1
+                    if not _e['class']: del _e['class']
+            if _e.has_attr('data-word-colour'):
+                _wc = _e['data-word-colour'].upper(); del _e['data-word-colour']; _ec += 1
+                if _wc in _hc: _e['class'] = (_e.get('class') or []) + ['mm-hc-' + _hc[_wc]]
+            if _e.name == 'span' and 'mm-wordrun' in (_e.get('class') or []) and re.search(r'font-weight\s*:\s*400', _e.get('style') or '') and _e.find_parent(['strong', 'b']) is None:
+                _e.unwrap(); _ec += 1; continue   # Word's plain run inside a label the template does not make bold: nothing to undo
+            if _e.name == 'p' and re.search(r'text-indent\s*:\s*48(?:\.0)?px', _e.get('style') or ''):
+                _st2 = ';'.join(x for x in _e['style'].split(';') if x.strip() and not re.match(r'\s*text-indent\s*:', x))
+                if _st2: _e['style'] = _st2
+                else: del _e['style']
+                _tb = _sp.new_tag('span', attrs={'class': 'mm-t'}); _tb.string = '\u2409'; _e.insert(0, _tb); _ec += 1
+        report.append(('code', "Essay template: the build's colour and label marks as the template's own (colour classes, tab stop)", '%d places' % _ec))
     content = str(_sp); report.append(('code', "the build's own labels the template never reads left out", '%d places' % _kc))
     # 5 template
     t = open(TEMPLATES[a.template], encoding='utf-8').read()
