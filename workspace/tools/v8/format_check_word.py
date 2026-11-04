@@ -35,7 +35,7 @@ D = docx.Document(DOCX); ST = {s.style_id: s for s in D.styles}
 def _val(rpr, key):
     x = rpr.find(qn(key)) if rpr is not None else None
     if x is None: return None
-    if key == 'w:u': return x.get(qn('w:val')) or 'single'
+    if key == 'w:u': return x.get(qn('w:val')) or 'none'   # 4 Nov 2026: a <w:u> with no w:val (only w:color) is not an underline - Word and its PDF show none (The English Curriculum, 224 such runs); was 'single'
     v = x.get(qn('w:val')); return v if v is not None else 'true'
 def _style_chain(sid):   # character style, then the styles it is based on
     out = []

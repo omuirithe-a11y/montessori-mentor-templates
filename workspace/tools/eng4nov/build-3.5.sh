@@ -1,0 +1,8 @@
+# The English Curriculum (3.5.0), 4 Nov 2026: one command makes build N, its check zip, then every first-build check (screenshots first).
+# usage: build-3.5.sh <build number> [preview|final]   preview = --faces-preview from the round 1 blurred images (owner 18:08 "yes"); final = faces/photos-final
+B=${1:?usage: build-3.5.sh <build number> [preview|final]}; M=${2:-preview}; cd /home/claude/mm; O=build-35/b$B; mkdir -p build-35
+if [ "$M" = preview ]; then PH="--photos /home/claude/eng35/faces-preview/photos --faces-preview pages/the-english-curriculum-faces-preview.json"; else PH="--photos build-35/faces/photos-final"; fi
+python3 tools/build_page.py --docx "/home/claude/eng35/src/3.5.0 The English Curriculum.docx" --pdf "/home/claude/eng35/src/3.5.0 The English Curriculum.pdf" --template essay --title "The English Curriculum" --folder the-english-curriculum --menu-from /home/claude/eng35/live/picture-books/index.html --settings pages/the-english-curriculum.py $PH --hero /home/claude/eng35/src/hero/english-hero-original.jpg --section-href /the-montessori-curriculum/ --out $O > build-35/b$B.log 2>&1 || { tail -5 build-35/b$B.log; exit 1; }
+(cd $O/hostinger && rm -f ../the-english-curriculum-b$B-CHECK-ONLY.zip && zip -qr ../the-english-curriculum-b$B-CHECK-ONLY.zip the-english-curriculum)
+if [ -s $O/the-english-curriculum.zip ]; then mkdir -p $O/gate; cp $O/the-english-curriculum.zip $O/gate/the-english-curriculum.zip; cp $O/gate/the-english-curriculum.zip $O/the-english-curriculum-b$B-CHECK-ONLY.zip; echo "BUILT b$B (checks on the upload zip)"; bash tools/eng4nov/all-nolive-3.5.sh $B $O/gate/the-english-curriculum.zip
+else echo "BUILT b$B"; tail -2 build-35/b$B.log; bash tools/eng4nov/all-nolive-3.5.sh $B; fi
