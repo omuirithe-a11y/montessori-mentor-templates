@@ -8,7 +8,7 @@ You have not seen this work being made. Check it as items 20-23 of the blur meth
 - check-measure.json: the measurements already run (counts, byte-identity of every embedded image, changed share inside each blurred area, feather reach, changed pixels beyond reach per image, left faces changed). Read its "fails" and "reports" lists and judge each one at full size - a "fail" there is not a fail of the sheet until you have looked.
 - images/<stem>.jpg: the full result images. The originals: /home/claude/mm/blur2/m_eng/media/ (the Word media).
 - masks/<tag>.png: each blurred area (channel 0 = 50% line, channel 1 = 10% line). crops/, whole-sheet/: the files embedded in the sheet.
-- The rules for which faces are left: faces/by_rule.json (44 faces: adults, printed/historical images, objects, no eye showing), faces/keep_unblurred.json (the owner's no-blur images: every face on them is left by her words), sets/eng.json "undecided" (10 faces blurred and named at the top of the sheet for her to rule on), faces/extra_faces.json (7 hand-added), faces/adjust_faces.json.
+- The rules for which faces are left: faces/by_rule.json (43 faces: adults, printed/historical images, objects, no eye showing), faces/keep_unblurred.json (the owner's no-blur images: every face on them is left by her words), sets/eng.json "undecided" (11 faces blurred and named at the top of the sheet for her to rule on), faces/extra_faces.json (10 hand-added), faces/adjust_faces.json.
 - The maker's by-eye notes, for reference only after you have formed your own view: /home/claude/eng35/review/notes.jsonl.
 - An example of the report wanted, from another page: /home/claude/eng35/example-check.md.
 
@@ -23,3 +23,6 @@ You have not seen this work being made. Check it as items 20-23 of the blur meth
 - /home/claude/mm/blur2/m_eng/sheet-check-report.md: the report, in the shape of the example, with a "For the owner" section for anything she should know (numbered by the sheet's image numbers), a "Could not check" line, and the last line "PASS" or "FAIL: <what>".
 
 Rules: every time from `date`, never typed ahead; every figure from a file or a command you ran; say "image", never "photo"; plain words; no claims beyond what you looked at.
+
+## Check v2 (4 Nov 20:2x)
+A first check (v1, /home/claude/eng35/sheet-check-v1-report.md) failed the sheet: faces missed on images 136, 31 and 130, and 57-e wrongly left. The sheet was remade with those four blurred (now 281 blurred, 50 left). Do the whole check again as above, and in part 3 look at 136-b, 31-g, 130-c and 57-e in particular. Write your report with "v2" in its title.
