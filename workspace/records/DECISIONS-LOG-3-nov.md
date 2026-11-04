@@ -118,3 +118,8 @@ Re-read claude/LESSONS-LEARNED-27-29-oct.md in full (lessons 1-72). Not followed
 - Lesson 25 (log decisions when made): the 19:3x keep-list fault entry was written but not committed or pushed at once - done in this commit.
 - Lesson 7 (one page, in order): kept - only The English Curriculum worked on; the preview build b1 started 19:27 from run 3's images, every first-build check in one command (lesson 27).
 Next review due 20:25 (reminder set).
+
+## 4 Nov 19:4x: format check corrected (tool, not template) - The English Curriculum
+tools/v8/format_check_word.py read a Word run's `<w:u w:color="..."/>` (no w:val) as a single underline; Word and the owner's PDF show no underline on those runs (224 in 3.5.0; checked on the PDF for "Here's another option, from the Supplemental Language Album" and "In a Montessori environment, we help the children"). Now read as none. Tested both ways on build 1: 2518 differences -> 292; with one real underline planted on a copy of the Word file, 304 (the planted words reported at both widths). New fingerprint 3aaf3880, in FINGERPRINTS.txt and tools/v8/FINGERPRINTS.txt; commit b55f01f. The old copy: tools/v8/format_check_word.py.before-4nov-1940 (workspace only).
+Also pushed: pages/the-english-curriculum.py, pages/the-english-curriculum-faces-preview.json, tools/eng4nov (build-3.5.sh, all-nolive-3.5.sh, preview_photos.py), tools/briefs/ENG-SHEET-CHECK.md.
+Preview build 1 published (artifact 1HAzuhZq743dq8qeTJCa8n, versions 1-3 with all 329 image files) - preview only, round 1 blurred images, not for upload.
