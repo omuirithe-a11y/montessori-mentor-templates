@@ -67,10 +67,4 @@ def POST_MAIN(main, s, report):
             for c in list(x.contents): head.append(c.extract())
             x.decompose()
         report.append(('settings', 'list items line under line (owner 2 Nov 15:59)', '%s ... %s' % (first, last)))
-    # 4 Nov (owner 07:33 "above these three = 50", her screenshots of "Books of Interest" and "Picture Books"): the headings Books of
-    # Interest, Picture Books and Websites 50 below the text above them (were 40)
-    _n50 = 0
-    for _h in main.find_all('h2'):
-        if norm(_h.get_text()) in ('Books of Interest', 'Picture Books', 'Websites'): _h['data-gap'] = '50'; _n50 += 1
-    assert _n50 == 3, _n50
-    report.append(('settings', 'Books of Interest, Picture Books, Websites headings 50 below the text above (owner 4 Nov 07:33)', str(_n50)))
+    # 4 Nov 11:16 (owner "Yes change the template now and in GitHub"): now a Resources template rule (mm-kind-gaps-js); no page setting

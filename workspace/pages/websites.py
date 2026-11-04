@@ -259,21 +259,8 @@ def POST_MAIN(main, s, report):
             if 'Professional Development: ' in _t: _t.replace_with(_t.replace('Professional Development: ', '')); _pd += 1
     assert _pd == 4, ('Professional Development headings', _pd)
     report.append(('settings', 'headings without "Professional Development: " (owner 4 Nov 07:17, 07:19)', str(_pd)))
-    # 4 Nov (owner 07:48 "Websites on this page also: 50 before the organisation names", her screenshot): every red name line that starts
-    # an entry 50 below the text above it; one straight under a heading, a divider or a row of images keeps 40 (3 Nov rules)
-    _n50 = _k40 = 0
-    for _h in main.select('div.res-entry > h3.material-name'):
-        if _h.parent.find(True) is not _h: continue
-        _pv = _h.parent.find_previous_sibling()
-        if _pv is None or _pv.name == 'h2': continue
-        if 'beige-rule' in (_pv.get('class') or []) or 'mm-row' in (_pv.get('class') or []) or _pv.select_one('.mm-row') is not None: _k40 += 1; continue
-        _h['data-gap'] = '50'; _n50 += 1
-    report.append(('settings', 'red name lines 50 above (owner 4 Nov 07:48); under a heading, divider or images kept 40', '%d / %d' % (_n50, _k40)))
-    # 4 Nov (owner 07:49 "what is the spacing above the section headings?" - 40; 07:51 "above the section headings = 60"): every green
-    # section heading 60 below the text above it, except the first, which keeps the 66 under the contents box
-    _hs = [h for h in main.find_all('h2') if 'mm-hc-00B050' in (h.get('class') or [])]
-    for _h in _hs[1:]: _h['data-gap'] = '60'
-    report.append(('settings', 'section headings 60 above (owner 4 Nov 07:51)', str(len(_hs) - 1)))
+    # 4 Nov 11:16 (owner "Yes change the template now and in GitHub"): now a Resources template rule (mm-kind-gaps-js); no page setting
+    # 4 Nov 11:16 (owner "Yes change the template now and in GitHub"): now a Resources template rule (mm-kind-gaps-js); no page setting
     report.append(('settings', 'text area rebuilt from Word in the template\'s entry style (as 8.1 and Culture Resources): %d entries' % len(main.select('div.res-entry')), ''))
 
 
