@@ -1234,7 +1234,7 @@ def main():
         # the build's Resources-style marks become the Essay template's own: Word colours as the template's colour classes, no inline colours,
         # no classes the template never reads; a first-line indent of 48 px as the template's own tab stop (span.mm-t, every 48 px)
         if callable(S.get('SOUP_FIX')): S['SOUP_FIX'](_sp, report)   # 4 Nov 2026 (3.5.0): page-specific fixes written in the page settings as a function of the page code
-        _hc = {'0432FF': '0432FF', '0000FF': '0432FF', '0061F2': '0432FF', 'EE0000': 'EE0000', 'FF0000': 'EE0000'}
+        _hc = {'0432FF': '0432FF', '0000FF': '0432FF', '0061F2': '0432FF', 'EE0000': 'EE0000', 'FF0000': 'EE0000', '00B050': '00B050', '7030A0': '7030A0', 'FF40FF': 'FF40FF', '2AB116': '2AB116'}   # 5 Nov 2026: pink and the second green added to the Essay template (owner 04:00)
         _ink = {'0A1B27', '222222', '000000'}
         _ec = 0
         for _e in _sp.find_all(True):

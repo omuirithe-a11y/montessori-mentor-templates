@@ -91,8 +91,8 @@ def SOUP_FIX(sp, report):
             p['class'] = (p.get('class') or []) + ['mm-hc-0432FF']
     # pink and green list titles in their Word colours (FF40FF, 2AB116), as the PDF - see the open question on colours the template lacks
     for d in m.select('div.micro-label'):
-        if _t(d) == 'Pink Language Materials': d['style'] = 'color:#FF40FF'
-        if _t(d) == 'Green Language Materials': d['style'] = 'color:#2AB116'
+        if _t(d) == 'Pink Language Materials': d['class'] = d.get('class', []) + ['mm-hc-FF40FF']   # template class since 5 Nov (owner 04:00 "Yes")
+        if _t(d) == 'Green Language Materials': d['class'] = d.get('class', []) + ['mm-hc-2AB116']
     # Writing Stages list (PDF p15): Word's italic items; the strip image beside the list (one set with it)
     wsl = [d for d in m.select('div.micro-label') if _t(d) == 'Writing Stages']
     if len(wsl) >= 2:
@@ -208,6 +208,14 @@ def SOUP_FIX(sp, report):
     nx3 = fl3.find_next_sibling() if fl3 is not None else None
     if nx3 is not None and 'micro-label' in (nx3.get('class') or []) and _t(nx3).startswith('Storytelling'):
         nx3.insert_after(fl3.extract()); report.append(('settings', 'image 003 level with the first line of text, after its label', ''))
+
+    # a second line under a label line ("Cards of a contrasting colour ..." under Number and Gender) starts at the text column, as the PDF
+    for p in m.find_all('p'):
+        pv = p.find_previous_sibling()
+        fc = next((c for c in p.contents if not (isinstance(c, str) and not c.strip())), None)
+        if pv is not None and 'mm-hanglab' in (pv.get('class') or []) and getattr(fc, 'name', None) == 'span' and 'mm-t' in (fc.get('class') or []):
+            fc.decompose(); p['class'] = [c for c in (p.get('class') or []) if c != 'mm-form'] + ['mm-hanglab']
+            p.insert(0, _BS('<span class="mm-lab"></span>', 'html.parser').span); report.append(('settings', 'second line under a label line at the text column', _t(p)[:40]))
     # Word's trailing tabs at the end of a list line ("Conversation<tab>") made those lines a different kind of paragraph: dropped
     k = 0
     for t_ in m.select('span.mm-t'):

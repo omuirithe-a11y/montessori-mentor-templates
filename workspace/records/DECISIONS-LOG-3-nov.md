@@ -172,3 +172,14 @@ Waiting for her round 1 faces answer. Next review 00:3x (reminder set).
 
 ## 5 Nov 00:4x: hourly lessons review (23:3x to 00:4x), The English Curriculum
 No work since 23:3x (waiting for her round 1 faces answer), so nothing to review and nothing sent to her. The hourly reminder is not set again while no work runs; the reviews start again, on the hour, when work resumes on her answer.
+
+## 5 Nov 04:00: her answers on the four Essay template questions (her words)
+"Add the hanging-label style the Resources template already has to the Essay template. It sets the label column for lines like "Number / Two sets of cards…". Show in preview" -> a preview with and without the style, then her written agreement.
+"Whether the Essay template should get pink and green for words that are pink and green in Word, such as "Pink Language Materials". Right now it has only blue and red. Yes" -> the Essay Code Template gets Word's pink and green as colour classes (mm-hc-FF40FF, mm-hc-2AB116, mm-hc-00B050, as its blue and red classes), every width, every page built from it; the build uses them instead of inline colours.
+"Whether the spacing check, which was made for the Resources pages, applies to this Essay page. Show in preview" -> a preview of what the check reports on this page beside the PDF.
+"The speed fault at full computer width, if it is still there on build 4. Explain" -> an explanation.
+Her round 1 faces answer is still open. Hourly reviews restart (work resumed).
+
+## 5 Nov 04:3x: Essay Code Template aa5d5039 -> 71dd8bf8 (her 04:00 "Yes" to pink and green)
+Added html body main .mm-hc-FF40FF and .mm-hc-2AB116 colour rules (Word's pink and its second green; the template already had .mm-hc-00B050 green and .mm-hc-7030A0), every width, every page built from it. No live page uses these classes, so no live page changes. Code checks (tools/strip_compare.py, tools/v8/strip_compare.py, tools/v8/strip_compare_nolive.py) re-pinned to 71dd8bf8; tested both ways: build 6 passes the fingerprint and its pink/green inline colours are gone from section 3; the old template is refused (STOP). build_page.py maps 00B050, 7030A0, FF40FF, 2AB116 to their template classes. Every Essay page's next rebuild is on 71dd8bf8 (its section 1 must show no difference then).
+Preview of questions 1 and 3 published 04:2x: artifact 4cpq3womB9rZUNoTYsPCh8 (hanging labels with and without; the spacing check's 99 faults at 1440 with two examples and three choices). Build 6 adds: the second line under Number and Gender at the text column.
