@@ -486,17 +486,7 @@ def _post_tail(main, s, report, norm):
     assert nb == 2, nb
     report.append(('settings', 'reading-list books 40 apart (between entries, 4 Nov)', str(nb)))
     report.append(('settings', 'lines together in the PDF set 25 apart (spacing check, 4 Nov)', str(tog)))
-    # 4 Nov (owner 07:21 "the spacing above them needs to be slighty bigger so they are more clearlu sifferentiated"; her 07:22-07:23
-    # examples at 40; the preview of 07:24 (books 40 apart, years 52) - her 07:32 "Ok"): in the chronological list each year 52 below
-    # the text above it, and each later book inside a year 40 below the book above it
-    _ny = _nb = 0
-    for _h in main.select('div.res-entry > h3.material-name'):
-        if not re.fullmatch(r'\d{4}', _h.get_text().strip()): continue
-        _h['data-gap'] = '52'; _ny += 1
-        _its = [c for c in _h.parent.find_all(recursive=False) if 'res-item' in (c.get('class') or [])]
-        for _it in _its[1:]: _it['data-gap'] = '40'; _nb += 1
-    assert (_ny, _nb) == (18, 12), (_ny, _nb)
-    report.append(('settings', 'chronological list: years 52, books inside a year 40 (owner 4 Nov 07:21-07:32)', '%d/%d' % (_ny, _nb)))
+    # 4 Nov 11:15 (owner "Yes"): years 52 / books inside a year 40 is now a Resources template rule (mm-kind-gaps-js); no page setting
 
 def _drop_covers_grid(main, report):
     """Owner 31 Oct 22:14: "delete that grid . don't use it on the page" - the Word table of 23 covers with their titles
