@@ -54,9 +54,9 @@ def rowhtml(x):
     kind = 'new' if ck.startswith('new') else ('eye' if ck.startswith('eye') else 'have')
     lab = {'new': 'check to write', 'eye': 'by eye (agent)', 'have': 'check exists'}[kind]
     note = ('<p class="src">Note: %s</p>' % esc(x['note'])) if x.get('note') else ''
-    return ('<article class="row"><div class="top"><span class="id">%s</span><span class="tag %s">%s</span><span class="ap">%s</span></div>'
+    return ('<article class="row"><div class="top"><span class="id">%s</span><span class="tag %s">%s</span><span class="ap">%s</span>%s</div>'
             '<p class="item">%s</p><blockquote>%s</blockquote><p class="src">%s%s</p>%s</article>' % (
-        esc(x['id']), kind, lab, esc(x.get('applies_to', '')), esc(x.get('item', '')), esc(x.get('quote', '')), esc(x.get('source', '')),
+        esc(x['id']), kind, lab, esc(x.get('applies_to', '')), ('<span class="tag uns">unsure</span>' if x.get('unsure') else ''), esc(x.get('item', '')), esc(x.get('quote', '')), esc(x.get('source', '')),
         (' &middot; ' + esc(x.get('date'))) if x.get('date') else '', note))
 def esc(s): return html.escape(str(s or ''))
 out = []

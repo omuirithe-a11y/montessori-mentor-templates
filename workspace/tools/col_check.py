@@ -62,7 +62,7 @@ JS = r"""(args) => { const snips = args.snips, start = args.start;
   return snips.map((sn, j) => {
     // the text as in the PDF, where the page may put up to 3 marks (such as " - ") where the PDF has a space
     const from = j === 0 ? start : Math.max(k0, 0); let k = -1;
-    const words = sn.normalize('NFKC').replace(/[\u2018\u2019]/g,"'").replace(/[\u201c\u201d]/g,'"').replace(/[\u2013\u2014]/g,'-').toLowerCase().split(/\s+/).filter(Boolean);
+    const words = sn.normalize('NFKC').replace(/[\u2018\u2019]/g,"'").replace(/[\u201c\u201d]/g,'"').replace(/[\u2013\u2014]/g,'-').toLowerCase().split(/\s+/).map(w => w.replace(/[,;:]+$/, '')).filter(Boolean);   // a comma or colon at a word's end may differ
     const esc = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const re = new RegExp(words.map(esc).join('[^\\p{L}\\p{N}]{0,3}'), 'gu');
     re.lastIndex = from; let mm = re.exec(nf); if (!mm) { re.lastIndex = 0; mm = re.exec(nf); }
