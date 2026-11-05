@@ -29,6 +29,7 @@ Z=$(ls "$B"/*.zip | grep -vE -- '-(originals|CHECK-ONLY|UPLOAD)\.zip$')
 [ "$(echo "$Z" | grep -c .)" = 1 ] || { echo "not one upload zip in $B: $Z"; exit 2; }
 SHA=$(sha256sum "$Z" | cut -c1-16); SLUG=$(unzip -Z1 "$Z" | head -1 | cut -d/ -f1)
 T=$(mktemp -d); trap 'rm -rf "$T"' EXIT; unzip -q "$Z" -d "$T/zip"; P=$T/zip/$SLUG
+[ -f "$B/report.json" ] && cp "$B/report.json" "$T/zip/report.json"   # 6 Nov 07:38: the style check reads the build's report (beige lines placed from Word) next to the page folder
 [ -f $O/SUMMARY.txt ] && head -1 $O/SUMMARY.txt | grep -q "package sha256 $SHA" || echo "start $(date +%H:%M:%S)  package sha256 $SHA  $(basename "$Z")" > $O/SUMMARY.txt
 grep -q "^browser checks read a copy unpacked" $O/SUMMARY.txt || echo "browser checks read a copy unpacked from $(basename "$Z") sha256 $SHA (not preview/)" >> $O/SUMMARY.txt
 echo "stage $STAGE start $(date +%H:%M:%S)" >> $O/SUMMARY.txt
