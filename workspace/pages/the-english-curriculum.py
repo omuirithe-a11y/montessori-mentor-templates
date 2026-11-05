@@ -223,7 +223,7 @@ def SOUP_FIX(sp, report):
             for n, cap in caps:
                 f = imgs[n].find_parent('figure'); old = f.find_parent('div', class_=['mm-float', 'mm-row'])
                 f = f.extract(); f['class'] = (f.get('class') or []) + ['mm-cf']
-                f.insert(0, _BS('<figcaption class="mm-cap" style="font-style:normal">%s</figcaption>' % cap, 'html.parser').figcaption); figs.append(f)   # 5 Nov (format review B2): upright as Word P638 and the PDF
+                f.insert(0, _BS('<figcaption class="mm-cap mm-up">%s</figcaption>' % cap, 'html.parser').figcaption); figs.append(f)   # 5 Nov (format review B2): upright as Word P638 and the PDF
                 if old is not None and not old.find('figure'): old.decompose()
             row = _BS('<div class="mm-row" data-above="40" data-level="94"><div class="mm-imgs"></div></div>', 'html.parser').div
             for f in figs: row.select_one('.mm-imgs').append(f)
@@ -393,7 +393,7 @@ def SOUP_FIX(sp, report):
     if fl_ is not None and pa_ is not None and pa_.name == 'p':
         fig = im_.find_parent('figure'); cap = fig.find('figcaption')
         if cap is not None: cap['class'] = ['mm-cap']; fig.insert(0, cap.extract())
-        st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '168', 'data-cap': '1'})
+        st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '120', 'data-cap': '1'})   # 5 Nov 20:4x: 120, the owner's 1 Nov 14:34 rule for images beside text (was 168)
         if fl_.has_attr('data-gap'): st['data-gap'] = fl_['data-gap']
         tx = sp.new_tag('div', attrs={'class': 'mm-text'}); imd = sp.new_tag('div', attrs={'class': 'mm-imgs'})
         fl_.insert_before(st); tx.append(pa_.extract()); imd.append(fig.extract()); fl_.decompose(); st.append(tx); st.append(imd); kg = 1

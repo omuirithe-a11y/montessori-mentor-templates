@@ -152,7 +152,7 @@ def seg_html(segs, strip_bold=False, strip_italic=False):
         # 26 Oct 2026 (2.2.0 page check): orange is never kept (the standing rule: orange Word text shows as regular black), and a
         # colour on punctuation or spaces alone is not kept (a yellow opening quotation mark, a red comma - no meaning on the page)
         if mixed and norm(col) and col not in ORANGE and re.search(r'\w', t): h = f'<span class="mm-wcol" style="color:#{col}">{h}</span>'
-        if url: h = f'<a href="{H.escape(url)}" rel="noopener" target="_blank"' + (' style="text-decoration:none"' if ul == 'none' else '') + f'>{h}</a>'
+        if url: h = f'<a href="{H.escape(url)}" rel="noopener" target="_blank"' + (' class="mm-nou"' if ul == 'none' else '') + f'>{h}</a>'
         out.append(h)
     h = re.sub(r'(?<=\S) {3,}(?=\S)', lambda m: ' ' * len(m.group(0)), ''.join(out))   # 20 Oct (5.3 "p. 248.   (1949)"): Word's run of 3+ spaces is kept (the site's gap rule)
     h = re.sub(r'[ \n\r]{2,}', ' ', h).strip()
