@@ -467,6 +467,14 @@ def SOUP_FIX(sp, report):
     report.append(('settings', 'Reading Analysis a.-e. indented 48 px as Word', str(_k8)))
     for _e in m.find_all(class_=True):   # 6 Nov 06:0x: a class given twice by two settings is kept once
         if len(set(_e['class'])) != len(_e['class']): _e['class'] = list(dict.fromkeys(_e['class']))
+    # 6 Nov 07:0x (b25 review fault 6; owner 6 Nov 06:54 agreement, template class mm-ind104): the PDF p18 sequence of
+    # presentations (Object Box 1 ... Grammar, etc.) is indented 78 pt in Word - the columns start 104 px in, at 641 px and wider
+    _k6 = 0
+    for _g in m.select('div.mm-wcols2'):
+        _f = _g.find('p')
+        if _f is not None and _t(_f) == 'Object Box 1' and 'Pink Series' in _t(_g):
+            _g['class'] = _g['class'] + ['mm-ind104']; _k6 += 1
+    report.append(('settings', 'Object Box sequence indented as Word (mm-ind104)', str(_k6)))
     # 5 Nov 13:0x: two sections had id="grammar" (the opening section kept the id of Word's contents line "Grammar")
     _secs = m.find_all('section', id='grammar')
     for _s in _secs[:-1]: del _s['id']

@@ -6,25 +6,39 @@
 #   once is not faster): the 122 widths (vfast.py, 2 workers), the height (stable.py at 1440 and 390), lines through text
 #   (lines.py at 8 widths), then the speed check (speed_check.py).
 # Every check still runs; nothing is skipped. Each writes its own file in <out dir>; SUMMARY.txt lists their last lines.
+# 6 Nov 2026 (owner 07:16 "implement all 6 immediately", items 1 and 5): these are LONG checks. The script REFUSES to start
+#   unless the fast checks passed for this package (<build>/checks2/FAST-PASSED, written by more_checks.sh ... fast) and the
+#   build folder holds a separate review report (REVIEW.md) newer than the package, naming its sha256 and ending
+#   "FAULTS: 0". It STOPS at the first step that does not pass (tools/round_judge.py), and a step whose result is newer
+#   than the package and its scripts and passes is kept, not run again (after a restart it picks up where it stopped).
 set -u
 C=$(cd "$1" && pwd); Z=$(cd "$(dirname "$2")" && pwd)/$(basename "$2"); O=$3; WID=${4:-all}; ROWSARG=${5:-}; G=$(dirname "$(readlink -f "$0")")
-mkdir -p "$O"; O=$(cd "$O" && pwd)
-echo "start $(date '+%H:%M:%S')  package sha256 $(sha256sum "$Z" | cut -c1-16)" > "$O/SUMMARY.txt"
+mkdir -p "$O"; O=$(cd "$O" && pwd); BD=$(dirname "$Z"); SHA=$(sha256sum "$Z" | cut -c1-16)
+[ -f "$BD/checks2/FAST-PASSED" ] && grep -q "package sha256 $SHA" "$BD/checks2/FAST-PASSED" || { echo "REFUSED $(date '+%H:%M:%S'): the fast checks have not passed for this package ($SHA)"; exit 3; }
+RV=$BD/REVIEW.md
+{ [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && grep -q "^FAULTS: 0" "$RV"; } || { echo "REFUSED $(date '+%H:%M:%S'): no separate review report for this package with FAULTS: 0 ($RV)"; exit 3; }
+[ -f "$O/SUMMARY.txt" ] && head -1 "$O/SUMMARY.txt" | grep -q "package sha256 $SHA" || echo "start $(date '+%H:%M:%S')  package sha256 $SHA" > "$O/SUMMARY.txt"
+fresh() { local r=$1; shift; [ -s "$r" ] || return 1; [ "$r" -nt "$Z" ] || return 1; for x in "$@"; do [ "$r" -nt "$x" ] || return 1; done; return 0; }
+judge() {   # judge <step> <file> <label>: record; stop the round on a fault
+  local j; j=$(python3 "$G/round_judge.py" $1 "$2" 2>&1); local e=$?
+  echo "$3: $(tail -1 "$2" 2>/dev/null)  [$j]" >> "$O/SUMMARY.txt"
+  [ $e -eq 0 ] || { echo "STOPPED at $3 $(date '+%H:%M:%S'): $j" >> "$O/SUMMARY.txt"; cat "$O/SUMMARY.txt"; exit 1; }; }
+kept() { python3 "$G/round_judge.py" $1 "$2" > /dev/null 2>&1 && fresh "$2" "${@:3}"; }
 # 1. the 122 widths
-python3 "$C/vfast.py" "$C" "$Z" "$O/full.txt" 2 "$WID" > "$O/full.log" 2>&1; E1=$?
-# 2. the height
-( for w in 1440 390; do echo "width $w: $(python3 "$C/stable.py" $w "$Z" 2>&1 | tail -1)"; done ) > "$O/height.txt" 2>&1
+kept widths "$O/full.txt" "$C/vfast.py" || { python3 "$C/vfast.py" "$C" "$Z" "$O/full.txt" 2 "$WID" > "$O/full.log" 2>&1; }; judge widths "$O/full.txt" "122 widths"
+# 2. the height (the gate's rule: 1 s = 4 s = after scrolling at 1440 and 390, no margin over 150 px)
+kept height "$O/height.txt" "$C/stable.py" || { ( for w in 1440 390; do echo "width $w: $(python3 "$C/stable.py" $w "$Z" 2>&1 | tail -1)"; done ) > "$O/height.txt" 2>&1; }; judge height "$O/height.txt" "height"
 # 3. lines through text, on the package served locally
+if ! kept lines "$O/lines.txt" "$G/lines_v2.py"; then
 T=$(mktemp -d); unzip -q "$Z" -d "$T"; SLUG=$(unzip -Z1 "$Z" | head -1 | cut -d/ -f1)
 python3 -m http.server 0 --bind 127.0.0.1 --directory "$T" > "$T.port" 2>&1 & PS=$!
 for i in $(seq 50); do PORT=$(grep -o 'port [0-9]*' "$T.port" | grep -o '[0-9]*'); [ -n "$PORT" ] && break; sleep 0.2; done
 ( for w in 320 390 430 641 700 830 1024 1440; do python3 "$G/lines_v2.py" "http://127.0.0.1:$PORT/$SLUG/" $w 2>&1 | tail -1; done ) > "$O/lines.txt" 2>&1
-kill $PS 2>/dev/null; rm -rf "$T" "$T.port"
-echo "widths, height and lines done $(date '+%H:%M:%S')" >> "$O/SUMMARY.txt"
-# 4. placement (30 Oct 13:5x): images inside the text column, image tops level with the first line, rows (place_check.py)
-python3 "$G/v8/place_check.py" "$Z" $ROWSARG > "$O/place.txt" 2>&1; E5=$?
-# 5. the speed check
-python3 "$C/speed_check.py" "$Z" > "$O/speed.txt" 2>&1; E4=$?
-{ echo "122 widths (exit $E1): $(tail -1 "$O/full.txt" 2>/dev/null)"; echo "height:"; cat "$O/height.txt"; echo "lines through text:"; cat "$O/lines.txt";
-  echo "placement (exit $E5): $(tail -1 "$O/place.txt")"; echo "speed (exit $E4): $(tail -1 "$O/speed.txt")"; echo "end $(date '+%H:%M:%S')"; } >> "$O/SUMMARY.txt"
+kill $PS 2>/dev/null; rm -rf "$T" "$T.port"; fi
+judge lines "$O/lines.txt" "lines through text"
+# 4. placement
+kept place "$O/place.txt" "$G/v8/place_check.py" || { python3 "$G/v8/place_check.py" "$Z" $ROWSARG > "$O/place.txt" 2>&1; }; judge place "$O/place.txt" "placement"
+# 5. the speed check (alone)
+kept speed "$O/speed.txt" "$C/speed_check.py" || { python3 "$C/speed_check.py" "$Z" > "$O/speed.txt" 2>&1; }; judge speed "$O/speed.txt" "speed"
+echo "LONG CHECKS (run_checks) PASSED  end $(date '+%H:%M:%S')" >> "$O/SUMMARY.txt"
 cat "$O/SUMMARY.txt"

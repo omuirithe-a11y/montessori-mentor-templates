@@ -28,3 +28,14 @@ Each line: her words as logged; what was done is in the same log line and in bui
 - DECISIONS-LOG-3-nov.md line 235: 5 Nov 15:20: ALLOWED-FAULT AGREEMENT, word for word: "I agree to allow, in tools/ALLOWED-FAULTS.txt, the fault that more than one script of the Essay Code Template sets the same margin (rows D066 and E054), at every width, on The English Curriculum, until the template is fixed." -> row AF001 in tools/ALLOWED-FAULTS.txt.
 - DECISIONS-LOG-3-nov.md line 238: 5 Nov 16:05: LIST CHANGE AGREEMENT, word for word: "I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on."
 - DECISIONS-LOG-3-nov.md line 241: 5 Nov 16:14: her "Streamline this process" - lesson 7, order changed: the remaining checks (more_checks.sh: Word format, columns, text, code, style, images, wrap) started at once on build 21 (the place check v8 gave PLACE OK on build 21; the 122 widths, height and lines passed); while they run, the records the gate asks for (no browser) are made; the speed fault investigated after them (a JavaScript profile at 1440 while scrolling: page script under 0.2 s over the whole scroll (1.3 s "(program)" is the browser's native time) - the busy stretches are not the page's scripts; the browser's own layout work to be traced next).
+- AFTER PUBLISHING (owner 6 Nov 07:17): save the six streamlining ways (07:1x message) and other pertinent streamlining suggestions to records/LESSONS-LEARNED-27-29-oct.md + Project copy.
+- PROMISES (owner 07:16 / 07:19 / 07:21), each with the file that carries it out:
+  - fast checks first, stop at first fault: tools/more_checks.sh stage fast + tools/round_judge.py - DONE 07:30
+  - long checks refuse without fast pass + review report: tools/more_checks.sh stage long, tools/run_checks.sh header - DONE 07:30
+  - tablet check: tools/tablet_check.py - DONE 07:2x
+  - checks survive a restart (step level): tools/more_checks.sh fresh()/step(), tools/run_checks.sh kept() - DONE 07:30
+  - early gate run in the round: NOT DONE (tools/check_round.sh to write)
+  - gate checks the order: NOT DONE (needs her agreement; tools/gate_list.py)
+  - hourly review reads the decisions log for promises not in code: NOT DONE (the send_later prompt)
+  - START-HERE: order of checks in its first section: NOT DONE
+  - test every agreement at all widths it names: tools/tablet_check.py on every template change - rule, NOT YET IN START-HERE

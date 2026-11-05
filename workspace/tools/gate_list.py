@@ -210,7 +210,7 @@ class Result:
             else:
                 s.notes.append('names the package sha256')
         elif s.info['sha'] == 'summary16':
-            st = GF.read(os.path.join(os.path.dirname(s.path), 'SUMMARY.txt')) or ''
+            st = GF.read(os.path.join(b.B, key.split('/')[0], 'SUMMARY.txt')) or ''   # gatefix2: the run's folder (checks2/text/... -> checks2)
             m = re.search(r'package sha256 ([0-9a-f]{16})', st)
             if not m or m.group(1) != b.sha[:16]:
                 s.problems.append('its run\'s SUMMARY.txt names %s, not %s' % (m.group(1) if m else 'no package', b.sha[:16]))

@@ -58,7 +58,7 @@ def build(num):
     if p.get('build_pdf'): cmd += ['--pdf', os.path.join(SRC, p['pdf'])]
     if p.get('photos'): cmd += ['--photos', p['photos']]
     r = subprocess.run(cmd, cwd=MM, capture_output=True, text=True, timeout=900)
-    if r.returncode != 0: sys.exit('build failed:\n' + (r.stdout + r.stderr)[-3000:])
+    if r.returncode != 0: sys.exit('build failed:\n' + (r.stdout + r.stderr))
     return r.stdout
 
 def run_fault_checks(num, preview):
@@ -70,7 +70,7 @@ def run_fault_checks(num, preview):
         m = re.match(r'^([A-Z]\d?) (.*?) (PASS|FAIL) \((\d+) checked\)', line)
         if m: res[m.group(1)] = {'name': m.group(1) + ' ' + m.group(2), 'ok': m.group(3) == 'PASS', 'checked': int(m.group(4)), 'faults': []}
         elif line.startswith('     - ') and res: list(res.values())[-1]['faults'].append(line[7:])
-    if not res: res['fault_checks'] = {'name': 'fault_checks.py did not run', 'ok': False, 'checked': 0, 'faults': [(r.stdout + r.stderr)[-1500:]]}
+    if not res: res['fault_checks'] = {'name': 'fault_checks.py did not run', 'ok': False, 'checked': 0, 'faults': [(r.stdout + r.stderr)]}
     return res
 
 def run_check_page(num, preview):
@@ -81,13 +81,13 @@ def run_check_page(num, preview):
     for line in r.stdout.splitlines():
         if re.match(r'^\d+  errors:', line):
             widths += 1
-            if 'errors:none' not in line: faults.append(line[:200])
+            if 'errors:none' not in line: faults.append(line)
             elif 'sideways:True' in line: faults.append(line.split('  ')[0] + ' scrolls sideways')
             elif '<<' in line: faults.append(re.sub(r'lines \[.*?\]', 'lines [...]', line))
             elif not re.search(r'not justified:0\b', line): faults.append(line.split('  ')[0] + ' has lines that are not justified')
             elif not line.rstrip().endswith('photos not loaded:0'): faults.append(line.split('  ')[0] + ' photos not loaded')
         elif 'menu panels' in line and 'FAULT' in line: faults.append(line.strip())
-    if widths != 3: faults.append('check_page.py did not measure 3 widths: ' + (r.stdout + r.stderr)[-800:])
+    if widths != 3: faults.append('check_page.py did not measure 3 widths: ' + (r.stdout + r.stderr))
     return {'PAGE': {'name': 'PAGE check_page (errors, sideways, gaps, lines, footer, justified, photos, menu)',
                      'ok': not faults, 'checked': widths, 'faults': faults}}
 
@@ -142,7 +142,7 @@ def gate(num):
     json.dump(g, open(os.path.join(MM, p['out'], 'gate.json'), 'w'), indent=1, ensure_ascii=False)
     for k, v in res.items():
         print('%-4s %s %s (%d)%s' % (k, 'PASS' if v['ok'] else 'FAIL', v['name'], v['checked'],
-                                     ''.join('\n       - ' + f for f in v['faults'][:20])))
+                                     ''.join('\n       - ' + f for f in v['faults'])))
     if missing: print('UNPROVED (no proof for the current code): ' + ', '.join(missing))
     print('\nGATE %s  %s  %s' % ('PASS' if ok else 'FAIL', page, g['sha256'][:12]))
     return ok
@@ -151,13 +151,13 @@ def prove(key, num, broken):
     p = PAGES[num]; preview = os.path.join(MM, p['out'], 'preview')
     real = all_checks(num, preview); bad = all_checks(num, os.path.abspath(broken))
     if key not in real or key not in bad: sys.exit('no check called %s ran on %s' % (key, num))
-    if not real[key]['ok']: sys.exit('%s fails on the real build, so this proves nothing: %s' % (key, real[key]['faults'][:3]))
+    if not real[key]['ok']: sys.exit('%s fails on the real build, so this proves nothing: %s' % (key, real[key]['faults']))
     if bad[key]['ok']: sys.exit('%s PASSED on the broken copy: the check does not catch this fault' % key)
     proofs = json.load(open(PROOFS)) if os.path.exists(PROOFS) else {}
     proofs[key] = {'code': code_hashes()[key], 'page': num, 'broken_copy': os.path.abspath(broken),
-                   'caught': bad[key]['faults'][:3], 'at': datetime.datetime.now().isoformat(timespec='seconds')}
+                   'caught': bad[key]['faults'], 'at': datetime.datetime.now().isoformat(timespec='seconds')}
     json.dump(proofs, open(PROOFS, 'w'), indent=1, ensure_ascii=False)
-    print('PROVED %s: passes on the build, fails on the broken copy with: %s' % (key, bad[key]['faults'][:2]))
+    print('PROVED %s: passes on the build, fails on the broken copy with: %s' % (key, bad[key]['faults']))
 
 if __name__ == '__main__':
     a = sys.argv[1:]

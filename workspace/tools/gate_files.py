@@ -35,35 +35,39 @@ RESULTS = {
                               fault_re=r'^\s*\d+\s+FAULT\b', sha='full', source='zip', complete=r'^(RESULT|\s*\d+ narrowed)'),
     'checks/height.txt': dict(script='{C}/stable.py', runner='run_checks.sh', pass_re=None, fault_re=None, sha='summary16',
                               source='zip', complete=r'^width 390:', custom='height'),
-    'checks/lines.txt':  dict(script='{C}/lines.py', runner='run_checks.sh', pass_re=None, fault_re=None, sha='summary16',
+    # 6 Nov 2026 (gatefix2 C1): run_checks.sh runs $G/lines_v2.py and $G/v8/place_check.py (its 5 Nov 16:0x header), so these
+    # are the writers - not {C}/lines.py and tools/place_check.py (v1)
+    'checks/lines.txt':  dict(script=TOOLS + '/lines_v2.py', runner='run_checks.sh', pass_re=None, fault_re=None, sha='summary16',
                               source='zip (served unpacked)', complete=r'^width 1440:', custom='lines'),
-    'checks/place.txt':  dict(script=TOOLS + '/place_check.py', runner='run_checks.sh', pass_re=r'^PLACE OK\s*$',
+    'checks/place.txt':  dict(script=TOOLS + '/v8/place_check.py', runner='run_checks.sh', pass_re=r'^PLACE OK\s*$',
                               fault_re=r'\bfault\b', sha='summary16', source='zip', complete=r'^PLACE (OK|FAULT)'),
     'checks/speed.txt':  dict(script='{C}/speed_check.py', runner='run_checks.sh', pass_re=r'^SPEED OK\s*$',
                               fault_re=r'^\s*\d+\s+FAULT\b', sha='summary16', source='zip', complete=r'^SPEED (OK|FAULT)'),
     'checks2/format-word.txt': dict(script=TOOLS + '/v8/format_check_word.py', runner='more_checks.sh', pass_re=r'^RESULT: 0 differences',
-                              fault_re=r'^RESULT: [1-9]\d* differences', sha=None, source='zip (CHECK-ONLY copy)', complete=r'^RESULT'),
+                              fault_re=r'^RESULT: [1-9]\d* differences', sha='summary16', source='zip', complete=r'^RESULT'),
     'checks2/col.txt':   dict(script=TOOLS + '/col_check.py', runner='more_checks.sh', pass_re=r'^COLUMNS OK\s*$',
-                              fault_re=r'^(COLUMN FAULT|NOT FOUND)\b', sha=None, source='preview', complete=r'^COLUMNS (OK|FAULT)'),
+                              fault_re=r'^(COLUMN FAULT|NOT FOUND)\b', sha='summary16', source='zip (unpacked)', complete=r'^COLUMNS (OK|FAULT)'),
     'checks2/text/text-result.txt': dict(script=TOOLS + '/text_rules.py', runner='more_checks.sh', pass_re=r'^TEXT PASS\s*$',
-                              fault_re=r'^FAULT\b', sha=None, source='preview', complete=r'^END\s*$'),
+                              fault_re=r'^FAULT\b', sha='summary16', source='zip (unpacked)', complete=r'^END\s*$'),
     'checks2/static.txt': dict(script=TOOLS + '/static_code.py', runner='more_checks.sh', pass_re=r'^STATIC PASS\s*$',
-                              fault_re=r'^FAULT\b', sha=None, source='zip (CHECK-ONLY copy)', complete=r'^END\s*$'),
+                              fault_re=r'^FAULT\b', sha='summary16', source='zip', complete=r'^END\s*$'),
     'checks2/style.txt': dict(script=TOOLS + '/style_rules.py', runner='more_checks.sh', pass_re=r'^STYLE PASS\s*$',
-                              fault_re=r'^FAULT\b', sha=None, source='preview', complete=r'^END\s*$'),
+                              fault_re=r'^FAULT\b', sha='summary16', source='zip (unpacked)', complete=r'^END\s*$'),
     'checks2/images.txt': dict(script=TOOLS + '/images_behaviour.py', runner='more_checks.sh', pass_re=r'^IMAGES PASS\s*$',
-                              fault_re=r'^FAULT\b', sha=None, source='preview', complete=r'^END\s*$'),
+                              fault_re=r'^FAULT\b', sha='summary16', source='zip (unpacked)', complete=r'^END\s*$'),
     # 6 Nov 2026: the images check runs as two commands in more_checks.sh (images.txt = heights at the 122 widths;
     # images-2.txt = swipe, late images, behaviour); the gate needs both, and a missing images-2.txt is a FAULT
     'checks2/images-2.txt': dict(script=TOOLS + '/images_behaviour.py', runner='more_checks.sh', pass_re=r'^IMAGES PASS\s*$',
-                              fault_re=r'^FAULT\b', sha=None, source='preview', complete=r'^END\s*$'),
+                              fault_re=r'^FAULT\b', sha='summary16', source='zip (unpacked)', complete=r'^END\s*$'),
     'checks2/wrap.txt':  dict(script=TOOLS + '/wrap_sweep.py', runner='more_checks.sh', pass_re=r'^WRAP PASS\s*$',
-                              fault_re=r'^(?!(127\.0\.0\.1|WRAP |END|INFO|==|#|\s*$)).+', sha=None, source='preview', complete=r'^END\s*$'),
+                              fault_re=r'^(?!(127\.0\.0\.1|WRAP |END|INFO|==|#|\s*$)).+', sha='summary16', source='zip (unpacked)', complete=r'^END\s*$'),
+    # 6 Nov 2026 (gatefix2 C4): the code check against Word and the spacing check, written by more_checks.sh (they were
+    # run only by hand or by send_gate_nolive.sh, to its own printout / <zip>.space.txt, never to the build folder)
+    'checks2/strip-nolive.txt': dict(script=TOOLS + '/v8/strip_compare_nolive.py', runner='more_checks.sh',
+                              pass_re=r'ALL CHECKS OK', fault_re=r'^.*\bFAULT\b', sha='summary16', source='zip', complete=r'RESULT'),
+    'checks2/space.txt': dict(script=TOOLS + '/spacecheck.py', runner='more_checks.sh', pass_re=r'^RESULT: SPACING OK\s*$',
+                              fault_re=r'^RESULT: \d+ FAULTS', sha='summary16', source='zip (unpacked)', complete=r'^RESULT'),
     # written by no runner yet (run_checks.sh and more_checks.sh do not run them): the rows that name them read as NOT CHECKED
-    'checks2/strip-nolive.txt': dict(script=TOOLS + '/v8/strip_compare_nolive.py', runner='(no runner writes this file yet)',
-                              pass_re=r'ALL CHECKS OK', fault_re=r'^.*\bFAULT\b', sha=None, source='zip', complete=r'RESULT'),
-    'checks2/space.txt': dict(script=TOOLS + '/spacecheck.py', runner='(no runner writes this file yet)', pass_re=r'^RESULT: SPACING OK\s*$',
-                              fault_re=r'^RESULT: \d+ FAULTS', sha=None, source='zip', complete=r'^RESULT'),
     'checks2/heading-gap.txt': dict(script=TOOLS + '/v8/heading_gap.py', runner='(no runner writes this file yet)', pass_re=None,
                               fault_re=None, sha=None, source='?', complete=r'.', nopass='the script prints measurements only, no pass line'),
     'checks2/check-page.txt': dict(script=TOOLS + '/check_page.py', runner='(no runner writes this file yet)', pass_re=None,
@@ -183,7 +187,9 @@ def fingerprints():
     """every FINGERPRINTS.txt entry: absolute path -> sha"""
     fp = {}
     for f, base in ((MM + '/FINGERPRINTS.txt', MM), (TOOLS + '/v8/FINGERPRINTS.txt', TOOLS + '/v8'),
-                    (REPO + '/workspace/FINGERPRINTS.txt', REPO + '/workspace')):
+                    (REPO + '/workspace/FINGERPRINTS.txt', REPO + '/workspace'),
+                    # 6 Nov 2026 (gatefix2 C3): the check folder run_checks.sh is given (tools-v5-fixA-200, owner 5 Nov 09:16)
+                    (FIX + '/tools-v5-fixA-200/FINGERPRINTS.txt', FIX + '/tools-v5-fixA-200')):
         for line in (read(f) or '').splitlines():
             m = re.match(r'^([0-9a-f]{64})\s+\*?(.+)$', line.strip())
             if m:
@@ -246,7 +252,8 @@ def drive(b):
 def template_commits(b):
     """commits of the Essay/Resources template since this page's first build"""
     first = None
-    for d in glob.glob(os.path.join(b.P, 'b*.log')) + glob.glob(os.path.join(b.P, 'b*')):
+    # 6 Nov 2026 (gatefix2 C7): superseded builds are deleted (D310), so their run logs (run-bN.log) also date the first build
+    for d in glob.glob(os.path.join(b.P, 'b*.log')) + glob.glob(os.path.join(b.P, 'b*')) + glob.glob(os.path.join(b.P, 'run-b*.log')):
         t = mtime(d)
         if t and (first is None or t < first):
             first = t
@@ -263,7 +270,7 @@ def template_commits(b):
 
 def agreement_for(commit_msg):
     """the decisions-log entry the commit message cites ('owner 5 Nov 09:16 agreement')"""
-    m = re.search(r'owner (\d{1,2} \w{3}) (\d\d:\d\d)', commit_msg)
+    m = re.search(r'(?:owner )?(\d{1,2} \w{3}) (\d\d:\d\d) (?:agreement|Yes)\b', commit_msg)   # gatefix2 C7: "6 Nov 00:19 agreement" too
     if not m:
         return None, 'the commit cites no owner agreement time'
     when = '%s %s' % (m.group(1), m.group(2))
@@ -643,8 +650,11 @@ def names_sha(b):
     f, carried, none = [], [], []
     zips = [p for p in glob.glob(os.path.join(b.B, '*.zip')) if '-originals' not in p]
     shas = {p: sha256(p) for p in zips}
-    if len(zips) != 1:
-        f.append('%d package zips in the build folder (%s), not one' % (len(zips), ', '.join('%s %s' % (os.path.basename(p), s[:8]) for p, s in shas.items())))
+    # 6 Nov 2026 (gatefix2 C5): one package = one sha256; a copy byte for byte the same as the zip is the same package (named)
+    if len(set(shas.values())) != 1:
+        f.append('%d different package zips in the build folder (%s), not one' % (len(set(shas.values())), ', '.join('%s %s' % (os.path.basename(p), s[:8]) for p, s in shas.items())))
+    elif len(zips) > 1:
+        carried.append('copies byte for byte the same as the zip: ' + ', '.join(os.path.basename(p) for p in zips if p != b.zip))
     for k in b.results_present():
         r = RESULTS[k]
         t = read(os.path.join(b.B, k)) or ''
@@ -655,7 +665,7 @@ def names_sha(b):
             else:
                 carried.append(k)
         elif r['sha'] == 'summary16':
-            s = read(os.path.join(b.B, os.path.dirname(k), 'SUMMARY.txt')) or ''
+            s = read(os.path.join(b.B, k.split('/')[0], 'SUMMARY.txt')) or ''   # gatefix2: the run's folder (checks2/text/... -> checks2)
             m = re.search(r'package sha256 ([0-9a-f]{16})', s)
             if not m or m.group(1) != b.sha[:16]:
                 f.append('%s: its run\'s SUMMARY.txt names %s, not %s' % (k, m.group(1) if m else 'no sha', b.sha[:16]))
@@ -681,9 +691,16 @@ def no_truncation(b):
     for p in [TOOLS + '/run_checks.sh', TOOLS + '/more_checks.sh', TOOLS + '/v8/send_gate.sh', TOOLS + '/v8/send_gate_nolive.sh',
               TOOLS + '/gate.py']:
         for i, l in enumerate((read(p) or '').splitlines(), 1):
-            if re.search(r'\|\s*cut -c\s*\d|\bhead -c\s*\d|\[:\d{2,4}\]\s*\)?\s*$', l) and not l.lstrip().startswith('#') \
-                    and not re.search(r'sha256sum[^|]*\|\s*cut -c\s*1-(8|16)\b', l):
-                f.append('%s line %d: %s' % (os.path.relpath(p, MM), i, re.search(r'(cut -c\s*[\d-]+|head -c\s*\d+|\[:\d+\])', l).group(1)))
+            if l.lstrip().startswith('#'):
+                continue
+            hit = re.search(r'\|\s*cut -c\s*\d|\bhead -c\s*\d|\[:\d{2,4}\]\s*\)?\s*$', l) and \
+                not re.search(r'sha256sum[^|]*\|\s*cut -c\s*1-(8|16)\b', l)
+            # 6 Nov 2026 (gatefix2 C8): any list or text slice ([:N], [-N:]) in a Python gate, anywhere on the line, unless it
+            # slices a sha256 (an id, not output)
+            sl = [m for m in re.finditer(r'\[(:\d+|-\d+:)\]', l) if 'sha' not in l[max(0, m.start() - 25):m.start()]]
+            if hit or (p.endswith('.py') and sl):
+                g = re.search(r'(cut -c\s*[\d-]+|head -c\s*\d+|\[:\d+\]|\[-\d+:\])', l)
+                f.append('%s line %d: %s' % (os.path.relpath(p, MM), i, g.group(1) if g else sl[0].group(0)))
     if f:
         return 'FAULT', 'output cut short in: ' + '; '.join(f)
     return 'PASS', 'no cut -c / head -c in the runners and gates'
@@ -786,6 +803,30 @@ def only_index(b):
     return ns('whether only index.html changed needs the live copy; run with --nolive for a page with no live version')
 
 
+def code_only(p):
+    """6 Nov 2026 (gatefix2 C9): the script's text without comments ('#' lines and the part of a line after ' #' or '//')
+    and, for Python, without module/class/function docstrings - a page named in a note is not a page written into the code"""
+    t = read(p) or ''
+    skip = set()
+    if p.endswith('.py'):
+        import ast
+        try:
+            for n in ast.walk(ast.parse(t)):
+                if isinstance(n, (ast.Module, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)) and n.body and \
+                        isinstance(n.body[0], ast.Expr) and isinstance(getattr(n.body[0], 'value', None), ast.Constant) and \
+                        isinstance(n.body[0].value.value, str):
+                    skip.update(range(n.body[0].lineno, n.body[0].end_lineno + 1))
+        except SyntaxError:
+            pass
+    out = []
+    for i, l in enumerate(t.splitlines(), 1):
+        if i in skip or l.lstrip().startswith('#'):
+            continue
+        l = re.split(r'\s#\s|//', l)[0]
+        out.append(l)
+    return '\n'.join(out)
+
+
 @row('D090')
 def no_page_name(b):
     f = []
@@ -797,7 +838,7 @@ def no_page_name(b):
     for p, k in used:
         if not p or not os.path.exists(p):
             continue
-        t = read(p) or ''
+        t = code_only(p)   # 6 Nov 2026 (gatefix2 C9): comments and docstrings left out
         for w in words:
             if w and w.lower() in t.lower():
                 f.append('%s names "%s"' % (os.path.relpath(p, MM), w))
@@ -926,6 +967,12 @@ def reads_zip(b):
     copy = [k for k in pres if RESULTS[k]['source'] == 'preview']
     chk = [k for k in pres if 'CHECK-ONLY' in RESULTS[k]['source']]
     f = []
+    # 6 Nov 2026 (gatefix2 C6): the browser checks read a copy unpacked from the upload zip; the run's SUMMARY.txt must say so
+    for k in pres:
+        if RESULTS[k]['source'] == 'zip (unpacked)':
+            s = read(os.path.join(b.B, k.split('/')[0], 'SUMMARY.txt')) or ''
+            if not re.search(r'unpacked from \S*%s\.zip sha256 %s' % (re.escape(b.slug or '?'), b.sha[:16]), s):
+                f.append('%s: its run\'s SUMMARY.txt does not say it read a copy unpacked from %s.zip sha256 %s' % (k, b.slug, b.sha[:16]))
     if copy:
         f.append('read preview/index.html (the page without copy protection), not the upload zip: ' + ', '.join(copy))
     for k in chk:
@@ -934,7 +981,7 @@ def reads_zip(b):
             f.append('%s read a CHECK-ONLY zip that is not byte for byte the upload zip' % k)
     if f:
         return 'FAULT', '; '.join(f)
-    return 'PASS', 'every result read the upload zip or a byte-identical copy'
+    return 'PASS', 'every result read the upload zip, a byte-identical copy, or a copy unpacked from the upload zip (named in its run\'s SUMMARY.txt)'
 
 
 def main():
