@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup as _BS
 TEXT_EDITS = [   # UK spelling (owner 13 Oct, 26 Oct 15:54): "practice" as a verb is "practise"
     ('to practice copying', 'to practise copying'), ('to practice reading', 'to practise reading'),
     ('to practice colouring', 'to practise colouring'), ('Practice left to right', 'Practise left to right'),
+    ('the sound ....', 'the sound\u00a0....'),   # 6 Nov 02:5x (wrap check PUNCT, 361-367 px): Word's space before the dots let a line start with "."; a no-break space keeps the dots with "sound"
 ]
 PAGE_CODE_REPLACE = []
 ALT_TEXT = {}            # owner 28 Oct: image descriptions "are not necessary anymore"
