@@ -1,4 +1,4 @@
-Build 27 (6 Nov 06:5x): build 26 page settings + Essay Code Template 847b6adb (was b7c241e6).
+Build 27 (6 Nov 06:3x-06:4x): build 26 page settings + Essay Code Template 847b6adb (was b7c241e6).
 Template: two agreed changes that had been put in only above 830 px, now carried down to 641 px (found by the b25 review):
 - T1, owner 5 Nov 13:38 agreement ("at 641 px and wider, a list that opens a column of Word's columns starts level with the other columns"): the spacing script spaces Word's columns as columns whenever the page shows them side by side (641-830 too) - review fault 9.
 - T4, owner 5 Nov 09:16 agreement ("images beside text move under the text only when the text would be narrower than 200 px, at 641 px and wider"): at 641-830 sets and floats beside text keep the desktop layout; the 640-and-narrower layout is unchanged; swipe rows (images not beside text) unchanged - review fault 10.
