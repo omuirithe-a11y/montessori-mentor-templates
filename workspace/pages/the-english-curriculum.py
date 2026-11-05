@@ -16,7 +16,7 @@ TEXT_EDITS = [   # UK spelling (owner 13 Oct, 26 Oct 15:54): "practice" as a ver
 ]
 PAGE_CODE_REPLACE = []
 ALT_TEXT = {}            # owner 28 Oct: image descriptions "are not necessary anymore"
-CSS = "/* 5 Nov 2026 10:4x (PDF columns, owner 04:59): the first item of a list that opens a column stands level with the other columns' first lines - the template sets 0 on the second column's (spaceTable colStart) but the first column's kept the list's 8 px (b15 at 1440: Chalkboard 8 px below Crayons) */ html body main .mm-wcols2>div>:is(ul,ol):first-child>li:first-child,html body main .mm-cols3>div>:is(ul,ol):first-child>li:first-child{margin-top:0 !important} /* 5 Nov 10:5x (PDF p16): the six reading images beside the reading sequence in two rows of three */ html body main .mm-set.mm-grid3 .mm-imgs{flex-wrap:wrap;row-gap:24px;max-width:440px;margin-left:auto}"
+CSS = ""   # 5 Nov 13:38: the two page rules moved into the Essay Code Template (owner agreement)
 # objects on a white background have the white masked (owner's rule); cards with words and printed pages keep their white
 MASK_WHITE = ['image13.jpg', 'image46.jpg', 'image156.jpg', 'image166.png', 'image144.png', 'image148.jpg']
 
@@ -93,6 +93,13 @@ def SOUP_FIX(sp, report):
         if c_ and not p_.find(class_=_re.compile('^mm-hc-')) and 'mm-hc-' + c_ not in (p_.get('class') or []):
             p_['class'] = (p_.get('class') or []) + ['mm-hc-' + c_]; _kpg += 1
     report.append(('settings', 'whole lines in Word pink / green coloured', str(_kpg)))
+    # 5 Nov 13:4x (owner 13:34 agreement: lines and headings centred in Word stay centred at 641 px and wider): a heading
+    # whose Word paragraph is centred takes the template's class centred
+    _ctr = {_re.sub(r'\s+', ' ', _p.text).strip() for _p in _docx.Document(WORD_FILE).paragraphs if _p.alignment is not None and int(_p.alignment) == 1}
+    _kc = 0
+    for h in m.find_all('h2'):
+        if _t(h) in _ctr and 'centred' not in (h.get('class') or []): h['class'] = (h.get('class') or []) + ['centred']; _kc += 1
+    report.append(('settings', 'headings centred as Word', str(_kc)))
     # the contents box entries jump to these headings (the PDF's contents list; owner 1 Nov 10:01: headings in the contents
     # are red on the page). "Reading Stages" in the contents jumps to the green heading "Reading" (Word paragraph 522).
     def _tag(text, k, tid):   # the k-th heading with exactly this text (colour classes are not yet Word's at this stage)
@@ -315,15 +322,40 @@ def SOUP_FIX(sp, report):
         elif t_.parent.name == 'strong' and t_.parent.parent is par and not _re.sub(r'\s', '', ''.join(s.get_text() if hasattr(s, 'get_text') else str(s) for s in t_.next_siblings)) and not _re.sub(r'\s', '', ''.join(s.get_text() if hasattr(s, 'get_text') else str(s) for s in t_.parent.next_siblings)):
             t_.decompose(); k += 1
     report.append(('settings', "Word's trailing tabs at line ends dropped", str(k)))
+    # 5 Nov 13:1x (review fault 5; format check b18: Word "Keys to Literacy" deleted): Word paragraph 60, the blue label
+    # "Keys to Literacy" between "Sound Game" and "Sandpaper Letters" in the AMI list, was taken by the converter as the page
+    # title (src.html h1) and so was missing; put back as a blue line, as the PDF p2
+    kk = 0
+    sg = next((p_ for p_ in m.find_all('p') if _t(p_) == 'Sound Game'), None)
+    nx_ = sg.find_next_sibling() if sg is not None else None
+    if nx_ is not None and _t(nx_) == 'Sandpaper Letters':
+        sg.insert_after(_BS('<p class="mm-hc-0432FF">Keys to Literacy</p>', 'html.parser').p); kk = 1
+    report.append(('settings', 'Word paragraph 60 "Keys to Literacy" put back in the AMI list', str(kk)))
+    # 5 Nov 13:1x (review fault 20; style check E041 on b18): the beige line Word puts before "Keys to Literacy" was placed
+    # before the first line with those words - Word's contents line, taken off the page - so it stood at the top of the essay
+    # and was missing between the three wall images and the "Keys to Literacy" heading (PDF p9); moved there
+    kgl = 0
+    fe = next((c for c in m.find_all(True) if c.get_text(strip=True) or (c.name == 'p' and 'mm-gl' in (c.get('class') or []))), None)
+    hk = m.find(id='toc-keys')
+    if fe is not None and fe.name == 'p' and 'mm-gl' in (fe.get('class') or []) and hk is not None:
+        tgt_ = hk.find_parent('section') or hk
+        tgt_.insert_before(fe.extract()); kgl = 1
+    report.append(('settings', 'beige line moved from the top of the essay to before "Keys to Literacy"', str(kgl)))
     _columns(m, report, replace, merge_section)
     # 5 Nov 09:5x (review fault 48; b12 122-width check: images 154/155/156 over each other at every width, over "Number"
     # 320-830): the three Word Study images stand one under another at the right, as in the PDF - the template's own
     # ext-float class (wrapFloats: "stand one under another (clear:right), not centred on the paragraph"). Tested on a b12
     # copy at 1440: stacked, no overlap.
+    # 5 Nov 12:5x: ext-float kept them apart only at 831 and wider; at 320-830 the third was pulled 399 px up over the first
+    # (b18 122 widths). Now one float holding the three figures, one under another (tested on a b18 copy at 1440 and 390).
     ws = m.find('section', id='word-study'); kws = 0
-    for f_ in (ws.find_all('div', class_='mm-float', recursive=False) if ws is not None else []):
-        if 'ext-float' not in f_['class']: f_['class'] = f_['class'] + ['ext-float']; kws += 1
-    report.append(('settings', 'Word Study images stacked at the right (template ext-float)', str(kws)))
+    fls = ws.find_all('div', class_='mm-float', recursive=False) if ws is not None else []
+    if len(fls) > 1:
+        im0 = fls[0].find(class_='mm-imgs')
+        for f_ in fls[1:]:
+            for fig in f_.find_all('figure'): im0.append(fig.extract()); kws += 1
+            f_.decompose()
+    report.append(('settings', 'Word Study images: one float, one under another at the right', str(kws)))
     # 5 Nov 10:1x (review fault 24; column check p10): Word's one centred line "Letter Bingo: learning <tabs> Letter Bingo:
     # teaching" over two groups of two images side by side, as the PDF - the template's own .mm-twocap line ("centres its first
     # caption over the first half of the row's photos and its second over the second half (as the PDF)") over one row
@@ -347,6 +379,25 @@ def SOUP_FIX(sp, report):
         if f_ is not None and f_.find('figcaption') is None:
             f_['class'] = (f_.get('class') or []) + ['mm-cf']; f_.append(_BS('<figcaption class="mm-cap mm-cap-below">%s</figcaption>' % cap_, 'html.parser').figcaption); kc += 1
     report.append(('settings', "captions from Word's text boxes under their images", str(kc)))
+    # 5 Nov 13:0x (b18 122 widths, 641-830: "Maria Montessori, 1950, Perugia." over the text; 630-640 the image shown larger
+    # than its file): the template measures a caption only above its image, in a captioned set (.mm-set[data-cap], its own
+    # style). The Grammar image and its first paragraph become one set with the caption above the image; the PDF has it below
+    # (placement roughly as the PDF, A011).
+    im_ = m.select_one('img[data-full="images/152.jpg"]'); kg = 0
+    fl_ = im_.find_parent('div', class_='mm-float') if im_ is not None else None
+    pa_ = fl_.find_next_sibling() if fl_ is not None else None
+    if fl_ is not None and pa_ is not None and pa_.name == 'p':
+        fig = im_.find_parent('figure'); cap = fig.find('figcaption')
+        if cap is not None: cap['class'] = ['mm-cap']; fig.insert(0, cap.extract())
+        st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '168', 'data-cap': '1'})
+        if fl_.has_attr('data-gap'): st['data-gap'] = fl_['data-gap']
+        tx = sp.new_tag('div', attrs={'class': 'mm-text'}); imd = sp.new_tag('div', attrs={'class': 'mm-imgs'})
+        fl_.insert_before(st); tx.append(pa_.extract()); imd.append(fig.extract()); fl_.decompose(); st.append(tx); st.append(imd); kg = 1
+    report.append(('settings', 'Grammar image and its first paragraph as one captioned set (caption above)', str(kg)))
+    # 5 Nov 13:0x: two sections had id="grammar" (the opening section kept the id of Word's contents line "Grammar")
+    _secs = m.find_all('section', id='grammar')
+    for _s in _secs[:-1]: del _s['id']
+    report.append(('settings', 'duplicate section id "grammar" removed from the opening section', str(len(_secs) - 1)))
     # 5 Nov 10:3x (review fault 30): a tab Word puts before a quotation's opening mark ("Not one of them had ever...") is not
     # kept - the template's quotation style sets the indent; with the tab the first line stood about 50 px further in than
     # every other quotation
@@ -555,7 +606,14 @@ def _columns(m, report, replace, merge_section):
                 del f_['data-gap']
             elif ci_ == 0 and not wrap.has_attr('data-gap') and ((f_.name == 'h2' and 'mm-hc-0432FF' in (f_.get('class') or [])) or (f_.find('strong') is not None and f_.find('strong').get_text(strip=True) == f_.get_text(strip=True))):
                 wrap['data-gap'] = '40'   # what mm-kind-gaps-js gives a blue heading or a bold line
-            f_['data-space'] = '0'
+            # 5 Nov 12:4x (b18 122 widths, 320-640: a second column's first line over the first column's last - data-space is
+            # the line's own gap, used at phone widths where the columns follow one another; 0 drew them together): column 1's
+            # first line 0 (the grid carries its gap), a later column's first line the PDF's "together" gap, a heading the heading gap
+            # 13:0x: column 1's first line carries the grid's own gap (b18: "Pink Language Materials" drawn over the image row
+            # above it at 320-600 with 0)
+            if ci_ == 0:
+                if wrap.has_attr('data-gap'): f_['data-space'] = wrap['data-gap']
+            else: f_['data-space'] = '48' if f_.name == 'h2' else '20'
         done += 1; DEBUG.append((pn, anc.name, [(ci, b.name, b.get_text(' ', strip=True)[:20]) for ci, b in found], len(span), [len(p_) for p_ in parts]))
     report.append(('settings', "PDF columns in the template's column style (mm-wcols2 / mm-cols3)", '%d regions; not placed: %s' % (done, '; '.join(miss[:10]))))
 
