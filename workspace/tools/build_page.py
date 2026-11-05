@@ -70,7 +70,8 @@ def site_rules(text_html, report, spaced=False):
         s = re.sub(r'\blead guide\b', 'Lead Guide', s, flags=re.I)   # 20 Oct 22:10 (user): capitalise 'Lead Guide' always
         gaps = re.search(r'\S {3,}\S', s) is not None
         s = re.sub(r'(?<=\S)  (?=\S)', ' ', s)
-        for pat, rep in UK:
+        inq = node.find_parent('blockquote') is not None   # 5 Nov 2026 (REQUIRED-CHECKS A109; text check on build 7: "tyrannized" -> "tyrannised" in a Montessori quotation): words inside a quotation stay exactly as written
+        for pat, rep in ([] if inq else UK):
             def sub(m):
                 ctx = s[max(0, m.start() - 20):m.end() + 25]
                 return m.group(0) if any(k in ctx for k in KEEP) else m.expand(rep)   # 21 Oct 2026: expand, so a rule can keep part of the word

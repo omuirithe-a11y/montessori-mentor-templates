@@ -7,6 +7,7 @@
 # 4 Nov 21:5x (build 2): fixes for the separate review of build 1 (claude/checks/english-curriculum-b1-faults.md, 45 faults),
 # each settled by a rule: the PDF/Word decide what is a heading and its colour, the template decides sizes and spacing.
 import re as _re
+WORD_FILE = '/home/claude/eng35/src/3.5.0 The English Curriculum.docx'   # the owner's Word file of 5 Nov (sha256 36a76415)
 from bs4 import BeautifulSoup as _BS
 
 TEXT_EDITS = [   # UK spelling (owner 13 Oct, 26 Oct 15:54): "practice" as a verb is "practise"
@@ -15,7 +16,7 @@ TEXT_EDITS = [   # UK spelling (owner 13 Oct, 26 Oct 15:54): "practice" as a ver
 ]
 PAGE_CODE_REPLACE = []
 ALT_TEXT = {}            # owner 28 Oct: image descriptions "are not necessary anymore"
-CSS = ""
+CSS = "/* 5 Nov 2026 10:4x (PDF columns, owner 04:59): the first item of a list that opens a column stands level with the other columns' first lines - the template sets 0 on the second column's (spaceTable colStart) but the first column's kept the list's 8 px (b15 at 1440: Chalkboard 8 px below Crayons) */ html body main .mm-wcols2>div>:is(ul,ol):first-child>li:first-child,html body main .mm-cols3>div>:is(ul,ol):first-child>li:first-child{margin-top:0 !important} /* 5 Nov 10:5x (PDF p16): the six reading images beside the reading sequence in two rows of three */ html body main .mm-set.mm-grid3 .mm-imgs{flex-wrap:wrap;row-gap:24px;max-width:440px;margin-left:auto}"
 # objects on a white background have the white masked (owner's rule); cards with words and printed pages keep their white
 MASK_WHITE = ['image13.jpg', 'image46.jpg', 'image156.jpg', 'image166.png', 'image144.png', 'image148.jpg']
 
@@ -41,6 +42,72 @@ def SOUP_FIX(sp, report):
         if prev is None or sec.find('h2') is not None: return
         for c in list(sec.contents): prev.append(c.extract())
         sec.decompose()
+    # 5 Nov (owner's new Word file of 4 Nov 22:49 UTC): Word's own "Table of Contents" list (Word paragraphs 0-7) is the
+    # contents box, not page text - its seven lines leave the page; the template's contents box shows its entries in the
+    # PDF's two columns (TOC_EXTRA / TOC_SPLIT below). The intro paragraph the converter put under the last entry stays.
+    _tocw = ['Table of Contents', 'Spoken Language', 'Writing - Abstract', 'Keys to Literacy', 'Writing - Concrete', 'Reading Stages', 'Grammar']
+    _intro = next((p for p in m.find_all('p') if _t(p).startswith('When I did my AMI training')), None)
+    _gone = 0
+    for h in list(m.find_all(['h2', 'p'])):
+        if h is _intro: break
+        if h.name == 'h2' and _t(h) in _tocw:
+            _tocw.remove(_t(h)); h.decompose(); _gone += 1
+    report.append(('settings', "Word's own contents list taken off the page (it is the contents box)", '%d lines' % _gone))
+    # 5 Nov: what is a heading, and its colour, comes from the owner's Word file (the PDF is printed from it; one font size,
+    # the levels are colours: green sections, red sub-headings, blue labels). Each heading on the page is matched, in order,
+    # to the Word paragraph with the same words: a heading whose Word paragraph is black is an ordinary line (underlined or
+    # italic as Word); the others take their Word colour. (The converter's own colour classes were not Word's: all four
+    # "Spoken Language" came out green.)
+    import docx as _docx
+    _wp = []
+    for _p in _docx.Document(WORD_FILE).paragraphs:
+        _tx = _re.sub(r'\s+', ' ', _p.text).strip()
+        if not _tx or len(_tx) > 90: continue
+        _r = next((r for r in _p.runs if r.text.strip()), None)
+        _col = str(_r.font.color.rgb) if (_r is not None and _r.font.color is not None and _r.font.color.type is not None and _r.font.color.rgb is not None) else '000000'
+        _wp.append((_tx, _col, bool(_r is not None and _r.underline), bool(_r is not None and _r.italic)))
+    _k = 0; _kinds = {}
+    for h in list(m.find_all('h2')):
+        tx = _t(h)
+        j = next((i for i in range(_k, len(_wp)) if _wp[i][0] == tx), None)
+        if j is None: report.append(('settings', 'WARNING: heading not found in Word (kept as built)', tx)); continue
+        _k = j + 1; col, ul, it = _wp[j][1].upper(), _wp[j][2], _wp[j][3]
+        if col in ('000000', '222222'):
+            inner = tx if not ul else '<u>%s</u>' % tx
+            inner = inner if not it else '<em>%s</em>' % inner
+            n = replace(h, '<p>%s</p>' % inner); merge_section(n); _kinds['line'] = _kinds.get('line', 0) + 1
+        else:
+            cls = {'0000FF': 'mm-hc-0432FF', '0432FF': 'mm-hc-0432FF', 'FF0000': 'mm-hc-EE0000', 'EE0000': 'mm-hc-EE0000', '00B050': 'mm-hc-00B050'}.get(col, 'mm-hc-' + col)
+            h['class'] = [c for c in (h.get('class') or []) if not c.startswith('mm-hc-')] + [cls]; _kinds[cls] = _kinds.get(cls, 0) + 1
+    report.append(('settings', 'headings as Word (black = an ordinary line; others their Word colour)', str(_kinds)))
+    # 5 Nov 10:1x (review fault 40; b13 at 1440: "Pink Language Materials" and "Green Language Materials" black): a whole line
+    # in Word's pink (FF40FF) or second green (2AB116) takes the template's class for that colour (Essay template 71dd8bf8,
+    # owner 5 Nov 04:00 "Yes")
+    _pg = {}; _kpg = 0
+    for _p in _docx.Document(WORD_FILE).paragraphs:   # every run of the line in that colour (not only the first)
+        _rs = [r for r in _p.runs if r.text.strip()]
+        _cs = {str(r.font.color.rgb).upper() if (r.font.color is not None and r.font.color.type is not None and r.font.color.rgb is not None) else '000000' for r in _rs}
+        if _rs and len(_cs) == 1 and next(iter(_cs)) in ('FF40FF', '2AB116'): _pg[_re.sub(r'\s+', ' ', _p.text).strip()] = next(iter(_cs))
+    for p_ in m.find_all('p'):
+        c_ = _pg.get(_t(p_))
+        if c_ and not p_.find(class_=_re.compile('^mm-hc-')) and 'mm-hc-' + c_ not in (p_.get('class') or []):
+            p_['class'] = (p_.get('class') or []) + ['mm-hc-' + c_]; _kpg += 1
+    report.append(('settings', 'whole lines in Word pink / green coloured', str(_kpg)))
+    # the contents box entries jump to these headings (the PDF's contents list; owner 1 Nov 10:01: headings in the contents
+    # are red on the page). "Reading Stages" in the contents jumps to the green heading "Reading" (Word paragraph 522).
+    def _tag(text, k, tid):   # the k-th heading with exactly this text (colour classes are not yet Word's at this stage)
+        after = m.find(id='toc-wabs') if tid == 'toc-keys' else None   # Keys to Literacy: the first after "Writing - Abstract" (Word paragraph 302)
+        L = [h for h in (after.find_all_next('h2') if after is not None else m.find_all('h2')) if _t(h) == text]
+        if k < len(L):
+            h = L[k]; h['id'] = tid; h['class'] = [c for c in (h.get('class') or []) if not c.startswith('mm-hc-')] + ['mm-hc-EE0000']
+            report.append(('settings', 'contents entry and red heading', text)); return
+        report.append(('settings', 'WARNING: contents heading not found', text))
+    # Word paragraphs 124 (the 2nd "Spoken Language"; the 1st is the list title of Word paragraph 43), 287, 302, 360, 522, 644
+    for text, k, tid in [('Spoken Language', 1, 'toc-spoken'), ('Writing - Abstract', 0, 'toc-wabs'), ('Keys to Literacy', 0, 'toc-keys'),
+                         ('Writing - Concrete', 0, 'toc-wcon'), ('Reading', 0, 'toc-reading'), ('Grammar', 0, 'toc-grammar')]:
+        _tag(text, k, tid)
+    for sec in list(m.find_all('section')):   # sections left with nothing but empty space join the next one's text
+        if not sec.find(['h2']) and not _t(sec) and not sec.find('img'): sec.decompose()
     h2s = {}
     for h in m.find_all('h2'): h2s.setdefault(_t(h), []).append(h)
     def H(text, k=0):
@@ -51,16 +118,11 @@ def SOUP_FIX(sp, report):
         if el is None: report.append(('settings', 'WARNING: heading to make a line not found', '%s #%d' % (text, k))); return None
         n = replace(el, h); merge_section(n); report.append(('settings', 'heading made a line, as the PDF', '%s #%d' % (text, k))); return n
     # fetch everything first (occurrences counted on build 1's headings)
-    plan = [('Keys to Literacy', 0, '<div class="micro-label mm-hc-0432FF">Keys to Literacy</div>'),
-            ('Metal Insets', 0, '<p>Metal Insets</p>'), ('Word Study', 0, '<p>Word Study</p>'), ('Reading Analysis', 0, '<p>Reading Analysis</p>'),
-            ('Enrichment of Vocabulary', 1, '<p><u>Enrichment of Vocabulary</u></p>'), ('Expansion of Oral Language', 1, '<p><u>Expansion of Oral Language</u></p>'),
-            ('Spoken Language', 1, '<p><u>Spoken Language</u></p>'), ('Spoken Language', 2, '<p><u>Spoken Language</u></p>'),
-            ('Metal Insets', 2, '<p><em>Metal Insets</em></p>'), ('Early Readers', 0, '<p>Early Readers</p>'),
-            ('Blue Language Materials', 0, '<div class="micro-label mm-hc-0432FF">Blue Language Materials</div>'),
-            ('Series 1', 0, '<p class="mm-hanglab"><span class="mm-lab mm-hc-0432FF">Series 1 </span><span class="mm-hc-0432FF">Subject and Verb</span></p>'),
+    # the 4 Nov list of headings made lines was fitted to the old PDF; replaced on 5 Nov by the Word-colour rule above
+    plan = [('Series 1', 0, '<p class="mm-hanglab"><span class="mm-lab mm-hc-0432FF">Series 1 </span><span class="mm-hc-0432FF">Subject and Verb</span></p>'),
             ('Series 2', 0, '<p class="mm-hanglab"><span class="mm-lab mm-hc-0432FF">Series 2 </span><span class="mm-hc-0432FF">Subject, Verb, Object</span></p>')]
     targets = [(H(t, k), h, t, k) for t, k, h in plan]
-    kl = H('Keys to Literacy', 1); wr = H('Writing', 1) if (H('Writing', 1) is not None and _t(H('Writing', 1)) == 'Writing') else None
+    kl = wr = None   # 5 Nov: colours come from Word (above)
     lb = H('Letter Bingo', 0)
     for el, h, t, k in targets:
         if el is None: report.append(('settings', 'WARNING: heading to make a line not found', '%s #%d' % (t, k))); continue
@@ -143,9 +205,9 @@ def SOUP_FIX(sp, report):
     # p19: the four labels each over its image (Blue Series, Green Series, Action Cards - Set 2, Puzzle Words)
     lab = next((p for p in m.find_all('p') if _t(p).startswith('The Blue Series') and 'Puzzle Words' in _t(p)), None)
     if lab is not None:
-        imgs = {n: m.select_one('img[data-full="images/%s.jpg"]' % n) for n in ('145', '146', '147', '148')}
+        imgs = {n: m.select_one('img[data-full="images/%s.jpg"]' % n) for n in ('144', '145', '146', '147')}   # 5 Nov 10:2x: the 5 Nov Word file has one image fewer before here (old image74 removed): every number one lower; checked by eye on b13 images 140-152
         if all(imgs.values()):
-            caps = [('146', '<strong>The Blue Series</strong>'), ('145', 'The Green Series'), ('147', 'Action Cards - Set 2'), ('148', '<strong>Puzzle Words</strong> (aka Sight Words)')]
+            caps = [('145', '<span class="mm-hc-EE0000">The Blue Series</span>'), ('144', '<span class="mm-hc-EE0000">The Green Series</span>'), ('146', '<span class="mm-hc-EE0000">Action Cards - Set 2</span>'), ('147', '<span class="mm-hc-EE0000">Puzzle Words</span> (aka <span class="mm-hc-EE0000">Sight Words</span>)')]   # 5 Nov: regular, red as Word (review fault 44)
             figs = []
             for n, cap in caps:
                 f = imgs[n].find_parent('figure'); old = f.find_parent('div', class_=['mm-float', 'mm-row'])
@@ -166,9 +228,9 @@ def SOUP_FIX(sp, report):
             fl.insert_before(st); tx.append(para.extract())
             for f in fl.find_all('figure'): im.append(f.extract())
             fl.decompose(); st.append(tx); st.append(im)
-    f134 = m.select_one('img[data-full="images/134.jpg"]'); f152 = m.select_one('img[data-full="images/152.jpg"]')
+    f134 = m.select_one('img[data-full="images/133.jpg"]'); f152 = m.select_one('img[data-full="images/151.jpg"]')   # 5 Nov 10:2x: numbers one lower (old image74 removed); 133 = the teacher with children at a table, 151 = the circle (checked by eye on b13)
     if f134 is not None and f152 is not None:
-        f152.find_parent('figure').insert_before(_BS(str(f134.find_parent('figure')), 'html.parser').figure); report.append(('settings', 'image136 (134) also in the Early Readers row, as Word', ''))
+        f152.find_parent('figure').insert_before(_BS(str(f134.find_parent('figure')), 'html.parser').figure); report.append(('settings', 'the teacher-with-children image (133) also in the Early Readers row, 4th of 5, as Word', ''))
     # Grapheme: a label line like Phoneme above it (the leading tab had been dropped: "GraphemeThe")
     for p in m.select('p.mm-under'):
         if _t(p).startswith('Grapheme'):
@@ -216,6 +278,32 @@ def SOUP_FIX(sp, report):
         if pv is not None and 'mm-hanglab' in (pv.get('class') or []) and getattr(fc, 'name', None) == 'span' and 'mm-t' in (fc.get('class') or []):
             fc.decompose(); p['class'] = [c for c in (p.get('class') or []) if c != 'mm-form'] + ['mm-hanglab']
             p.insert(0, _BS('<span class="mm-lab"></span>', 'html.parser').span); report.append(('settings', 'second line under a label line at the text column', _t(p)[:40]))
+
+    # the spacing check's rule (owner 3 Nov 17:23): Word and the PDF decide which lines are together and where the breaks are, the template the
+    # sizes - every plain gap the check lists is set to one size for "together" and one for "apart" (the template's own two paragraph gaps)
+    import json as _json, os as _os
+    _gf = _os.environ.get('ENG_GAPS', '/home/claude/eng35/space/gaps.json')
+    if _os.path.exists(_gf):
+        _T, _A = _os.environ.get('ENG_GAP_T', '20'), _os.environ.get('ENG_GAP_A', '29')
+        _norm = lambda s: _re.sub(r'[^a-z0-9]', '', s.lower())
+        _blocks = [e for e in m.find_all(['p', 'li', 'div']) if (e.name != 'div' or 'micro-label' in (e.get('class') or [])) and not e.find(['p', 'li']) and _t(e)]
+        _cur = 0; _set = 0; _miss = []
+        for g in _json.load(open(_gf)):
+            k = _norm(g['b'].replace('Practice left', 'Practise left'))[:30]
+            if not k: continue
+            j = next((i for i in range(_cur, len(_blocks)) if _norm(_t(_blocks[i])).startswith(k)), None)
+            if j is None: _miss.append(g['b'][:30]); continue
+            _el = _blocks[j]; _bq = _el.find_parent('blockquote')
+            if _bq is not None and _bq.find(['p', 'li']) is _el: _el = _bq   # a quotation: the gap is the quotation's own
+            _el['data-gap'] = _T if g['kind'] == 'together' else _A; _cur = j + 1; _set += 1
+        # headings: one size above and one below, every heading (the template's sizes, measured on build 8: 60 above, 36 below, line to line)
+        _HA, _HB = _os.environ.get('ENG_GAP_HA', '48'), _os.environ.get('ENG_GAP_HB', '24')
+        for _h in m.find_all('h2'):
+            _sec = _h.find_parent('section')
+            if _sec is not None and _sec.find_previous_sibling('section') is not None: _h['data-gap'] = _HA
+            _nx = _h.find_next_sibling()
+            if _nx is not None and _nx.name in ('p', 'div', 'ul', 'ol', 'blockquote') and 'mm-row' not in (_nx.get('class') or []) and 'mm-set' not in (_nx.get('class') or []): _nx['data-gap'] = _HB
+        report.append(('settings', 'PDF together/apart gaps set (T=%s, A=%s): %d; not found: %d' % (_T, _A, _set, len(_miss)), '; '.join(_miss[:8])))
     # Word's trailing tabs at the end of a list line ("Conversation<tab>") made those lines a different kind of paragraph: dropped
     k = 0
     for t_ in m.select('span.mm-t'):
@@ -227,3 +315,252 @@ def SOUP_FIX(sp, report):
         elif t_.parent.name == 'strong' and t_.parent.parent is par and not _re.sub(r'\s', '', ''.join(s.get_text() if hasattr(s, 'get_text') else str(s) for s in t_.next_siblings)) and not _re.sub(r'\s', '', ''.join(s.get_text() if hasattr(s, 'get_text') else str(s) for s in t_.parent.next_siblings)):
             t_.decompose(); k += 1
     report.append(('settings', "Word's trailing tabs at line ends dropped", str(k)))
+    _columns(m, report, replace, merge_section)
+    # 5 Nov 09:5x (review fault 48; b12 122-width check: images 154/155/156 over each other at every width, over "Number"
+    # 320-830): the three Word Study images stand one under another at the right, as in the PDF - the template's own
+    # ext-float class (wrapFloats: "stand one under another (clear:right), not centred on the paragraph"). Tested on a b12
+    # copy at 1440: stacked, no overlap.
+    ws = m.find('section', id='word-study'); kws = 0
+    for f_ in (ws.find_all('div', class_='mm-float', recursive=False) if ws is not None else []):
+        if 'ext-float' not in f_['class']: f_['class'] = f_['class'] + ['ext-float']; kws += 1
+    report.append(('settings', 'Word Study images stacked at the right (template ext-float)', str(kws)))
+    # 5 Nov 10:1x (review fault 24; column check p10): Word's one centred line "Letter Bingo: learning <tabs> Letter Bingo:
+    # teaching" over two groups of two images side by side, as the PDF - the template's own .mm-twocap line ("centres its first
+    # caption over the first half of the row's photos and its second over the second half (as the PDF)") over one row
+    kb = 0
+    a_ = next((p_ for p_ in m.find_all('p') if _t(p_) == 'Letter Bingo: learning'), None)
+    b_ = next((p_ for p_ in m.find_all('p') if _t(p_) == 'Letter Bingo: teaching'), None)
+    if a_ is not None and b_ is not None:
+        ra, rb = a_.find_next_sibling(), b_.find_next_sibling()
+        if ra is not None and rb is not None and 'mm-row' in (ra.get('class') or []) and 'mm-row' in (rb.get('class') or []) and ra.find_next_sibling() is b_:
+            cls = [c for c in (a_.get('class') or []) if c != 'centred']
+            cap = _BS('<p class="%s"><span>Letter Bingo: learning</span><span>Letter Bingo: teaching</span></p>' % ' '.join(['mm-twocap'] + cls), 'html.parser').p
+            a_.replace_with(cap); ia = ra.find(class_='mm-imgs'); ib = rb.find(class_='mm-imgs')
+            for f_ in list(ib.find_all('figure', recursive=False)): ia.append(f_.extract())
+            b_.decompose(); rb.decompose(); kb = 1
+    report.append(('settings', 'Letter Bingo: one row of four under its two captions (template mm-twocap)', str(kb)))
+    # 5 Nov 10:2x (review faults 42, 46): Word's captions in text boxes, under their images as the PDF - "Run" (image 141),
+    # "Hug" (143), "Maria Montessori, 1950, Perugia." (152); numbers checked by eye on b13 images 140-152
+    kc = 0
+    for n_, cap_ in (('141', 'Run'), ('143', 'Hug'), ('152', 'Maria Montessori, 1950, Perugia.')):
+        im_ = m.select_one('img[data-full="images/%s.jpg"]' % n_); f_ = im_.find_parent('figure') if im_ is not None else None
+        if f_ is not None and f_.find('figcaption') is None:
+            f_['class'] = (f_.get('class') or []) + ['mm-cf']; f_.append(_BS('<figcaption class="mm-cap mm-cap-below">%s</figcaption>' % cap_, 'html.parser').figcaption); kc += 1
+    report.append(('settings', "captions from Word's text boxes under their images", str(kc)))
+    # 5 Nov 10:3x (review fault 30): a tab Word puts before a quotation's opening mark ("Not one of them had ever...") is not
+    # kept - the template's quotation style sets the indent; with the tab the first line stood about 50 px further in than
+    # every other quotation
+    kq = 0
+    for q_ in m.select('blockquote p'):
+        first = next((c for c in q_.descendants if (isinstance(c, str) and c.strip()) or (getattr(c, 'name', None) == 'span' and 'mm-t' in (c.get('class') or []))), None)
+        if getattr(first, 'name', None) == 'span': first.decompose(); kq += 1
+    report.append(('settings', 'leading tabs in quotations dropped', str(kq)))
+    # 5 Nov 10:5x (review fault 36; b16 at 1440): the reading sequence (Object Box 1 ... Definition Stages) with its six
+    # images beside it in two rows of three, as the PDF p16 - one set (it was two, the second holding the 3.1-3.17 columns,
+    # which were squeezed beside the images); the paragraph above and the lines after Definition Stages stand outside it.
+    # Two rows: the page style mm-grid3 (CSS above). Tested on a b16 copy at 1440.
+    kr = 0
+    p0 = next((p_ for p_ in m.find_all('p') if _t(p_).startswith('The AMI Montessori reading system')), None)
+    A_ = p0.find_parent('div', class_='mm-set') if p0 is not None else None
+    B_ = A_.find_next_sibling('div') if A_ is not None else None
+    if A_ is not None and B_ is not None and 'mm-set' in (B_.get('class') or []):
+        tA, iA = A_.find(class_='mm-text'), A_.find(class_='mm-imgs'); tB, iB = B_.find(class_='mm-text'), B_.find(class_='mm-imgs')
+        for c in list(tB.find_all(True, recursive=False)):
+            if c.name == 'p' and _t(c) in ('Reading Folders', 'Environment Cards', 'Classified Reading', 'Definition Stages'): tA.append(c.extract())
+        for f_ in list(iB.find_all('figure', recursive=False)): iA.append(f_.extract())
+        rest = [c.extract() for c in tB.find_all(True, recursive=False)]
+        for c in reversed(rest): B_.insert_after(c)
+        B_.decompose(); A_['class'] = A_['class'] + ['mm-grid3']
+        A_.insert_before(p0.extract()); kr = 1
+    report.append(('settings', 'reading sequence: one set, six images in two rows of three beside it', str(kr)))
+
+
+DEBUG = []
+PDF_FILE = '/home/claude/eng35/src/3.5.0 The English Curriculum.pdf'   # the owner's PDF of 5 Nov (sha256 4e44885a)
+
+
+def _pdf_regions():
+    """Rows of the PDF with text in two or three columns (the same reading as tools/col_check.py), grouped into regions:
+    rows on one PDF page less than 60 pt apart. Each region: a list of columns, each a list of cell texts in order."""
+    import pymupdf
+    d = pymupdf.open(PDF_FILE); regions = []
+    for pn in range(len(d)):
+        p = d[pn]; Wp = p.rect.width; lines = {}
+        for b in p.get_text('dict')['blocks']:
+            for l in b.get('lines', []):
+                cells, cur, x0, xe = [], '', None, None
+                for s_ in l['spans']:
+                    if not s_['text'].strip(): continue
+                    if cur and s_['bbox'][0] - xe > 20: cells.append((x0, cur)); cur, x0 = '', None
+                    if x0 is None: x0 = s_['bbox'][0]
+                    cur += s_['text']; xe = s_['bbox'][2]
+                if cur: cells.append((x0, cur))
+                for cx, t in cells:
+                    t = t.strip()
+                    if len(_re.sub(r'[^a-z0-9]', '', t.lower())) < 4 or _re.fullmatch(r'[\d.\-\s]+', t): continue
+                    lines.setdefault(round(l['bbox'][1] / 3) * 3, []).append((cx, t))
+        rows = []
+        for y, v in sorted(lines.items()):
+            v.sort()
+            if len(v) >= 2 and v[0][0] < Wp * 0.3 and any(x > Wp * 0.4 for x, _ in v[1:]): rows.append((y, v))
+        # one region per page and column layout: rows whose right-hand cells start at the same places (within 15 pt) belong
+        # together however far apart - Word sets a whole page in columns, the left column's lines first
+        g = []
+        for y, v in rows:
+            xs = [x for x, _ in v[1:]]
+            hit = next((r for r in g if any(abs(a - b) < 15 for a in xs for b in r['xs'])), None)
+            if hit is None: g.append({'xs': xs, 'rows': [(y, v)]})
+            else: hit['rows'].append((y, v)); hit['xs'] = sorted(set(hit['xs'] + xs))
+        for r in g: regions.append((pn + 1, r['rows']))
+    out = []
+    for pn, rws in regions:
+        # column boundaries: the x of each cell in the row with the most cells
+        ref = max(rws, key=lambda r: len(r[1]))[1]; xs = [x for x, _ in ref]
+        cols = [[] for _ in xs]
+        for y, v in rws:
+            for x, t in v:
+                k = min(range(len(xs)), key=lambda i: abs(xs[i] - x)); cols[k].append(t)
+        out.append((pn, cols))
+    return out
+
+
+def _columns(m, report, replace, merge_section):
+    """5 Nov (owner 04:59: "these lists go in two columns, as in the PDF, using the template's two-column style"): every
+    region the PDF sets in two or three columns stands in the template's own column style - div.mm-wcols2 (two columns)
+    or div.mm-cols3 (three), one child div per column (template: one column at 640 px and narrower)."""
+    def key(s): return _re.sub(r'[^a-z0-9]', '', s.lower())
+    blocks_all = lambda: [b for b in m.find_all(['p', 'li', 'h2', 'h3', 'div', 'figcaption']) if b.get_text(strip=True)]
+    # 5 Nov: which paragraphs stand in columns comes from the Word file itself - its sections set in 2 or 3 columns
+    # (w:cols w:num) - and where each column starts from the PDF (the first line at the top of the next column; Word
+    # balances the columns, there are no column breaks). Each Word paragraph is then found on the page in order.
+    import docx as _docx
+    from docx.oxml.ns import qn as _qn
+    _d = _docx.Document(WORD_FILE); ps = _d.paragraphs; secs = []; st = 0
+    for i, p_ in enumerate(ps):
+        sp_ = p_._p.pPr.find(_qn('w:sectPr')) if p_._p.pPr is not None else None
+        if sp_ is not None:
+            c_ = sp_.find(_qn('w:cols')); secs.append((st, i, int(c_.get(_qn('w:num')) or 1) if c_ is not None else 1)); st = i + 1
+    regions = _pdf_regions()
+    done = 0; miss = []; cursor_el = None
+    for a_, b_, n in secs:
+        if n < 2: continue
+        texts = [_re.sub(r'\s+', ' ', ps[i].text).strip() for i in range(a_, b_ + 1)]
+        texts = [t for t in texts if len(key(t)) >= 4]
+        if not texts: continue
+        if a_ < 10: continue   # Word paragraphs 2-8: the contents list (the contents box)
+        # column starts: the PDF region holding this section's lines; column k starts at the first line of the section
+        # that the PDF shows at the top of column k or below (the earliest section line found among column k's cells)
+        def wk(t): return key(_re.sub(r'^\d+(\.\d+)*\s+', '', t))[:25]
+        tk = [wk(t) for t in texts]
+        reg = None
+        for pn_, cols in regions:
+            ck = [set(wk(c) for c in col) for col in cols]
+            if len(cols) == n and tk[0] in ck[0] and all(any(t in ck[k] for t in tk) for k in range(1, n)): reg = ck; break
+        if reg is None: miss.append('Word %d-%d (no PDF columns found for it)' % (a_, b_)); continue
+        starts = []
+        for k in range(1, n):
+            j = next((i for i, t in enumerate(tk) if t in reg[k] and (not starts or i > starts[-1])), None)
+            if j is None: break
+            starts.append(j)
+        if len(starts) != n - 1: miss.append('Word %d-%d (column start not found)' % (a_, b_)); continue
+        cand = blocks_all()
+        cursor = next((i + 1 for i, e in enumerate(cand) if e is cursor_el), 0)
+        found = []; pos = cursor; reach = 600
+        for j, t in enumerate(texts):
+            kt = key(_re.sub(r'^\d+(\.\d+)*\s+', '', t))[:30]
+            i = None
+            for q in range(pos, min(pos + reach, len(cand))):
+                # 5 Nov 08:2x: a hanging label (span.mm-lab "3.1") is stripped like Word's numbering, so "3.1Cursive..." matches
+                kl = lambda e: key(_re.sub(r'^\s*\d+(\.\d+)*\s*', '', e.get_text()))
+                kb = kl(cand[q])
+                if kb.startswith(kt) and not any(kl(c).startswith(kt) for c in cand[q].find_all(['p', 'li', 'h2', 'div', 'figcaption'])): i = q; break
+            if i is None: continue
+            ci = sum(1 for s0 in starts if j >= s0)
+            found.append((ci, cand[i])); pos = i + 1; reach = 40
+        if found: cursor_el = found[-1][1]   # the next section's lines are searched after this section's last line
+        pn = a_
+        if len({ci for ci, _ in found}) < 2: miss.append('Word %d (one column only found)' % pn); continue
+        # the columns' container: the deepest element holding every found cell; its children that hold the cells are the
+        # blocks that move into the columns (a list's items when one list holds both columns, as Word's numbered 3.1-3.17)
+        els = [el for _, el in found]
+        anc = els[0]
+        def holds(a, e): return a is e or any(x is a for x in e.parents)
+        while anc is not None and not all(holds(anc, e) for e in els): anc = anc.parent
+        if anc is None or anc.name in ('figure', 'figcaption') or (anc.get('class') and 'mm-imgs' in anc.get('class', [])):
+            miss.append('p%d (image captions - set elsewhere)' % pn); continue
+        if any(holds(e, anc) for e in els):   # one found element is the container itself: take its parent
+            anc = anc.parent
+        if anc.name in ('main', '[document]'):   # the columns run over several sections: join those sections first
+            secs = []
+            for e in els:
+                s_ = e.find_parent('section')
+                if s_ is not None and s_ not in secs: secs.append(s_)
+            if len(secs) > 1:
+                allsec = [c for c in anc.children if getattr(c, 'name', None)]
+                i0 = allsec.index(secs[0]); i1 = allsec.index(secs[-1])
+                for s_ in allsec[i0 + 1:i1 + 1]:
+                    if s_.name == 'section':
+                        for c in list(s_.contents): secs[0].append(c.extract())
+                        s_.decompose()
+                    else: secs[0].append(s_.extract())
+                anc = secs[0]
+        def child_of(e):
+            while e.parent is not None and e.parent is not anc: e = e.parent
+            return e
+        lifted = [(ci, child_of(el)) for ci, el in found]
+        sib = [c for c in anc.children if getattr(c, 'name', None)]
+        idx = {id(b_): i for i, b_ in enumerate(sib)}
+        lo = min(idx[id(b_)] for _, b_ in lifted if id(b_) in idx); hi = max(idx[id(b_)] for _, b_ in lifted if id(b_) in idx)
+        span = sib[lo:hi + 1]
+        colof = {}
+        for ci, b_ in lifted: colof.setdefault(id(b_), ci)
+        cur = lifted[0][0]; parts = [[] for _ in range(n)]
+        for b_ in span:
+            cur = colof.get(id(b_), cur); parts[cur].append(b_)
+        if any(not p_ for p_ in parts): miss.append('p%d (a column found empty)' % pn); continue
+        cls = 'mm-wcols2' if n == 2 else 'mm-cols3'
+        if n > 3: miss.append('Word %d (%d columns)' % (pn, n)); continue
+        wrap = _BS('<div class="%s"></div>' % cls, 'html.parser').div
+        if anc.name in ('ul', 'ol'):   # one list holds the columns: one list per column, numbering continued
+            anc.insert_before(wrap); n_before = 0
+            for ci, pt in enumerate(parts):
+                colw = _BS('<div></div>', 'html.parser').div; wrap.append(colw)
+                lst = _BS('<%s></%s>' % (anc.name, anc.name), 'html.parser').find(anc.name)
+                for k_, v_ in anc.attrs.items(): lst[k_] = v_
+                if anc.name == 'ol' and n_before: lst['start'] = str(int(anc.get('start', 1)) + n_before)
+                for b_ in pt: lst.append(b_.extract())
+                n_before += len(pt); colw.append(lst)
+            if not [c for c in anc.children if getattr(c, 'name', None)]: anc.decompose()
+        else:
+            span[0].insert_before(wrap)
+            for ci, pt in enumerate(parts):
+                colw = _BS('<div></div>', 'html.parser').div; wrap.append(colw)
+                for b_ in pt: colw.append(b_.extract())
+        # 5 Nov 09:4x: the first line of each column carries no data-gap - the template's grid rule sets it level with the
+        # grid's top (colStart, margin 0) while mm-letter-gaps-js also set its data-gap, which pulled the second column up over
+        # the text above (b12 122-width check: text over text 680-1920; tested on a b12 copy at 1440: gone)
+        # 5 Nov 10:0x: the space above the grid is the first column's first line's own figure, moved onto the grid itself
+        # (mm-letter-gaps-js then moves the whole grid); every column's first line gets data-space="0" so mm-kind-gaps-js
+        # adds no 40 to a blue or bold line there (it pulled "Preparation of the hand" 98 px up - traced at 1440 on b13)
+        for ci_, colw in enumerate(wrap.find_all('div', recursive=False)):
+            f_ = colw.find(True, recursive=False)
+            if f_ is not None and f_.name in ('ul', 'ol'):
+                if f_.has_attr('data-gap'):   # 5 Nov 10:3x: a list's own figure (b14: Chalkboard 8 px below Crayons)
+                    if ci_ == 0 and not wrap.has_attr('data-gap'): wrap['data-gap'] = f_['data-gap']
+                    del f_['data-gap']
+                f_ = f_.find('li')
+            if f_ is None: continue
+            if f_.has_attr('data-gap'):
+                if ci_ == 0 and not wrap.has_attr('data-gap'): wrap['data-gap'] = f_['data-gap']
+                del f_['data-gap']
+            elif ci_ == 0 and not wrap.has_attr('data-gap') and ((f_.name == 'h2' and 'mm-hc-0432FF' in (f_.get('class') or [])) or (f_.find('strong') is not None and f_.find('strong').get_text(strip=True) == f_.get_text(strip=True))):
+                wrap['data-gap'] = '40'   # what mm-kind-gaps-js gives a blue heading or a bold line
+            f_['data-space'] = '0'
+        done += 1; DEBUG.append((pn, anc.name, [(ci, b.name, b.get_text(' ', strip=True)[:20]) for ci, b in found], len(span), [len(p_) for p_ in parts]))
+    report.append(('settings', "PDF columns in the template's column style (mm-wcols2 / mm-cols3)", '%d regions; not placed: %s' % (done, '; '.join(miss[:10]))))
+
+# 5 Nov: the contents box as the PDF's contents list (two columns of three), each entry jumping to its heading (ids set in SOUP_FIX)
+TOC_ONLY = ['\u0000none']
+TOC_EXTRA = [(0, 'toc-spoken', 'Spoken Language'), (1, 'toc-wabs', 'Writing - Abstract'), (2, 'toc-keys', 'Keys to Literacy'),
+             (3, 'toc-wcon', 'Writing - Concrete'), (4, 'toc-reading', 'Reading Stages'), (5, 'toc-grammar', 'Grammar')]
+TOC_SPLIT = [3, 3]
