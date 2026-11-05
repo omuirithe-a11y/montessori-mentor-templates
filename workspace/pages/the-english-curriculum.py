@@ -230,7 +230,7 @@ def SOUP_FIX(sp, report):
         f1.find_parent('figure').insert_after(_BS(str(f46.find_parent('figure')), 'html.parser').figure); report.append(('settings', 'image1 (046) also beside the p2 text, as Word', ''))
         fl = f1.find_parent('div', class_='mm-float'); para = fl.find_next_sibling() if fl is not None else None
         if fl is not None and para is not None and para.name == 'p':   # the two images side by side beside their paragraph, as the PDF (one set)
-            st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '168'})
+            st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '167'})   # 5 Nov 14:2x: 167, not 168 - at 641 the pair ran 1 px past the text column (placement check, build 19)
             tx = sp.new_tag('div', attrs={'class': 'mm-text'}); im = sp.new_tag('div', attrs={'class': 'mm-imgs'})
             fl.insert_before(st); tx.append(para.extract())
             for f in fl.find_all('figure'): im.append(f.extract())
@@ -398,6 +398,26 @@ def SOUP_FIX(sp, report):
     _secs = m.find_all('section', id='grammar')
     for _s in _secs[:-1]: del _s['id']
     report.append(('settings', 'duplicate section id "grammar" removed from the opening section', str(len(_secs) - 1)))
+    # 5 Nov 14:1x (placement check, build 19, 831-1920): image 052 beside the list "I-Spy ... Reading" stood 8.3 px below the
+    # capitals of "I-Spy" - the list's first line kept its own gap figure after the image was placed; that figure is dropped
+    # (the list then follows the paragraph with the template's own spacing). Image 112, the writing strip, stood 20 px above
+    # "Metal Insets" - it floated before the Writing Stages columns, which the template does not place it against; it now
+    # floats at the top of the second column, at the right as in the PDF p15. Tested with place_check.py on a build 19 copy.
+    kp = 0
+    im_ = m.select_one('img[data-full="images/052.jpg"]'); fl_ = im_.find_parent('div', class_='mm-float') if im_ is not None else None
+    ol_ = fl_.find_next_sibling() if fl_ is not None else None
+    if ol_ is not None and ol_.name in ('ol', 'ul') and ol_.find('li') is not None and ol_.find('li').has_attr('data-gap'): del ol_.find('li')['data-gap']; kp += 1
+    im_ = m.select_one('img[data-full="images/112.jpg"]'); fl_ = im_.find_parent('div', class_='mm-float') if im_ is not None else None
+    g_ = fl_.find_next_sibling() if fl_ is not None else None
+    if g_ is not None and 'mm-wcols2' in (g_.get('class') or []):
+        g_.find_all('div', recursive=False)[1].insert(0, fl_.extract()); kp += 1
+    report.append(('settings', 'images 052 and 112 level with the first line of their text', str(kp)))
+    # 5 Nov 14:3x (code check, build 20, section 3: "inline style counter-reset on <ol>"): the converter writes the count on a
+    # list that continues as an inline style; the template reads the list's start attribute and sets it itself (27 Oct)
+    kcr = 0
+    for ol_ in m.find_all('ol', start=True):
+        if 'counter-reset' in (ol_.get('style') or ''): del ol_['style']; kcr += 1
+    report.append(('settings', 'inline counter-reset dropped from continuing lists (the template reads start)', str(kcr)))
     # 5 Nov 10:3x (review fault 30): a tab Word puts before a quotation's opening mark ("Not one of them had ever...") is not
     # kept - the template's quotation style sets the indent; with the tab the first line stood about 50 px further in than
     # every other quotation

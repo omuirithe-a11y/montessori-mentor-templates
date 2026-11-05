@@ -1,0 +1,4 @@
+# tools/ALLOWED-FAULTS.txt - the only place a fault may be allowed (owner's agreement of 5 Nov 2026 05:48, plan item 3:
+# "Allowed faults in one fixed file ... where each allowance quotes its rule. The gates refuse allowances typed in when they are run.")
+# Each row: ID | pages | check and fault text it allows (exact) | widths | the owner's agreement, quoted word for word, with its time
+# Any row added or changed needs her written agreement. Made 5 Nov 13:4x with no rows (none agreed yet).
