@@ -10,7 +10,10 @@ At every width from..to (1 px steps by default):
 At 1440 once:
   MARKER  every list on the page has the same kind of marker as the matching Word list: numbered in Word -> <ol> (numbers),
           bulleted in Word -> <ul> (the template's dash), and a Word paragraph that is not a list item is not an <li>.
-          Matched by the item's first 40 letters.
+          Matched by the item's first 40 letters, in document order (6 Nov 2026 checkfix3, same idea as the style check's
+          E041 order fix): each page paragraph or item is looked for in Word after the Word paragraph matched for the one
+          before it, so text that appears more than once (e.g. "Sandpaper Letters") is matched to the right paragraph;
+          only when there is none after it is the first one in Word used (as before).
 Prints every fault, then WRAP PASS or WRAP FAULT (n), then END. Exit 0 only on pass."""
 import sys, re, asyncio, http.server, threading, functools, socket, unicodedata
 import docx
@@ -26,7 +29,7 @@ def norm(s):
     return re.sub(r'[^a-z0-9]', '', s.lower())
 
 def word_lists():
-    d = docx.Document(DOCX); out = {}
+    d = docx.Document(DOCX); out = []
     for p in d.paragraphs:
         t = p.text.strip()
         if len(norm(t)) < 6: continue
@@ -44,7 +47,7 @@ def word_lists():
                 kind = 'ul' if fmt in ('bullet', 'none') else 'ol'
             except Exception:
                 kind = 'list?'
-        out.setdefault(norm(t)[:40], kind)
+        out.append((norm(t)[:40], kind))   # in document order (was: a dict keeping only the first paragraph per text)
     return out
 
 JS_SWEEP = r"""() => {
@@ -94,10 +97,16 @@ async def main():
         b = await p.chromium.launch()
         pg = await b.new_page(viewport={'width': 1440, 'height': 900})
         await pg.goto('http://127.0.0.1:%d/' % port, wait_until='domcontentloaded', timeout=90000); await pg.wait_for_timeout(4000)
+        pos = {}                     # text -> Word positions, in order
+        for i, (k, kind) in enumerate(wl): pos.setdefault(k, []).append(i)
+        cur = 0                      # Word position after the last matched paragraph
         for tag, inlist, text in await pg.evaluate(JS_LISTS):
             k = norm(text)[:40]
-            if k not in wl: continue
-            want = wl[k]
+            if k not in pos: continue
+            after = [i for i in pos[k] if i >= cur]
+            if after: i = after[0]; cur = i + 1
+            else: i = pos[k][0]      # none after the last match: first in Word (as before), cursor unchanged
+            want = wl[i][1]
             have = inlist if tag == 'LI' else None
             if want in ('ul', 'ol') and have != want: faults.append('MARKER  Word %s, page %s: %s' % (want, have or 'not a list item', text[:60]))
             if want is None and tag == 'LI': faults.append('MARKER  Word not a list item, page %s: %s' % (inlist, text[:60]))

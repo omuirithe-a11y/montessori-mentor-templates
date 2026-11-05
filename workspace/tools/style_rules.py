@@ -297,8 +297,14 @@ MEASURE = r"""(args) => {
   for (const e of all) {
     if (!vis(e)) continue; const c = getComputedStyle(e), r = e.getBoundingClientRect();
     for (const S of ['Top', 'Right', 'Bottom', 'Left']) { const w = parseFloat(c['border' + S + 'Width']) || 0, col = c['border' + S + 'Color'];
-      if (w > 0 && !['none', 'hidden'].includes(c['border' + S + 'Style']) && alpha(col) > 0)
-        others.push({desc: desc(e), what: 'border-' + S.toLowerCase(), w, color: col, quote: !!e.closest('blockquote')}); }
+      if (w > 0 && !['none', 'hidden'].includes(c['border' + S + 'Style']) && alpha(col) > 0) {
+        // 6 Nov 2026 (owner 00:19: "a link Word shows in a box is shown in a box of Word's colour"): such a box is not a divider;
+        // its border must be the Word colour its class names (mm-box-RRGGBB), else it is reported as a box fault
+        const bx = e.matches('a.mm-box') ? [...e.classList].map(k => (k.match(/^mm-box-([0-9A-Fa-f]{6})$/) || [])[1]).find(Boolean) : null;
+        if (e.matches('a.mm-box')) { const want = bx ? 'rgb(' + [0, 2, 4].map(i => parseInt(bx.substr(i, 2), 16)).join(', ') + ')' : null;
+          if (col !== want) others.push({desc: desc(e), what: 'box border-' + S.toLowerCase() + ' (Word colour ' + (bx || 'none named') + ')', w, color: col, quote: false, box: true});
+          continue; }
+        others.push({desc: desc(e), what: 'border-' + S.toLowerCase(), w, color: col, quote: !!e.closest('blockquote')}); } }
     if (r.width >= 20 && r.height > 0 && r.height <= 6 && !norm(e.textContent) && !e.querySelector('img,svg,video') && alpha(c.backgroundColor) > 0)
       others.push({desc: desc(e), what: 'thin line', w: r.height, color: c.backgroundColor, quote: !!e.closest('blockquote')});
     for (const ps of ['::before', '::after']) { const pc = getComputedStyle(e, ps);

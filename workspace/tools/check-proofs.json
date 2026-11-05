@@ -359,5 +359,29 @@
   "at": "2026-11-06T00:20:40",
   "script": "tools/v8/format_check_word.py",
   "source": "/home/claude/eng35/checkfix/README.md (agent proofs 5 Nov 22:3x-00:0x; script copied into tools 6 Nov 00:2x after the owner's 00:19 agreement)"
+ },
+ "eng-6nov-style_rules-box": {
+  "code": "a466f258860a51c048d0de496d2f61dcc276e9bbd93a64067e41b03a01c1b85a",
+  "page": "3.5.0",
+  "fault_put_in": "the boxed link (\"ˈrī-tiŋ\") border set beige instead of Word's 97BECE",
+  "broken_copy": "/home/claude/eng35/checkfix2/planted",
+  "caught": [
+   "44 \"box border\" FAULT lines (11 widths x 4 sides) in /home/claude/eng35/checkfix2/planted.txt"
+  ],
+  "clean_result": "build 24: 0 faults other than D066/E054 (/home/claude/eng35/checkfix2/clean.txt)",
+  "at": "2026-11-06T03:07:05",
+  "script": "tools/style_rules.py"
+ },
+ "eng-6nov-wrap_sweep": {
+  "code": "71993bfeb539fd1eb1e9500b969c933aca686019259e2aa70428543afccdad49",
+  "page": "3.5.0",
+  "fault_put_in": "the I-Spy list (Word numbered) made a dash list; second copy plain paragraphs",
+  "broken_copy": "/home/claude/eng35/checkfix3/planted-ul and planted-p",
+  "caught": [
+   "WRAP FAULT (4) on each (out-fixed-planted-ul.txt, out-fixed-planted-p.txt)"
+  ],
+  "clean_result": "build 24 MARKER: WRAP PASS (out-fixed-b24.txt)",
+  "at": "2026-11-06T03:07:05",
+  "script": "tools/wrap_sweep.py"
  }
 }
