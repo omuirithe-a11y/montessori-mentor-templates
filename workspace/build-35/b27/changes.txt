@@ -1,0 +1,6 @@
+Build 27 (6 Nov 06:5x): build 26 page settings + Essay Code Template 847b6adb (was b7c241e6).
+Template: two agreed changes that had been put in only above 830 px, now carried down to 641 px (found by the b25 review):
+- T1, owner 5 Nov 13:38 agreement ("at 641 px and wider, a list that opens a column of Word's columns starts level with the other columns"): the spacing script spaces Word's columns as columns whenever the page shows them side by side (641-830 too) - review fault 9.
+- T4, owner 5 Nov 09:16 agreement ("images beside text move under the text only when the text would be narrower than 200 px, at 641 px and wider"): at 641-830 sets and floats beside text keep the desktop layout; the 640-and-narrower layout is unchanged; swipe rows (images not beside text) unchanged - review fault 10.
+Tested on a b26 copy before installing: 641, 700, 768, 830: no text over an image, no sideways scroll; 1440 and 390 page heights equal to the copy without T4. Before-copy /home/claude/eng35/Essay-before-T1T4-6nov.html; code check pinned to 847b6adb in strip_compare.py, v8/strip_compare.py, v8/strip_compare_nolive.py (old template refused: tested).
+Not installed (need her agreement): T2 captions over swipe rows at 641-830 (fault 11), T5 indent class (fault 6), T6 even list gaps beside images (fault 5).

@@ -578,21 +578,30 @@ html,body{background:#F5EEE3 !important}main a:not(.pdf),main a:not(.pdf) *{colo
   blockquote.pullquote,blockquote.mq{margin-left:0 !important;margin-right:0 !important}   /* phones: as before */
 }
 @media (max-width:830px){   /* as the live Sensorial page: swipe rows below 831px */
-  .mm-set{display:block}
-  .mm-set .mm-text{width:auto !important;max-width:none !important}
-  .mm-set .mm-imgs,.mm-row{display:flex;justify-content:flex-start !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:12px 0 0 !important;scrollbar-width:none}
-  .mm-set .mm-imgs::-webkit-scrollbar,.mm-row::-webkit-scrollbar{display:none}
+  .mm-row{display:flex;justify-content:flex-start !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:12px 0 0 !important;scrollbar-width:none}
+  .mm-row::-webkit-scrollbar{display:none}
   .mm-row .mm-imgs{display:contents}
   .mm-imgs .ph{scroll-snap-align:center}   /* 22 Oct 2026 (preferences 16 Oct: in swipe rows each photo stops in the middle of the screen) */
   .mm-imgs .pim{height:calc(var(--hp,180) * 1px) !important}
-  .mm-set.mm-col .mm-imgs .pim{height:70px !important}
+}
+@media (min-width:641px) and (max-width:830px){   /* owner 5 Nov 09:16 agreement, 6 Nov: images beside text take the size the layout gives them (as above 830) */
+  html body main .mm-set .mm-imgs .pim{height:calc(var(--mh,153) * 1px) !important}
+}
+@media (max-width:830px){
   .mm-set.mm-intro .mm-imgs{margin-left:0}
   .mm-set.mm-intro .mm-imgs .pim{height:240px !important}
   .mm-set.mm-formula .mm-imgs{margin-left:0}
   .mm-set.mm-formula .mm-imgs .ph{width:min(225px,100%)}   /* 28 Oct 2026: as live - the figure gets a width, so the photo (whose width is a share of it) is seen */
   .mm-set.mm-formula .mm-imgs .pim{height:auto !important;width:min(300px, 100%) !important}
-  .mm-float, .mm-float.mm-left{float:none;margin:12px 0}
   .mm-dots{display:flex;justify-content:center;gap:6px;margin:8px 0 4px}
+}
+@media (max-width:640px){   /* 6 Nov 2026 (owner 5 Nov 09:16 agreement, carried to 641-830 on 6 Nov: b25 review fault 10): images beside text stand under it only at 640 and narrower (above 640: only when the text would be narrower than 200 px) */
+  .mm-set{display:block}
+  .mm-set .mm-text{width:auto !important;max-width:none !important}
+  .mm-set .mm-imgs{display:flex;justify-content:flex-start !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:12px 0 0 !important;scrollbar-width:none}
+  .mm-set .mm-imgs::-webkit-scrollbar{display:none}
+  .mm-set.mm-col .mm-imgs .pim{height:70px !important}
+  .mm-float, .mm-float.mm-left{float:none;margin:12px 0}
   .mm-dots span{width:6px;height:6px;border-radius:50%;background:var(--rule)}
   .mm-dots span.on{background:var(--ink)}
 }
@@ -603,7 +612,7 @@ html,body{background:#F5EEE3 !important}main a:not(.pdf),main a:not(.pdf) *{colo
 /* 16 Oct 2026, the owner chose C: from 831px up, a group whose text would be squeezed narrower than 200px
    puts its photos in a row under the text (48 from the letters, as the page's other rows), centred, at the
    size they had beside the text or smaller if the row would not fit. Every other group stays beside its text. */
-@media (min-width:831px){
+@media (min-width:641px){   /* owner 5 Nov 09:16 agreement, 6 Nov: from 641 px (was 831) */
   .mm-set.mm-stack{display:block}
   .mm-set.mm-stack .mm-text{width:auto !important;max-width:none !important}
   .mm-set.mm-stack .mm-imgs{display:flex;justify-content:center !important;flex-wrap:nowrap;margin-left:0 !important;position:static !important}
@@ -885,7 +894,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
     q('.mm-set').forEach(function(s){
       var tx = s.querySelector('.mm-text'), im = s.querySelector('.mm-imgs'), a = shapes(im), W = s.clientWidth, G = GAP * (a.length - 1);
       s.classList.remove('mm-stack'); tx.style.width = ''; tx.style.maxWidth = ''; im.style.marginTop = ''; im.style.position = ''; im.style.top = ''; s.style.removeProperty('display'); im.style.removeProperty('justify-content');
-      if (phone()) return;
+      if (phone640()) return;   /* 6 Nov 2026 (owner 5 Nov 09:16 agreement, 6 Nov): beside text down to 641 px */
       if (s.classList.contains('mm-intro')) {               // photo the height of its paragraph
         var h = 200;
         var hx = Math.min(200, 0.45 * W / Math.max(0.01, sum(a)));   // 27 Oct 2026 (owner, 19:01: fix them all) (28): never taller than 200 nor wider than 45% of the column - at 831 the paragraph grew as the photo widened and the photo followed it, 2802 px wide
@@ -961,7 +970,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
     stackNarrow();
   }
   function stackNarrow(){   // 28 Oct 2026: as the live page (16 Oct, option C) - text squeezed narrower than the template's narrow-column limit (max(260, 0.35 x the text column); live: 200px) -> photos in a centred row under the text
-    if (phone()) return;
+    if (phone640()) return;
     var col = document.querySelector('main#content') || document.querySelector('main'), lim = 200;   /* 5 Nov 2026 (owner 09:16 agreement): images move under the text only when it would be narrower than 200 px */
     q('.mm-set').forEach(function(s){
       if (s.classList.contains('mm-intro') || s.classList.contains('mm-formula') || s.style.display === 'block') return;   // a set the fixed-size rule already put under its text stays as it is
@@ -1205,7 +1214,9 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
   // main[data-spacing=table] (The Practical Life Curriculum, for review); other pages keep spacing() and spaceAbove().
   // Measured as the engine measures: the top and bottom of each line of text (ink()), photo edges.
   function spaceTable(fresh){
-    var main = document.querySelector('main'), ph = phone(), items = [], floats = [];
+    var main = document.querySelector('main'), ph = phone(), pb = phone640(), items = [], floats = [];   /* pb (owner 5 Nov 09:16 agreement, 6 Nov): images beside text stand in the column only at 640 and narrower */
+    /* 6 Nov 2026 (owner 5 Nov 13:38 agreement, carried to 641-830 on 6 Nov: b25 review fault 9): Word's columns are spaced as columns whenever the page shows them side by side (641-830 too), not only above 830 */
+    var mcols = function(c){ return getComputedStyle(c).gridTemplateColumns.trim().split(/\s+/).length > 1; };
     function add(el, type, target, set){ items.push({el: el, type: type, target: target || el, set: set || null, nf: floats.length}); }
     function walk(c0, set, firstTarget){
       var first = firstTarget;
@@ -1217,27 +1228,27 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
         // 2 Oct (nineteenth chat) THE SOURCE PLACEMENT RULE: photos placed from the PDF - beside text they float where the page put
         // them (their own script sets their top); between paragraphs they are rows spaced by the PDF (data-ga / data-gb, points)
         if (cl.contains('mm-pdfsp')) return;
-        if (cl.contains('mm-pdf-r') || cl.contains('mm-pdf-l')) { if (ph) add(c, 'row', tgt, set); return; }   // 3 Oct (chat 6, the phone fault): on phones a photo beside text is a block in the flow - spaced as a row, so the text after it is measured from it, not pulled up over it
+        if (cl.contains('mm-pdf-r') || cl.contains('mm-pdf-l')) { if (pb) add(c, 'row', tgt, set); return; }   // 3 Oct (chat 6, the phone fault): on phones a photo beside text is a block in the flow - spaced as a row, so the text after it is measured from it, not pulled up over it
         if (cl.contains('mm-pdf-row')) { add(c, 'row', tgt, set); return; }
-        if (cl.contains('mm-float')) { if (ph) add(c, 'row', tgt, set); else floats.push(c.querySelector('.pim')); return; }
+        if (cl.contains('mm-float')) { if (pb) add(c, 'row', tgt, set); else floats.push(c.querySelector('.pim')); return; }
         if (cl.contains('mm-row')) { add(c, 'row', tgt, set); return; }
         // 2 Oct (twentieth chat): Word's columns as a grid (.mm-wcols2): each column spaced on its own; the second column starts
         // level with the first; what follows the grid is spaced from the foot of its longest column
         // 3 Oct (twenty-second chat, the step rule): Word's three columns (.mm-cols3) are spaced the same way, each line by its
         // data-step, instead of the grid being one block whose lines CSS spaced; on phones the columns follow one another
-        if ((cl.contains('mm-cols3') || cl.contains('mm-wcols2')) && ph) { Array.prototype.forEach.call(c.children, function(col, ci){ walk(col, set, ci === 0 ? tgt : null); }); return; }
+        if ((cl.contains('mm-cols3') || cl.contains('mm-wcols2')) && !mcols(c)) { Array.prototype.forEach.call(c.children, function(col, ci){ walk(col, set, ci === 0 ? tgt : null); }); return; }
         // 3 Oct (twenty-second chat, ledger: the Group 5 grid): a grid of cells, each a block of text beside its photo (.mm-g2) - each
         // cell's text spaced line by line by its data-step, every cell starting at its grid row's top; what follows the grid is spaced
         // from the grid's foot (photos included)
         if (cl.contains('mm-g2') && !ph) { Array.prototype.forEach.call(c.children, function(cell, ci){ var tx = cell.querySelector('.mm-text'); if (!tx) return; var n0 = items.length; walk(tx, set, ci === 0 ? tgt : null);
             for (var k = n0; k < items.length; k++) items[k].grid = c; if (ci > 0 && items.length > n0) items[n0].colStart = true; }); return; }
-        if ((cl.contains('mm-wcols2') || cl.contains('mm-cols3')) && !ph) { Array.prototype.forEach.call(c.children, function(col, ci){ var n0 = items.length; walk(col, set, ci === 0 ? tgt : null);
+        if ((cl.contains('mm-wcols2') || cl.contains('mm-cols3')) && mcols(c)) { Array.prototype.forEach.call(c.children, function(col, ci){ var n0 = items.length; walk(col, set, ci === 0 ? tgt : null);
             for (var k = n0; k < items.length; k++) items[k].grid = c; if (ci > 0 && items.length > n0) items[n0].colStart = true; }); return; }
         if (cl.contains('mm-set')) {
           var tx = c.querySelector('.mm-text');
           if (tx && ink(tx)) { var n0 = items.length; walk(tx, c, c);
             if (items.length > n0) { items[n0].firstInSet = true; items[items.length - 1].lastInSet = true; }
-            if (ph || getComputedStyle(c).display === 'block') add(c.querySelector('.mm-imgs'), 'strip', null, c); }   // 27 Oct 2026 (owner, 19:01: fix them all) (27): a set whose photos are too wide to stand beside its text has them under the text (the 24 Oct rule, display block) at any width, not only on phones - the next block was spaced from its text and drawn over its photos (The Sensorial Curriculum, Drawers 5-6, Blue Triangles, 1024 and wider)
+            if (pb || getComputedStyle(c).display === 'block') add(c.querySelector('.mm-imgs'), 'strip', null, c); }   // 27 Oct 2026 (owner, 19:01: fix them all) (27): a set whose photos are too wide to stand beside its text has them under the text (the 24 Oct rule, display block) at any width, not only on phones - the next block was spaced from its text and drawn over its photos (The Sensorial Curriculum, Drawers 5-6, Blue Triangles, 1024 and wider)
           else add(c, 'row', tgt, set);
           return;
         }
@@ -1305,7 +1316,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
       var phFig = function(x){ return x.hasAttribute && x.hasAttribute('data-space-phone'); };
       if (b.target.hasAttribute && b.target.hasAttribute('data-space') && (a.type !== 'heading' || phFig(b.target))) return parseFloat(b.target.getAttribute('data-space'));
       if (b.el.hasAttribute && b.el.hasAttribute('data-space') && (a.type !== 'heading' || phFig(b.el))) return parseFloat(b.el.getAttribute('data-space'));
-      if (ph && a.type === 'row' && a.el.classList && a.el.classList.contains('mm-float') && (b.type === 'text' || b.type === 'li')) return 16;   // 27 Oct 2026 (owner, 19:01: fix them all) (6): a photo beside text that stands alone on a phone or tablet: 16 below it, as above it (it is not a row: the 64 after rows is not for it)
+      if (pb && a.type === 'row' && a.el.classList && a.el.classList.contains('mm-float') && (b.type === 'text' || b.type === 'li')) return 16;   // 27 Oct 2026 (owner, 19:01: fix them all) (6): a photo beside text that stands alone on a phone or tablet: 16 below it, as above it (it is not a row: the 64 after rows is not for it)
       if (rowText && a.type === 'row' && (b.type === 'text' || b.type === 'li')) return rowText;                                   // phones: the strip keeps its 12px below its text
       if (b.type === 'heading') return b.el.classList.contains('mm-sub') ? 30 : headB;   // 30 Sept rule: 30px before a sub-heading; twelfth chat (your edits): 35px before a heading (was 48, then 30)
       if (b.type === 'label') return 27;   // 26 Sept rule: 24px above every sub-heading, whatever comes before (was 32)
@@ -1353,7 +1364,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
       q('main section, main .mm-text, main ol, main ul, main blockquote, main .mm-set').forEach(function(e){ e.style.setProperty('margin-bottom', '0px', 'important'); if (!items.some(function(it){ return it.target === e; })) e.style.setProperty('margin-top', '0px', 'important'); });
     }
     // measure once with every margin at 0; each margin then moves everything below it by the same amount
-    var T = items.map(top), B = items.map(bot), P = items.map(function(it){ return it.set && !ph ? photos(it.set) : null; }), X = items.map(span);
+    var T = items.map(top), B = items.map(bot), P = items.map(function(it){ return it.set && !pb ? photos(it.set) : null; }), X = items.map(span);
     var F = floats.map(function(f){ var r = f.getBoundingClientRect(); return [r.left, r.right, r.top, r.bottom]; });
     var done = new Set(); main.__space = {items: items, T: T, B: B, F: F, log: [], w: {}};   // for the check and for debugging
     items.forEach(function(it, m){ if (it.grid && !(items[m + 1] && items[m + 1].grid === it.grid)) B[m] = Math.max.apply(null, items.map(function(x, k){ return x.grid === it.grid ? B[k] : -1e9; }).concat(it.grid.classList.contains('mm-g2') ? [it.grid.getBoundingClientRect().bottom] : [])); });   // 3 Oct: a cell grid ends at its foot, photos included
@@ -1364,7 +1375,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
       var pt = b.type === 'heading' ? b.el : b.target, cl = clears(b); var lift = null;
       var cur = parseFloat(cl ? pt.style.paddingTop : b.target.style.marginTop) || 0;
       var need = cur + w - (T[m] - B[m - 1]);
-      if (!ph) {   // photos beside text never closer than 32px (48px above a heading) to what is above or below them,
+      if (!pb) {   // photos beside text never closer than 32px (48px above a heading) to what is above or below them,
                    // where they would stand over or under it (a short label at the left, beside photos at the right, is not)
         var ps = function(pp, set){ var r = q('.pim', set.querySelector('.mm-imgs')).map(function(x){ return x.getBoundingClientRect(); });
           return [Math.min.apply(null, r.map(function(x){ return x.left; })), Math.max.apply(null, r.map(function(x){ return x.right; }))]; };
@@ -2236,9 +2247,9 @@ html body main .mm-cap{padding-top:2px}
 /* 26: at 640 and narrower a photo in a grid of cells (.mm-g2c, Mathematics Group 5) took the whole column - 592 wide at 640, over 120% of its 360-wide file; it is at most 400 wide, centred */
 @media (max-width:640px){html body main .mm-g2c .pim{max-width:min(100%,400px) !important;margin-left:auto !important;margin-right:auto !important}}
 /* 23: from 641 to 830 the spacing engine (phone(): 830 and narrower) spaces a photo the PDF puts beside text as a block in the column, as at 640 and narrower and as every other photo at these widths (the 24 Oct rule), but the styles still floated it beside the text: each pass pushed the text below the photo and the photo followed its line down - 950px of empty page above the Mathematics introduction, text run over photos and their captions. It now stands in the column at its PDF size, at its own side. */
-@media (min-width:641px) and (max-width:830px){html body main .mm-pdf-r,html body main .mm-pdf-l{float:none !important;clear:both !important}html body main .mm-pdf-r{margin-left:auto !important;margin-right:0 !important}html body main .mm-pdf-l{margin-left:0 !important;margin-right:auto !important}html body main .mm-pdfsp{display:none !important}}
+/* 6 Nov 2026 (owner 5 Nov 09:16 agreement, 6 Nov): the 641-830 rule above is withdrawn - images the PDF puts beside text stand beside it at 641 px and wider (her 5 Nov 09:16 agreement) */
 /* 28 Oct 2026: from 641 to 830 a photo in a swipe row is at most 200 high (the on-screen check's limit above 640) - the rows' --hp (210) and the introduction photo (240) are kept at 640 and narrower. 31 Oct 2026 (owner 14:33: "I agree to change the Essay template so that from 641 to 830 px the images in groups above their text are 180 px high instead of 70 px"): the same for a group standing above its text (.mm-set.mm-col) - its 70 px is kept at 640 and narrower */
-@media (min-width:641px) and (max-width:830px){html body main .mm-imgs .pim{height:calc(min(var(--hp,180), 200) * 1px) !important}html body main .mm-set.mm-intro .mm-imgs .pim{height:200px !important}html body main .mm-set.mm-col .mm-imgs .pim{height:calc(min(var(--hp,180), 200) * 1px) !important}}
+@media (min-width:641px) and (max-width:830px){html body main .mm-row .pim{height:calc(min(var(--hp,180), 200) * 1px) !important}}   /* 6 Nov 2026 (owner 5 Nov 09:16 agreement, 6 Nov): at 641-830 only swipe rows; images beside text take their desktop size */
 /* 4: two photos in one figure (a pair with one caption) stand side by side, 24 apart at the row height of 170, as one photo of the row */
 html body main figure.ph > div:not(.pim):has(> .pim + .pim){display:flex;align-items:flex-start}
 html body main figure.ph > div:not(.pim) > .pim{flex:none}
