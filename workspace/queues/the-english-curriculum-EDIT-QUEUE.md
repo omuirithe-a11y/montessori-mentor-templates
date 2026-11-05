@@ -40,3 +40,4 @@ Each line: her words as logged; what was done is in the same log line and in bui
   - START-HERE: order of checks in its first section: NOT DONE
   - test every agreement at all widths it names: tools/tablet_check.py on every template change - rule, NOT YET IN START-HERE
   - BUILD-ORDER.md saved (Project claude/BUILD-ORDER.md, GitHub workspace/records/BUILD-ORDER.md) - DONE 07:49; START-HERE pointer - NOT DONE
+  - 5 Nov 04:36 promise: fix the page's spacing faults until the spacing check reads SPACING OK (99 faults at 1440 on build 7) - NOT DONE; b28 spacing 230 faults at 13 widths (39 judged on a median 'not in PDF') - being sorted 07:5x
