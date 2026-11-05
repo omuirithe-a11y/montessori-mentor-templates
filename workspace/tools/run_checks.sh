@@ -1,5 +1,6 @@
 #!/bin/bash
 # run_checks.sh <checks dir> <package.zip> <out dir> [widths for the 122-width check, default all] [--rows-one-width]
+# 5 Nov 2026 16:0x: runs the scripts the agreed list names (REQUIRED-CHECKS rows): lines_v2.py (was lines.py) and v8/place_check.py (was place_check.py v1); the 122-width check is the checks dir given (tools-v5-fixA-200 since the owner's 09:16 and 16:05 agreements).
 # 30 Oct 2026 (owner 11:54: "implement all 8" - item 5). Runs the first-build checks with the SAME tools, unchanged:
 #   one after another, nothing else running (30 Oct 13:5x, lessons 15 and 40: the machine has 2 processors; more browsers at
 #   once is not faster): the 122 widths (vfast.py, 2 workers), the height (stable.py at 1440 and 390), lines through text
@@ -17,11 +18,11 @@ python3 "$C/vfast.py" "$C" "$Z" "$O/full.txt" 2 "$WID" > "$O/full.log" 2>&1; E1=
 T=$(mktemp -d); unzip -q "$Z" -d "$T"; SLUG=$(unzip -Z1 "$Z" | head -1 | cut -d/ -f1)
 python3 -m http.server 0 --bind 127.0.0.1 --directory "$T" > "$T.port" 2>&1 & PS=$!
 for i in $(seq 50); do PORT=$(grep -o 'port [0-9]*' "$T.port" | grep -o '[0-9]*'); [ -n "$PORT" ] && break; sleep 0.2; done
-( for w in 320 390 430 641 700 830 1024 1440; do python3 "$C/lines.py" "http://127.0.0.1:$PORT/$SLUG/" $w 2>&1 | tail -1; done ) > "$O/lines.txt" 2>&1
+( for w in 320 390 430 641 700 830 1024 1440; do python3 "$G/lines_v2.py" "http://127.0.0.1:$PORT/$SLUG/" $w 2>&1 | tail -1; done ) > "$O/lines.txt" 2>&1
 kill $PS 2>/dev/null; rm -rf "$T" "$T.port"
 echo "widths, height and lines done $(date '+%H:%M:%S')" >> "$O/SUMMARY.txt"
 # 4. placement (30 Oct 13:5x): images inside the text column, image tops level with the first line, rows (place_check.py)
-python3 "$G/place_check.py" "$Z" $ROWSARG > "$O/place.txt" 2>&1; E5=$?
+python3 "$G/v8/place_check.py" "$Z" $ROWSARG > "$O/place.txt" 2>&1; E5=$?
 # 5. the speed check
 python3 "$C/speed_check.py" "$Z" > "$O/speed.txt" 2>&1; E4=$?
 { echo "122 widths (exit $E1): $(tail -1 "$O/full.txt" 2>/dev/null)"; echo "height:"; cat "$O/height.txt"; echo "lines through text:"; cat "$O/lines.txt";

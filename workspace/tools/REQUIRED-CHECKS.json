@@ -3541,14 +3541,15 @@
   "source": "DECISIONS-LOG.md line 24 (30 Oct 12:50)",
   "date": "30 Oct 12:50",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py",
+  "check": "existing:tools-v5-fixA-200/visual_check.py",
   "widths": "all (122)",
   "pass": "no image beside text extends past the text column",
   "status": "current",
   "superseded_by": "",
   "id": "B019",
   "from": "Decisions log (to 3 Nov)",
-  "topic": "Columns and layout"
+  "topic": "Columns and layout",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "On Aun Aprendo all rows of images are one width (left and right edges align).",
@@ -3708,7 +3709,7 @@
   "source": "DECISIONS-LOG.md line 36 (30 Oct 15:5x)",
   "date": "30 Oct 15:5x",
   "applies_to": "page:the-culture-curriculum",
-  "check": "existing:tools-v5-fixA/visual_check.py",
+  "check": "existing:tools-v5-fixA-200/visual_check.py",
   "widths": "1020-1050",
   "pass": "only that one fault let through",
   "status": "current",
@@ -3716,7 +3717,8 @@
   "unsure": true,
   "id": "B031",
   "from": "Decisions log (to 3 Nov)",
-  "topic": "Gate, delivery and upload"
+  "topic": "Gate, delivery and upload",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "All 14 fix-A pages in one chat (exception to one page per chat); checks still one page at a time.",
@@ -4252,14 +4254,15 @@
   "source": "DECISIONS-LOG.md line 88 (1 Nov 03:48)",
   "date": "1 Nov 03:48",
   "applies_to": "resources",
-  "check": "existing:tools-v5-fixA/visual_check.py",
+  "check": "existing:tools-v5-fixA-200/visual_check.py",
   "widths": "640 and narrower",
   "pass": "entry lines flow as text; no squeezed text",
   "status": "current",
   "superseded_by": "",
   "id": "B069",
   "from": "Decisions log (to 3 Nov)",
-  "topic": "Spacing and gaps"
+  "topic": "Spacing and gaps",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Culture contents box replaced by the PDF's (updated source documents).",
@@ -5396,14 +5399,15 @@
   "source": "DECISIONS-LOG.md line 184 (2 Nov 13:19)",
   "date": "2 Nov 13:19",
   "applies_to": "resources",
-  "check": "existing:tools-v5-fixA/visual_check.py",
+  "check": "existing:tools-v5-fixA-200/visual_check.py",
   "widths": "640 and narrower",
   "pass": "image within text column",
   "status": "current",
   "superseded_by": "",
   "id": "B157",
   "from": "Decisions log (to 3 Nov)",
-  "topic": "Columns and layout"
+  "topic": "Columns and layout",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Resources template: paragraphs not under a red name or blue title get 37.2 px line spacing (641+) / 36 px (640-); quotations keep their own.",
@@ -5729,14 +5733,15 @@
   "source": "DECISIONS-LOG.md line 218 (2 Nov 18:23)",
   "date": "2 Nov 18:23",
   "applies_to": "resources",
-  "check": "existing:tools-v5-fixA/visual_check.py",
+  "check": "existing:tools-v5-fixA-200/visual_check.py",
   "widths": "390-640; <390; >640",
   "pass": "text beside at least 260 px",
   "status": "current",
   "superseded_by": "",
   "id": "B183",
   "from": "Decisions log (to 3 Nov)",
-  "topic": "Spacing and gaps"
+  "topic": "Spacing and gaps",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Resources template: text not justified at 641-830 px; justified above 830.",
@@ -6029,14 +6034,15 @@
   "source": "DECISIONS-LOG.md line 255 (3 Nov 09:38)",
   "date": "3 Nov 09:38",
   "applies_to": "nolive",
-  "check": "existing:/home/claude/mm/tools/v8/strip_compare_nolive.py; existing:tools-v5-fixA/visual_check.py; existing:tools-v5-fixA/stable.py; existing:/home/claude/mm/tools/lines_v2.py; existing:/home/claude/mm/tools/v8/place_check.py; existing:tools-v5-fixA/speed_check.py; existing:/home/claude/mm/tools/v8/format_check_word.py; eye",
+  "check": "existing:/home/claude/mm/tools/v8/strip_compare_nolive.py; existing:tools-v5-fixA-200/visual_check.py; existing:tools-v5-fixA/stable.py; existing:/home/claude/mm/tools/lines_v2.py; existing:/home/claude/mm/tools/v8/place_check.py; existing:tools-v5-fixA/speed_check.py; existing:/home/claude/mm/tools/v8/format_check_word.py; eye",
   "widths": "122 / 1440, 390 / 8",
   "pass": "all pass",
   "status": "current",
   "superseded_by": "",
   "id": "B205",
   "from": "Decisions log (to 3 Nov)",
-  "topic": "Text: wording, spelling, fonts, alignment"
+  "topic": "Text: wording, spelling, fonts, alignment",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Faces sheet goes to her only with its check reports, after faces data is saved.",
@@ -6239,14 +6245,15 @@
   "source": "DECISIONS-LOG.md line 283 (3 Nov 14:16-14:27)",
   "date": "3 Nov 14:16-14:27",
   "applies_to": "page:books-of-interest",
-  "check": "existing:tools-v5-fixA/visual_check.py",
+  "check": "existing:tools-v5-fixA-200/visual_check.py",
   "widths": "1440, 768, 390",
   "pass": "no link split across lines",
   "status": "current",
   "superseded_by": "",
   "id": "B221",
   "from": "Decisions log (to 3 Nov)",
-  "topic": "Other"
+  "topic": "Other",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "8.2: pair at 641-980 px stays two columns (entries may drift where titles wrap).",
@@ -7824,7 +7831,7 @@
   "source": "LESSONS-LEARNED line 226 (lesson 5)",
   "date": "",
   "applies_to": "all",
-  "check": "existing:/home/claude/mm/tools/v8/strip_compare.py; existing:/home/claude/mm/tools/v8/format_check_word.py; existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:/home/claude/mm/tools/v8/strip_compare.py; existing:/home/claude/mm/tools/v8/format_check_word.py; existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "quick look widths",
   "pass": "every template fault listed before page fixing",
   "status": "current",
@@ -7832,7 +7839,8 @@
   "unsure": true,
   "id": "D007",
   "from": "Lessons Learned and template notes",
-  "topic": "Headings, labels, lists, quotations, tables"
+  "topic": "Headings, labels, lists, quotations, tables",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "After a template change, quick-look every page that uses that template",
@@ -7840,7 +7848,7 @@
   "source": "LESSONS-LEARNED line 248 (lesson 6)",
   "date": "",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "quick look widths",
   "pass": "quick look clean on every page using the template",
   "status": "current",
@@ -7848,7 +7856,8 @@
   "note": "status uncertain: the owner later said the template change need not reach older pages - DECISIONS-LOG.md line 54 (31 Oct 14:53: \"The template changes for every page built from it. - to be decided later. Many pages might not match the new template 100%, but are otherwise fine, so they won't necessarily have to change.\") and line 58 (31 Oct 20:03: \"I don't want to continually update the older pages\"). Mark unsure, or limit to pages being built/rebuilt now; ask the owner",
   "id": "D009",
   "from": "Lessons Learned and template notes",
-  "topic": "Other"
+  "topic": "Other",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Owner rule: build one page at a time (also START-HERE rule 3; owner 23:25 \"one page at a time.\")",
@@ -7931,14 +7940,15 @@
   "source": "LESSONS-LEARNED line 330 (lesson 9)",
   "date": "",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "squeezed-text and oversized-image checks run",
   "status": "current",
   "superseded_by": "",
   "id": "D017",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Test every check on a copy with a fault planted on purpose; it must fail",
@@ -8097,14 +8107,15 @@
   "source": "LESSONS-LEARNED line 412 (lesson 13)",
   "date": "",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "zero faults on every load",
   "status": "current",
   "superseded_by": "",
   "id": "D029",
   "from": "Lessons Learned and template notes",
-  "topic": "Gate, delivery and upload"
+  "topic": "Gate, delivery and upload",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Find the cause of an intermittent fault (fault list item 14, \"including while images load late\") before delivering",
@@ -8309,14 +8320,15 @@
   "source": "LESSONS-LEARNED line 894 (lesson 28 Oct 17:54 change 4)",
   "date": "28 Oct 2026 17:54",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "quick look and full check clean",
   "status": "current",
   "superseded_by": "",
   "id": "D049",
   "from": "Lessons Learned and template notes",
-  "topic": "How checks are run"
+  "topic": "How checks are run",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Drop a change that makes things worse",
@@ -8324,14 +8336,15 @@
   "source": "LESSONS-LEARNED line 895 (lesson 28 Oct 17:54 change 5)",
   "date": "28 Oct 2026 17:54",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no new fault introduced by a change",
   "status": "current",
   "superseded_by": "",
   "id": "D050",
   "from": "Lessons Learned and template notes",
-  "topic": "Other"
+  "topic": "Other",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Start the full check as soon as the quick look is clean",
@@ -8339,7 +8352,7 @@
   "source": "LESSONS-LEARNED line 897 (lesson 28 Oct 17:54 change 7)",
   "date": "28 Oct 2026 17:54",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "full check started after clean quick look",
   "status": "current",
@@ -8347,7 +8360,8 @@
   "unsure": true,
   "id": "D051",
   "from": "Lessons Learned and template notes",
-  "topic": "How checks are run"
+  "topic": "How checks are run",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Start the separate checker's code and format steps together with the full check",
@@ -8417,14 +8431,15 @@
   "source": "LESSONS-LEARNED line 925 (lesson 27)",
   "date": "29 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "122 widths complete on first build",
   "status": "current",
   "superseded_by": "",
   "id": "D057",
   "from": "Lessons Learned and template notes",
-  "topic": "How checks are run"
+  "topic": "How checks are run",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Run the height check on the first build: at load, after scrolling, after opening and closing albums",
@@ -8477,14 +8492,15 @@
   "source": "LESSONS-LEARNED line 926 (lesson 28)",
   "date": "29 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "faults taken from the full check",
   "status": "current",
   "superseded_by": "",
   "id": "D061",
   "from": "Lessons Learned and template notes",
-  "topic": "Headings, labels, lists, quotations, tables"
+  "topic": "Headings, labels, lists, quotations, tables",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Find all faults before fixing any",
@@ -8567,7 +8583,7 @@
   "source": "LESSONS-LEARNED line 931 (lesson 33)",
   "date": "29 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "every page on the template re-tested",
   "status": "current",
@@ -8575,7 +8591,8 @@
   "note": "same as the row above: \"re-test every page built from it\" is limited by DECISIONS-LOG.md line 54 (31 Oct 14:53, \"to be decided later ... won't necessarily have to change\") and line 58 (31 Oct 20:03); mark unsure/ask. (DECISIONS-LOG-3-nov.md line 86 shows lesson-33 rebuilds were still done on the Resources pages on 4 Nov)",
   "id": "D067",
   "from": "Lessons Learned and template notes",
-  "topic": "How checks are run"
+  "topic": "How checks are run",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Before building, list what the live page's own scripts do and confirm the template covers each",
@@ -8643,14 +8660,15 @@
   "source": "LESSONS-LEARNED line 939 (lesson 41)",
   "date": "29 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "all 122 widths complete after resume",
   "status": "current",
   "superseded_by": "",
   "id": "D072",
   "from": "Lessons Learned and template notes",
-  "topic": "How checks are run"
+  "topic": "How checks are run",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Commit the template before sending a page",
@@ -8748,14 +8766,15 @@
   "source": "LESSONS-LEARNED line 946 (lesson tools 28-29 Oct)",
   "date": "29 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools/send_gate.sh; existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools/send_gate.sh; existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "122 widths; only allowed faults",
   "status": "current",
   "superseded_by": "",
   "id": "D079",
   "from": "Lessons Learned and template notes",
-  "topic": "Gate, delivery and upload"
+  "topic": "Gate, delivery and upload",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Gate: narrowing test shows no sideways scroll",
@@ -8763,14 +8782,15 @@
   "source": "LESSONS-LEARNED line 946 (lesson tools 28-29 Oct)",
   "date": "29 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools/send_gate.sh; existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools/send_gate.sh; existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "narrowing",
   "pass": "sideways 0",
   "status": "current",
   "superseded_by": "",
   "id": "D080",
   "from": "Lessons Learned and template notes",
-  "topic": "Gate, delivery and upload"
+  "topic": "Gate, delivery and upload",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Gate: height steady at 1440 and 390, also after albums",
@@ -9006,14 +9026,15 @@
   "source": "LESSONS-LEARNED line 971 (lesson 63)",
   "date": "31 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no text over image",
   "status": "current",
   "superseded_by": "",
   "id": "D096",
   "from": "Lessons Learned and template notes",
-  "topic": "Spacing and gaps"
+  "topic": "Spacing and gaps",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Run every check after each fix",
@@ -9021,14 +9042,15 @@
   "source": "LESSONS-LEARNED line 971 (lesson 63)",
   "date": "31 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py); existing:tools-v5-fixA/stable.py; existing:/home/claude/mm/tools/v8/format_check_word.py",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py); existing:tools-v5-fixA/stable.py; existing:/home/claude/mm/tools/v8/format_check_word.py",
   "widths": "all 122",
   "pass": "all checks clean after each fix",
   "status": "current",
   "superseded_by": "",
   "id": "D097",
   "from": "Lessons Learned and template notes",
-  "topic": "How checks are run"
+  "topic": "How checks are run",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "An independent (separate-agent) check of every page is required (START-HERE rule 18)",
@@ -9142,14 +9164,15 @@
   "source": "Essay Code Template.html block main (no id) (line 69)",
   "date": "27 Oct 2026 19:01",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all",
   "pass": "no empty contents box",
   "status": "current",
   "superseded_by": "",
   "id": "D105",
   "from": "Lessons Learned and template notes",
-  "topic": "Headings, labels, lists, quotations, tables"
+  "topic": "Headings, labels, lists, quotations, tables",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "No Table of contents box when it has no entries",
@@ -9157,14 +9180,15 @@
   "source": "Resources Code Template.html block main (no id) (line 69)",
   "date": "27 Oct 2026 15:14",
   "applies_to": "resources",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all",
   "pass": "no empty contents box",
   "status": "current",
   "superseded_by": "",
   "id": "D106",
   "from": "Lessons Learned and template notes",
-  "topic": "Headings, labels, lists, quotations, tables"
+  "topic": "Headings, labels, lists, quotations, tables",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "At 830 px and narrower, two titles above a row of images each on their own line at the left edge",
@@ -9217,7 +9241,7 @@
   "source": "Essay Code Template.html block main (no id) (line 523); Resources Code Template.html block main (no id) (line 521)",
   "date": "30 Sept 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all",
   "pass": "table not beside/under photo; 32px",
   "status": "current",
@@ -9225,7 +9249,8 @@
   "unsure": true,
   "id": "D110",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "In swipe rows each photo (incl. first and last) stops in the middle of the screen, below 831",
@@ -9248,7 +9273,7 @@
   "source": "Essay Code Template.html block main (no id) (line 958)",
   "date": "28 Oct 2026",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": ">=831",
   "pass": "text never narrower than the limit",
   "status": "current",
@@ -9256,7 +9281,8 @@
   "unsure": true,
   "id": "D116",
   "from": "Lessons Learned and template notes",
-  "topic": "Columns and layout"
+  "topic": "Columns and layout",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "No thin lines under the entries of any menu panel",
@@ -9490,7 +9516,7 @@
   "source": "Essay Code Template.html block mm-quote-image-29oct (line 787)",
   "date": "29 Oct 2026 11:33",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "<=439",
   "pass": "no image over text",
   "status": "current",
@@ -9498,7 +9524,8 @@
   "unsure": true,
   "id": "D137",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Hanging-label style (label column) from the Resources template on every Essay page, every width",
@@ -9551,14 +9578,15 @@
   "source": "Essay Code Template.html block mm-shape-js (line 790)",
   "date": "27 Oct 2026 19:01",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no image over image",
   "status": "current",
   "superseded_by": "",
   "id": "D141",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Rows of images at most 150 px high on computers",
@@ -9611,14 +9639,15 @@
   "source": "Essay Code Template.html block main (no id) (line 886)",
   "date": "27 Oct 2026 19:01",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no oversized image",
   "status": "current",
   "superseded_by": "",
   "id": "D147",
   "from": "Lessons Learned and template notes",
-  "topic": "Columns and layout"
+  "topic": "Columns and layout",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Fixed-size photos too wide to stand beside their text stand under it, centred, smaller only if the column is too narrow",
@@ -9626,14 +9655,15 @@
   "source": "Essay Code Template.html block main (no id) (line 901)",
   "date": "24 Oct 2026",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no text over image",
   "status": "current",
   "superseded_by": "",
   "id": "D148",
   "from": "Lessons Learned and template notes",
-  "topic": "Columns and layout"
+  "topic": "Columns and layout",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Photos too wide for beside-text go under the text at any width, not only on phones",
@@ -9641,14 +9671,15 @@
   "source": "Essay Code Template.html block main (no id) (line 1235)",
   "date": "27 Oct 2026 19:01",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no text over image",
   "status": "current",
   "superseded_by": "",
   "id": "D149",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Photo sets beside one list: same height, one left edge",
@@ -9686,14 +9717,15 @@
   "source": "Essay Code Template.html block main (no id) (line 1030); Resources Code Template.html block main (no id) (line 1019)",
   "date": "24 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no image over text",
   "status": "current",
   "superseded_by": "",
   "id": "D152",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Photos never cross the line under the heading above them; at least 20px below it",
@@ -9716,14 +9748,15 @@
   "source": "Essay Code Template.html block main (no id) (line 1135); Resources Code Template.html block main (no id) (line 1124)",
   "date": "23 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "<=640 + narrowing",
   "pass": "sideways 0",
   "status": "current",
   "superseded_by": "",
   "id": "D154",
   "from": "Lessons Learned and template notes",
-  "topic": "Phones and tablets"
+  "topic": "Phones and tablets",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Source placement rule: photos placed as in the PDF (beside text float where PDF puts them; between paragraphs rows spaced by the PDF)",
@@ -9747,14 +9780,15 @@
   "source": "Essay Code Template.html block main (no id) (line 1215)",
   "date": "3 Oct 2026",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "<=640",
   "pass": "no text over image",
   "status": "current",
   "superseded_by": "",
   "id": "D156",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "30px above a row of photos that follows text (to the row top or its captions)",
@@ -9778,14 +9812,15 @@
   "source": "Essay Code Template.html block main (no id) (line 1293)",
   "date": "27 Oct 2026 19:01",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no text over text",
   "status": "current",
   "superseded_by": "",
   "id": "D159",
   "from": "Lessons Learned and template notes",
-  "topic": "Spacing and gaps"
+  "topic": "Spacing and gaps",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "A photo beside text standing alone on phone/tablet: 16 above and 16 below",
@@ -9943,7 +9978,7 @@
   "source": "Essay Code Template.html block main (no id) (line 1533)",
   "date": "23 Oct 2026",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "<=640",
   "pass": "no image over text",
   "status": "current",
@@ -9951,7 +9986,8 @@
   "unsure": true,
   "id": "D176",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Top of a side photo level with the top of the letters of the paragraph's first line",
@@ -9989,14 +10025,15 @@
   "source": "Essay Code Template.html block main (no id) (line 1580)",
   "date": "27 Oct 2026 19:01",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no text over caption",
   "status": "current",
   "superseded_by": "",
   "id": "D179",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Side photo's top level with the top of the capitals of its paragraph's first line",
@@ -10125,14 +10162,15 @@
   "source": "Resources Code Template.html block mm-foot-gap-js (line 1603)",
   "date": "20 Oct 2026 22:0x",
   "applies_to": "resources",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no image over footer",
   "status": "current",
   "superseded_by": "",
   "id": "D193",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Numbered lists justified too",
@@ -10216,14 +10254,15 @@
   "source": "Essay Code Template.html block mm-menu-click (line 2028); Resources Code Template.html block mm-menu-click (line 1666)",
   "date": "16 Oct 2026",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "17 widths",
   "pass": "panels open/close by click",
   "status": "current",
   "superseded_by": "",
   "id": "D200",
   "from": "Lessons Learned and template notes",
-  "topic": "Hero, menu, contents box, footer"
+  "topic": "Hero, menu, contents box, footer",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "60 from the hero picture to the letters of the first line, above 640",
@@ -10368,14 +10407,15 @@
   "source": "Essay Code Template.html block mm-owner-27oct (line 2225)",
   "date": "27 Oct 2026 19:01",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "641-830",
   "pass": "no text over image",
   "status": "current",
   "superseded_by": "",
   "id": "D211",
   "from": "Lessons Learned and template notes",
-  "topic": "Columns and layout"
+  "topic": "Columns and layout",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "From 641 to 830 a photo in a swipe row at most 200 high",
@@ -10383,14 +10423,15 @@
   "source": "Essay Code Template.html block mm-owner-27oct (line 2227)",
   "date": "28 Oct 2026",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "641-830",
   "pass": "height <= 200",
   "status": "current",
   "superseded_by": "",
   "id": "D212",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "From 641 to 830 px images in groups above their text 180 px high (70 px kept at 640 and narrower)",
@@ -10731,14 +10772,15 @@
   "source": "Resources Code Template.html block mm-res-phone-flow (line 799)",
   "date": "1 Nov 2026 03:48",
   "applies_to": "resources",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "<=640",
   "pass": "no squeezed or overlapping entry lines",
   "status": "current",
   "superseded_by": "",
   "id": "D237",
   "from": "Lessons Learned and template notes",
-  "topic": "Spacing and gaps"
+  "topic": "Spacing and gaps",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "In a red source line, words Word sets black stay black",
@@ -11805,7 +11847,7 @@
   "source": "Essay Code Template.html line 922; Resources Code Template.html line 931",
   "date": "",
   "applies_to": "all",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "text column >= 55% beside photos",
   "status": "current",
@@ -11813,7 +11855,8 @@
   "added_by_check": "verify-lessons.jsonl",
   "id": "D327",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Photos as one block centred beside the longest line of their text, at least 48px clear either side",
@@ -12083,7 +12126,7 @@
   "source": "Essay Code Template.html line 1934",
   "date": "24 Oct 2026",
   "applies_to": "essay",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no text over a lone badge",
   "status": "current",
@@ -12091,7 +12134,8 @@
   "added_by_check": "verify-lessons.jsonl",
   "id": "D345",
   "from": "Lessons Learned and template notes",
-  "topic": "Spacing and gaps"
+  "topic": "Spacing and gaps",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "The Tommy lines start where \"Indeed, with my methods\" starts",
@@ -12248,7 +12292,7 @@
   "source": "Resources Code Template.html line 1907",
   "date": "4 Nov 2026",
   "applies_to": "resources",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "no text over a wrapped badge",
   "status": "current",
@@ -12257,7 +12301,8 @@
   "added_by_check": "verify-lessons.jsonl",
   "id": "D358",
   "from": "Lessons Learned and template notes",
-  "topic": "Spacing and gaps"
+  "topic": "Spacing and gaps",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "On phones a photo after a beige line stands first below the line (30 to the photo), never pulled up over the line",
@@ -12265,7 +12310,7 @@
   "source": "Resources Code Template.html line 1928",
   "date": "27 Oct 2026 15:14",
   "applies_to": "resources",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "phone widths",
   "pass": "photo below the line, no overlap",
   "status": "current",
@@ -12273,7 +12318,8 @@
   "added_by_check": "verify-lessons.jsonl",
   "id": "D359",
   "from": "Lessons Learned and template notes",
-  "topic": "Images: size, placement, rows, captions"
+  "topic": "Images: size, placement, rows, captions",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "A red name line's PDF badge stays after the name's last word at every width",
@@ -12281,7 +12327,7 @@
   "source": "Resources Code Template.html line 2036",
   "date": "4 Nov 2026",
   "applies_to": "resources",
-  "check": "existing:tools-v5-fixA/visual_check.py (via vfast.py)",
+  "check": "existing:tools-v5-fixA-200/visual_check.py (via vfast.py)",
   "widths": "all 122",
   "pass": "badge on the name's last line",
   "status": "current",
@@ -12289,7 +12335,8 @@
   "added_by_check": "verify-lessons.jsonl",
   "id": "D360",
   "from": "Lessons Learned and template notes",
-  "topic": "Colours, lines and dividers"
+  "topic": "Colours, lines and dividers",
+  "changed_5nov_1605": "owner 5 Nov 16:05: \"I agree that the rows of tools/REQUIRED-CHECKS.txt naming tools-v5-fixA/visual_check.py name tools-v5-fixA-200/visual_check.py instead, for every page built from now on.\""
  },
  {
   "item": "Workspace from GitHub; fingerprints all OK before work",
