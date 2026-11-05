@@ -22,6 +22,7 @@ Prints every row (ID, how checked, PASS / FAULT / NOT CHECKED / NO CHECK YET, th
 and last line GATE PASSED, or GATE FAILED (n) with n the rows that do not pass. The same lines go to <out file>.
 """
 import sys, os, re, json, hashlib, subprocess, datetime, importlib.util
+from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 spec = importlib.util.spec_from_file_location('gate_files', os.path.join(HERE, 'gate_files.py'))
@@ -63,6 +64,7 @@ GATE_ROW_TO_FILES = {'E018': 'E018', 'E019': 'E019', 'C025': 'C025', 'B007': 'D0
 AFTER_UPLOAD = {'B026': 'the after-upload checks run on the live page after her upload'}
 
 SHA_CACHE = {}
+MISSING_IS_FAULT = {'checks2/images-2.txt': 'the second images command of more_checks.sh (swipe, late, behaviour) wrote no result'}   # 6 Nov 2026
 
 
 def sha256(p):
@@ -104,7 +106,7 @@ BASENAME_RESULT = {'visual_check.py': ['checks/full.txt'], 'vfast.py': ['checks/
                    'check_page.py': ['checks2/check-page.txt'], 'menu_style_check.py': ['checks2/menu-style.txt'],
                    'col_check.py': ['checks2/col.txt'], 'text_rules.py': ['checks2/text/text-result.txt'],
                    'static_code.py': ['checks2/static.txt'], 'style_rules.py': ['checks2/style.txt'],
-                   'images_behaviour.py': ['checks2/images.txt'], 'wrap_sweep.py': ['checks2/wrap.txt'],
+                   'images_behaviour.py': ['checks2/images.txt', 'checks2/images-2.txt'], 'wrap_sweep.py': ['checks2/wrap.txt'],
                    'run_checks.sh': ['checks/full.txt', 'checks/height.txt', 'checks/lines.txt', 'checks/place.txt', 'checks/speed.txt']}
 
 
@@ -142,6 +144,28 @@ def load_allowances(page):
         if len(f) < 5:
             continue
         aid, pages, chk = f[0], f[1], f[2]
+        pg = [x.strip() for x in pages.split(';')]
+        ml = re.match(r'^(\S+?):\s*lines listed in (\S+)', chk)
+        if ml:   # 6 Nov 2026: a file of exact lines, "kind | exact line", one width block, counted per width
+            lf = ml.group(2)
+            lf = lf if lf.startswith('/') else os.path.join(MM, lf)
+            d = dict(id=aid, script=os.path.basename(ml.group(1)), rx=None, listfile=lf, text='lines listed in ' + lf, rows=[],
+                     pages=pg, widths=f[3], applies=('page:' + page) in pg or 'all' in pg, until=(f[5] if len(f) > 5 else ''),
+                     listed=Counter(), listbad=[])
+            lt = GF.read(lf)
+            if lt is None:
+                d['listbad'].append('the allowed-lines file %s does not exist' % lf)
+            else:
+                d['listsha'] = sha256(lf)
+                for i, x in enumerate(lt.splitlines(), 1):
+                    if not x.strip() or x.startswith('#'):
+                        continue
+                    if ' | ' not in x:
+                        d['listbad'].append('%s line %d is not "kind | exact line": %s' % (lf, i, x))
+                        continue
+                    d['listed'][x.split(' | ', 1)[1]] += 1
+            out.append(d)
+            continue
         m = re.match(r'^(\S+?):\s*lines\s*"(.+?)"\s*(\(rows ([^)]*)\))?', chk)
         if not m:
             out.append(dict(id=aid, bad='its check/fault text cannot be read: ' + chk))
@@ -150,7 +174,6 @@ def load_allowances(page):
         pat = re.escape(m.group(2)).replace(r'\.\.\.', '.*?').replace(r'\ N\ ', r'\ \d+\ ')
         pat = '^' + pat.replace(r'\ ', ' ') + r'(?=:|\s*$)'
         rows = [x.strip() for x in (m.group(4) or '').split(',') if x.strip()]
-        pg = [x.strip() for x in pages.split(';')]
         out.append(dict(id=aid, script=script, rx=re.compile(pat), text=m.group(2), rows=rows, pages=pg, widths=f[3],
                         applies=('page:' + page) in pg or 'all' in pg, until=(f[5] if len(f) > 5 else '')))
     return out
@@ -233,6 +256,11 @@ class Result:
                 s.faults.append('%d widths read, 8 needed' % len(got))
             s.passline = not s.faults
             return
+        if key == 'checks2/format-word.txt':
+            fw = [x for x in allow if x.get('listfile') and x['applies'] and x['script'] == os.path.basename(s.info['script'])]
+            if fw:
+                s.read_format_word(lines, fw)
+                return
         s.passline = any(re.search(s.info['pass_re'], l) for l in lines) if s.info['pass_re'] else False
         fr = s.info['fault_re']
         summary_re = re.compile(r'^(PLACE|SPEED|STYLE|TEXT|STATIC|IMAGES|WRAP|COLUMNS) (OK|PASS|FAULT)|^RESULT|^END\s*$')
@@ -247,6 +275,56 @@ class Result:
                 s.faults.append(l)
         if not s.passline and not s.faults and not s.allowed:
             s.faults.append('no pass line and no fault line read (last line: %s)' % (lines[-1][:120] if lines else 'empty'))
+
+    def read_format_word(s, lines, fw):
+        """6 Nov 2026: every difference line of each width block of format_check_word.py (the lines between "-- width N" and
+        "colour pairs") is matched against the allowed-lines file of the ALLOWED-FAULTS row that applies; a line is allowed
+        only as many times per width as the file lists it. The check's own "ALLOWED BY A QUOTED OWNER RULE" section (after
+        "colour pairs") is not a difference and stays as the check prints it. Any other line is a fault."""
+        if len(fw) > 1:
+            s.faults.append('more than one allowed-lines row applies to the Word-format check (%s): refused' % ', '.join(x['id'] for x in fw))
+            return
+        a = fw[0]
+        if a['listbad']:
+            s.faults.extend('allowance %s: %s' % (a['id'], x) for x in a['listbad'])
+            return
+        blocks, cur = [], None
+        for l in lines:
+            m = re.match(r'^-- width (\d+)\b', l)
+            if m:
+                cur = [m.group(1), [], False]
+                blocks.append(cur)
+                continue
+            if cur is None or cur[2]:
+                continue
+            if l.startswith('colour pairs'):
+                cur[2] = True
+                continue
+            if l.strip():
+                cur[1].append(l)
+        m = re.search(r'^RESULT: (\d+) differences', '\n'.join(lines), re.M)
+        if not m:
+            s.faults.append('no "RESULT: N differences" line')
+        n = int(m.group(1)) if m else -1
+        total = sum(len(d) for _, d, _ in blocks)
+        if m and n != total:
+            s.faults.append('RESULT names %d differences but the width blocks hold %d lines' % (n, total))
+        for w, diffs, closed in blocks:
+            if not closed:
+                s.faults.append('width %s: block has no "colour pairs" line (not read to its end)' % w)
+            left = Counter(a['listed'])
+            for l in diffs:
+                if left[l] > 0:
+                    left[l] -= 1
+                    s.allowed.append(('width %s: %s' % (w, l), a['id']))
+                else:
+                    s.faults.append('width %s: %s  [not in %s, or more times than it lists]' % (w, l, os.path.basename(a['listfile'])))
+            unused = sum(left.values())
+            if unused:
+                s.notes.append('width %s: %d listed lines not printed (no longer differ)' % (w, unused))
+        s.notes.append('Word-format lines read per width against %s (%s): widths %s' % (
+            a['id'], os.path.basename(a['listfile']), ','.join(w for w, _, _ in blocks) or 'none'))
+        s.passline = bool(m) and n == 0 and total == 0 and not s.faults
 
     def ok(s):
         """no fault line that is not allowed, and the pass line holds or every fault line printed is allowed"""
@@ -319,6 +397,11 @@ def main():
     for x in allow:
         if x.get('bad'):
             say('ALLOWANCE %s REFUSED %s' % (x['id'], x['bad']))
+        elif x.get('listfile'):
+            say('allowance %s | script %s | lines listed in %s (sha256 %s, %d lines, counted per width)%s | pages %s | %s | %s' % (
+                x['id'], x['script'], x['listfile'], x.get('listsha', 'none'), sum(x['listed'].values()),
+                (' | FILE FAULT: ' + '; '.join(x['listbad'])) if x['listbad'] else '', ';'.join(x['pages']),
+                'applies' if x['applies'] else 'not this page', x['until']))
         else:
             say('allowance %s | script %s | lines "%s" | rows %s | pages %s | %s | %s' % (
                 x['id'], x['script'], x['text'], ','.join(x['rows']), ';'.join(x['pages']), 'applies' if x['applies'] else 'not this page', x['until']))
@@ -380,6 +463,9 @@ def main():
             how = os.path.relpath(r.path, b.B)
             if r.problems:
                 miss = not r.exists
+                if miss and k in MISSING_IS_FAULT:
+                    outs.append(('FAULT', '%s: %s; %s' % (how, '; '.join(r.problems), MISSING_IS_FAULT[k])))
+                    continue
                 outs.append(('NOT CHECKED' if miss else 'FAULT', '%s: %s' % (how, '; '.join(r.problems))))
                 continue
             # the row's script against the writer

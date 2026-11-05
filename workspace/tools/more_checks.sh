@@ -11,6 +11,8 @@ python3 $M/tools/col_check.py "$PDF" "$P" --settings "$SET" > $O/col.txt 2>&1; e
 python3 $M/tools/text_rules.py "$P" "$DOCX" $O/text --settings $M/pages/the-english-curriculum.py > $O/text.log 2>&1; echo "text: $(tail -2 $O/text.log | head -1)" >> $O/SUMMARY.txt
 python3 $M/tools/static_code.py "$Z" "$M/templates/Essay Code Template.html" $O/static.txt > $O/static.log 2>&1; echo "code (static): $(tail -2 $O/static.txt | head -1)" >> $O/SUMMARY.txt
 python3 $M/tools/style_rules.py "$P" "$M/templates/Essay Code Template.html" $O/style.txt > $O/style.log 2>&1; echo "style: $(tail -2 $O/style.txt | head -1)" >> $O/SUMMARY.txt
-python3 $M/tools/images_behaviour.py "$P" $O/images.txt full > $O/images.log 2>&1; echo "images: $(tail -2 $O/images.txt | head -1)" >> $O/SUMMARY.txt
+# 6 Nov 2026: the images check as two commands (argv: <preview> <out> <widths> <parts>); the gate needs both results
+python3 $M/tools/images_behaviour.py "$P" $O/images.txt full heights > $O/images.log 2>&1; echo "images (heights, 122 widths): $(tail -2 $O/images.txt | head -1)" >> $O/SUMMARY.txt
+python3 $M/tools/images_behaviour.py "$P" $O/images-2.txt full swipe,late,behaviour > $O/images-2.log 2>&1; echo "images (swipe, late, behaviour): $(tail -2 $O/images-2.txt | head -1)" >> $O/SUMMARY.txt
 python3 $M/tools/wrap_sweep.py "$P" "$DOCX" $O/wrap.txt 320 1920 1 > $O/wrap.log 2>&1; echo "wrap (1 px, 320-1920): $(tail -2 $O/wrap.txt | head -1)" >> $O/SUMMARY.txt
 echo "end $(date +%H:%M:%S)" >> $O/SUMMARY.txt; cat $O/SUMMARY.txt

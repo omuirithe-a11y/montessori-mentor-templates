@@ -53,6 +53,10 @@ RESULTS = {
                               fault_re=r'^FAULT\b', sha=None, source='preview', complete=r'^END\s*$'),
     'checks2/images.txt': dict(script=TOOLS + '/images_behaviour.py', runner='more_checks.sh', pass_re=r'^IMAGES PASS\s*$',
                               fault_re=r'^FAULT\b', sha=None, source='preview', complete=r'^END\s*$'),
+    # 6 Nov 2026: the images check runs as two commands in more_checks.sh (images.txt = heights at the 122 widths;
+    # images-2.txt = swipe, late images, behaviour); the gate needs both, and a missing images-2.txt is a FAULT
+    'checks2/images-2.txt': dict(script=TOOLS + '/images_behaviour.py', runner='more_checks.sh', pass_re=r'^IMAGES PASS\s*$',
+                              fault_re=r'^FAULT\b', sha=None, source='preview', complete=r'^END\s*$'),
     'checks2/wrap.txt':  dict(script=TOOLS + '/wrap_sweep.py', runner='more_checks.sh', pass_re=r'^WRAP PASS\s*$',
                               fault_re=r'^(?!(127\.0\.0\.1|WRAP |END|INFO|==|#|\s*$)).+', sha=None, source='preview', complete=r'^END\s*$'),
     # written by no runner yet (run_checks.sh and more_checks.sh do not run them): the rows that name them read as NOT CHECKED
@@ -379,7 +383,7 @@ def by_converter(b):
 
 EXPECTED = ['checks/full.txt', 'checks/height.txt', 'checks/lines.txt', 'checks/place.txt', 'checks/speed.txt',
             'checks2/format-word.txt', 'checks2/col.txt', 'checks2/text/text-result.txt', 'checks2/static.txt',
-            'checks2/style.txt', 'checks2/images.txt', 'checks2/wrap.txt']
+            'checks2/style.txt', 'checks2/images.txt', 'checks2/images-2.txt', 'checks2/wrap.txt']
 
 
 @row('A088')
@@ -508,7 +512,7 @@ def faces_changed(b):
         f.append('a final image is newer than the zip')
     if mtime(pc) < newest:
         f.append('pixel check older than the newest final image')
-    for k in ('checks/full.txt', 'checks2/images.txt'):
+    for k in ('checks/full.txt', 'checks2/images.txt', 'checks2/images-2.txt'):
         p = os.path.join(b.B, k)
         if not os.path.exists(p):
             f.append('image result %s missing' % k)
