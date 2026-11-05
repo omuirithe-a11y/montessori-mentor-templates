@@ -8,7 +8,7 @@
 # Every check still runs; nothing is skipped. Each writes its own file in <out dir>; SUMMARY.txt lists their last lines.
 # 6 Nov 2026 (owner 07:16 "implement all 6 immediately", items 1 and 5): these are LONG checks. The script REFUSES to start
 #   unless the fast checks passed for this package (<build>/checks2/FAST-PASSED, written by more_checks.sh ... fast) and the
-#   build folder holds a separate review report (REVIEW.md) newer than the package, naming its sha256 and ending
+#   build folder holds a separate review report (REVIEW.md) newer than the package, naming its sha256 and whose last line is
 #   "FAULTS: 0". It STOPS at the first step that does not pass (tools/round_judge.py), and a step whose result is newer
 #   than the package and its scripts and passes is kept, not run again (after a restart it picks up where it stopped).
 set -u
@@ -16,7 +16,7 @@ C=$(cd "$1" && pwd); Z=$(cd "$(dirname "$2")" && pwd)/$(basename "$2"); O=$3; WI
 mkdir -p "$O"; O=$(cd "$O" && pwd); BD=$(dirname "$Z"); SHA=$(sha256sum "$Z" | cut -c1-16)
 [ -f "$BD/checks2/FAST-PASSED" ] && grep -q "package sha256 $SHA" "$BD/checks2/FAST-PASSED" || { echo "REFUSED $(date '+%H:%M:%S'): the fast checks have not passed for this package ($SHA)"; exit 3; }
 RV=$BD/REVIEW.md
-{ [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && grep -q "^FAULTS: 0" "$RV"; } || { echo "REFUSED $(date '+%H:%M:%S'): no separate review report for this package with FAULTS: 0 ($RV)"; exit 3; }
+{ [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && [ "$(grep -v '^[[:space:]]*$' "$RV" | tail -1)" = "FAULTS: 0" ]; } || { echo "REFUSED $(date '+%H:%M:%S'): no separate review report for this package with FAULTS: 0 ($RV)"; exit 3; }
 [ -f "$O/SUMMARY.txt" ] && head -1 "$O/SUMMARY.txt" | grep -q "package sha256 $SHA" || echo "start $(date '+%H:%M:%S')  package sha256 $SHA" > "$O/SUMMARY.txt"
 fresh() { local r=$1; shift; [ -s "$r" ] || return 1; [ "$r" -nt "$Z" ] || return 1; for x in "$@"; do [ "$r" -nt "$x" ] || return 1; done; return 0; }
 judge() {   # judge <step> <file> <label>: record; stop the round on a fault

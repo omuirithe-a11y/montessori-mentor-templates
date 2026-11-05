@@ -59,7 +59,7 @@ if [ "$STAGE" = fast ]; then
 else
   [ -f $O/FAST-PASSED ] && grep -q "package sha256 $SHA" $O/FAST-PASSED || { echo "REFUSED $(date +%H:%M:%S): the fast checks have not passed for this package ($SHA)" | tee -a $O/SUMMARY.txt; exit 3; }
   RV=$B/REVIEW.md
-  { [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && grep -q "^FAULTS: 0" "$RV"; } || { echo "REFUSED $(date +%H:%M:%S): no separate review report for this package with FAULTS: 0 ($RV)" | tee -a $O/SUMMARY.txt; exit 3; }
+  { [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && [ "$(grep -v '^[[:space:]]*$' "$RV" | tail -1)" = "FAULTS: 0" ]; } || { echo "REFUSED $(date +%H:%M:%S): no separate review report for this package with FAULTS: 0 ($RV)" | tee -a $O/SUMMARY.txt; exit 3; }
   step images "images (heights, 122 widths)" $O/images.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images.txt full heights > $O/images.log 2>&1"
   step images2 "images (swipe, late, behaviour)" $O/images-2.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images-2.txt full swipe,late,behaviour > $O/images-2.log 2>&1"
   step wrap "wrap (1 px, 320-1920)" $O/wrap.txt $M/tools/wrap_sweep.py -- sh -c "python3 $M/tools/wrap_sweep.py \"$P\" \"$DOCX\" $O/wrap.txt 320 1920 1 > $O/wrap.log 2>&1"

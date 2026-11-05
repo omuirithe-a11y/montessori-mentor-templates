@@ -19,7 +19,7 @@ simple = {'strip': r'ALL CHECKS OK', 'static': r'^STATIC PASS', 'columns': r'^CO
           'tablet': r'^TABLET PASS', 'space': r'SPACING OK', 'images': r'^IMAGES PASS', 'images2': r'^IMAGES PASS',
           'wrap': r'^WRAP PASS', 'widths': r'RESULT: every width ok', 'place': r'^PLACE OK', 'speed': r'^SPEED OK'}
 if step in simple:
-    ok() if last(simple[step]) else bad((L[-1] if L else 'empty')[:160])
+    ok() if last(simple[step]) else bad(next((l for l in reversed(L) if l.strip() and l.strip() != 'END'), 'empty')[:160])
 if step == 'style':
     fl = [l for l in L if l.startswith('FAULT') and not re.match(r'^STYLE FAULT', l)]
     other = [l for l in fl if not l.startswith('FAULT D066/E054')]
