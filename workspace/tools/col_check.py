@@ -7,9 +7,36 @@ starting right of 40%), find each column's text on the built page at the given w
 side by side there too: same line (tops within 0.6 of a line height) and in left-to-right order. A PDF row whose texts are
 found on the page but one under the other is a COLUMN FAULT. Texts not found on the page are listed as NOT FOUND (a
 fault too: the check cannot judge them). Prints one line per fault, then COLUMNS OK or COLUMNS FAULT (exit 0 only on OK)."""
-import sys, re, asyncio, http.server, threading, functools, socket, unicodedata
+import sys, re, asyncio, http.server, threading, functools, socket, unicodedata, ast, importlib.util, os
 import pymupdf
 from playwright.async_api import async_playwright
+
+# 5 Nov 2026 (checkfix): --settings <page settings .py> - the page's TEXT_EDITS (owner's wording changes, e.g. The English
+# Curriculum: "Practice left to right" -> "Practise left to right", owner 13 Oct / 26 Oct 15:54) are applied to the PDF text
+# before it is looked for on the page, as are the builder's site text rules (tools/build_page.py site_rules: short dashes,
+# no spaces round a slash, the UK table and KEEP list, read from build_page.py as text_rules.py does). The PDF text is
+# looked for as written first, then as the builder would have changed it.
+SETTINGS = None
+if '--settings' in sys.argv:
+    i_ = sys.argv.index('--settings'); SETTINGS = sys.argv[i_ + 1]; del sys.argv[i_:i_ + 2]
+BUILDER = '/home/claude/mm/tools/build_page.py'
+def _builder_lists():
+    tree = ast.parse(open(BUILDER, encoding='utf-8').read()); got = {}
+    for node in tree.body:
+        if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name) and node.targets[0].id in ('UK', 'KEEP'):
+            got[node.targets[0].id] = ast.literal_eval(node.value)
+    return got['UK'], got['KEEP']
+UK, KEEP = _builder_lists()
+TEXT_EDITS = []
+if SETTINGS:
+    spec_ = importlib.util.spec_from_file_location('page_settings', SETTINGS); ps_ = importlib.util.module_from_spec(spec_); spec_.loader.exec_module(ps_)
+    TEXT_EDITS = list(getattr(ps_, 'TEXT_EDITS', [])); KEEP = KEEP + list(getattr(ps_, 'KEEP_SPELLING', []))
+def site_text(s):   # the builder's changes to Word's text, in its order (site_rules, then TEXT_EDITS)
+    s = s.replace('\u2013', '-').replace('\u2014', '-'); s = re.sub(r'\s+/\s+', '/', s)
+    for pat, rp in UK:
+        s = re.sub(pat, lambda m: m.group(0) if any(k in s[max(0, m.start() - 20):m.end() + 25] for k in KEEP) else m.expand(rp), s)
+    for o, n in TEXT_EDITS: s = s.replace(o, n)
+    return s
 
 PDF, FOLDER = sys.argv[1], sys.argv[2]
 W = int(sys.argv[3]) if len(sys.argv) > 3 else 1440
@@ -58,17 +85,34 @@ JS = r"""(args) => { const snips = args.snips, start = args.start;
   let nf = '', nm = [], prevSpace = true;
   for (let i = 0; i < full.length; i++) { let c = full[i].replace(/[‘’]/,"'").replace(/[“”]/,'"').replace(/[–—]/,'-').replace(/ /,' ').toLowerCase();
     if (/\s/.test(c)) continue; nf += c; nm.push(map[i]); }
-  let k0 = -1;
-  return snips.map((sn, j) => {
+  let k0 = -1, grid0 = null;
+  // 5 Nov 2026 (checkfix): every place the text occurs is a candidate; the one taken is, in order of preference:
+  // (second and later columns) inside the same column grid as the row's first column; then one that starts its block
+  // (a list item or paragraph begins with it, as a PDF column cell does); then the first in page order after the
+  // previous row (first column) or after the row's first column (later columns); the search wraps to the page's start
+  // only when nothing is found after. (Was: the first occurrence after, which could be a word inside a sentence.)
+  const GRID = '.mm-wcols2, .mm-wcols3, [class*="wcols"], table';
+  const blockOf = node => { let e = node.parentElement; while (e && e !== document.body && /^inline/.test(getComputedStyle(e).display)) e = e.parentElement; return e; };
+  const startsBlock = (node, off) => { const b = blockOf(node); if (!b) return false; const r = document.createRange(); r.setStart(b, 0); r.setEnd(node, off); return r.toString().replace(/[\s\u00a0\u200b\ufeff]/g, '') === ''; };
+  return snips.map((variants, j) => {
     // the text as in the PDF, where the page may put up to 3 marks (such as " - ") where the PDF has a space
     const from = j === 0 ? start : Math.max(k0, 0); let k = -1;
-    const words = sn.normalize('NFKC').replace(/[\u2018\u2019]/g,"'").replace(/[\u201c\u201d]/g,'"').replace(/[\u2013\u2014]/g,'-').toLowerCase().split(/\s+/).map(w => w.replace(/[,;:]+$/, '')).filter(Boolean);   // a comma or colon at a word's end may differ
     const esc = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const re = new RegExp(words.map(esc).join('[^\\p{L}\\p{N}]{0,3}'), 'gu');
-    re.lastIndex = from; let mm = re.exec(nf); if (!mm) { re.lastIndex = 0; mm = re.exec(nf); }
-    if (mm) k = mm.index;
-    if (k < 0) return null;
-    if (j === 0) k0 = k;
+    const cands = [];
+    for (const sn of variants) {
+      const words = sn.normalize('NFKC').replace(/[\u2018\u2019]/g,"'").replace(/[\u201c\u201d]/g,'"').replace(/[\u2013\u2014]/g,'-').toLowerCase().split(/\s+/).map(w => w.replace(/[,;:]+$/, '')).filter(Boolean);   // a comma or colon at a word's end may differ
+      if (!words.length) continue;
+      const re = new RegExp(words.map(esc).join('[^\\p{L}\\p{N}]{0,3}'), 'gu'); let mm;
+      while ((mm = re.exec(nf))) { const a = nm[mm.index]; if (a && a[0]) cands.push({k: mm.index, a}); if (mm[0].length === 0) re.lastIndex++; }
+    }
+    if (!cands.length) return null;
+    const score = c => { const g = c.a[0].parentElement.closest(GRID);
+      return [j > 0 && grid0 && g === grid0 ? 0 : 1, startsBlock(c.a[0], c.a[1]) ? 0 : 1, c.k]; };
+    const best = list => list.map(c => [score(c), c]).sort((x, y) => x[0][0] - y[0][0] || x[0][1] - y[0][1] || x[0][2] - y[0][2])[0];
+    const after = cands.filter(c => c.k >= from);
+    const pick = best(after.length ? after : cands)[1];
+    k = pick.k;
+    if (j === 0) { k0 = k; grid0 = pick.a[0].parentElement.closest(GRID); }
     const a = nm[k]; if (!a || !a[0]) return null;
     const r = document.createRange(); r.setStart(a[0], a[1]); r.setEnd(a[0], Math.min(a[1] + 1, a[0].nodeValue.length));
     const q = r.getBoundingClientRect(); const lh = parseFloat(getComputedStyle(a[0].parentElement).lineHeight) || q.height;
@@ -88,7 +132,7 @@ async def main():
         await pg.goto('http://127.0.0.1:%d/' % port, wait_until='domcontentloaded', timeout=90000); await pg.wait_for_timeout(4000)
         cur = 0; found = []
         for pn, y, texts in rows:
-            snips = [t[:60] for t in texts]
+            snips = [[t[:60]] + ([site_text(t)[:60]] if site_text(t)[:60] != t[:60] else []) for t in texts]
             pos = await pg.evaluate(JS, {'snips': snips, 'start': cur})
             if pos and pos[0]: cur = pos[0]['k']
             miss = [t for t, q in zip(texts, pos) if q is None]

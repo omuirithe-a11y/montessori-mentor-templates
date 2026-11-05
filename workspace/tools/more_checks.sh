@@ -4,9 +4,10 @@
 # check, the column check, the text, code, style and wrap checks. Every check runs; nothing skipped (lesson 44).
 set -u; B=$(cd "$1" && pwd); O=$2; mkdir -p "$O"; O=$(cd "$O" && pwd); M=/home/claude/mm; S=/home/claude/eng35/src
 DOCX="$S/3.5.0 The English Curriculum.docx"; PDF="$S/3.5.0 The English Curriculum.pdf"; Z=$(ls $B/*CHECK-ONLY.zip | head -1); P=$B/preview
+SET=${3:-$M/pages/the-english-curriculum.py}   # 6 Nov 2026 (owner 00:19): the page settings passed to the columns and Word-format checks
 echo "start $(date +%H:%M:%S)" > $O/SUMMARY.txt
-python3 $M/tools/v8/format_check_word.py "$Z" "$DOCX" > $O/format-word.txt 2>&1; echo "format (Word): $(tail -1 $O/format-word.txt)" >> $O/SUMMARY.txt
-python3 $M/tools/col_check.py "$PDF" "$P" > $O/col.txt 2>&1; echo "columns: $(grep -E 'COLUMNS' $O/col.txt | tail -1)" >> $O/SUMMARY.txt
+python3 $M/tools/v8/format_check_word.py "$Z" "$DOCX" --settings "$SET" > $O/format-word.txt 2>&1; echo "format (Word): $(tail -1 $O/format-word.txt)" >> $O/SUMMARY.txt
+python3 $M/tools/col_check.py "$PDF" "$P" --settings "$SET" > $O/col.txt 2>&1; echo "columns: $(grep -E 'COLUMNS' $O/col.txt | tail -1)" >> $O/SUMMARY.txt
 python3 $M/tools/text_rules.py "$P" "$DOCX" $O/text --settings $M/pages/the-english-curriculum.py > $O/text.log 2>&1; echo "text: $(tail -2 $O/text.log | head -1)" >> $O/SUMMARY.txt
 python3 $M/tools/static_code.py "$Z" "$M/templates/Essay Code Template.html" $O/static.txt > $O/static.log 2>&1; echo "code (static): $(tail -2 $O/static.txt | head -1)" >> $O/SUMMARY.txt
 python3 $M/tools/style_rules.py "$P" "$M/templates/Essay Code Template.html" $O/style.txt > $O/style.log 2>&1; echo "style: $(tail -2 $O/style.txt | head -1)" >> $O/SUMMARY.txt

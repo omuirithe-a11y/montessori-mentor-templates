@@ -195,6 +195,15 @@ def SOUP_FIX(sp, report):
     # 5 Nov 19:1x (images check D143 on build 21): the template's 20 Oct rule main .mm-row[data-level="10"]{gap:19.2px} was made for
     # The Culture Curriculum's rows; this page's tenth row took level 10 by count and its gaps were forced to 19.2 px. Its own level name.
     for _r in m.select('div.mm-row[data-level="10"]'): _r['data-level'] = '10e'
+    # 6 Nov 00:2x (Word-format check, fixed): "ˈrī-tiŋ" is bold in Word (its paragraph's Heading1 style) and in the PDF (p11)
+    for _a in m.select('a.mm-box'):
+        if _a.get_text(strip=True).startswith('ˈrī') and _a.find('strong') is None:
+            _s = sp.new_tag('strong'); [_s.append(x.extract()) for x in list(_a.contents)]; _a.append(_s)
+    # 6 Nov 00:3x: the colon after "Wikipedia" is bold in Word (Heading1 style) and in the PDF (p11, TimesNewRomanPS-BoldMT)
+    for _a in m.select('a[href*="wikipedia.org/wiki/Writing"]'):
+        _n = _a.next_sibling
+        if isinstance(_n, str) and _n.startswith(':'):
+            _s = sp.new_tag('strong'); _s.string = ':'; _n.replace_with(_n[1:]); _a.insert_after(_s)
     pin = next((h for h in m.find_all('h2') if _t(h) == 'Pinning'), None)
     if pin is not None:
         fl = pin.find_next_sibling(); para = fl.find_next_sibling() if fl is not None else None

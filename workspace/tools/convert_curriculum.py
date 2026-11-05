@@ -84,6 +84,10 @@ def rprops(r):
         return e.get(qn('w:val')) not in ('0', 'false')
     c = rp.find(qn('w:color')) if rp is not None else None
     u = rp.find(qn('w:u')) if rp is not None else None
+    bd = rp.find(qn('w:bdr')) if rp is not None else None   # 6 Nov 2026 (owner 00:19): a run Word shows in a box
+    if bd is not None and bd.get(qn('w:val')) not in (None, 'none', 'nil'):
+        u = 'box:' + (bd.get(qn('w:color')) or 'auto').upper()
+        return dict(b=on('w:b', 'b'), i=on('w:i', 'i'), hidden=on('w:vanish'), color=(c.get(qn('w:val')).upper() if c is not None else None), u=u)
     return dict(b=on('w:b', 'b'), i=on('w:i', 'i'), hidden=on('w:vanish'), color=(c.get(qn('w:val')).upper() if c is not None else None),
                 u=('none' if u is not None and u.get(qn('w:val')) == 'none' else (u is not None and u.get(qn('w:val')) not in (None, 'none', '0', 'false'))))   # 5 Nov 2026 (The English Curriculum, format check): an explicit "no underline" (w:u none) is kept as 'none', so a link Word shows without underline has none on the page   # 1 Oct (16th chat): <w:u> with no w:val shows no underline in Word (PDF)   # 1 Oct: underline kept (rule: follow the Word/PDF)
 
@@ -152,7 +156,7 @@ def seg_html(segs, strip_bold=False, strip_italic=False):
         # 26 Oct 2026 (2.2.0 page check): orange is never kept (the standing rule: orange Word text shows as regular black), and a
         # colour on punctuation or spaces alone is not kept (a yellow opening quotation mark, a red comma - no meaning on the page)
         if mixed and norm(col) and col not in ORANGE and re.search(r'\w', t): h = f'<span class="mm-wcol" style="color:#{col}">{h}</span>'
-        if url: h = f'<a href="{H.escape(url)}" rel="noopener" target="_blank"' + (' class="mm-nou"' if ul == 'none' else '') + f'>{h}</a>'
+        if url: h = f'<a href="{H.escape(url)}" rel="noopener" target="_blank"' + ((' class="mm-nou"' if ul == 'none' else (' class="mm-nou mm-box mm-box-%s"' % ul[4:] if isinstance(ul, str) and ul.startswith('box:') else ''))) + f'>{h}</a>'
         out.append(h)
     h = re.sub(r'(?<=\S) {3,}(?=\S)', lambda m: ' ' * len(m.group(0)), ''.join(out))   # 20 Oct (5.3 "p. 248.   (1949)"): Word's run of 3+ spaces is kept (the site's gap rule)
     h = re.sub(r'[ \n\r]{2,}', ' ', h).strip()

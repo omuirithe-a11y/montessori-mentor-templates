@@ -1,0 +1,34 @@
+# tools/allowed/the-english-curriculum-format-word.txt - lines of tools/v8/format_check_word.py (with --settings) allowed on The English Curriculum by row AF002 (owner 6 Nov 2026 00:19).
+# One block per width (the check prints the same block at 1440 and at 390). Each line: kind | exact line as printed. Taken from test build 24 (6 Nov 00:2x).
+contents box label | replace: Word "Contents" -> page "contents"
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+heading "Writing - Abstract" shown regular | "Writing": Word upright bold -> page upright regular
+heading "Writing - Abstract" shown regular | "-": Word upright bold -> page upright regular
+heading "Writing - Abstract" shown regular | "Abstract": Word upright bold -> page upright regular
+corrected bold "… ‘" after "yellow" | "…": Word upright bold -> page upright regular
+corrected bold "… ‘" after "yellow" | "‘": Word upright bold -> page upright regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "motor": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "intellect": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+corrected full-width bracket | replace: Word "（" -> page "("
+bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
+bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular

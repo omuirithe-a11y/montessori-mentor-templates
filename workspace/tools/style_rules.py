@@ -268,7 +268,7 @@ MEASURE = r"""(args) => {
         for (const p of r.props) { if (r.src) allowed[p] = r.sel; else nosrc.push(r.sel + ' ' + p); } }
       recs.push({kind, key: k0 + '#' + occ[k0], desc: desc(e), props, cls: e.getAttribute('class') || '', allowed, nosrc,
                  own: ownText(e), block: ['block', 'list-item', 'flow-root', 'table-cell'].includes(c.display) && !!t,
-                 shown: vis(e), inQuote: !!e.closest('blockquote'), inFig: !!e.closest('figcaption')});
+                 shown: vis(e), inQuote: !!e.closest('blockquote'), inFig: !!e.closest('figcaption, .mm-cap, .mm-twocap')});   // 5 Nov 2026 (checkfix): .mm-cap and .mm-twocap are captions too (template: ".mm-twocap ... centres its first caption over ... and its second ..."; D122 leaves captions as they were)
     }
   }
   // ---- beige lines the CSS draws
@@ -311,9 +311,20 @@ MEASURE = r"""(args) => {
   // ---- the beige lines the build placed from Word: a visible line straight before each listed paragraph
   const main = document.querySelector('main'); const placed = [];
   const isShownLine = e => { const m = lineEls.get(e); return m && Object.values(m).some(x => x.shown); };
+  // 5 Nov 2026 (checkfix, E041 misreadings on The English Curriculum b22): (1) the report lists the lines in the Word/PDF
+  // order, so each paragraph is looked for after the one found for the line before it (was: from the top of main, which
+  // found an earlier paragraph with the same words - a blue line "Keys to Literacy" under "Sound Game" - instead of the
+  // heading the line stands before); the whole of main is searched again only if nothing is found after. (2) The words are
+  // compared as the builder writes them: short dashes and no spaces round a slash (tools/build_page.py site_rules,
+  // "Site text rules: short dashes only; no spaces round a slash") - Word's "Art / Drawing / Colouring" is the page's
+  // "Art/Drawing/Colouring".
+  const site = s => norm(s).replace(/[\u2013\u2014]/g, '-').replace(/\s+\/\s+/g, '/');
+  const cand = main ? [...main.querySelectorAll('p, li, h2, h3, h4, blockquote')] : []; let lastIdx = -1;
   for (const t of before) {
-    const want = norm(t).slice(0, 60); let el = null;
-    if (main) for (const e of main.querySelectorAll('p, li, h2, h3, h4, blockquote')) { if (norm(e.textContent).startsWith(want)) { el = e; break; } }
+    const want = site(t).slice(0, 60); let el = null;
+    let ix = cand.findIndex((e, i) => i > lastIdx && site(e.textContent).startsWith(want));
+    if (ix < 0) ix = cand.findIndex(e => site(e.textContent).startsWith(want));
+    if (ix >= 0) { el = cand[ix]; lastIdx = ix; }
     if (!el) { placed.push({text: t, ok: false, found: 'paragraph not found'}); continue; }
     let n = el, res = null;
     while (n && n !== main && !res) {

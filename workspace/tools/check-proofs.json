@@ -299,5 +299,65 @@
   "clean_copy": "/home/claude/eng35/checks-plan/proofs-5nov/visual_check/clean.zip",
   "clean_result": "RESULT: every width ok at 390, 700, 1024, 1440 (widths given as the 2nd argument; the script exits 0 either way)",
   "source": "/home/claude/mm/build-35/b23/the-english-curriculum.zip (test build 23) and its preview folder; outputs in /home/claude/eng35/checks-plan/proofs-5nov/visual_check"
+ },
+ "eng-6nov-images_behaviour": {
+  "code": "c883bbb146bf2d30d7b0a4a9511600853c90af6f668b5f2fea4760cddbb8c863",
+  "page": "3.5.0",
+  "fault_put_in": "A035: the wrapped six-image group under \"Reading\" set to justify-content:flex-start (and, second copy, moved 5 px right)",
+  "broken_copy": "/home/claude/eng35/checkfix/proofs/a035-planted",
+  "caught": [
+   "FAULT 641 A035: set-col 3 (129.jpg, under \"Reading\") fits the screen but is not centred: 0.0 px space on the left, 55.0 on the right",
+   "FAULT 768 A035: set-col 3 (129.jpg, under \"Reading\") fits the screen but is not centred: 0.0 px space on the left, 55.0 on the right",
+   "FAULT 830 A035: set-col 3 (129.jpg, under \"Reading\") fits the screen but is not centred: 0.0 px space on the left, 55.0 on the right",
+   "IMAGES FAULT (3)"
+  ],
+  "at": "2026-11-06T00:20:40",
+  "script": "tools/images_behaviour.py",
+  "source": "/home/claude/eng35/checkfix/README.md (agent proofs 5 Nov 22:3x-00:0x; script copied into tools 6 Nov 00:2x after the owner's 00:19 agreement)"
+ },
+ "eng-6nov-col_check": {
+  "code": "285485b93a93eb1985676bb5f9861534ed92c402914db52302d43eeceb0da05a",
+  "page": "3.5.0",
+  "fault_put_in": "the two Handwriting lists (Chalkboard ... | Crayons ...) stacked in one column; second copy: an item's words changed",
+  "broken_copy": "/home/claude/eng35/checkfix/proofs/col-planted",
+  "caught": [
+   "COLUMN FAULT  PDF p15 y75: Chalkboard | Crayons  (page tops [17930, 18063], lefts [198, 198]; first column spans 17900-18055)",
+   "COLUMN FAULT  PDF p15 y93: Chalk | Scissors  (page tops [17930, 18095], lefts [198, 198]; first column spans 17900-18055)",
+   "COLUMN FAULT  PDF p15 y111: Pencils: coloured and lead (tr | Paper: different thicknesses a  (page tops [17994, 18127], lefts [198, 198]; first column spans 17900-18055)",
+   "COLUMN FAULT  PDF p15 y129: Sharpener and eraser | Glue  (page tops [18026, 18159], lefts [198, 198]; first column spans 17900-18055)",
+   "COLUMNS FAULT (4)"
+  ],
+  "at": "2026-11-06T00:20:40",
+  "script": "tools/col_check.py",
+  "source": "/home/claude/eng35/checkfix/README.md (agent proofs 5 Nov 22:3x-00:0x; script copied into tools 6 Nov 00:2x after the owner's 00:19 agreement)"
+ },
+ "eng-6nov-style_rules": {
+  "code": "ff95d3dd430dd075d4f8c549bc71b9d63bb05d56182982b7c8a766710b159d1e",
+  "page": "3.5.0",
+  "fault_put_in": "two beige lines removed and one body paragraph set text-align:left",
+  "broken_copy": "/home/claude/eng35/checkfix/proofs/style-planted",
+  "caught": [
+   "FAULT D066/E054 1920 section.section \"Preparation of the mindDevelop will and \" margin-top written by 2 scripts: script (no id, #0, line 800) ('0px'); script#mm-letter-gaps-js ('-6.00px') vs one script",
+   "FAULT D066/E054 1920 ul \"Develop will and concentrationComplete a\" margin-top written by 2 scripts: script (no id, #0, line 800) ('0px'); script#mm-letter-gaps-js ('-5.02px', '-8.55px') vs one script",
+   "FAULT D066/E054 1920 ul \"Coordinate movement of the bodyCoordinat\" margin-top written by 2 scripts: script (no id, #0, line 800) ('0px'); script#mm-letter-gaps-js ('-4.52px', '-8.55px') vs one script",
+   "FAULT D066/E054 1920 section.section \"Writing StagesMetal InsetsMaterials for \" margin-top written by 2 scripts: script (no id, #0, line 800) ('0px'); script#mm-letter-gaps-js ('0.75px') vs one script",
+   "FAULT E051 all template block <style mm-fix3-5nov> missing from the page vs present in the template",
+   "STYLE FAULT (4388)"
+  ],
+  "at": "2026-11-06T00:20:40",
+  "script": "tools/style_rules.py",
+  "source": "/home/claude/eng35/checkfix/README.md (agent proofs 5 Nov 22:3x-00:0x; script copied into tools 6 Nov 00:2x after the owner's 00:19 agreement)"
+ },
+ "eng-6nov-format_check_word": {
+  "code": "9b0f6489f1af268387217d57c2e6dc63305f37ca5c0797c6b09251879e160c8a",
+  "page": "3.5.0",
+  "fault_put_in": "bold \"Albums\", \"presentations\" -> \"presentation\", italic \"exclusively\", upright \"Run\" caption",
+  "broken_copy": "/home/claude/eng35/checkfix/proofs/fmt-planted",
+  "caught": [
+   "RESULT: 80 differences (words and italic/bold/underline); 40 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules"
+  ],
+  "at": "2026-11-06T00:20:40",
+  "script": "tools/v8/format_check_word.py",
+  "source": "/home/claude/eng35/checkfix/README.md (agent proofs 5 Nov 22:3x-00:0x; script copied into tools 6 Nov 00:2x after the owner's 00:19 agreement)"
  }
 }
