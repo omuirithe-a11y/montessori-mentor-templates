@@ -192,11 +192,14 @@ def SOUP_FIX(sp, report):
             im.append(fig); st.append(tx); st.append(im)
             report.append(('settings', 'Writing Stages list with the tall image beside it, as the PDF', ''))
     # Pinning: the side image and its paragraph as one set, so the row of five below starts after it
+    # 5 Nov 19:1x (images check D143 on build 21): the template's 20 Oct rule main .mm-row[data-level="10"]{gap:19.2px} was made for
+    # The Culture Curriculum's rows; this page's tenth row took level 10 by count and its gaps were forced to 19.2 px. Its own level name.
+    for _r in m.select('div.mm-row[data-level="10"]'): _r['data-level'] = '10e'
     pin = next((h for h in m.find_all('h2') if _t(h) == 'Pinning'), None)
     if pin is not None:
         fl = pin.find_next_sibling(); para = fl.find_next_sibling() if fl is not None else None
         if fl is not None and 'mm-float' in (fl.get('class') or []) and para is not None and para.name == 'p':
-            fig = fl.find('figure'); st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '168'})
+            fig = fl.find('figure'); st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '120'})   # 5 Nov 19:1x: 120, the owner's 1 Nov 14:34 rule (was 168)
             tx = sp.new_tag('div', attrs={'class': 'mm-text'}); im = sp.new_tag('div', attrs={'class': 'mm-imgs'})
             fl.insert_before(st); tx.append(para.extract()); im.append(fig.extract()); fl.decompose(); st.append(tx); st.append(im)
             report.append(('settings', 'Pinning: side image and its paragraph as one set', ''))
@@ -231,7 +234,7 @@ def SOUP_FIX(sp, report):
         f1.find_parent('figure').insert_after(_BS(str(f46.find_parent('figure')), 'html.parser').figure); report.append(('settings', 'image1 (046) also beside the p2 text, as Word', ''))
         fl = f1.find_parent('div', class_='mm-float'); para = fl.find_next_sibling() if fl is not None else None
         if fl is not None and para is not None and para.name == 'p':   # the two images side by side beside their paragraph, as the PDF (one set)
-            st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '167'})   # 5 Nov 14:2x: 167, not 168 - at 641 the pair ran 1 px past the text column (placement check, build 19)
+            st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '120'})   # 5 Nov 19:1x: 120, the owner's 1 Nov 14:34 rule for images beside text (rule D142; was 167)
             tx = sp.new_tag('div', attrs={'class': 'mm-text'}); im = sp.new_tag('div', attrs={'class': 'mm-imgs'})
             fl.insert_before(st); tx.append(para.extract())
             for f in fl.find_all('figure'): im.append(f.extract())
