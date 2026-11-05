@@ -164,7 +164,7 @@ c9536caade4a8e70d9d78c715be80619e7d89aef12bc32c2b7043b5165624c42  pages/books-of
 afcc97a9214501a2f808fdc8433acc23eedad88ff2777526a3f7e5c3ca72de02  tools/res2nov/shots2.py
 4c7699a5dcf955da40955825e991c1adc603fdd67b0ac3003c00f1ea374c1bcc  tools/watch.sh
 a0f561fa49d25e023446737ab9a1690577109e43706b20d7d998f3a4e8f6e734  pages/books-of-interest.py
-e5e3c892de3b00c752316ea59dddba4e865315590b570d7281f1158093cc10e0  records/DECISIONS-LOG-3-nov.md
+092118d33d4c27cff08bc0a2d6585ffe3e1a0400c6e7e6b2c51977681c3c1b09  records/DECISIONS-LOG-3-nov.md
 06fc0364e341e581bb8bc9023c82b7cdf40d56b90266e304198813a276349dfc  records/TEMPLATE-CHANGE-3-nov-mm-pair.md
 6c5a9ccb7473e4455617fbd50d77cd1bf6f16e0de06cb2a775930bdcbab903aa  tools/spacecheck.py
 dfcf63b3b17e426fc7d6d81c2695ae05e947e503cd7736c3d46e14c870e404d5  tools/briefs/MESSAGE-CHECK.md
@@ -191,7 +191,7 @@ b5d293c7d1655137674176a6d145ebf47db5e7ec1c6ed64c3d2137fe8e207f46  tools/ALLOWED-
 010cf593fa8638bf912462866f5afc56ede16716ecad7518fdf6e3d671c9d01b  tools/gate_list.py
 b00f5c82669cc4011ad281439ec0fca11e127910e89fc0480fc925c9aaecd133  tools/gate_files.py
 4bf54e423dfa6c8d9c01f7b7e400fdcdea0c8f323108f93b8ae7f6c803b449bd  pages/the-english-curriculum.build.sh
-9beeef658fea0b58ae2720187fda4ec9c45875724d01dba6b4870e7afb30a28e  queues/the-english-curriculum-EDIT-QUEUE.md
+dc485e81c36deb1e758cd5620f47996016453e198549b236f75b83f6d2732d36  queues/the-english-curriculum-EDIT-QUEUE.md
 1281304c5aa8f1670af4ae47ff4f8eed6e32120683dfffad8d01de2f90e8de7f  queues/the-english-curriculum-CHANGES.txt
 d8017b132aa692d16661ff281f1ee8b0cd7d81760e23b12750a6133733ccdde6  tools/allowed/the-english-curriculum-format-word.txt
 # 6 Nov 2026 (owner 06:54 agreement, gatefix2 C3): scripts the runners use whose sha256 no FINGERPRINTS list held (rows B253/D024)

@@ -1,10 +1,9 @@
 # Build order for every page (owner 6 Nov 2026 07:16 "implement all 6 immediately", 07:33 "saved for all future builds")
 
-This is the order. The scripts enforce steps 3-7; the rest are rules. Earlier agreements this repeats (they were in
-START-HERE or agent instructions and were not followed on 3.5.0): 27 Oct agent instruction E1 "cheapest first"; 30 Oct
-"13 key widths while fixing, the full set once"; START-HERE Quick start item 5 "on the first build ... screenshots looked at
-by a separate agent"; 2 Nov 17:52 "screenshots and the review on the first build, every template question asked together
-before any full check".
+This is the order. The scripts enforce steps 3, 4 (refusal without the review) and 6; steps 5 and the gate's check of the order (part of 7) are not yet enforced by code; the rest are rules. Earlier agreements this repeats (they were in
+START-HERE or agent instructions and were not followed on 3.5.0): 27 Oct agent instruction E1 "cheapest first" and E3 "13 key widths while fixing, the full set once" (restated 30 Oct); START-HERE Quick start item 5 "on the first build ... screenshots looked at
+by a separate agent"; the order START-HERE records as agreed 2 Nov 17:52 (screenshots and the review on the first build, every template question
+asked together before any full check).
 
 1. Before build 1: one decisions sheet - every place where Word/PDF and the template need her decision (colours, allowed
    differences, captions, indents, template changes) - sent as ONE question. Template faults found later: one list, one

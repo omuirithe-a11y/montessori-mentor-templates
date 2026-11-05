@@ -34,8 +34,9 @@ Each line: her words as logged; what was done is in the same log line and in bui
   - long checks refuse without fast pass + review report: tools/more_checks.sh stage long, tools/run_checks.sh header - DONE 07:30
   - tablet check: tools/tablet_check.py - DONE 07:2x
   - checks survive a restart (step level): tools/more_checks.sh fresh()/step(), tools/run_checks.sh kept() - DONE 07:30
-  - early gate run in the round: NOT DONE (tools/check_round.sh to write)
+  - early gate run in the round: tools/check_round.sh (fast stage) - DONE 07:33
   - gate checks the order: NOT DONE (needs her agreement; tools/gate_list.py)
-  - hourly review reads the decisions log for promises not in code: NOT DONE (the send_later prompt)
+  - hourly review reads the decisions log for promises not in code: the send_later prompt (set 07:45) - DONE
   - START-HERE: order of checks in its first section: NOT DONE
   - test every agreement at all widths it names: tools/tablet_check.py on every template change - rule, NOT YET IN START-HERE
+  - BUILD-ORDER.md saved (Project claude/BUILD-ORDER.md, GitHub workspace/records/BUILD-ORDER.md) - DONE 07:49; START-HERE pointer - NOT DONE
