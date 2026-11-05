@@ -50,8 +50,9 @@ def SOUP_FIX(sp, report):
     _gone = 0
     for h in list(m.find_all(['h2', 'p'])):
         if h is _intro: break
-        if h.name == 'h2' and _t(h) in _tocw:
-            _tocw.remove(_t(h)); h.decompose(); _gone += 1
+        if h.name in ('h2', 'p') and _t(h) in _tocw:   # 5 Nov (format review B0): "Reading Stages" came as a p and stayed at the top
+            _tocw.remove(_t(h)); _sec = h.find_parent('section'); h.decompose(); _gone += 1
+            if _sec is not None and not _sec.get_text(strip=True) and not _sec.find(['img', 'figure']): _sec.decompose()
     report.append(('settings', "Word's own contents list taken off the page (it is the contents box)", '%d lines' % _gone))
     # 5 Nov: what is a heading, and its colour, comes from the owner's Word file (the PDF is printed from it; one font size,
     # the levels are colours: green sections, red sub-headings, blue labels). Each heading on the page is matched, in order,
@@ -219,7 +220,7 @@ def SOUP_FIX(sp, report):
             for n, cap in caps:
                 f = imgs[n].find_parent('figure'); old = f.find_parent('div', class_=['mm-float', 'mm-row'])
                 f = f.extract(); f['class'] = (f.get('class') or []) + ['mm-cf']
-                f.insert(0, _BS('<figcaption class="mm-cap">%s</figcaption>' % cap, 'html.parser').figcaption); figs.append(f)
+                f.insert(0, _BS('<figcaption class="mm-cap" style="font-style:normal">%s</figcaption>' % cap, 'html.parser').figcaption)   # 5 Nov (format review B2): upright as Word P638 and the PDF; figs.append(f)
                 if old is not None and not old.find('figure'): old.decompose()
             row = _BS('<div class="mm-row" data-above="40" data-level="94"><div class="mm-imgs"></div></div>', 'html.parser').div
             for f in figs: row.select_one('.mm-imgs').append(f)

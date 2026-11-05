@@ -85,7 +85,7 @@ def rprops(r):
     c = rp.find(qn('w:color')) if rp is not None else None
     u = rp.find(qn('w:u')) if rp is not None else None
     return dict(b=on('w:b', 'b'), i=on('w:i', 'i'), hidden=on('w:vanish'), color=(c.get(qn('w:val')).upper() if c is not None else None),
-                u=(u is not None and u.get(qn('w:val')) not in (None, 'none', '0', 'false')))   # 1 Oct (16th chat): <w:u> with no w:val shows no underline in Word (PDF)   # 1 Oct: underline kept (rule: follow the Word/PDF)
+                u=('none' if u is not None and u.get(qn('w:val')) == 'none' else (u is not None and u.get(qn('w:val')) not in (None, 'none', '0', 'false'))))   # 5 Nov 2026 (The English Curriculum, format check): an explicit "no underline" (w:u none) is kept as 'none', so a link Word shows without underline has none on the page   # 1 Oct (16th chat): <w:u> with no w:val shows no underline in Word (PDF)   # 1 Oct: underline kept (rule: follow the Word/PDF)
 
 def segments(p_el):
     """The paragraph's visible text as (text, bold, italic, link, colour) pieces, in order; fields and links followed."""
@@ -148,11 +148,11 @@ def seg_html(segs, strip_bold=False, strip_italic=False):
         h = re.sub(r'\t+', lambda m: '<span class="mm-t">' + '\t' * len(m.group(0)) + '</span>', h)
         if it and not strip_italic and t.strip(): h = f'<em>{h}</em>'
         if b and not strip_bold and t.strip(): h = f'<strong>{h}</strong>'
-        if ul and t.strip(): h = f'<u>{h}</u>'
+        if ul is True and t.strip(): h = f'<u>{h}</u>'
         # 26 Oct 2026 (2.2.0 page check): orange is never kept (the standing rule: orange Word text shows as regular black), and a
         # colour on punctuation or spaces alone is not kept (a yellow opening quotation mark, a red comma - no meaning on the page)
         if mixed and norm(col) and col not in ORANGE and re.search(r'\w', t): h = f'<span class="mm-wcol" style="color:#{col}">{h}</span>'
-        if url: h = f'<a href="{H.escape(url)}" rel="noopener" target="_blank">{h}</a>'
+        if url: h = f'<a href="{H.escape(url)}" rel="noopener" target="_blank"' + (' style="text-decoration:none"' if ul == 'none' else '') + f'>{h}</a>'
         out.append(h)
     h = re.sub(r'(?<=\S) {3,}(?=\S)', lambda m: ' ' * len(m.group(0)), ''.join(out))   # 20 Oct (5.3 "p. 248.   (1949)"): Word's run of 3+ spaces is kept (the site's gap rule)
     h = re.sub(r'[ \n\r]{2,}', ' ', h).strip()
