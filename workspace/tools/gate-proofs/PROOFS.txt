@@ -1,0 +1,51 @@
+# gate_list.py / gate_files.py proofs (5 Nov 2026 15:47), no browser used
+gate_list.py sha256 700f7db20312af1c8faabdfdab93865240ffbf51223691c6232fde6e5c6b87e1
+gate_files.py sha256 8437a3561313ba453b99def7507ccfaf1ed86d77ad6777a66be8aa7af6757b05
+package /home/claude/mm/build-35/b19/the-english-curriculum.zip sha256 18d679748be29dacbbd6a2c40fc796c16a960ad856e0e648fa6e8f7a8371dff7
+Each scratch copy: scratch/<name>/b19 = symlinks to build 19's files, with checks/ copied for real (cp -p, times kept); scratch/<name>/b19.log and faces -> the real ones.
+
+## base (unchanged copy): rows that apply: 524 | PASS 42 | FAULT 133 | NOT CHECKED 341 | NO CHECK YET 8 -> GATE FAILED (484)
+
+## 1. PASS row turned FAULT by a planted, allowance-free fault
+Planted in scratch/planted/b19/checks/full.txt: width 500 line changed to '500 FAULT oversized images 1 ...'; its last line 'RESULT: every width ok' left as it was (the gate must not trust the summary line alone).
+rows that apply: 524 | PASS 33 | FAULT 142 | NOT CHECKED 341 | NO CHECK YET 8 -> GATE FAILED (493)
+rows PASS in base and FAULT here:
+  A018 | FAULT 
+  A021 | FAULT 
+  A032 | FAULT 
+  A061 | FAULT 
+  A065 | FAULT 
+  A076 | FAULT 
+  A079 | FAULT 
+  D015 | FAULT 
+  E053 | FAULT 
+  base:    D015 | visual_check.py | PASS | /home/claude/eng35/checks-plan/gate-proofs/scratch/base/b19/checks/full.txt | checks/full.txt: pass line holds; names the package sha256; the row names no folder for visual_check.py: the runner's copy is taken (its version is ju
+  planted: D015 | visual_check.py | FAULT | /home/claude/eng35/checks-plan/gate-proofs/scratch/planted/b19/checks/full.txt | checks/full.txt: 1 fault lines not allowed (0 naming D015); e.g.  500 FAULT oversized images 1  | squeezed text 0  | enlarged images 0  | sideways
+RESULT: PASS row turned FAULT
+
+## 2. allowed fault accepted (AF001)
+scratch/allowed/b19/checks2/style.txt = build 18's style.txt header and its 4550 lines 'FAULT D066/E054 ... written by 2 scripts ...' only, then 'STYLE FAULT (4550)', END (build 19 has no style result; the lines are build 18's, used only to test the reading).
+rows that apply: 524 | PASS 62 | FAULT 134 | NOT CHECKED 320 | NO CHECK YET 8 -> GATE FAILED (464)
+rows whose outcome changed from base:
+  A077 | PASS    A119 | PASS    A120 | PASS    A121 | PASS    A122 | PASS    A123 | PASS    A124 | PASS    A125 | PASS    A126 | PASS    A127 | PASS    C025 | FAULT    D066 | PASS    D122 | PASS    D128 | PASS    D136 | PASS    D194 | PASS    E015 | PASS    E039 | PASS    E041 | PASS    E047 | PASS    E051 | PASS    E054 | PASS  
+  D066 | plan 1 style_rules.py | PASS | /home/claude/eng35/checks-plan/gate-proofs/scratch/allowed/b19/checks2/style.txt | checks2/style.txt: every fault line allowed (AF001); format carries no package 
+(C025 turns FAULT because style_rules.py reads preview/index.html, not the upload zip.)
+RESULT: allowed fault accepted
+
+## 3. the same file with one A077 line (no allowance) and one near-miss line 'FAULT D066/E054 320 div.mm-float margin-top set by 2 scripts' (not 'written by N scripts'): both refused
+rows that apply: 524 | PASS 41 | FAULT 157 | NOT CHECKED 319 | NO CHECK YET 7 -> GATE FAILED (485)
+  D066 | plan 1 style_rules.py | FAULT | /home/claude/eng35/checks-plan/gate-proofs/scratch/notallowed/b19/checks2/style.txt | checks2/style.txt: 2 fault lines not allowed (1 naming D066), 4550 allowed; e.g. FAULT D066/E054 320 div.mm-float margin-top set by 2 s
+RESULT: only exact allowance text accepted
+
+## 4. an allowance typed in when the gate is run is refused
+  refused: unknown option --allow (allowances come only from tools/ALLOWED-FAULTS.txt)
+  GATE FAILED (1)
+  exit 2
+
+## 5. eye rows read from a review report (scratch/eye/review-sample.md, a planted sample, not a real review)
+  A026 | plan 9 eye | PASS | /home/claude/eng35/checks-plan/gate-proofs/scratch/eye/review-sample.md | checked in the review report (rests on that report) [rests on the review report]
+  A040 | plan 9 eye | NOT CHECKED | /home/claude/eng35/checks-plan/gate-proofs/scratch/eye/review-sample.md | not in the review report (a row missing from its table counts as not checked) [rests on the 
+  A085 | plan 9 eye | NOT CHECKED | /home/claude/eng35/checks-plan/gate-proofs/scratch/eye/review-sample.md | the review report marks it NOT checked [rests on the review report]
+  A116 | plan 9 eye | FAULT | /home/claude/eng35/checks-plan/gate-proofs/scratch/eye/review-sample.md | the review report names a fault: | A116 | checked | FAULT: example planted finding | [rests on the
+
+## 6. missing results are never a pass: build 19 has no checks2/ folder; every row resting on it reads NOT CHECKED (see base).
