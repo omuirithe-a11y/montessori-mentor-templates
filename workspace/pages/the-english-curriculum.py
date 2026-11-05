@@ -85,11 +85,20 @@ def SOUP_FIX(sp, report):
     # 5 Nov 10:1x (review fault 40; b13 at 1440: "Pink Language Materials" and "Green Language Materials" black): a whole line
     # in Word's pink (FF40FF) or second green (2AB116) takes the template's class for that colour (Essay template 71dd8bf8,
     # owner 5 Nov 04:00 "Yes")
-    _pg = {}; _kpg = 0
-    for _p in _docx.Document(WORD_FILE).paragraphs:   # every run of the line in that colour (not only the first)
+    _pg = {}; _kpg = 0; _blk = set()
+    for _i, _p in enumerate(_docx.Document(WORD_FILE).paragraphs):   # every run of the line in that colour (not only the first)
         _rs = [r for r in _p.runs if r.text.strip()]
         _cs = {str(r.font.color.rgb).upper() if (r.font.color is not None and r.font.color.type is not None and r.font.color.rgb is not None) else '000000' for r in _rs}
         if _rs and len(_cs) == 1 and next(iter(_cs)) in ('FF40FF', '2AB116'): _pg[_re.sub(r'\s+', ' ', _p.text).strip()] = next(iter(_cs))
+        # 6 Nov 05:5x (b25 review fault 2: the list titles "Spoken Language", "Reading Stages", "Function of Words" in Word
+        # blue 0000FF, PDF p2 blue, were black on the page): a whole line in Word blue takes the template's blue class
+        elif _rs and len(_cs) == 1 and next(iter(_cs)) in ('0000FF', '0432FF') and '\t' not in _p.text.strip(): _pg.setdefault(_re.sub(r'\s+', ' ', _p.text).strip(), '0432FF')
+        # (a blue line whose words Word also has as a black line - "Word Study", "Reading Analysis" in the PDF p2 list -
+        # is left as built: the black one would take the blue too; a label line with a tab (Series 3-5) is coloured by its
+        # own spans already; Word paragraphs 0-7 are Word's contents list, off the page)
+        elif _rs and _cs <= {'000000'} and _i > 7: _blk.add(_re.sub(r'\s+', ' ', _p.text).strip())
+    for _x in _blk:
+        if _pg.get(_x) == '0432FF': del _pg[_x]
     for p_ in m.find_all('p'):
         c_ = _pg.get(_t(p_))
         if c_ and not p_.find(class_=_re.compile('^mm-hc-')) and 'mm-hc-' + c_ not in (p_.get('class') or []):
@@ -111,8 +120,9 @@ def SOUP_FIX(sp, report):
             h = L[k]; h['id'] = tid; h['class'] = [c for c in (h.get('class') or []) if not c.startswith('mm-hc-')] + ['mm-hc-EE0000']
             report.append(('settings', 'contents entry and red heading', text)); return
         report.append(('settings', 'WARNING: contents heading not found', text))
-    # Word paragraphs 124 (the 2nd "Spoken Language"; the 1st is the list title of Word paragraph 43), 287, 302, 360, 522, 644
-    for text, k, tid in [('Spoken Language', 1, 'toc-spoken'), ('Writing - Abstract', 0, 'toc-wabs'), ('Keys to Literacy', 0, 'toc-keys'),
+    # Word paragraphs 124 (the 1st "Spoken Language" heading: the list title of Word paragraph 43 is a line, not a heading;
+    # 6 Nov 05:5x b25 review fault 1: k=1 went to the red heading of Word paragraph 171), 287, 302, 360, 522, 644
+    for text, k, tid in [('Spoken Language', 0, 'toc-spoken'), ('Writing - Abstract', 0, 'toc-wabs'), ('Keys to Literacy', 0, 'toc-keys'),
                          ('Writing - Concrete', 0, 'toc-wcon'), ('Reading', 0, 'toc-reading'), ('Grammar', 0, 'toc-grammar')]:
         _tag(text, k, tid)
     for sec in list(m.find_all('section')):   # sections left with nothing but empty space join the next one's text
@@ -345,6 +355,14 @@ def SOUP_FIX(sp, report):
     if nx_ is not None and _t(nx_) == 'Sandpaper Letters':
         sg.insert_after(_BS('<p class="mm-hc-0432FF">Keys to Literacy</p>', 'html.parser').p); kk = 1
     report.append(('settings', 'Word paragraph 60 "Keys to Literacy" put back in the AMI list', str(kk)))
+    # 6 Nov 05:5x (b25 review fault 2): in Word the lines before the blue titles "Keys to Literacy" and "Function of Words"
+    # (Word paragraphs 59 "Sound Game" and 88 "Definition Stages") keep Word's default space after (6 pt) where every other
+    # line of the list has none, so the PDF p2 shows a blank space before those two titles: they take the "apart" gap
+    _ka = 0
+    for _tt in ('Keys to Literacy', 'Function of Words'):
+        _e = next((p_ for p_ in m.find_all('p') if _t(p_) == _tt and p_.find_previous_sibling('p') is not None and _t(p_.find_previous_sibling('p')) in ('Sound Game', 'Definition Stages')), None)
+        if _e is not None: _e['data-gap'] = _os.environ.get('ENG_GAP_A', '29'); _ka += 1
+    report.append(('settings', 'blank space before the list titles Keys to Literacy and Function of Words, as the PDF p2', str(_ka)))
     # 5 Nov 13:1x (review fault 20; style check E041 on b18): the beige line Word puts before "Keys to Literacy" was placed
     # before the first line with those words - Word's contents line, taken off the page - so it stood at the top of the essay
     # and was missing between the three wall images and the "Keys to Literacy" heading (PDF p9); moved there
@@ -402,12 +420,53 @@ def SOUP_FIX(sp, report):
     pa_ = fl_.find_next_sibling() if fl_ is not None else None
     if fl_ is not None and pa_ is not None and pa_.name == 'p':
         fig = im_.find_parent('figure'); cap = fig.find('figcaption')
-        if cap is not None: cap['class'] = ['mm-cap']; fig.insert(0, cap.extract())
+        # 6 Nov 06:1x (b25 review fault 7: the PDF p19 has the caption under the image): the caption stays under its image,
+        # in the flow of the captioned set (mm-cap-below is not lifted above the image)
+        if cap is not None: cap['class'] = ['mm-cap', 'mm-cap-below']
         st = sp.new_tag('div', attrs={'class': 'mm-set mm-col', 'data-h': '120', 'data-cap': '1'})   # 5 Nov 20:4x: 120, the owner's 1 Nov 14:34 rule for images beside text (was 168)
         if fl_.has_attr('data-gap'): st['data-gap'] = fl_['data-gap']
         tx = sp.new_tag('div', attrs={'class': 'mm-text'}); imd = sp.new_tag('div', attrs={'class': 'mm-imgs'})
         fl_.insert_before(st); tx.append(pa_.extract()); imd.append(fig.extract()); fl_.decompose(); st.append(tx); st.append(imd); kg = 1
     report.append(('settings', 'Grammar image and its first paragraph as one captioned set (caption above)', str(kg)))
+    # 6 Nov 05:5x (b25 review faults 3, 4, 5, 8):
+    # fault 3 - Word's tab at the start of the attribution "- Maria Montessori, The 1946 London Lectures" (PDF p4) put it
+    # 95 px in where every other attribution starts at the quotation's edge, as the PDF: the leading tab is dropped
+    _k3 = 0
+    for _c in m.find_all('cite'):
+        _fc = next((c for c in _c.contents if not (isinstance(c, str) and not c.strip())), None)
+        if getattr(_fc, 'name', None) == 'span' and 'mm-t' in (_fc.get('class') or []): _fc.decompose(); _k3 += 1
+    report.append(('settings', 'tab at the start of an attribution dropped (PDF p4)', str(_k3)))
+    # fault 4 - a line after Word's grey line (p.mm-gl; "In the environments I have prepared", PDF p6) kept the spacing
+    # check's gap figure, which the letter-gap script measures from the text above the grey line: the line stood on the
+    # text (1440). The figure is dropped, so the template spaces it from the grey line, as every other line after one
+    _k4 = 0
+    for _g in m.select('p.mm-gl'):
+        _n = _g.find_next_sibling()
+        if _n is not None and _n.name == 'p' and _n.has_attr('data-gap'): del _n['data-gap']; _k4 += 1
+    report.append(('settings', "gap figure dropped on a line after Word's grey line", str(_k4)))
+    # fault 5 (part) - the PDF p18 Pink list is evenly spaced (24.4 pt every line); "Puzzle Words" and "Pink Phrase Cards"
+    # had the "together" gap where the list's other lines have "apart": the list's own gap for every line
+    _k5 = 0
+    _pk = next((p_ for p_ in m.find_all('p') if _t(p_) == 'Pink Language Materials'), None)
+    if _pk is not None:
+        _L = [x for x in _pk.find_next_siblings('p')]
+        _v = [x.get('data-gap') for x in _L if x.has_attr('data-gap')]
+        if _v:
+            _maj = max(set(_v), key=_v.count)
+            for x in _L:
+                if x.get('data-gap') not in (None, _maj): x['data-gap'] = _maj; _k5 += 1
+    report.append(('settings', 'PDF p18 Pink list: every line the same gap, as the PDF', str(_k5)))
+    # fault 8 - Reading Analysis "a." to "e." (PDF p22): Word indents them 36 pt (48 px), the PDF shows them indented: the
+    # template's 48 px offset (mm-tab1; none on phones)
+    _k8 = 0
+    _ra = [h for h in m.find_all(['h2', 'p']) if _t(h) == 'Reading Analysis']
+    if _ra:
+        for x in _ra[-1].find_all_next('p'):
+            if _re.match(r'^[a-e]\.', _t(x)) and x.find('span', class_='mm-t') is not None:
+                x['class'] = (x.get('class') or []) + ['mm-tab1']; _k8 += 1
+    report.append(('settings', 'Reading Analysis a.-e. indented 48 px as Word', str(_k8)))
+    for _e in m.find_all(class_=True):   # 6 Nov 06:0x: a class given twice by two settings is kept once
+        if len(set(_e['class'])) != len(_e['class']): _e['class'] = list(dict.fromkeys(_e['class']))
     # 5 Nov 13:0x: two sections had id="grammar" (the opening section kept the id of Word's contents line "Grammar")
     _secs = m.find_all('section', id='grammar')
     for _s in _secs[:-1]: del _s['id']

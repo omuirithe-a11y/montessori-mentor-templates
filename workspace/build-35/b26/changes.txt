@@ -1,0 +1,12 @@
+Build 26 (6 Nov 06:0x-06:1x), page settings only (pages/the-english-curriculum.py); template unchanged (Essay Code Template as b25).
+From the separate review of build 25 (build-35/b25/REVIEW.md):
+- fault 1: contents entry "Spoken Language" jumps to Word paragraph 124 (PDF p3 section heading), now red as the 1 Nov 10:01 rule (was the red heading of Word paragraph 171).
+- fault 2: list titles "Spoken Language", "Reading Stages", "Function of Words" Word blue -> template blue class; the "apart" gap (29) before "Keys to Literacy" and "Function of Words" (Word paragraphs 59 and 88 keep Word's default 6 pt space after).
+- fault 3: the tab at the start of the attribution "- Maria Montessori, The 1946 London Lectures" dropped.
+- fault 4: the gap figure dropped on the line after Word's grey line ("In the environments I have prepared"); the template spaces it from the line.
+- fault 5 (part): PDF p18 Pink list every line the same gap (Puzzle Words, Pink Phrase Cards 20 -> 29). The rest of fault 5 (uneven line pitch in lists) is from two template scripts setting the same margin (AF001) - not fixed; a template question.
+- fault 7: the caption "Maria Montessori, 1950, Perugia." under its image (mm-cap-below inside the captioned set).
+- fault 8: Reading Analysis a.-e. indented 48 px (template class mm-tab1).
+- a class given twice by two settings is kept once.
+Not fixed (template): fault 6 (Object Box list 104 px indent), fault 9 (columns at 641-830), fault 10 (images beside text at 641-830), fault 11 (captions in swipe rows at 641-830), rest of fault 5.
+Checks on b26: code ALL CHECKS OK; columns OK; text PASS; static PASS; style 4503 all D066/E054 (AF001); Word format 64 differences, the same lines as b25 (AF002); colour pairs changed as intended.
