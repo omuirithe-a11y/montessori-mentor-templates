@@ -54,6 +54,12 @@ if [ "$STAGE" = fast ]; then
   step text "text" $O/text.log $M/tools/text_rules.py "$SET" -- sh -c "python3 $M/tools/text_rules.py \"$P\" \"$DOCX\" $O/text --settings \"$SET\" > $O/text.log 2>&1"
   step style "style" $O/style.txt $M/tools/style_rules.py "$TPL" -- sh -c "python3 $M/tools/style_rules.py \"$P\" \"$TPL\" $O/style.txt > $O/style.log 2>&1"
   step tablet "tablet (641-830)" $O/tablet.txt $M/tools/tablet_check.py -- sh -c "python3 $M/tools/tablet_check.py \"$P\" $O/tablet.txt > $O/tablet.log 2>&1"
+  # 6 Nov 2026 (owner 09:25, #3 #6 #11): the on-screen check at the 13 key widths (the band edges: every agreement's widths
+  # are tested on every build) and an early wrap pass every 40 px - each fault they find stops the round in minutes; the full
+  # 122 widths and the 1 px wrap sweep still run in the long stage on the final build
+  CHK122=${CHK122:-/home/claude/montessori-mentor-templates/handover-2026-10-29-evening/tools-v5-fixA-200}
+  step widths "on-screen check, 13 key widths" $O/widths13.txt $CHK122/vfast.py $CHK122/visual_check.py -- sh -c "python3 $CHK122/vfast.py $CHK122 \"$Z\" $O/widths13.txt 2 320,390,640,641,768,830,831,961,1024,1099,1280,1440,1920 > $O/widths13.log 2>&1"
+  step wrap "wrap, every 40 px (early pass)" $O/wrap-early.txt $M/tools/wrap_sweep.py -- sh -c "python3 $M/tools/wrap_sweep.py \"$P\" \"$DOCX\" $O/wrap-early.txt 320 1920 40 > $O/wrap-early.log 2>&1"
   step space "spacing (13 widths)" $O/space.txt $M/tools/spacecheck.py -- sh -c "python3 $M/tools/spacecheck.py \"$DOCX\" \"$PDF\" \"$P\" \"$T/space\" > $O/space.log 2>&1; cp \"$T/space/spacecheck.txt\" $O/space.txt 2>>$O/space.log"
   echo "package sha256 $SHA $(date +%H:%M:%S)" > $O/FAST-PASSED
   echo "FAST CHECKS PASSED $(date +%H:%M:%S) - next: the gate (early run), then the separate review, then: more_checks.sh ... long, and run_checks.sh" >> $O/SUMMARY.txt

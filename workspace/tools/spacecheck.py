@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # spacecheck.py <docx> <pdf> <page folder containing index.html> <out dir> [widths]
+# 6 Nov 2026 (owner 09:25 #9): drawn-at-no-height beige lines not counted; Word's style and default spacing read; text on images left out.
 # 6 Nov 2026 (owner 08:53): beige lines p.mm-gl counted as dividers; PDF lines matched per column (see the PDF part).
 # 3 Nov 2026 (owner 17:08/17:10: "make it more precise, more thorough, so the check is able to catch all spacings and match the PDF"):
 # every vertical gap on the page compared with the PDF, as a ratio to each one's own line spacing.
@@ -27,21 +28,56 @@ def norm(t):
 
 # ---- Word: paragraphs and the kind of each gap
 D = docx.Document(DOCX)
+# 6 Nov 09:3x (owner 09:25 #9, C5): Word's own space before/after - the paragraph's, else its style's (up the chain), else the
+# document defaults (styles.xml docDefaults, e.g. w:after=120 = 6 pt) - python-docx gives only the paragraph's own
+from docx.oxml.ns import qn
+_dd = D.styles.element.find(qn('w:docDefaults'))
+_ddsp = _dd.find('.//' + qn('w:spacing')) if _dd is not None else None
+def _tw(el, att):
+    v = el.get(qn('w:' + att)) if el is not None else None
+    return int(v) / 20.0 if v is not None else None
+DEF_A, DEF_B = (_tw(_ddsp, 'after') or 0.0), (_tw(_ddsp, 'before') or 0.0)
+def _eff(p, which):
+    v = getattr(p.paragraph_format, 'space_' + which)
+    if v is not None: return v / 12700.0
+    st = p.style
+    while st is not None:
+        v = getattr(st.paragraph_format, 'space_' + which)
+        if v is not None: return v / 12700.0
+        st = st.base_style
+    return DEF_A if which == 'after' else DEF_B
+def _ctx(p):
+    # Word's contextual spacing ('Don't add space between paragraphs of the same style'): the paragraph's own, else its style chain's
+    pp = p._p.pPr
+    if pp is not None and pp.find(qn('w:contextualSpacing')) is not None: return True
+    st = p.style
+    while st is not None:
+        sp_ = st.element.find(qn('w:pPr'))
+        if sp_ is not None and sp_.find(qn('w:contextualSpacing')) is not None: return True
+        st = st.base_style
+    return False
 W = []   # (index, text, norm, has_drawing)
 for i, p in enumerate(D.paragraphs):
     has_img = bool(p._p.xpath('.//w:drawing')) or bool(p._p.xpath('.//w:pict'))
     W.append(dict(i=i, text=p.text, n=norm(p.text), img=has_img,
-                  sa=(p.paragraph_format.space_after or 0) / 12700.0, sb=(p.paragraph_format.space_before or 0) / 12700.0))
+                  sa=_eff(p, 'after'), sb=_eff(p, 'before'), st=p.style.name if p.style is not None else '', ctx=_ctx(p)))
 TEXT = [w for w in W if len(w['n']) >= 2]
+# C5 corrected 6 Nov: the space every paragraph has (the most common before+after between neighbouring text paragraphs, e.g.
+# the defaults' 6 pt) is the ordinary gap - only space above it makes a gap 'apart' (the first try counted all of it, and
+# judged 1,000+ ordinary gaps apart that the PDF shows together)
+from collections import Counter as _C
+_sp = _C(round(W[k]['sa'] + W[k + 1]['sb'], 1) for k in range(len(W) - 1) if len(W[k]['n']) >= 2 and len(W[k + 1]['n']) >= 2)
+NORMAL_SP = _sp.most_common(1)[0][0] if _sp else 0.0
 
 def word_kind(a, b):
     """kind of the gap between Word paragraphs a and b (indexes into D.paragraphs)"""
     blanks = sum(1 for k in range(a + 1, b) if not W[k]['n'] and not W[k]['img'])
     imgs = sum(1 for k in range(a + 1, b) if W[k]['img'])
     sp = W[a]['sa'] + W[b]['sb']
+    if W[a]['st'] == W[b]['st'] and (W[a]['ctx'] or W[b]['ctx']): sp = 0.0   # contextual spacing (C5, 6 Nov)
     if imgs: return 'image between'
     if blanks: return 'blank line x%d' % blanks
-    if sp > 0: return 'space %gpt' % sp
+    if sp > NORMAL_SP + 0.5: return 'space %gpt' % sp
     return 'next paragraph'
 
 # ---- PDF: lines, images, ruled lines
@@ -63,6 +99,9 @@ for pn, pg in enumerate(P):
         bb = im['bbox']
         if not any(abs(x['top'] - bb[1]) < 1 and x['pg'] == pn and abs(x['x0'] - bb[0]) < 1 for x in pimgs):
             pimgs.append(dict(pg=pn, top=bb[1], bot=bb[3], x0=bb[0], x1=bb[2]))
+# 6 Nov 09:3x (owner 09:25 #9, C4): text drawn on an image (the labels of a diagram) is part of the image, not a line of a paragraph
+def _on_image(L): return any(o['pg'] == L['pg'] and o['x0'] - 1 <= L['x0'] and L['top'] >= o['top'] - 1 and L['bot'] <= o['bot'] + 1 and L['x0'] <= o.get('x1', 1e9) for o in pimgs)
+plines = [L for L in plines if not _on_image(L)]
 plines.sort(key=lambda x: (x['pg'], round(x['base'], 0), x['x0']))
 # an image row or divider stands between lines of text: anything that overlaps a text line (a link's underline, an image beside text) is not one
 def _clear(o): return not any(L['pg'] == o['pg'] and o['top'] < L['bot'] + 2.5 and o['bot'] > L['top'] - 1 for L in plines)
@@ -139,7 +178,7 @@ res[w]=await p.evaluate(()=>{const m=document.querySelector('main');const Y=wind
   const ys=[];for(const l of lines){const k=ys.find(z=>Math.abs(z.top-l.top)<4);if(!k)ys.push(l);}
   blocks.push({t:e.textContent,first:ys[0].bot+Y,last:ys[ys.length-1].bot+Y,lastbot:ys[ys.length-1].bot+Y,top:ys[0].top+Y,x0:Math.min(...ys.map(l=>l.x0)),n:ys.length,lines:ys.map(l=>l.bot+Y),tag:e.tagName,cls:e.className,fe:(e.firstElementChild&&e.textContent.trim().startsWith(e.firstElementChild.textContent.trim())?e.firstElementChild.tagName:'')});}
  const objs=[];for(const im of m.querySelectorAll('img')){const q=im.getBoundingClientRect();if(q.height<20||q.width<20)continue;objs.push({k:'image',top:q.top+Y,bot:q.bottom+Y,x0:q.left});}
- for(const r of m.querySelectorAll('.beige-rule,.mm-org-rule,hr,p.mm-gl')){const q=r.getBoundingClientRect();if(!q.width)continue;objs.push({k:'rule',top:q.top+Y,bot:q.bottom+Y,x0:q.left});}
+ for(const r of m.querySelectorAll('.beige-rule,.mm-org-rule,hr,p.mm-gl')){const q=r.getBoundingClientRect();if(!q.width||q.height<0.5)continue;   /* 6 Nov 09:3x (owner 09:25 #9, C6): a beige line drawn at no height (beside a quotation) is not seen, so it is not a divider */objs.push({k:'rule',top:q.top+Y,bot:q.bottom+Y,x0:q.left});}
  return {blocks,objs,sw:document.documentElement.scrollWidth,iw:innerWidth};});await p.close();}
 console.log(JSON.stringify(res));await b.close();})();
 '''

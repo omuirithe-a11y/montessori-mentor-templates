@@ -390,6 +390,31 @@ def main():
         html = zf.read(b.slug + '/index.html').decode('utf-8', 'replace') if b.slug else ''
     if re.search(r'(id|class)="[^"]*(preview-band|check-band|mm-preview|not-passed)[^"]*"|NOT PASSED|NOT CHECKED', html):
         integrity.append('the package contains a preview band')
+    # 6 Nov 2026 (owner 09:25 "#2 - agreed": the gate checks the order of the checks): the fast round must have passed
+    # (checks2/FAST-PASSED for this package), the separate review report (REVIEW.md) must be written after it, and the long
+    # checks (checks/SUMMARY.txt "start", checks2/SUMMARY.txt "stage long start") must have started after the review
+    def _hms(path, rx):
+        t = GF.read(path) or ''
+        m_ = re.findall(rx, t)
+        if not m_ or not os.path.exists(path): return None
+        d0 = datetime.datetime.fromtimestamp(os.path.getmtime(path))
+        h, mi, se = [int(x) for x in m_[-1].split(':')]
+        t_ = d0.replace(hour=h, minute=mi, second=se, microsecond=0)
+        return t_ - datetime.timedelta(days=1) if t_ > d0 + datetime.timedelta(minutes=5) else t_
+    fp = os.path.join(b.B, 'checks2', 'FAST-PASSED'); rvp = os.path.join(b.B, 'REVIEW.md')
+    if not os.path.exists(fp) or zsha[:16] not in (GF.read(fp) or ''):
+        integrity.append('order: the fast round has not passed for this package (checks2/FAST-PASSED)')
+    else:
+        tfast = datetime.datetime.fromtimestamp(os.path.getmtime(fp))
+        trev = datetime.datetime.fromtimestamp(os.path.getmtime(rvp)) if os.path.exists(rvp) else None
+        if trev is None or trev < tfast:
+            integrity.append('order: no separate review report written after the fast round passed (REVIEW.md)')
+        for lp, rx, lab in ((os.path.join(b.B, 'checks', 'SUMMARY.txt'), r'^start (\d\d:\d\d:\d\d)', 'run_checks.sh'),
+                            (os.path.join(b.B, 'checks2', 'SUMMARY.txt'), r'stage long start (\d\d:\d\d:\d\d)', 'more_checks.sh long')):
+            tl = _hms(lp, rx)
+            if tl is None: integrity.append('order: %s has not run (no start time in %s)' % (lab, lp)); continue
+            if tl < tfast or (trev is not None and tl < trev - datetime.timedelta(seconds=1)):
+                integrity.append('order: %s started %s, before the fast round passed (%s) or the review (%s)' % (lab, tl.strftime('%H:%M:%S'), tfast.strftime('%H:%M:%S'), trev.strftime('%H:%M:%S') if trev else 'none'))
     for x in integrity:
         say('INTEGRITY FAULT ' + x)
 

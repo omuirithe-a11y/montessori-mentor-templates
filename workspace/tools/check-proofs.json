@@ -38,7 +38,7 @@
   "fault_put_in": "a 154 px gap put in the middle of a line",
   "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/G",
   "caught": [
-   "154px gap mid-line: \"Materials Readiness Inventory, repair, c\""
+   "154px gap mid-line: \"Materials Readiness\u00a0Inventory, repair, c\""
   ],
   "at": "2026-10-21T11:43:01"
  },
@@ -68,9 +68,9 @@
   "fault_put_in": "list text moved off Word's indent",
   "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-f9vgh3y7/K",
   "caught": [
-   "\"Who’ll be managing the class?This i\": page marker 0.0, text 60.0; Word 0.0, 28.4",
+   "\"Who\u2019ll be managing the class?This i\": page marker 0.0, text 60.0; Word 0.0, 28.4",
    "\"Guide the children,\": page marker 75.6, text 60.0; Word 75.6, 96.0",
-   "\"Who’ll be giving presentations?Most\": page marker 0.0, text 60.0; Word 0.0, 28.4"
+   "\"Who\u2019ll be giving presentations?Most\": page marker 0.0, text 60.0; Word 0.0, 28.4"
   ],
   "at": "2026-10-21T15:05:36"
  },
@@ -180,7 +180,7 @@
   "fault_put_in": "an e-mail address (info@example.com) added to the page footer (row A017)",
   "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/static_code/broken.zip",
   "caught": [
-   "FAULT A017 footer text differs from the template: page \"© 2026 Montessori Mentor info@example.com Back to top\", template \"© 2026 Montessori Mentor Back to top\"",
+   "FAULT A017 footer text differs from the template: page \"\u00a9 2026 Montessori Mentor info@example.com Back to top\", template \"\u00a9 2026 Montessori Mentor Back to top\"",
    "FAULT A017 e-mail address in the footer: \"info@example.com\"",
    "STATIC FAULT (2)"
   ],
@@ -208,10 +208,10 @@
  "eng-5nov-text_rules": {
   "code": "f78c03a305236bcf2fe1921248158e25e13f7ec9886b30c1fdb570f4ee50f2df",
   "page": "3.5.0",
-  "fault_put_in": "an en dash put into a paragraph (\"AMI training – I created Albums\") (row A005)",
+  "fault_put_in": "an en dash put into a paragraph (\"AMI training \u2013 I created Albums\") (row A005)",
   "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/text_rules/broken",
   "caught": [
-   "FAULT A005 long dash (en dash, U+2013) in main p: When I did my AMI training [–] I created Albums of presentations and exclus...",
+   "FAULT A005 long dash (en dash, U+2013) in main p: When I did my AMI training [\u2013] I created Albums of presentations and exclus...",
    "TEXT FAULT (1)"
   ],
   "at": "2026-11-05T22:55:00",
@@ -223,10 +223,10 @@
  "eng-5nov-wrap_sweep": {
   "code": "fb8fc14175ab7c5b64e1eff69adc5291726bedec4f230e196af871bd2858ab68",
   "page": "3.5.0",
-  "fault_put_in": "text-indent:40px on one list item (\"What I’ve described above...\") so its wrapped lines do not hang under its first line (row E043, HANG); widths 320-1920 step 50",
+  "fault_put_in": "text-indent:40px on one list item (\"What I\u2019ve described above...\") so its wrapped lines do not hang under its first line (row E043, HANG); widths 320-1920 step 50",
   "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/wrap_sweep/broken",
   "caught": [
-   "HANG  320 ... 1920  What I’ve described above is very different to the  (-40) - at all 33 widths",
+   "HANG  320 ... 1920  What I\u2019ve described above is very different to the  (-40) - at all 33 widths",
    "WRAP FAULT (34) (the 33 HANG lines plus the clean copy's known MARKER line)"
   ],
   "at": "2026-11-05T22:59:05",
@@ -238,10 +238,10 @@
  "eng-5nov-lines_v2": {
   "code": "87dced8ba5839c51ab43ed757c4649fbabbb4dd91290c053a620628c9d6732fe",
   "page": "3.5.0",
-  "fault_put_in": "a 2px black line (absolute span with border-top) drawn across the middle of one list item (\"What I’ve described above...\")",
+  "fault_put_in": "a 2px black line (absolute span with border-top) drawn across the middle of one list item (\"What I\u2019ve described above...\")",
   "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/lines_v2/broken.zip",
   "caught": [
-   "width 390: line-through-text 1 - CROSS SPAN. top y=15226 | 'What I’ve described above is very different to the'",
+   "width 390: line-through-text 1 - CROSS SPAN. top y=15226 | 'What I\u2019ve described above is very different to the'",
    "width 830: line-through-text 1 - CROSS SPAN. top y=11765 | same text",
    "width 1440: 0 (the line falls between two text lines at that width)"
   ],
@@ -363,7 +363,7 @@
  "eng-6nov-style_rules-box": {
   "code": "a466f258860a51c048d0de496d2f61dcc276e9bbd93a64067e41b03a01c1b85a",
   "page": "3.5.0",
-  "fault_put_in": "the boxed link (\"ˈrī-tiŋ\") border set beige instead of Word's 97BECE",
+  "fault_put_in": "the boxed link (\"\u02c8r\u012b-ti\u014b\") border set beige instead of Word's 97BECE",
   "broken_copy": "/home/claude/eng35/checkfix2/planted",
   "caught": [
    "44 \"box border\" FAULT lines (11 widths x 4 sides) in /home/claude/eng35/checkfix2/planted.txt"
@@ -408,5 +408,19 @@
   "clean_result": "build 29 at 1440/390 (out-new): the 66 wrongly judged lines of class C gone - 238->241 dividers, 581->582, 582->583, 645->646 now judged on PDF figures (1.34, 1.33, 1.33); new real lines appear (615-623 Object Box list apart in the PDF, 725-727, below rule -> heading)",
   "at": "2026-11-06T08:5x",
   "script": "tools/spacecheck.py"
+ },
+ "eng-6nov-spacecheck-c456": {
+  "code": "1dfb2777109861311fb2149f93bad121494b008807c0e57882a8cac2a8da8209",
+  "page": "3.5.0",
+  "fault_put_in": "the same two planted faults as eng-6nov-spacecheck: pl1 (beige line removed) and pl2 (Pink list 'Puzzle Words' gap set together)",
+  "broken_copy": "/home/claude/eng35/spacefix/pl1 and pl2",
+  "caught": [
+   "pl1: 1440 234 -> 236 FAULT (the PDF has an image or divider here; the page has none)",
+   "pl2: 1440 581 -> 582 FAULT (apart in the PDF, not clearly apart on the page)"
+  ],
+  "clean_result": "build 30 at 1440/830/390: 56 faults (previous version 49); removed: Normal paragraphs with Word's default 6 pt after now read as spaced (725-727, 509, 548); added: 260, 523, 619, 683, 685 (PDF line not matched, judged on the 6 pt kind's median) and 610-612 (PDF 1.25-1.26). Word's contextual spacing on List Paragraph read (without it 1,000+ list gaps were judged apart).",
+  "at": "2026-11-06T09:45:44",
+  "script": "tools/spacecheck.py",
+  "agreement": "owner 6 Nov 09:25 '#3 to #16 ... implement all of them immediately' (#9)"
  }
 }

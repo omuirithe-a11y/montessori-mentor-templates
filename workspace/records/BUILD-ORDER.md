@@ -62,3 +62,23 @@ The time sinks on 3.5.0, largest first, and whether a solution removes each:
 5. Decisions asked one by one - NOW ENFORCED for new pages: build_guard.sh refuses build 1 without an answered decisions
    sheet (DECISIONS_SHEET file with "OWNER ANSWER:"), tested both ways 08:1x.
 6. Message rounds - RULE only; not removed (drafts failed 1-3 checker rounds today).
+
+## Added 6 Nov 09:3x (owner 09:25 "#3 to #16 find a solution and/or implement all of them immediately")
+- #2 (agreed 09:25): the gate checks the order - INTEGRITY FAULT "order: ..." when the fast round has not passed, the review
+  was written before it, or a long check started before the review. Tested: ok order -> no order fault; long stage started
+  before the review -> fault (eng35/ordertest).
+- #3/#11: the fast round runs the on-screen check at the 13 key widths (band edges) - every agreement's widths are tested on
+  every build; the 122 widths run once in the long stage.
+- #4: run_checks.sh runs first the widths that failed on the previous build.
+- #5: run_checks.sh keeps widths already finished on this package after a restart (vfast --skip-done from its own worker output).
+- #6: an early wrap pass every 40 px in the fast round; the 1 px sweep in the long stage.
+- #7: gate rows that never fail - analysed; merging them changes the list, so it is put to her with the analysis.
+- #8: re-checking only changed sections is covered by #3/#4 (fast faults found in minutes) without leaving any section unchecked
+  on the final build.
+- #9: spacing check C4-C6 (text on images left out; Word's style/default spacing read; zero-height beige lines not counted).
+- #10: START-HERE gets the check order and the pointer to this file.
+- #12/#14: the message checker's brief now refuses a second open question, figures not from the listed files, and a third
+  round (redraft).
+- #13: decisions sheet for this page: pages/the-english-curriculum.decisions.md.
+- #15: any investigation: a 20-minute reminder (send_later) is set when it starts; at the reminder, stop and read the code.
+- #16: queued in records/TO-DO-next-chat.md (after publishing).

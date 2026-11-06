@@ -25,7 +25,22 @@ judge() {   # judge <step> <file> <label>: record; stop the round on a fault
   [ $e -eq 0 ] || { echo "STOPPED at $3 $(date '+%H:%M:%S'): $j" >> "$O/SUMMARY.txt"; cat "$O/SUMMARY.txt"; exit 1; }; }
 kept() { python3 "$G/round_judge.py" $1 "$2" > /dev/null 2>&1 && fresh "$2" "${@:3}"; }
 # 1. the 122 widths
-kept widths "$O/full.txt" "$C/vfast.py" || { python3 "$C/vfast.py" "$C" "$Z" "$O/full.txt" 2 "$WID" > "$O/full.log" 2>&1; }; judge widths "$O/full.txt" "122 widths"
+# 6 Nov 2026 (owner 09:25 "#3 to #16 ... implement"): (#4) the widths that failed on the previous build run first, so a fault
+# still there stops the round in seconds; (#5) widths a stopped run already finished on THIS package (the vfast-*/w*.out lines
+# in this folder) are kept, not run again. Every width still runs on this package.
+if ! kept widths "$O/full.txt" "$C/vfast.py"; then
+  PREVB=$(ls -d "$(dirname "$BD")"/b[0-9]* 2>/dev/null | sed 's/.*\/b//' | grep -E '^[0-9]+$' | sort -n | awk -v me="$(basename "$BD" | sed 's/^b//')" '$1<me' | tail -1)
+  PF="$(dirname "$BD")/b$PREVB/checks/full.txt"
+  FW=$( [ -n "$PREVB" ] && [ -f "$PF" ] && grep -E '^ *[0-9]+ FAULT' "$PF" | awk '{print $1}' | paste -sd, - )
+  if [ -n "$FW" ]; then
+    python3 "$C/vfast.py" "$C" "$Z" "$O/full-first.txt" 2 "$FW" > "$O/full-first.log" 2>&1
+    judge widths "$O/full-first.txt" "122 widths: the widths that failed on build b$PREVB first ($FW)"
+  fi
+  SK=$(mktemp -d); for vd in "$O"/vfast-*; do [ -d "$vd" ] && [ "$vd" -nt "$Z" ] && cat "$vd"/w*.out 2>/dev/null; done | grep -E '^ *[0-9]+ (ok|FAULT)' > "$SK/part01.txt" || true
+  if [ -s "$SK/part01.txt" ]; then SKA="--skip-done $SK"; else SKA=""; fi   # only runs made after this package was built
+  python3 "$C/vfast.py" "$C" "$Z" "$O/full.txt" 2 "$WID" $SKA > "$O/full.log" 2>&1; rm -rf "$SK"
+fi
+judge widths "$O/full.txt" "122 widths"
 # 2. the height (the gate's rule: 1 s = 4 s = after scrolling at 1440 and 390, no margin over 150 px)
 kept height "$O/height.txt" "$C/stable.py" || { ( for w in 1440 390; do echo "width $w: $(python3 "$C/stable.py" $w "$Z" 2>&1 | tail -1)"; done ) > "$O/height.txt" 2>&1; }; judge height "$O/height.txt" "height"
 # 3. lines through text, on the package served locally
