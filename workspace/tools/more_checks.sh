@@ -39,6 +39,10 @@ fresh() {   # fresh <result file> <scripts...>: newer than the package and every
   for x in "$@"; do [ "$r" -nt "$x" ] || return 1; done; return 0; }
 step() {   # step <judge step> <label> <result file> <scripts (for freshness)> -- <command...>
   local js=$1 label=$2 res=$3; shift 3; local deps=(); while [ "$1" != "--" ]; do deps+=("$1"); shift; done; shift
+  # 6 Nov 2026 (owner 21 Oct rule "when a check is wrong, fix the check and prove it on a deliberately broken copy"; 12:31): a
+  # check script whose current version has no proof in tools/check-proofs.json does not run (runners such as vfast.py are exempt)
+  local d_; for d_ in "${deps[@]}"; do case "$d_" in */tools/*.py|*/tools-v5*/*.py) case "$(basename "$d_")" in vfast.py) continue;; esac
+    python3 -c "import json,hashlib,sys;h=hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest();d=json.load(open('$M/tools/check-proofs.json'));sys.exit(0 if any(isinstance(v,dict) and v.get('code')==h for v in d.values()) else 1)" "$d_" || { echo "STOPPED at $label $(date +%H:%M:%S): REFUSED - $(basename "$d_") (this version) has no proof on a deliberately broken copy in tools/check-proofs.json" >> $O/SUMMARY.txt; cat $O/SUMMARY.txt; exit 1; };; esac; done
   if fresh "$res" "${deps[@]}" && python3 $M/tools/round_judge.py $js "$res" $PAGE > /dev/null 2>&1; then
     echo "$label: kept (passed $(date -r "$res" +%H:%M:%S)) $(tail -2 "$res" | grep -v '^END' | tail -1)" >> $O/SUMMARY.txt; return 0; fi
   "$@"

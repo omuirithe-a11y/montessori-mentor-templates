@@ -435,5 +435,30 @@
   "at": "2026-11-06T11:59:42",
   "script": "tools/style_rules.py",
   "agreement": "owner 6 Nov 11:59 'yes. i agree'"
+ },
+ "eng-6nov-strip_compare_nolive-pin-fee42911": {
+  "code": "fee429116910e361f006bae14c7c17492cd6950c7d8bc21d9a92c2db5427b2c2",
+  "page": "3.5.0",
+  "fault_put_in": "build 34, made on the template before the 12:15 change (a template block differs from the pinned template)",
+  "broken_copy": "/home/claude/mm/build-35/b34/the-english-curriculum.zip",
+  "caught": [
+   "build 34: == RESULT: NOT ACCEPTABLE (eng35/pin2-b34.txt)"
+  ],
+  "clean_result": "build 35: == RESULT: ALL CHECKS OK (eng35/pin2-b35.txt)",
+  "at": "2026-11-06T12:37:18",
+  "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "eng-6nov-style_rules-cols-left": {
+  "code": "65e258ffba85c7a0c277b10598dc1221f439336334420e62f08b79dfe175a676",
+  "page": "3.5.0",
+  "fault_put_in": "build 34: bulleted lines of Word's two-column lists and the three-column lists still justified (before the 12:15 template change)",
+  "broken_copy": "/home/claude/eng35/u34",
+  "caught": [
+   "440 lines 'text-align justify vs left (a line in Word's column lists ...)' (eng35/style-b34-new.txt)"
+  ],
+  "clean_result": "build 35: STYLE PASS - 0 such lines, only the allowed D066/E054 (build-35/b35/checks2/style.txt)",
+  "at": "2026-11-06T12:37:18",
+  "script": "tools/style_rules.py",
+  "agreement": "owner 6 Nov 12:15"
  }
 }
