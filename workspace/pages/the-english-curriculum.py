@@ -13,7 +13,11 @@ from bs4 import BeautifulSoup as _BS
 TEXT_EDITS = [   # UK spelling (owner 13 Oct, 26 Oct 15:54): "practice" as a verb is "practise"
     ('to practice copying', 'to practise copying'), ('to practice reading', 'to practise reading'),
     ('to practice colouring', 'to practise colouring'), ('Practice left to right', 'Practise left to right'),
-    ('the sound ....', 'the sound\u00a0....'),   # 6 Nov 02:5x (wrap check PUNCT, 361-367 px): Word's space before the dots let a line start with "."; a no-break space keeps the dots with "sound"
+    ('the sound ....', 'the sound\u00a0....'),
+    # 6 Nov (build 31 review faults 2-3; owner 27 Oct: "correct all typos on every page"; UK spelling)
+    ('so they game doesn', 'so the game doesn'), ('almost a quarter an hour', 'almost a quarter of an hour'),
+    ('a sense of the how extensive', 'a sense of how extensive'), ('and help child learn', 'and help the child learn'),
+    ('gaining an understanding the perspective', 'gaining an understanding of the perspective'), ('circle time instills', 'circle time instils'),   # 6 Nov 02:5x (wrap check PUNCT, 361-367 px): Word's space before the dots let a line start with "."; a no-break space keeps the dots with "sound"
 ]
 PAGE_CODE_REPLACE = []
 ALT_TEXT = {}            # owner 28 Oct: image descriptions "are not necessary anymore"
@@ -516,6 +520,22 @@ def SOUP_FIX(sp, report):
         if _bq is not None and 'pullquote' in (_bq.get('class') or []) and _bq.get('data-gap') == _os.environ.get('ENG_GAP_T', '20'):
             _bq['data-gap'] = _os.environ.get('ENG_GAP_A', '29'); _k10 += 1
     report.append(('settings', 'apart gap where Word keeps its default 6 pt after and the PDF shows 1.33-1.49 lines (Object Box sequence, two quotations)', str(_k10)))
+    # 6 Nov 10:5x (build 31 review faults 4-5; spacing check 1440 lines 260, 523, 536, 628): the PDF shows these apart (a blank
+    # line in Word, or Word's 6 pt), the page had the list's "together" gap
+    _k12 = 0
+    for _s in ('What the child is doing here', 'Decoding:', 'Kate Millie’s Supplemental Language Album - Reading', 'Action Cards - Set 1'):
+        _e = next((p_ for p_ in m.find_all(['p', 'li']) if _t(p_).startswith(_s)), None)
+        if _e is not None: _e['data-gap'] = _os.environ.get('ENG_GAP_A', '29'); _k12 += 1
+    report.append(('settings', 'apart gap on 4 lines the PDF shows apart (review b31 faults 4-5)', str(_k12)))
+    # 6 Nov 10:5x (build 31 review fault 1): in the PDF p2 AMI list the eight blue titles are one kind (Word Normal, blue);
+    # Writing Stages, Word Study and Reading Analysis were built as headings (48) while Keys to Literacy and Function of Words
+    # are lines (29): all are lines with the list-title gap; Reading Analysis keeps the larger gap (Word's empty paragraph before it)
+    _k13 = 0
+    for _h in list(m.select('h2.mm-hc-0432FF')):
+        _x = _t(_h)
+        if _x in ('Writing Stages', 'Word Study', 'Reading Analysis'):
+            _h.name = 'p'; _h['data-gap'] = '48' if _x == 'Reading Analysis' else _os.environ.get('ENG_GAP_A', '29'); _k13 += 1
+    report.append(('settings', 'PDF p2 list titles Writing Stages, Word Study, Reading Analysis as lines like the other titles (review b31 fault 1)', str(_k13)))
     # 5 Nov 13:0x: two sections had id="grammar" (the opening section kept the id of Word's contents line "Grammar")
     _secs = m.find_all('section', id='grammar')
     for _s in _secs[:-1]: del _s['id']
