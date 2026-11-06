@@ -6,3 +6,4 @@
 - 6 Nov: spacing follow-up - ANSWERED 14:43 "B"
 - 6 Nov: height question - ANSWERED 15:44 "B"
 - 6 Nov: template - image beside a list - ANSWERED with a standing agreement (any tested template fix for this page)
+- 6 Nov: gate change - tie template commits to her agreements by a log line - sent - OPEN
