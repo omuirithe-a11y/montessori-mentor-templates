@@ -333,6 +333,7 @@ def SOUP_FIX(sp, report):
             _sec = _h.find_parent('section')
             if _sec is not None and _sec.find_previous_sibling('section') is not None: _h['data-gap'] = _HA
             _nx = _h.find_next_sibling()
+            while _nx is not None and 'mm-float' in (_nx.get('class') or []): _nx = _nx.find_next_sibling()   # 6 Nov 08:1x (spacing b28, P1): the line under a heading, not a photo float
             if _nx is not None and _nx.name in ('p', 'div', 'ul', 'ol', 'blockquote') and 'mm-row' not in (_nx.get('class') or []) and 'mm-set' not in (_nx.get('class') or []): _nx['data-gap'] = _HB
         report.append(('settings', 'PDF together/apart gaps set (T=%s, A=%s): %d; not found: %d' % (_T, _A, _set, len(_miss)), '; '.join(_miss[:8])))
     # Word's trailing tabs at the end of a list line ("Conversation<tab>") made those lines a different kind of paragraph: dropped
@@ -374,6 +375,17 @@ def SOUP_FIX(sp, report):
         tgt_.insert_before(fe.extract()); kgl = 1
     report.append(('settings', 'beige line moved from the top of the essay to before "Keys to Literacy"', str(kgl)))
     _columns(m, report, replace, merge_section)
+    # 6 Nov 08:1x (spacing b28, P3): the first block after a Word-column grid where Word has a blank line before it takes the "apart" gap (PDF 2.00-2.69 lines)
+    _kg = 0
+    _AFTER = ('The Spoken Language curriculum listed', 'The questions I ask myself', 'Here\u2019s another option, from the Supple',
+              'This necessitates', '\u201cA necessary condition for writing', '\u201cWe thus began to communicate',
+              'Writing emerged independently', 'I\u2019ve adopted many', 'Object Box 1', '\u201cReading penetrates directly')
+    for _g in m.select('div.mm-wcols2, div.mm-cols3'):
+        _n = _g.find_next_sibling()
+        if _n is None or _n.has_attr('data-gap') or _n.name not in ('p', 'blockquote'): continue
+        if any(_t(_n).startswith(s_) for s_ in _AFTER):
+            _n['data-gap'] = _os.environ.get('ENG_GAP_A', '29'); _kg += 1
+    report.append(('settings', 'apart gap on the first block after a Word-column grid (Word blank line)', str(_kg)))
     # 5 Nov 09:5x (review fault 48; b12 122-width check: images 154/155/156 over each other at every width, over "Number"
     # 320-830): the three Word Study images stand one under another at the right, as in the PDF - the template's own
     # ext-float class (wrapFloats: "stand one under another (clear:right), not centred on the paragraph"). Tested on a b12
@@ -487,7 +499,7 @@ def SOUP_FIX(sp, report):
     kp = 0
     im_ = m.select_one('img[data-full="images/052.jpg"]'); fl_ = im_.find_parent('div', class_='mm-float') if im_ is not None else None
     ol_ = fl_.find_next_sibling() if fl_ is not None else None
-    if ol_ is not None and ol_.name in ('ol', 'ul') and ol_.find('li') is not None and ol_.find('li').has_attr('data-gap'): del ol_.find('li')['data-gap']; kp += 1
+    if ol_ is not None and ol_.name in ('ol', 'ul') and ol_.find('li') is not None: ol_.find('li')['data-gap'] = '20'; kp += 1   # 6 Nov 08:1x (spacing b28, P2): "I-Spy" together with the line above (PDF p10 1.03); template 847b6adb no longer steps aside for a floated image
     im_ = m.select_one('img[data-full="images/112.jpg"]'); fl_ = im_.find_parent('div', class_='mm-float') if im_ is not None else None
     g_ = fl_.find_next_sibling() if fl_ is not None else None
     if g_ is not None and 'mm-wcols2' in (g_.get('class') or []):

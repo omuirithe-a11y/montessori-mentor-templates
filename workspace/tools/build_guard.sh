@@ -6,7 +6,10 @@
 # ONE new build, not one build per fix. Override only with the owner's words in <builds>/<new>.override.txt.
 set -u; D=$1; N=$2
 [ -s "$D/$N.override.txt" ] && { echo "build guard: override by the owner's words in $D/$N.override.txt"; exit 0; }
-P=$(ls -d "$D"/b[0-9]* 2>/dev/null | sed 's/.*\/b//' | grep -E '^[0-9]+$' | sort -n | tail -1); [ -z "$P" ] && exit 0
+P=$(ls -d "$D"/b[0-9]* 2>/dev/null | sed 's/.*\/b//' | grep -E '^[0-9]+$' | sort -n | tail -1)
+if [ -z "$P" ]; then   # 6 Nov 08:2x (owner 08:15 "adjust accordingly"): build 1 needs the decisions sheet answered first
+  DS=${DECISIONS_SHEET:-}; { [ -n "$DS" ] && [ -s "$DS" ] && grep -q "^OWNER ANSWER:" "$DS"; } || { echo "BUILD REFUSED: first build - no answered decisions sheet (set DECISIONS_SHEET to a file holding a line 'OWNER ANSWER: <her words>')"; exit 3; }
+  echo "build guard: first build, decisions sheet answered ($DS)"; exit 0; fi
 B="$D/b$P"; S="$B/checks2/SUMMARY.txt"
 [ -f "$S" ] || { echo "BUILD REFUSED: build b$P has no check round (run tools/check_round.sh ... fast on it first)"; exit 3; }
 grep -q "^STOPPED at" "$S" && { echo "build guard: b$P's round stopped at a fault - fix every fault found, then build $N"; exit 0; }
