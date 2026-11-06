@@ -122,6 +122,9 @@ JS_MEASURE = r"""() => {
     const d = g.dots, dcs = d ? getComputedStyle(d) : null, dr = d ? d.getBoundingClientRect() : null;
     return {i, kind: g.kind, label: g.label, level: one ? 'one' : (g.el.getAttribute('data-level') || ''),
       hs: pims.map(p => +p.getBoundingClientRect().height.toFixed(2)), n: figs.length,
+      grid3: g.el.classList.contains('mm-grid3'),
+      beside: (() => { const t = g.el.querySelector(':scope > .mm-text'), im = g.el.querySelector(':scope > .mm-imgs'); if (!t || !im) return false; const a = t.getBoundingClientRect(), b = im.getBoundingClientRect(); return b.left >= a.right - 2 || a.left >= b.right - 2; })(),
+      fillw: (() => { const im = g.el.querySelector(':scope > .mm-imgs'); if (!im || !fr.length) return false; return (Math.max(...fr.map(x => x.right)) - Math.min(...fr.map(x => x.left))) >= Math.min(g.el.getBoundingClientRect().width, im.getBoundingClientRect().width) - 30; })(),
       gaps: gaps.map(x => +x.toFixed(2)), base: +base.toFixed(2),
       tweak: ['data-hscale', 'data-hmatch', 'data-gaps', 'data-h'].filter(a => g.el.hasAttribute(a)).map(a => a + '=' + g.el.getAttribute(a)).join(' '),
       sw: sc.scrollWidth, cw: sc.clientWidth, sl: sc.scrollLeft, ox: cs.overflowX,
@@ -229,6 +232,10 @@ async def heights(b, base, w):
                       % (min(g['gaps']), g['base'], hmin, ' [page sets %s]' % g['tweak'] if g['tweak'] else '', forced))
     elif w >= 641:
         for g in M:
+            # 6 Nov 2026 (owner's check agreement 18:0x): the 180 px rule is for images ABOVE/under their text; images beside their text take
+            # their desktop size (owner 5 Nov 09:16); images under their text that fill the column's width are as large as it allows
+            if g['kind'] == 'set-col' and g.get('beside'): continue
+            if g['kind'] == 'set-col' and (g.get('fillw') or (g.get('grid3') and min(g['hs']) >= 170)) and max(g['hs'] or [0]) <= COL_641_830 + TOL: continue   # rows of three (owner 11:59): as large as their box allows
             if g['kind'] == 'set-col' and g['shown'] and g['hs'] and (abs(max(g['hs']) - COL_641_830) > TOL or abs(min(g['hs']) - COL_641_830) > TOL):
                 F('D213', g, 'photos %s px high, not %d (641-830 px)' % ('/'.join('%.1f' % x for x in sorted(set(g['hs']))), COL_641_830))
     else:

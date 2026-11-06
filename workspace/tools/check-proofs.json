@@ -485,5 +485,30 @@
   "clean_result": "b38: == RESULT: ALL CHECKS OK (eng35/pin3-b38.txt)",
   "at": "2026-11-06T16:21:04",
   "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "eng-6nov-images-d213-under": {
+  "code": "e180c5c6ce14f84f9af68f2cb3e1c8cee1d6754a4ab37d7ad72842ba3a407eb3",
+  "page": "3.5.0",
+  "fault_put_in": "build 38 copy without the template fix: groups under their text at 641-700 px 106-120 px high",
+  "broken_copy": "/home/claude/eng35/u38",
+  "caught": [
+   "6 D213 faults at 641/660/700 (eng35/ibfix/u38.txt)"
+  ],
+  "clean_result": "build 38 copy with the template fix (eng35/t213): 0 faults at 641-830 (eng35/ibfix/t213.txt)",
+  "at": "2026-11-06T17:48:30",
+  "script": "tools/images_behaviour.py",
+  "agreement": "owner 6 Nov 18:0x"
+ },
+ "eng-6nov-strip_compare_nolive-pin-932ce608": {
+  "code": "932ce608b904b206dc8e9613ce739b936dbd44bf0da7e32a1b2d2c44346b1d63",
+  "page": "3.5.0",
+  "fault_put_in": "build 38 (template before the 180 px fix)",
+  "broken_copy": "/home/claude/mm/build-35/b38/the-english-curriculum.zip",
+  "caught": [
+   "b38 NOT ACCEPTABLE (eng35/pin4-b38.txt)"
+  ],
+  "clean_result": "b39 ALL CHECKS OK (eng35/pin4-b39.txt)",
+  "at": "2026-11-06T17:51:34",
+  "script": "tools/v8/strip_compare_nolive.py"
  }
 }

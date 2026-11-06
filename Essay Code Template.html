@@ -921,7 +921,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
           while ((nd = wk.nextNode()) && !ov) { if (!nd.nodeValue.trim()) continue; kt.selectNodeContents(nd); Array.prototype.forEach.call(kt.getClientRects(), function(x){ if (!x.width) return; fr2.forEach(function(p){ if (Math.min(x.right, p.right) - Math.max(x.left, p.left) > 2 && Math.min(x.bottom, p.bottom) - Math.max(x.top, p.top) > 3) ov = true; }); }); }
           if (!ov && tx.getBoundingClientRect().width < 200) ov = true;   /* 5 Nov 2026 (owner 09:16 agreement): 200 px, her 16 Oct rule, at 641 px and wider */   // or the text would be squeezed into a narrow column (The Clock, 768-830px)
           if (ov) { s.style.setProperty('display', 'block'); tx.style.maxWidth = ''; tx.style.width = ''; im.style.position = ''; im.style.top = '';
-            setH(im, Math.min(H0, (W - G) / sum(a))); im.style.justifyContent = 'center'; im.style.marginTop = GAP + 'px'; }
+            setH(im, Math.min((s.classList.contains('mm-col') && innerWidth >= 641 && innerWidth <= 830) ? 180 : H0, (W - G) / sum(a))); im.style.justifyContent = 'center'; im.style.marginTop = GAP + 'px'; }   /* 6 Nov 2026: from 641 to 830 px images under their text are 180 px high (owner 31 Oct 14:33) */
         return;
       }
       tx.style.width = 'max-content'; var natural = Math.min(tx.getBoundingClientRect().width, W); tx.style.width = '';
@@ -986,6 +986,7 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
       var a = shapes(im), G = GAP * (a.length - 1), p0 = im.querySelector('.pim');
       if (s.classList.contains('mm-grid3')) { a = a.slice(0, 3); G = GAP * (a.length - 1); }   /* 6 Nov 2026 (owner 11:59) */
       var H = (p0 && parseFloat(p0.style.getPropertyValue('--mh'))) || STD;
+      if (s.classList.contains('mm-col') && innerWidth >= 641 && innerWidth <= 830) H = 180;   /* 6 Nov 2026 (owner 31 Oct 14:33 rule; standing agreement 6 Nov): from 641 to 830 px images in a group under their text are 180 px high, as wide as the column allows */
       s.classList.add('mm-stack'); tx.style.width = ''; tx.style.maxWidth = ''; im.style.position = ''; im.style.top = ''; im.style.marginTop = '0px';
       setH(im, Math.min(H, (W - G) / sum(a)));
       var k = ink(tx), t = Math.min.apply(null, q('.pim', im).map(function(x){ return x.getBoundingClientRect().top; }));
