@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # spacecheck.py <docx> <pdf> <page folder containing index.html> <out dir> [widths]
+# 6 Nov 2026 (owner 08:53): beige lines p.mm-gl counted as dividers; PDF lines matched per column (see the PDF part).
 # 3 Nov 2026 (owner 17:08/17:10: "make it more precise, more thorough, so the check is able to catch all spacings and match the PDF"):
 # every vertical gap on the page compared with the PDF, as a ratio to each one's own line spacing.
 #  - Word gives the order of paragraphs and the kind of each gap (blank paragraphs, space before/after).
@@ -68,16 +69,50 @@ def _clear(o): return not any(L['pg'] == o['pg'] and o['top'] < L['bot'] + 2.5 a
 pimgs = [o for o in pimgs if _clear(o)]; prules = [o for o in prules if _clear(o)]
 
 # assign each PDF line to a Word paragraph: the nearest paragraph (from a moving cursor) whose text contains the line's text
-pos = 0; pmap = collections.defaultdict(list)
-for L in plines:
-    best = None; bsc = 1e9
-    lo, hi = max(0, pos - 25), min(len(TEXT), pos + 60)
-    for k in range(lo, hi):   # the nearest paragraph that holds the line; going back costs a little more than going on
-        if L['n'] and L['n'] in TEXT[k]['n']:
-            sc = (k - pos) if k >= pos else (pos - k) + 3
-            if sc < bsc: best, bsc = k, sc
-    if best is None: continue
-    pmap[TEXT[best]['i']].append(L); pos = best
+# 6 Nov 2026 (owner 08:53 agreement: "matches each PDF line to its own Word paragraph"): the PDF's lines are read in order of
+# their baselines, so side-by-side columns (Word's column lists) interleave and one cursor jumped between columns - a list line
+# whose words occur in several lists ("Puzzle Words") went to the wrong list. Now each column of a page keeps its own cursor
+# (columns: the page's line starts grouped where they differ by more than 150 pt and the groups share baselines), and a line that
+# equals a paragraph's whole text is preferred to one merely contained in a longer paragraph.
+def _cols(pn):
+    xs = sorted(set(round(L['x0']) for L in plines if L['pg'] == pn))
+    grp = []; 
+    for x in xs:
+        if grp and x - grp[-1][-1] <= 150: grp[-1].append(x)
+        else: grp.append([x])
+    return grp
+COLS = {}
+for _pn in sorted(set(L['pg'] for L in plines)):
+    g = _cols(_pn)
+    for L in plines:
+        if L['pg'] != _pn: continue
+        L['col'] = next(i for i, gg in enumerate(g) if round(L['x0']) in gg)
+# pass 1: anchors - a line of 12+ letters held by exactly one Word paragraph; pass 2: every other line goes to a paragraph that
+# holds it, within the range its page's anchors give (3 either side), the whole-text match first, then the paragraph nearest to
+# the anchor closest to it on the page in the same column
+pmap = collections.defaultdict(list)
+def _cands(L): return [k for k in range(len(TEXT)) if L['n'] and (L['n'] == TEXT[k]['n'] if len(L['n']) < 4 else L['n'] in TEXT[k]['n'])]   # a line of 1-3 letters or digits (a list number "3.") only as a whole paragraph
+ANCH = {}
+for idx, L in enumerate(plines):
+    c = _cands(L)
+    if len(L['n']) >= 12 and len(c) == 1: ANCH[idx] = c[0]
+byp = collections.defaultdict(list)
+for idx, k in ANCH.items(): byp[plines[idx]['pg']].append((idx, k))
+for idx, L in enumerate(plines):
+    if idx in ANCH: pmap[TEXT[ANCH[idx]]['i']].append(L); continue
+    c = _cands(L)
+    if not c: continue
+    an = byp.get(L['pg'], [])
+    if an:
+        lo = min(k for _, k in an) - 3; hi = max(k for _, k in an) + 3
+        c2 = [k for k in c if lo <= k <= hi]
+        if c2: c = c2
+        same = [(abs(plines[a]['base'] - L['base']), k) for a, k in an if plines[a].get('col', 0) == L.get('col', 0)] or [(abs(plines[a]['base'] - L['base']), k) for a, k in an]
+        ref = min(same)[1]
+    else:
+        ref = c[0]
+    best = min(c, key=lambda k: (0 if L['n'] == TEXT[k]['n'] else 1, abs(k - ref)))
+    pmap[TEXT[best]['i']].append(L)
 PP = {}
 for i, ls in pmap.items():
     ls.sort(key=lambda x: (x['pg'], x['base']))
@@ -104,7 +139,7 @@ res[w]=await p.evaluate(()=>{const m=document.querySelector('main');const Y=wind
   const ys=[];for(const l of lines){const k=ys.find(z=>Math.abs(z.top-l.top)<4);if(!k)ys.push(l);}
   blocks.push({t:e.textContent,first:ys[0].bot+Y,last:ys[ys.length-1].bot+Y,lastbot:ys[ys.length-1].bot+Y,top:ys[0].top+Y,x0:Math.min(...ys.map(l=>l.x0)),n:ys.length,lines:ys.map(l=>l.bot+Y),tag:e.tagName,cls:e.className,fe:(e.firstElementChild&&e.textContent.trim().startsWith(e.firstElementChild.textContent.trim())?e.firstElementChild.tagName:'')});}
  const objs=[];for(const im of m.querySelectorAll('img')){const q=im.getBoundingClientRect();if(q.height<20||q.width<20)continue;objs.push({k:'image',top:q.top+Y,bot:q.bottom+Y,x0:q.left});}
- for(const r of m.querySelectorAll('.beige-rule,.mm-org-rule,hr')){const q=r.getBoundingClientRect();if(!q.width)continue;objs.push({k:'rule',top:q.top+Y,bot:q.bottom+Y,x0:q.left});}
+ for(const r of m.querySelectorAll('.beige-rule,.mm-org-rule,hr,p.mm-gl')){const q=r.getBoundingClientRect();if(!q.width)continue;objs.push({k:'rule',top:q.top+Y,bot:q.bottom+Y,x0:q.left});}
  return {blocks,objs,sw:document.documentElement.scrollWidth,iw:innerWidth};});await p.close();}
 console.log(JSON.stringify(res));await b.close();})();
 '''

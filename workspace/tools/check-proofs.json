@@ -395,5 +395,18 @@
   "clean_result": "build 28: TABLET PASS (/home/claude/eng35/tab-b28.txt, 74 s)",
   "at": "2026-11-06T07:24:47",
   "script": "tools/tablet_check.py"
+ },
+ "eng-6nov-spacecheck": {
+  "code": "c91f2e03a3b50c1ba3994d67fb6598a53e8781d2cda768598cb0930cddd6f102",
+  "page": "3.5.0",
+  "fault_put_in": "pl1: the beige line before 'In the environments I have prepared' removed (the PDF has a divider there); pl2: the Pink list's 'Puzzle Words' gap set together (20) where the PDF has the list apart (1.34 lines)",
+  "broken_copy": "/home/claude/eng35/spacefix/pl1 and pl2 (build 29 copies)",
+  "caught": [
+   "pl1: 1440 234 -> 236 FAULT (the PDF has an image or divider here; the page has none)",
+   "pl2: 1440 581 -> 582 FAULT (apart in the PDF, not clearly apart on the page)"
+  ],
+  "clean_result": "build 29 at 1440/390 (out-new): the 66 wrongly judged lines of class C gone - 238->241 dividers, 581->582, 582->583, 645->646 now judged on PDF figures (1.34, 1.33, 1.33); new real lines appear (615-623 Object Box list apart in the PDF, 725-727, below rule -> heading)",
+  "at": "2026-11-06T09:1x",
+  "script": "tools/spacecheck.py"
  }
 }
