@@ -3,3 +3,4 @@
 - 6 Nov: template question (Object Box gap, mm-letter-gaps-js) - ANSWERED 09:55 "yes"
 - 6 Nov: style check change - ANSWERED 12:15 "yes" (with three-column lists)
 - 6 Nov: spacing question - ANSWERED 13:49 "b"
+- 6 Nov: spacing follow-up - ANSWERED 14:43 "B"
