@@ -473,5 +473,17 @@
   "at": "2026-11-06T13:58:12",
   "script": "tools/spacecheck.py",
   "agreement": "owner 6 Nov 13:49 'b'"
+ },
+ "eng-6nov-strip_compare_nolive-pin-cfd32f41": {
+  "code": "cfd32f4176cd9bc5dfebd3e9b64d1c8a3eefb9a960fff905c7c4645147d4ffc9",
+  "page": "3.5.0",
+  "fault_put_in": "build 37, made on the template before the image-beside-a-list change",
+  "broken_copy": "/home/claude/mm/build-35/b37/the-english-curriculum.zip",
+  "caught": [
+   "b37: == RESULT: NOT ACCEPTABLE (eng35/pin3-b37.txt)"
+  ],
+  "clean_result": "b38: == RESULT: ALL CHECKS OK (eng35/pin3-b38.txt)",
+  "at": "2026-11-06T16:21:04",
+  "script": "tools/v8/strip_compare_nolive.py"
  }
 }

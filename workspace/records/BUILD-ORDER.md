@@ -89,3 +89,5 @@ The time sinks on 3.5.0, largest first, and whether a solution removes each:
   page's build command cannot build round it. Tested: a direct build after a build with no round - REFUSED; after b35 - allowed.
 - Every rule in this file that a script enforces is in the GitHub workspace (fingerprinted), copied into every new chat by
   tools/setup_workspace.sh; START-HERE (Quick start) points here.
+
+- 6 Nov 16:2x: every template change re-pins the code checks; the re-pinned check needs its proof (new build ALL CHECKS OK, previous build NOT ACCEPTABLE) recorded in tools/check-proofs.json BEFORE the round, or the round refuses it.
