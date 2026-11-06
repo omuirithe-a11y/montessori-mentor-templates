@@ -270,6 +270,8 @@ def template_commits(b):
 
 def agreement_for(commit_msg):
     """the decisions-log entry the commit message cites ('owner 5 Nov 09:16 agreement')"""
+    # 6 Nov 2026 (owner's gate agreement): a log line 'TEMPLATE COMMIT <hash> AGREEMENT (...): "<her words>"' ties a commit to her words
+    _h = re.match(r'([0-9a-f]{7})', commit_msg or '')
     m = re.search(r'(?:owner )?(\d{1,2} \w{3}) (\d\d:\d\d) (?:agreement|Yes)\b', commit_msg)   # gatefix2 C7: "6 Nov 00:19 agreement" too
     if not m:
         return None, 'the commit cites no owner agreement time'
@@ -291,10 +293,13 @@ def template_agreements(b):
     bad, ok = [], []
     for h, when, msg in cs:
         line, w = agreement_for(msg)
+        for _f in sorted(glob.glob(MM + '/records/DECISIONS-LOG*.md')):   # 6 Nov 2026 (owner's gate agreement): a log line naming the commit with her words
+            for _l in (read(_f) or '').splitlines():
+                if ('TEMPLATE COMMIT %s AGREEMENT' % h[:7]) in _l and '"' in _l: line, w = _l, 'TEMPLATE COMMIT ' + h[:7]
         if not line:
             bad.append('%s (%s): no word-for-word AGREEMENT entry in records/DECISIONS-LOG*.md for "%s"' % (h, when[:16], w))
             continue
-        q = re.search(r'"(I agree[^"]+)"', line)
+        q = re.search(r'"(I agree[^"]+)"', line) or (re.search(r'"([^"]{20,})"', line) if 'TEMPLATE COMMIT' in line else None)
         if not q:
             bad.append('%s: agreement for %s has no "I agree ..." sentence' % (h, w))
             continue

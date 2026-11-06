@@ -522,5 +522,17 @@
   "clean_result": "b40 ALL CHECKS OK (eng35/pin5-b40.txt)",
   "at": "2026-11-06T19:19:43",
   "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "eng-6nov-gate_files-template-commit-lines-225ed5e6": {
+  "code": "225ed5e6c2c474fca00476fae56166432a392fd9aa16a4f53a7f83f0dc3c21ef",
+  "page": "3.5.0",
+  "script": "tools/gate_files.py",
+  "fault_put_in": "decisions log read with the 'TEMPLATE COMMIT 21432c8' line renamed (planted, in memory only)",
+  "broken_copy": "records/DECISIONS-LOG-3-nov.md with the 21432c8 line hidden",
+  "caught": [
+   "planted: 21432c8 FAULT 'no word-for-word AGREEMENT entry' (row A046/A047/B040/A222/D292)"
+  ],
+  "clean_result": "b40 real log: 16 of 17 template commits agreed; 103647a FAULT (her words name no widths or pages)",
+  "at": "2026-11-06T20:31:24"
  }
 }
