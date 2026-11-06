@@ -553,8 +553,8 @@ def SOUP_FIX(sp, report):
     _k15 = 0
     for _s in ('Follow the Muriel Dwyer approach', 'Follow the Pink, Blue and Green series'):
         _e = next((x for x in m.find_all('li') if _t(x).startswith(_s)), None)
-        if _e is not None: _e['data-gap'] = '25'; _k15 += 1
-    report.append(('settings', 'gap 25 on two "Follow ..." lines (PDF 1.25 lines)', str(_k15)))
+        if _e is not None: _e['data-gap'] = _os.environ.get('ENG_GAP_T', '20'); _k15 += 1   # 6 Nov 14:5x: the check reads PDF 1.25 lines as together (limit 1.25); 25 made the together gaps uneven (32/37) - the together figure
+    report.append(('settings', 'together gap on two "Follow ..." lines (PDF 1.25 lines, read as together)', str(_k15)))
     # 5 Nov 13:0x: two sections had id="grammar" (the opening section kept the id of Word's contents line "Grammar")
     _secs = m.find_all('section', id='grammar')
     for _s in _secs[:-1]: del _s['id']

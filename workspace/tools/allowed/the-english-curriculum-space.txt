@@ -40,3 +40,9 @@
 684 -> 685 | owner 6 Nov: template rule - phone layout follows the template (owner 21 Oct rule "no questions about phones")
 685 -> 686 | owner 6 Nov: template rule - phone layout follows the template (owner 21 Oct rule "no questions about phones")
 698 -> 711 | owner 6 Nov: template rule - phone layout follows the template (owner 21 Oct rule "no questions about phones")
+219 -> 220 | owner 6 Nov: template rule - phone layout follows the template (owner 21 Oct rule "no questions about phones"): an image placed between two lines at 640 px and narrower
+243 -> 244 | owner 6 Nov: template rule - phone layout follows the template (owner 21 Oct rule "no questions about phones"): an image placed between two lines at 640 px and narrower
+319 -> 320 | owner 6 Nov: template rule - phone layout follows the template (owner 21 Oct rule "no questions about phones"): an image placed between two lines at 640 px and narrower
+645 -> 646 | owner 6 Nov: template rule - phone layout follows the template (owner 21 Oct rule "no questions about phones"): an image placed between two lines at 640 px and narrower
+654 -> 655 | owner 6 Nov: template rule - phone layout follows the template (owner 21 Oct rule "no questions about phones"): an image placed between two lines at 640 px and narrower
+681 -> 682 | owner 6 Nov: template rule - phone layout follows the template (owner 21 Oct rule "no questions about phones"): an image placed between two lines at 640 px and narrower
