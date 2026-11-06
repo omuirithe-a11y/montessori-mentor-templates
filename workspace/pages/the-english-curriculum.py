@@ -353,6 +353,22 @@ def SOUP_FIX(sp, report):
         elif t_.parent.name == 'strong' and t_.parent.parent is par and not _re.sub(r'\s', '', ''.join(s.get_text() if hasattr(s, 'get_text') else str(s) for s in t_.next_siblings)) and not _re.sub(r'\s', '', ''.join(s.get_text() if hasattr(s, 'get_text') else str(s) for s in t_.parent.next_siblings)):
             t_.decompose(); k += 1
     report.append(('settings', "Word's trailing tabs at line ends dropped", str(k)))
+    # 6 Nov 22:4x (full review b40, fault 1): Word paragraphs 246, 251, 254 have tab(s) before the mid-line "I Spy ..." quotation
+    # (2, 1, 1 tabs); the converter made them spaces - put Word's tabs back as the template's tab span (mm-t, 48 px stops)
+    ki = 0
+    for em_ in m.find_all('em'):
+        s_ = em_.get_text()
+        if not s_.lstrip().startswith('“I Spy with my little eye, something') or em_.find_parent('p') is None: continue
+        par = em_.find_parent('p'); pt = _t(par)
+        if 'always identifying the' not in pt: continue
+        n_ = 2 if 'beginning sound' in pt else 1
+        first = em_.contents[0] if em_.contents else None
+        if first is not None and isinstance(first, str): first.replace_with(first.lstrip())
+        prev = em_.previous_sibling
+        if prev is not None and isinstance(prev, str) and prev != prev.rstrip(): prev.replace_with(prev.rstrip())
+        sp = m.new_tag('span', attrs={'class': 'mm-t'}); sp.string = '\t' * n_
+        em_.insert_before(sp); ki += 1
+    report.append(('settings', "Word's tabs before the mid-line 'I Spy' quotations put back (mm-t)", str(ki)))
     # 5 Nov 13:1x (review fault 5; format check b18: Word "Keys to Literacy" deleted): Word paragraph 60, the blue label
     # "Keys to Literacy" between "Sound Game" and "Sandpaper Letters" in the AMI list, was taken by the converter as the page
     # title (src.html h1) and so was missing; put back as a blue line, as the PDF p2
