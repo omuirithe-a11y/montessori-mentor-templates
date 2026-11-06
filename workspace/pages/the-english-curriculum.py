@@ -366,7 +366,7 @@ def SOUP_FIX(sp, report):
         if first is not None and isinstance(first, str): first.replace_with(first.lstrip())
         prev = em_.previous_sibling
         if prev is not None and isinstance(prev, str) and prev != prev.rstrip(): prev.replace_with(prev.rstrip())
-        sp = m.new_tag('span', attrs={'class': 'mm-t'}); sp.string = '\t' * n_
+        sp = m.new_tag('span', attrs={'class': 'mm-t'}); sp.string = '\u2003' + '\t' * n_   # 6 Nov 23:1x (b41 review fault 1): one em space first, so the gap is never a few px where the text ends just before a tab stop (768)
         em_.insert_before(sp); ki += 1
     report.append(('settings', "Word's tabs before the mid-line 'I Spy' quotations put back (mm-t)", str(ki)))
     # 5 Nov 13:1x (review fault 5; format check b18: Word "Keys to Literacy" deleted): Word paragraph 60, the blue label
