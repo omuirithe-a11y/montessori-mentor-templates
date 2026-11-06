@@ -9,7 +9,7 @@ You are a separate reviewer who has not seen the page being made. Compare the bu
 - The build log /home/claude/mm/build-35/b1.log (its WARNING lines name things the build could not place).
 
 ## The owner's rules (her words, summarised; a difference that follows a rule is NOT a fault - say so where it matters)
-- The page is built from the Essay Code Template (/home/claude/mm/templates/Essay Code Template.html): layout, spacing, font sizes, menu and footer come from the template, not from the PDF. Computer font sizes: hero title 40, "Table of contents" label 20, contents entries 18, headings 18, paragraphs and lists 18, quotations 18, captions 16, footer 15.
+- The page is built from the Essay Code Template (/home/claude/mm/templates/Essay Code Template.html): sizes, spacing figures, fonts, colours, menu and footer come from the template; what is on the page and where (columns, image rows and sides, line breaks, alignment) follows the Word file and the PDF, as tools/briefs/REVIEW-BRIEF-STANDARD.md says (her 5 Nov 04:57-04:59 words). Computer font sizes: hero title 40, "Table of contents" label 20, contents entries 18, headings 18, paragraphs and lists 18, quotations 18, captions 16, footer 15.
 - The Word title line ("The English Language Curriculum") is replaced by the hero title "The English Curriculum" - not a fault.
 - UK English everywhere in her own text (characterised, practising, colourful, organising); names, published titles and quoted words stay as written. Typos in the Word are corrected on the page (her 27 Oct rule) - list each correction you see so it can be confirmed.
 - Short dashes only, no spaces around a slash ("and/or", "Cards/Nomenclature") - the page may differ from Word here by rule.
