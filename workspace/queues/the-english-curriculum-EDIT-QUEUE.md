@@ -35,9 +35,10 @@ Each line: her words as logged; what was done is in the same log line and in bui
   - tablet check: tools/tablet_check.py - DONE 07:2x
   - checks survive a restart (step level): tools/more_checks.sh fresh()/step(), tools/run_checks.sh kept() - DONE 07:30
   - early gate run in the round: tools/check_round.sh (fast stage) - DONE 07:33
-  - gate checks the order: NOT DONE (needs her agreement; tools/gate_list.py)
+  - gate checks the order: DONE 09:3x (her 09:25 "#2 - agreed"; tools/gate_list.py, tested eng35/ordertest)
   - hourly review reads the decisions log for promises not in code: the send_later prompt (set 07:45) - DONE
-  - START-HERE: order of checks in its first section: NOT DONE
+  - START-HERE: order of checks in its first section: DONE 09:46 (Project claude/START-HERE.md, read back)
   - test every agreement at all widths it names: tools/tablet_check.py on every template change - rule, NOT YET IN START-HERE
-  - BUILD-ORDER.md saved (Project claude/BUILD-ORDER.md, GitHub workspace/records/BUILD-ORDER.md) - DONE 07:49; START-HERE pointer - NOT DONE
+  - BUILD-ORDER.md saved (Project claude/BUILD-ORDER.md, GitHub workspace/records/BUILD-ORDER.md) - DONE 07:49; START-HERE pointer - DONE 09:46
+  - 6 Nov 09:4x: template fix for the 830/831 Object Box overlap (mm-letter-gaps-js) - waits on her agreement; on agreement: quick-look every Essay page (lesson 6) before committing
   - 5 Nov 04:36 promise: fix the page's spacing faults until the spacing check reads SPACING OK (99 faults at 1440 on build 7) - NOT DONE; b28 spacing 230 faults at 13 widths (39 judged on a median 'not in PDF') - being sorted 07:5x

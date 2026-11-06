@@ -64,7 +64,7 @@ for i, p in enumerate(D.paragraphs):
 TEXT = [w for w in W if len(w['n']) >= 2]
 # C5 corrected 6 Nov: the space every paragraph has (the most common before+after between neighbouring text paragraphs, e.g.
 # the defaults' 6 pt) is the ordinary gap - only space above it makes a gap 'apart' (the first try counted all of it, and
-# judged 1,000+ ordinary gaps apart that the PDF shows together)
+# on build 30 at 1440/830/390 gave 83 fault lines, 33 more than before, mostly list gaps the PDF shows together)
 from collections import Counter as _C
 _sp = _C(round(W[k]['sa'] + W[k + 1]['sb'], 1) for k in range(len(W) - 1) if len(W[k]['n']) >= 2 and len(W[k + 1]['n']) >= 2)
 NORMAL_SP = _sp.most_common(1)[0][0] if _sp else 0.0

@@ -410,7 +410,7 @@
   "script": "tools/spacecheck.py"
  },
  "eng-6nov-spacecheck-c456": {
-  "code": "1dfb2777109861311fb2149f93bad121494b008807c0e57882a8cac2a8da8209",
+  "code": "781e6120c8ddc0d4bc4fc9f100300f46afc52d03f8762d0deabeead1876fb1a5",
   "page": "3.5.0",
   "fault_put_in": "the same two planted faults as eng-6nov-spacecheck: pl1 (beige line removed) and pl2 (Pink list 'Puzzle Words' gap set together)",
   "broken_copy": "/home/claude/eng35/spacefix/pl1 and pl2",
@@ -418,7 +418,7 @@
    "pl1: 1440 234 -> 236 FAULT (the PDF has an image or divider here; the page has none)",
    "pl2: 1440 581 -> 582 FAULT (apart in the PDF, not clearly apart on the page)"
   ],
-  "clean_result": "build 30 at 1440/830/390: 56 faults (previous version 49); removed: Normal paragraphs with Word's default 6 pt after now read as spaced (725-727, 509, 548); added: 260, 523, 619, 683, 685 (PDF line not matched, judged on the 6 pt kind's median) and 610-612 (PDF 1.25-1.26). Word's contextual spacing on List Paragraph read (without it 1,000+ list gaps were judged apart).",
+  "clean_result": "build 30 at 1440/830/390: 56 faults (previous version 49); removed: Normal paragraphs with Word's default 6 pt after now read as spaced (725-727, 509, 548); added: 260, 523, 619, 683, 685 (PDF line not matched, judged on the 6 pt kind's median) and 610-612 (PDF 1.25-1.26). Word's contextual spacing on List Paragraph read (without it, at the same three widths: 83 fault lines, 33 more than the previous version, mostly list gaps the PDF shows together).",
   "at": "2026-11-06T09:45:44",
   "script": "tools/spacecheck.py",
   "agreement": "owner 6 Nov 09:25 '#3 to #16 ... implement all of them immediately' (#9)"
