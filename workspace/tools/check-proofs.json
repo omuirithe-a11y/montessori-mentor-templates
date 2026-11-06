@@ -558,5 +558,17 @@
   ],
   "clean_result": "b40: D055/D306 PASS (17 commits, AF004)",
   "at": "2026-11-06T21:07:16"
+ },
+ "eng-6nov-gate_files-b506a678": {
+  "code": "b506a678fa9b9cf53a6d91728ad9793f88441cabd4c49a7e89d715ef37c5683b",
+  "page": "3.5.0",
+  "script": "tools/gate_files.py",
+  "fault_put_in": "AF004 naming another page; the 21432c8 log line renamed (in memory only)",
+  "broken_copy": "tools/ALLOWED-FAULTS.txt, records/DECISIONS-LOG-3-nov.md (renamed in memory)",
+  "caught": [
+   "D055/D306 FAULT; A046 FAULT"
+  ],
+  "clean_result": "b40: D055/D306 PASS; A046 PASS",
+  "at": "2026-11-06T21:08:43"
  }
 }
