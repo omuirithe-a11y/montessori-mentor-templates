@@ -1,0 +1,33 @@
+# Change list - The English Curriculum, build 42 (zip build-35/b42/the-english-curriculum.zip, sha256 ee6ba2247d286b73)
+Written 6 Nov 21:2x, updated 7 Nov 07:3x from the decisions log (records/DECISIONS-LOG-3-nov.md). Earlier changes: builds 1-17 records/ENG-CHANGES-5-nov.md; builds 18-21 queues/the-english-curriculum-CHANGES.txt; builds 29 and 30 build-35/b29/changes.txt, build-35/b30/changes.txt.
+
+## Page changes (pages/the-english-curriculum.py), builds 22-42
+- Typos corrected (her 27 Oct rule "correct all typos on every page"): "so the game", "a quarter of an hour", "a sense of how extensive", "help the child learn", "an understanding of the perspective", "instils", "so they unconsciously absorb" (Word: "they unconsciously they"), "with the titles '" (Word: "title's", twice).
+- Gaps: "apart" gaps on 4 lines where Word keeps its 6 pt after and the PDF shows a wider gap; no gap figure on the 2 headings straight after a beige line; the two "Follow ..." lines kept together (gap 20), as in the PDF.
+- PDF page 2 list titles shown as ordinary lines, not headings (as in Word).
+- Spoken Language shelf image moved after its beige line (as in the PDF).
+- A full-width beige line (class mm-gl-full) for build 31 review fault 6.
+- Review faults of builds 25, 31, 32, 34 fixed in the settings where they were the page's (REVIEW.md of each build).
+
+- Word's tabs before the three mid-line "I Spy with my little eye ..." quotations (The Sound Game, First/Second/Third Stage) put back, each starting with one em space so the gap is never a few px (builds 41-42; b40 and b41 review fault 1).
+- Faces: images 098 (boy cutting), 110 (girl drawing) and 109 (girl leaning on her hand) now blurred - her answers 7 Nov "Blur all three" and "yes"; round 2 sheet checked by a separate agent; pixel check after her answer passed, over every image the page uses unblurred too (build 42).
+
+## Essay Code Template changes used by this build (each with her agreement; log lines "TEMPLATE COMMIT <hash> AGREEMENT")
+- 103647a pink and green for words that are pink and green in Word (5 Nov 04:00; widths and pages 6 Nov 20:4x)
+- a541db1 images beside text move under it only when the text would be narrower than 200 px (641 px and wider); a list opening a column of Word's columns starts level; image sets in rows of three (5 Nov 09:16, 13:38)
+- 7fc47b0 swipe-row captions above the image inside the row (641-830); 78 pt indent = 104 px (641+); list lines beside a floated image spaced like the others (6 Nov 06:54)
+- 5eb3c32 the gap above a line measured from the last line of the text above, even when short (6 Nov 09:55)
+- ad0fd98 rows-of-three sets sized as one row of three; the gap after a set whose text reaches lower than its images taken from that text; Word's two-column lists left-aligned (6 Nov 11:59)
+- 2a34dc2 Word's three-column lists left-aligned (6 Nov 11:59, 12:15)
+- 626b6ab an image beside a list levelled with the list's first line (standing agreement 6 Nov 16:1x)
+- 0e9d2b8 image groups under their text at 641-830 px take 180 px (standing agreement)
+- 21432c8 swipe dots shown at 641-830 px (standing agreement)
+- Gate (7 Nov, her agreement): the wrap check's first line not read as a fault; run_checks.sh's end line on its own line; the page's row map tools/allowed/the-english-curriculum-gate-rows.txt.
+- Earlier commits during this page (dfdab4c, fb2be4e, 80319fe, b9df0a2, 00b9839, a7fbc89, 7f11235, 3304137): each cites her agreement time in its message. 17 template commits in all, allowed on this page by AF004 (6 Nov 21:0x).
+
+## Check and gate changes during builds 22-42 (each with her agreement, quoted in the log)
+- spacecheck.py (C4-C6, Word contextual spacing, the page's allowed spacing list tools/allowed/the-english-curriculum-space.txt); style_rules.py (E041 image beside a paragraph; column lists checked as left-aligned); images_behaviour.py (180 px rule only for groups under their text); more_checks.sh (fast round first; images check when the template changed; refuses unproven check scripts; sha256 read without cut); round_judge.py and gate_list.py (AF003 height at 390); gate_files.py (TEMPLATE COMMIT log lines; AF004); build guard (disk, unfinished round, review, decisions sheet).
+
+## Still open, for the template test page after this page is published (her decisions of 6 Nov)
+- The spacing lines on the allowed list (four template rules, then two more); the quotation spacing after the first layout (AF003); the template margins (AF001, claude/TO-DO-template-margins-after-english-curriculum.md).
+- Noted by reviews, not counted: 390 Writing Stages split; 390 tab-set lists; 390 column-join gaps; Word Study label list justified at 768; at 768 the swipe dots are centred on the text column.
