@@ -5,4 +5,4 @@
 - 6 Nov: spacing question - ANSWERED 13:49 "b"
 - 6 Nov: spacing follow-up - ANSWERED 14:43 "B"
 - 6 Nov: height question - ANSWERED 15:44 "B"
-- 6 Nov: template - image beside a list levelled with the list's first line - sent - OPEN
+- 6 Nov: template - image beside a list - ANSWERED with a standing agreement (any tested template fix for this page)

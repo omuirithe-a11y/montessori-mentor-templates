@@ -2325,11 +2325,11 @@ html body main h2.mm-hc-00B050{color:#00B050 !important;font-size:20px !importan
     [].forEach.call(document.querySelectorAll('main .mm-float'),function(f){
       if(f.closest('blockquote')||getComputedStyle(f).cssFloat==='none')return;
       var nx=f.nextElementSibling;while(nx&&(nx.classList.contains('mm-gl')||nx.classList.contains('mm-fspacer')||nx.classList.contains('mm-float')))nx=nx.nextElementSibling;
-      if(!nx||nx.tagName!=='P')return;
+      if(nx&&(nx.tagName==='OL'||nx.tagName==='UL')&&nx.querySelector('li'))nx=nx.querySelector('li');if(!nx||(nx.tagName!=='P'&&nx.tagName!=='LI'))return;   /* 6 Nov 2026 (owner's agreement, image beside a list): a list's first line is levelled like a paragraph's */
       var ims=f.querySelectorAll('.pim');if(!ims.length)return;
       for(var k=0;k<4;k++){var top=Math.min.apply(null,[].map.call(ims,function(p){return p.getBoundingClientRect().top;}));var tp=capTop(nx);if(tp===null)return;var d=tp-top;if(Math.abs(d)<0.3)break;
         var sp=f.previousElementSibling;if(sp&&sp.classList.contains('mm-fspacer')){var h0=parseFloat(sp.style.height)||0,h1=h0+d;if(h1>=0){sp.style.height=h1.toFixed(2)+'px';continue;}sp.style.height='0px';d=h1;}   /* the image is held down by its spacer: change the spacer, so the text keeps wrapping around the image where it now is */
-        if(d>0)f.style.setProperty('margin-top',((parseFloat(getComputedStyle(f).marginTop)||0)+d).toFixed(2)+'px','important');else break;}
+        var mt0=parseFloat(getComputedStyle(f).marginTop)||0;if(d>0||mt0+d>=0)f.style.setProperty('margin-top',(mt0+d).toFixed(2)+'px','important');else break;}   /* 6 Nov 2026: an image may also move up, while its margin stays 0 or more */
     });
   }
   var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};
