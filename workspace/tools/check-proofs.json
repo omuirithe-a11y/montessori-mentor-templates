@@ -546,5 +546,17 @@
   ],
   "clean_result": "b40 1440: 1s=4s=scrolled 27652; b40 round height PASS (checks/SUMMARY.txt)",
   "at": "2026-11-06T20:40:22"
+ },
+ "eng-6nov-gate_files-af004-3b26ca39": {
+  "code": "3b26ca39a04ab65d1385dee700d7390010389905852fd314462599bbf5ec8474",
+  "page": "3.5.0",
+  "script": "tools/gate_files.py",
+  "fault_put_in": "ALLOWED-FAULTS read with AF004 naming another page (in memory only)",
+  "broken_copy": "tools/ALLOWED-FAULTS.txt (AF004 page renamed)",
+  "caught": [
+   "planted: D055/D306 FAULT"
+  ],
+  "clean_result": "b40: D055/D306 PASS (17 commits, AF004)",
+  "at": "2026-11-06T21:07:16"
  }
 }

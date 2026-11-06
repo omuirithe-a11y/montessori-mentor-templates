@@ -794,11 +794,13 @@ def template_commit(b):
     f = []
     if st:
         f.append('template not committed: ' + st)
-    if cs and len(cs) > 1:
+    af4 = [l for l in (read(TOOLS + '/ALLOWED-FAULTS.txt') or '').splitlines()
+           if l.startswith('AF004 ') and ('page:%s ' % b.slug) in l and 'word for word' in l]   # owner 6 Nov 2026 21:1x agreement
+    if cs and len(cs) > 1 and not af4:
         f.append('%d template commits during this page (one per page): %s' % (len(cs), ', '.join(h for h, _, _ in cs)))
     if f:
         return 'FAULT', '; '.join(f)
-    return 'PASS', 'template committed; %d template commit(s) during this page' % len(cs or [])
+    return 'PASS', 'template committed; %d template commit(s) during this page%s' % (len(cs or []), ' (more than one allowed: AF004)' if af4 and cs and len(cs) > 1 else '')
 
 
 @row('D087')
