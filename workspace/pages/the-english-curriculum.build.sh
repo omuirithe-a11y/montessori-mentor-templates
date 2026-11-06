@@ -10,5 +10,6 @@
 set -e
 cd /home/claude/mm
 B=${1:?build name, e.g. b22}
+bash tools/build_guard.sh build-35 "$B" || exit 3   # 6 Nov 2026 (owner 08:01): one build per check round
 python3 tools/build_page.py --docx "/home/claude/eng35/src/3.5.0 The English Curriculum.docx" --pdf "/home/claude/eng35/src/3.5.0 The English Curriculum.pdf" --template essay --title "The English Curriculum" --folder the-english-curriculum --menu-from /home/claude/eng35/live/picture-books/index.html --settings pages/the-english-curriculum.py --photos /home/claude/mm/build-35/faces/photos-final --hero /home/claude/eng35/src/hero/english-hero-original.jpg --section-href /the-montessori-curriculum/ --out build-35/$B > build-35/$B.log 2>&1
 tail -1 build-35/$B.log
