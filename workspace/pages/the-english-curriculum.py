@@ -536,6 +536,15 @@ def SOUP_FIX(sp, report):
         if _x in ('Writing Stages', 'Word Study', 'Reading Analysis'):
             _h.name = 'p'; _h['data-gap'] = '48' if _x == 'Reading Analysis' else _os.environ.get('ENG_GAP_A', '29'); _k13 += 1
     report.append(('settings', 'PDF p2 list titles Writing Stages, Word Study, Reading Analysis as lines like the other titles (review b31 fault 1)', str(_k13)))
+    # 6 Nov 11:0x (build 31 review fault 6): the Spoken Language shelf image stood before the beige line in the code, so at 768
+    # the line (a block that keeps clear of floats) was cut to 416 px beside it; in the PDF the line comes first, then the image
+    # with its text - the image is moved after the line
+    _k14 = 0
+    for _g in m.select('p.mm-gl'):
+        _pv = _g.find_previous_sibling()
+        if _pv is not None and 'mm-float' in (_pv.get('class') or []):
+            _g.insert_after(_pv.extract()); _k14 += 1
+    report.append(('settings', 'image moved after the beige line before it (review b31 fault 6)', str(_k14)))
     # 5 Nov 13:0x: two sections had id="grammar" (the opening section kept the id of Word's contents line "Grammar")
     _secs = m.find_all('section', id='grammar')
     for _s in _secs[:-1]: del _s['id']
