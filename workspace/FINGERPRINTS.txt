@@ -61,7 +61,7 @@ f8929ba079edea160bc038b18c10985c514dcc83b1a27841f747b535ca0a6ff2  tools/blur/set
 bd368db818965c436843de1d921c9d19746b59b1a573a04a5ec6abd9da849ad6  tools/blur/setup_blur.py
 3403889ca4f0ec74e02aae9193681db616c6511b6a1ff241a7b96ddb9ed83048  tools/blur/swap_images.py
 8d261ab58cd330d8e46d5fa4d84a6ba13c9336a2f97af083912ce6dc7629ccbd  tools/build_page.py
-5e864b12e810c9187fafe0af03a8d29bb982d32babf575b0b031f402c1ba37d5  tools/check-proofs.json
+394ebc0b24b5bb4a1e756bb47b5faf43963088b996ed22870c9aaf95677124e4  tools/check-proofs.json
 9fa88cfc597e527b4968a2e322d9b85db0d267d366c44f6b498b05d1d34ef75f  tools/check_page.py
 7af07019426a56a81504fdb39c5c055e3e8eae5e8f5cd206820e85f946d2481d  tools/convert_curriculum.py
 5a37c66e86c51a4e6c074bf4f6288c9e5ab98408eb0d8779e019b2e8b4c4571e  tools/drawings.py
@@ -195,8 +195,8 @@ de98e6a5b19e4009a6f39091284b62f5eeb22319eb5429afdf16ab070fca7d17  tools/gate_lis
 1281304c5aa8f1670af4ae47ff4f8eed6e32120683dfffad8d01de2f90e8de7f  queues/the-english-curriculum-CHANGES.txt
 c0b88ef004fd5689b92c277241a6efc156c1f58513ecb541223736ae106320fa  tools/allowed/the-english-curriculum-format-word.txt
 # 6 Nov 2026 (owner 06:54 agreement, gatefix2 C3): scripts the runners use whose sha256 no FINGERPRINTS list held (rows B253/D024)
-  tools/text_rules.py
-  tools/static_code.py
+f78c03a305236bcf2fe1921248158e25e13f7ec9886b30c1fdb570f4ee50f2df  tools/text_rules.py
+d455acc11233904d9a0d2f5a9ef2c3dc3a7afced8c020a086d469bba7139c885  tools/static_code.py
 e180c5c6ce14f84f9af68f2cb3e1c8cee1d6754a4ab37d7ad72842ba3a407eb3  tools/images_behaviour.py
 # 6 Nov 2026 07:30 (owner 07:16 agreement): the round's judge and the tablet check
 eb1a2a94d1351ce3a0fb558267bd3d9b05b8812284825e7c32a1604373fd2f09  tools/round_judge.py

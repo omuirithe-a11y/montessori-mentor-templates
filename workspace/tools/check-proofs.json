@@ -534,5 +534,17 @@
   ],
   "clean_result": "b40 real log: 16 of 17 template commits agreed; 103647a FAULT (her words name no widths or pages)",
   "at": "2026-11-06T20:31:24"
+ },
+ "eng-6nov-stable-471452c9": {
+  "code": "471452c984de5e8c4ba610f86b163c5e1f2e4b3a9f5ed3b1754faa045bc57dbd",
+  "page": "3.5.0",
+  "script": "montessori-mentor-templates/handover-2026-10-29-evening/tools-v5-fixA-200/stable.py",
+  "fault_put_in": "b40 copy with a 300 px block added 2 s after load",
+  "broken_copy": "/home/claude/eng35/stp/planted.zip",
+  "caught": [
+   "planted 1440: 1s 27652, 4s 27952 -> round_judge height FAULT (eng35/stp/planted-height.txt)"
+  ],
+  "clean_result": "b40 1440: 1s=4s=scrolled 27652; b40 round height PASS (checks/SUMMARY.txt)",
+  "at": "2026-11-06T20:40:22"
  }
 }
