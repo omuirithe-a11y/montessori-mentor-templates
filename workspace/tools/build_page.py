@@ -174,6 +174,15 @@ def main():
     ap.add_argument('--no-blur', help='record file (JSON) of the owner\'s own words that this page needs no blurring (30 Oct 2026)')
     ap.add_argument('--faces-preview', help='record file (JSON) of the owner\'s words allowing a PREVIEW build from blurred images before her last faces answer; never an upload zip (3 Nov 2026)')
     a = ap.parse_args()
+    # 6 Nov 2026 (owner 13:07 "will i have the same problems in a new chat?"): the build guard runs inside the builder, so no page
+    # can be built round it - a build into <builds>/b<N> is refused unless the build before it finished its round and has its review,
+    # and build 1 needs her answered decisions sheet (tools/build_guard.sh). Only a build into a folder named b<N> is guarded.
+    if a.out:
+        import re as _re0, subprocess as _sp0
+        _o = os.path.normpath(a.out); _bn = os.path.basename(_o)
+        if _re0.fullmatch(r'b\d+', _bn) and os.environ.get('MM_GUARD_DONE') != _bn:
+            _r = _sp0.run(['bash', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'build_guard.sh'), os.path.dirname(_o) or '.', _bn])
+            if _r.returncode != 0: sys.exit('BUILD REFUSED by tools/build_guard.sh (see the line above)')
     # 3 Nov 2026 (owner 09:25, "B" - for 8.2 Books of Interest: "a preview build from the round 1 blurred images, with no upload zip,
     # so every check can run on it while the faces rounds go on"): --faces-preview <record> with --photos <blurred images>. The record
     # holds her words, when said, and the page; any other page is refused. The faces locks below are passed over for the PREVIEW only:

@@ -82,3 +82,10 @@ The time sinks on 3.5.0, largest first, and whether a solution removes each:
 - #13: decisions sheet for this page: pages/the-english-curriculum.decisions.md.
 - #15: any investigation: a 20-minute reminder (send_later) is set when it starts; at the reminder, stop and read the code.
 - #16: queued in records/TO-DO-next-chat.md (after publishing).
+
+## Added 6 Nov 13:1x (owner 13:07 "will i have the same problems in a new chat?")
+- The build guard now runs inside tools/build_page.py itself: any build into a folder named b<N> is refused unless the build
+  before it finished its round and has its review (build 1: her answered decisions sheet; low disk refused). A new chat or a new
+  page's build command cannot build round it. Tested: a direct build after a build with no round - REFUSED; after b35 - allowed.
+- Every rule in this file that a script enforces is in the GitHub workspace (fingerprinted), copied into every new chat by
+  tools/setup_workspace.sh; START-HERE (Quick start) points here.
