@@ -268,7 +268,7 @@ MEASURE = r"""(args) => {
         for (const p of r.props) { if (r.src) allowed[p] = r.sel; else nosrc.push(r.sel + ' ' + p); } }
       recs.push({kind, key: k0 + '#' + occ[k0], desc: desc(e), props, cls: e.getAttribute('class') || '', allowed, nosrc,
                  own: ownText(e), block: ['block', 'list-item', 'flow-root', 'table-cell'].includes(c.display) && !!t,
-                 shown: vis(e), inQuote: !!e.closest('blockquote'), inFig: !!e.closest('figcaption, .mm-cap, .mm-twocap')});   // 5 Nov 2026 (checkfix): .mm-cap and .mm-twocap are captions too (template: ".mm-twocap ... centres its first caption over ... and its second ..."; D122 leaves captions as they were)
+                 shown: vis(e), inQuote: !!e.closest('blockquote'), inFig: !!e.closest('figcaption, .mm-cap, .mm-twocap'), inCols: !!e.closest('.mm-wcols2, .mm-cols3')});   // 6 Nov 2026 (owner 11:59 and 12:15 agreements): lines in Word's two- and three-column lists are left-aligned at every width   // 5 Nov 2026 (checkfix): .mm-cap and .mm-twocap are captions too (template: ".mm-twocap ... centres its first caption over ... and its second ..."; D122 leaves captions as they were)
     }
   }
   // ---- beige lines the CSS draws
@@ -416,6 +416,8 @@ async def main():
                     if ta != 'center': faults.append('FAULT D122 %d %s text-align %s vs center (a centred line stays as it was)' % (w, d, ta))
                 elif phone:
                     if ta == 'justify': faults.append('FAULT D128/E015 %d %s text-align justify vs left (phones not justified)' % (w, d))
+                elif k in ('p', 'li') and r.get('inCols'):   # 6 Nov 2026 (owner 11:59, 12:15): Word's column lists left-aligned at every width
+                    if ta not in ('left', 'start'): faults.append('FAULT D122/E015 %d %s text-align %s vs left (a line in Word\'s column lists, owner 6 Nov 11:59/12:15)' % (w, d, ta))
                 elif k in ('p', 'li') and not r['inQuote'] and not r['inFig'] and 'mm-name' not in cls:
                     if ta != 'justify': faults.append('FAULT %s %d %s text-align %s vs justify' % ('D122/D194/E015' if k == 'li' else 'D122/E015', w, d, ta))
             # ---- 2. template comparison

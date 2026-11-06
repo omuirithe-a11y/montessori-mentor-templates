@@ -15,7 +15,7 @@ if [ -z "$P" ]; then   # 6 Nov 08:2x (owner 08:15 "adjust accordingly"): build 1
   echo "build guard: first build, decisions sheet answered ($DS)"; exit 0; fi
 B="$D/b$P"; S="$B/checks2/SUMMARY.txt"
 [ -f "$S" ] || { echo "BUILD REFUSED: build b$P has no check round (run tools/check_round.sh ... fast on it first)"; exit 3; }
-grep -q "^STOPPED at" "$S" && { echo "build guard: b$P's round stopped at a fault - fix every fault found, then build $N"; exit 0; }
+grep -q "^STOPPED at" "$S" && { [ -s "$B/REVIEW.md" ] || { echo "BUILD REFUSED: b$P's round stopped at a fault, but b$P has no separate review report (REVIEW.md) - run the review on b$P, then fix the round's and the review's faults together"; exit 3; }; echo "build guard: b$P's round stopped at a fault and b$P has its review - fix every fault found, then build $N"; exit 0; }   # 6 Nov 12:1x: the review on every build
 grep -q "^FAST CHECKS PASSED" "$S" || { echo "BUILD REFUSED: build b$P's fast round has not finished"; exit 3; }
 Z=$(ls "$B"/*.zip | grep -vE -- '-(originals|CHECK-ONLY|UPLOAD)\.zip$' | head -1); SHA=$(sha256sum "$Z" | cut -c1-16)
 [ -f "$B/REVIEW.md" ] && grep -q "$SHA" "$B/REVIEW.md" || { echo "BUILD REFUSED: build b$P passed its fast round but has no separate review report naming $SHA"; exit 3; }
