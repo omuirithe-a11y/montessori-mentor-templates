@@ -67,7 +67,7 @@ if [ "$STAGE" = fast ]; then
   step space "spacing (13 widths)" $O/space.txt $M/tools/spacecheck.py -- sh -c "python3 $M/tools/spacecheck.py \"$DOCX\" \"$PDF\" \"$P\" \"$T/space\" > $O/space.log 2>&1; cp \"$T/space/spacecheck.txt\" $O/space.txt 2>>$O/space.log"
   # 6 Nov 2026 (owner 18:0x agreement): when the template has changed since the last build that passed the images check, the
   # fast round also runs it (records/images-passed-template.txt holds the template sha256 of that build)
-  TSHA=$(sha256sum "$TPL" | cut -c1-64); if [ "$(cat $M/records/images-passed-template.txt 2>/dev/null)" != "$TSHA" ]; then
+  TSHA=$(sha256sum "$TPL" | awk '{print $1}'); if [ "$(cat $M/records/images-passed-template.txt 2>/dev/null)" != "$TSHA" ]; then
   step images "images (heights, 122 widths; template changed)" $O/images.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images.txt full heights > $O/images.log 2>&1"
   fi
   echo "package sha256 $SHA $(date +%H:%M:%S)" > $O/FAST-PASSED
@@ -77,7 +77,7 @@ else
   RV=$B/REVIEW.md
   { [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && [ "$(grep -v '^[[:space:]]*$' "$RV" | tail -1)" = "FAULTS: 0" ]; } || { echo "REFUSED $(date +%H:%M:%S): no separate review report for this package with FAULTS: 0 ($RV)" | tee -a $O/SUMMARY.txt; exit 3; }
   step images "images (heights, 122 widths)" $O/images.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images.txt full heights > $O/images.log 2>&1"
-  sha256sum "$TPL" | cut -c1-64 > $M/records/images-passed-template.txt   # 6 Nov 2026: the template this build passed the images check on
+  sha256sum "$TPL" | awk '{print $1}' > $M/records/images-passed-template.txt   # 6 Nov 2026: the template this build passed the images check on
   step images2 "images (swipe, late, behaviour)" $O/images-2.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images-2.txt full swipe,late,behaviour > $O/images-2.log 2>&1"
   step wrap "wrap (1 px, 320-1920)" $O/wrap.txt $M/tools/wrap_sweep.py -- sh -c "python3 $M/tools/wrap_sweep.py \"$P\" \"$DOCX\" $O/wrap.txt 320 1920 1 > $O/wrap.log 2>&1"
   echo "LONG CHECKS (more_checks) PASSED $(date +%H:%M:%S)" >> $O/SUMMARY.txt
