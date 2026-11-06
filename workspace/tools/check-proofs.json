@@ -422,5 +422,18 @@
   "at": "2026-11-06T09:45:44",
   "script": "tools/spacecheck.py",
   "agreement": "owner 6 Nov 09:25 '#3 to #16 ... implement all of them immediately' (#9)"
+ },
+ "eng-6nov-style_rules-e041-float": {
+  "code": "1023ce8ed46baa7bdc8ad0225291fa6124ec8d696f5f32a32122bc3796bf3464",
+  "page": "3.5.0",
+  "fault_put_in": "build 32 copy with the beige line before the Spoken Language shelf image removed (eng35/u32pl)",
+  "broken_copy": "/home/claude/eng35/u32pl",
+  "caught": [
+   "E041 22 lines (2 per width x 11 widths): 'beige line before \"This is a photo of the Spoken Language shelf...\" not found' and 'p.mm-gl count 9 vs 10'"
+  ],
+  "clean_result": "build 32 copy (line, image, paragraph): E041 0 lines (eng35/sfix/out-u32.txt)",
+  "at": "2026-11-06T11:59:42",
+  "script": "tools/style_rules.py",
+  "agreement": "owner 6 Nov 11:59 'yes. i agree'"
  }
 }

@@ -335,6 +335,7 @@ MEASURE = r"""(args) => {
     let n = el, res = null;
     while (n && n !== main && !res) {
       if (n.previousElementSibling) { n = n.previousElementSibling;
+        if (n.classList && n.classList.contains('mm-float')) continue;   // 6 Nov 2026 (owner 11:59 agreement): an image placed beside the paragraph (the template's p.mm-gl + .mm-float) is not between the line and its paragraph
         if (isShownLine(n)) res = {ok: true, found: desc(n)};
         else if (norm(n.textContent) || n.querySelector('img')) res = {ok: false, found: desc(n)}; }
       else n = n.parentElement;

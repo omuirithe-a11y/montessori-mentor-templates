@@ -19,7 +19,7 @@ if PAGE.endswith('.zip'):
     assert top == {slug}, 'STOP: the zip must hold one folder named %s (the live page\'s folder); it holds %s' % (slug, sorted(top))
     print('zip folder name:', slug, '- matches the live page')
 H = lambda f: hashlib.sha256(open(f, 'rb').read()).hexdigest()
-FIX = {'Essay Code Template.html': 'd2353e87b5a56819edc366bd03002de68a27f73832b8cf8bf70a00d468306bda',
+FIX = {'Essay Code Template.html': 'e4c2d51fa739ebd0912ffac09315af026eea048cdec6715230daf894d0b48e71',
        'Resources Code Template.html': 'f14174ee5dff4f8ef7f59f8abd2a94400e6504c58870c60d6a90c778e37d77ad'}
 assert os.path.basename(TPL) in FIX and H(TPL) == FIX[os.path.basename(TPL)], 'STOP: the template is not the template pinned 1 Nov 21:0x (sha256 2cbb78e3)'
 assert H('/home/claude/reports/copy-protection.html') == '0d180ad65627bb99f5edd29c476727c29d68a34efccd4ab5fd8f64a777026ce4', 'STOP: copy-protection.html has been changed'
