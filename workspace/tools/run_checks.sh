@@ -55,5 +55,5 @@ judge lines "$O/lines.txt" "lines through text"
 kept place "$O/place.txt" "$G/v8/place_check.py" || { python3 "$G/v8/place_check.py" "$Z" $ROWSARG > "$O/place.txt" 2>&1; }; judge place "$O/place.txt" "placement"
 # 5. the speed check (alone)
 kept speed "$O/speed.txt" "$C/speed_check.py" || { python3 "$C/speed_check.py" "$Z" > "$O/speed.txt" 2>&1; }; judge speed "$O/speed.txt" "speed"
-echo "LONG CHECKS (run_checks) PASSED  end $(date '+%H:%M:%S')" >> "$O/SUMMARY.txt"
+E_=$(date '+%H:%M:%S'); echo "LONG CHECKS (run_checks) PASSED $E_" >> "$O/SUMMARY.txt"; echo "end $E_" >> "$O/SUMMARY.txt"   # 7 Nov 2026 (owner's agreement): the end line on a line of its own (gate rows D035/D036)
 cat "$O/SUMMARY.txt"

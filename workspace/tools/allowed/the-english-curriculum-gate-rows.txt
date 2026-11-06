@@ -1,0 +1,17 @@
+# Gate row map, The English Curriculum only - owner 7 Nov 2026, word for word: "I agree to change workspace/tools/gate_files.py so that the wrap check’s ‘widths’ line is not read as a fault, and workspace/tools/run_checks.sh so that it writes its end line on a line of its own, for every page checked from now on; and, on The English Curriculum only, to have the gate read rows E027 and E042 from the spacing check and E028 from the style check; rows B101, B102, D207, E029, E030, E036, E046 and E048 from a separate review with a browser at the 13 widths, made after the long checks; and rows E024, E026, E031, C050 and B042 as checked after publishing, the first three on the live page after I upload it, C050 on the template test page, and B042 when I decide it"
+E027 | script | spacecheck.py
+E042 | script | spacecheck.py
+E028 | script | style_rules.py
+B101 | browser review | REVIEW-BROWSER.md
+B102 | browser review | REVIEW-BROWSER.md
+D207 | browser review | REVIEW-BROWSER.md
+E029 | browser review | REVIEW-BROWSER.md
+E030 | browser review | REVIEW-BROWSER.md
+E036 | browser review | REVIEW-BROWSER.md
+E046 | browser review | REVIEW-BROWSER.md
+E048 | browser review | REVIEW-BROWSER.md
+E024 | after publishing | on the live page after the owner uploads it
+E026 | after publishing | on the live page after the owner uploads it
+E031 | after publishing | on the live page after the owner uploads it
+C050 | after publishing | on the template test page
+B042 | after publishing | when the owner decides it

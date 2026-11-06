@@ -570,5 +570,29 @@
   ],
   "clean_result": "b40: D055/D306 PASS; A046 PASS",
   "at": "2026-11-06T21:08:43"
+ },
+ "eng-7nov-gate_files-8b9a8f35": {
+  "code": "8b9a8f354fb15930047cc3a28f78f6125071784075a1603004b7e65f87c99f8c",
+  "page": "3.5.0",
+  "script": "tools/gate_files.py",
+  "fault_put_in": "see caught",
+  "broken_copy": "-",
+  "caught": [
+   "wrap header 'widths 320-1920 step 1' not a fault; 'widths ... FAULT x' and '361 PUNCT ...' still fault lines (regex test)"
+  ],
+  "clean_result": "wrap header 'widths 320-1920 step 1' not a fault; 'widths ... FAULT x' and '361 PUNCT ...' still fault lines (regex test)",
+  "at": "2026-11-07T07:18:49"
+ },
+ "eng-7nov-gate_list-eab9f854": {
+  "code": "eab9f854275e047bf341544df2e8b460969de9faa82ab32ef969593b27b7594a",
+  "page": "3.5.0",
+  "script": "tools/gate_list.py",
+  "fault_put_in": "see caught",
+  "broken_copy": "-",
+  "caught": [
+   "page row map: on b41 E027/E042 PASS from space.txt, E028 PASS from style.txt, B101/E030 NOT CHECKED with no REVIEW-BROWSER.md, the five after-publishing rows PASS and listed (eng35/gfix3/t-b41.txt)"
+  ],
+  "clean_result": "page row map: on b41 E027/E042 PASS from space.txt, E028 PASS from style.txt, B101/E030 NOT CHECKED with no REVIEW-BROWSER.md, the five after-publishing rows PASS and listed (eng35/gfix3/t-b41.txt)",
+  "at": "2026-11-07T07:18:49"
  }
 }

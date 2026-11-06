@@ -527,10 +527,52 @@ def main():
 
     rows = [r for r in json.load(open(lst)) if r.get('status') == 'current' and applies(r.get('applies_to'), page, kind)]
     table = []
+    # 7 Nov 2026 (owner's agreement, The English Curriculum only): tools/allowed/<page>-gate-rows.txt maps rows, each line
+    # 'ROW | script | <script name>' (read from that check's result), 'ROW | browser review | REVIEW-BROWSER.md' (a separate
+    # review with a browser at the 13 widths, made after the long checks: the report names this package's sha256, is newer
+    # than checks2/wrap.txt, and marks the row checked), or 'ROW | after publishing | <where>' (listed for after publishing)
+    OVR, after_pub = {}, []
+    _of = os.path.join(TOOLS, 'allowed', '%s-gate-rows.txt' % page)
+    for _l in (GF.read(_of) or '').splitlines():
+        _f = [x.strip() for x in _l.split('|')]
+        if len(_f) >= 3 and re.match(r'^[A-E]\d{3}$', _f[0]):
+            OVR[_f[0]] = (_f[1], _f[2])
+    def browser_eye(rid, fn):
+        p_ = os.path.join(b.B, fn); t_ = GF.read(p_)
+        if t_ is None:
+            return 'NOT CHECKED', 'no browser review report %s' % p_, '-'
+        if zsha[:16] not in t_:
+            return 'NOT CHECKED', '%s does not name this package\'s sha256' % fn, p_
+        w_ = os.path.join(b.B, 'checks2', 'wrap.txt')
+        if not os.path.exists(w_) or os.path.getmtime(p_) <= os.path.getmtime(w_):
+            return 'NOT CHECKED', '%s is not newer than the long checks (checks2/wrap.txt)' % fn, p_
+        ls_ = [l for l in t_.splitlines() if re.search(r'^\|\s*%s\s*\|' % rid, l)]
+        if not ls_:
+            return 'NOT CHECKED', 'not in the browser review table', p_
+        if any(re.search(r'\bnot checked\b', l, re.I) for l in ls_):
+            return 'NOT CHECKED', 'the browser review marks it NOT checked', p_
+        if any(re.search(r'\bFAULT', l) for l in ls_):
+            return 'FAULT', 'the browser review names a fault: ' + ls_[0][:160], p_
+        if any(re.search(r'\bchecked\b', l, re.I) for l in ls_):
+            return 'PASS', 'checked in the browser review (rests on that report)', p_
+        return 'NOT CHECKED', 'the browser review names the row but not as checked', p_
     for r in rows:
         rid = r['id']
         parts = split_check(r['check'])
         outs = []   # (outcome, how, detail, evidence)
+        if rid in OVR:
+            mode, arg = OVR[rid]
+            if mode == 'script':
+                o, d, ev = script_part(rid, arg)
+                outs.append((o, arg + ' (page row map)', d, ', '.join(ev) or '-'))
+            elif mode == 'browser review':
+                o, d, ev = browser_eye(rid, arg)
+                outs.append((o, 'browser review (page row map)', d, ev))
+            elif mode == 'after publishing':
+                outs.append(('PASS', 'after publishing (page row map)', 'to be checked after publishing: ' + arg, _of)); after_pub.append((rid, arg))
+            else:
+                outs.append(('FAULT', 'page row map', 'unknown mode %r in %s' % (mode, _of), _of))
+            table.append([rid, outs]); continue
         for pt in parts:
             if pt[0] == 'eye':
                 o, d = eye(rid)
@@ -617,6 +659,11 @@ def main():
         rest = ' [rests on the review report]' if any('eye' in x[1] for x in outs) else ''
         say('%s | %s | %s | %s | %s%s' % (rid, how, o, ev, det, rest))
 
+    if after_pub:
+        say('')
+        say('ROWS TO CHECK AFTER PUBLISHING (owner 7 Nov agreement; %s):' % _of)
+        for _r, _w in after_pub:
+            say('  %s | %s' % (_r, _w))
     say('')
     say('SCRIPTS (sha256 of each script whose result was read):')
     fp = GF.fingerprints()

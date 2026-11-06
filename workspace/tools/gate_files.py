@@ -59,8 +59,9 @@ RESULTS = {
     # images-2.txt = swipe, late images, behaviour); the gate needs both, and a missing images-2.txt is a FAULT
     'checks2/images-2.txt': dict(script=TOOLS + '/images_behaviour.py', runner='more_checks.sh', pass_re=r'^IMAGES PASS\s*$',
                               fault_re=r'^FAULT\b', sha='summary16', source='zip (unpacked)', complete=r'^END\s*$'),
+    # 7 Nov 2026 (owner's agreement): the wrap check's first line 'widths 320-1920 step 1' is its header, not a fault line
     'checks2/wrap.txt':  dict(script=TOOLS + '/wrap_sweep.py', runner='more_checks.sh', pass_re=r'^WRAP PASS\s*$',
-                              fault_re=r'^(?!(127\.0\.0\.1|WRAP |END|INFO|==|#|\s*$)).+', sha='summary16', source='zip (unpacked)', complete=r'^END\s*$'),
+                              fault_re=r'^(?!(127\.0\.0\.1|WRAP |END|INFO|==|#|widths \d+-\d+ step \d+\s*$|\s*$)).+', sha='summary16', source='zip (unpacked)', complete=r'^END\s*$'),
     # 6 Nov 2026 (gatefix2 C4): the code check against Word and the spacing check, written by more_checks.sh (they were
     # run only by hand or by send_gate_nolive.sh, to its own printout / <zip>.space.txt, never to the build folder)
     'checks2/strip-nolive.txt': dict(script=TOOLS + '/v8/strip_compare_nolive.py', runner='more_checks.sh',
