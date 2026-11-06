@@ -510,5 +510,17 @@
   "clean_result": "b39 ALL CHECKS OK (eng35/pin4-b39.txt)",
   "at": "2026-11-06T17:51:34",
   "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "eng-6nov-strip_compare_nolive-pin-b7bb7774": {
+  "code": "b7bb777459be5c53097177e82544bf4c2bc51ae17d820976822a1c244b8fe68a",
+  "page": "3.5.0",
+  "fault_put_in": "build 39 (template before the dots fix)",
+  "broken_copy": "/home/claude/mm/build-35/b39/the-english-curriculum.zip",
+  "caught": [
+   "b39 NOT ACCEPTABLE (eng35/pin5-b39.txt)"
+  ],
+  "clean_result": "b40 ALL CHECKS OK (eng35/pin5-b40.txt)",
+  "at": "2026-11-06T19:19:43",
+  "script": "tools/v8/strip_compare_nolive.py"
  }
 }

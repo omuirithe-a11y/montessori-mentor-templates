@@ -594,6 +594,8 @@ html,body{background:#F5EEE3 !important}main a:not(.pdf),main a:not(.pdf) *{colo
   .mm-set.mm-formula .mm-imgs .ph{width:min(225px,100%)}   /* 28 Oct 2026: as live - the figure gets a width, so the photo (whose width is a share of it) is seen */
   .mm-set.mm-formula .mm-imgs .pim{height:auto !important;width:min(300px, 100%) !important}
   .mm-dots{display:flex;justify-content:center;gap:6px;margin:8px 0 4px}
+  .mm-dots span{width:6px;height:6px;border-radius:50%;background:var(--rule)}   /* 6 Nov 2026 (owner's standing agreement): the dots under a swipe row are drawn at 641-830 too - they had stayed in the 640 block when 847b6adb split it */
+  .mm-dots span.on{background:var(--ink)}
 }
 @media (max-width:640px){   /* 6 Nov 2026 (owner 5 Nov 09:16 agreement, carried to 641-830 on 6 Nov: b25 review fault 10): images beside text stand under it only at 640 and narrower (above 640: only when the text would be narrower than 200 px) */
   .mm-set{display:block}
