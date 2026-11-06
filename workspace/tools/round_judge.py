@@ -55,13 +55,18 @@ if step == 'lines':
     if len(got) < 8: bad('%d widths read, 8 needed' % len(got))
     badl = [l for l in got if not re.search(r'line-through-text 0\b', l)]
     ok() if not badl else bad(badl[0][:160])
+# 6 Nov 2026 (owner 15:44, "B"): on The English Curriculum only, at 390 px, the height may differ by up to 10 px between 1 s and
+# 4 s, provided 4 s = after scrolling (quotations settle once the web fonts load; the script is fixed on the template test page)
+def _af003(page, w, r):
+    return page == 'the-english-curriculum' and str(w) == '390' and r.get('4s') == r.get('scrolled') and r.get('1s') is not None and abs(r['1s'] - r['4s']) <= 10
 if step == 'height':   # the gate's rule (unchanged by the 06:54 agreement): 1 s = 4 s = after scrolling, no margin over 150 px
     import json
     for l in L:
         m = re.search(r'(\{.*\})', l)
         if not m: bad('no reading: ' + l[:120])
         r = json.loads(m.group(1))
-        if not (r.get('1s') == r.get('4s') == r.get('scrolled')) or r.get('largest margin', [999])[0] > 150:
+        _w = (re.search(r'width (\d+)', l) or [None, None])[1]
+        if not (r.get('1s') == r.get('4s') == r.get('scrolled') or _af003(page, _w, r)) or r.get('largest margin', [999])[0] > 150:
             bad(l[:200])
     ok() if L else bad('empty')
 bad('unknown step %s' % step)

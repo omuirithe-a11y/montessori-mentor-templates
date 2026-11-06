@@ -243,7 +243,8 @@ class Result:
                     s.faults.append('width %s: no reading' % w)
                     continue
                 r = json.loads(m.group(1))
-                if not (r.get('1s') == r.get('4s') == r.get('scrolled')) or r.get('largest margin', [999])[0] > 150:
+                _af = 'the-english-curriculum' in t and w == '390' and r.get('4s') == r.get('scrolled') and r.get('1s') is not None and abs(r['1s'] - r['4s']) <= 10   # AF003, owner 6 Nov 15:44 "B" (see tools/round_judge.py)
+                if not (r.get('1s') == r.get('4s') == r.get('scrolled') or _af) or r.get('largest margin', [999])[0] > 150:
                     s.faults.append('width %s: %s' % (w, m.group(1)))
             s.passline = not s.faults
             return
