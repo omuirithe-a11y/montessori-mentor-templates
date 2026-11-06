@@ -460,5 +460,18 @@
   "at": "2026-11-06T12:37:18",
   "script": "tools/style_rules.py",
   "agreement": "owner 6 Nov 12:15"
+ },
+ "eng-6nov-spacecheck-allowlist": {
+  "code": "f65bf2e29c6f82b3564ed6b4b7c8ba0f913fcfa05be205cdd06ee8c99259fe9a",
+  "page": "3.5.0",
+  "fault_put_in": "pl1 (beige line removed, b29 copy) checked with tools/allowed/the-english-curriculum-space.txt in force",
+  "broken_copy": "/home/claude/eng35/spacefix/pl1",
+  "caught": [
+   "pl1 1440 234 -> 236 FAULT (the PDF has an image or divider here; the page has none) - still caught with the allow list"
+  ],
+  "clean_result": "b35 copy at 1440: 627->628 printed AGREED (owner 6 Nov 13:49); 6 faults left (eng35/sp36b35)",
+  "at": "2026-11-06T13:58:12",
+  "script": "tools/spacecheck.py",
+  "agreement": "owner 6 Nov 13:49 'b'"
  }
 }

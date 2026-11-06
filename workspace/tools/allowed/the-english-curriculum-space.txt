@@ -1,0 +1,11 @@
+# tools/allowed/the-english-curriculum-space.txt - spacing-check lines allowed on The English Curriculum (owner 6 Nov 13:49, "b"):
+# lines that come from four Essay template rules, to be fixed on the template test page after this page is published.
+# One line per Word paragraph pair: "a -> b | rule" (read by tools/spacecheck.py; traced on build 35 copy, eng35/trace35/classified2.json)
+209 -> 211 | owner 6 Nov 13:49 (b): template rule - T6 gap below an image
+220 -> 221 | owner 6 Nov 13:49 (b): template rule - T4 heading kept below the image above it
+244 -> 245 | owner 6 Nov 13:49 (b): template rule - T4 heading kept below the image above it
+346 -> 348 | owner 6 Nov 13:49 (b): template rule - T4 heading kept below the image above it
+437 -> 438 | owner 6 Nov 13:49 (b): template rule - T2 first line of a set's text, placed by the set
+603 -> 608 | owner 6 Nov 13:49 (b): template rule - T4 heading kept below the image above it
+627 -> 628 | owner 6 Nov 13:49 (b): template rule - T2 first line of a set's text, placed by the set
+630 -> 631 | owner 6 Nov 13:49 (b): template rule - T2 first line of a set's text, placed by the set

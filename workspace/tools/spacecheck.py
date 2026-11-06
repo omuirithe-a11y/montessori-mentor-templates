@@ -17,6 +17,11 @@ import sys, os, re, json, subprocess, statistics, difflib, collections
 import docx, pymupdf
 
 DOCX, PDF, PAGEDIR, OUT = sys.argv[1:5]
+# 6 Nov 2026 (owner 13:49, "b"): lines she allowed by name for a page are read from tools/allowed/<page folder>-space.txt
+# when SPACE_AGREED is not set (the page folder is the last part of PAGEDIR), so the round and the gate read the same list
+if not os.environ.get('SPACE_AGREED'):
+    _af = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'tools', 'allowed', os.path.basename(os.path.normpath(PAGEDIR)) + '-space.txt')
+    if os.path.exists(_af): os.environ['SPACE_AGREED'] = _af
 WIDTHS = [int(x) for x in (sys.argv[5] if len(sys.argv) > 5 else '1440,1279,1180,1099,1023,961,960,831,830,768,641,640,390').split(',')]
 TOL = float(os.environ.get('SPACE_TOL', '0.15'))
 os.makedirs(OUT, exist_ok=True)

@@ -548,6 +548,13 @@ def SOUP_FIX(sp, report):
         if _pv is not None and 'mm-float' in (_pv.get('class') or []):
             _g.insert_after(_pv.extract()); _k14 += 1
     report.append(('settings', 'image moved after the beige line before it (review b31 fault 6)', str(_k14)))
+    # 6 Nov 13:0x (spacing b35, 610->611->612 at 641-1920): the three "Follow ..." lines - PDF p16 1.25-1.26 lines apart, the page
+    # 41 px (1.38) with the "apart" figure 29; a figure of 25 gives about 37 px (1.25), as the PDF
+    _k15 = 0
+    for _s in ('Follow the Muriel Dwyer approach', 'Follow the Pink, Blue and Green series'):
+        _e = next((x for x in m.find_all('li') if _t(x).startswith(_s)), None)
+        if _e is not None: _e['data-gap'] = '25'; _k15 += 1
+    report.append(('settings', 'gap 25 on two "Follow ..." lines (PDF 1.25 lines)', str(_k15)))
     # 5 Nov 13:0x: two sections had id="grammar" (the opening section kept the id of Word's contents line "Grammar")
     _secs = m.find_all('section', id='grammar')
     for _s in _secs[:-1]: del _s['id']
