@@ -49,7 +49,7 @@ scripts enforce was followed. So each item is marked ENFORCED (a script refuses 
 - Weakness found: the fast round is only as good as its checks - the spacing check judged 39 of its 230 b28 faults on a
   median "not in PDF"; such a check must be proved before it can stop a round.
 
-## Effectiveness review 2 (6 Nov 08:2x, owner 08:15 "Analyse the effectiveness ... then adjust accordingly")
+## Effectiveness review 2 (6 Nov 08:1x, owner 08:15 "Analyse the effectiveness ... then adjust accordingly")
 The time sinks on 3.5.0, largest first, and whether a solution removes each:
 1. Template faults found on the page (9 template agreements since 5 Nov 04:37; 5 of the b25 review's 11 faults; 142 of
    b28's 230 spacing lines) - NOT removed by any enforced item. Only the template test page removes it: first job after
@@ -58,7 +58,7 @@ The time sinks on 3.5.0, largest first, and whether a solution removes each:
    wrong on b28; two runner faults stopped b28's round) - PARTLY: proof recorded for the tablet check (check-proofs.json
    eng-6nov-tablet_check, b25 caught / b28 clean); the spacing check still unproved (her answer pending: A, B or C).
 3. Faults found late - REMOVED: the fast round found b28's first page fault 19 minutes in.
-4. One build per fix - REMOVED: build_guard.sh (b30 refused while b29's round runs - tested 08:2x).
+4. One build per fix - REMOVED: build_guard.sh (b30 refused while b29's round runs - tested 08:1x).
 5. Decisions asked one by one - NOW ENFORCED for new pages: build_guard.sh refuses build 1 without an answered decisions
-   sheet (DECISIONS_SHEET file with "OWNER ANSWER:"), tested both ways 08:2x.
+   sheet (DECISIONS_SHEET file with "OWNER ANSWER:"), tested both ways 08:1x.
 6. Message rounds - RULE only; not removed (drafts failed 1-3 checker rounds today).
