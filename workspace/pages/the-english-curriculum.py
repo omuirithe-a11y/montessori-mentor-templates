@@ -17,7 +17,9 @@ TEXT_EDITS = [   # UK spelling (owner 13 Oct, 26 Oct 15:54): "practice" as a ver
     # 6 Nov (build 31 review faults 2-3; owner 27 Oct: "correct all typos on every page"; UK spelling)
     ('so they game doesn', 'so the game doesn'), ('almost a quarter an hour', 'almost a quarter of an hour'),
     ('a sense of the how extensive', 'a sense of how extensive'), ('and help child learn', 'and help the child learn'),
-    ('gaining an understanding the perspective', 'gaining an understanding of the perspective'), ('circle time instills', 'circle time instils'),   # 6 Nov 02:5x (wrap check PUNCT, 361-367 px): Word's space before the dots let a line start with "."; a no-break space keeps the dots with "sound"
+    ('gaining an understanding the perspective', 'gaining an understanding of the perspective'), ('circle time instills', 'circle time instils'),
+    # 6 Nov 11:2x (build 32 review fault 1; owner 27 Oct typo rule)
+    ('so they unconsciously they absorb', 'so they unconsciously absorb'), ('with the title’s ‘', 'with the titles ‘'),   # both lines (the quoted word is in <em>, so the match stops before it)   # 6 Nov 02:5x (wrap check PUNCT, 361-367 px): Word's space before the dots let a line start with "."; a no-break space keeps the dots with "sound"
 ]
 PAGE_CODE_REPLACE = []
 ALT_TEXT = {}            # owner 28 Oct: image descriptions "are not necessary anymore"
@@ -536,9 +538,10 @@ def SOUP_FIX(sp, report):
         if _x in ('Writing Stages', 'Word Study', 'Reading Analysis'):
             _h.name = 'p'; _h['data-gap'] = '48' if _x == 'Reading Analysis' else _os.environ.get('ENG_GAP_A', '29'); _k13 += 1
     report.append(('settings', 'PDF p2 list titles Writing Stages, Word Study, Reading Analysis as lines like the other titles (review b31 fault 1)', str(_k13)))
-    # 6 Nov 11:0x (build 31 review fault 6): the Spoken Language shelf image stood before the beige line in the code, so at 768
-    # the line (a block that keeps clear of floats) was cut to 416 px beside it; in the PDF the line comes first, then the image
-    # with its text - the image is moved after the line
+    # 6 Nov 11:3x (build 31 review fault 6): the Spoken Language shelf image stood before the beige line in the code, so at 768 the
+    # line (a block that keeps clear of floats) was cut to 416 px beside it, and at 390 the image stood above the line. In the PDF
+    # the line comes first: the image is moved after the line (the template's own order, p.mm-gl + .mm-float). The style check
+    # E041 must then skip the image between the line and its paragraph (check change put to her 6 Nov).
     _k14 = 0
     for _g in m.select('p.mm-gl'):
         _pv = _g.find_previous_sibling()

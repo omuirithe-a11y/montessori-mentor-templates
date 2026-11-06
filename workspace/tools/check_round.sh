@@ -14,7 +14,8 @@ set -u
 B=$(cd "$1" && pwd); SET=$2; DOCX=$3; PDF=$4; TPL=$5; MENU=$6; C=$7; PAGE=$8; STAGE=${9:-fast}; M=/home/claude/mm
 Z=$(ls "$B"/*.zip | grep -vE -- '-(originals|CHECK-ONLY|UPLOAD)\.zip$')
 if [ "$STAGE" = fast ]; then
-  bash $M/tools/more_checks.sh "$B" "$B/checks2" "$SET" "$DOCX" "$PDF" "$TPL" "$MENU" fast > "$B/fast.log" 2>&1 || { echo "ROUND STOPPED in the fast checks:"; tail -3 "$B/checks2/SUMMARY.txt"; exit 1; }
+  # 6 Nov (owner 10:53 "yes", lessons list item 1): after a fast pass, the bulky files of builds older than the one before are cleared (records kept)
+  bash $M/tools/more_checks.sh "$B" "$B/checks2" "$SET" "$DOCX" "$PDF" "$TPL" "$MENU" fast > "$B/fast.log" 2>&1 && bash $M/tools/clear_old_builds.sh "$(dirname "$B")" "$(basename "$B")" >> "$B/fast.log" 2>&1 || { echo "ROUND STOPPED in the fast checks:"; tail -3 "$B/checks2/SUMMARY.txt"; exit 1; }
   python3 $M/tools/gate_list.py "$Z" "$B" NONE "$B/checks2/gate-early.txt" --page "$PAGE" > /dev/null 2>&1
   FAST='checks2/(strip-nolive|static|format-word|col|text\.log|text/|style|tablet|space)'
   INTEG=$(grep -c -i "^integrity fault\|integrity faults: [1-9]" "$B/checks2/gate-early.txt")

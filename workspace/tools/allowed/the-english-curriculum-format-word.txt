@@ -32,3 +32,8 @@ bold inside quotations shown at normal weight | "”": Word italic bold -> page 
 corrected full-width bracket | replace: Word "（" -> page "("
 bold inside quotations shown at normal weight | "“": Word italic bold -> page italic regular
 bold inside quotations shown at normal weight | "”": Word italic bold -> page italic regular
+typo corrected "a quarter of an hour" (owner 27 Oct: correct all typos) | insert: Word "" -> page "of"
+typo corrected "an understanding of the perspective" (owner 27 Oct: correct all typos) | insert: Word "" -> page "of"
+typo corrected "help the child learn" (owner 27 Oct: correct all typos) | insert: Word "" -> page "the"
+typo corrected "a sense of how extensive" (owner 27 Oct: correct all typos) | delete: Word "the" -> page ""
+typo corrected "so they unconsciously absorb" (owner 27 Oct: correct all typos) | delete: Word "they" -> page ""

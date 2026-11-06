@@ -164,7 +164,7 @@ c9536caade4a8e70d9d78c715be80619e7d89aef12bc32c2b7043b5165624c42  pages/books-of
 afcc97a9214501a2f808fdc8433acc23eedad88ff2777526a3f7e5c3ca72de02  tools/res2nov/shots2.py
 4c7699a5dcf955da40955825e991c1adc603fdd67b0ac3003c00f1ea374c1bcc  tools/watch.sh
 a0f561fa49d25e023446737ab9a1690577109e43706b20d7d998f3a4e8f6e734  pages/books-of-interest.py
-42b5337bb0d350bffbda884e30b41cf4d58846fda58bb3ebd362788f80b0f537  records/DECISIONS-LOG-3-nov.md
+7ec6da0db5a42487481a98d5778566afad4eeeefdf57bcfc39a986d732137253  records/DECISIONS-LOG-3-nov.md
 06fc0364e341e581bb8bc9023c82b7cdf40d56b90266e304198813a276349dfc  records/TEMPLATE-CHANGE-3-nov-mm-pair.md
 781e6120c8ddc0d4bc4fc9f100300f46afc52d03f8762d0deabeead1876fb1a5  tools/spacecheck.py
 77e735ee6e401406bee58ca05a2ba31269a3cafed718ce999abae283af909628  tools/briefs/MESSAGE-CHECK.md
@@ -177,7 +177,7 @@ cd93f522f03e602e37e5bc997b80535e6b0e0db83c3c82b591f3a62ea2c6e2a1  tools/briefs/E
 003e99991510e561c8e8403cd7a6aacee9e502192cc01fc82af99a98b834eef8  tools/eng4nov/all-nolive-3.5.sh
 f1133ce1d1662ea23c9527289d54ea28caedf00a5dbc2dbf75f5572e3582fa4c  tools/eng4nov/build-3.5.sh
 f54ed4081319636da033de77eecd0adf7b1f858e731b47d8d21c92cc4d253b48  tools/eng4nov/preview_photos.py
-71cab7507e5793abe18537ef468a82479781cb4d04024db6d824a1565fa9df25  pages/the-english-curriculum.py
+70f15f9c0d1a1edebe0f558359f329b467746904a040d6679c370f7b03e3163e  pages/the-english-curriculum.py
 2896324ec67d4fe82e6c050cc635f0f925a401829c4fb9edc10f1434d6f69999  pages/the-english-curriculum-faces-preview.json
 1e72792ad96ffa12f201d55aa725dddd9a1b20c7e1ef951d5bf8e371823a588f  tools/briefs/ENG-REVIEW-BRIEF.md
 641d9567e5b9427c5302f7c59f8a023bcda0913c38b3755ba19852ad53462879  faces-data/3.5.0-english-faces-round1.json
@@ -193,7 +193,7 @@ b00f5c82669cc4011ad281439ec0fca11e127910e89fc0480fc925c9aaecd133  tools/gate_fil
 7ea3b90759d26e7af924129714fba096e8e64f782c21bc44aa6a7ae6f62c2ec2  pages/the-english-curriculum.build.sh
 17ef0047876de3d520be768d4182d0ed69cb0d8508b4e65fece33fcb3f304da7  queues/the-english-curriculum-EDIT-QUEUE.md
 1281304c5aa8f1670af4ae47ff4f8eed6e32120683dfffad8d01de2f90e8de7f  queues/the-english-curriculum-CHANGES.txt
-d8017b132aa692d16661ff281f1ee8b0cd7d81760e23b12750a6133733ccdde6  tools/allowed/the-english-curriculum-format-word.txt
+c0b88ef004fd5689b92c277241a6efc156c1f58513ecb541223736ae106320fa  tools/allowed/the-english-curriculum-format-word.txt
 # 6 Nov 2026 (owner 06:54 agreement, gatefix2 C3): scripts the runners use whose sha256 no FINGERPRINTS list held (rows B253/D024)
   tools/text_rules.py
   tools/static_code.py
@@ -201,5 +201,5 @@ c883bbb146bf2d30d7b0a4a9511600853c90af6f668b5f2fea4760cddbb8c863  tools/images_b
 # 6 Nov 2026 07:30 (owner 07:16 agreement): the round's judge and the tablet check
 66351d2ee9b090ac60bd29d1d610b14aeb454c22cd97ba3db8aa8e24ac28f5ab  tools/round_judge.py
 fc7f1b46312272fc9cf20ae83a7f5e7f9c1a538341345acced3462c3b18d1723  tools/tablet_check.py
-e763b2edf69c95978887e5e0700a7273f270c5b7acc0f54ad8b6f8344061ddb5  tools/check_round.sh
+0874b747a914a697a5f278fc349720e4f82b8269af3bcd0fd65097d980ff1ce0  tools/check_round.sh
 64ddd36d9995e35b4620ccdf52ea55b570fd919834cff1e82575aa7439213bfa  tools/build_guard.sh
