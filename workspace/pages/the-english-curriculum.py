@@ -456,6 +456,19 @@ def SOUP_FIX(sp, report):
         _n = _g.find_next_sibling()
         if _n is not None and _n.name == 'p' and _n.has_attr('data-gap'): del _n['data-gap']; _k4 += 1
     report.append(('settings', "gap figure dropped on a line after Word's grey line", str(_k4)))
+    # 6 Nov 09:2x (spacing b29, P5): a heading that opens a section straight after Word's grey line, with text (not photos) above
+    # the line, keeps no gap figure - mm-letter-gaps-js measures data-gap from the text above the grey line (empty p.mm-gl has no
+    # letters), so "The Peace Table" and "Art/Drawing/Colouring" stood 12-18 px under the line where every heading after a grey
+    # line below photos stands 36-37 (letter gaps step aside there; the template spaces the heading from the line). As fault 4 above.
+    _k11 = 0
+    for _g in m.select('p.mm-gl'):
+        _s = _g.find_next_sibling(); _pv = _g.find_previous_sibling()
+        if _s is None or _s.name != 'section' or _pv is None: continue
+        _h = _s.find(True, recursive=False); _last = _pv
+        while _last is not None and _last.name == 'section' and _last.find(True, recursive=False) is not None: _last = _last.find_all(True, recursive=False)[-1]
+        if _h is not None and _h.name == 'h2' and _h.has_attr('data-gap') and _last is not None and _last.name == 'p' and _last.find('img') is None and 'mm-gl' not in (_last.get('class') or []):
+            del _h['data-gap']; _k11 += 1
+    report.append(('settings', "gap figure dropped on a heading after Word's grey line with text above the line", str(_k11)))
     # fault 5 (part) - the PDF p18 Pink list is evenly spaced (24.4 pt every line); "Puzzle Words" and "Pink Phrase Cards"
     # had the "together" gap where the list's other lines have "apart": the list's own gap for every line
     _k5 = 0
@@ -487,6 +500,22 @@ def SOUP_FIX(sp, report):
         if _f is not None and _t(_f) == 'Object Box 1' and 'Pink Series' in _t(_g):
             _g['class'] = _g['class'] + ['mm-ind104']; _k6 += 1
     report.append(('settings', 'Object Box sequence indented as Word (mm-ind104)', str(_k6)))
+    # 6 Nov 09:2x (spacing b29, P4 - corrected check, PDF lines matched by anchors per page and column): Word's own default
+    # space after (6 pt, styles.xml docDefaults w:after=120) stands on these paragraphs, and the PDF shows it: 1.33-1.49 lines.
+    # gaps.json (written from the old check's matching) called them together; they take the "apart" gap.
+    # P4a - the Object Box sequence (PDF p18, 24.2-27.1 pt between lines): every line but the columns' first lines
+    _k10 = 0
+    for _g in m.select('div.mm-wcols2.mm-ind104'):
+        for _p in _g.find_all('p'):
+            if _p.get('data-gap') == _os.environ.get('ENG_GAP_T', '20'): _p['data-gap'] = _os.environ.get('ENG_GAP_A', '29'); _k10 += 1
+    # P4b - the quotation after "The questions I ask myself..." (PDF p4, 24.5 pt); P4c - the quotation after "I've been working
+    # as a Montessori guide..." (PDF p19, 24.3 pt; no visible change until template item T3, the letter gaps stepping aside after a set with photos)
+    for _s in ('The questions I ask myself', 'I’ve been working as a Montessori guide'):
+        _q = next((p_ for p_ in m.find_all('p') if _t(p_).startswith(_s)), None)
+        _bq = _q.find_next('blockquote') if _q is not None else None
+        if _bq is not None and 'pullquote' in (_bq.get('class') or []) and _bq.get('data-gap') == _os.environ.get('ENG_GAP_T', '20'):
+            _bq['data-gap'] = _os.environ.get('ENG_GAP_A', '29'); _k10 += 1
+    report.append(('settings', 'apart gap where Word keeps its default 6 pt after and the PDF shows 1.33-1.49 lines (Object Box sequence, two quotations)', str(_k10)))
     # 5 Nov 13:0x: two sections had id="grammar" (the opening section kept the id of Word's contents line "Grammar")
     _secs = m.find_all('section', id='grammar')
     for _s in _secs[:-1]: del _s['id']
