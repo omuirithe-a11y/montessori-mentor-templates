@@ -1,0 +1,22 @@
+{
+ "src": "/home/claude/mm/blur2/m_eng_r3/faces",
+ "work": "/home/claude/mm/blur2/m_eng/faces/work",
+ "media": "/home/claude/mm/blur2/m_eng/media",
+ "out": "/home/claude/mm/blur2/m_eng_r3",
+ "docx": "/home/claude/eng35/src/3.5.0 The English Curriculum.docx",
+ "answers": {},
+ "candidates_ok": [
+  "112@858,328"
+ ],
+ "made": "26 Oct 2026 or later, by page.py new - the agreed method version 22",
+ "undecided": [],
+ "answers_source": "7 Nov 2026 06:3x, word for word: \"Blur all three\" (images 098, 110, 109 of the page = set 98, 109, 112)",
+ "candidates_note": "round 3 (7 Nov): only the three images her answer names; the finders found no face on them (98-a printed picture, 109-a hand, kept by rule as before); one hand-added face each; RetinaFace 0.5 candidate 112@858,328 (0.86) is the girl leaning on her hand - accepted (used in place of a hand-added face)",
+ "parts_expected": [
+  "statuses",
+  "unchanged images",
+  "changed images",
+  "by eye",
+  "sheet contents"
+ ]
+}
