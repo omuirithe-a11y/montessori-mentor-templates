@@ -19,6 +19,21 @@ for f in sorted(glob.glob('/root/.claude/projects/-home-claude/*.jsonl'), key=os
         txt = c if isinstance(c, str) else ' '.join(x.get('text', '') for x in (c or []) if isinstance(x, dict) and x.get('type') == 'text')
         txt = re.sub(r'<system-reminder>.*?</system-reminder>', '', txt or '', flags=re.S).strip()
         if txt and not txt.startswith('<') and 'tool_use_id' not in txt: out.append('%s | %s' % (d.get('timestamp', '?'), txt.replace('\n', ' ')[:2000]))
+        # 7 Nov 2026: her messages sent while a turn was running arrive inside tool results or as 'attachment' records
+    for line in open(f, errors='replace'):
+        if 'The user sent a new message while you were working' not in line: continue
+        try: d = json.loads(line)
+        except Exception: continue
+        if d.get('type') == 'assistant': continue
+        strs = []
+        def walk(o):
+            if isinstance(o, str): strs.append(o)
+            elif isinstance(o, dict): [walk(v) for v in o.values()]
+            elif isinstance(o, list): [walk(v) for v in o]
+        walk(d)
+        for s in strs:
+            for m in re.findall(r'The user sent a new message while you were working:\s*(?:<system-reminder>.*?</system-reminder>\s*)?(.*?)(?:\n\nThis is how Claude Code surfaces|$)', s, re.S):
+                if m.strip(): out.append('%s | (sent while a turn ran) %s' % (d.get('timestamp', '?'), m.strip().replace('\n', ' ')[:2000]))
 out.append('--- the owner\'s words as quoted in the decisions log (lines with OWNER or AGREEMENT) ---')
 for f in sorted(glob.glob('/home/claude/mm/records/DECISIONS-LOG*.md')):
     out += [l.strip() for l in open(f) if re.search(r'OWNER|AGREEMENT', l)]

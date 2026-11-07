@@ -7,8 +7,10 @@ until [ -f $B/checks2/GATE-EARLY-PASSED ] || grep -q "^STOPPED" <(tac $B/checks2
 [ -f $B/checks2/GATE-EARLY-PASSED ] || { echo "fast round stopped $(date +%T)" >> $L; exit 1; }
 echo "fast passed; screenshots $(date +%T)" >> $L
 cd /home/claude/eng35; rm -rf "/home/claude/eng35/u-$N"; mkdir "/home/claude/eng35/u-$N"; unzip -q $B/the-english-curriculum.zip -d "/home/claude/eng35/u-$N"; mkdir -p $B/shots
-bash /home/claude/mm/tools/serve.sh start /home/claude/eng35/u-$N/the-english-curriculum 8799 >/dev/null; python3 shots.py http://127.0.0.1:8799/ $B/shots >> $L 2>&1; bash /home/claude/mm/tools/serve.sh stop 8799 >/dev/null; rm -f $B/shots/*-full.png
-PREVN=$(ls -d /home/claude/mm/build-35/b[0-9]* | sed "s/.*\/b//" | sort -n | awk -v me=${N#b} '$1<me' | tail -1); bash /home/claude/mm/tools/review_brief.sh $B the-english-curriculum "/home/claude/eng35/src/3.5.0 The English Curriculum.docx" /home/claude/eng35/review31/pdf /home/claude/mm/build-35/b$PREVN >> $L 2>&1; touch $B/shots/READY; echo "screenshots ready $(date +%T)" >> $L
+until bash /home/claude/mm/tools/roundlock.sh check >/dev/null 2>&1; do sleep 3; done   # 7 Nov 2026: the fast round lets go of its lock first (serve.sh refuses while it is held - b43's screenshots failed so)
+bash /home/claude/mm/tools/serve.sh start /home/claude/eng35/u-$N/the-english-curriculum 8799 >/dev/null || { echo "fast round stopped: screenshots - the page server did not start $(date +%T)" >> $L; exit 1; }; python3 shots.py http://127.0.0.1:8799/ $B/shots >> $L 2>&1; bash /home/claude/mm/tools/serve.sh stop 8799 >/dev/null; rm -f $B/shots/*-full.png
+PREVN=$(ls -d /home/claude/mm/build-35/b[0-9]* | sed "s/.*\/b//" | sort -n | awk -v me=${N#b} '$1<me' | tail -1); bash /home/claude/mm/tools/review_brief.sh $B the-english-curriculum "/home/claude/eng35/src/3.5.0 The English Curriculum.docx" /home/claude/eng35/review31/pdf /home/claude/mm/build-35/b$PREVN >> $L 2>&1; NP=$(ls $B/shots/w*-part*.png 2>/dev/null | wc -l); [ "$NP" -ge 30 ] || { echo "fast round stopped: screenshots - only $NP parts made $(date +%T)" >> $L; exit 1; }   # 7 Nov 2026: READY only when the screenshots exist
+touch $B/shots/READY; echo "screenshots ready $(date +%T)" >> $L
 until [ -f $B/REVIEW.md ] && [ $B/REVIEW.md -nt $B/checks2/FAST-PASSED ] && [ "$(grep -v '^\s*$' $B/REVIEW.md | tail -1)" != "" ]; do sleep 5; done
 sleep 3; LAST=$(grep -v '^\s*$' $B/REVIEW.md | tail -1); echo "review: $LAST $(date +%T)" >> $L
 [ "$LAST" = "FAULTS: 0" ] || exit 1
