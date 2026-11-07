@@ -1,0 +1,154 @@
+cea2592 | 2026-11-07 09:09:37 +0800 | Hourly lessons review 09:0x
+ef272b1 | 2026-11-07 08:43:30 +0800 | S-list enforcement (7 Nov, owner: implement all of these changes): early gate judge, guard (gate plan, cause, template test page), fast-round placement/swipe/block compare, proofs, round lock, review brief, faces sha256 list, log time check, time report
+ff4af34 | 2026-11-07 07:29:32 +0800 | b42 change list; gate proof script for b42
+3914ae7 | 2026-11-07 07:18:49 +0800 | Owner 7 Nov agreement: wrap header not a fault; run_checks end line on its own; page gate row map for The English Curriculum
+85d469e | 2026-11-07 07:02:12 +0800 | Build 42: faces round 3 images, I Spy em space; round started
+72bb10e | 2026-11-07 06:47:00 +0800 | Faces round 3 answered; final images swapped; pixel check started
+8007361 | 2026-11-07 06:43:11 +0800 | Faces round 3 sheet checked and released
+adc5359 | 2026-11-07 06:40:55 +0800 | Hourly lessons review 06:40
+957e8fa | 2026-11-07 06:38:12 +0800 | Faces round 3 for 098/110/109: set, blur, sheet (not yet checked)
+13719d5 | 2026-11-07 05:39:45 +0800 | Hourly lessons review 05:3x
+a1b2efe | 2026-11-07 04:38:30 +0800 | Hourly lessons review 04:3x
+b74f79a | 2026-11-07 03:36:28 +0800 | tools/chain.sh and tools/round_and_chain.sh: the whole round as one tracked command (no detached chain)
+a13027d | 2026-11-07 02:34:18 +0800 | Hourly lessons review 02:3x
+b4a2b0c | 2026-11-07 01:32:22 +0800 | Hourly lessons review 01:3x
+7fc6a2a | 2026-11-07 00:30:43 +0800 | Hourly lessons review 00:3x
+f02fd1e | 2026-11-06 23:37:47 +0800 | ENG review brief line 12 matches the standard brief; em-space tab fix tested
+1293a68 | 2026-11-06 23:28:38 +0800 | Hourly lessons review 23:2x
+ba4e24d | 2026-11-06 23:11:48 +0800 | b41 review faults; em space before the I Spy tabs
+39cfc14 | 2026-11-06 22:44:25 +0800 | Build 41: Word tabs before the mid-line I Spy quotations (b40 full review fault 1)
+e011ea9 | 2026-11-06 22:27:38 +0800 | Hourly lessons review 22:2x
+92fcaa8 | 2026-11-06 22:27:02 +0800 | b40 long round passed; gate full run 177
+64f56fa | 2026-11-06 21:25:23 +0800 | Hourly lessons review 21:2x
+09782dd | 2026-11-06 21:08:43 +0800 | Agreement time corrected to 21:0x (clock read); gate_files proof re-recorded
+c64544c | 2026-11-06 21:07:39 +0800 | more_checks.sh reads the template sha256 with awk, not cut (owner 6 Nov 21:1x agreement; same 64 characters)
+8c8fa9f | 2026-11-06 21:07:16 +0800 | AF004 (owner 6 Nov 21:1x): more than one template commit allowed on The English Curriculum; gate_files.py reads it; proof recorded
+311e3c6 | 2026-11-06 20:55:39 +0800 | Gate proofs redone on build 40 for gate_list.py de98e6a5 (planted fault caught, allowance accepted, near-miss refused); stable.py proof; FINGERPRINTS sha for text_rules.py and static_code.py
+d14ba25 | 2026-11-06 20:36:31 +0800 | Decisions log: owner's 103647a agreement with widths and pages
+0ad91b7 | 2026-11-06 20:31:24 +0800 | gate_files.py: template commit agreed via 'TEMPLATE COMMIT <hash> AGREEMENT' log line (owner 6 Nov 20:3x agreement); proof recorded
+3cea1d9 | 2026-11-06 20:23:12 +0800 | Hourly lessons review 20:23
+1a07f1b | 2026-11-06 20:19:45 +0800 | Decisions log: each of 9 template commits tied to her agreement words
+cd9bd08 | 2026-11-06 19:20:04 +0800 | 6 Nov 19:1x hourly review
+21432c8 | 2026-11-06 19:19:43 +0800 | Template: swipe dots drawn at 641-830 (fix of 847b6adb split); re-pin + proof; build 40
+8020175 | 2026-11-06 18:15:32 +0800 | 6 Nov 18:1x hourly review
+0e9d2b8 | 2026-11-06 17:51:36 +0800 | Template c0b6a91d (180 px under-text groups 641-830), images check D213 (owner 18:0x), fast round runs images check after a template change (owner 18:0x), re-pin + proofs
+0015dca | 2026-11-06 17:14:10 +0800 | 6 Nov 17:1x hourly review; b38 status
+71260c7 | 2026-11-06 16:21:04 +0800 | proof for re-pinned code check (03e939d4)
+626b6ab | 2026-11-06 16:18:11 +0800 | Essay template 03e939d4: image beside a list levelled with the list's first line (owner's standing agreement 6 Nov); code checks re-pinned
+6a53733 | 2026-11-06 16:12:28 +0800 | 6 Nov 16:1x hourly review
+fab76f2 | 2026-11-06 15:45:28 +0800 | AF003 height allowance (owner 6 Nov 15:44 B), round_judge and gate
+59d57f2 | 2026-11-06 15:08:55 +0800 | b37 fast round passed; hourly review
+6bc2bc0 | 2026-11-06 14:52:11 +0800 | b37 settings (Follow lines together); allow list phone image lines
+9e14e91 | 2026-11-06 14:45:05 +0800 | Allowed spacing list for The English Curriculum: four rules (13:49), gap above an image and quotation below an image (14:43), phone layouts (21 Oct rule)
+96dc1a2 | 2026-11-06 14:05:50 +0800 | 6 Nov 13:5x hourly review
+9be0805 | 2026-11-06 13:58:12 +0800 | spacecheck reads the page's allow list (owner 6 Nov 13:49 b); allow list for The English Curriculum; proof
+ae28bfb | 2026-11-06 13:08:47 +0800 | Build guard inside build_page.py (owner 13:07): no build round the guard in any chat; new tools fingerprinted
+0d91760 | 2026-11-06 12:53:54 +0800 | 6 Nov 12:5x hourly review
+006e839 | 2026-11-06 12:39:07 +0800 | more_checks.sh refuses unproven check versions (owner 21 Oct rule); proofs for strip_compare_nolive pin and style_rules 12:15
+2a34dc2 | 2026-11-06 12:16:03 +0800 | Essay template: Word two- and three-column list lines (p, li) left-aligned (owner 6 Nov 11:59, 12:15); style_rules.py checks those lines as left-aligned (12:15); build_guard needs the review after a stopped round; code checks re-pinned
+ad0fd98 | 2026-11-06 11:59:42 +0800 | Essay Code Template e4c2d51f and style_rules.py (owner 6 Nov 11:59 'yes. i agree'): rows-of-three sets sized as one row of three; letter gap after a set whose text reaches lower than its images; Word two-column lists left-aligned; E041 skips an image beside the paragraph; code checks re-pinned
+469dc80 | 2026-11-06 11:52:41 +0800 | 6 Nov 11:5x hourly review; settings for build 34; serve.sh fix; check_round clears old builds; allowed typo lines
+68a9565 | 2026-11-06 11:01:38 +0800 | 6 Nov 10:53 owner yes, lessons list items 1, 4, 5, 6: build_guard disk check, clear_old_builds.sh, commit_push.sh (read-back), serve.sh (stop by process number), facts.sh; page settings b32
+b2b918c | 2026-11-06 10:51:29 +0800 | 6 Nov 10:5x hourly review; page settings for build 32 (review b31 faults 1-5)
+89a3521 | 2026-11-06 10:00:56 +0800 | fingerprints
+5eb3c32 | 2026-11-06 10:00:43 +0800 | Essay Code Template d2353e87 (owner 6 Nov 09:55 'yes'): gap above a line or block measured from the last line of the text above it even when that line is short and ends left of the block; code checks re-pinned (b31 ALL CHECKS OK, b30 NOT ACCEPTABLE, old template STOP)
+979de57 | 2026-11-06 09:50:30 +0800 | 6 Nov hourly review; spacing check proof note corrected (counted, not guessed); queue promises updated
+e6908fd | 2026-11-06 09:46:04 +0800 | 6 Nov 09:25 owner instructions #2-#16: gate order check, 13-width and early-wrap fast steps, failed-widths-first and resume in run_checks, spacing check C4-C6 with contextual spacing (proved on planted faults), to-do, decisions sheet, open-questions queue, message brief
+dcf0c08 | 2026-11-06 09:18:24 +0800 | Build 30: spacing page fixes P4, P5
+3f24d17 | 2026-11-06 08:58:55 +0800 | times corrected
+59922af | 2026-11-06 08:58:41 +0800 | spacecheck.py: beige lines as dividers; PDF lines matched per column by anchors (owner 6 Nov 08:53); proofs recorded
+50194c0 | 2026-11-06 08:46:56 +0800 | Hourly review 08:4x
+7bf6c69 | 2026-11-06 08:18:09 +0800 | BUILD-ORDER: test times corrected
+f11ebf8 | 2026-11-06 08:16:40 +0800 | Effectiveness review 2: decisions-sheet guard for build 1; tablet check proof; build 29 settings
+6f5d87a | 2026-11-06 08:01:52 +0800 | build_guard.sh: one build per check round; BUILD-ORDER effectiveness
+160a945 | 2026-11-06 07:53:59 +0800 | Log and queue: spacing promise of 5 Nov 04:36
+d79e247 | 2026-11-06 07:52:38 +0800 | BUILD-ORDER attributions corrected; queue promise status; log correction
+4abf8bf | 2026-11-06 07:49:00 +0800 | records/BUILD-ORDER.md: the build order for every page (owner 6 Nov 07:16, 07:33)
+a65ce76 | 2026-11-06 07:45:47 +0800 | Hourly review 07:4x; more_checks: report.json beside the unzipped copy
+2d94664 | 2026-11-06 07:34:33 +0800 | Check round: review report must end FAULTS: 0; judge reports the fault line; check_round.sh (fast round with early gate run)
+7fc47b0 | 2026-11-06 07:30:20 +0800 | Check order in the scripts: fast checks first, stop at first fault, long checks refuse without fast pass and review; tablet check; restart-safe steps; template c239b5f0 (06:54 agreement); build 28
+1ad7265 | 2026-11-06 06:44:46 +0800 | Log: hourly review 06:4x; build 27 times corrected
+561e3a2 | 2026-11-06 06:40:39 +0800 | FINGERPRINTS after template 847b6adb
+a541db1 | 2026-11-06 06:40:28 +0800 | Essay Code Template 847b6adb: agreed 13:38 and 09:16 changes carried down to 641 px (b25 review faults 9, 10); build 27
+de5215c | 2026-11-06 06:25:45 +0800 | Log 06:2x; proposed template fixes T1, T2, T5, T6 (not agreed)
+d185b39 | 2026-11-06 06:18:28 +0800 | Build 26: review faults 1-4, 7, 8 and part of 5 fixed in the page settings
+16141a4 | 2026-11-06 05:46:12 +0800 | Build 25 separate review report
+7baa8f8 | 2026-11-06 05:45:05 +0800 | Log: correct hourly review 05:4x entry
+ec1486c | 2026-11-06 05:43:34 +0800 | Log: build 25 wrap pass, review started, hourly review 05:4x
+7c6fbd9 | 2026-11-06 04:42:39 +0800 | Log: build 25 images/speed, gate sorting, hourly review 04:4x
+2346402 | 2026-11-06 03:41:15 +0800 | Log: build 25 results, hourly review 03:4x
+66b0438 | 2026-11-06 03:07:14 +0800 | Style check: boxed links against their Word colour; wrap check: repeated text matched in page order; AF002 note (owner 6 Nov 03:06 agreement)
+6ce09a7 | 2026-11-06 03:06:26 +0800 | Gate: format-check lines checked against the allowed-lines file; images check as two commands (owner 6 Nov 03:05 agreement)
+7806f44 | 2026-11-06 02:55:58 +0800 | English Curriculum: no-break space before the dots (wrap PUNCT); log: build 24 wrap, build 25
+8b10b8f | 2026-11-06 02:39:04 +0800 | Gate proofs record copied; log: build 24 images pass, gate-files faults, hourly review 02:3x
+f1f5263 | 2026-11-06 01:35:03 +0800 | Log: build 24 results, hourly review 01:3x
+78a2093 | 2026-11-06 00:33:39 +0800 | Log: gate question, hourly review 00:3x
+dfdab4c | 2026-11-06 00:28:29 +0800 | 6 Nov 00:19 agreement: four checks replaced by proven fixed copies (more_checks passes page settings); AF002 + allowed lines file; Essay Code Template b7c241e6 boxed links as Word; converter boxed-link class; English settings bold pronunciation and colon
+7ecf845 | 2026-11-05 23:50:37 +0800 | check-proofs.json: planted-fault proofs for 8 current check scripts (5 Nov, test build 23)
+d00b730 | 2026-11-05 23:32:12 +0800 | Log: build 23, agents, hourly review 23:3x
+fb2be4e | 2026-11-05 22:51:21 +0800 | Essay Code Template e273d7f9: rows-of-three set centred, swipe end space for image sets, viewer arrows above the image, letter-gap script reads once per run (owner 5 Nov 22:48 agreement); code checks re-pinned
+e1165e1 | 2026-11-05 22:30:00 +0800 | Log: fixes tested, hourly review 22:2x
+c1d2005 | 2026-11-05 21:28:54 +0800 | Log: hourly review 21:2x, build 22 probes
+80319fe | 2026-11-05 20:47:24 +0800 | Essay Code Template 39415900: swipe dot by the middle image, swipe images capped at row width, upright captions and no-underline links as Word (owner 5 Nov 20:44 agreement); code checks re-pinned
+3bb444f | 2026-11-05 20:38:34 +0800 | English Curriculum: labels and no-underline links as classes (mm-up, mm-nou - the code check refuses inline styles); Grammar set 120
+c4df2ed | 2026-11-05 20:27:32 +0800 | Log: hourly review 20:2x
+cab2eb5 | 2026-11-05 19:25:24 +0800 | English Curriculum settings: D142 heights 120, D143 row level; log: trace, speed cause, hourly review 19:2x
+fdb2671 | 2026-11-05 18:53:27 +0800 | English Curriculum settings: p19 labels line - figs.append restored (was swallowed into the comment)
+d791a94 | 2026-11-05 18:51:54 +0800 | English Curriculum build 22 fixes: stray contents line removed, p19 labels upright (page settings); converter keeps Word's explicit no-underline on links
+626f619 | 2026-11-05 18:51:00 +0800 | Fingerprints: tools/v8 list
+b9df0a2 | 2026-11-05 18:50:46 +0800 | Essay Code Template 470ab97b: a group of images that fits the screen stands still in the middle with no dots at 830 px and narrower (owner 5 Nov 18:49 agreement); code checks re-pinned
+8479acd | 2026-11-05 18:23:44 +0800 | Decisions log: timeframe answer, solutions, images run stopped, A035 fix preview, hourly review 18:2x
+37189f8 | 2026-11-05 17:19:06 +0800 | English Curriculum change list for build 21
+e9c2432 | 2026-11-05 17:18:09 +0800 | Decisions log: gate records, hourly review 17:1x
+67e0436 | 2026-11-05 17:17:41 +0800 | English Curriculum gate records: build command file with Drive ids, EDIT-QUEUE, decisions log; fingerprints refreshed (workspace, v8, tools-v5-fixA-200)
+0b0b6b7 | 2026-11-05 16:10:07 +0800 | REQUIRED-CHECKS: tools-v5-fixA -> tools-v5-fixA-200 (owner 5 Nov 16:05 agreement, 47 rows); run_checks.sh runs lines_v2.py and v8/place_check.py as the list names
+7751254 | 2026-11-05 15:50:21 +0800 | gate_list.py and gate_files.py (plan items 5 and 8; proven, no browser); more_checks runs images_behaviour
+6b3f13a | 2026-11-05 15:20:46 +0800 | ALLOWED-FAULTS AF001 (owner 5 Nov 15:20 agreement); log
+563bd52 | 2026-11-05 14:31:04 +0800 | The English Curriculum build 21 settings; ALLOWED-FAULTS.txt (no rows); log
+00b9839 | 2026-11-05 13:39:13 +0800 | Essay Code Template 36dda3ee: column-first list level and image sets in rows of three at 641+ (owner 5 Nov 13:38 agreement); page CSS removed; code checks re-pinned
+a7fbc89 | 2026-11-05 13:35:21 +0800 | Essay Code Template 45f14d00: lines and headings centred in Word stay centred at 641 px and wider (owner 5 Nov 13:34 agreement); code checks re-pinned
+f96f8b4 | 2026-11-05 10:38:39 +0800 | The English Curriculum build 18: page settings (columns, captions, images), build_page quotations keep Word spelling, more_checks.sh; log
+7f11235 | 2026-11-05 09:17:50 +0800 | Essay Code Template 3ba47124: narrow-text limit 200 px (owner 5 Nov 09:16 agreement); code checks re-pinned; REQUIRED-CHECKS D015; 122-width check tools-v5-fixA-200
+56f6e28 | 2026-11-05 08:08:11 +0800 | style_rules.py (proven) and decisions log
+1b15c20 | 2026-11-05 07:57:40 +0800 | Decisions log: 5 Nov 08:0x hourly lessons review
+2992d6d | 2026-11-05 06:52:04 +0800 | fingerprints refreshed (decisions log)
+518c888 | 2026-11-05 06:51:49 +0800 | 5 Nov 06:51 owner's agreement to the list: tools/REQUIRED-CHECKS.txt (860 rules) with fingerprints
+7a845b6 | 2026-11-05 06:29:56 +0800 | col_check: punctuation at word ends tolerated; passes live 8.2 Books of Interest (COLUMNS OK), still fails stacked copies
+ac5600f | 2026-11-05 06:28:19 +0800 | 5 Nov: REQUIRED-CHECKS draft (not in effect until the owner agrees), extraction and verification files; col_check.py (column check, tested both ways)
+8e633cd | 2026-11-05 06:22:15 +0800 | 5 Nov 06:3x review entry corrected (3- and 4-column tests done)
+a096562 | 2026-11-05 06:20:08 +0800 | 5 Nov 06:2x hourly review and step 2/3 progress logged
+a893cc3 | 2026-11-05 05:48:34 +0800 | 5 Nov 05:48 owner's agreement to the enforcement plan (first of two); plan saved
+7c995c0 | 2026-11-05 05:31:39 +0800 | 5 Nov 05:3x decisions log: owner's 04:51-05:27 messages, columns fault, change list
+3304137 | 2026-11-05 04:40:50 +0800 | Essay Code Template 9683fc2a: hanging-label rules from the Resources template (owner 5 Nov 04:37 agreement); code checks re-pinned; build_page; log
+3d4684c | 2026-11-05 04:19:45 +0800 | Decisions log 5 Nov 04:4x; fingerprint
+103647a | 2026-11-05 04:14:45 +0800 | Essay Code Template 71dd8bf8: pink and second green colour classes (owner 5 Nov 04:00 Yes); code checks re-pinned; build_page colours; English settings; log
+30840e1 | 2026-11-05 00:40:23 +0800 | Decisions log 5 Nov 00:4x: idle review; fingerprint
+c533f42 | 2026-11-04 23:38:01 +0800 | Decisions log 4 Nov 23:3x: lessons review; fingerprint
+5c7efad | 2026-11-04 23:24:15 +0800 | 4 Nov 23:1x: English build 4 checks, speed cause found, build 5 settings; log; fingerprints
+cf41d0c | 2026-11-04 22:36:17 +0800 | Decisions log 4 Nov 22:3x: lessons review; fingerprint
+74786e7 | 2026-11-04 22:08:41 +0800 | 4 Nov 22:1x: English faces round 1 sheet check v3 passed, sent; page settings build 4; log; fingerprints
+522c18c | 2026-11-04 21:53:01 +0800 | build_page: Essay image sets as mm-set, Word colours as template classes, SOUP_FIX page hook; English page settings for build 2; fingerprints
+2d6fc69 | 2026-11-04 21:34:25 +0800 | Decisions log 4 Nov 21:3x: lessons review; fingerprint
+68d09d4 | 2026-11-04 21:31:13 +0800 | Decisions log 4 Nov 21:2x: faces sheet check v2 failed, two faces fixed; check v3 brief; fingerprints
+fb0a41a | 2026-11-04 20:32:49 +0800 | Decisions log 4 Nov 20:1x-20:3x (sheet check v1 failed, fixes, lessons review); briefs; fingerprints
+3b768b1 | 2026-11-04 20:02:10 +0800 | 4 Nov 20:01: chat finished, reviews ended
+de3aabd | 2026-11-04 19:39:59 +0800 | Decisions log 4 Nov 19:4x: format check underline fix, preview build 1; fingerprint
+b55f01f | 2026-11-04 19:39:43 +0800 | format_check_word: a <w:u> with no w:val is not an underline (tested both ways on The English Curriculum b1); English page settings, build scripts, sheet-check brief; fingerprints
+af9bf3a | 2026-11-04 19:27:46 +0800 | Decisions log 4 Nov: keep-list fault, 19:3x lessons review (The English Curriculum); fingerprint
+3b174a6 | 2026-11-04 19:10:25 +0800 | Decisions 4 Nov 18:14-19:09: no-blur screenshots matched and confirmed; fingerprint
+e9d79c0 | 2026-11-04 18:28:20 +0800 | Decision 4 Nov 18:28: follow all rules (standing); fingerprint
+7a59596 | 2026-11-04 18:14:36 +0800 | Decision 4 Nov 18:14: English Curriculum hero image; fingerprint
+a5e4d02 | 2026-11-04 18:09:15 +0800 | Decision 4 Nov 18:09: title The English Curriculum; fingerprint
+a768bf5 | 2026-11-04 18:08:56 +0800 | Decisions 4 Nov 17:52-18:08: English Curriculum files downloaded; preview build agreed; fingerprint
+e47d6d9 | 2026-11-04 15:32:49 +0800 | Decisions 4 Nov 15:29-15:32: The English Curriculum, Essay template; fingerprint
+76e6982 | 2026-11-04 15:27:31 +0800 | Fingerprints: picture-books.py, DECISIONS-LOG-3-nov.md, tools/v8/FINGERPRINTS.txt (out of date after 869c6a9 and 14f9d28); owner 15:27 decision logged
+a6dce46 | 2026-11-04 15:23:32 +0800 | Handover 4 Nov: Picture Books t15 in the table
+6dcb16a | 2026-11-04 15:04:30 +0800 | Handover 4 Nov: item 1 done
+14f9d28 | 2026-11-04 15:04:17 +0800 | 4 Nov afternoon: Picture Books t15 (ancestor), 37-page menu zip tools and checks, 13:47 decision, handover with remaining list
+05a93bb | 2026-11-04 11:26:49 +0800 | Handover 4 Nov: rebuild previews and open question
+55ba058 | 2026-11-04 11:24:13 +0800 | Handover 4 Nov: template f14174ee and rebuilds
+869c6a9 | 2026-11-04 11:24:00 +0800 | Fingerprints updated for the 4 Nov changes
+6e01790 | 2026-11-04 11:23:46 +0800 | Resources template f14174ee: red name lines 50, section headings 60, page-link headings 50 (owner 4 Nov 11:16); page settings and checks updated
+0a61a2f | 2026-11-04 11:16:39 +0800 | Handover 4 Nov: template ea36d904, open questions
+0c56930 | 2026-11-04 11:16:24 +0800 | Resources template ea36d904: in a list by year, each year 52 above and each later book in a year 40 above (owner 4 Nov 11:15); checks re-pinned
+15e8d53 | 2026-11-04 10:59:55 +0800 | 4 Nov: Resources pages - page settings with the owner's 07:05-07:56 edits, spacecheck agreed-gap rule, queues, change lists, decisions log, handover, lessons 66-72

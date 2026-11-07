@@ -1,0 +1,14 @@
+start 12:20:48  package sha256 5349c18970cad8f7  the-english-curriculum.zip
+browser checks read a copy unpacked from the-english-curriculum.zip sha256 5349c18970cad8f7 (not preview/)
+stage fast start 12:20:48
+code against template and Word: == RESULT: ALL CHECKS OK (parts 1-4 and 8)  [PASS]
+code (static): STATIC PASS  [PASS]
+format (Word): RESULT: 74 differences (words and italic/bold/underline); 48 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules  [PASS]
+columns: COLUMNS OK  [PASS]
+text: TEXT PASS  [PASS]
+style: STYLE FAULT (4709)  [PASS]
+tablet (641-830): TABLET PASS  [PASS]
+on-screen check, 13 key widths: RESULT: every width ok  [PASS]
+wrap, every 40 px (early pass): WRAP PASS  [PASS]
+spacing (13 widths): RESULT: 169 FAULTS  [FAULT: RESULT: 169 FAULTS]
+STOPPED at spacing (13 widths) 12:32:28: FAULT: RESULT: 169 FAULTS

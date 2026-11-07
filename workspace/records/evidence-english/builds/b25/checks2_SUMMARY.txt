@@ -1,0 +1,7 @@
+start 03:24:55
+format (Word): RESULT: 64 differences (words and italic/bold/underline); 40 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules
+columns: COLUMNS OK
+text: TEXT PASS
+code (static): STATIC PASS
+style: STYLE FAULT (4293)
+end 03:28:07

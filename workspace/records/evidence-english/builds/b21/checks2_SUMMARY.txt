@@ -1,0 +1,6 @@
+start 16:18:45
+format (Word): RESULT: 294 differences (words and italic/bold/underline); colour pairs listed above for checking against the site's colour rules
+columns: COLUMNS FAULT (2)
+text: TEXT PASS
+code (static): STATIC PASS
+style: STYLE FAULT (4461)

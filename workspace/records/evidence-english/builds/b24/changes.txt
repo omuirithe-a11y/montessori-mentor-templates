@@ -1,0 +1,15 @@
+# Change list - The English Curriculum, build 24 (zip build-35/b24/the-english-curriculum.zip, sha256 085eb4e4...)
+Each item from records/DECISIONS-LOG-3-nov.md (5-6 Nov); earlier builds: build-35/b21/changes.txt, records/ENG-CHANGES-5-nov.md.
+## Template (each with her written agreement, word for word in the log)
+- 470ab97b (5 Nov 18:49): a group of images that fits the screen stands still in the middle with no dots, 830 px and narrower
+- 39415900 (5 Nov 20:44): lit dot by the middle image; swipe images never wider than the row; captions Word shows upright stay upright; links Word shows without underline have none
+- e273d7f9 (5 Nov 22:48): rows-of-three set centred at 830 and narrower; swipe end space for image sets beside text; viewer arrows above the image; letter-gap script reads the text above each line once per run (speed)
+- b7c241e6 (6 Nov 00:19): a link Word shows in a box is shown in a box of Word's colour
+## Page settings
+- stray "Reading Stages" contents line removed (format review B0)
+- p19 labels upright (class mm-up), Word P638
+- image sets beside text 120 px (her 1 Nov 14:34 rule): the p2 pair (was 167), Pinning (168), Grammar (168)
+- row under "Keys to Literacy": its own row level (10e), not the Culture rule for level 10
+- "ˈrī-tiŋ" bold (Word Heading1, PDF p11); the colon after "Wikipedia" bold (Word, PDF p11)
+## Converter (tools/convert_curriculum.py, every page)
+- Word's explicit no-underline on links kept (class mm-nou); a boxed link run gets class mm-box mm-box-<colour>

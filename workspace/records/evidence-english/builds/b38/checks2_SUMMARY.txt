@@ -1,0 +1,21 @@
+start 16:20:27  package sha256 d91ba5ac23103e0b  the-english-curriculum.zip
+browser checks read a copy unpacked from the-english-curriculum.zip sha256 d91ba5ac23103e0b (not preview/)
+stage fast start 16:20:27
+STOPPED at code against template and Word 16:20:27: REFUSED - strip_compare_nolive.py (this version) has no proof on a deliberately broken copy in tools/check-proofs.json
+stage fast start 16:21:05
+code against template and Word: == RESULT: ALL CHECKS OK (parts 1-4 and 8)  [PASS]
+code (static): STATIC PASS  [PASS]
+format (Word): RESULT: 74 differences (words and italic/bold/underline); 48 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules  [PASS]
+columns: COLUMNS OK  [PASS]
+text: TEXT PASS  [PASS]
+style: STYLE FAULT (4712)  [PASS]
+tablet (641-830): TABLET PASS  [PASS]
+on-screen check, 13 key widths: RESULT: every width ok  [PASS]
+wrap, every 40 px (early pass): WRAP PASS  [PASS]
+spacing (13 widths): RESULT: SPACING OK  [PASS]
+FAST CHECKS PASSED 16:31:55 - next: the gate (early run), then the separate review, then: more_checks.sh ... long, and run_checks.sh
+end 16:31:55
+gate, early run 16:32:26: integrity faults: 3
+stage long start 17:01:10
+images (heights, 122 widths): IMAGES FAULT (120)  [FAULT: IMAGES FAULT (120)]
+STOPPED at images (heights, 122 widths) 17:26:18: FAULT: IMAGES FAULT (120)

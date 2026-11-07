@@ -1,0 +1,7 @@
+start 18:31:35  package sha256 293cf352283f51e6
+122 widths: RESULT: every width ok  [PASS]
+height: width 390: the-english-curriculum {"1s": 51593, "4s": 51586, "scrolled": 51586, "largest margin": [46, "P.mm-gl "]}  [PASS]
+lines through text: width 1440: lines 8 text boxes 1000 line-through-text 0  [PASS]
+placement: PLACE OK  [PASS]
+speed: SPEED OK  [PASS]
+LONG CHECKS (run_checks) PASSED  end 18:55:01

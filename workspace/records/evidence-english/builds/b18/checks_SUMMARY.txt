@@ -1,0 +1,18 @@
+start 10:37:07  package sha256 880d6aa5ef0b2ec8
+widths, height and lines done 11:32:05
+122 widths (exit 0): RESULT: FAULTS - see the lines marked FAULT
+height:
+width 1440: the-english-curriculum {"1s": 27664, "4s": 27599, "scrolled": 27599, "largest margin": [64, "P.mm-gl "]}
+width 390: the-english-curriculum {"1s": 50817, "4s": 50755, "scrolled": 50755, "largest margin": [48, "DIV.mm-float.ext-float "]}
+lines through text:
+width 320: lines 6 text boxes 1770 line-through-text 0
+width 390: lines 6 text boxes 1553 line-through-text 0
+width 430: lines 6 text boxes 1461 line-through-text 0
+width 641: lines 6 text boxes 1304 line-through-text 0
+width 700: lines 6 text boxes 1231 line-through-text 0
+width 830: lines 6 text boxes 1129 line-through-text 0
+width 1024: lines 6 text boxes 1064 line-through-text 0
+width 1440: lines 6 text boxes 1003 line-through-text 0
+placement (exit 1): PLACE FAULT (8)
+speed (exit 1): SPEED FAULT
+end 11:56:26

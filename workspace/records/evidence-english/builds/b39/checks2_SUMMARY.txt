@@ -1,0 +1,21 @@
+start 17:51:40  package sha256 293cf352283f51e6  the-english-curriculum.zip
+browser checks read a copy unpacked from the-english-curriculum.zip sha256 293cf352283f51e6 (not preview/)
+stage fast start 17:51:40
+code against template and Word: == RESULT: ALL CHECKS OK (parts 1-4 and 8)  [PASS]
+code (static): STATIC PASS  [PASS]
+format (Word): RESULT: 74 differences (words and italic/bold/underline); 48 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules  [PASS]
+columns: COLUMNS OK  [PASS]
+text: TEXT PASS  [PASS]
+style: STYLE FAULT (4712)  [PASS]
+tablet (641-830): TABLET PASS  [PASS]
+on-screen check, 13 key widths: RESULT: every width ok  [PASS]
+wrap, every 40 px (early pass): WRAP PASS  [PASS]
+spacing (13 widths): RESULT: SPACING OK  [PASS]
+images (heights, 122 widths; template changed): IMAGES PASS  [PASS]
+FAST CHECKS PASSED 18:28:00 - next: the gate (early run), then the separate review, then: more_checks.sh ... long, and run_checks.sh
+end 18:28:00
+gate, early run 18:28:33: integrity faults: 3
+stage long start 18:55:02
+images (heights, 122 widths): kept (passed 18:28:00) IMAGES PASS
+images (swipe, late, behaviour): IMAGES FAULT (28)  [FAULT: IMAGES FAULT (28)]
+STOPPED at images (swipe, late, behaviour) 19:04:56: FAULT: IMAGES FAULT (28)

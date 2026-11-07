@@ -1,0 +1,16 @@
+b7 | built 05 Nov 04:40 | checks2 --- (0 min) | checks --- (0 min) | review - | cause: not recorded
+b18 | built 05 Nov 10:36 | checks2 11:56-11:56 (0 min) | checks 10:37-11:56 (79 min) | review - | cause: not recorded
+b19 | built 05 Nov 12:49 | checks2 --- (0 min) | checks 12:53-14:10 (77 min) | review - | cause: not recorded
+b28 | built 06 Nov 07:07 | checks2 07:29-07:49 (20 min) | checks --- (0 min) | review - | cause: not recorded
+b29 | built 06 Nov 08:09 | checks2 08:09-09:01 (52 min) | checks --- (0 min) | review - | cause: not recorded
+b30 | built 06 Nov 09:18 | checks2 09:18-09:33 (15 min) | checks --- (0 min) | review - | cause: not recorded
+b32 | built 06 Nov 10:57 | checks2 11:00-11:09 (9 min) | checks --- (0 min) | review 06 Nov 11:17 | cause: not recorded
+b34 | built 06 Nov 12:01 | checks2 12:05-12:10 (5 min) | checks --- (0 min) | review 06 Nov 12:14 | cause: not recorded
+b35 | built 06 Nov 12:18 | checks2 12:20-12:32 (12 min) | checks --- (0 min) | review 06 Nov 12:22 | cause: not recorded
+b37 | built 06 Nov 14:54 | checks2 14:57-15:10 (13 min) | checks 15:12-15:50 (38 min) | review 06 Nov 15:11 | cause: not recorded
+b38 | built 06 Nov 16:20 | checks2 16:20-17:26 (66 min) | checks 16:37-17:01 (24 min) | review 06 Nov 16:37 | cause: not recorded
+b39 | built 06 Nov 17:50 | checks2 17:51-19:04 (73 min) | checks 18:31-18:55 (23 min) | review 06 Nov 18:31 | cause: not recorded
+b40 | built 06 Nov 19:19 | checks2 19:19-22:22 (182 min) | checks 20:01-21:12 (72 min) | review 06 Nov 20:00 | cause: not recorded
+b41 | built 06 Nov 22:43 | checks2 22:43-22:55 (12 min) | checks --- (0 min) | review 06 Nov 23:10 | cause: not recorded
+b42 | built 07 Nov 07:01 | checks2 07:01-07:14 (13 min) | checks --- (0 min) | review 07 Nov 07:36 | cause: not recorded
+totals: fast/early-stage checks 7.9 h, long checks 5.2 h, over 15 builds (builds whose folders were cleared show only what remains)

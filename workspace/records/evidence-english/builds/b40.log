@@ -1,0 +1,435 @@
+/usr/local/lib/python3.13/site-packages/fitz/__init__.py:17: FutureWarning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+  warnings.warn(
+faces - blurred copies: method v22, the user's last answer - blur2/m_eng_r2/round2.html (artifact WdHsxeXCWFnNszC6NzC5wW) - "approved" (5 Nov 2026 10:04 (Asia/Shanghai))
+converter - PDF: 163 of 165 photos found | Title (hero): Keys to Literacy | Paragraphs: 20 cite, 244 empty, 58 heading, 11 label, 20 ol, 370 p, 25 quote, 1 title, 31 ul | Photo groups from the PDF: 29 rows, 4 sets beside text, 14 floated singles | Photos: 165 (104 from blurred working copies); sections: 58; turned as in Word: []
+beige line - placed where the PDF draws them - This is a photo of the Spoken  | Circle Time | The Peace Table | In the environments I have pre | The Sound Game | Keys to Literacy | The Moveable Alphabets | Reinforcement of Letters | Art / Drawing / Colouring | Cutting
+beige line - from a line picture in Word, before - This is a photo of the Spoken Language shelf that I prepared in Taipei, and it includes some of the presentations from those
+beige line - from a line picture in Word, before - Circle Time
+beige line - from a line picture in Word, before - The Peace Table
+beige line - from a line picture in Word, before - In the environments I have prepared, the two essential items on the AMI list of Spoken Language presentations are Book Corner and The Sound Game.
+beige line - from a line picture in Word, before - The Sound Game
+beige line - from a line picture in Word, before - Keys to Literacy
+beige line - from a line picture in Word, before - The Moveable Alphabets
+beige line - from a line picture in Word, before - Reinforcement of Letters
+beige line - from a line picture in Word, before - Art / Drawing / Colouring
+beige line - from a line picture in Word, before - Cutting
+photo - beside its text, as the PDF - image2.JPG
+photo - beside its text, as the PDF - image4.JPG
+photo - beside its text, as the PDF - image5.JPG
+photo - beside its text, as the PDF - image13.jpg
+photo - beside its text, as the PDF - image54.JPG
+photo - beside its text, as the PDF - image103.jpg
+photo - beside its text, as the PDF - image115.jpg
+photo - beside its text, as the PDF - image150.jpg
+photo - beside its text, as the PDF - image155.jpg
+photo - beside its text, as the PDF - image156.jpg
+photo - beside its text, as the PDF - image157.jpg
+photo - beside its text, as the PDF - image158.jpg
+photo - beside its text, as the PDF - image159.jpg
+photo - beside its text, as the PDF - image166.png
+photo - a set of images beside text, as the template's image set (mm-set mm-col) - image134.jpeg, image133.jpeg, image132.JPG
+photo - a set of images beside text, as the template's image set (mm-set mm-col) - image137.JPG, image136.jpg, image135.JPG
+photo - a set of images beside text, as the template's image set (mm-set mm-col) - image143.JPG, image142.JPG
+photo - a set of images beside text, as the template's image set (mm-set mm-col) - image146.jpg, image144.png, image145.jpg
+tab - tab after long text shown as a space (a Word line break) -  always identifying the beginning sound:
+tab - tab after long text shown as a space (a Word line break) - 35, always identifying the ending sound.
+tab - tab after long text shown as a space (a Word line break) - 35, always identifying the middle sound.
+tab - label lines found in Word: labels in one column - 1 black triangle / 1 small black circle / 2 large black circles / 2 medium black circles / 3.1 / 3.10 / 3.11 / 3.12 / 3.13 / 3.14 / 3.15 / 3.16 / 3.17 / 3.2 / 3.3 / 3.4 / 3.5 / 3.6 / 3.7 / 3.8 / 3.9 / 8 medium orange circles / :Decoding / :Reading / Antonyms / Article / Families Word / Gender / Homonyms / Homophones / Noun / Number / Phoneme / Prefixes / Series 3 / Series 4 / Series 5 / Suffixes / Synonyms / Verb / Words Compound
+tab - label set in one column (page setting) - Phoneme
+tab - label set in one column (page setting) - :Reading
+tab - label set in one column (page setting) - :Decoding
+tab - label set in one column (page setting) - 3.1
+tab - label set in one column (page setting) - 3.2
+tab - label set in one column (page setting) - 3.3
+tab - label set in one column (page setting) - 3.4
+tab - label set in one column (page setting) - 3.5
+tab - label set in one column (page setting) - 3.6
+tab - label set in one column (page setting) - 3.7
+tab - label set in one column (page setting) - 3.8
+tab - label set in one column (page setting) - 3.9
+tab - label set in one column (page setting) - 3.10
+tab - label set in one column (page setting) - 3.11
+tab - label set in one column (page setting) - 3.12
+tab - label set in one column (page setting) - 3.13
+tab - label set in one column (page setting) - 3.14
+tab - label set in one column (page setting) - 3.15
+tab - label set in one column (page setting) - 3.16
+tab - label set in one column (page setting) - 3.17
+tab - label set in one column (page setting) - Noun
+tab - label set in one column (page setting) - Article
+tab - label set in one column (page setting) - Verb
+tab - label set in one column (page setting) - Number
+tab - label set in one column (page setting) - Gender
+tab - label set in one column (page setting) - Antonyms
+tab - label set in one column (page setting) - Synonyms
+tab - label set in one column (page setting) - Homophones
+tab - label set in one column (page setting) - Homonyms
+tab - label set in one column (page setting) - Prefixes
+tab - label set in one column (page setting) - Suffixes
+tab - label set in one column (page setting) - Words Compound
+tab - label set in one column (page setting) - Families Word
+tab - label set in one column (page setting) - Series 3
+tab - label set in one column (page setting) - Series 4
+tab - label set in one column (page setting) - Series 5
+tab - label set in one column (page setting) - 2 large black circles
+tab - label set in one column (page setting) - 2 medium black circles
+tab - label set in one column (page setting) - 2 large black circles
+tab - label set in one column (page setting) - 2 medium black circles
+tab - label set in one column (page setting) - 8 medium orange circles
+tab - label set in one column (page setting) - 1 small black circle
+tab - label set in one column (page setting) - 1 black triangle
+tab - leading tab in a list body dropped; the line starts under the item text - GraphemeThe letter(s) used to represent those soun
+heading - a line in a heading colour in Word, made a heading - Table of Contents
+heading - a line in a heading colour in Word, made a heading - Spoken Language
+heading - a line in a heading colour in Word, made a heading - Writing - Abstract
+heading - a line in a heading colour in Word, made a heading - Keys to Literacy
+heading - a line in a heading colour in Word, made a heading - Writing - Concrete
+heading - a line in a heading colour in Word, made a heading - Grammar
+heading - a line in a heading colour in Word, made a heading - Spoken Language
+heading - a line in a heading colour in Word, made a heading - Enrichment of Vocabulary
+heading - a line in a heading colour in Word, made a heading - Expansion of Oral Language
+heading - a line in a heading colour in Word, made a heading - Writing Stages
+heading - a line in a heading colour in Word, made a heading - Metal Insets
+heading - a line in a heading colour in Word, made a heading - Word Study
+heading - a line in a heading colour in Word, made a heading - Word Study
+heading - a line in a heading colour in Word, made a heading - Reading Analysis
+heading - a line in a heading colour in Word, made a heading - Reading Analysis
+heading - a line in a heading colour in Word, made a heading - Spoken Language
+heading - a line in a heading colour in Word, made a heading - Writing - Abstract
+heading - a line in a heading colour in Word, made a heading - Writing - Concrete
+heading - a line in a heading colour in Word, made a heading - Metal Insets
+heading - a line in a heading colour in Word, made a heading - Reading
+heading - a line in a heading colour in Word, made a heading - Early Readers
+heading - a line in a heading colour in Word, made a heading - Grammar
+beige line - moved from the end of a section to before the next section - Keys to Literacy
+beige line - the Essay template's own divider (p.mm-gl) - 10
+text - first line indented 48.0px, as Word - 4 blank black arrows
+text - first line indented 48.0px, as Word - 1 black arrow with the questions who is it that? w
+text - first line indented 48.0px, as Word - 1 black arrow with the questions whom? what?
+text - first line indented 48.0px, as Word - 4 blank black arrows. 
+text - first line indented 48.0px, as Word - 1 black arrow with the questions who is it that? w
+text - first line indented 48.0px, as Word - 1 black arrow with the questions whom? what? 
+text - first line indented 48.0px, as Word - 4 blank orange arrows. 
+text - first line indented 48.0px, as Word - 1 black arrow with the questions to whom? to what?
+text - first line indented 48.0px, as Word - 1 orange arrow with the question how? 
+text - first line indented 48.0px, as Word - 1 orange arrow with the question when?
+text - first line indented 48.0px, as Word - 1 orange arrow with the question where? 
+text - first line indented 48.0px, as Word - 1 orange arrow with the question why? 
+text - first line indented 48.0px, as Word - 1 orange arrow with the question what for? 
+text - first line indented 48.0px, as Word - 1 orange arrow with the questions with whom? with 
+text - first line indented 48.0px, as Word - 1 orange arrow with the questions from what? from 
+text - a line in two Word colours: a text line with Word's colours, not a heading - Sandpaper Letters (graphemes)
+text - a line in two Word colours: a text line with Word's colours, not a heading - Action Cards - Set 1
+text - a line in two Word colours: a text line with Word's colours, not a heading - The Blue Series			The Green Series			Action Cards - Set 2		P
+text - a line in two Word colours: a text line with Word's colours, not a heading - 2 very large red circles 	verb
+text - a line in two Word colours: a text line with Word's colours, not a heading - 2 very large red circles 	verb 
+text - a line in two Word colours: a text line with Word's colours, not a heading - 1 blue triangle 		adjunct 
+text - a line in two Word colours: a text line with Word's colours, not a heading - 1 blue arrow with the questions what kind of? which? 
+photo - 001 - image2.JPG 4000x3000 (scaled to 2900 long side)
+photo - 002 - image4.JPG 4000x3000 (scaled to 2900 long side)
+photo - 003 - image5.JPG 4618x2717 (scaled to 2900 long side)
+photo - 004 - image8.JPG 2723x3805 (scaled to 2900 long side)
+photo - 005 - image12.JPG 2528x3008 (scaled to 2900 long side)
+photo - 006 - image11.jpg 3094x2490 (scaled to 2900 long side)
+photo - 007 - image10.JPG 3126x2969 (scaled to 2900 long side)
+photo - 008 - image7.png 1763x2538
+photo - 009 - image9.JPG 2811x3714 (scaled to 2900 long side)
+photo - 010 - image13.jpg white background painted the page colour (31% of the picture)
+photo - 010 - image13.jpg 2000x1328
+photo - 011 - image17.jpg 3949x2490 (scaled to 2900 long side)
+photo - 012 - image16.jpg 4096x3072 (scaled to 2900 long side)
+photo - 013 - image15.jpg 3493x2386 (scaled to 2900 long side)
+photo - 014 - image14.jpg 3933x2817 (scaled to 2900 long side)
+photo - 015 - image18.jpg 3531x2595 (scaled to 2900 long side)
+photo - 016 - image23.jpeg 4032x3024 (scaled to 2900 long side)
+photo - 017 - image22.jpg 3682x2705 (scaled to 2900 long side)
+photo - 018 - image21.jpg 3983x2578 (scaled to 2900 long side)
+photo - 019 - image19.jpg 4096x3072 (scaled to 2900 long side)
+photo - 020 - image20.jpg 4096x3072 (scaled to 2900 long side)
+photo - 021 - image26.jpg 3949x2991 (scaled to 2900 long side)
+photo - 022 - image28.jpg 3696x2688 (scaled to 2900 long side)
+photo - 023 - image25.jpg 3790x3072 (scaled to 2900 long side)
+photo - 024 - image27.jpg 3435x2756 (scaled to 2900 long side)
+photo - 025 - image24.jpg 4096x3072 (scaled to 2900 long side)
+photo - 026 - image32.jpg 3744x2781 (scaled to 2900 long side)
+photo - 027 - image31.jpg 4096x3072 (scaled to 2900 long side)
+photo - 028 - image29.jpg 3845x2941 (scaled to 2900 long side)
+photo - 029 - image30.jpg 3683x3072 (scaled to 2900 long side)
+photo - 030 - image37.jpg 4042x2767 (scaled to 2900 long side)
+photo - 031 - image36.jpg 3765x2732 (scaled to 2900 long side)
+photo - 032 - image35.jpg 3770x2538 (scaled to 2900 long side)
+photo - 033 - image34.jpg 4096x3072 (scaled to 2900 long side)
+photo - 034 - image33.jpg 3889x2871 (scaled to 2900 long side)
+photo - 035 - image41.JPG 3721x2421 (scaled to 2900 long side)
+photo - 036 - image38.JPG 2048x1536
+photo - 037 - image40.jpg 2048x1246
+photo - 038 - image39.JPG 4310x2700 (scaled to 2900 long side)
+photo - 039 - image42.JPG 3530x2346 (scaled to 2900 long side)
+photo - 040 - image45.jpg 2632x1822
+photo - 041 - image44.jpeg 264x347
+photo - 042 - image43.jpeg 412x286
+photo - 043 - image48.JPG 4000x3000 (scaled to 2900 long side)
+photo - 044 - image47.jpg 2000x1437
+photo - 045 - image46.jpg white background painted the page colour (43% of the picture)
+photo - 045 - image46.jpg 1894x898
+photo - 046 - image1.JPG 3253x1876 (scaled to 2900 long side)
+photo - 047 - image53.jpg 2400x1662
+photo - 048 - image52.JPG 2048x1536
+photo - 049 - image49.jpg 3213x2678 (scaled to 2900 long side)
+photo - 050 - image50.JPG 3735x2815 (scaled to 2900 long side)
+photo - 051 - image51.jpg 1944x2592
+photo - 052 - image54.JPG 3456x4608 (scaled to 2900 long side)
+photo - 053 - image58.JPG 3103x2726 (scaled to 2900 long side)
+photo - 054 - image59.JPG 3464x3684 (scaled to 2900 long side)
+photo - 055 - image56.jpeg 257x346
+photo - 056 - image57.jpg 3072x4096 (scaled to 2900 long side)
+photo - 057 - image55.jpg 4096x3072 (scaled to 2900 long side)
+photo - 058 - WARNING: image62.png has a mostly white edge (79%) - an object on white? If so, name it in MASK_WHITE; a book cover or page keeps its white
+photo - 058 - image62.png 2471x3205 (scaled to 2900 long side)
+photo - 059 - image61.jpg 2160x2880
+photo - 060 - image60.JPG 4018x2856 (scaled to 2900 long side)
+photo - 061 - image64.JPG 4938x3939 (scaled to 2900 long side)
+photo - 062 - image65.JPG 3197x4237 (scaled to 2900 long side)
+photo - 063 - image63.jpg 3072x4096 (scaled to 2900 long side)
+photo - 064 - image69.jpeg 364x273
+photo - 065 - image68.jpg 3651x3072 (scaled to 2900 long side)
+photo - 066 - image66.png 3174x1959 (scaled to 2900 long side)
+photo - 067 - image67.jpeg 338x254
+photo - 068 - image75.jpg 1200x1600
+photo - 069 - image74.JPG 4608x3456 (scaled to 2900 long side)
+photo - 070 - image73.jpg 1200x1600
+photo - 071 - image72.jpg 3072x4096 (scaled to 2900 long side)
+photo - 072 - image71.JPG 3344x3000 (scaled to 2900 long side)
+photo - 073 - image70.jpg 2340x4160 (scaled to 2900 long side)
+photo - 074 - image80.JPG 2832x2292
+photo - 075 - image79.JPG 4342x3188 (scaled to 2900 long side)
+photo - 076 - image76.jpg 1200x1600
+photo - 077 - image77.jpg 1600x1200
+photo - 078 - image78.JPG 4320x3240 (scaled to 2900 long side)
+photo - 079 - image85.jpg 1944x2592
+photo - 080 - image84.JPG 3796x2375 (scaled to 2900 long side)
+photo - 081 - image83.jpg 1089x1669
+photo - 082 - image86.jpg 3077x2340 (scaled to 2900 long side)
+photo - 083 - image81.jpg 4014x3072 (scaled to 2900 long side)
+photo - 084 - image82.jpg 2048x1536
+photo - 085 - image87.JPG 2557x3267 (scaled to 2900 long side)
+photo - 086 - image88.JPG 2705x3086 (scaled to 2900 long side)
+photo - 087 - image91.JPG 5712x4284 (scaled to 2900 long side)
+photo - 088 - image90.JPG 2516x3573 (scaled to 2900 long side)
+photo - 089 - image89.jpg 2304x3632 (scaled to 2900 long side)
+photo - 090 - image92.JPG 3024x4032 (scaled to 2900 long side)
+photo - 091 - image96.jpg 2830x3681 (scaled to 2900 long side)
+photo - 092 - image95.jpg 3889x2929 (scaled to 2900 long side)
+photo - 093 - image94.JPG 2666x3167 (scaled to 2900 long side)
+photo - 094 - image93.jpg 3072x4096 (scaled to 2900 long side)
+photo - 095 - image98.jpg 4080x2453 (scaled to 2900 long side)
+photo - 096 - image102.JPG 3624x3072 (scaled to 2900 long side)
+photo - 097 - image100.jpeg 3024x4032 (scaled to 2900 long side)
+photo - 098 - image99.JPG 4608x3456 (scaled to 2900 long side)
+photo - 099 - image101.JPG 3370x2856 (scaled to 2900 long side)
+photo - 100 - image103.jpg 4096x1763 (scaled to 2900 long side)
+photo - 101 - image108.jpg 3072x3074 (scaled to 2900 long side)
+photo - 102 - image107.JPG 4138x3879 (scaled to 2900 long side)
+photo - 103 - image106.JPG 3985x2204 (scaled to 2900 long side)
+photo - 104 - image105.JPG 3382x3024 (scaled to 2900 long side)
+photo - 105 - image104.jpg 2896x3767 (scaled to 2900 long side)
+photo - 106 - image110.jpg 2537x4096 (scaled to 2900 long side)
+photo - 107 - image109.jpeg 3024x4032 (scaled to 2900 long side)
+photo - 108 - image113.JPG 4556x2356 (scaled to 2900 long side)
+photo - 109 - image114.JPG 3885x2592 (scaled to 2900 long side)
+photo - 110 - image112.jpg 3329x3883 (scaled to 2900 long side)
+photo - 111 - image111.jpg 3072x4096 (scaled to 2900 long side)
+photo - 112 - image115.jpg 878x3887 (scaled to 2900 long side)
+photo - 113 - image117.JPG 2161x2744
+photo - 114 - image118.JPG 3024x3616 (scaled to 2900 long side)
+photo - 115 - image116.jpg 2757x4010 (scaled to 2900 long side)
+photo - 116 - image121.JPG 3240x4320 (scaled to 2900 long side)
+photo - 117 - image120.JPG 2912x3464 (scaled to 2900 long side)
+photo - 118 - image119.JPG 2402x3509 (scaled to 2900 long side)
+photo - 119 - image126.jpeg 428x286
+photo - 120 - image123.JPG 3240x4320 (scaled to 2900 long side)
+photo - 121 - image122.JPG 2648x2670
+photo - 122 - image125.jpg 1200x1600
+photo - 123 - image124.jpg 4320x2564 (scaled to 2900 long side)
+photo - 124 - image131.jpeg 4032x3024 (scaled to 2900 long side)
+photo - 125 - image129.JPG 3627x2883 (scaled to 2900 long side)
+photo - 126 - image128.JPG 3256x3000 (scaled to 2900 long side)
+photo - 127 - image127.jpg 4096x3072 (scaled to 2900 long side)
+photo - 128 - image130.jpg 2909x1854 (scaled to 2900 long side)
+photo - 129 - image134.jpeg 260x346
+photo - 130 - image133.jpeg 381x286
+photo - 131 - image132.JPG 3066x3668 (scaled to 2900 long side)
+photo - 132 - image137.JPG 3464x4618 (scaled to 2900 long side)
+photo - 133 - image136.jpg 4096x3072 (scaled to 2900 long side)
+photo - 134 - image135.JPG 2669x3921 (scaled to 2900 long side)
+photo - 135 - image141.jpeg 335x251
+photo - 136 - image139.jpg 4096x3072 (scaled to 2900 long side)
+photo - 137 - image140.jpeg 335x251
+photo - 138 - image138.jpg 3779x2350 (scaled to 2900 long side)
+photo - 139 - image143.JPG 2048x1536
+photo - 140 - image142.JPG 3240x4320 (scaled to 2900 long side)
+photo - 141 - image146.jpg 2160x2880
+photo - 142 - image144.png white background painted the page colour (34% of the picture)
+photo - 142 - image144.png 270x347
+photo - 143 - image145.jpg 2416x3939 (scaled to 2900 long side)
+photo - 144 - image150.jpg 3786x1702 (scaled to 2900 long side)
+photo - 145 - WARNING: image149.jpg has a mostly white edge (100%) - an object on white? If so, name it in MASK_WHITE; a book cover or page keeps its white
+photo - 145 - image149.jpg 2822x3722 (scaled to 2900 long side)
+photo - 146 - image148.jpg white background painted the page colour (38% of the picture)
+photo - 146 - image148.jpg 3324x4302 (scaled to 2900 long side)
+photo - 147 - WARNING: image147.jpg has a mostly white edge (100%) - an object on white? If so, name it in MASK_WHITE; a book cover or page keeps its white
+photo - 147 - image147.jpg 4293x2792 (scaled to 2900 long side)
+photo - 148 - image152.jpg 2048x1536
+photo - 149 - image154.JPG 3664x3275 (scaled to 2900 long side)
+photo - 150 - image151.jpg 3072x4096 (scaled to 2900 long side)
+photo - 151 - image153.jpg 3003x2071 (scaled to 2900 long side)
+photo - 152 - image155.jpg 2000x1474
+photo - 153 - image156.jpg white background painted the page colour (69% of the picture)
+photo - 153 - image156.jpg 1198x895
+photo - 154 - WARNING: image157.jpg has a mostly white edge (100%) - an object on white? If so, name it in MASK_WHITE; a book cover or page keeps its white
+photo - 154 - image157.jpg 1348x1928
+photo - 155 - WARNING: image158.jpg has a mostly white edge (78%) - an object on white? If so, name it in MASK_WHITE; a book cover or page keeps its white
+photo - 155 - image158.jpg 1790x1516
+photo - 156 - WARNING: image159.jpg has a mostly white edge (100%) - an object on white? If so, name it in MASK_WHITE; a book cover or page keeps its white
+photo - 156 - image159.jpg 2000x1650
+photo - 157 - image162.jpg 700x350
+photo - 158 - image161.jpg 700x350
+photo - 159 - image160.jpg 700x350
+photo - 160 - image165.jpg 700x350
+photo - 161 - image164.jpg 700x350
+photo - 162 - image163.jpg 700x350
+photo - 163 - image166.png white background painted the page colour (85% of the picture)
+photo - 163 - image166.png 194x154
+text - Montessori circle time is a daily gathering where children come togeth - Montessori circle time is a daily gathering where children come togeth
+text - After spending 18 months practicing with a wide variety of Practical L - After spending 18 months practising with a wide variety of Practical L
+text - So one of the foundational principles of the Montessori approach is to - So one of the foundational principles of the Montessori approach is to
+text - Writing emerged independently in multiple ancient civilizations, begin - Writing emerged independently in multiple ancient civilisations, begin
+text - I’ve adopted many of those presentations in these albums, as well as o - I’ve adopted many of those presentations in these albums, as well as o
+text - L.M.A. – Pink Object Box - L.M.A. - Pink Object Box
+text - L.M.A. – Pink Picture Box - L.M.A. - Pink Picture Box
+text - L.M.A. – Blue Object Box - L.M.A. - Blue Object Box
+text - L.M.A. – Blue Picture Box - L.M.A. - Blue Picture Box
+text - I’ve been working as a Montessori guide for almost two decades, and ev - I’ve been working as a Montessori guide for almost two decades, and ev
+text - read or write. Oh, the joy of low expectations from her parent group.  - read or write. Oh, the joy of low expectations from her parent group. 
+text - The Montessori Grammar Symbols are a set of colorful, geometric shapes - The Montessori Grammar Symbols are a set of colourful, geometric shape
+text - Reading penetrates directly the level of culture, because these exerci - Reading penetrates directly the level of culture, because these exerci
+text - By breaking down sentences into their logical components (e.g., subjec - By breaking down sentences into their logical components (e.g., subjec
+text - changed by the user (1 found) - to practice copying -> to practise copying
+text - changed by the user (1 found) - to practice reading -> to practise reading
+text - changed by the user (1 found) - to practice colouring -> to practise colouring
+text - changed by the user (1 found) - Practice left to right -> Practise left to right
+text - changed by the user (1 found) - the sound .... -> the sound ....
+text - changed by the user (1 found) - so they game doesn -> so the game doesn
+text - changed by the user (1 found) - almost a quarter an hour -> almost a quarter of an hour
+text - changed by the user (1 found) - a sense of the how extensive -> a sense of how extensive
+text - changed by the user (1 found) - and help child learn -> and help the child learn
+text - changed by the user (1 found) - gaining an understanding the perspective -> gaining an understanding of the perspective
+text - changed by the user (1 found) - circle time instills -> circle time instils
+text - changed by the user (1 found) - so they unconsciously they absorb -> so they unconsciously absorb
+text - changed by the user (2 found) - with the title’s ‘ -> with the titles ‘
+text - line break allowed after a slash - 14 places
+settings - Word's own contents list taken off the page (it is the contents box) - 7 lines
+settings - WARNING: heading not found in Word (kept as built) - Letter Bingo: learning ␉␉␉␉␉Letter Bingo: teaching
+settings - WARNING: heading not found in Word (kept as built) - Art/Drawing/Colouring
+settings - WARNING: heading not found in Word (kept as built) - Series 1␉␉Subject and Verb
+settings - WARNING: heading not found in Word (kept as built) - Series 2␉␉Subject, Verb, Object
+settings - headings as Word (black = an ordinary line; others their Word colour) - {'line': 8, 'mm-hc-0432FF': 26, 'mm-hc-00B050': 5, 'mm-hc-EE0000': 24}
+settings - whole lines in Word pink / green coloured - 7
+settings - headings centred as Word - 2
+settings - contents entry and red heading - Spoken Language
+settings - contents entry and red heading - Writing - Abstract
+settings - contents entry and red heading - Keys to Literacy
+settings - contents entry and red heading - Writing - Concrete
+settings - contents entry and red heading - Reading
+settings - contents entry and red heading - Grammar
+settings - heading made a line, as the PDF - Series 1 #0
+settings - heading made a line, as the PDF - Series 2 #0
+settings - Letter Bingo: each caption over its two images (one pair under the other; the template has no side-by-side captioned groups)
+settings - Pinning: side image and its paragraph as one set
+settings - p19: each label over its image, as the PDF
+settings - image1 (046) also beside the p2 text, as Word
+settings - the teacher-with-children image (133) also in the Early Readers row, 4th of 5, as Word
+settings - Grapheme as a label line, as Phoneme
+settings - Symbol Box list as Word (indent, one value column) - Circles
+settings - Symbol Box list as Word (indent, one value column) - Arrows
+settings - Symbol Box list as Word (indent, one value column) - Circles
+settings - Symbol Box list as Word (indent, one value column) - Triangles
+settings - Symbol Box list as Word (indent, one value column) - Arrows
+settings - second line under a label line at the text column - Cards of a contrasting colour with the t
+settings - second line under a label line at the text column - Cards of a contrasting colour with the t
+settings - PDF together/apart gaps set (T=20, A=29): 322; not found: 0
+settings - Word's trailing tabs at line ends dropped - 1
+settings - Word paragraph 60 "Keys to Literacy" put back in the AMI list - 1
+settings - blank space before the list titles Keys to Literacy and Function of Words, as the PDF p2 - 2
+settings - beige line moved from the top of the essay to before "Keys to Literacy" - 1
+settings - PDF columns in the template's column style (mm-wcols2 / mm-cols3) - 15 regions; not placed: 
+settings - apart gap on the first block after a Word-column grid (Word blank line) - 10
+settings - Word Study images: one float, one under another at the right - 2
+settings - Letter Bingo: one row of four under its two captions (template mm-twocap) - 1
+settings - captions from Word's text boxes under their images - 3
+settings - Grammar image and its first paragraph as one captioned set (caption above) - 1
+settings - tab at the start of an attribution dropped (PDF p4) - 1
+settings - gap figure dropped on a line after Word's grey line - 1
+settings - gap figure dropped on a heading after Word's grey line with text above the line - 2
+settings - PDF p18 Pink list: every line the same gap, as the PDF - 2
+settings - Reading Analysis a.-e. indented 48 px as Word - 8
+settings - Object Box sequence indented as Word (mm-ind104) - 1
+settings - apart gap where Word keeps its default 6 pt after and the PDF shows 1.33-1.49 lines (Object Box sequence, two quotations) - 9
+settings - apart gap on 4 lines the PDF shows apart (review b31 faults 4-5) - 4
+settings - PDF p2 list titles Writing Stages, Word Study, Reading Analysis as lines like the other titles (review b31 fault 1) - 3
+settings - image moved after the beige line before it (review b31 fault 6) - 1
+settings - together gap on two "Follow ..." lines (PDF 1.25 lines, read as together) - 2
+settings - duplicate section id "grammar" removed from the opening section - 1
+settings - images 052 and 112 level with the first line of their text - 2
+settings - inline counter-reset dropped from continuing lists (the template reads start) - 4
+settings - leading tabs in quotations dropped - 3
+settings - reading sequence: one set, six images in two rows of three beside it - 1
+code - Essay template: the build's colour and label marks as the template's own (colour classes, tab stop) - 84 places
+code - the build's own labels the template never reads left out - 489 places
+menu - live menu from /home/claude/eng35/live/picture-books/index.html - own entry marked: 0 | prepared env link: 1
+faces - upload zip allowed - final sheet checked by a separate agent - round2.html 05 Nov 2026 10:00:43 Asia/Shanghai
+originals - unblurred originals, numbered as on the page - build-35/b40/the-english-curriculum-originals.zip (163 photos)
+TEXT DIFFERENCES (Word -> page): 41
+   ('delete', 'Spoken Language Writing - Abstract Keys to Literacy Writing - Concrete Reading Stages Grammar', '')
+   ('replace', 'characterized', 'characterised')
+   ('replace', 'me / choose', 'me/choose')
+   ('replace', 'want / had', 'want/had')
+   ('replace', 'because… / I', 'because…/I')
+   ('replace', 'because… / I', 'because…/I')
+   ('insert', '', '-')
+   ('replace', 'learning Letter', 'learningLetter')
+   ('replace', 'writ·\u200bing', 'writ·ing')
+   ('insert', '', '-')
+   ('insert', '', '-')
+   ('insert', '', '-')
+   ('replace', 'practicing', 'practising')
+   ('insert', '', '-')
+   ('insert', '', '-')
+   ('replace', 'Art / Drawing / Colouring', 'Art/Drawing/Colouring')
+   ('insert', '', '-')
+   ('replace', 'practicing', 'practising')
+   ('insert', '', '-')
+   ('insert', '', '-')
+   ('insert', '', '-')
+   ('replace', 'civilizations,', 'civilisations,')
+   ('replace', 'civilization', 'civilisation')
+   ('replace', 'practicing', 'practising')
+   ('insert', '', '-')
+   ('replace', '–', '-')
+   ('replace', '–', '-')
+   ('replace', '–', '-')
+   ('replace', '–', '-')
+   ('insert', '', 'Run Hug')
+   ('replace', 'Words（aka', 'Words (aka')
+   ('replace', 'recognize', 'recognise')
+   ('insert', '', 'Maria Montessori, 1950, Perugia.')
+   ('insert', '', '-')
+   ('insert', '', '-')
+   ('replace', 'tyrannize', 'tyrannise')
+   ('replace', 'colorful,', 'colourful,')
+   ('replace', 'memorizing', 'memorising')
+   ('replace', '—', '-')
+   ('replace', 'organizing', 'organising')
+   ('replace', 'language / bilingualism-', 'language/bilingualism-')
+preview: build-35/b40/preview
+zip: build-35/b40/the-english-curriculum.zip

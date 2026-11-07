@@ -1,0 +1,9 @@
+start 15:12:13  package sha256 303e01d4928b2e63
+122 widths: RESULT: every width ok  [PASS]
+height: width 390: the-english-curriculum {"1s": 51593, "4s": 51587, "scrolled": 51587, "largest margin": [46, "P.mm-gl "]}  [FAULT: width 390: the-english-curriculum {"1s": 51593, "4s": 51587, "scrolled": 51587, "largest margin": [46, "P.mm-gl "]}]
+STOPPED at height 15:21:44: FAULT: width 390: the-english-curriculum {"1s": 51593, "4s": 51587, "scrolled": 51587, "largest margin": [46, "P.mm-gl "]}
+122 widths: RESULT: every width ok  [PASS]
+height: width 390: the-english-curriculum {"1s": 51593, "4s": 51587, "scrolled": 51587, "largest margin": [46, "P.mm-gl "]}  [PASS]
+lines through text: width 1440: lines 8 text boxes 1000 line-through-text 0  [PASS]
+placement: PLACE FAULT (11)  [FAULT: PLACE FAULT (11)]
+STOPPED at placement 15:50:18: FAULT: PLACE FAULT (11)

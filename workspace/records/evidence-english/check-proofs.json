@@ -1,0 +1,718 @@
+{
+ "A": {
+  "code": "a4cd151991ebecff6dad5fa225f99647864298485e5d2af6270ddac7907ab1e2",
+  "page": "5.4",
+  "fault_put_in": "two photo files swapped",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/A",
+  "caught": [
+   "photo 2 is not Word's image2.JPG (difference 1.50)",
+   "photo 3 is not Word's image3.JPG (difference 1.50)",
+   "photos not in the PDF order: page shows PDF pictures [1, 3, 2, 4, 5]"
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "C": {
+  "code": "9ea88ae82814e5b6b8738d73767fdb7f37800f65c42240ac707f778e3b04f7df",
+  "page": "5.4",
+  "fault_put_in": "the first italic word made upright",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-nvc31afs/C",
+  "caught": [
+   "italic lost: \"are\" (in \"...tial,butiftherearenewmembersofthe...\")"
+  ],
+  "at": "2026-10-21T13:35:19"
+ },
+ "D": {
+  "code": "99f617f2703d1895112bd4ea2ccdad86eb8bdbcdb5d83fe4ef1bc5d29bc0dbe5",
+  "page": "5.1",
+  "fault_put_in": "the first beige line removed",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-xxejzrn8/D",
+  "caught": [
+   "page has 1 beige lines, PDF 2",
+   "line 1: page puts it before \"Here is an alternative list of ques\", PDF before \"In order for us to get to know a li\""
+  ],
+  "at": "2026-10-21T14:21:05"
+ },
+ "G": {
+  "code": "91abae7de028632abe6520a23510c51e68afd80ba235b282c79090ad2515b801",
+  "page": "5.4",
+  "fault_put_in": "a 154 px gap put in the middle of a line",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/G",
+  "caught": [
+   "154px gap mid-line: \"Materials Readiness\u00a0Inventory, repair, c\""
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "H": {
+  "code": "6e54476059bdd3e6a22551e1681d1e25bc26201f0d821845ccabbe7b506e66b4",
+  "page": "5.4",
+  "fault_put_in": "the report shows a misspelt word",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-f792ph0_/H",
+  "caught": [
+   "replace: \"consumables\" -> \"consumabels\""
+  ],
+  "at": "2026-10-21T14:20:25"
+ },
+ "H2": {
+  "code": "9e80d7b56f9ce6d2ca801b58779170ed2c6437f44b9341f99f9de0968453b67d",
+  "page": "5.2",
+  "fault_put_in": "a word misspelt on the page",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-tizrrub_/H2",
+  "caught": [
+   "insert: Word \"\" -> page \"o\" (in \"...ssoriSchool,Saskatooon,Canada.MariaMontes...\")"
+  ],
+  "at": "2026-10-21T12:26:27"
+ },
+ "K": {
+  "code": "2af00beb988e871285fa36810d3346e4dea98be36b28e5ada69b7232bc29fdb5",
+  "page": "5.4",
+  "fault_put_in": "list text moved off Word's indent",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-f9vgh3y7/K",
+  "caught": [
+   "\"Who\u2019ll be managing the class?This i\": page marker 0.0, text 60.0; Word 0.0, 28.4",
+   "\"Guide the children,\": page marker 75.6, text 60.0; Word 75.6, 96.0",
+   "\"Who\u2019ll be giving presentations?Most\": page marker 0.0, text 60.0; Word 0.0, 28.4"
+  ],
+  "at": "2026-10-21T15:05:36"
+ },
+ "P": {
+  "code": "abb7f636d15a9320e5748473f6aee0959409ca5720f59a7cc523da0d3c69c396",
+  "page": "5.4",
+  "fault_put_in": "photos moved 25 px down",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/P",
+  "caught": [
+   "1280: image2.JPG (centred on \"others using the same steps\", beside \"Many children are already fami\") off by 25.0px"
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "S": {
+  "code": "795a027e905f7171cd9468f2f181b6b2584112236514925290d1474176855beb",
+  "page": "5.4",
+  "fault_put_in": "the breaks after slashes removed",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/S",
+  "caught": [
+   "no break after \"/\" in \" - marking materials/snack/folders/toothb\"",
+   "no break after \"/\" in \"king materials/snack/folders/toothbrushes\"",
+   "no break after \"/\" in \"erials/snack/folders/toothbrushes/cups fo\""
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "T": {
+  "code": "23b6a7d42ff62c6b73277d155746315f0ed05d111103981b277b21ba2e1ef8a9",
+  "page": "5.4",
+  "fault_put_in": "the space after the labels made an ordinary trailing space",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/T",
+  "caught": [
+   "no space kept after \"Classroom Flow \"",
+   "no space kept after \"Order and Aesthetics \"",
+   "no space kept after \"Materials Readiness \""
+  ],
+  "at": "2026-10-21T11:43:01"
+ },
+ "B": {
+  "code": "46382cf1900d6ac5e8d5e63389982c912cfadf42457ff557c552181e5deb96ef",
+  "page": "5.4",
+  "fault_put_in": "the first heading recoloured red",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-i5g4__4v/B",
+  "caught": [
+   "\"Introduction\" is rgb(255, 0, 0), Word #0432FF"
+  ],
+  "at": "2026-10-21T11:48:41"
+ },
+ "E": {
+  "code": "49db80755cc8506827a5fb53912ebde731cc3a63703aad336b2a57b5565f06bc",
+  "page": "5.4",
+  "fault_put_in": "photos pushed 300 px left, over the text",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-i5g4__4v/E",
+  "caught": [
+   "1280: text over photo: \"toothbrushes/\"",
+   "1280: text over photo: \"cups for water.\"",
+   "1280: text over photo: \"There are more than 10 of puzz\""
+  ],
+  "at": "2026-10-21T11:48:41"
+ },
+ "F": {
+  "code": "d25ee09d4c1204c3706760e1e2321b8e4e4ef1f12c89355ed77e09fe458d0d27",
+  "page": "5.4",
+  "fault_put_in": "the a) b) c) list drawn as 1. 2. 3.",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-wbtn89qk/F",
+  "caught": [
+   "\"Guide the children,\": page 1., PDF i",
+   "\"Anticipate issues and head them off\": page 2., PDF ii",
+   "\"Less talk, more action.\": page 3., PDF iii"
+  ],
+  "at": "2026-10-21T11:54:31"
+ },
+ "PAGE": {
+  "code": "a59aa742181402551051b13ac7f3ec7c955d0f5f20110e57b5271026d3bc1263",
+  "page": "5.1",
+  "fault_put_in": "the footer script set to 60 on phones (the photo 20 px further from the band)",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-ek9uu673/PAGE",
+  "caught": [
+   "390  errors:none  sideways:False  hero gap 41.0  lines [...]  footer gap 60.0 <<  strip 133.5  not justified:0  photos not loaded:0"
+  ],
+  "at": "2026-10-21T14:00:50"
+ },
+ "J": {
+  "code": "5fb50b373530a7bb4ddbfa919c07620ed96ffd6c064729dcf5d27abbc5871b72",
+  "page": "5.2",
+  "fault_put_in": "every PDF badge moved 30 px right (column no longer 24 after the longest)",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-d0oz8xfz/J",
+  "caught": [
+   "390: badge on its own line 30px in from the margin: \"International Montessori Schoo\"",
+   "390: badge on its own line 30px in from the margin: \"Brilliant Star Montessori Scho\"",
+   "390: badge on its own line 30px in from the margin: \"Cornerstone Montessori, Britis\""
+  ],
+  "at": "2026-10-21T12:27:11"
+ },
+ "I": {
+  "code": "30054c86a8fa7f5beeb58bbe76ccf74d49ca90d4708c492edf7ccca32e162122",
+  "page": "5.1",
+  "fault_put_in": "the run of spaces after \"Shortlist:\" made one space",
+  "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-ubz9xqyv/I",
+  "caught": [
+   "gap lost after \"Shortlist:\""
+  ],
+  "at": "2026-10-21T14:00:03"
+ },
+ "eng-5nov-static_code": {
+  "code": "d455acc11233904d9a0d2f5a9ef2c3dc3a7afced8c020a086d469bba7139c885",
+  "page": "3.5.0",
+  "fault_put_in": "an e-mail address (info@example.com) added to the page footer (row A017)",
+  "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/static_code/broken.zip",
+  "caught": [
+   "FAULT A017 footer text differs from the template: page \"\u00a9 2026 Montessori Mentor info@example.com Back to top\", template \"\u00a9 2026 Montessori Mentor Back to top\"",
+   "FAULT A017 e-mail address in the footer: \"info@example.com\"",
+   "STATIC FAULT (2)"
+  ],
+  "at": "2026-11-05T22:53:46",
+  "script": "/home/claude/mm/tools/static_code.py",
+  "clean_copy": "/home/claude/eng35/checks-plan/proofs-5nov/static_code/clean.zip",
+  "clean_result": "STATIC PASS (exit 0)",
+  "source": "/home/claude/mm/build-35/b23/the-english-curriculum.zip (test build 23) and its preview folder; outputs in /home/claude/eng35/checks-plan/proofs-5nov/static_code"
+ },
+ "eng-5nov-strip_compare_nolive": {
+  "code": "4829f3276906fa4734ce77f05c9f55a30ad99e87facca10f5e74cfeba548311e",
+  "page": "3.5.0",
+  "fault_put_in": "the copy-protection script <script id=\"mm-protect-js\"> removed from the page",
+  "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/strip_compare_nolive/broken.zip",
+  "caught": [
+   "== 2. COPY PROTECTION: FAULT: style 1, script 0, in place False",
+   "== RESULT: NOT ACCEPTABLE"
+  ],
+  "at": "2026-11-05T22:54:09",
+  "script": "/home/claude/mm/tools/v8/strip_compare_nolive.py",
+  "clean_copy": "/home/claude/eng35/checks-plan/proofs-5nov/strip_compare_nolive/clean.zip",
+  "clean_result": "parts 1-4 and 8 OK; == RESULT: ALL CHECKS OK (exit 0; the script exits 0 either way, its RESULT line is the verdict)",
+  "source": "/home/claude/mm/build-35/b23/the-english-curriculum.zip (test build 23) and its preview folder; outputs in /home/claude/eng35/checks-plan/proofs-5nov/strip_compare_nolive"
+ },
+ "eng-5nov-text_rules": {
+  "code": "f78c03a305236bcf2fe1921248158e25e13f7ec9886b30c1fdb570f4ee50f2df",
+  "page": "3.5.0",
+  "fault_put_in": "an en dash put into a paragraph (\"AMI training \u2013 I created Albums\") (row A005)",
+  "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/text_rules/broken",
+  "caught": [
+   "FAULT A005 long dash (en dash, U+2013) in main p: When I did my AMI training [\u2013] I created Albums of presentations and exclus...",
+   "TEXT FAULT (1)"
+  ],
+  "at": "2026-11-05T22:55:00",
+  "script": "/home/claude/mm/tools/text_rules.py",
+  "clean_copy": "/home/claude/eng35/checks-plan/proofs-5nov/text_rules/clean",
+  "clean_result": "TEXT PASS (exit 0)",
+  "source": "/home/claude/mm/build-35/b23/the-english-curriculum.zip (test build 23) and its preview folder; outputs in /home/claude/eng35/checks-plan/proofs-5nov/text_rules"
+ },
+ "eng-5nov-wrap_sweep": {
+  "code": "fb8fc14175ab7c5b64e1eff69adc5291726bedec4f230e196af871bd2858ab68",
+  "page": "3.5.0",
+  "fault_put_in": "text-indent:40px on one list item (\"What I\u2019ve described above...\") so its wrapped lines do not hang under its first line (row E043, HANG); widths 320-1920 step 50",
+  "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/wrap_sweep/broken",
+  "caught": [
+   "HANG  320 ... 1920  What I\u2019ve described above is very different to the  (-40) - at all 33 widths",
+   "WRAP FAULT (34) (the 33 HANG lines plus the clean copy's known MARKER line)"
+  ],
+  "at": "2026-11-05T22:59:05",
+  "script": "/home/claude/mm/tools/wrap_sweep.py",
+  "clean_copy": "/home/claude/eng35/checks-plan/proofs-5nov/wrap_sweep/clean",
+  "clean_result": "WRAP FAULT (1), exit 1: only the known fault \"MARKER  Word not a list item, page ol: Sandpaper Letters\" (also in /home/claude/eng35/checks-plan/wrap-b7.txt)",
+  "source": "/home/claude/mm/build-35/b23/the-english-curriculum.zip (test build 23) and its preview folder; outputs in /home/claude/eng35/checks-plan/proofs-5nov/wrap_sweep"
+ },
+ "eng-5nov-lines_v2": {
+  "code": "87dced8ba5839c51ab43ed757c4649fbabbb4dd91290c053a620628c9d6732fe",
+  "page": "3.5.0",
+  "fault_put_in": "a 2px black line (absolute span with border-top) drawn across the middle of one list item (\"What I\u2019ve described above...\")",
+  "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/lines_v2/broken.zip",
+  "caught": [
+   "width 390: line-through-text 1 - CROSS SPAN. top y=15226 | 'What I\u2019ve described above is very different to the'",
+   "width 830: line-through-text 1 - CROSS SPAN. top y=11765 | same text",
+   "width 1440: 0 (the line falls between two text lines at that width)"
+  ],
+  "at": "2026-11-05T23:10:40",
+  "script": "/home/claude/mm/tools/lines_v2.py",
+  "clean_copy": "/home/claude/eng35/checks-plan/proofs-5nov/lines_v2/clean.zip",
+  "clean_result": "widths 390, 830, 1440: line-through-text 0 at each (the script exits 0 either way; its count is the verdict)",
+  "source": "/home/claude/mm/build-35/b23/the-english-curriculum.zip (test build 23) and its preview folder; outputs in /home/claude/eng35/checks-plan/proofs-5nov/lines_v2"
+ },
+ "eng-5nov-place_check": {
+  "code": "76dab971f9498e53960940bc9286d7ab2cad94edad60862e10b0dfa31c5bfb7b",
+  "page": "3.5.0",
+  "fault_put_in": "margin-right:-40px on the floated image 003's mm-float, so the image runs 40 px past the text column (COLUMN)",
+  "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/place_check/broken.zip",
+  "caught": [
+   "320 COLUMN fault: ['003-480.jpg', 24, 330, 24, 296]",
+   "831/900/1024/1100/1280/1440/1920 COLUMN fault: 003-480.jpg 40 px past the column right edge",
+   "PLACE FAULT (8)"
+  ],
+  "at": "2026-11-05T23:28:27",
+  "script": "/home/claude/mm/tools/v8/place_check.py",
+  "clean_copy": "/home/claude/eng35/checks-plan/proofs-5nov/place_check/clean.zip",
+  "clean_result": "PLACE OK (exit 0), 18 widths",
+  "source": "/home/claude/mm/build-35/b23/the-english-curriculum.zip (test build 23) and its preview folder; outputs in /home/claude/eng35/checks-plan/proofs-5nov/place_check"
+ },
+ "eng-5nov-speed_check": {
+  "code": "e93c0db40eb47741af1476e321ad7734a5a97e0d2692d68cfd3bcc667c0044d3",
+  "page": "3.5.0",
+  "fault_put_in": "a 150 ms busy loop run on every scroll event (script added before </body>)",
+  "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/speed_check/broken.zip",
+  "caught": [
+   "1440 FAULT longest busy stretch 173 ms (limit 50), busy stretches 40, total 6261 ms",
+   "390 FAULT longest busy stretch 172 ms (limit 50), busy stretches 74, total 11437 ms",
+   "SPEED FAULT"
+  ],
+  "at": "2026-11-05T23:47:29",
+  "script": "/home/claude/montessori-mentor-templates/handover-2026-10-29-evening/tools-v5-fixA-200/speed_check.py",
+  "clean_copy": "/home/claude/eng35/checks-plan/proofs-5nov/speed_check/clean.zip",
+  "clean_result": "SPEED OK (exit 0): no busy stretch, clicks 0.79-0.85 s at 1440 and 390",
+  "source": "/home/claude/mm/build-35/b23/the-english-curriculum.zip (test build 23) and its preview folder; outputs in /home/claude/eng35/checks-plan/proofs-5nov/speed_check"
+ },
+ "eng-5nov-visual_check": {
+  "code": "3891e85389d21983836ee0c277aacb9b991fd88eb097446c6749f1057c1856a4",
+  "page": "3.5.0",
+  "fault_put_in": "image 003 forced to 260 px tall (inline height:260px !important on its img) - over the 200 px limit",
+  "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/visual_check/broken.zip",
+  "caught": [
+   "700 FAULT oversized images 1 ['images/003-480.jpg 306x260']",
+   "1024 FAULT oversized images 1 ['images/003-480.jpg 204x260']",
+   "1440 FAULT oversized images 1 ['images/003-480.jpg 204x260']",
+   "RESULT: FAULTS - see the lines marked FAULT"
+  ],
+  "at": "2026-11-05T23:49:30",
+  "script": "/home/claude/montessori-mentor-templates/handover-2026-10-29-evening/tools-v5-fixA-200/visual_check.py",
+  "clean_copy": "/home/claude/eng35/checks-plan/proofs-5nov/visual_check/clean.zip",
+  "clean_result": "RESULT: every width ok at 390, 700, 1024, 1440 (widths given as the 2nd argument; the script exits 0 either way)",
+  "source": "/home/claude/mm/build-35/b23/the-english-curriculum.zip (test build 23) and its preview folder; outputs in /home/claude/eng35/checks-plan/proofs-5nov/visual_check"
+ },
+ "eng-6nov-images_behaviour": {
+  "code": "c883bbb146bf2d30d7b0a4a9511600853c90af6f668b5f2fea4760cddbb8c863",
+  "page": "3.5.0",
+  "fault_put_in": "A035: the wrapped six-image group under \"Reading\" set to justify-content:flex-start (and, second copy, moved 5 px right)",
+  "broken_copy": "/home/claude/eng35/checkfix/proofs/a035-planted",
+  "caught": [
+   "FAULT 641 A035: set-col 3 (129.jpg, under \"Reading\") fits the screen but is not centred: 0.0 px space on the left, 55.0 on the right",
+   "FAULT 768 A035: set-col 3 (129.jpg, under \"Reading\") fits the screen but is not centred: 0.0 px space on the left, 55.0 on the right",
+   "FAULT 830 A035: set-col 3 (129.jpg, under \"Reading\") fits the screen but is not centred: 0.0 px space on the left, 55.0 on the right",
+   "IMAGES FAULT (3)"
+  ],
+  "at": "2026-11-06T00:20:40",
+  "script": "tools/images_behaviour.py",
+  "source": "/home/claude/eng35/checkfix/README.md (agent proofs 5 Nov 22:3x-00:0x; script copied into tools 6 Nov 00:2x after the owner's 00:19 agreement)"
+ },
+ "eng-6nov-col_check": {
+  "code": "285485b93a93eb1985676bb5f9861534ed92c402914db52302d43eeceb0da05a",
+  "page": "3.5.0",
+  "fault_put_in": "the two Handwriting lists (Chalkboard ... | Crayons ...) stacked in one column; second copy: an item's words changed",
+  "broken_copy": "/home/claude/eng35/checkfix/proofs/col-planted",
+  "caught": [
+   "COLUMN FAULT  PDF p15 y75: Chalkboard | Crayons  (page tops [17930, 18063], lefts [198, 198]; first column spans 17900-18055)",
+   "COLUMN FAULT  PDF p15 y93: Chalk | Scissors  (page tops [17930, 18095], lefts [198, 198]; first column spans 17900-18055)",
+   "COLUMN FAULT  PDF p15 y111: Pencils: coloured and lead (tr | Paper: different thicknesses a  (page tops [17994, 18127], lefts [198, 198]; first column spans 17900-18055)",
+   "COLUMN FAULT  PDF p15 y129: Sharpener and eraser | Glue  (page tops [18026, 18159], lefts [198, 198]; first column spans 17900-18055)",
+   "COLUMNS FAULT (4)"
+  ],
+  "at": "2026-11-06T00:20:40",
+  "script": "tools/col_check.py",
+  "source": "/home/claude/eng35/checkfix/README.md (agent proofs 5 Nov 22:3x-00:0x; script copied into tools 6 Nov 00:2x after the owner's 00:19 agreement)"
+ },
+ "eng-6nov-style_rules": {
+  "code": "ff95d3dd430dd075d4f8c549bc71b9d63bb05d56182982b7c8a766710b159d1e",
+  "page": "3.5.0",
+  "fault_put_in": "two beige lines removed and one body paragraph set text-align:left",
+  "broken_copy": "/home/claude/eng35/checkfix/proofs/style-planted",
+  "caught": [
+   "FAULT D066/E054 1920 section.section \"Preparation of the mindDevelop will and \" margin-top written by 2 scripts: script (no id, #0, line 800) ('0px'); script#mm-letter-gaps-js ('-6.00px') vs one script",
+   "FAULT D066/E054 1920 ul \"Develop will and concentrationComplete a\" margin-top written by 2 scripts: script (no id, #0, line 800) ('0px'); script#mm-letter-gaps-js ('-5.02px', '-8.55px') vs one script",
+   "FAULT D066/E054 1920 ul \"Coordinate movement of the bodyCoordinat\" margin-top written by 2 scripts: script (no id, #0, line 800) ('0px'); script#mm-letter-gaps-js ('-4.52px', '-8.55px') vs one script",
+   "FAULT D066/E054 1920 section.section \"Writing StagesMetal InsetsMaterials for \" margin-top written by 2 scripts: script (no id, #0, line 800) ('0px'); script#mm-letter-gaps-js ('0.75px') vs one script",
+   "FAULT E051 all template block <style mm-fix3-5nov> missing from the page vs present in the template",
+   "STYLE FAULT (4388)"
+  ],
+  "at": "2026-11-06T00:20:40",
+  "script": "tools/style_rules.py",
+  "source": "/home/claude/eng35/checkfix/README.md (agent proofs 5 Nov 22:3x-00:0x; script copied into tools 6 Nov 00:2x after the owner's 00:19 agreement)"
+ },
+ "eng-6nov-format_check_word": {
+  "code": "9b0f6489f1af268387217d57c2e6dc63305f37ca5c0797c6b09251879e160c8a",
+  "page": "3.5.0",
+  "fault_put_in": "bold \"Albums\", \"presentations\" -> \"presentation\", italic \"exclusively\", upright \"Run\" caption",
+  "broken_copy": "/home/claude/eng35/checkfix/proofs/fmt-planted",
+  "caught": [
+   "RESULT: 80 differences (words and italic/bold/underline); 40 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules"
+  ],
+  "at": "2026-11-06T00:20:40",
+  "script": "tools/v8/format_check_word.py",
+  "source": "/home/claude/eng35/checkfix/README.md (agent proofs 5 Nov 22:3x-00:0x; script copied into tools 6 Nov 00:2x after the owner's 00:19 agreement)"
+ },
+ "eng-6nov-style_rules-box": {
+  "code": "a466f258860a51c048d0de496d2f61dcc276e9bbd93a64067e41b03a01c1b85a",
+  "page": "3.5.0",
+  "fault_put_in": "the boxed link (\"\u02c8r\u012b-ti\u014b\") border set beige instead of Word's 97BECE",
+  "broken_copy": "/home/claude/eng35/checkfix2/planted",
+  "caught": [
+   "44 \"box border\" FAULT lines (11 widths x 4 sides) in /home/claude/eng35/checkfix2/planted.txt"
+  ],
+  "clean_result": "build 24: 0 faults other than D066/E054 (/home/claude/eng35/checkfix2/clean.txt)",
+  "at": "2026-11-06T03:07:05",
+  "script": "tools/style_rules.py"
+ },
+ "eng-6nov-wrap_sweep": {
+  "code": "71993bfeb539fd1eb1e9500b969c933aca686019259e2aa70428543afccdad49",
+  "page": "3.5.0",
+  "fault_put_in": "the I-Spy list (Word numbered) made a dash list; second copy plain paragraphs",
+  "broken_copy": "/home/claude/eng35/checkfix3/planted-ul and planted-p",
+  "caught": [
+   "WRAP FAULT (4) on each (out-fixed-planted-ul.txt, out-fixed-planted-p.txt)"
+  ],
+  "clean_result": "build 24 MARKER: WRAP PASS (out-fixed-b24.txt)",
+  "at": "2026-11-06T03:07:05",
+  "script": "tools/wrap_sweep.py"
+ },
+ "eng-6nov-tablet_check": {
+  "code": "fc7f1b46312272fc9cf20ae83a7f5e7f9c1a538341345acced3462c3b18d1723",
+  "page": "3.5.0",
+  "fault_put_in": "build 25 (template before the 6 Nov 06:3x fix: columns staircased, images beside text not beside, captions cut off at 641-830 - the b25 review's faults 9-11)",
+  "broken_copy": "/home/claude/eng35/tab-b25 (unpacked build 25 zip)",
+  "caught": [
+   "TABLET FAULT (198) - /home/claude/eng35/tab-b25.txt"
+  ],
+  "clean_result": "build 28: TABLET PASS (/home/claude/eng35/tab-b28.txt, 74 s)",
+  "at": "2026-11-06T07:24:47",
+  "script": "tools/tablet_check.py"
+ },
+ "eng-6nov-spacecheck": {
+  "code": "c91f2e03a3b50c1ba3994d67fb6598a53e8781d2cda768598cb0930cddd6f102",
+  "page": "3.5.0",
+  "fault_put_in": "pl1: the beige line before 'In the environments I have prepared' removed (the PDF has a divider there); pl2: the Pink list's 'Puzzle Words' gap set together (20) where the PDF has the list apart (1.34 lines)",
+  "broken_copy": "/home/claude/eng35/spacefix/pl1 and pl2 (build 29 copies)",
+  "caught": [
+   "pl1: 1440 234 -> 236 FAULT (the PDF has an image or divider here; the page has none)",
+   "pl2: 1440 581 -> 582 FAULT (apart in the PDF, not clearly apart on the page)"
+  ],
+  "clean_result": "build 29 at 1440/390 (out-new): the 66 wrongly judged lines of class C gone - 238->241 dividers, 581->582, 582->583, 645->646 now judged on PDF figures (1.34, 1.33, 1.33); new real lines appear (615-623 Object Box list apart in the PDF, 725-727, below rule -> heading)",
+  "at": "2026-11-06T08:5x",
+  "script": "tools/spacecheck.py"
+ },
+ "eng-6nov-spacecheck-c456": {
+  "code": "781e6120c8ddc0d4bc4fc9f100300f46afc52d03f8762d0deabeead1876fb1a5",
+  "page": "3.5.0",
+  "fault_put_in": "the same two planted faults as eng-6nov-spacecheck: pl1 (beige line removed) and pl2 (Pink list 'Puzzle Words' gap set together)",
+  "broken_copy": "/home/claude/eng35/spacefix/pl1 and pl2",
+  "caught": [
+   "pl1: 1440 234 -> 236 FAULT (the PDF has an image or divider here; the page has none)",
+   "pl2: 1440 581 -> 582 FAULT (apart in the PDF, not clearly apart on the page)"
+  ],
+  "clean_result": "build 30 at 1440/830/390: 56 faults (previous version 49); removed: Normal paragraphs with Word's default 6 pt after now read as spaced (725-727, 509, 548); added: 260, 523, 619, 683, 685 (PDF line not matched, judged on the 6 pt kind's median) and 610-612 (PDF 1.25-1.26). Word's contextual spacing on List Paragraph read (without it, at the same three widths: 83 fault lines, 33 more than the previous version, mostly list gaps the PDF shows together).",
+  "at": "2026-11-06T09:45:44",
+  "script": "tools/spacecheck.py",
+  "agreement": "owner 6 Nov 09:25 '#3 to #16 ... implement all of them immediately' (#9)"
+ },
+ "eng-6nov-style_rules-e041-float": {
+  "code": "1023ce8ed46baa7bdc8ad0225291fa6124ec8d696f5f32a32122bc3796bf3464",
+  "page": "3.5.0",
+  "fault_put_in": "build 32 copy with the beige line before the Spoken Language shelf image removed (eng35/u32pl)",
+  "broken_copy": "/home/claude/eng35/u32pl",
+  "caught": [
+   "E041 22 lines (2 per width x 11 widths): 'beige line before \"This is a photo of the Spoken Language shelf...\" not found' and 'p.mm-gl count 9 vs 10'"
+  ],
+  "clean_result": "build 32 copy (line, image, paragraph): E041 0 lines (eng35/sfix/out-u32.txt)",
+  "at": "2026-11-06T11:59:42",
+  "script": "tools/style_rules.py",
+  "agreement": "owner 6 Nov 11:59 'yes. i agree'"
+ },
+ "eng-6nov-strip_compare_nolive-pin-fee42911": {
+  "code": "fee429116910e361f006bae14c7c17492cd6950c7d8bc21d9a92c2db5427b2c2",
+  "page": "3.5.0",
+  "fault_put_in": "build 34, made on the template before the 12:15 change (a template block differs from the pinned template)",
+  "broken_copy": "/home/claude/mm/build-35/b34/the-english-curriculum.zip",
+  "caught": [
+   "build 34: == RESULT: NOT ACCEPTABLE (eng35/pin2-b34.txt)"
+  ],
+  "clean_result": "build 35: == RESULT: ALL CHECKS OK (eng35/pin2-b35.txt)",
+  "at": "2026-11-06T12:37:18",
+  "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "eng-6nov-style_rules-cols-left": {
+  "code": "65e258ffba85c7a0c277b10598dc1221f439336334420e62f08b79dfe175a676",
+  "page": "3.5.0",
+  "fault_put_in": "build 34: bulleted lines of Word's two-column lists and the three-column lists still justified (before the 12:15 template change)",
+  "broken_copy": "/home/claude/eng35/u34",
+  "caught": [
+   "440 lines 'text-align justify vs left (a line in Word's column lists ...)' (eng35/style-b34-new.txt)"
+  ],
+  "clean_result": "build 35: STYLE PASS - 0 such lines, only the allowed D066/E054 (build-35/b35/checks2/style.txt)",
+  "at": "2026-11-06T12:37:18",
+  "script": "tools/style_rules.py",
+  "agreement": "owner 6 Nov 12:15"
+ },
+ "eng-6nov-spacecheck-allowlist": {
+  "code": "f65bf2e29c6f82b3564ed6b4b7c8ba0f913fcfa05be205cdd06ee8c99259fe9a",
+  "page": "3.5.0",
+  "fault_put_in": "pl1 (beige line removed, b29 copy) checked with tools/allowed/the-english-curriculum-space.txt in force",
+  "broken_copy": "/home/claude/eng35/spacefix/pl1",
+  "caught": [
+   "pl1 1440 234 -> 236 FAULT (the PDF has an image or divider here; the page has none) - still caught with the allow list"
+  ],
+  "clean_result": "b35 copy at 1440: 627->628 printed AGREED (owner 6 Nov 13:49); 6 faults left (eng35/sp36b35)",
+  "at": "2026-11-06T13:58:12",
+  "script": "tools/spacecheck.py",
+  "agreement": "owner 6 Nov 13:49 'b'"
+ },
+ "eng-6nov-strip_compare_nolive-pin-cfd32f41": {
+  "code": "cfd32f4176cd9bc5dfebd3e9b64d1c8a3eefb9a960fff905c7c4645147d4ffc9",
+  "page": "3.5.0",
+  "fault_put_in": "build 37, made on the template before the image-beside-a-list change",
+  "broken_copy": "/home/claude/mm/build-35/b37/the-english-curriculum.zip",
+  "caught": [
+   "b37: == RESULT: NOT ACCEPTABLE (eng35/pin3-b37.txt)"
+  ],
+  "clean_result": "b38: == RESULT: ALL CHECKS OK (eng35/pin3-b38.txt)",
+  "at": "2026-11-06T16:21:04",
+  "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "eng-6nov-images-d213-under": {
+  "code": "e180c5c6ce14f84f9af68f2cb3e1c8cee1d6754a4ab37d7ad72842ba3a407eb3",
+  "page": "3.5.0",
+  "fault_put_in": "build 38 copy without the template fix: groups under their text at 641-700 px 106-120 px high",
+  "broken_copy": "/home/claude/eng35/u38",
+  "caught": [
+   "6 D213 faults at 641/660/700 (eng35/ibfix/u38.txt)"
+  ],
+  "clean_result": "build 38 copy with the template fix (eng35/t213): 0 faults at 641-830 (eng35/ibfix/t213.txt)",
+  "at": "2026-11-06T17:48:30",
+  "script": "tools/images_behaviour.py",
+  "agreement": "owner 6 Nov 18:0x"
+ },
+ "eng-6nov-strip_compare_nolive-pin-932ce608": {
+  "code": "932ce608b904b206dc8e9613ce739b936dbd44bf0da7e32a1b2d2c44346b1d63",
+  "page": "3.5.0",
+  "fault_put_in": "build 38 (template before the 180 px fix)",
+  "broken_copy": "/home/claude/mm/build-35/b38/the-english-curriculum.zip",
+  "caught": [
+   "b38 NOT ACCEPTABLE (eng35/pin4-b38.txt)"
+  ],
+  "clean_result": "b39 ALL CHECKS OK (eng35/pin4-b39.txt)",
+  "at": "2026-11-06T17:51:34",
+  "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "eng-6nov-strip_compare_nolive-pin-b7bb7774": {
+  "code": "b7bb777459be5c53097177e82544bf4c2bc51ae17d820976822a1c244b8fe68a",
+  "page": "3.5.0",
+  "fault_put_in": "build 39 (template before the dots fix)",
+  "broken_copy": "/home/claude/mm/build-35/b39/the-english-curriculum.zip",
+  "caught": [
+   "b39 NOT ACCEPTABLE (eng35/pin5-b39.txt)"
+  ],
+  "clean_result": "b40 ALL CHECKS OK (eng35/pin5-b40.txt)",
+  "at": "2026-11-06T19:19:43",
+  "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "eng-6nov-gate_files-template-commit-lines-225ed5e6": {
+  "code": "225ed5e6c2c474fca00476fae56166432a392fd9aa16a4f53a7f83f0dc3c21ef",
+  "page": "3.5.0",
+  "script": "tools/gate_files.py",
+  "fault_put_in": "decisions log read with the 'TEMPLATE COMMIT 21432c8' line renamed (planted, in memory only)",
+  "broken_copy": "records/DECISIONS-LOG-3-nov.md with the 21432c8 line hidden",
+  "caught": [
+   "planted: 21432c8 FAULT 'no word-for-word AGREEMENT entry' (row A046/A047/B040/A222/D292)"
+  ],
+  "clean_result": "b40 real log: 16 of 17 template commits agreed; 103647a FAULT (her words name no widths or pages)",
+  "at": "2026-11-06T20:31:24"
+ },
+ "eng-6nov-stable-471452c9": {
+  "code": "471452c984de5e8c4ba610f86b163c5e1f2e4b3a9f5ed3b1754faa045bc57dbd",
+  "page": "3.5.0",
+  "script": "montessori-mentor-templates/handover-2026-10-29-evening/tools-v5-fixA-200/stable.py",
+  "fault_put_in": "b40 copy with a 300 px block added 2 s after load",
+  "broken_copy": "/home/claude/eng35/stp/planted.zip",
+  "caught": [
+   "planted 1440: 1s 27652, 4s 27952 -> round_judge height FAULT (eng35/stp/planted-height.txt)"
+  ],
+  "clean_result": "b40 1440: 1s=4s=scrolled 27652; b40 round height PASS (checks/SUMMARY.txt)",
+  "at": "2026-11-06T20:40:22"
+ },
+ "eng-6nov-gate_files-af004-3b26ca39": {
+  "code": "3b26ca39a04ab65d1385dee700d7390010389905852fd314462599bbf5ec8474",
+  "page": "3.5.0",
+  "script": "tools/gate_files.py",
+  "fault_put_in": "ALLOWED-FAULTS read with AF004 naming another page (in memory only)",
+  "broken_copy": "tools/ALLOWED-FAULTS.txt (AF004 page renamed)",
+  "caught": [
+   "planted: D055/D306 FAULT"
+  ],
+  "clean_result": "b40: D055/D306 PASS (17 commits, AF004)",
+  "at": "2026-11-06T21:07:16"
+ },
+ "eng-6nov-gate_files-b506a678": {
+  "code": "b506a678fa9b9cf53a6d91728ad9793f88441cabd4c49a7e89d715ef37c5683b",
+  "page": "3.5.0",
+  "script": "tools/gate_files.py",
+  "fault_put_in": "AF004 naming another page; the 21432c8 log line renamed (in memory only)",
+  "broken_copy": "tools/ALLOWED-FAULTS.txt, records/DECISIONS-LOG-3-nov.md (renamed in memory)",
+  "caught": [
+   "D055/D306 FAULT; A046 FAULT"
+  ],
+  "clean_result": "b40: D055/D306 PASS; A046 PASS",
+  "at": "2026-11-06T21:08:43"
+ },
+ "eng-7nov-gate_files-8b9a8f35": {
+  "code": "8b9a8f354fb15930047cc3a28f78f6125071784075a1603004b7e65f87c99f8c",
+  "page": "3.5.0",
+  "script": "tools/gate_files.py",
+  "fault_put_in": "see caught",
+  "broken_copy": "-",
+  "caught": [
+   "wrap header 'widths 320-1920 step 1' not a fault; 'widths ... FAULT x' and '361 PUNCT ...' still fault lines (regex test)"
+  ],
+  "clean_result": "wrap header 'widths 320-1920 step 1' not a fault; 'widths ... FAULT x' and '361 PUNCT ...' still fault lines (regex test)",
+  "at": "2026-11-07T07:18:49"
+ },
+ "eng-7nov-gate_list-eab9f854": {
+  "code": "eab9f854275e047bf341544df2e8b460969de9faa82ab32ef969593b27b7594a",
+  "page": "3.5.0",
+  "script": "tools/gate_list.py",
+  "fault_put_in": "see caught",
+  "broken_copy": "-",
+  "caught": [
+   "page row map: on b41 E027/E042 PASS from space.txt, E028 PASS from style.txt, B101/E030 NOT CHECKED with no REVIEW-BROWSER.md, the five after-publishing rows PASS and listed (eng35/gfix3/t-b41.txt)"
+  ],
+  "clean_result": "page row map: on b41 E027/E042 PASS from space.txt, E028 PASS from style.txt, B101/E030 NOT CHECKED with no REVIEW-BROWSER.md, the five after-publishing rows PASS and listed (eng35/gfix3/t-b41.txt)",
+  "at": "2026-11-07T07:18:49"
+ },
+ "eng-7nov-block_compare-c0de2edf": {
+  "code": "c0de2edf8d553e867099035cab820ff9531baac2f420a48ee993606c80482f58",
+  "page": "3.5.0",
+  "script": "tools/block_compare.py",
+  "fault_put_in": "build 42 (its I Spy em space stretched a justified line at 768)",
+  "broken_copy": "build-35/b42 against b41",
+  "caught": [
+   "BLOCKS FAULT (1): 768 widest word gap 12.6 px (build before 7.4) (eng35/blk-b42-b41.txt)"
+  ],
+  "clean_result": "b42 against itself: BLOCKS OK (eng35/blkself/self.txt)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-gate_early_judge-1165f40b": {
+  "code": "1165f40b87a16cf0f11ecb2001512fd11c46222600f733257cd8cc9a10f767e1",
+  "page": "3.5.0",
+  "script": "tools/gate_early_judge.py",
+  "fault_put_in": "planted: an integrity line; a FAULT row on style.txt",
+  "broken_copy": "copies of b42 gate-early.txt",
+  "caught": [
+   "both stop (exit 1)"
+  ],
+  "clean_result": "b41, b42 gate-early.txt: exit 0",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-log_time_check-8be64a03": {
+  "code": "8be64a03b9308d0e3ea0f5e49024321bf53ebd10fbaf1655f272cfba1964a14c",
+  "page": "3.5.0",
+  "script": "tools/log_time_check.py",
+  "fault_put_in": "planted log line 7 Nov 23:5x",
+  "broken_copy": "scratchpad log-test.md",
+  "caught": [
+   "COMMIT REFUSED"
+  ],
+  "clean_result": "real log: exit 0",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-build_page-faces-count-99d7383e": {
+  "code": "99d7383e168df855d1836f857dc59f7537330538428484891b8d6aff79bc970a",
+  "page": "3.5.0",
+  "script": "tools/build_page.py",
+  "fault_put_in": "pixel-check list with image1.JPG removed",
+  "broken_copy": "eng35/facestest (copy)",
+  "caught": [
+   "NO UPLOAD ZIP ... image1.JPG (eng35/try43p.log)"
+  ],
+  "clean_result": "full list: upload zip made (eng35/try43.log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-round_judge-blocks-e9dfa5d3": {
+  "code": "e9dfa5d3237e573359d584409abaeacb465bc7a4157e7f2ca1d00d0eb9ee46ed",
+  "page": "3.5.0",
+  "script": "tools/round_judge.py",
+  "fault_put_in": "blocks step added",
+  "broken_copy": "-",
+  "caught": [
+   "BLOCKS FAULT -> FAULT"
+  ],
+  "clean_result": "BLOCKS OK -> PASS",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-gate_list-5e88855e": {
+  "code": "5e88855edbd4bab66d249486b03a65dc83be045ad0f24eb2071465afb87e617c",
+  "page": "3.5.0",
+  "script": "tools/gate_list.py",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-more_checks-803f358a": {
+  "code": "803f358acd3ac6252db381c6e26d6dc389c5a14c32ec959936acab2feef67df9",
+  "page": "3.5.0",
+  "script": "tools/more_checks.sh",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-run_checks-bd0e4c72": {
+  "code": "bd0e4c725e90e5229968ae3c8a1b9c02142a4d4bc7ea29bad32f3f73a7296428",
+  "page": "3.5.0",
+  "script": "tools/run_checks.sh",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-check_round-e355bb2b": {
+  "code": "e355bb2b3d212c56645db812a5d087d42d5829c34a5c13d494a4737e3eee4b14",
+  "page": "3.5.0",
+  "script": "tools/check_round.sh",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-build_guard-a4066b27": {
+  "code": "a4066b27bbc5652d7235cef743cc297d3a620ac8e75c82dfb7a5e202aa910e3e",
+  "page": "3.5.0",
+  "script": "tools/build_guard.sh",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
+ }
+}

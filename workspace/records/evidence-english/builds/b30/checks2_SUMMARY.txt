@@ -1,0 +1,22 @@
+start 09:18:15  package sha256 33416e4fc5a1be72  the-english-curriculum.zip
+browser checks read a copy unpacked from the-english-curriculum.zip sha256 33416e4fc5a1be72 (not preview/)
+stage fast start 09:18:15
+code against template and Word: == RESULT: ALL CHECKS OK (parts 1-4 and 8)  [PASS]
+code (static): STATIC PASS  [PASS]
+format (Word): RESULT: 64 differences (words and italic/bold/underline); 40 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules  [PASS]
+columns: COLUMNS OK  [PASS]
+text: TEXT PASS  [PASS]
+style: STYLE FAULT (4682)  [PASS]
+tablet (641-830): TABLET PASS  [PASS]
+spacing (13 widths): RESULT: 175 FAULTS  [FAULT: RESULT: 175 FAULTS]
+STOPPED at spacing (13 widths) 09:26:30: FAULT: RESULT: 175 FAULTS
+stage fast start 09:31:57
+code against template and Word: kept (passed 09:18:20) == RESULT: ALL CHECKS OK (parts 1-4 and 8)
+code (static): kept (passed 09:18:21) STATIC PASS
+format (Word): kept (passed 09:18:54) RESULT: 64 differences (words and italic/bold/underline); 40 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules
+columns: kept (passed 09:19:14) COLUMNS OK
+text: kept (passed 09:19:26) TEXT PASS
+style: kept (passed 09:23:05) STYLE FAULT (4682)
+tablet (641-830): kept (passed 09:23:59) TABLET PASS
+on-screen check, 13 key widths: RESULT: FAULTS - see the lines marked FAULT  [FAULT: RESULT: FAULTS - see the lines marked FAULT]
+STOPPED at on-screen check, 13 key widths 09:33:05: FAULT: RESULT: FAULTS - see the lines marked FAULT

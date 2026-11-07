@@ -1,0 +1,26 @@
+start 07:29:56  package sha256 5d29db8b9aedf73e  the-english-curriculum.zip
+browser checks read a copy unpacked from the-english-curriculum.zip sha256 5d29db8b9aedf73e (not preview/)
+stage long start 07:29:56
+REFUSED 07:29:56: the fast checks have not passed for this package (5d29db8b9aedf73e)
+stage fast start 07:30:02
+code against template and Word: == RESULT: ALL CHECKS OK (parts 1-4 and 8)  [PASS]
+code (static): STATIC FAULT (3)  [FAULT: END]
+STOPPED at code (static) 07:30:05: FAULT: END
+stage fast start 07:30:38
+code against template and Word: kept (passed 07:30:05) == RESULT: ALL CHECKS OK (parts 1-4 and 8)
+code (static): STATIC PASS  [PASS]
+format (Word): RESULT: 64 differences (words and italic/bold/underline); 40 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules  [PASS]
+columns: COLUMNS OK  [PASS]
+text: TEXT PASS  [PASS]
+style: STYLE FAULT (4449)  [FAULT: FAULT E041 all build report /tmp/tmp.hFWOI1oPh4/zip/report.json not found vs the build's record of the beige lines placed from Word (the count cannot be checked]
+STOPPED at style 07:37:12: FAULT: FAULT E041 all build report /tmp/tmp.hFWOI1oPh4/zip/report.json not found vs the build's record of the beige lines placed from Word (the count cannot be checked
+stage fast start 07:37:42
+code against template and Word: kept (passed 07:30:05) == RESULT: ALL CHECKS OK (parts 1-4 and 8)
+code (static): kept (passed 07:30:39) STATIC PASS
+format (Word): kept (passed 07:31:07) RESULT: 64 differences (words and italic/bold/underline); 40 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules
+columns: kept (passed 07:31:42) COLUMNS OK
+text: kept (passed 07:32:00) TEXT PASS
+style: STYLE FAULT (4590)  [PASS]
+tablet (641-830): TABLET PASS  [PASS]
+spacing (13 widths): RESULT: 230 FAULTS  [FAULT: RESULT: 230 FAULTS]
+STOPPED at spacing (13 widths) 07:49:51: FAULT: RESULT: 230 FAULTS

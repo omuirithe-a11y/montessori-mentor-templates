@@ -1,0 +1,18 @@
+# Change list - The English Curriculum, build 21 (zip build-35/b21/the-english-curriculum.zip)
+Written 5 Nov 17:2x from the decisions log (lines named); B151 asks for it to be written as each fix is made - from build 22 it is.
+Earlier changes (builds 1-17): records/ENG-CHANGES-5-nov.md.
+
+## Template changes used by this build (each with her written agreement)
+- 71dd8bf8 pink and second green colour classes (her 5 Nov 04:00 "Yes" - not a full agreement sentence; to be asked)
+- 9683fc2a hanging-label rules (her 5 Nov 04:37 agreement)
+- 3ba47124 narrow-text limit 200 px (her 5 Nov 09:16 agreement)
+- 45f14d00 centred lines and headings stay centred at 641 px and wider (her 5 Nov 13:34 agreement)
+- 36dda3ee column-first list level; image sets in rows of three at 641+ (her 5 Nov 13:38 agreement)
+
+## Page changes, builds 18-21
+- DECISIONS-LOG-3-nov.md line 217: 5 Nov 10:4x: build 18 (final faces images, photos-final): every review/check fault fixed so far in one batch - columns level (first lines data-space 0, the grid carries the gap; first list item margin 0 by page CSS), Word Study images stacked (ext-float), Letter Bingo one row under two captions (mm-twocap), p19 captions on the right images and red, Run/Hug/Perugia captions, Early Readers 5 images, reading sequence one set with 2x3 images and the 3.1-3.17 columns full width, pink/green whole lines coloured, leading tabs in quotations dropped, quotations keep Word spelling (build_page.py), gaps regenerated from the 5 Nov PDF (322 set, 0 not found). Preview republished: artifact 1HAzuhZq743dq8qeTJCa8n versions 12-14 = build 18. All first-build checks and the new checks running on build 18 (run_checks with tools-v5-fixA-200, then more_checks.sh).
+- DECISIONS-LOG-3-nov.md line 221: 5 Nov 12:5x: build 19 - fixes from the build-18 checks: phone column overlaps (later columns first line data-space 20/48, column 1 the grid gap; measured at 390: all positive), Word Study one float of three (no overlap at 390/768/1440), Grammar image + paragraph as a captioned set (caption above, the template measures only captions above; PDF below - A011), duplicate id grammar removed, Word paragraph 60 "Keys to Literacy" put back (the converter had taken it as the title), beige line moved from the top to before Keys to Literacy, page CSS selector written as the browser writes it (style check A077). Checks started 12:5x on build 19 (run_checks, then more_checks).
+- DECISIONS-LOG-3-nov.md line 232: 5 Nov 14:3x: build 20 (placement fixes 052/112; data-h 167 for the p2 pair; headings centred as Word) then build 21 (inline counter-reset dropped): code check ALL CHECKS OK (parts 1-4 and 8). Every check now on build 21.
+
+## Build tool change
+- tools/build_page.py: UK spelling not applied inside quotations (quotations keep Word's spelling).

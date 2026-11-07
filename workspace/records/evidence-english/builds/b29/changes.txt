@@ -1,0 +1,3 @@
+Build 29 (6 Nov 08:1x): build 28 + page settings from the spacing check's sorting (/home/claude/eng35/space-b28-sorted.md, class P):
+P1 the line under a heading (24) is the text, not a photo float (003, 010, 112); P2 "I-Spy" list first item data-gap 20 (PDF p10 together); P3 apart gap (29) on the first block after 10 Word-column grids where Word has a blank line. Template unchanged (c239b5f0).
+Not fixed: 142 lines from template rules (T1-T8) and 66 where the spacing check is wrong (C1 grey lines not seen, C2 PDF lines matched to the wrong Word paragraphs) - her decision.

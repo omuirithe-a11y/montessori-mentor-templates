@@ -1,0 +1,15 @@
+start 11:00:34  package sha256 8f14ab732a4afce4  the-english-curriculum.zip
+browser checks read a copy unpacked from the-english-curriculum.zip sha256 8f14ab732a4afce4 (not preview/)
+stage fast start 11:00:34
+code against template and Word: == RESULT: ALL CHECKS OK (parts 1-4 and 8)  [PASS]
+code (static): STATIC PASS  [PASS]
+format (Word): RESULT: 72 differences (words and italic/bold/underline); 44 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules  [FAULT: width 1440: insert: Word "" -> page "of"]
+STOPPED at format (Word) 11:01:04: FAULT: width 1440: insert: Word "" -> page "of"
+stage fast start 11:04:54
+code against template and Word: kept (passed 11:00:36) == RESULT: ALL CHECKS OK (parts 1-4 and 8)
+code (static): kept (passed 11:00:37) STATIC PASS
+format (Word): kept (passed 11:01:03) RESULT: 72 differences (words and italic/bold/underline); 44 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules
+columns: COLUMNS OK  [PASS]
+text: TEXT PASS  [PASS]
+style: STYLE FAULT (4693)  [FAULT: FAULT E041 320 beige line before "This is a photo of the Spoken Language shelf that I prepared" (build report, from Word) not found vs a shown beige line straig]
+STOPPED at style 11:09:37: FAULT: FAULT E041 320 beige line before "This is a photo of the Spoken Language shelf that I prepared" (build report, from Word) not found vs a shown beige line straig
