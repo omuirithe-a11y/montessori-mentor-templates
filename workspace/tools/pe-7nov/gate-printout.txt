@@ -1,0 +1,53 @@
+gate 22:11:28 the-prepared-environment bdbf46e6
+changes (the owner confirmed):
+  1. (7 Nov) Divider above "My experience preparing environments". Her words: "Divider above this. When I write 'divider' I always mean 40/40" (40 above the line, 40 below).
+  2. (7 Nov) "My experience preparing environments" -> "My Experience Preparing Environments". Her words: "Capitalise those 4 words". Heading and its table-of-contents entry; the link name (#my-experience-preparing-environments) kept.
+  3. (7 Nov) Divider (40/40) above "Furniture - purchasing". Her words: "divider above".
+  4. (7 Nov) The two dashed lists in "Furniture - purchasing" ("Some alternatives:" 6 items; "In Asia there are..." 2 items): no dashes. Her words: "remove the dashes, so this is a non dashed list". Reading: markers removed, items keep their place and indent.
+  5. (7 Nov) Image 14 (boy carrying the Red Rods, "Furniture dimensions - shelf length"): top of photo level with the top of the first line of text. Her words: "top of photo = top of line of text". Sweep: this image's top is 19-30 px above that line at 840-1920 px; the same fault on all 7 side images (1, 9, 14, 31, 151, 179, 195), from 49 px above to 79 px below.
+  6. (7 Nov) Table "Dimensions of Chairs in the Montessori Environment": less than full width, space between the columns cut by half. Her words: "make this table less than full-width. maybe reduce the space between the comlumns by 50%". Reading: left edge stays; each gap between one column's text and the next column measured now and halved, at every computer width.
+  7. (7 Nov) Divider (40/40) above "Mats - Quantity". Her words: "divider above".
+  8. (7 Nov) Photo heights on this page: photos in a row 150 px, photos beside text 120 px (now 180 asked for, 150 measured on side photos at 1280). Her words: "I want photos in a row to be be 150 and beside text to be 120". Reading: a row that at 150 would be wider than the text column still shrinks to fit, as now.
+  8b. Standing (owner: 'every page'): rows 150, beside text 120 - into the Essay Code Template at the template fix.
+  9. (7 Nov) Divider (40/40) above "Layout of the shelves, tables, and chairs". Her words: "divider above".
+  10. (7 Nov 16:27) Divider (40/40) above "Mathematics Area". Her words: "divider".
+  11. (7 Nov 16:27) Divider (40/40) above "Language Area". Her words: "divider".
+  12. (7 Nov 16:29) Remove the stray paragraph <p>.</p> after the easel photos, before "Sensorial and Language Areas". Her words: "is that a stray dot above sensorial?" then "yes".
+  13. (7 Nov 16:30) Heading "Layout of the shelves, tables, and chairs" -> "Layout of the Furniture" (heading and table-of-contents entry; link name #layout-of-the-shelves-tables-and-chairs kept). Her words: "Change to: Layout of the Furniture". Divider above it stays (edit 9).
+  14. (7 Nov 16:31) Section "Sensorial and Language Areas": heading removed (and its table-of-contents entry); its paragraph ("The materials are commonly laid out...") and its row of 5 Geometry Cabinet photos moved to straight after the paragraph ending "More about this below." in "Furniture dimensions - shelf height". Her words: "This section: 1. Remove the heading 2. Move so it sits right under this paragraph".
+  15. (7 Nov 16:36) Section "Layout of the tables": the line "First row: classes I’ve visited. Second row: classes I’ve prepared." replaced by two lines: "Classes I’ve visited" straight above the first row of photos (4) and "Classes I’ve prepared" straight above the second row (5). Her words: "Change this so the first sentence is above the first row of photos: Classes I've visited / And the second phrase is above the second row of images: Classes I've prepared". Reading: ordinary text style, no full stop, curly apostrophe as on the rest of the page; gaps measured at 1280 and shown to her before the gate.
+  16. (7 Nov 16:37) Divider (40/40) above "Layout of the tables". Her words: "Cdivider" (read as divider).
+  17. (7 Nov 16:41) Divider (40/40) above "Book Corner". Her words: "dividers" (four screenshots).
+  18. (7 Nov 16:41) Divider (40/40) above "Bathroom". Her words: "dividers" (four screenshots).
+  19. (7 Nov 16:41) Divider (40/40) above "Mirrors". Her words: "dividers" (four screenshots).
+  20. (7 Nov 16:41) Divider (40/40) above "Sharing Table". Her words: "dividers" (four screenshots).
+  21. (7 Nov 16:43) Space under "Raphael's Madonna della Seggiola (Madonna of the Chair)" the same as under the other blue headings. Her words: "reduce the space under this so it is the same as under the other blue headings". Measured at 1280, letters to letters (baseline of the heading to the top of the capitals of the next text): 45 px here (to the quotation), 25 px under 30 of the other 33 headings (24, 24 and 29 under the 3 beside a photo). Target: 25. (An earlier figure, 14 px, was line box to letter, a different measure; withdrawn.)
+  22. (7 Nov 16:56) Raphael's Madonna della Seggiola (beside the quotation in its section): 200 px high, an exception to the 120 px rule for photos beside text (edit 8). Her words: "this pho is an exception. make it 200 high". Now 150 x 146 at 1280.
+  23. (7 Nov 16:58) Divider (40/40) above "Storage and other Admin". Her words: "divider" (two screenshots).
+  24. (7 Nov 16:58) Divider (40/40) above "Windows". Her words: "divider" (two screenshots).
+  25. (7 Nov 17:10) The 20 Oct rule "no lines round quotations" deleted on this page: the code that hides a divider next to a quotation (style mm-edits-20-oct, the engine's quotation-line pass) removed, so each divider is spaced only by its own figures. Her words: "delete that rule and ignore that old rule."
+  26. (7 Nov 17:34) The two lists without dashes (edit 4): items at the left margin, and more space between the items. Her words: "1. align to the left margin. 2. increase the spacing between the lines in this list". Reading: the space between items the page's paragraph space (29).
+  27. (7 Nov, fault fix) At 830 px and narrower, images standing above their text: the text 30 below each image (her 29 Oct rule "they should all have a gap of 30"); 7 images had 64 below them (live the same), image 009 had 33 above it, the quotation under the Madonna 32.
+  28. (7 Nov, fault fix) At 490-640 px, side images were shown wider than their image file (live the same): where a larger file exists it is used; where none exists (images 001, 009, 031) the image is never shown wider than its file.
+owner's confirmation:
+  7 Nov 22:11 (owner), asked: "I agree that the gate for The Prepared Environment accepts the 28 changes in the list (my 26 edits of 7 Nov and the two fault fixes at 830 px and narrower) and nothing else, and that on this page only it accepts the speed check's fault while the busy stretches are no longer than the live page's (190 ms at 1440, 300 ms at 390) and every click opens in under 1 second."
+  Her answer, word for word: "yes"
+code check: ALL CHECKS OK
+full check: 122 widths
+allowed faults: NONE
+height 1440: {"1s": 21575, "4s": 21575, "scrolled": 21575, "largest margin": [44, "P.centred Source: AMI France"]}
+  ok
+height 390: {"1s": 38178, "4s": 38139, "scrolled": 38139, "largest margin": [44, "P.centred Source: AMI France"]}
+  ok
+image sizes: 214 large images; 25 under 1600 px long side, 214 under 2900 px; smallest 242 px; missing 0
+  under 1600: 001.jpg 453x242, 003.jpg 323x242, 009.jpg 360x222, 010.jpg 1083x815, 098.jpg 348x242, 017.jpg 1071x1399, 031.jpg 450x376, 040.jpg 242x242, 085.jpg 768x785, 102.jpg 1156x904, 103.jpg 1400x933, 123.jpg 720x960, 124.jpg 364x243, 125.jpg 324x242, 126.jpg 324x242, 127.jpg 314x242, 128.jpg 368x242, 135.jpg 940x623, 148.jpg 1536x1564, 151.jpg 519x242, 154.jpg 217x243, 164.jpg 189x243, 165.jpg 1589x983, 200.jpg 181x242, 209.jpg 181x242
+speed 1440 FAULT  longest busy stretch 148 ms (limit 50), busy stretches 206, total 17395 ms | clicks {"038.jpg": 0.78, "081.jpg": 0.77, "129.jpg": 0.78, "172.jpg": 0.75} (limit 1.0 s)
+speed 390 FAULT  longest busy stretch 188 ms (limit 50), busy stretches 213, total 19587 ms | clicks {"038.jpg": 0.76, "081.jpg": 0.78, "129.jpg": 0.75, "172.jpg": 0.77} (limit 1.0 s)
+speed SPEED FAULT
+SPEED AGREED OK
+copy protection: present
+placement: PLACE OK
+lines through text: 0 at 8 widths
+format: RESULT: 34 differences a reader sees (formatting, hidden or shown words, hidden or shown images) - each must be an allowed change or a template fault reported t
+screenshot review: NO UNLISTED FAULTS SEEN
+GATE PASSED - deliver: ../out/the-prepared-environment-UPLOAD.zip (holds ONLY index.html: unzip, upload index.html into public_html/the-prepared-environment/, replacing the old one; images untouched)
