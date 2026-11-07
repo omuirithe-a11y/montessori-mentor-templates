@@ -12,8 +12,7 @@ set -u; D=$1; N=$2
 P=$(ls -d "$D"/b[0-9]* 2>/dev/null | sed 's/.*\/b//' | grep -E '^[0-9]+$' | sort -n | tail -1)
 if [ -z "$P" ]; then   # 6 Nov 08:2x (owner 08:15 "adjust accordingly"): build 1 needs the decisions sheet answered first
   DS=${DECISIONS_SHEET:-}; { [ -n "$DS" ] && [ -s "$DS" ] && grep -q "^OWNER ANSWER:" "$DS"; } || { echo "BUILD REFUSED: first build - no answered decisions sheet (set DECISIONS_SHEET to a file holding a line 'OWNER ANSWER: <her words>')"; exit 3; }
-  # 7 Nov 2026 (S4b): an Essay page's first build waits for the template test page (records/TEMPLATE-TEST-PAGE-DONE.txt)
-  if [ "${GUARD_TEMPLATE:-essay}" = essay ] && [ ! -s /home/claude/mm/records/TEMPLATE-TEST-PAGE-DONE.txt ]; then echo "BUILD REFUSED: first build of an Essay page before the template test page is done (records/TEMPLATE-TEST-PAGE-DONE.txt, S4b)"; exit 3; fi
+  # 8 Nov 06:44 (owner "yes" to removing it): the 7 Nov S4b wait for the template test page is removed - the template test page was deleted from the to-do list (owner 8 Nov 06:43)
   touch "/home/claude/mm/records/.guard-ok-$(basename "$D")-$N"; echo "build guard: first build, decisions sheet answered ($DS)"; exit 0; fi
 B="$D/b$P"; S="$B/checks2/SUMMARY.txt"
 [ -f "$S" ] || { echo "BUILD REFUSED: build b$P has no check round (run tools/check_round.sh ... fast on it first)"; exit 3; }
