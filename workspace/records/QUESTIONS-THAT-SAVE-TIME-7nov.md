@@ -76,7 +76,7 @@ Q1 is ranked first but has one of the smaller measured costs. Q6/Q10 and Q5 have
 13. "Which statement in your last message is not from a file?" (old 16; the message checker's job).
 14. "What does each way of working cost my allowance?" (old 15). Not measured in any file.
 
-## Corrections after the review (main session, checked against records/DECISIONS-LOG-3-nov.md, 7 Nov 15:xx)
+## Corrections after the review (main session, checked against records/DECISIONS-LOG-3-nov.md, 7 Nov 14:38)
 - Item 4: "4 h 55 min" is the window 6 Nov 00:28-05:27; the timed checks in it sum to about 3 h 57 min (b24 run_checks 28 min, quick 3, wrap 68; b25 run_checks 29, images 37 + 10, wrap 62; log 269, 274, 280, 282, 284).
 - Item 2: 7 h 50 min (b41 review 23:11 to b42 07:01) holds, but a build that night could only have been a test of the I Spy fix: no image with children may be used before her answer (Project rule).
 - Item 8: BUILD-ORDER.md line 54 says "9 template agreements since 5 Nov 04:37", not "on 5 Nov". The stops after a turn ended: 50 min (log 254), 15 (260), 25 (270), 23 (392) = about 1 h 53 min; log 257 is not a stop.
