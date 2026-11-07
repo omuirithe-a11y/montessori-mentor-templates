@@ -2,3 +2,4 @@
 
 1. (8 Nov 06:59) The contents box: the side margin the other pages and the Essay Code Template have (.toc-wrap{max-width:calc(1100px + 2 * var(--gutter));padding-left:var(--gutter);padding-right:var(--gutter)}). Now, at 770, "Table of contents" and its entries start at the window's edge (0); on The Role of the Adult 40. Owner: "Explain the difference in the left-alignment", then "yes. prepare a seperaet list of edits for the prepared environment".
 2. (8 Nov 07:03) The space above "In Asia there are quite a few companies…" (below the list ending "…I like to browse their catalogue.") 40, now 29 at 1280. Owner: "in that image, what's the spacing above the line?", then "increase to 40".
+3. (8 Nov 07:05) The chairs table: its title "Dimensions of Chairs in the Montessori Environment" centred above "Height of Legs" (the middle of the title over the middle of those words), at every width above 640. Owner: "centre 'Dimensions ...' above 'Height of legs'".
