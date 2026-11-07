@@ -17,8 +17,11 @@ mkdir -p "$O"; O=$(cd "$O" && pwd); BD=$(dirname "$Z"); SHA=$(sha256sum "$Z" | c
 [ -f "$BD/checks2/FAST-PASSED" ] && grep -q "package sha256 $SHA" "$BD/checks2/FAST-PASSED" || { echo "REFUSED $(date '+%H:%M:%S'): the fast checks have not passed for this package ($SHA)"; exit 3; }
 [ -f "$BD/checks2/GATE-EARLY-PASSED" ] && grep -q "package sha256 $SHA" "$BD/checks2/GATE-EARLY-PASSED" || { echo "REFUSED $(date '+%H:%M:%S'): the gate's early run has not passed for this package ($SHA) (7 Nov 2026, S1 refined)"; exit 3; }
 RV=$BD/REVIEW.md
+# 7 Nov 2026 (owner 11:18, "yes": "run_checks.sh may start before the separate review has finished, while the review only reads files, and ... a page fault the review finds means a new build and new checks as before"): with MM_BEFORE_REVIEW=1 it starts while this build's review is still being written (no REVIEW.md yet, the brief names this package); the review is still required by the gate (screens file) and by the long round
+if [ "${MM_BEFORE_REVIEW:-}" = "1" ] && [ ! -f "$RV" ] && grep -q "$SHA" "$BD/REVIEW-BRIEF.md" 2>/dev/null; then echo "started before the review (owner 11:18 yes) $(date +%H:%M:%S)"; else
 { [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && [ "$(grep -v '^[[:space:]]*$' "$RV" | tail -1)" = "FAULTS: 0" ]; } || { echo "REFUSED $(date '+%H:%M:%S'): no separate review report for this package with FAULTS: 0 ($RV)"; exit 3; }
 { [ -f "$(dirname "$RV")/REVIEW-BRIEF.md" ] && [ "$RV" -nt "$(dirname "$RV")/REVIEW-BRIEF.md" ] && grep -q "BRIEF $(basename "$(dirname "$RV")")/REVIEW-BRIEF.md" "$RV"; } || { echo "REFUSED $(date +%H:%M:%S): the review report does not come from the brief tools/review_brief.sh wrote for this build (7 Nov 2026, S8)"; exit 3; }
+fi
 [ -f "$O/SUMMARY.txt" ] && head -1 "$O/SUMMARY.txt" | grep -q "package sha256 $SHA" || echo "start $(date '+%H:%M:%S')  package sha256 $SHA" > "$O/SUMMARY.txt"
 fresh() { local r=$1; shift; [ -s "$r" ] || return 1; [ "$r" -nt "$Z" ] || return 1; for x in "$@"; do [ "$r" -nt "$x" ] || return 1; done; return 0; }
 judge() {   # judge <step> <file> <label>: record; stop the round on a fault
