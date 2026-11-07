@@ -6,3 +6,4 @@
 4. The space under a quotation to the next paragraph 29, the same as between two paragraphs (letters to letters; now 46 on The Prepared Environment at 1280, on all 7 such places). Owner 8 Nov 06:50: "Make both of those spaces 29".
 
 Deleted 8 Nov 06:43 (owner: items suggested during The English Curriculum build): one script per margin; the six spacing rules for the template test page; the quotation spacing script; the template test page and its records.
+5. The space between the lines of a quotation 24, letters to letters (now 28 on The Prepared Environment at 1280; regular text 18). Owner 8 Nov 06:54: "Make the quotations 24".
