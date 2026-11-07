@@ -1,0 +1,610 @@
+{
+ "saved": "2026-11-07 15:3x Shanghai",
+ "method": "BLUR-METHOD-26-oct.md version 22",
+ "set": {
+  "src": "/home/claude/mm/blur2/m_aun7/faces",
+  "work": "/home/claude/mm/blur2/m_aun7/faces/work",
+  "media": "/home/claude/mm/blur2/m_aun7/media",
+  "out": "/home/claude/mm/blur2/m_aun7",
+  "docx": "/home/claude/aun/src/aun-28oct.docx",
+  "answers": {
+   "16-g": {
+    "note": "check v1 (7 Nov): a child in blue goggles with no letter - face added by hand, eye, nose and mouth points read from the working copy"
+   },
+   "42-f": {
+    "note": "check v1 (7 Nov): a blonde girl in profile with no letter - face added by hand, eye, nose and mouth points read from the working copy"
+   },
+   "40-a": {
+    "note": "check v1 (7 Nov): the camera turn tag put the blur on the cupboard door - the tag removed from the working copy (pixels unchanged), the face found again"
+   },
+   "15-k": {
+    "note": "check v1 (7 Nov): was left as an adult; may be a child, so now blurred and listed as could not decide"
+   },
+   "16-h": {
+    "note": "check v1 (7 Nov): this face's letter moved (was 16-g) because 16-g was added"
+   },
+   "16-i": {
+    "note": "check v1 (7 Nov): this face's letter moved (was 16-h) because 16-g was added"
+   }
+  },
+  "candidates_ok": [
+   "19@30,845",
+   "19@1371,709",
+   "20@1197,312",
+   "23@788,167",
+   "23@810,204",
+   "23@850,173",
+   "26@660,360",
+   "29@1218,362",
+   "29@873,324",
+   "29@617,386",
+   "30@788,413",
+   "52@1106,566"
+  ],
+  "made": "26 Oct 2026 or later, by page.py new - the agreed method version 22",
+  "undecided": {
+   "16-b": "an older girl (teenager?) beside the school group - cannot tell child or adult; blurred",
+   "16-f": "the same, behind her; blurred",
+   "18-d": "a face at the right edge at adult height, partly hidden; blurred - the check thinks she is an adult woman",
+   "20-b": "a young person in white helping the child on the floor, face down - cannot tell teacher or older child; blurred",
+   "29-i": "far back of the room, by a dark figure: too small to tell; blurred",
+   "15-k": "a profile at the table in the background: may be a child (the check); blurred"
+  },
+  "note_26oct": "The 26 Oct faces answers were for the earlier hi-res Word file (30 images); only 13 of the 28 Oct file's 61 images match it, and their letters cannot be tied safely, so round 1 asks afresh.",
+  "hand_fixes_after_check_v1": "7 Nov: image 40 - the camera turn tag removed from the set's working copy media/image40.JPG (2 bytes, pixels identical; the Word file untouched), so it is blurred as Word stores it and turned by Word's own turn on the sheet and the page; faces added by hand on 16 (g) and 42 (f); 15-k no longer left as adult; undecided list corrected (29-i)"
+ },
+ "by_rule": {
+  "1": {
+   "a": "a published image (Samuel Beckett quotation card), freely online"
+  },
+  "4": {
+   "a": "adult",
+   "b": "adult"
+  },
+  "5": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult",
+   "e": "adult",
+   "f": "adult",
+   "g": "adult",
+   "h": "adult",
+   "i": "adult",
+   "j": "adult",
+   "k": "adult",
+   "l": "adult",
+   "m": "adult",
+   "n": "adult",
+   "o": "adult",
+   "p": "adult",
+   "q": "adult"
+  },
+  "7": {
+   "a": "adult"
+  },
+  "9": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult",
+   "e": "adult",
+   "f": "adult",
+   "g": "adult",
+   "h": "adult",
+   "i": "adult",
+   "j": "adult",
+   "k": "adult"
+  },
+  "10": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult"
+  },
+  "11": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult"
+  },
+  "12": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult",
+   "e": "adult"
+  },
+  "13": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult"
+  },
+  "14": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult"
+  },
+  "15": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult",
+   "e": "adult",
+   "f": "adult",
+   "g": "adult",
+   "h": "adult",
+   "i": "adult",
+   "j": "adult"
+  },
+  "22": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult"
+  },
+  "32": {
+   "a": "adult"
+  },
+  "39": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult",
+   "d": "adult",
+   "e": "adult",
+   "f": "adult",
+   "g": "adult",
+   "h": "adult",
+   "i": "adult",
+   "j": "adult",
+   "k": "adult"
+  },
+  "46": {
+   "a": "adult"
+  },
+  "49": {
+   "a": "adult"
+  },
+  "54": {
+   "a": "adult"
+  },
+  "58": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult"
+  },
+  "59": {
+   "a": "adult",
+   "b": "adult"
+  },
+  "60": {
+   "a": "adult",
+   "b": "adult"
+  },
+  "61": {
+   "a": "adult",
+   "b": "adult"
+  },
+  "3": {
+   "a": "adult",
+   "b": "adult",
+   "c": "adult"
+  },
+  "6": {
+   "a": "adult"
+  },
+  "8": {
+   "e": "adult",
+   "g": "adult",
+   "q": "adult"
+  },
+  "17": {
+   "a": "adult"
+  },
+  "18": {
+   "a": "adult"
+  },
+  "19": {
+   "g": "adult"
+  },
+  "21": {
+   "j": "adult"
+  },
+  "23": {
+   "a": "adult",
+   "e": "adult",
+   "h": "adult",
+   "j": "adult",
+   "l": "adult",
+   "n": "adult"
+  },
+  "25": {
+   "a": "adult"
+  },
+  "26": {
+   "m": "adult"
+  },
+  "27": {
+   "f": "adult"
+  },
+  "28": {
+   "c": "adult"
+  },
+  "29": {
+   "a": "adult"
+  },
+  "30": {
+   "a": "adult",
+   "j": "printed images on the wall (not a person)",
+   "l": "printed images on the wall (not a person)"
+  },
+  "31": {
+   "b": "adult"
+  },
+  "33": {
+   "c": "adult"
+  },
+  "34": {
+   "a": "adult"
+  },
+  "35": {
+   "a": "adult"
+  },
+  "36": {
+   "b": "adult"
+  },
+  "37": {
+   "a": "adult"
+  },
+  "38": {
+   "f": "adult"
+  },
+  "40": {
+   "b": "adult"
+  },
+  "41": {
+   "b": "adult",
+   "d": "a printed picture on a card on the shelf"
+  },
+  "42": {
+   "a": "adult"
+  },
+  "43": {
+   "j": "adult"
+  },
+  "44": {
+   "b": "adult"
+  },
+  "45": {
+   "c": "adult"
+  },
+  "47": {
+   "a": "adult",
+   "d": "head turned away - back of the head, no eye showing",
+   "e": "head turned away - back of the head, no eye showing"
+  },
+  "48": {
+   "a": "adult",
+   "b": "adult"
+  },
+  "50": {
+   "b": "adult"
+  },
+  "51": {
+   "a": "adult"
+  },
+  "52": {
+   "c": "adult"
+  },
+  "53": {
+   "b": "adult"
+  },
+  "56": {
+   "b": "adult"
+  },
+  "_checked": true
+ },
+ "extra_faces": {
+  "16": [
+   {
+    "box": [
+     347.8,
+     484.5,
+     392.5,
+     535.4
+    ],
+    "lm": null,
+    "lm_by_hand": false,
+    "from": "hand fix after the check (7 Nov sheet check v1: child with eye, nose and mouth showing, no letter)"
+   }
+  ],
+  "42": [
+   {
+    "box": [
+     1242.0,
+     459.3,
+     1288.1,
+     536.4
+    ],
+    "lm": null,
+    "lm_by_hand": false,
+    "from": "hand fix after the check (7 Nov sheet check v1: child with eye, nose and mouth showing, no letter)"
+   }
+  ]
+ },
+ "hand_points": {
+  "16": {
+   "g": [
+    [
+     358,
+     506
+    ],
+    [
+     369,
+     505
+    ],
+    [
+     372,
+     513
+    ],
+    [
+     362,
+     521
+    ],
+    [
+     369,
+     521
+    ]
+   ]
+  },
+  "42": {
+   "f": [
+    [
+     1262,
+     484
+    ],
+    [
+     1270,
+     484
+    ],
+    [
+     1248,
+     498
+    ],
+    [
+     1250,
+     513
+    ],
+    [
+     1258,
+     514
+    ]
+   ]
+  },
+  "_note_7nov": "16-g and 42-f: hand fix after the check (7 Nov sheet check v1), points read from 10x grids of the working copies, cross-checked on the full-size crops"
+ },
+ "answers": {
+  "page": "aun-aprendo",
+  "set": "aun7",
+  "round1": {
+   "sheet": "https://claude.ai/artifact/Fs1xAZzmwL3tv7ofMsRA69 (edits only; full sheet https://claude.ai/artifact/CmjcLLZG7sf7oToGeg2UPd)",
+   "sheet_sha256_checked": "59e02ffe95c699bf9793c895dd2cf46df6983bfcfbff7df8fde9d7d996b32302",
+   "words": "approved",
+   "recorded": "2026-11-07 06:48 UTC",
+   "mapped": "no changes: every face stays as on the round 1 sheet; the undecided faces 15-k, 16-b, 16-f, 18-d, 20-b, 29-i stay blurred"
+  },
+  "round2": {
+   "question": "Round 2: the blur stays exactly as on the round 1 sheet. Do you confirm that blur as final?",
+   "words": "yes",
+   "recorded": "2026-11-07 06:48 UTC",
+   "final": true
+  }
+ },
+ "sheet_check_final": {
+  "pass": true,
+  "when": "Sat Nov  7 05:57:09 UTC 2026",
+  "sheet": "aun-round1.html",
+  "sheet_sha256": "59e02ffe95c699bf9793c895dd2cf46df6983bfcfbff7df8fde9d7d996b32302",
+  "parts": {
+   "counts and byte-identity": true,
+   "item 21 measures": true,
+   "item 22 by eye": true,
+   "whole images": true
+  },
+  "summary": "PASS: 226 blurred / 137 left / 59 images / 2 left off, 287 of 287 embedded images byte-identical; image 40 now upright on the sheet with 40-a on the girl and 40-b on the teacher; hand-fix line names all 6 changed faces; every face checked hides eyes, nose and mouth; no child with an eye showing is missed.",
+  "faults": []
+ },
+ "pixel_check_after_answer": {
+  "pass": true,
+  "time": "2026-11-07 14:54",
+  "images_checked": 37,
+  "faces_checked": 226,
+  "faults": [],
+  "unblurred_looked_at": [
+   {
+    "name": "image1.jpg",
+    "sha256": "d16d61e01397358d9d7e844e6852251c2f2d8f78e354b2d06b753876e78d3a2e",
+    "child_face_found": false
+   },
+   {
+    "name": "image10.png",
+    "sha256": "a0ae15dafb17d3a254f6a639ba448c8966ac8a5bd9b0ff0ae9563c4ba82cbd0a",
+    "child_face_found": false
+   },
+   {
+    "name": "image11.png",
+    "sha256": "e52ca57ea84c2f61bfadd41f3d685310fa728332ada883309d383d50d6e60fd2",
+    "child_face_found": false
+   },
+   {
+    "name": "image12.JPG",
+    "sha256": "bdbc431c58c72dc1d365ab68a158184fa0cb9a253e567b683dbb4ece80f105cb",
+    "child_face_found": false
+   },
+   {
+    "name": "image13.jpg",
+    "sha256": "4441865cef6e89531170c2a5cd2e8b2da97b879804b92db37729a54103d2c135",
+    "child_face_found": false
+   },
+   {
+    "name": "image14.JPG",
+    "sha256": "2a9ebdd9dec172635522225c8bb25fc11ca8fe9a7d5f00dd66ad03e41e73937d",
+    "child_face_found": false
+   },
+   {
+    "name": "image2.jpg",
+    "sha256": "cd7f478d5224e292ef84e27d166ba81de9550ff89f18480c8c6b324e602659d1",
+    "child_face_found": false
+   },
+   {
+    "name": "image22.jpg",
+    "sha256": "63997459b7156fa027910a1699b3e1f97c9d8f11521c36def1e6e370a6237211",
+    "child_face_found": false
+   },
+   {
+    "name": "image3.jpg",
+    "sha256": "41e14123d4e22609593dde52c39b7ffa8c7e12424b6d6347706c18065827679a",
+    "child_face_found": false
+   },
+   {
+    "name": "image32.jpg",
+    "sha256": "46dbef2701992088a0e268f18eb04c0286bbdc7468e6b9635a28c846f51a1d34",
+    "child_face_found": false
+   },
+   {
+    "name": "image39.jpg",
+    "sha256": "fc829e89bf89f28855c5e0f2b471b5788c5c749798685e9cba1a9801b74ed03e",
+    "child_face_found": false
+   },
+   {
+    "name": "image4.jpg",
+    "sha256": "5c172f5b4eda37a62ac72bdadfecf7acd18950b7af5d4dbc012488610995e823",
+    "child_face_found": false
+   },
+   {
+    "name": "image46.jpg",
+    "sha256": "900872148cc80d139702322cce689464251139daeafd4c388b954e1f61c4808e",
+    "child_face_found": false
+   },
+   {
+    "name": "image49.jpg",
+    "sha256": "407950b71a9e0006217b3ed780a652bfde9d3c2acf580f74f663ac7cd5963d91",
+    "child_face_found": false
+   },
+   {
+    "name": "image5.jpg",
+    "sha256": "8fcb0ed830f8bea67c411fe8a64d4bd181bde2ad3791ba34771d47874dd7bdf8",
+    "child_face_found": false
+   },
+   {
+    "name": "image54.jpg",
+    "sha256": "cbcdd33bc8c425c025c8869a1317e6156edfc94733b55a8357dc1f0a60ef7943",
+    "child_face_found": false
+   },
+   {
+    "name": "image55.jpg",
+    "sha256": "897b9d1ef03e7d8702892a9741706c1bc3e9bf59c06bc0cbdab38a78c4c68ec2",
+    "child_face_found": false
+   },
+   {
+    "name": "image58.jpg",
+    "sha256": "8961385cbf017139aa35ae5513762fc78ef629aafad836ccbe0fe9440830d925",
+    "child_face_found": false
+   },
+   {
+    "name": "image59.jpg",
+    "sha256": "8ae04ed9b04b8b64adeb31ce8a9d703e323c910ffb4962441094b836a59afca5",
+    "child_face_found": false
+   },
+   {
+    "name": "image6.JPG",
+    "sha256": "ba86b6816875345febbe37a830d451935bd759590a91f8152608dace8ea6662e",
+    "child_face_found": false
+   },
+   {
+    "name": "image60.jpg",
+    "sha256": "10fdbfecf863dc86d89d65168b7fd94fe3f54996667aa9d9c2635cfaf4ce6f5b",
+    "child_face_found": false
+   },
+   {
+    "name": "image61.jpg",
+    "sha256": "2b8f21dc8a24214343d199550167c749ffff1a2739f95e59a55ab53289183b7f",
+    "child_face_found": false
+   },
+   {
+    "name": "image7.JPG",
+    "sha256": "e34f93ba8705b299d9ac45e4a674ee4ff38715744764d59db7ba309d569e6faf",
+    "child_face_found": false
+   },
+   {
+    "name": "image9.png",
+    "sha256": "d7d836b14bbdd6631175f592996b687f8548652e6834d8591111d4e8b244a202",
+    "child_face_found": false
+   }
+  ],
+  "summary": "PASS: 37 of 37 final images are the same pictures and sizes as their Word originals and equal the sheet's blurred images within JPEG noise (largest pixel difference 19 of 255); 226 of 226 blurred faces have eyes, nose and mouth hidden (103 looked at by eye, 123 measured); nothing changed outside the blurred areas beyond JPEG noise; none of the 24 unblurred images shows a child's face with an eye showing."
+ },
+ "place_to_word": {
+  "001": "image1.jpg",
+  "002": "image2.jpg",
+  "003": "image6.JPG",
+  "004": "image3.jpg",
+  "005": "image5.jpg",
+  "006": "image4.jpg",
+  "007": "image7.JPG",
+  "008": "image8.jpg",
+  "009": "image11.png",
+  "010": "image10.png",
+  "011": "image9.png",
+  "012": "image15.JPG",
+  "013": "image14.JPG",
+  "014": "image12.JPG",
+  "015": "image13.jpg",
+  "016": "image17.jpg",
+  "017": "image19.jpeg",
+  "018": "image18.jpg",
+  "019": "image16.jpg",
+  "020": "image21.JPG",
+  "021": "image20.jpg",
+  "022": "image23.jpg",
+  "023": "image22.jpg",
+  "024": "image24.JPG",
+  "025": "image25.JPG",
+  "026": "image26.jpg",
+  "027": "image27.JPG",
+  "028": "image32.jpg",
+  "029": "image28.JPG",
+  "030": "image29.JPG",
+  "031": "image31.jpg",
+  "032": "image30.jpg",
+  "033": "image36.jpg",
+  "034": "image35.JPG",
+  "035": "image37.JPG",
+  "036": "image34.JPG",
+  "037": "image33.JPG",
+  "038": "image41.jpeg",
+  "039": "image40.JPG",
+  "040": "image38.jpg",
+  "041": "image39.jpg",
+  "042": "image42.jpeg",
+  "043": "image46.jpg",
+  "044": "image45.JPG",
+  "045": "image44.JPG",
+  "046": "image43.jpg",
+  "047": "image47.jpg",
+  "048": "image54.jpg",
+  "049": "image48.HEIC",
+  "050": "image56.jpg",
+  "051": "image49.jpg",
+  "052": "image50.jpg",
+  "053": "image55.jpg",
+  "054": "image53.jpg",
+  "055": "image52.jpg",
+  "056": "image51.jpg",
+  "057": "image57.jpg",
+  "058": "image59.jpg",
+  "059": "image61.jpg",
+  "060": "image60.jpg",
+  "061": "image58.jpg"
+ },
+ "docx": "1.2 Aun Aprendo.docx, Drive 1TQ1bZKjaN5mnY0VZ6xaPBAQhp-R6Cza1, sha256 9f505b24"
+}
