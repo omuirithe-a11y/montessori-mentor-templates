@@ -738,5 +738,17 @@
   ],
   "clean_result": "-",
   "at": "2026-11-07T10:07:47"
+ },
+ "eng-7nov-strip_compare_nolive-pin-56d82b8b": {
+  "code": "56d82b8b13440129fabcac3de21433de658c360a21f7501284fc8a962ed3947f",
+  "page": "3.5.0",
+  "fault_put_in": "build 43 (template before the mm-t-mid pre-wrap rule)",
+  "broken_copy": "/home/claude/mm/build-35/b43/the-english-curriculum.zip",
+  "caught": [
+   "b43 NOT ACCEPTABLE (eng35/pin6-b43.txt)"
+  ],
+  "clean_result": "try44 ALL CHECKS OK (eng35/pin6-try44.txt)",
+  "at": "2026-11-07T12:03:30",
+  "script": "tools/v8/strip_compare_nolive.py"
  }
 }
