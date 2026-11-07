@@ -714,5 +714,29 @@
   ],
   "clean_result": "tested 7 Nov (decisions log)",
   "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-b026-gate_list-1e71094d": {
+  "code": "1e71094d69d44bab8a00a6099e6a2beee24868e741a253ddb1b853b854a8d32c",
+  "page": "3.5.0",
+  "script": "tools/gate_list.py",
+  "fault_put_in": "B026 after-upload row",
+  "broken_copy": "-",
+  "caught": [
+   "on b42: B026 NOT CHECKED -> PASS (after publishing, listed); no other row changes (scratchpad drytest old/new diff)"
+  ],
+  "clean_result": "b42 copy run before install = installed run, row for row (except fingerprint row E008 until commit)",
+  "at": "2026-11-07T10:07:47"
+ },
+ "eng-7nov-b026-build_guard-9e34f22c": {
+  "code": "9e34f22c19758c743ea25cfeeec11c84fbd0d293833bef2286e66e98b071c079",
+  "page": "3.5.0",
+  "script": "tools/build_guard.sh",
+  "fault_put_in": "B026 after-upload row",
+  "broken_copy": "-",
+  "caught": [
+   "build 43: refused on B026 before; passes S1 after (stops only at the missing cause, on purpose)"
+  ],
+  "clean_result": "-",
+  "at": "2026-11-07T10:07:47"
  }
 }

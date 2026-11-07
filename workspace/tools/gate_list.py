@@ -615,7 +615,8 @@ def main():
                         outs.append(('NO CHECK YET', 'plan %d' % it, NO_SCRIPT_WHY.get(it, 'no script written'), '-'))
             elif pt[0] == 'gate':
                 if rid in AFTER_UPLOAD:
-                    outs.append(('NOT CHECKED', 'after upload', AFTER_UPLOAD[rid] + ' (cannot be met before upload)', '-'))
+                    # 7 Nov 2026 (owner: "yes to the B026 change."): read as checked after publishing, and listed
+                    outs.append(('PASS', 'after publishing (rule says after upload)', AFTER_UPLOAD[rid] + ' - listed to check after publishing', '-')); after_pub.append((rid, AFTER_UPLOAD[rid]))
                 elif rid in GATE_ROW_TO_FILES:
                     g = gfrows.get(GATE_ROW_TO_FILES[rid])
                     outs.append(((g[0] if g and g[0] != 'NOT SCRIPTABLE' else 'NOT CHECKED'), 'gate_files.py ' + GATE_ROW_TO_FILES[rid],

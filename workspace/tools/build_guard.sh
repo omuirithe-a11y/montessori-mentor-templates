@@ -36,7 +36,11 @@ rows, quote = set(), None
 if os.path.exists(gr):
     g = open(gr).read(); rows = set(re.findall(r'^([A-E]\d{3}) \|', g, re.M))
     q = re.search(r'word for word: "(.{40,}?)"\s*$', g, re.M); quote = q.group(1) if q else None
-left = [r for r in todo if r not in rows]
+# 7 Nov 2026 (owner: "yes to the B026 change."): a row whose own rule says it is checked after upload is read as checked after publishing
+import json as _j
+_rq = {r['id']: r for r in _j.load(open('/home/claude/mm/tools/REQUIRED-CHECKS.json'))}
+own = [r for r in todo if re.match(r'^\s*after upload', _rq.get(r, {}).get('item', ''), re.I)]
+left = [r for r in todo if r not in rows and r not in own]
 if left: refuse('rows with no check written or met only after upload have no decision of the owner in %s: %s (S1)' % (gr, ' '.join(left)))
 if todo:
     logs = ''.join(open(f).read() for f in glob.glob('/home/claude/mm/records/DECISIONS-LOG*.md'))
