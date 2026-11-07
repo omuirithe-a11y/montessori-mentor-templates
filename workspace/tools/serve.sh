@@ -1,4 +1,5 @@
 #!/bin/bash
+case "${1:-}" in start) bash /home/claude/mm/tools/roundlock.sh check || exit 3;; esac   # 7 Nov 2026 (S7)
 # 6 Nov 2026 (owner 10:53 "yes", lessons list item 5; lessons 21, 64): a local test server started and stopped by its own
 # process number (kept in a file), never by a name pattern.  Usage: serve.sh start <dir> <port> | serve.sh stop <port>
 set -u; F=/home/claude/eng35/serve-$2.pid

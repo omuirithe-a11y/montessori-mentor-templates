@@ -15,8 +15,10 @@ set -u
 C=$(cd "$1" && pwd); Z=$(cd "$(dirname "$2")" && pwd)/$(basename "$2"); O=$3; WID=${4:-all}; ROWSARG=${5:-}; G=$(dirname "$(readlink -f "$0")")
 mkdir -p "$O"; O=$(cd "$O" && pwd); BD=$(dirname "$Z"); SHA=$(sha256sum "$Z" | cut -c1-16)
 [ -f "$BD/checks2/FAST-PASSED" ] && grep -q "package sha256 $SHA" "$BD/checks2/FAST-PASSED" || { echo "REFUSED $(date '+%H:%M:%S'): the fast checks have not passed for this package ($SHA)"; exit 3; }
+[ -f "$BD/checks2/GATE-EARLY-PASSED" ] && grep -q "package sha256 $SHA" "$BD/checks2/GATE-EARLY-PASSED" || { echo "REFUSED $(date '+%H:%M:%S'): the gate's early run has not passed for this package ($SHA) (7 Nov 2026, S1 refined)"; exit 3; }
 RV=$BD/REVIEW.md
 { [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && [ "$(grep -v '^[[:space:]]*$' "$RV" | tail -1)" = "FAULTS: 0" ]; } || { echo "REFUSED $(date '+%H:%M:%S'): no separate review report for this package with FAULTS: 0 ($RV)"; exit 3; }
+{ [ -f "$(dirname "$RV")/REVIEW-BRIEF.md" ] && [ "$RV" -nt "$(dirname "$RV")/REVIEW-BRIEF.md" ] && grep -q "BRIEF $(basename "$(dirname "$RV")")/REVIEW-BRIEF.md" "$RV"; } || { echo "REFUSED $(date +%H:%M:%S): the review report does not come from the brief tools/review_brief.sh wrote for this build (7 Nov 2026, S8)"; exit 3; }
 [ -f "$O/SUMMARY.txt" ] && head -1 "$O/SUMMARY.txt" | grep -q "package sha256 $SHA" || echo "start $(date '+%H:%M:%S')  package sha256 $SHA" > "$O/SUMMARY.txt"
 fresh() { local r=$1; shift; [ -s "$r" ] || return 1; [ "$r" -nt "$Z" ] || return 1; for x in "$@"; do [ "$r" -nt "$x" ] || return 1; done; return 0; }
 judge() {   # judge <step> <file> <label>: record; stop the round on a fault
@@ -24,6 +26,11 @@ judge() {   # judge <step> <file> <label>: record; stop the round on a fault
   echo "$3: $(tail -1 "$2" 2>/dev/null)  [$j]" >> "$O/SUMMARY.txt"
   [ $e -eq 0 ] || { echo "STOPPED at $3 $(date '+%H:%M:%S'): $j" >> "$O/SUMMARY.txt"; cat "$O/SUMMARY.txt"; exit 1; }; }
 kept() { python3 "$G/round_judge.py" $1 "$2" > /dev/null 2>&1 && fresh "$2" "${@:3}"; }
+# 7 Nov 2026 (owner "implement all of these changes"; review of the S-list: run_checks.sh had no proof refusal): every check script
+# this runner uses must have a proof on a deliberately broken copy in tools/check-proofs.json (runner vfast.py exempt, as in more_checks.sh)
+for s_ in "$C/stable.py" "$G/lines_v2.py" "$G/v8/place_check.py" "$C/speed_check.py"; do
+  python3 -c "import json,hashlib,sys;h=hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest();d=json.load(open('$G/check-proofs.json'));sys.exit(0 if any(isinstance(v,dict) and v.get('code')==h for v in d.values()) else 1)" "$s_" || { echo "STOPPED at proofs $(date '+%H:%M:%S'): REFUSED - $(basename "$s_") (this version) has no proof in tools/check-proofs.json" >> "$O/SUMMARY.txt"; cat "$O/SUMMARY.txt"; exit 1; }
+done
 # 1. the 122 widths
 # 6 Nov 2026 (owner 09:25 "#3 to #16 ... implement"): (#4) the widths that failed on the previous build run first, so a fault
 # still there stops the round in seconds; (#5) widths a stopped run already finished on THIS package (the vfast-*/w*.out lines

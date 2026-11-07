@@ -4,6 +4,8 @@
 # equals the local commit.  Usage: commit_push.sh "<message>" <path relative to /home/claude/mm> [...]
 set -u
 MSG=$1; shift; M=/home/claude/mm; R=/home/claude/montessori-mentor-templates; W=$R/workspace
+# 7 Nov 2026 (S9): a decisions-log line written with a time later than the clock is refused
+for f in "$@"; do case "$f" in records/DECISIONS-LOG*.md) python3 "$M/tools/log_time_check.py" "$W/$f" "$M/$f" || exit 3;; esac; done
 for f in "$@"; do mkdir -p "$W/$(dirname "$f")"; cp "$M/$f" "$W/$f" || { echo "COMMIT FAILED: cannot copy $f"; exit 1; }; done
 [ -f "$M/templates/Essay Code Template.html" ] && ! cmp -s "$M/templates/Essay Code Template.html" "$R/Essay Code Template.html" && echo "NOTE: the Essay template differs from the repo copy - not copied (template changes need her agreement and are copied by hand)"
 cd "$W" && python3 - <<'P'

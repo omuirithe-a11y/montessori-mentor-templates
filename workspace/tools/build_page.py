@@ -29,7 +29,7 @@ lists every photo so none is missed.
 """
 import html as _html
 H = _html.escape
-import argparse, os, re, subprocess, sys, json, base64, io, shutil, difflib, zipfile
+import argparse, hashlib, os, re, subprocess, sys, json, base64, io, shutil, difflib, zipfile
 from bs4 import BeautifulSoup
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None   # 20 Oct: 5.5 has a 96-million-pixel picture; it is scaled down below, never shown at that size
@@ -180,7 +180,11 @@ def main():
     if a.out:
         import re as _re0, subprocess as _sp0
         _o = os.path.normpath(a.out); _bn = os.path.basename(_o)
-        if _re0.fullmatch(r'b\d+', _bn) and os.environ.get('MM_GUARD_DONE') != _bn:
+        # 7 Nov 2026: the environment variable alone no longer skips the guard - only the guard's own pass mark, made in the
+        # last 15 minutes for this builds folder and build (records/.guard-ok-<builds>-<bN>)
+        _gk = '/home/claude/mm/records/.guard-ok-%s-%s' % (os.path.basename(os.path.dirname(os.path.abspath(_o))), _bn)
+        _gok = os.path.exists(_gk) and (__import__('time').time() - os.path.getmtime(_gk)) < 900
+        if _re0.fullmatch(r'b\d+', _bn) and not _gok:
             _r = _sp0.run(['bash', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'build_guard.sh'), os.path.dirname(_o) or '.', _bn])
             if _r.returncode != 0: sys.exit('BUILD REFUSED by tools/build_guard.sh (see the line above)')
     # 3 Nov 2026 (owner 09:25, "B" - for 8.2 Books of Interest: "a preview build from the round 1 blurred images, with no upload zip,
@@ -1124,7 +1128,7 @@ def main():
     imgdir = os.path.join(out, 'images')
     if os.path.exists(imgdir): shutil.rmtree(imgdir)
     os.makedirs(imgdir)
-    n = 0; origs = []
+    n = 0; origs = []; _UNBLURRED = {}
     for img in main_el.find_all('img'):
         m = re.match(r'data:image/([a-z+]+);base64,(.*)', img.get('src', ''), re.S)
         if not m: continue
@@ -1136,6 +1140,9 @@ def main():
             im = Image.open(io.BytesIO(base64.b64decode(m.group(2)))).convert('RGB')
         if a.photos and os.path.exists(os.path.join(a.photos, name)):
             im = Image.open(os.path.join(a.photos, name)).convert('RGB')
+        elif a.photos:   # 7 Nov 2026 (S2): every image the page uses unblurred, by the sha256 of its Word original
+            try: _UNBLURRED[hashlib.sha256(zipfile.ZipFile(a.docx).read('word/media/' + name)).hexdigest()] = name
+            except Exception: _UNBLURRED['unreadable:' + name] = name
         if name in CROP:   # 20 Oct: Word's crop and turn, as the converter does them (re-reading the original had dropped them)
             l, t_, r_, b_ = CROP[name]; W0, H0 = im.size
             im = im.crop((round(W0 * l), round(H0 * t_), round(W0 * (1 - r_)), round(H0 * (1 - b_))))
@@ -1433,6 +1440,13 @@ def main():
             # made after the user's last answer ("answered" in review2.json "final"), "time" as YYYY-MM-DD HH:MM in Shanghai time
             _pa = json.load(open(os.path.join(_fd, 'pixel-check-after-answer.json')))
             _okf = _okf and _pa.get('pass') is True and str(_pa.get('time', ''))[:16] > str(_jf.get('answered', ''))[:16]
+            # 7 Nov 2026 (owner "implement all of these changes", S2; b41 review found children's faces in images used unblurred):
+            # the pixel check must list, by sha256, every image it looked at whole that the page uses unblurred
+            _seen = {str(x.get('sha256')) for x in (_pa.get('unblurred_looked_at') or []) if isinstance(x, dict)}
+            _miss = sorted(n_ for h_, n_ in _UNBLURRED.items() if h_ not in _seen)
+            if _miss:
+                print('NO UPLOAD ZIP: the faces pixel check does not list (by sha256) these images the page uses unblurred: %s' % ', '.join(_miss[:20]))
+                report.append(('faces', 'NO UPLOAD ZIP - unblurred images not looked at by the pixel check', ', '.join(_miss))); _okf = False
         except Exception: _okf = False
         if not _okf:
             if os.path.exists(z): os.remove(z)

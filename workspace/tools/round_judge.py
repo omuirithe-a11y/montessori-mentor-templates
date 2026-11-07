@@ -17,7 +17,7 @@ def bad(w): print('FAULT: %s' % w); sys.exit(1)
 last = lambda rx: any(re.search(rx, l) for l in L[-4:])
 simple = {'strip': r'ALL CHECKS OK', 'static': r'^STATIC PASS', 'columns': r'^COLUMNS OK', 'text': r'^TEXT PASS',
           'tablet': r'^TABLET PASS', 'space': r'SPACING OK', 'images': r'^IMAGES PASS', 'images2': r'^IMAGES PASS',
-          'wrap': r'^WRAP PASS', 'widths': r'RESULT: every width ok', 'place': r'^PLACE OK', 'speed': r'^SPEED OK'}
+          'wrap': r'^WRAP PASS', 'widths': r'RESULT: every width ok', 'place': r'^PLACE OK', 'speed': r'^SPEED OK', 'blocks': r'^BLOCKS OK'}   # blocks: 7 Nov 2026 (S3)
 if step in simple:
     ok() if last(simple[step]) else bad(next((l for l in reversed(L) if l.strip() and l.strip() != 'END'), 'empty')[:160])
 if step == 'style':

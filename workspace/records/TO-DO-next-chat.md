@@ -7,3 +7,6 @@
 2. After The English Curriculum is published: save the streamlining lessons (records/BUILD-ORDER.md, the 6 Nov 07:1x six
    ways and the rest) to records/LESSONS-LEARNED-27-29-oct.md and the Project copy (owner 07:17).
 3. Read records/BUILD-ORDER.md (Project claude/BUILD-ORDER.md) before any build.
+
+4. (7 Nov, S12) On the template test page: a spacing-check mode for the Essay template with its own spacing rules agreed with her at the start (the Resources-made check misread Essay pages: beige lines, paragraph matching).
+5. (7 Nov) When the template test page is done, write records/TEMPLATE-TEST-PAGE-DONE.txt (her words and the date) - the build guard refuses build 1 of an Essay page until it exists.

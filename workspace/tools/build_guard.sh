@@ -12,11 +12,36 @@ set -u; D=$1; N=$2
 P=$(ls -d "$D"/b[0-9]* 2>/dev/null | sed 's/.*\/b//' | grep -E '^[0-9]+$' | sort -n | tail -1)
 if [ -z "$P" ]; then   # 6 Nov 08:2x (owner 08:15 "adjust accordingly"): build 1 needs the decisions sheet answered first
   DS=${DECISIONS_SHEET:-}; { [ -n "$DS" ] && [ -s "$DS" ] && grep -q "^OWNER ANSWER:" "$DS"; } || { echo "BUILD REFUSED: first build - no answered decisions sheet (set DECISIONS_SHEET to a file holding a line 'OWNER ANSWER: <her words>')"; exit 3; }
-  echo "build guard: first build, decisions sheet answered ($DS)"; exit 0; fi
+  # 7 Nov 2026 (S4b): an Essay page's first build waits for the template test page (records/TEMPLATE-TEST-PAGE-DONE.txt)
+  if [ "${GUARD_TEMPLATE:-essay}" = essay ] && [ ! -s /home/claude/mm/records/TEMPLATE-TEST-PAGE-DONE.txt ]; then echo "BUILD REFUSED: first build of an Essay page before the template test page is done (records/TEMPLATE-TEST-PAGE-DONE.txt, S4b)"; exit 3; fi
+  touch "/home/claude/mm/records/.guard-ok-$(basename "$D")-$N"; echo "build guard: first build, decisions sheet answered ($DS)"; exit 0; fi
 B="$D/b$P"; S="$B/checks2/SUMMARY.txt"
 [ -f "$S" ] || { echo "BUILD REFUSED: build b$P has no check round (run tools/check_round.sh ... fast on it first)"; exit 3; }
 grep -q "^STOPPED at" "$S" && { [ -s "$B/REVIEW.md" ] || { echo "BUILD REFUSED: b$P's round stopped at a fault, but b$P has no separate review report (REVIEW.md) - run the review on b$P, then fix the round's and the review's faults together"; exit 3; }; echo "build guard: b$P's round stopped at a fault and b$P has its review - fix every fault found, then build $N"; exit 0; }   # 6 Nov 12:1x: the review on every build
 grep -q "^FAST CHECKS PASSED" "$S" || { echo "BUILD REFUSED: build b$P's fast round has not finished"; exit 3; }
 Z=$(ls "$B"/*.zip | grep -vE -- '-(originals|CHECK-ONLY|UPLOAD)\.zip$' | head -1); SHA=$(sha256sum "$Z" | cut -c1-16)
 [ -f "$B/REVIEW.md" ] && grep -q "$SHA" "$B/REVIEW.md" || { echo "BUILD REFUSED: build b$P passed its fast round but has no separate review report naming $SHA"; exit 3; }
-echo "build guard: b$P checked and reviewed - build $N"
+# 7 Nov 2026 (owner "implement all of these changes"): S1 - the gate plan; S4b - the template test page; S10 - a cause for each build
+PG=$(basename "$Z" .zip); GP=/home/claude/mm/records/gate-plans/$PG.md; GR=/home/claude/mm/tools/allowed/$PG-gate-rows.txt
+python3 - "$GP" "$GR" <<'PY' || exit 3
+import sys, os, re, hashlib, glob
+gp, gr = sys.argv[1:3]
+def refuse(m): print('BUILD REFUSED: ' + m); sys.exit(3)
+if not os.path.exists(gp): refuse('no gate plan %s - run tools/gate_plan.sh on the last build (S1)' % gp)
+t = open(gp).read(); m = re.search(r'^rules sha256 (\w+)', t, re.M)
+if not m or m.group(1) != hashlib.sha256(open('/home/claude/mm/tools/REQUIRED-CHECKS.json', 'rb').read()).hexdigest():
+    refuse('the rules list changed since the gate plan was made - run tools/gate_plan.sh again and bring the new rows to the owner (S1)')
+todo = re.findall(r'^TO DECIDE ([A-E]\d{3})', t, re.M)
+rows, quote = set(), None
+if os.path.exists(gr):
+    g = open(gr).read(); rows = set(re.findall(r'^([A-E]\d{3}) \|', g, re.M))
+    q = re.search(r'word for word: "(.{40,}?)"\s*$', g, re.M); quote = q.group(1) if q else None
+left = [r for r in todo if r not in rows]
+if left: refuse('rows with no check written or met only after upload have no decision of the owner in %s: %s (S1)' % (gr, ' '.join(left)))
+if todo:
+    logs = ''.join(open(f).read() for f in glob.glob('/home/claude/mm/records/DECISIONS-LOG*.md'))
+    if not quote or quote[:120] not in logs: refuse('%s does not quote the owner\'s words found in the decisions log (S1)' % gr)
+PY
+[ -n "${BUILD_CAUSE:-}" ] || { echo "BUILD REFUSED: no cause given for build $N - set BUILD_CAUSE (review fault / check fault / template change / owner change: what) (S10)"; exit 3; }
+echo "$(date '+%d %b %Y %H:%M:%S') | $N | cause: $BUILD_CAUSE" >> /home/claude/mm/records/build-causes-$PG.txt
+touch "/home/claude/mm/records/.guard-ok-$(basename "$D")-$N"; echo "build guard: b$P checked and reviewed - build $N"

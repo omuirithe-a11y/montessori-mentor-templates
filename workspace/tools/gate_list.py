@@ -25,6 +25,7 @@ import sys, os, re, json, hashlib, subprocess, datetime, importlib.util
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+if subprocess.run(['bash', os.path.join(HERE, 'roundlock.sh'), 'check']).returncode != 0: sys.exit(3)   # 7 Nov 2026 (S7): not beside a running round
 spec = importlib.util.spec_from_file_location('gate_files', os.path.join(HERE, 'gate_files.py'))
 GF = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(GF)

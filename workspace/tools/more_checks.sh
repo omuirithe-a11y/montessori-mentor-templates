@@ -65,6 +65,14 @@ if [ "$STAGE" = fast ]; then
   step widths "on-screen check, 13 key widths" $O/widths13.txt $CHK122/vfast.py $CHK122/visual_check.py -- sh -c "python3 $CHK122/vfast.py $CHK122 \"$Z\" $O/widths13.txt 2 320,390,640,641,768,830,831,961,1024,1099,1280,1440,1920 > $O/widths13.log 2>&1"
   step wrap "wrap, every 40 px (early pass)" $O/wrap-early.txt $M/tools/wrap_sweep.py -- sh -c "python3 $M/tools/wrap_sweep.py \"$P\" \"$DOCX\" $O/wrap-early.txt 320 1920 40 > $O/wrap-early.log 2>&1"
   step space "spacing (13 widths)" $O/space.txt $M/tools/spacecheck.py -- sh -c "python3 $M/tools/spacecheck.py \"$DOCX\" \"$PDF\" \"$P\" \"$T/space\" > $O/space.log 2>&1; cp \"$T/space/spacecheck.txt\" $O/space.txt 2>>$O/space.log"
+  # 7 Nov 2026 (owner "implement all of these changes", S5 and S3 refined): the checks that ended builds 37-39 in the long round
+  # run in the fast round too - placement, and the images swipe/late parts at 641/768/830 - and the block comparison with the
+  # build before (a fix's side effects: other blocks moved or resized, stretched justified lines in the changed blocks)
+  step place "placement (fast)" $O/place-fast.txt $M/tools/v8/place_check.py -- sh -c "python3 $M/tools/v8/place_check.py \"$Z\" > $O/place-fast.txt 2>&1"
+  step images2 "images swipe/late at 641, 768, 830 (fast)" $O/images-fast.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images-fast.txt 641,768,830 swipe,late > $O/images-fast.log 2>&1"
+  PREVZ=$(ls -d "$(dirname "$B")"/b[0-9]* 2>/dev/null | sed 's/.*\/b//' | grep -E '^[0-9]+$' | sort -n | awk -v me="$(basename "$B" | sed 's/^b//')" '$1<me' | tail -1)
+  PZ=$(ls "$(dirname "$B")/b$PREVZ"/*.zip 2>/dev/null | grep -vE -- '-(originals|CHECK-ONLY|UPLOAD)\.zip$' | head -1)
+  if [ -n "$PZ" ]; then step blocks "blocks against b$PREVZ (fast)" $O/blocks.txt $M/tools/block_compare.py -- sh -c "python3 $M/tools/block_compare.py \"$Z\" \"$PZ\" $O/blocks.txt > $O/blocks.log 2>&1"; fi
   # 6 Nov 2026 (owner 18:0x agreement): when the template has changed since the last build that passed the images check, the
   # fast round also runs it (records/images-passed-template.txt holds the template sha256 of that build)
   TSHA=$(sha256sum "$TPL" | awk '{print $1}'); if [ "$(cat $M/records/images-passed-template.txt 2>/dev/null)" != "$TSHA" ]; then
@@ -74,8 +82,10 @@ if [ "$STAGE" = fast ]; then
   echo "FAST CHECKS PASSED $(date +%H:%M:%S) - next: the gate (early run), then the separate review, then: more_checks.sh ... long, and run_checks.sh" >> $O/SUMMARY.txt
 else
   [ -f $O/FAST-PASSED ] && grep -q "package sha256 $SHA" $O/FAST-PASSED || { echo "REFUSED $(date +%H:%M:%S): the fast checks have not passed for this package ($SHA)" | tee -a $O/SUMMARY.txt; exit 3; }
+  [ -f $O/GATE-EARLY-PASSED ] && grep -q "package sha256 $SHA" $O/GATE-EARLY-PASSED || { echo "REFUSED $(date +%H:%M:%S): the gate's early run has not passed for this package ($SHA) (7 Nov 2026, S1 refined)" | tee -a $O/SUMMARY.txt; exit 3; }
   RV=$B/REVIEW.md
   { [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && [ "$(grep -v '^[[:space:]]*$' "$RV" | tail -1)" = "FAULTS: 0" ]; } || { echo "REFUSED $(date +%H:%M:%S): no separate review report for this package with FAULTS: 0 ($RV)" | tee -a $O/SUMMARY.txt; exit 3; }
+{ [ -f "$(dirname "$RV")/REVIEW-BRIEF.md" ] && [ "$RV" -nt "$(dirname "$RV")/REVIEW-BRIEF.md" ] && grep -q "BRIEF $(basename "$(dirname "$RV")")/REVIEW-BRIEF.md" "$RV"; } || { echo "REFUSED $(date +%H:%M:%S): the review report does not come from the brief tools/review_brief.sh wrote for this build (7 Nov 2026, S8)"; exit 3; }
   step images "images (heights, 122 widths)" $O/images.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images.txt full heights > $O/images.log 2>&1"
   sha256sum "$TPL" | awk '{print $1}' > $M/records/images-passed-template.txt   # 6 Nov 2026: the template this build passed the images check on
   step images2 "images (swipe, late, behaviour)" $O/images-2.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images-2.txt full swipe,late,behaviour > $O/images-2.log 2>&1"

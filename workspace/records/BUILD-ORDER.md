@@ -91,3 +91,16 @@ The time sinks on 3.5.0, largest first, and whether a solution removes each:
   tools/setup_workspace.sh; START-HERE (Quick start) points here.
 
 - 6 Nov 16:2x: every template change re-pins the code checks; the re-pinned check needs its proof (new build ALL CHECKS OK, previous build NOT ACCEPTABLE) recorded in tools/check-proofs.json BEFORE the round, or the round refuses it.
+
+## 7 Nov 2026 - what the scripts now enforce (owner, word for word: "implement all of these changes. how will these solutions be enforced."; the list records/SOLUTIONS-7-nov.md, refined after a separate review)
+- Build 1 of an Essay page: refused until records/TEMPLATE-TEST-PAGE-DONE.txt exists (the template test page first) and the decisions sheet is answered (tools/build_guard.sh).
+- Every build after 1: refused unless the previous build's round finished and has its review; unless records/gate-plans/<page>.md exists and was made on the current rules list; unless every row the plan marks "no check yet" or "after upload" has a line in tools/allowed/<page>-gate-rows.txt and that file quotes her words found in the decisions log; and unless BUILD_CAUSE is given (written to records/build-causes-<page>.txt). The builder runs the guard itself; only the guard's own pass mark (records/.guard-ok-<builds>-<bN>, 15 min) lets it skip a second run.
+- Fast round (tools/check_round.sh ... fast): code, static, Word format, columns, text, style, tablet, 13 widths, wrap 40 px, spacing, then NEW: placement (v8/place_check.py), images swipe/late at 641/768/830, and tools/block_compare.py against the build before (other blocks moved or resized; stretched justified lines in the changed blocks; images drawn under 0.6 of their size) - measured twice, a change counts only when seen both times. Then the gate's early run, judged by tools/gate_early_judge.py; only a pass writes checks2/GATE-EARLY-PASSED; then tools/gate_plan.sh refreshes the plan.
+- The review chain (tools/chain.sh), run_checks.sh and more_checks.sh long refuse without GATE-EARLY-PASSED for the package; the screenshots are followed by tools/review_brief.sh, which writes <build>/REVIEW-BRIEF.md (every input, her messages, the eye rows); the long runners refuse a review report that does not carry "BRIEF <build>/REVIEW-BRIEF.md" and was written after it.
+- run_checks.sh refuses any check script it uses that has no proof in tools/check-proofs.json (as more_checks.sh already did).
+- tools/roundlock.sh: while a round runs, gate_list.py, serve.sh starts and block_compare.py from outside it refuse. (Agents' own scripts can still bypass it; the hourly review counts any process run beside a round.)
+- Faces: build_page.py makes no upload zip unless faces/pixel-check-after-answer.json lists, by sha256 of the Word original, every image the page uses unblurred; the round 1 faces sheet (blur2/method_sheet.py) shows every "no face found" image whole.
+- tools/commit_push.sh refuses a decisions-log line whose time is later than the clock (tools/log_time_check.py).
+- tools/time_report.py <builds> <page>: hours per stage per build and each build's cause.
+- Run every round as ONE tracked command: tools/round_and_chain.sh b<N> (fast round + review chain + long round).
+Not enforceable by a script: replies through the separate message checker; figures in messages only from files.

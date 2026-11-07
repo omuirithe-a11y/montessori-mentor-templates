@@ -594,5 +594,125 @@
   ],
   "clean_result": "page row map: on b41 E027/E042 PASS from space.txt, E028 PASS from style.txt, B101/E030 NOT CHECKED with no REVIEW-BROWSER.md, the five after-publishing rows PASS and listed (eng35/gfix3/t-b41.txt)",
   "at": "2026-11-07T07:18:49"
+ },
+ "eng-7nov-block_compare-c0de2edf": {
+  "code": "c0de2edf8d553e867099035cab820ff9531baac2f420a48ee993606c80482f58",
+  "page": "3.5.0",
+  "script": "tools/block_compare.py",
+  "fault_put_in": "build 42 (its I Spy em space stretched a justified line at 768)",
+  "broken_copy": "build-35/b42 against b41",
+  "caught": [
+   "BLOCKS FAULT (1): 768 widest word gap 12.6 px (build before 7.4) (eng35/blk-b42-b41.txt)"
+  ],
+  "clean_result": "b42 against itself: BLOCKS OK (eng35/blkself/self.txt)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-gate_early_judge-1165f40b": {
+  "code": "1165f40b87a16cf0f11ecb2001512fd11c46222600f733257cd8cc9a10f767e1",
+  "page": "3.5.0",
+  "script": "tools/gate_early_judge.py",
+  "fault_put_in": "planted: an integrity line; a FAULT row on style.txt",
+  "broken_copy": "copies of b42 gate-early.txt",
+  "caught": [
+   "both stop (exit 1)"
+  ],
+  "clean_result": "b41, b42 gate-early.txt: exit 0",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-log_time_check-8be64a03": {
+  "code": "8be64a03b9308d0e3ea0f5e49024321bf53ebd10fbaf1655f272cfba1964a14c",
+  "page": "3.5.0",
+  "script": "tools/log_time_check.py",
+  "fault_put_in": "planted log line 7 Nov 23:5x",
+  "broken_copy": "scratchpad log-test.md",
+  "caught": [
+   "COMMIT REFUSED"
+  ],
+  "clean_result": "real log: exit 0",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-build_page-faces-count-99d7383e": {
+  "code": "99d7383e168df855d1836f857dc59f7537330538428484891b8d6aff79bc970a",
+  "page": "3.5.0",
+  "script": "tools/build_page.py",
+  "fault_put_in": "pixel-check list with image1.JPG removed",
+  "broken_copy": "eng35/facestest (copy)",
+  "caught": [
+   "NO UPLOAD ZIP ... image1.JPG (eng35/try43p.log)"
+  ],
+  "clean_result": "full list: upload zip made (eng35/try43.log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-round_judge-blocks-e9dfa5d3": {
+  "code": "e9dfa5d3237e573359d584409abaeacb465bc7a4157e7f2ca1d00d0eb9ee46ed",
+  "page": "3.5.0",
+  "script": "tools/round_judge.py",
+  "fault_put_in": "blocks step added",
+  "broken_copy": "-",
+  "caught": [
+   "BLOCKS FAULT -> FAULT"
+  ],
+  "clean_result": "BLOCKS OK -> PASS",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-gate_list-5e88855e": {
+  "code": "5e88855edbd4bab66d249486b03a65dc83be045ad0f24eb2071465afb87e617c",
+  "page": "3.5.0",
+  "script": "tools/gate_list.py",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-more_checks-803f358a": {
+  "code": "803f358acd3ac6252db381c6e26d6dc389c5a14c32ec959936acab2feef67df9",
+  "page": "3.5.0",
+  "script": "tools/more_checks.sh",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-run_checks-bd0e4c72": {
+  "code": "bd0e4c725e90e5229968ae3c8a1b9c02142a4d4bc7ea29bad32f3f73a7296428",
+  "page": "3.5.0",
+  "script": "tools/run_checks.sh",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-check_round-e355bb2b": {
+  "code": "e355bb2b3d212c56645db812a5d087d42d5829c34a5c13d494a4737e3eee4b14",
+  "page": "3.5.0",
+  "script": "tools/check_round.sh",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
+ },
+ "eng-7nov-build_guard-a4066b27": {
+  "code": "a4066b27bbc5652d7235cef743cc297d3a620ac8e75c82dfb7a5e202aa910e3e",
+  "page": "3.5.0",
+  "script": "tools/build_guard.sh",
+  "fault_put_in": "see records/BUILD-ORDER.md 7 Nov section",
+  "broken_copy": "-",
+  "caught": [
+   "tested 7 Nov (decisions log)"
+  ],
+  "clean_result": "tested 7 Nov (decisions log)",
+  "at": "2026-11-07T08:43:16"
  }
 }

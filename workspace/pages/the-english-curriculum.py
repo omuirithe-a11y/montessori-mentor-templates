@@ -365,7 +365,9 @@ def SOUP_FIX(sp, report):
         first = em_.contents[0] if em_.contents else None
         if first is not None and isinstance(first, str): first.replace_with(first.lstrip())
         prev = em_.previous_sibling
-        if prev is not None and isinstance(prev, str) and prev != prev.rstrip(): prev.replace_with(prev.rstrip())
+        # 7 Nov 08:3x (b42 review fault 1): one ordinary space before the tab span (Word has one before the tabs in 246 and 251), so
+        # the line may break before the gap - without it "sound:" and the unbreakable em space + tab went down together at 768
+        if prev is not None and isinstance(prev, str): prev.replace_with(prev.rstrip() + ' ')
         sp = m.new_tag('span', attrs={'class': 'mm-t'}); sp.string = '\u2003' + '\t' * n_   # 6 Nov 23:1x (b41 review fault 1): one em space first, so the gap is never a few px where the text ends just before a tab stop (768)
         em_.insert_before(sp); ki += 1
     report.append(('settings', "Word's tabs before the mid-line 'I Spy' quotations put back (mm-t)", str(ki)))
