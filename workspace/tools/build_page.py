@@ -1335,6 +1335,10 @@ def main():
     for o_, n_ in S.get('PAGE_CODE_REPLACE', []):   # 21 Oct 2026 18:4x (5.3): a change to the template's code on this page only, the template itself unchanged (restored 22 Oct from the 5.3 chat)
         if t.count(o_) != 1: report.append(('settings', 'WARNING: code to replace found %d times' % t.count(o_), o_[:40])); continue
         t = t.replace(o_, n_)
+    for o_, n_ in S.get('PAGE_CODE_REPLACE_ALL', []):   # 8 Nov 2026 (The Prepared Environment): a change made at EVERY place the code occurs (PAGE_CODE_REPLACE needs exactly one); the count is reported
+        c_ = t.count(o_)
+        if not c_: report.append(('settings', 'WARNING: code to replace (every place) found 0 times', o_[:40])); continue
+        t = t.replace(o_, n_); report.append(('settings', 'code replaced at every place (%d)' % c_, o_[:40]))
     if S.get('PHONE_GAPS'):   # 20 Oct 22:0x (5.4, user: "41 and 34"): at phone width, banner to the first letters and the last letters to the footer band
         hg, fg = S['PHONE_GAPS']
         if 'id="mm-phone-gaps-js"' in t:   # 22 Oct 2026: the template has the phone-gaps script; the page's figures go on main

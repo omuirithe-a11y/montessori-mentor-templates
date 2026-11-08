@@ -791,5 +791,18 @@
   "clean_result": "STATIC PASS (proofs-8nov/static-clean.txt); D027 no longer counts the class attribute of menu entries without a page (span.np, checked by the menu check); E045 hands tables to the separate review",
   "at": "2026-11-08T03:18:24",
   "script": "tools/static_code.py"
+ },
+ "pe-8nov-style_rules-quote24-named": {
+  "code": "84d9fb11c22c4a142000acd025af5dfb24d23124cf994e6fa410cad810d5043a",
+  "page": "2.2.0",
+  "fault_put_in": "build b5 with quotation lines set to 40 (line-height 40px on blockquote.pullquote p) - the 8 Nov rule wants 36 (24 letters to letters)",
+  "broken_copy": "/home/claude/pe2/build/proofs-8nov/st-broken/the-prepared-environment",
+  "caught": [
+   "187 lines \"FAULT D136 (8 Nov) <width> p ... line-height 40px vs 36px\" (proofs-8nov/style-broken.txt)"
+  ],
+  "clean_copy": "/home/claude/pe2/build/proofs-8nov/st-clean/the-prepared-environment",
+  "clean_result": "b5: 0 \"D136 (8 Nov)\" lines (proofs-8nov/style-clean.txt); the named list (tools/allowed/<page>-style.txt) accepts only lines named in it, width written as W",
+  "at": "2026-11-08T05:56:02",
+  "script": "tools/style_rules.py"
  }
 }

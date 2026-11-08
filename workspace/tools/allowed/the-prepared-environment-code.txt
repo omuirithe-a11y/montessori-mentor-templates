@@ -1,40 +1,23 @@
 # tools/allowed/the-prepared-environment-code.txt - this page's own code, kept on the page by the owner, 8 Nov 2026, word for word: "yes" to "Do you agree to group 1 going into the Essay Code Template now, and groups 2 and 3 staying as this page's named exceptions?"
-# group 2: rows of images 30/30, the Madonna 200, the chairs table, a divider after a quotation 40 below its last line; group 3: the October page's text sizes, side image never over the text above, two image-row fixes; part 3: the 3 italics items. Taken from build b3 (Essay Code Template 9c8448c3).
+# group 2: rows of images 30/30, the Madonna 200, the chairs table, a divider after a quotation 40 below its last line; group 3: the October page's text sizes, side image never over the text above, two image-row fixes; part 3: the 3 italics items. Taken from build b6 (her 8 Nov Word section); 8 Nov later: the boxed chairs table (owner "Make it a box, as in the pdf", "I want it to look like the pdf"), the Madonna level with its first line, side images level with their first line at 641-830 (her rule "top of photo = top of line of text") (Essay Code Template 9c8448c3).
 1 | +<style id="mm-page">
-1 | +@media (max-width:640px){html body main .mm-float .pim{max-width:100% !important;height:auto !important}html body main .mm-float .pim img{width:100% !important;height:auto !important}}
-1 | +@media (min-width:641px){
-1 | +html body .hero h1{font-size:40px !important}
-1 | +html body .site-name{font-size:25px !important}
-1 | +html body .menu .top{font-size:18px !important}
-1 | +html body .grp a,html body .grp .np,html body .grp .hd span{font-size:18px !important}
-1 | +html body .toc-wrap .toc-label,html body .toc .toc-label,html body .toc-label{font-size:20px !important}
-1 | +html body .toc a{font-size:18px !important}
-1 | +html body main h2,html body main .section h2,html body main h2.mm-sub,html body main h2[class*="mm-hc-"],html body main h3{font-size:18px !important}
-1 | +html body main p:not(.mm-gl),html body main li{font-size:18px !important}
-1 | +html body main blockquote:not(#mmz),html body main blockquote:not(#mmz) p,html body main blockquote:not(#mmz) cite{font-size:18px !important}
-1 | +html body main figcaption,html body main .mm-cap{font-size:15px !important}
-1 | +html body .mc-band p,html body .mc-band p.mc-by{font-size:18px !important}
-1 | +html body .site-foot-in,html body .site-foot-in a,html body .site-foot-in span{font-size:15px !important}
-1 | +}
-1 | +@media (max-width:640px){
-1 | +html body .hero h1{font-size:28px !important}
-1 | +html body .site-name{font-size:21px !important}
-1 | +html body .menu .top{font-size:17px !important}   /* 25 Oct 2026: your phone number for the menu bar (17); the template had 18 */
-1 | +html body .grp a,html body .grp .np,html body .grp .hd span{font-size:17px !important}
-1 | +html body .toc-wrap .toc-label,html body .toc .toc-label,html body .toc-label{font-size:19px !important}
-1 | +html body .toc a{font-size:17px !important}
-1 | +html body main h2,html body main .section h2,html body main h2.mm-sub,html body main h2[class*="mm-hc-"],html body main h3{font-size:17px !important}
-1 | +html body main h2[class*="mm-hc-"][class]{font-size:17px !important}   /* 24 Oct: beats the Word-colour heading rules (18), which come later */
-1 | +html body main p:not(.mm-gl),html body main li{font-size:17px !important}
-1 | +html body main blockquote:not(#mmz),html body main blockquote:not(#mmz) p,html body main blockquote:not(#mmz) cite{font-size:17px !important}
-1 | +html body main figcaption,html body main .mm-cap{font-size:15px !important}
-1 | +html body .mc-band p,html body .mc-band p.mc-by{font-size:17px !important}
-1 | +html body .site-foot-in,html body .site-foot-in a,html body .site-foot-in span{font-size:15px !important}
-1 | +}
+1 | +/* 24 Oct 2026 (you: "18 everywhere"): the menu bar at 18 fits between 961 and 1099 */
 1 | +@media (min-width:961px) and (max-width:1099px){html body .site-head-in{padding-left:16px !important;padding-right:16px !important}html body .menu{gap:2px !important}html body .menu .sub-toggle{width:13px !important;min-width:13px !important;padding:0 !important;margin-left:1px !important}}
+1 | +/* 26 Oct 2026: an image row after images beside the text starts below them, as in your PDF */
 1 | +html body main .mm-row{clear:both}
-1 | +/* 7 Nov 2026 (owner: "this pho is an exception. make it 200 high"): the Madonna della Seggiola beside its quotation 200 high */
-1 | +@media (min-width:831px){html body main .mm-float:has(img[data-full="images/193.jpg"]) .pim{height:200px !important;width:auto !important}}
+1 | +/* 7 Nov 2026 (you: "this pho is an exception. make it 200 high"): the Madonna della Seggiola beside its quotation 200 high */
+1 | +@media (min-width:831px){html body main .mm-float:has(img[data-full="images/192.jpg"]) .pim{height:200px !important;width:auto !important}}
+1 | +/* 8 Nov 2026 (you: "top of photo = top of line of text"): the Madonna level with the first line of its quotation */
+1 | +@media (min-width:831px){html body main .mm-float:has(img[data-full="images/192.jpg"]) .pim{position:relative;top:1px}}
+1 | +/* 8 Nov 2026 (you: "Make it a box, as in the pdf. not just horizontal lines"): the chairs table boxed as in your PDF */
+1 | +html body main table.mm-table{border:1px solid #2B2B2B !important;border-collapse:collapse !important;width:auto !important}
+1 | +html body main table.mm-table th,html body main table.mm-table td{border:1px solid #2B2B2B !important;text-align:center !important;padding:10px 24px !important}
+1 | +html body main table.mm-table th:last-child,html body main table.mm-table td:last-child{padding-right:24px !important}
+1 | +/* 8 Nov 2026 (you: "I want it to look like the pdf"): the table on the right of its paragraph as in your PDF from 961; under it, centred, at 960 and narrower */
+1 | +@media (max-width:960px){html body main .mm-wcols2.mm-tablebox{grid-template-columns:1fr !important;row-gap:24px}}
+1 | +html body main .mm-wcols2.mm-tablebox .mm-table-wrap{margin:0 !important}
+1 | +html body main .mm-wcols2.mm-tablebox table.mm-table{margin-left:auto !important;margin-right:auto !important}
+1 | +html body main .mm-wcols2.mm-tablebox p.centred{text-align:center !important;margin-top:10px !important}
 1 | +</style>
 1 | +      if (bqA) { var bl = (function(e){ var w = document.createTreeWalker(e, NodeFilter.SHOW_TEXT), n, last = null; while ((n = w.nextNode())) if (n.nodeValue.trim()) last = n; if (!last) return null; var z = document.createElement('span'); z.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline'; last.parentNode.insertBefore(z, last.nextSibling); var y = z.getBoundingClientRect().top; z.parentNode.removeChild(z); return y; })(pv);
 1 | +        if (bl !== null) for (var k0 = 0; k0 < 4; k0++) { var d0 = 40 - (g.getBoundingClientRect().top - bl); if (Math.abs(d0) < 0.2) break; g.style.setProperty('margin-top', ((parseFloat(getComputedStyle(g).marginTop) || 0) + d0).toFixed(2) + 'px', 'important'); } }
@@ -47,20 +30,17 @@
 1 | +        var ib = (function(e){ var w = document.createTreeWalker(e, NodeFilter.SHOW_TEXT), n, last = null; while ((n = w.nextNode())) if (n.nodeValue.trim()) last = n; if (!last) return null; var z = document.createElement('span'); z.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline'; last.parentNode.insertBefore(z, last.nextSibling); var y = z.getBoundingClientRect().top; z.parentNode.removeChild(z); return y; })(pv); if (ib === null) return;   /* 8 Nov 2026: from the baseline */
 1 | -        var d = TP0 + 0.8 - (t - ib); if (Math.abs(d) < 0.2) break;
 1 | +        var d = TP0 - (t - ib); if (Math.abs(d) < 0.2) break;
-1 | +<script id="mm-float-clear-js">/* 25 Oct 2026: a photo beside a short paragraph, centred on it, never climbs over a line of the text above it (at 900 the last line of the list above ran under the photo) */
-1 | +(function(){function run(){[].forEach.call(document.querySelectorAll('main .mm-float'),function(f){if(getComputedStyle(f).float==='none')return;var pim=f.querySelector('.pim');if(!pim)return;
-1 | +  for(var k=0;k<3;k++){var r=pim.getBoundingClientRect(),low=null,pv=f.previousElementSibling;
-1 | +    for(var j=0;pv&&j<3;j++,pv=pv.previousElementSibling){if(pv.classList.contains('mm-fspacer'))continue;var w=document.createTreeWalker(pv,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var g=document.createRange();g.selectNodeContents(n);[].forEach.call(g.getClientRects(),function(q){if(q.width>1&&q.right>r.left+1&&q.left<r.right-1&&q.bottom>r.top+3&&q.top<r.bottom-3)low=low===null?q.bottom:Math.max(low,q.bottom);});}}
-1 | +    if(low===null)break;var mt=parseFloat(getComputedStyle(f).marginTop)||0;f.style.setProperty('margin-top',(mt+low-r.top+2).toFixed(2)+'px','important');}});
-1 | +  if(window.__mmKeepSize)window.__mmKeepSize();}
-1 | +  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};})();
-1 | +</script>
 1 | +  function imgBetween(el,a,b){var r=false;[].forEach.call(document.querySelectorAll('main img'),function(i){if(r||el.contains(i)||!(el.compareDocumentPosition(i)&Node.DOCUMENT_POSITION_PRECEDING))return;var q=(i.closest('.pim')||i).getBoundingClientRect();if(q.height>2&&q.top>=a-1)r=true;});return r;}
 1 | -    for(var k=0;k<3;k++){var a=lastBase(el),b=firstTop(el);if(a===null||b===null)return;var d=want-(b-a);if(Math.abs(d)<0.05)break;var t=tgt(el),mt=parseFloat(getComputedStyle(t).marginTop)||0;
 1 | +    for(var k=0;k<3;k++){var a=lastBase(el),b=firstTop(el);if(a===null||b===null)return;if(imgBetween(el,a,b))return;var d=want-(b-a);if(Math.abs(d)<0.05)break;var t=tgt(el),mt=parseFloat(getComputedStyle(t).marginTop)||0;
 1 | +<script id="mm-row-fit-26oct">/* 26 Oct 2026 (2.2.0 page check): the template's 19.2px gap for level-10 image rows never pushes a row past the text - where it would (1024: 14px each side), the gap is what fits (set as --mm-fit, which the template's row script does not clear) */(function(){function fit(){document.querySelectorAll('main .mm-row[data-level="10"]').forEach(function(r){var f=r.querySelectorAll('figure');if(innerWidth<=830||f.length<2){r.style.removeProperty('--mm-fit');return;}var s=0;f.forEach(function(x){s+=x.getBoundingClientRect().width;});r.style.setProperty('--mm-fit',Math.max(0,Math.min(19.2,(r.clientWidth-s)/(f.length-1))).toFixed(2)+'px');});}addEventListener('load',function(){[300,1500,4000].forEach(function(t){setTimeout(fit,t);});});addEventListener('resize',function(){clearTimeout(fit.t);fit.t=setTimeout(fit,800);});})();</script>
 1 | +<style id="mm-row-fit-26oct-css">html body main .mm-row[data-level="10"][style*="--mm-fit"]{gap:var(--mm-fit) !important}</style>
-1 | +<script id="mm-table-half-7nov">/* 7-8 Nov 2026 (owner): the chairs table - gaps between columns halved; title centred above "Height of Legs" */(function(){function run(){[].forEach.call(document.querySelectorAll('main table.mm-table'),function(t){var all=[].slice.call(t.querySelectorAll('td,th'));t.style.removeProperty('width');all.forEach(function(c){c.style.removeProperty('padding-right');c.style.removeProperty('padding-left');c.style.removeProperty('text-align');});var th=t.querySelector('thead th');if(window.innerWidth<=640)return;var rows=[].slice.call(t.querySelectorAll('tbody tr')),n=0;rows.forEach(function(r){n=Math.max(n,r.children.length);});var R=[],L=[],g=document.createRange();for(var i=0;i<n;i++){R.push(-1e9);L.push(1e9);}rows.forEach(function(r){[].forEach.call(r.children,function(c,i){if(!c.textContent.trim())return;g.selectNodeContents(c);[].forEach.call(g.getClientRects(),function(q){R[i]=Math.max(R[i],q.right);L[i]=Math.min(L[i],q.left);});});});var gaps=[];for(var j=1;j<n;j++)gaps.push(L[j]-R[j-1]);t.style.setProperty('width','auto','important');rows.forEach(function(r){[].forEach.call(r.children,function(c,i){if(i<n-1)c.style.setProperty('padding-right',Math.max(0,gaps[i]/2).toFixed(2)+'px','important');});});if(!th)return;var hl=[].filter.call(t.querySelectorAll('tbody td'),function(c){return /Height of Legs/.test(c.textContent);})[0];if(!hl)return;th.style.setProperty('text-align','left','important');th.style.setProperty('padding-left','0px','important');var gr=document.createRange();gr.selectNodeContents(hl);var hr=gr.getClientRects()[0];gr.selectNodeContents(th);var tr=gr.getClientRects()[0];if(!hr||!tr)return;var mid=(hr.left+hr.right)/2,tw=tr.right-tr.left,want=mid-tw/2-th.getBoundingClientRect().left;th.style.setProperty('padding-left',Math.max(0,want).toFixed(2)+'px','important');});}addEventListener('load',run);addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,300);});run();})();</script>
+1 | +<style id="mm-tablet-topline-8nov-css">/* 8 Nov 2026 (your rule: top of photo = top of line of text) */@media (min-width:641px) and (max-width:830px){html body main .mm-float{margin-top:var(--mm-tt,0px) !important}}</style>
+1 | +<script id="mm-tablet-topline-8nov">/* 8 Nov 2026 (your rule: top of photo = top of line of text): side images level with the first line's capitals, 641-830 */(function(){var cv=document.createElement('canvas').getContext('2d');function capTop(p){var w=document.createTreeWalker(p,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var r=document.createRange();r.setStart(n,0);r.setEnd(n,1);var q=r.getClientRects()[0];if(!q)continue;var cs=getComputedStyle(n.parentElement);cv.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;var m=cv.measureText('H');var b=(q.top+q.bottom)/2+(m.fontBoundingBoxAscent-m.fontBoundingBoxDescent)/2;return b-m.actualBoundingBoxAscent;}return null;}
+1 | +function run(){if(innerWidth<641||innerWidth>830)return;[].forEach.call(document.querySelectorAll('main .mm-float'),function(f){if(getComputedStyle(f).cssFloat==='none')return;var p=f.nextElementSibling;while(p&&(p.classList.contains('mm-float')||p.classList.contains('mm-fspacer')||!p.textContent.trim()))p=p.nextElementSibling;var pim=f.querySelector('.pim');if(!p||!pim)return;for(var k=0;k<4;k++){var t=capTop(p);if(t===null)break;var d=t-pim.getBoundingClientRect().top;if(Math.abs(d)<0.3)break;f.style.setProperty('--mm-tt',Math.max(0,(parseFloat(getComputedStyle(f).marginTop)||0)+d).toFixed(2)+'px');}});}
+1 | +var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};addEventListener('load',function(){run();setTimeout(run,600);setTimeout(run,1500);});addEventListener('resize',function(){clearTimeout(run.t);run.t=setTimeout(run,300);});})();</script>
 3 | attribute data-side
+3 | class mm-tablebox
 3 | class mm-wordrun
 3 | inline style font-style on <span class="mm-wordrun">
+3 | inline style font-weight on <span class="mm-wordrun mm-hc-EE0000">
