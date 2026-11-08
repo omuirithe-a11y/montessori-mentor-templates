@@ -49,6 +49,8 @@ SIZE_COMPUTER = {
 SIZE_PHONE = {'tocl': (19, 'D136'), 'toce': (17, 'D136'), 'heading': (17, 'D136')}
 # D136: "quotations and band at 641-830 take the 40px the page uses for 18px quotations"
 QUOTE_BAND_LH = (40, 641, 830, 'D136')
+# 8 Nov 2026 (owner: "Make the quotations 24"): quotation lines 36 apart (24 letters to letters), every width
+QUOTE_LH = (36, 'D136 (8 Nov)')
 # D204 (the full form of E036, "DECIDED 20 Oct 15:46 - Type 1, name lines"): "blue #0432FF, 20px, regular"
 NAME_LINE = {'size': 20, 'color': 'rgb(4, 50, 255)', 'weight': '400', 'row': 'D204/E036'}
 # A052: "all dividers (the beige lines) on every page, past, present and future, are #D9C9AB"
@@ -65,6 +67,16 @@ def out(s):
     print(s, flush=True); lines_out.append(s)
 
 def finish(faults, code=None):
+    # 8 Nov 2026 (owner "yes", The Prepared Environment): faults that come only from the page's own code the owner agreed to keep
+    # are named in tools/allowed/<page>-style.txt, one per line as "reason | FAULT <id> W <rest>" (the width written as W); a named
+    # fault is accepted at every width, any other fault still counts
+    af = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'allowed', os.path.basename(FOLDER.rstrip('/')) + '-style.txt')
+    if os.path.exists(af):
+        named = set(l.split(' | ', 1)[1].strip() for l in open(af, encoding='utf-8') if ' | ' in l and not l.startswith('#'))
+        key = lambda f_: re.sub(r'^(FAULT \S+) \d+ ', r'\1 W ', f_).strip()
+        ok_ = [f_ for f_ in faults if key(f_) in named]
+        if ok_: out('INFO %d faults accepted as named in %s (the page\'s own code the owner agreed to keep)' % (len(ok_), os.path.basename(af)))
+        faults = [f_ for f_ in faults if key(f_) not in named]
     with open(OUT, 'w') as f:
         f.write('\n'.join(lines_out + ['STYLE PASS' if not faults else 'STYLE FAULT (%d)' % len(faults), 'END']) + '\n')
     print('STYLE PASS' if not faults else 'STYLE FAULT (%d)' % len(faults)); print('END', flush=True)
@@ -403,7 +415,11 @@ async def main():
                 if not r['own']: fig = None   # a figure is the size of words: only elements that hold words themselves
                 if fig and fs != fig[0]:
                     faults.append('FAULT %s %d %s font-size %s vs %dpx' % (fig[1], w, d, c['fontSize'], fig[0]))
-                if r['own'] and k in ('quote', 'band') and QUOTE_BAND_LH[1] <= w <= QUOTE_BAND_LH[2] and lh != QUOTE_BAND_LH[0]:
+                # 8 Nov 2026 (owner: "Make the quotations 24", now in the Essay Code Template): quotations 36 line to line (24 letters
+                # to letters) at every width - D136's 40 at 641-830 is kept for the band only
+                if r['own'] and k == 'quote' and lh != QUOTE_LH[0]:
+                    faults.append('FAULT %s %d %s line-height %s vs %dpx' % (QUOTE_LH[1], w, d, c['lineHeight'], QUOTE_LH[0]))
+                if r['own'] and k == 'band' and QUOTE_BAND_LH[1] <= w <= QUOTE_BAND_LH[2] and lh != QUOTE_BAND_LH[0]:
                     faults.append('FAULT %s %d %s line-height %s vs %dpx' % (QUOTE_BAND_LH[3], w, d, c['lineHeight'], QUOTE_BAND_LH[0]))
                 if k == 'name' and r['own']:
                     if fs != NAME_LINE['size']: faults.append('FAULT %s %d %s font-size %s vs %dpx' % (NAME_LINE['row'], w, d, c['fontSize'], NAME_LINE['size']))

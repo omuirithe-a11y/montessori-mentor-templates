@@ -1,0 +1,28 @@
+# tools/allowed/the-prepared-environment-format-word.txt - lines of tools/v8/format_check_word.py (with --settings) allowed on The Prepared Environment (8 Nov 2026 Word file). One block per width. Each line: reason | exact line as printed.
+attribution dash: the dash opening an attribution on its own line under its quotation is read by the check as a list mark (C-BULLET); Word has it after the closing quotation mark | delete: Word "-" -> page ""
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | insert: Word "" -> page "of children"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | delete: Word "children" -> page ""
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | replace: Word "other" -> page "others"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | delete: Word "all" -> page ""
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | replace: Word "," -> page "."
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | insert: Word "" -> page "be"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | replace: Word "some" -> page "two colleagues or a pair of 5 - year - olds"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | delete: Word "that" -> page ""
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | replace: Word "they’re" -> page "there’s"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | delete: Word "that" -> page ""
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | delete: Word "that’s" -> page ""
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | replace: Word "left" -> page "leaf"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | replace: Word "nienhuis" -> page "Nienhuis"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | delete: Word "plus" -> page ""
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | replace: Word "’For" -> page "’ For"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | replace: Word "'The" -> page "The"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | replace: Word "P" -> page "p"
+typo list approved by the owner 24 Oct 13:47-14:48 ("All other suggested edits are accurate"; "change it to 'two colleagues'"), carried into the 8 Nov Word file | insert: Word "" -> page "a"
+stray full stop removed (owner 7 Nov: "is that a stray dot above sensorial?" - "yes") | delete: Word "." -> page ""
+chairs table title in the template's table heading style (owner 27 Oct: "The templates are in github. They are the source.") | "Dimensions": Word upright regular -> page upright bold
+chairs table title in the template's table heading style (owner 27 Oct: "The templates are in github. They are the source.") | "of": Word upright regular -> page upright bold
+chairs table title in the template's table heading style (owner 27 Oct: "The templates are in github. They are the source.") | "Chairs": Word upright regular -> page upright bold
+chairs table title in the template's table heading style (owner 27 Oct: "The templates are in github. They are the source.") | "in": Word upright regular -> page upright bold
+chairs table title in the template's table heading style (owner 27 Oct: "The templates are in github. They are the source.") | "the": Word upright regular -> page upright bold
+chairs table title in the template's table heading style (owner 27 Oct: "The templates are in github. They are the source.") | "Montessori": Word upright regular -> page upright bold
+chairs table title in the template's table heading style (owner 27 Oct: "The templates are in github. They are the source.") | "Environment": Word upright regular -> page upright bold

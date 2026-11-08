@@ -7,9 +7,7 @@
 # 24 Oct 2026: at phone width the wide image beside "Trillium Montessori" (image151, 2.14 times as wide as tall) stood
 # 386px wide at 180 high and pushed the page 20px wider than a 390 screen - on phones an image beside text is never
 # wider than the text column (its height follows)
-CSS = """
-@media (max-width:640px){html body main .mm-float .pim{max-width:100% !important;height:auto !important}html body main .mm-float .pim img{width:100% !important;height:auto !important}}
-"""
+CSS = ""   # 8 Nov 2026: the phone rule for side images dropped - b3 showed them 592 wide from 480 files at 640 (on-screen check fault); without it they are 180 high as on every page, widest 337 at 390
 
 # 24 Oct 2026 13:47 (user, on the typo list): keep "Molère!"; "Nienhuis"; "25+"; edit 182 and 363 as given ("some string, a marker
 # and two colleague or a pair of 5-year-olds." - 14:48: "change it to 'two colleagues'" and "... is that … it's only used for one activity"); "All other suggested edits are accurate"
@@ -50,7 +48,8 @@ PAGE_CODE_REPLACE = [
  ('<em>The Discovery of the Child</em>. P.46. (1909)', '<em>The Discovery of the Child</em>. p. 46. (1909)'),
  ('var a=lastBase(el),b=firstTop(el);if(a===null||b===null)return;', 'var a=lastBase(el),b=firstTop(el);if(a===null||b===null)return;if(imgBetween(el,a,b))return;'),   # 25 Oct 2026: a line with an image row between it and the text above keeps its own spacing (the measure from the text above the images pulled 22 sections up over the images)
  ('function tgt(el){', "function imgBetween(el,a,b){var r=false;[].forEach.call(document.querySelectorAll('main img'),function(i){if(r||el.contains(i)||!(el.compareDocumentPosition(i)&Node.DOCUMENT_POSITION_PRECEDING))return;var q=(i.closest('.pim')||i).getBoundingClientRect();if(q.height>2&&q.top>=a-1)r=true;});return r;}\n  function tgt(el){"),
- ('<script id="mm-letter-gaps-js">', '<script id="mm-float-clear-js">/* 25 Oct 2026: a photo beside a short paragraph, centred on it, never climbs over a line of the text above it (at 900 the last line of the list above ran under the photo) */\n(function(){function run(){[].forEach.call(document.querySelectorAll(\'main .mm-float\'),function(f){if(getComputedStyle(f).float===\'none\')return;var pim=f.querySelector(\'.pim\');if(!pim)return;\n  for(var k=0;k<3;k++){var r=pim.getBoundingClientRect(),low=null,pv=f.previousElementSibling;\n    for(var j=0;pv&&j<3;j++,pv=pv.previousElementSibling){if(pv.classList.contains(\'mm-fspacer\'))continue;var w=document.createTreeWalker(pv,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var g=document.createRange();g.selectNodeContents(n);[].forEach.call(g.getClientRects(),function(q){if(q.width>1&&q.right>r.left+1&&q.left<r.right-1&&q.bottom>r.top+3&&q.top<r.bottom-3)low=low===null?q.bottom:Math.max(low,q.bottom);});}}\n    if(low===null)break;var mt=parseFloat(getComputedStyle(f).marginTop)||0;f.style.setProperty(\'margin-top\',(mt+low-r.top+2).toFixed(2)+\'px\',\'important\');}});\n  if(window.__mmKeepSize)window.__mmKeepSize();}\n  var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();run();};})();\n</script>\n<script id="mm-letter-gaps-js">'),   # 25 Oct 2026: page check - a photo centred beside a short paragraph overlapped the last line of the list above it at 900
+# 8 Nov 2026: the 25 Oct mm-float-clear script dropped - on b3 it pushed image 1 and image 153 24-35 down at some loads (placement and
+# blocks checks); without it no side image overlaps the text above at 641-1280 (measured on b3)
  ('<cite><span class="mm-t">\u2409</span>- Maria Montessori, <em>The Advanced', '<cite>- Maria Montessori, <em>The Advanced'),   # 25 Oct 2026: page check - attributions start alike (no tab before or after the dash); 26 Oct: the tab is U+2409 at this stage (it was written as \t and never matched)
  ('<cite><span class="mm-t">\u2409</span>- Maria Montessori, <em>The Absorbent Mind,</em> p. 89.', '<cite>- Maria Montessori, <em>The Absorbent Mind,</em> p. 89.'),   # 25 Oct 2026: page check - attributions start alike (no tab before or after the dash)
  ('<cite><span class="mm-t">\u2409</span>- Maria Montessori, <em>The 1946', '<cite>- Maria Montessori, <em>The 1946'),   # 25 Oct 2026: page check - attributions start alike (no tab before or after the dash)
@@ -70,42 +69,11 @@ PAGE_CODE_REPLACE = [
 # copyright line and "Back to top" 15. 16:2x (user, the menu bar did not fit at 20 between 961 and 1179): "18 everywhere".
 # Phones (21 Oct rule: "transfer them across to phones but using numbers that work on phones and are consistent with how other
 # pages on this site worked"): the site's own phone step - 18 -> 17, 20 -> 19, 25 -> 21, 40 -> 28; 15 stays 15.
+# 8 Nov 2026: the two font-size blocks above (Oct) dropped - measured at 1280, 768 and 390 on b3, every size is the same without them (the template now has her 29 Oct figures)
+# 24 Oct 2026: with the menu bar at 18 the menu did not fit between 961 and 1099px - there the header's side padding is 16, the gap between
+# menu items 2px and each arrow 13px wide (8 Nov: still needed - without it the menu runs 52px past the screen at 961)
 CSS += """
-@media (min-width:641px){
-html body .hero h1{font-size:40px !important}
-html body .site-name{font-size:25px !important}
-html body .menu .top{font-size:18px !important}
-html body .grp a,html body .grp .np,html body .grp .hd span{font-size:18px !important}
-html body .toc-wrap .toc-label,html body .toc .toc-label,html body .toc-label{font-size:20px !important}
-html body .toc a{font-size:18px !important}
-html body main h2,html body main .section h2,html body main h2.mm-sub,html body main h2[class*="mm-hc-"],html body main h3{font-size:18px !important}
-html body main p:not(.mm-gl),html body main li{font-size:18px !important}
-html body main blockquote:not(#mmz),html body main blockquote:not(#mmz) p,html body main blockquote:not(#mmz) cite{font-size:18px !important}
-html body main figcaption,html body main .mm-cap{font-size:15px !important}
-html body .mc-band p,html body .mc-band p.mc-by{font-size:18px !important}
-html body .site-foot-in,html body .site-foot-in a,html body .site-foot-in span{font-size:15px !important}
-}
-"""
-CSS += """
-@media (max-width:640px){
-html body .hero h1{font-size:28px !important}
-html body .site-name{font-size:21px !important}
-html body .menu .top{font-size:17px !important}   /* 25 Oct 2026: your phone number for the menu bar (17); the template had 18 */
-html body .grp a,html body .grp .np,html body .grp .hd span{font-size:17px !important}
-html body .toc-wrap .toc-label,html body .toc .toc-label,html body .toc-label{font-size:19px !important}
-html body .toc a{font-size:17px !important}
-html body main h2,html body main .section h2,html body main h2.mm-sub,html body main h2[class*="mm-hc-"],html body main h3{font-size:17px !important}
-html body main h2[class*="mm-hc-"][class]{font-size:17px !important}   /* 24 Oct: beats the Word-colour heading rules (18), which come later */
-html body main p:not(.mm-gl),html body main li{font-size:17px !important}
-html body main blockquote:not(#mmz),html body main blockquote:not(#mmz) p,html body main blockquote:not(#mmz) cite{font-size:17px !important}
-html body main figcaption,html body main .mm-cap{font-size:15px !important}
-html body .mc-band p,html body .mc-band p.mc-by{font-size:17px !important}
-html body .site-foot-in,html body .site-foot-in a,html body .site-foot-in span{font-size:15px !important}
-}
-"""
-# 24 Oct 2026: with the menu bar at 18 the eight menu words did not fit between 961 and 1099px (the page scrolled sideways by up to
-# 52px) - there the header's side padding is 16 (was 24), the space between menu items 2px (was 7-10) and each arrow 13px wide (was 16)
-CSS += """
+/* 24 Oct 2026 (you: "18 everywhere"): the menu bar at 18 fits between 961 and 1099 */
 @media (min-width:961px) and (max-width:1099px){html body .site-head-in{padding-left:16px !important;padding-right:16px !important}html body .menu{gap:2px !important}html body .menu .sub-toggle{width:13px !important;min-width:13px !important;padding:0 !important;margin-left:1px !important}}
 """
 
@@ -119,6 +87,7 @@ MASK_WHITE = ['image190.jpg', 'image193.jpg']   # 8 Nov 2026: the same two image
 
 # 26 Oct 2026 (2.2.0 page check): an image row straight after an image set beside the text sat beside it and was pushed left (1280: 107px off the screen) - rows start below it
 CSS += """
+/* 26 Oct 2026: an image row after images beside the text starts below them, as in your PDF */
 html body main .mm-row{clear:both}
 """
 
@@ -149,7 +118,7 @@ PAGE_CODE_REPLACE += [
   '<div class="mm-row" data-above="40" data-level="25"><div class="mm-imgs"><figure class="ph" style="--h:180;--hp:180"><div class="pim" style="aspect-ratio:1.43541"><img alt="" class="doc-img" data-full="images/168.jpg"'),
 ]
 CSS += """
-/* 7 Nov 2026 (owner: "this pho is an exception. make it 200 high"): the Madonna della Seggiola beside its quotation 200 high */
+/* 7 Nov 2026 (you: "this pho is an exception. make it 200 high"): the Madonna della Seggiola beside its quotation 200 high */
 @media (min-width:831px){html body main .mm-float:has(img[data-full="images/193.jpg"]) .pim{height:200px !important;width:auto !important}}
 """
 # 8 Nov 2026 (owner: "Photos. make 30/30"): the space above a row of images is measured from the line the letters above stand on
@@ -181,3 +150,33 @@ PAGE_CODE_REPLACE += [('<div class="mm-float"><div class="mm-imgs"><figure class
                        '<div class="mm-float" data-topline=""><div class="mm-imgs"><figure class="ph" style="--h:180;--hp:180"><div class="pim" style="aspect-ratio:0.97556"><img alt="" class="doc-img" data-full="images/193.jpg"')]
 # 8 Nov (owner: "Photos. make 30/30"): a quotation straight after a row of images, 30 below the images (32 by the table's 32)
 PAGE_CODE_REPLACE += [('</div></div><blockquote class="pullquote">', '</div></div><blockquote class="pullquote" data-space="30">')]
+
+# 8 Nov 2026 (owner "yes": the contents list shows only her 10 entries): b3 still listed the 16 old entries in the second column;
+# the 10 entries now stand 5 and 5 in the two columns
+PAGE_CODE_REPLACE += [('<div class="toc-grid"><ul class="toc-groups"><li><a href="#purchasing">Furniture - Purchasing</a></li><li><a href="#rows-of-the-shelves">Furniture - Dimensions</a></li><li><a href="#layout-of-mathematics-area">Layout of Mathematics</a></li><li><a href="#layout-of-language-area">Layout of Language</a></li><li><a href="#layout-of-sensorial-area-bells">Layout of Sensorial</a></li><li><a href="#layout-of-the-practical-life-area">Layout of Practical Life</a></li><li><a href="#layout-of-the-tables">Layout of Tables</a></li><li><a href="#single-use-tables">Single-Use Tables</a></li><li><a href="#mats-quantity">Mats</a></li><li><a href="#storage-and-admin">Storage and Admin</a></li></ul><ul class="toc-groups"><li><a href="#woodwork">Woodwork</a></li><li><a href="#the-peace-table">The Peace Table</a></li><li><a href="#layout-of-the-tables">Layout of the Tables</a></li><li><a href="#single-use-tables">Single-Use Tables</a></li><li><a href="#sharing-nature-table">Sharing/Nature Table</a></li><li><a href="#mats-quantity">Mats - Quantity</a></li><li><a href="#mats-dimensions">Mats - Dimensions</a></li><li><a href="#mats-colour">Mats - Colour</a></li><li><a href="#mats-material-and-storage">Mats - Material and Storage</a></li><li><a href="#mats-cleaning">Mats - Cleaning</a></li><li><a href="#boxes-of-materials-open-or-closed">Boxes of Materials: open or closed?</a></li><li><a href="#class-decoration">Class Decoration</a></li><li><a href="#raphael-s-madonna-della-seggiola-madonna-of-the-chair">Raphael’s Madonna della Seggiola (Madonna of the Chair)</a></li><li><a href="#bathroom">Bathroom</a></li><li><a href="#storage-and-admin">Storage and Admin</a></li><li><a href="#windows">Windows</a></li></ul></div>',
+  '<div class="toc-grid"><ul class="toc-groups"><li><a href="#purchasing">Furniture - Purchasing</a></li><li><a href="#rows-of-the-shelves">Furniture - Dimensions</a></li><li><a href="#layout-of-mathematics-area">Layout of Mathematics</a></li><li><a href="#layout-of-language-area">Layout of Language</a></li><li><a href="#layout-of-sensorial-area-bells">Layout of Sensorial</a></li></ul><ul class="toc-groups"><li><a href="#layout-of-the-practical-life-area">Layout of Practical Life</a></li><li><a href="#layout-of-the-tables">Layout of Tables</a></li><li><a href="#single-use-tables">Single-Use Tables</a></li><li><a href="#mats-quantity">Mats</a></li><li><a href="#storage-and-admin">Storage and Admin</a></li></ul></div>')]
+# 8 Nov 2026 (b3 format check against the Word file): "Source: AMI France", a Caption-style text box under the chairs table in Word
+# (italic, centred, as in her PDF), was missing from the page - put back under the table
+PAGE_CODE_REPLACE += [('</table></div>', '</table></div><p class="centred mm-cap"><em>Source: AMI France</em></p>')]
+# 8 Nov 2026 (b3 check): in the Lili Peller quotation Word has the LAST full stop upright ("... improving her work."); the build had made
+# the one after "valuable assistant" upright instead
+PAGE_CODE_REPLACE += [('valuable assistant<span class="mm-wordrun" style="font-style:normal !important">.</span>', 'valuable assistant.'),
+ ('dividends in improving her work.</p>', 'dividends in improving her work<span class="mm-wordrun" style="font-style:normal !important">.</span></p>')]
+# 8 Nov 2026 (b3 text check, owner 26 Oct: "maths", never "math", in ordinary text on the site)
+TEXT_EDITS += [('place the Math shelves', 'place the Maths shelves'), ('lay out the Math shelves', 'lay out the Maths shelves'),
+               ('inset paper/math calculations', 'inset paper/maths calculations')]
+# 8 Nov 2026 (b3 wrap check: Word has the attribution as a dash-list line under its quotation, the page had it as a plain paragraph
+# below the images): the attribution goes back inside its quotation, as on the live page and as the Peller attribution above
+PAGE_CODE_REPLACE += [('Normalisation has been achieved.”</p></blockquote>', 'Normalisation has been achieved.”</p><cite>- Maria Montessori,<em> The Secret of Childhood</em>, p.162.</cite></blockquote>'),
+ ('<p>Maria Montessori,<em> The Secret of Childhood</em>, p.162.</p>', '')]
+# 8 Nov 2026 (b3 images check: at 390 the page was 443 wide): "Before" and "After" above the two halves of the row of images were
+# one line with eight Word tabs between them - now the template's two-caption line (.mm-twocap): each over its half of the row,
+# each on its own line at 830 and narrower
+PAGE_CODE_REPLACE += [('<p>Before <span class="mm-t">' + '\u2409' * 8 + '</span>After</p>', '<p class="mm-twocap"><span>Before</span><span>After</span></p>')]
+# 8 Nov 2026 (b3 placement check; your rule "top of photo = top of line of text"): the Madonna stood 14 above the capitals of the quotation's
+# first line at 641-830 (the topline script does not run there) and 1 above them from 831 (it lines up with the opening quotation mark)
+CSS += """
+/* 8 Nov 2026 (you: "top of photo = top of line of text"): the Madonna level with the first line of its quotation */
+@media (min-width:641px) and (max-width:830px){html body main .mm-float:has(img[data-full="images/193.jpg"]){margin-top:24px !important}}
+@media (min-width:831px){html body main .mm-float:has(img[data-full="images/193.jpg"]) .pim{position:relative;top:1px}}
+"""

@@ -38,7 +38,7 @@
   "fault_put_in": "a 154 px gap put in the middle of a line",
   "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-amyzpkfl/G",
   "caught": [
-   "154px gap mid-line: \"Materials Readiness\u00a0Inventory, repair, c\""
+   "154px gap mid-line: \"Materials Readiness Inventory, repair, c\""
   ],
   "at": "2026-10-21T11:43:01"
  },
@@ -68,9 +68,9 @@
   "fault_put_in": "list text moved off Word's indent",
   "broken_copy": "/tmp/claude-0/-home-claude/f3d9d4de-dc3d-58c5-9b06-af678c61a8b2/scratchpad/proofs-f9vgh3y7/K",
   "caught": [
-   "\"Who\u2019ll be managing the class?This i\": page marker 0.0, text 60.0; Word 0.0, 28.4",
+   "\"Who’ll be managing the class?This i\": page marker 0.0, text 60.0; Word 0.0, 28.4",
    "\"Guide the children,\": page marker 75.6, text 60.0; Word 75.6, 96.0",
-   "\"Who\u2019ll be giving presentations?Most\": page marker 0.0, text 60.0; Word 0.0, 28.4"
+   "\"Who’ll be giving presentations?Most\": page marker 0.0, text 60.0; Word 0.0, 28.4"
   ],
   "at": "2026-10-21T15:05:36"
  },
@@ -180,7 +180,7 @@
   "fault_put_in": "an e-mail address (info@example.com) added to the page footer (row A017)",
   "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/static_code/broken.zip",
   "caught": [
-   "FAULT A017 footer text differs from the template: page \"\u00a9 2026 Montessori Mentor info@example.com Back to top\", template \"\u00a9 2026 Montessori Mentor Back to top\"",
+   "FAULT A017 footer text differs from the template: page \"© 2026 Montessori Mentor info@example.com Back to top\", template \"© 2026 Montessori Mentor Back to top\"",
    "FAULT A017 e-mail address in the footer: \"info@example.com\"",
    "STATIC FAULT (2)"
   ],
@@ -208,10 +208,10 @@
  "eng-5nov-text_rules": {
   "code": "f78c03a305236bcf2fe1921248158e25e13f7ec9886b30c1fdb570f4ee50f2df",
   "page": "3.5.0",
-  "fault_put_in": "an en dash put into a paragraph (\"AMI training \u2013 I created Albums\") (row A005)",
+  "fault_put_in": "an en dash put into a paragraph (\"AMI training – I created Albums\") (row A005)",
   "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/text_rules/broken",
   "caught": [
-   "FAULT A005 long dash (en dash, U+2013) in main p: When I did my AMI training [\u2013] I created Albums of presentations and exclus...",
+   "FAULT A005 long dash (en dash, U+2013) in main p: When I did my AMI training [–] I created Albums of presentations and exclus...",
    "TEXT FAULT (1)"
   ],
   "at": "2026-11-05T22:55:00",
@@ -223,10 +223,10 @@
  "eng-5nov-wrap_sweep": {
   "code": "fb8fc14175ab7c5b64e1eff69adc5291726bedec4f230e196af871bd2858ab68",
   "page": "3.5.0",
-  "fault_put_in": "text-indent:40px on one list item (\"What I\u2019ve described above...\") so its wrapped lines do not hang under its first line (row E043, HANG); widths 320-1920 step 50",
+  "fault_put_in": "text-indent:40px on one list item (\"What I’ve described above...\") so its wrapped lines do not hang under its first line (row E043, HANG); widths 320-1920 step 50",
   "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/wrap_sweep/broken",
   "caught": [
-   "HANG  320 ... 1920  What I\u2019ve described above is very different to the  (-40) - at all 33 widths",
+   "HANG  320 ... 1920  What I’ve described above is very different to the  (-40) - at all 33 widths",
    "WRAP FAULT (34) (the 33 HANG lines plus the clean copy's known MARKER line)"
   ],
   "at": "2026-11-05T22:59:05",
@@ -238,10 +238,10 @@
  "eng-5nov-lines_v2": {
   "code": "87dced8ba5839c51ab43ed757c4649fbabbb4dd91290c053a620628c9d6732fe",
   "page": "3.5.0",
-  "fault_put_in": "a 2px black line (absolute span with border-top) drawn across the middle of one list item (\"What I\u2019ve described above...\")",
+  "fault_put_in": "a 2px black line (absolute span with border-top) drawn across the middle of one list item (\"What I’ve described above...\")",
   "broken_copy": "/home/claude/eng35/checks-plan/proofs-5nov/lines_v2/broken.zip",
   "caught": [
-   "width 390: line-through-text 1 - CROSS SPAN. top y=15226 | 'What I\u2019ve described above is very different to the'",
+   "width 390: line-through-text 1 - CROSS SPAN. top y=15226 | 'What I’ve described above is very different to the'",
    "width 830: line-through-text 1 - CROSS SPAN. top y=11765 | same text",
    "width 1440: 0 (the line falls between two text lines at that width)"
   ],
@@ -363,7 +363,7 @@
  "eng-6nov-style_rules-box": {
   "code": "a466f258860a51c048d0de496d2f61dcc276e9bbd93a64067e41b03a01c1b85a",
   "page": "3.5.0",
-  "fault_put_in": "the boxed link (\"\u02c8r\u012b-ti\u014b\") border set beige instead of Word's 97BECE",
+  "fault_put_in": "the boxed link (\"ˈrī-tiŋ\") border set beige instead of Word's 97BECE",
   "broken_copy": "/home/claude/eng35/checkfix2/planted",
   "caught": [
    "44 \"box border\" FAULT lines (11 widths x 4 sides) in /home/claude/eng35/checkfix2/planted.txt"
@@ -750,5 +750,46 @@
   "clean_result": "try44 ALL CHECKS OK (eng35/pin6-try44.txt)",
   "at": "2026-11-07T12:03:30",
   "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "pe-8nov-strip_compare_nolive-named-lines": {
+  "code": "1e2743afdd53cb75d93b2312ec23d25962db54d4e3d740c48d30b1ef62db234d",
+  "page": "2.2.0",
+  "fault_put_in": "an extra style line not on the named list put into build b3 (broken.zip); and build b2, made on the old template copy",
+  "broken_copy": "/home/claude/pe2/build/proofs-8nov/broken.zip",
+  "caught": [
+   "broken.zip: FAULT: 1 lines differ, == RESULT: NOT ACCEPTABLE (proofs-8nov/broken.txt)",
+   "b2: FAULT: 6 lines differ (proofs-8nov/b2-old-template.txt)"
+  ],
+  "clean_copy": "/home/claude/pe2/build/proofs-8nov/clean.zip",
+  "clean_result": "b3: 61 named lines accepted, == RESULT: ALL CHECKS OK (proofs-8nov/clean.txt)",
+  "at": "2026-11-08T03:17:00",
+  "script": "tools/v8/strip_compare_nolive.py"
+ },
+ "pe-8nov-strip_compare.py-pin-9c8448c3": {
+  "code": "1ac0209c4da43d7466637593951b83055ae6f4f2e778f5b650a7b24b4220d2b9",
+  "page": "2.2.0",
+  "fault_put_in": "re-pinned only (template 70634c6c -> 9c8448c3); same pin line as strip_compare_nolive.py, proved with b2 (old template) caught",
+  "at": "2026-11-08T03:17:00",
+  "script": "tools/strip_compare.py"
+ },
+ "pe-8nov-v8-strip_compare.py-pin-9c8448c3": {
+  "code": "1ac0209c4da43d7466637593951b83055ae6f4f2e778f5b650a7b24b4220d2b9",
+  "page": "2.2.0",
+  "fault_put_in": "re-pinned only (template 70634c6c -> 9c8448c3); same pin line as strip_compare_nolive.py, proved with b2 (old template) caught",
+  "at": "2026-11-08T03:17:00",
+  "script": "tools/v8/strip_compare.py"
+ },
+ "pe-8nov-static_code-named-lines": {
+  "code": "00dd2c86910b7cc122ac894742455517b46678dd566d4981f4c9958ddf05208a",
+  "page": "2.2.0",
+  "fault_put_in": "build b3 with one unnamed change in a template block (getElementById('lightbox') -> 'lightbox2')",
+  "broken_copy": "/home/claude/pe2/build/proofs-8nov/sb/the-prepared-environment.zip",
+  "caught": [
+   "FAULT A201 a template script/style block is changed or missing; STATIC FAULT (1) (proofs-8nov/static-broken.txt)"
+  ],
+  "clean_copy": "/home/claude/pe2/build/b3/the-prepared-environment.zip",
+  "clean_result": "STATIC PASS (proofs-8nov/static-clean.txt); D027 no longer counts the class attribute of menu entries without a page (span.np, checked by the menu check); E045 hands tables to the separate review",
+  "at": "2026-11-08T03:18:24",
+  "script": "tools/static_code.py"
  }
 }

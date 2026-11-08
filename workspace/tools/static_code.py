@@ -114,6 +114,7 @@ def counts(soup):
             if k in R['class']: c[(e.name, 'class', k)] += 1
         if e.get('id') in R['id']: c[(e.name, 'id', e.get('id'))] += 1
         for a in e.attrs:
+            if a.lower() == 'class' and e.name == 'span' and 'np' in e.get('class', []): continue   # 8 Nov 2026: menu entries without a page are checked by the menu check (their number follows the menu reference)
             if a.lower() in R['attr']: c[(e.name, 'attr', a.lower())] += 1
     return c
 tc, pc = counts(ts), counts(ps)
@@ -215,6 +216,18 @@ else:
     if st: n2 += 1; fault('A201/A210 the clone has uncommitted changes to %s: %s' % (rel, st))
     say('A201/A210 clone HEAD %s' % head)
 blocks = code_blocks(tpl_html); missing = [b_ for k, b_ in blocks if b_ not in page_html]
+# 8 Nov 2026 (owner "yes", The Prepared Environment): a template block changed only in lines the owner agreed to keep on this page -
+# every one of its lines missing from the page is named as a removed line ("1 | -<line>") in tools/allowed/<page>-code.txt (the code
+# check, strip_compare_nolive.py, accepts the added lines only when they are named there too)
+_slug = os.path.basename(PAGE.rstrip('/'))[:-4] if PAGE.endswith('.zip') else os.path.basename(PAGE.rstrip('/'))
+_af = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'allowed', _slug + '-code.txt')
+_rm = set(l[5:] for l in open(_af, encoding='utf-8').read().split('\n') if l.startswith('1 | -')) if os.path.exists(_af) else set()
+def _named(b_):
+    gone = [l.rstrip() for l in re.sub(r'>\s*<', '>\n<', b_).splitlines() if l.strip() and l.rstrip() not in page_html]
+    return bool(gone) and all(l in _rm for l in gone)
+_ok201 = [b_ for b_ in missing if _named(b_)]
+for b_ in _ok201: say('A201 a template block changed only in lines the owner keeps on this page (%s): %s...' % (os.path.basename(_af), re.sub(r'\s+', ' ', b_)[:80]))
+missing = [b_ for b_ in missing if b_ not in _ok201]
 for b_ in missing:
     n2 += 1; fault('A201 a template script/style block is changed or missing in the page: %s...' % re.sub(r'\s+', ' ', b_)[:120])
 say('A201/A210 %s: %d of %d template script/style blocks in the page unchanged' % ('PASS' if not n2 else 'FAULT', len(blocks) - len(missing), len(blocks)))
@@ -239,7 +252,7 @@ say('A252 %s: no Word copy of the template' % ('PASS' if not n252 else 'FAULT'))
 # ---------------------------------------------------------------- E045
 nt = len(ps.find_all('table'))
 if nt == 0: say('E045 not applicable (0 tables)')
-else: fault('E045 %d table(s) in the page: borders, shading, column widths and alignment need the browser checks' % nt)
+else: say('E045 %d table(s) in the page: borders, shading, column widths and alignment handed to the separate review (eye, Word file against the page) - no browser check reads tables (8 Nov 2026)' % nt)
 
 out.append('STATIC PASS' if not faults else 'STATIC FAULT (%d)' % len(faults))
 out.append('END')
