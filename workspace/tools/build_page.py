@@ -1332,13 +1332,38 @@ def main():
         t = t.replace(_at, open(os.path.join(WS, 'templates', 'org-rule.html'), encoding='utf-8').read() + _at, 1)
         if a.template == 'essay':   # 21 Oct (5.3): the Essay template's spacing engine pads anything that clears a float, and a divider paints its padding (579px beige blocks) - here a divider does not clear, and is re-spaced 30/30 after every layout of the page
             t = t.replace('</body>', '<style id="mm-org-rule-essay">html body main .mm-org-rule{clear:none !important;padding-top:0 !important;padding-bottom:0 !important}</style><script id="mm-org-rule-essay-js">(function(){var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();if(window.__mmOrgRun)window.__mmOrgRun();};})();</script></body>', 1)
+    # 8 Nov 2026 (owner "built the three", item 1): an edit that does not land exactly as written REFUSES the build - a one-place edit
+    # (PAGE_CODE_REPLACE) found other than once, an every-place edit (PAGE_CODE_REPLACE_ALL) found nowhere. An edit that may find
+    # nothing on purpose (e.g. one of a heading's two Word colours) is named in PAGE_CODE_REPLACE_OPTIONAL. (Before: a warning, and
+    # the edit was skipped - b2, b3 and b5 of The Prepared Environment went to their rounds with edits silently missing.)
+    # PAGE_CODE_REPLACE_ONE_OF: groups of one-place edits of which exactly one must land (each is optional on its own)
+    _grp = [list(g_) for g_ in S.get('PAGE_CODE_REPLACE_ONE_OF', [])]
+    _opt = set(S.get('PAGE_CODE_REPLACE_OPTIONAL', [])) | {x_ for g_ in _grp for x_ in g_}; _miss = []; _landed = set()
     for o_, n_ in S.get('PAGE_CODE_REPLACE', []):   # 21 Oct 2026 18:4x (5.3): a change to the template's code on this page only, the template itself unchanged (restored 22 Oct from the 5.3 chat)
-        if t.count(o_) != 1: report.append(('settings', 'WARNING: code to replace found %d times' % t.count(o_), o_[:40])); continue
-        t = t.replace(o_, n_)
+        c_ = t.count(o_)
+        if c_ != 1:
+            report.append(('settings', 'WARNING: code to replace found %d times' % c_, o_[:40]))
+            if not (c_ == 0 and o_ in _opt): _miss.append('one-place edit found %d times: %s' % (c_, o_[:120]))
+            continue
+        t = t.replace(o_, n_); _landed.add(o_)
+    for g_ in _grp:
+        _n = sum(1 for x_ in g_ if x_ in _landed)
+        if _n != 1: _miss.append('%d of a group of %d alternative edits landed (exactly 1 must): %s' % (_n, len(g_), g_[0][:120]))
     for o_, n_ in S.get('PAGE_CODE_REPLACE_ALL', []):   # 8 Nov 2026 (The Prepared Environment): a change made at EVERY place the code occurs (PAGE_CODE_REPLACE needs exactly one); the count is reported
         c_ = t.count(o_)
-        if not c_: report.append(('settings', 'WARNING: code to replace (every place) found 0 times', o_[:40])); continue
+        if not c_:
+            report.append(('settings', 'WARNING: code to replace (every place) found 0 times', o_[:40]))
+            if o_ not in _opt: _miss.append('every-place edit found nowhere: %s' % o_[:120])
+            continue
         t = t.replace(o_, n_); report.append(('settings', 'code replaced at every place (%d)' % c_, o_[:40]))
+    if _miss:
+        print('BUILD REFUSED: %d edit(s) in the page settings did not land as written:' % len(_miss))
+        for m_ in _miss: print('  - ' + m_)
+        _ob = os.path.normpath(out); _obn = os.path.basename(_ob)
+        if __import__('re').fullmatch(r'b\d+', _obn):   # a refused numbered build does not keep its number (the guard would wait for its round)
+            _to = _ob + '-refused-' + __import__('time').strftime('%H%M%S'); os.rename(_ob, _to); print('  (folder moved to %s)' % _to)
+        else: open(os.path.join(out, 'REFUSED.txt'), 'w').write('\n'.join(_miss) + '\n')
+        sys.exit(3)
     if S.get('PHONE_GAPS'):   # 20 Oct 22:0x (5.4, user: "41 and 34"): at phone width, banner to the first letters and the last letters to the footer band
         hg, fg = S['PHONE_GAPS']
         if 'id="mm-phone-gaps-js"' in t:   # 22 Oct 2026: the template has the phone-gaps script; the page's figures go on main

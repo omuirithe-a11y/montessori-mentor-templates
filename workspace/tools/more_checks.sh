@@ -33,7 +33,7 @@ T=$(mktemp -d); trap 'rm -rf "$T"' EXIT; unzip -q "$Z" -d "$T/zip"; P=$T/zip/$SL
 [ -f $O/SUMMARY.txt ] && head -1 $O/SUMMARY.txt | grep -q "package sha256 $SHA" || echo "start $(date +%H:%M:%S)  package sha256 $SHA  $(basename "$Z")" > $O/SUMMARY.txt
 grep -q "^browser checks read a copy unpacked" $O/SUMMARY.txt || echo "browser checks read a copy unpacked from $(basename "$Z") sha256 $SHA (not preview/)" >> $O/SUMMARY.txt
 echo "stage $STAGE start $(date +%H:%M:%S)" >> $O/SUMMARY.txt
-PAGE=$(basename "$SET" .py)
+PAGE=$SLUG   # 8 Nov 2026: the allowed lists are named by the page (the zip folder), not by the settings file (The Prepared Environment's settings file is the-prepared-environment-8nov.py - its format allowed list was never read)
 fresh() {   # fresh <result file> <scripts...>: newer than the package and every script given
   local r=$1; shift; [ -s "$r" ] || return 1; [ "$r" -nt "$Z" ] || return 1
   for x in "$@"; do [ "$r" -nt "$x" ] || return 1; done; return 0; }
@@ -42,13 +42,18 @@ step() {   # step <judge step> <label> <result file> <scripts (for freshness)> -
   # 6 Nov 2026 (owner 21 Oct rule "when a check is wrong, fix the check and prove it on a deliberately broken copy"; 12:31): a
   # check script whose current version has no proof in tools/check-proofs.json does not run (runners such as vfast.py are exempt)
   local d_; for d_ in "${deps[@]}"; do case "$d_" in */tools/*.py|*/tools-v5*/*.py) case "$(basename "$d_")" in vfast.py) continue;; esac
-    python3 -c "import json,hashlib,sys;h=hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest();d=json.load(open('$M/tools/check-proofs.json'));sys.exit(0 if any(isinstance(v,dict) and v.get('code')==h for v in d.values()) else 1)" "$d_" || { echo "STOPPED at $label $(date +%H:%M:%S): REFUSED - $(basename "$d_") (this version) has no proof on a deliberately broken copy in tools/check-proofs.json" >> $O/SUMMARY.txt; cat $O/SUMMARY.txt; exit 1; };; esac; done
+    python3 -c "import json,hashlib,sys;h=hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest();d=json.load(open('$M/tools/check-proofs.json'));sys.exit(0 if any(isinstance(v,dict) and v.get('code')==h for v in d.values()) else 1)" "$d_" || { echo "STOPPED at $label $(date +%H:%M:%S): REFUSED - $(basename "$d_") (this version) has no proof on a deliberately broken copy in tools/check-proofs.json" >> $O/SUMMARY.txt; if [ "$STAGE" = fast ]; then NF=$((NF+1)); FL="$FL|$label"; return 0; fi; cat $O/SUMMARY.txt; exit 1; };; esac; done
   if fresh "$res" "${deps[@]}" && python3 $M/tools/round_judge.py $js "$res" $PAGE > /dev/null 2>&1; then
     echo "$label: kept (passed $(date -r "$res" +%H:%M:%S)) $(tail -2 "$res" | grep -v '^END' | tail -1)" >> $O/SUMMARY.txt; return 0; fi
   "$@"
   local j; j=$(python3 $M/tools/round_judge.py $js "$res" $PAGE 2>&1); local e=$?
   echo "$label: $(tail -2 "$res" 2>/dev/null | grep -v '^END' | tail -1)  [$j]" >> $O/SUMMARY.txt
-  if [ $e -ne 0 ]; then echo "STOPPED at $label $(date +%H:%M:%S): $j" >> $O/SUMMARY.txt; cat $O/SUMMARY.txt; exit 1; fi; }
+  # 8 Nov 2026 (owner "built the three", item 2): in the fast round every check runs to the end - a fault is recorded and the next
+  # check runs; the round then stops with ONE list of every fault (the long stage still stops at the first fault)
+  if [ $e -ne 0 ]; then
+    if [ "$STAGE" = fast ]; then echo "FAULT at $label $(date +%H:%M:%S): $j" >> $O/SUMMARY.txt; NF=$((NF+1)); FL="$FL|$label"; return 0; fi
+    echo "STOPPED at $label $(date +%H:%M:%S): $j" >> $O/SUMMARY.txt; cat $O/SUMMARY.txt; exit 1; fi; }
+NF=0; FL=""
 if [ "$STAGE" = fast ]; then
   rm -f $O/FAST-PASSED
   step strip "code against template and Word" $O/strip-nolive.txt $M/tools/v8/strip_compare_nolive.py "$TPL" -- sh -c "python3 -I $M/tools/v8/strip_compare_nolive.py \"$TPL\" \"$Z\" \"$DOCX\" \"$MENU\" \"/$SLUG/\" > $O/strip-nolive.txt 2>&1"
@@ -78,6 +83,9 @@ if [ "$STAGE" = fast ]; then
   TSHA=$(sha256sum "$TPL" | awk '{print $1}'); if [ "$(cat $M/records/images-passed-template.txt 2>/dev/null)" != "$TSHA" ]; then
   step images "images (heights, 122 widths; template changed)" $O/images.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images.txt full heights > $O/images.log 2>&1"
   fi
+  if [ "$NF" -gt 0 ]; then   # 8 Nov 2026 (item 2): every check has run; the round stops with the whole list
+    grep -E "^FAULT at " $O/SUMMARY.txt > $O/FAULTS.txt
+    echo "STOPPED at ${FL#|} - every fast check ran; $NF with faults (checks2/FAULTS.txt) $(date +%H:%M:%S)" | sed 's/|/, /g' >> $O/SUMMARY.txt; cat $O/SUMMARY.txt; exit 1; fi
   echo "package sha256 $SHA $(date +%H:%M:%S)" > $O/FAST-PASSED
   echo "FAST CHECKS PASSED $(date +%H:%M:%S) - next: the gate (early run), then the separate review, then: more_checks.sh ... long, and run_checks.sh" >> $O/SUMMARY.txt
 else
