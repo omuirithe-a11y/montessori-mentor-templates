@@ -739,7 +739,9 @@ main ul li{margin-top:8px !important;margin-bottom:8px !important}
 
 /* 20 Oct 2026: no lines round quotations; 25 above and 25 below, letters to letters */
 html body main p.mm-gl{display:flow-root}
-html body main p.mm-gl.mm-gl-bq,html body main p.mm-gl:has(+ blockquote.pullquote),html body main blockquote.pullquote + p.mm-gl{height:0 !important;min-height:0 !important;background:none !important;line-height:0 !important;font-size:0 !important}
+/* 7 Nov 2026 (owner: "delete that rule and ignore that old rule"): the 20 Oct rule hiding lines next to quotations removed */
+/* 8 Nov 2026 (owner: "Make the quotations 24"): 24 between the lines of a quotation, letters to letters (18px letters: 36 line to line) */
+html body main blockquote.pullquote:not(#mmz) p,html body main blockquote.pullquote:not(#mmz) cite,html body main blockquote.pullquote:not(#mmz) span.mm-attr{line-height:36px !important}
 html body main blockquote.pullquote.mm-one>p{text-indent:48px !important}   /* 1 Nov 2026 (owner 15:02): a one-line quotation starts 48 px in, like the first line of longer ones (was 0, 20 Oct) */
 html body main blockquote.pullquote p + p{margin-top:0 !important}
 html body main blockquote.pullquote.mm-notes{margin-top:8px !important;margin-bottom:8px !important}
@@ -1575,8 +1577,10 @@ var b=document.getElementById(dx<0?'lb-next':'lb-prev');if(b&&b.style.display!==
         var nx = n0; while (nx && isFl(nx)) nx = nx.nextElementSibling;
         if (nx && isTxt(nx) && nx.tagName !== 'BLOCKQUOTE') { nx.style.setProperty('margin-top', '0px', 'important');
           for (var k2 = 0; k2 < 6; k2++) {
-            var ib2 = glInkBottom(b), it2 = glInkTop(nx); if (ib2 === null || it2 === null) break;
-            var d2 = T - (it2 - ib2); if (Math.abs(d2) < 0.2) break;
+            var mmB = function(e, last){ var w = document.createTreeWalker(e, NodeFilter.SHOW_TEXT), n, t = null; while ((n = w.nextNode())) if (n.nodeValue.trim()) { t = n; if (!last) break; } if (!t) return null; var z = document.createElement('span'); z.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline'; if (last) t.parentNode.insertBefore(z, t.nextSibling); else t.parentNode.insertBefore(z, t); var y = z.getBoundingClientRect().top; z.parentNode.removeChild(z); return [y, t.parentElement]; };
+            var bb = mmB(b, true), ft = mmB(nx, false); if (!bb || !ft) break; var cs = getComputedStyle(ft[1]), cv = document.createElement('canvas').getContext('2d'); cv.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+            var ib2 = bb[0], it2 = ft[0] - cv.measureText('H').actualBoundingBoxAscent;   /* 8 Nov 2026: baseline to capitals */
+            var d2 = 29 - (it2 - ib2); if (Math.abs(d2) < 0.2) break;
             b.style.setProperty('margin-bottom', ((parseFloat(getComputedStyle(b).marginBottom) || 0) + d2).toFixed(2) + 'px', 'important');
           } }
       }

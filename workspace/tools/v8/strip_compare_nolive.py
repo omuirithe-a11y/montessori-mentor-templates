@@ -22,7 +22,7 @@ if PAGE.endswith('.zip'):
     assert top == {slug}, 'STOP: the zip must hold one folder named %s (this page\'s address); it holds %s' % (slug, sorted(top))
     print('zip folder name:', slug, '- matches the page address', NEWHREF)
 H = lambda f: hashlib.sha256(open(f, 'rb').read()).hexdigest()
-FIX = {'Essay Code Template.html': '70634c6c9f1ddb36593d88f8e8cf0facc06871c20875228d8a9ddf6caf0340d2',
+FIX = {'Essay Code Template.html': '9c8448c38a9e4fc40f1eb09091385af17e95249765736c69b2d80137bd6130a5',
        'Resources Code Template.html': 'f14174ee5dff4f8ef7f59f8abd2a94400e6504c58870c60d6a90c778e37d77ad'}
 assert os.path.basename(TPL) in FIX and H(TPL) == FIX[os.path.basename(TPL)], 'STOP: the template is not the template pinned 1 Nov 21:0x (sha256 2cbb78e3)'
 assert H('/home/claude/reports/copy-protection.html') == '0d180ad65627bb99f5edd29c476727c29d68a34efccd4ab5fd8f64a777026ce4', 'STOP: copy-protection.html has been changed'
@@ -54,8 +54,25 @@ TREAD = set(re.findall(r"getPropertyValue\('(--[\w-]+)'\)|var\((--[\w-]+)", TCOD
 ok = True
 # 1. everything outside the slots, menu markup included
 d = list(difflib.unified_diff(lines(strip(traw)), lines(strip(praw)), 'template', 'page', n=0, lineterm=''))
-print('== 1. CODE OUTSIDE THE SLOTS'); print('\n'.join(d))
-print('OK' if not d else 'FAULT: %d lines differ' % sum(1 for x in d if x[:1] in '+-' and x[:3] not in ('+++', '---'))); ok &= not d
+# 8 Nov 2026 (owner "yes", The Prepared Environment): a page's own code lines the owner agreed to keep on that page are named, line for line,
+# in tools/allowed/<page address>-code.txt ("1 | <diff line exactly as printed>" for part 1, "3 | <item exactly as printed>" for part 3);
+# each named line is accepted as many times as it is listed, and any other line is still a fault
+import collections as _co
+_AF = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'allowed', NEWHREF.strip('/') + '-code.txt')
+_AL = {'1': _co.Counter(), '3': _co.Counter()}
+if os.path.exists(_AF):
+    for _l in open(_AF, encoding='utf-8').read().split('\n'):
+        if _l[:4] in ('1 | ', '3 | '): _AL[_l[0]][_l[4:]] += 1
+_left1 = _AL['1'].copy(); _used1 = []
+_d2 = []
+for _x in d:
+    if _x[:1] in '+-' and _x[:3] not in ('+++', '---') and _left1[_x] > 0: _left1[_x] -= 1; _used1.append(_x); continue
+    _d2.append(_x)
+_d2 = [_x for _x in _d2 if not (_x[:2] == '@@' or _x[:3] in ('+++', '---'))] and _d2
+print('== 1. CODE OUTSIDE THE SLOTS'); print('\n'.join(_d2))
+if _used1: print('-- this page\'s own code agreed by the owner (%s): %d lines accepted' % (os.path.basename(_AF), len(_used1)))
+_n1 = sum(1 for x in _d2 if x[:1] in '+-' and x[:3] not in ('+++', '---'))
+print('OK' if not _n1 else 'FAULT: %d lines differ' % _n1); ok &= not _n1
 # 2. copy protection, byte for byte, once each, in place
 c1, c2 = praw.count(P_STYLE), praw.count(P_JS)
 inplace = praw.find(P_STYLE) < praw.find('</head>') and 0 < praw.find(P_JS) < praw.rfind('</body>')
@@ -143,6 +160,9 @@ if NEWHREF not in lref and mh == lref:
     print('menu: %s is not yet in the menu; the page\'s menu links are exactly the menu reference\'s (owner 2 Nov 10:28)' % NEWHREF)
 elif mh != lh: bad.add('menu links differ from the menu reference plus %s: missing %s, extra %s' % (NEWHREF, sorted(lh - mh), sorted(mh - lh)))
 print('menu: %d distinct links' % len(mh))
+_ok3 = {b_ for b_ in bad if _AL['3'][b_] > 0}
+if _ok3: print('-- items agreed by the owner for this page (%s): %s' % (os.path.basename(_AF), '; '.join(sorted(_ok3))))
+bad -= _ok3
 print('== 3. CONTENT CLEANED'); print('\n'.join(sorted(bad)))
 print('OK' if not bad else 'FAULT: %d items the template does not use' % len(bad)); ok &= not bad
 print('-- PDF-placed image boxes, sizes from the PDF (no live page to compare; listed):'); print('\n'.join(sorted(set(PDFKEPT))) or 'none')
