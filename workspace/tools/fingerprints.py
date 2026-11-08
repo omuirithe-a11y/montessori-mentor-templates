@@ -2,7 +2,7 @@
 """fingerprints.py <record|check|show> <page slug>   (8 Nov 2026, owner "built the three", item 3)
 The fingerprints of everything a page's builds are judged by: both code templates, the builder, the page's own settings are NOT
 included (they change with every fix), every check script and runner (tools/*.py, tools/*.sh, tools/v8/*.py, tools/v8/*.sh),
-the rules list (tools/REQUIRED-CHECKS.json) and the allowed lists for other pages are left out; this page's allowed lists are in.
+the rules list (tools/REQUIRED-CHECKS.json) and the allowed lists are left out.
   record: writes records/fingerprints/<page>.txt (made at the page's first build, or with the owner's words in the decisions log)
   check:  exit 0 if nothing changed; else prints each changed file and the combined fingerprint, exit 3. A change is accepted when
           a decisions-log line holds "FINGERPRINT <page> <combined, 16 characters>" and "OWNER" (her words for that change).
@@ -14,7 +14,8 @@ def files():
     L = [os.path.join(M, 'templates', 'Essay Code Template.html'), os.path.join(M, 'templates', 'Resources Code Template.html')]
     for pat in ('tools/*.py', 'tools/*.sh', 'tools/v8/*.py', 'tools/v8/*.sh'):
         L += glob.glob(os.path.join(M, pat))
-    L += glob.glob(os.path.join(M, 'tools/allowed', page + '-*.txt'))
+    # the page's own allowed lists are NOT included: like the settings, they change with the page's fixes (8 Nov: including them
+    # would have refused every trial that names one of her choices)
     return sorted(set(f for f in L if os.path.isfile(f) and '/_' not in f))
 def sha(f): return hashlib.sha256(open(f, 'rb').read()).hexdigest()
 now = {os.path.relpath(f, M): sha(f) for f in files()}

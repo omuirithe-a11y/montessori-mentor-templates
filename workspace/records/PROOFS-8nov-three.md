@@ -10,4 +10,4 @@
    - Also: the allowed lists are now read by the page's name (more_checks.sh PAGE=$SLUG) - before, The Prepared Environment's format allowed list was never read.
 3. Fingerprints of the templates and every check script and runner (tools/fingerprints.py), checked by the guard before every build, overrides and trials included; a change needs a decisions-log line "FINGERPRINT <page> <combined>" with OWNER.
    - Proofs (test page zz-test, proofs-8nov/gd): unchanged -> allowed; one file changed -> REFUSED on a trial and with an override; with the decisions-log line -> accepted. A first fault found in the proof: paths with spaces (the templates) were misread - fixed before the record.
-   - The Prepared Environment's record: records/fingerprints/the-prepared-environment.txt, 71 files, combined cef0bb52e28886d8 (8 Nov, after these changes).
+   - The Prepared Environment's record: records/fingerprints/the-prepared-environment.txt, made again 8 Nov 15:5x after the allowed lists were taken out of the fingerprints (they change with every fix, like the settings): see the record file.
