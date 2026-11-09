@@ -26,41 +26,13 @@ if [ -z "$P" ]; then   # 6 Nov 08:2x (owner 08:15 "adjust accordingly"): build 1
   # 8 Nov 06:44 (owner "yes" to removing it): the 7 Nov S4b wait for the template test page is removed - the template test page was deleted from the to-do list (owner 8 Nov 06:43)
   [ -n "${PAGE_SLUG:-}" ] && python3 /home/claude/mm/tools/fingerprints.py record "$PAGE_SLUG"   # 8 Nov 2026 (item 3): the page's record, made at build 1
   touch "/home/claude/mm/records/.guard-ok-$(basename "$D")-$N"; echo "build guard: first build, decisions sheet answered ($DS)"; exit 0; fi
-# 8 Nov 2026 (owner "built the three", items 1 and 2): after build 1 a numbered build is never built directly - fixes are built as a
-# trial (<builds>/try), the trial's fast round runs every check to the end, and only a trial whose fast round PASSED is moved to the
-# next number by tools/promote.sh (which runs this guard with PROMOTING=1)
-[ "${PROMOTING:-}" = 1 ] || { echo "BUILD REFUSED: build $N directly - build the fixes as a trial (bash <page>.build.sh try), run its fast round, then tools/promote.sh <builds> $N"; exit 3; }
+# 8 Nov 2026 (owner "yes" to the decisions audit, claude/DECISIONS-AUDIT-8nov.md): after build 1 a numbered build needs only that the
+# previous build's checks have finished (stopped with their whole fault list, or passed) and a stated cause - no override question to the
+# owner, no review of a stopped build, no trial-first rule, and the 524-item list's gate plan is no longer required
 B="$D/b$P"; S="$B/checks2/SUMMARY.txt"
 [ -f "$S" ] || { echo "BUILD REFUSED: build b$P has no check round (run tools/check_round.sh ... fast on it first)"; exit 3; }
-grep -q "^STOPPED at" "$S" && { [ -s "$B/REVIEW.md" ] || { echo "BUILD REFUSED: b$P's round stopped at a fault, but b$P has no separate review report (REVIEW.md) - run the review on b$P, then fix the round's and the review's faults together"; exit 3; }; echo "build guard: b$P's round stopped at a fault and b$P has its review - fix every fault found, then build $N"; exit 0; }   # 6 Nov 12:1x: the review on every build
-grep -q "^FAST CHECKS PASSED" "$S" || { echo "BUILD REFUSED: build b$P's fast round has not finished"; exit 3; }
-Z=$(ls "$B"/*.zip | grep -vE -- '-(originals|CHECK-ONLY|UPLOAD)\.zip$' | head -1); SHA=$(sha256sum "$Z" | cut -c1-16)
-[ -f "$B/REVIEW.md" ] && grep -q "$SHA" "$B/REVIEW.md" || { echo "BUILD REFUSED: build b$P passed its fast round but has no separate review report naming $SHA"; exit 3; }
-# 7 Nov 2026 (owner "implement all of these changes"): S1 - the gate plan; S4b - the template test page; S10 - a cause for each build
-PG=$(basename "$Z" .zip); GP=/home/claude/mm/records/gate-plans/$PG.md; GR=/home/claude/mm/tools/allowed/$PG-gate-rows.txt
-python3 - "$GP" "$GR" <<'PY' || exit 3
-import sys, os, re, hashlib, glob
-gp, gr = sys.argv[1:3]
-def refuse(m): print('BUILD REFUSED: ' + m); sys.exit(3)
-if not os.path.exists(gp): refuse('no gate plan %s - run tools/gate_plan.sh on the last build (S1)' % gp)
-t = open(gp).read(); m = re.search(r'^rules sha256 (\w+)', t, re.M)
-if not m or m.group(1) != hashlib.sha256(open('/home/claude/mm/tools/REQUIRED-CHECKS.json', 'rb').read()).hexdigest():
-    refuse('the rules list changed since the gate plan was made - run tools/gate_plan.sh again and bring the new rows to the owner (S1)')
-todo = re.findall(r'^TO DECIDE ([A-E]\d{3})', t, re.M)
-rows, quote = set(), None
-if os.path.exists(gr):
-    g = open(gr).read(); rows = set(re.findall(r'^([A-E]\d{3}) \|', g, re.M))
-    q = re.search(r'word for word: "(.{40,}?)"\s*$', g, re.M); quote = q.group(1) if q else None
-# 7 Nov 2026 (owner: "yes to the B026 change."): a row whose own rule says it is checked after upload is read as checked after publishing
-import json as _j
-_rq = {r['id']: r for r in _j.load(open('/home/claude/mm/tools/REQUIRED-CHECKS.json'))}
-own = [r for r in todo if re.match(r'^\s*after upload', _rq.get(r, {}).get('item', ''), re.I)]
-left = [r for r in todo if r not in rows and r not in own]
-if left: refuse('rows with no check written or met only after upload have no decision of the owner in %s: %s (S1)' % (gr, ' '.join(left)))
-if todo:
-    logs = ''.join(open(f).read() for f in glob.glob('/home/claude/mm/records/DECISIONS-LOG*.md'))
-    if not quote or quote[:120] not in logs: refuse('%s does not quote the owner\'s words found in the decisions log (S1)' % gr)
-PY
+grep -qE "^STOPPED at |^FAST CHECKS PASSED" "$S" || { echo "BUILD REFUSED: build b$P's checks have not finished"; exit 3; }
+Z=$(ls "$B"/*.zip | grep -vE -- '-(originals|CHECK-ONLY|UPLOAD)\.zip$' | head -1); PG=$(basename "$Z" .zip)
 [ -n "${BUILD_CAUSE:-}" ] || { echo "BUILD REFUSED: no cause given for build $N - set BUILD_CAUSE (review fault / check fault / template change / owner change: what) (S10)"; exit 3; }
 echo "$(date '+%d %b %Y %H:%M:%S') | $N | cause: $BUILD_CAUSE" >> /home/claude/mm/records/build-causes-$PG.txt
-touch "/home/claude/mm/records/.guard-ok-$(basename "$D")-$N"; echo "build guard: b$P checked and reviewed - build $N"
+touch "/home/claude/mm/records/.guard-ok-$(basename "$D")-$N"; echo "build guard: b$P checks finished - build $N"

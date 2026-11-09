@@ -51,6 +51,7 @@ step() {   # step <judge step> <label> <result file> <scripts (for freshness)> -
   # 8 Nov 2026 (owner "built the three", item 2): in the fast round every check runs to the end - a fault is recorded and the next
   # check runs; the round then stops with ONE list of every fault (the long stage still stops at the first fault)
   if [ $e -ne 0 ]; then
+    if [ "$STAGE" = fast ] && [ "$js" = space ]; then echo "LISTED (does not stop) $label $(date +%H:%M:%S): $j" >> $O/SUMMARY.txt; return 0; fi   # 8 Nov 2026 (owner "yes" to the decisions audit, claude/DECISIONS-AUDIT-8nov.md): the spacing check lists what it finds but no longer stops a build
     if [ "$STAGE" = fast ]; then echo "FAULT at $label $(date +%H:%M:%S): $j" >> $O/SUMMARY.txt; NF=$((NF+1)); FL="$FL|$label"; return 0; fi
     echo "STOPPED at $label $(date +%H:%M:%S): $j" >> $O/SUMMARY.txt; cat $O/SUMMARY.txt; exit 1; fi; }
 NF=0; FL=""
@@ -90,10 +91,13 @@ if [ "$STAGE" = fast ]; then
   echo "FAST CHECKS PASSED $(date +%H:%M:%S) - next: the gate (early run), then the separate review, then: more_checks.sh ... long, and run_checks.sh" >> $O/SUMMARY.txt
 else
   [ -f $O/FAST-PASSED ] && grep -q "package sha256 $SHA" $O/FAST-PASSED || { echo "REFUSED $(date +%H:%M:%S): the fast checks have not passed for this package ($SHA)" | tee -a $O/SUMMARY.txt; exit 3; }
-  [ -f $O/GATE-EARLY-PASSED ] && grep -q "package sha256 $SHA" $O/GATE-EARLY-PASSED || { echo "REFUSED $(date +%H:%M:%S): the gate's early run has not passed for this package ($SHA) (7 Nov 2026, S1 refined)" | tee -a $O/SUMMARY.txt; exit 3; }
+  # 8 Nov 2026 (owner "yes" to the decisions audit, claude/DECISIONS-AUDIT-8nov.md): the 524-item list's early run is no longer required
   RV=$B/REVIEW.md
+  # 8 Nov 2026 (owner "yes" to the decisions audit): the long checks may start while the separate review runs (a page fault it finds means a new build); a finished review must still end FAULTS: 0
+  if [ -f "$RV" ]; then
   { [ -f "$RV" ] && [ "$RV" -nt "$Z" ] && grep -q "$SHA" "$RV" && [ "$(grep -v '^[[:space:]]*$' "$RV" | tail -1)" = "FAULTS: 0" ]; } || { echo "REFUSED $(date +%H:%M:%S): no separate review report for this package with FAULTS: 0 ($RV)" | tee -a $O/SUMMARY.txt; exit 3; }
 { [ -f "$(dirname "$RV")/REVIEW-BRIEF.md" ] && [ "$RV" -nt "$(dirname "$RV")/REVIEW-BRIEF.md" ] && grep -q "BRIEF $(basename "$(dirname "$RV")")/REVIEW-BRIEF.md" "$RV"; } || { echo "REFUSED $(date +%H:%M:%S): the review report does not come from the brief tools/review_brief.sh wrote for this build (7 Nov 2026, S8)"; exit 3; }
+  else echo "started before the review finished (owner 8 Nov yes) $(date +%H:%M:%S)" >> $O/SUMMARY.txt; fi
   step images "images (heights, 122 widths)" $O/images.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images.txt full heights > $O/images.log 2>&1"
   sha256sum "$TPL" | awk '{print $1}' > $M/records/images-passed-template.txt   # 6 Nov 2026: the template this build passed the images check on
   step images2 "images (swipe, late, behaviour)" $O/images-2.txt $M/tools/images_behaviour.py -- sh -c "python3 $M/tools/images_behaviour.py \"$P\" $O/images-2.txt full swipe,late,behaviour > $O/images-2.log 2>&1"
