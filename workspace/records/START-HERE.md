@@ -76,14 +76,35 @@ This is a separate job with no page build:
 - **Essential Elements hero images:** https://claude.ai/artifact/BnnZQ8r4hibfzj53cfLkCs. Resources hero: Drive folder "8. Hero".
 
 ## 7. Current state (update this section at the end of every chat; no new handover files)
-- **9 Nov 2026:**
-  - The Prepared Environment: GATE PASSED, c431a226. Sent as the-prepared-environment-UPLOAD.zip; not yet uploaded.
-  - essential-elements-menu-41-pages.zip: the other 41 live pages with the new Essential Elements menu (her screenshot). Sent, not yet uploaded.
-  - After she uploads: a 10-minute live check of both (the menu on all 42 pages at computer and phone widths, and The Prepared Environment's spacing).
-- **Recommended, not yet agreed:**
-  - Put the one spacing rule into both templates.
-  - Make make_final, onecheck and send_gate_pe general for any page.
-  - The five 390-width items from The Prepared Environment's review: Shelf Length images stacked, the small Mats image, the gap under the Windows image, the chairs table wrapping, and the swipe strips starting right of the text.
+Last updated: 9 Nov 2026, end of the chat that built The Prepared Environment.
+
+**Waiting for her upload (she will upload "later this morning", 9 Nov):**
+- the-prepared-environment-UPLOAD.zip: The Prepared Environment, GATE PASSED, package c431a226. It is the whole folder the-prepared-environment, replacing the live one. The page source is in GitHub workspace/pages/pe-final/approved-preview-index.html (her approved preview v10, plus the menu change).
+- essential-elements-menu-41-pages.zip: index.html only, for the other 41 live pages, with the new Essential Elements menu (her 9 Nov screenshot). The home page's index.html goes in public_html itself; each other page goes in its own folder. Outside that menu panel each page is identical to the live page.
+- Both zips were sent to her in the chat. They are not in GitHub.
+
+**First job of the next chat, after she says they are uploaded - the live check (about 10 minutes):**
+1. Download the live the-prepared-environment/index.html and check it equals the sent page.
+2. Run the spacing check (onecheck.js) on the live page at 1440, 768 and 390.
+3. Open the Essential Elements menu on all 42 live pages at 1440 and 390 (tools/menu-9-nov/mcheck.js against the live addresses).
+4. Report in a few lines.
+
+**Recommended, waiting for her agreement (ask one at a time, with a preview):**
+1. Put the one spacing rule into both Code Templates, so new pages start with it.
+2. Make make_final.py, onecheck.js and send_gate_pe.sh work for any page. The gate's placement exception names the Madonna image (192-480.jpg); make it general: an image followed by a quotation at 40.
+3. Five template faults the reviewer found at 390 on The Prepared Environment. All five are also in the approved preview, and they affect other pages too:
+   - the Shelf Length images stacked and touching;
+   - the Mats image small and at the left;
+   - a 38 px gap above the dots under the Windows image;
+   - the chairs table wrapping "35 x 35 cm" onto four lines;
+   - at 641-768, swipe strips starting right of the text.
+
+**Next page:** not chosen yet. Ask her which page is next, then follow section 2.
+
+**Versions:**
+- Essay Code Template sha256 2bd98f70, Resources Code Template 942a0587 (GitHub d122be5).
+- tools/v8/strip_compare_nolive.py is pinned to both.
+- GitHub workspace at ee9dd73 or later. The old instructions (START-HERE before 9 Nov, the memory notes before the trim) are archived in workspace/records/project-archive-9nov/.
 
 ## 8. End of each chat
 Push the changed working files to GitHub workspace/, with new fingerprints (`sha256sum -c FINGERPRINTS.txt` must pass). Update section 7 of this file. Don't add new documents to the Project.
