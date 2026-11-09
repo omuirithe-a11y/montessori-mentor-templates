@@ -1,0 +1,142 @@
+[updated: 2026-11-08T14:34:26.775192+00:00] [size: 26490 of 49152 bytes — 22662 free] [version: 54dee8e8b3e5] (pass as if_version on your next write or edit of this path)
+---
+name: preferences
+description: Montessori Mentor lasting preferences - Word colour meanings, dashes, photos, Hostinger, links, menu, footer, how to report; the old spacing numbers and process rules were dropped on 13 Oct 2026 (backup in Drive as preferences-old.md)
+sources: [chat]
+aliases: []
+---
+
+- [stated] in the Word documents, blue text marks names of materials/activities, not sub-headings
+- [stated] in the Resources documents, red is for authors and blue is for titles
+- [stated] orange text in Word always shows as regular black on the page
+- [stated] the label above the contents list reads "Table of contents"
+- [stated] short dashes only, everywhere on the site; no spaces around a slash ("Junk/Adventure")
+- [stated] photos of objects on a white background have the white masked, always
+- [stated] photos are resized to fit, not cropped; cropped only when explicitly told to (13 Oct 2026, refined 19 Oct; replaces the 7 Oct "always crop photos to fit"); placement follows the source PDF roughly, sizes follow the template
+- [stated] hero images rotate in Play and Education only
+- [stated] hi-res photos are sent as a numbered download for every page
+- [stated] Hostinger: give only the name of the new folder to create in public_html and the zip; the user unzips on the Mac and uploads the files
+- [stated] links go on their own line as [claude.ai/artifact/X](https://claude.ai/artifact/X) (text without https://, target the full address); never buttons
+- [stated] footer reads "© 2026 Montessori Mentor"; contact details come later, no reminders
+- [stated] menu panels open on a click, not on hover; no lines under entries; no numbers shown
+- [stated] clicking a menu name (or its arrow) opens its panel and clicking again closes it, on computers and phones, on every page; section pages are chosen from inside the panel (16 Oct 2026)
+- [stated] during long work, send a line saying what is happening, so the user is not left waiting in silence
+- [stated] state the fact and stop; no folksy "straight-talker" framing
+- [stated] always UK English on the site; change US spellings when they appear (13 Oct 2026)
+- [stated] wary of adding to the list of rules, as that caused many past problems; rules to be reviewed after the page is live (13 Oct 2026)
+- [stated] wants a plain clickable URL that opens in the default browser for previews, not only an in-app card (13 Oct 2026)
+- [stated] when told "save it", Claude should ask where; the usual answer is a file they can download to their computer, never the GitHub repository (13 Oct 2026)
+- [stated] "where possible, always make decisions without involving me": Claude should decide itself from facts and evidence, not put options to them (19 Oct 2026; replaces the 13 Oct "put options in front of me and wait")
+- [stated] when giving steps or options, repeat them in full in the reply rather than pointing back to an earlier message; scrolling back causes confusion (13 Oct 2026)
+- [stated] whenever Claude tells them to go somewhere (a settings page, a website, a file), give the full link on its own line first, then the steps; they cannot find these places otherwise (13 Oct 2026)
+- [stated] when they write "etc." or give a few examples (e.g. "box, bag, tray etc"), Claude should work out the other items of that kind and include them, rather than asking which (15 Oct 2026)
+- [stated] never guess: check or measure before stating anything, and say "not checked" for anything not verified; called it "an order, a command, a rule" (15 Oct 2026)
+- [stated] do not add elements or details to their pages that they did not ask for (e.g. extra lines); remove such additions when found (15 Oct 2026)
+- [stated] on the Sensorial Curriculum page, "names of materials" means the red text (headings like Pink Tower and the red names in the Tactile table), not every label or sub-heading (15 Oct 2026)
+- [stated] in photo reviews, a photo they do not comment on means no changes to what is already in place (15 Oct 2026)
+- [stated] copy protection is added to every page just before it is published (15 Oct 2026); previews must have copy and paste working ("disengage copy paste until you publish", 17 Oct 2026)
+- [stated] when they ask "what's next", list only Claude's own next tasks, not things the user has to do (16 Oct 2026)
+- [stated] when giving options, list every option (not an incomplete set) with its pros and cons, so the user can see what each choice costs before deciding (16 Oct 2026)
+- [stated] on phones, groups of photos are always swipe rows with dots, on every page (16 Oct 2026; replaces "photos stand one under another, centred")
+- [stated] in swipe rows each photo stops in the middle of the screen (space added at both ends); a row that fits the screen stays still as one centred group with no dots, on every page and width (16 Oct 2026)
+- [stated] spacing is measured the START-HERE way (letters to letters) and reported as one number per item, never two ways of measuring or two numbers for the same thing (16 Oct 2026)
+- [stated] never have transparent or invisible lines on any page: delete them from the code (16 Oct 2026)
+- [stated] when they send edits for the page template, Claude decides whether each belongs in the template, START-HERE or both, and does not need to explain the choice (16 Oct 2026)
+- [stated] their spacing numbers are always written above/below (for example 30/30), so Claude reads them that way (16 Oct 2026)
+- [stated] do not explain how a gap is measured (for example "from the bottom of the letters of X to the top of the letters of Y"); they find it unhelpful (16 Oct 2026)
+- [stated] ask questions one at a time, not several together (16 Oct 2026)
+- [stated] do not send a download link or file until they ask for it (16 Oct 2026); exception for the Essay Template: the attached Word file is the original, and each time they authorise a change Claude edits that file and sends it for download (17 Oct 2026)
+- [stated] 20 Oct 2026: retired the 16 Oct Word sheet as the source of design numbers ("Yes, retire both"); pages start from the Essay Code Template (The Role of the Adult's code) and each content type is measured against The Role of the Adult, not Sensorial; the master's repository gets a name Claude chooses (chosen: montessori-mentor-templates, private, owner omuirithe-a11y), no read-only copy in the Project, and each copy (Project and repository) is updated at the end of each chat
+- [stated] the Essay Code Template has one master copy only, in the GitHub repository montessori-mentor-templates: "delete all copies of the essay code template except the one in github ... one master copy is best" (21 Oct 2026; Project-file and Drive copies deleted; replaces the end-of-chat two-copy update for the Essay template)
+- [stated] the Essay page template names no specific materials (for example the Trinomial Cube): it is a template, so naming materials would contradict that (16 Oct 2026)
+- [stated] START-HERE should carry no spacing or design numbers: the Essay page template document is the only source for them, and listing numbers in other places causes confusion (16 Oct 2026)
+FINAL WRITE
+- [stated] silence is not authorisation: being shown a change and not objecting does not count as the user authorising it (17 Oct 2026, answering about edits to the Essay page template Word sheet)
+- [stated] every question to them must name the document it is about (name and link); they should not have to ask which document before answering (17 Oct 2026)
+- [stated] tired of doing work Claude could do itself: find the answer or a way (for example getting pictures out of a Word file) rather than asking them to attach or look it up, and tell them only if help is really needed; for source Word files, access them through Google Drive only, not their computer's folders (17 Oct 2026)
+FINAL WRITE
+- [stated] never edit the Essay Template until they agree in writing; before that, say only the change Claude is going to make, not each spot it lands and not what stays the same (17 Oct 2026; replaces "list every change in full"). 31 Oct 2026: will not agree to the bare phrase "I agree to these changes to the Essay Template" ("I'll never agree to a phrase that vague") - the agreement sentence offered must state the change itself (what, which widths, which pages)
+- [stated] never include extraneous detail in any answer: say only what was asked (17 Oct 2026)
+- [stated] every question that proposes a change must come with a preview: "preview. always for all questions"; "preview means open a live preview always"; also "preview means open the preview in the app" (17 Oct 2026)
+- [stated] for suggestion questions about the Essay Template, always name the answer found in the Sensorial Curriculum page, then give clickable response boxes (17 Oct 2026)
+- [stated] always use the live online page (for Sensorial, https://montessorimentor.co.uk/the-sensorial-curriculum/) for measuring and previews; saved copies of a page are irrelevant and never to be used or sent (17 Oct 2026)
+FINAL WRITE
+- [stated] the text is justified on every page of the site, this one and all the others (18 Oct 2026); except on phones (640px and narrower), where text is left-aligned - agreed 23 Oct 2026 as the mm-phone-left block in both the Essay and Resources Code Templates ("I agree to these changes to the Essay Template and the Resources Template")
+FINAL WRITE
+- [stated] always send the original photos as a download after publishing each page, without being asked (18 Oct 2026)
+- [stated] all dividers (the beige lines) on every page, past, present and future, are #D9C9AB (18 Oct 2026; replaces the #E7DCC6 and #E5DED3 found live); they call them "beige lines"
+FINAL WRITE
+- [stated] their questions are queued and answered strictly in order: finish answering one before starting the next; never skip a question or run several together (18 Oct 2026)
+FINAL WRITE
+- [stated] ask no questions about phones: phone figures are settled by comparing the 20+ pages already built and using the average (19 Oct 2026)
+FINAL WRITE
+- [stated] when they say "queue the following edits" (or "await go"), Claude only lists them and does nothing until they say "go"; then does them in order; "finish all edits" is not "go" (19 Oct 2026). 22 Oct 2026: while queuing, Claude writes each queued edit into the page settings (plus any new build code and its measurement) without building or publishing, so "go" is one build, one measure-and-screenshot pass, one publish; settings CSS before new code; save to the Project once after publishing; no questions on anything already settled (saved in START-HERE)
+- [stated] do not ask questions Claude already knows the answer to: work it out from the page model, the Word file and earlier answers (19 Oct 2026)
+FINAL WRITE
+- [stated] "stop the clock" (22 Oct 2026, 23:05): no clock times at the top of answers and no timed searches - replaces the 20 Oct "start the clock again" timing below (the rest of that line still stands)
+- [stated] "start the clock again. 3 minutes each answer" (20 Oct 2026, 12:07): read the clock at the start and end of every answer, put both times at the top, and spend at least 3 minutes searching before answering; replaces the 20 Oct morning "stop using the clock". 13:38: "with the places searched not listed, and the places you haven't searched listed" - at the top, list the places NOT searched, not the places searched. 14:51: the stronger timer (a search logged in each minute, no opening if the last search is over 60 s old, log written by the commands; a fixed source list per kind of question, this chat's messages and the parallel chat first); every figure tagged with its source or "not checked"; a separate agent checks each draft and its findings are shown; extended web search for hard facts
+- [stated] "stop asking questions, because your questions are all horseshit" (20 Oct 2026, 14:51): decide from the evidence, say what was decided and why, and list what remains for them to settle without asking
+- [stated] numbered lists: the text starts 30 from the margin where the number stands, not Word's 24/37.8 (22 Oct 2026, answering the A/B question: "Numbered lists: 30")
+- [stated] numbered lists always start at the left margin; side photos always align with the first line of the text, never the title; the footer quotation is set in three lines (breaks after "confess that," and "prostrated me.") in the templates and on all pages (20 Oct 2026); where the middle line does not fit, its overflow words (e.g. "me.") go on the same line as "It was as if I gave to them some vital force from within me." (20 Oct 2026)
+- [stated] previews for questions: one preview page, updated and reopened by Claude for every question without being asked, showing each option drawn on a real page; options' figures set out in the same order and wording so they can be compared (20 Oct 2026)
+- [stated] wants the preview URL given without being asked: every reply that names a page (progress lines, held or "not updated yet" states, questions) ends with that page's preview URL on its own line (20 Oct 2026)
+- [stated] "capitalise 'Lead Guide' always" on the site's pages (20 Oct 2026)
+- [stated] underlined phrases on their own line: 40 above / 15 below, in the Resources Code Template and on the pages (21 Oct 2026: "increase to 40 in the template and on the page"; was 30 above, 20 Oct)
+- [stated] "Allow breaks after "/"": on every page, at every width, a word joined by slashes may wrap after a slash (21 Oct 2026)
+- [stated] dash lists: text margin, then a space of 24, then the dash, then a space of 24, then the word - at every width, in the Resources Code Template and on the pages (21 Oct 2026: "change to 24 from the edge"; "Keep the 24 gap, all widths")
+- [stated] "ask questions because I don't trust you" (21 Oct 2026, 14:59)
+- [stated] every page built must have its photos' faces blurred following all of the faces guidelines (21 Oct 2026): only children photographed in the classroom are blurred (never adults, blindfolded children, historical or freely-online photos, drawings, objects); two review rounds; full rules in claude/START-HERE.md "Faces" (the only START-HERE since 25 Oct 2026); the whole-face v7 blur and the Drive folder "faces-tools" are retired (see the 25 Oct lines below)
+- [stated] image descriptions (alt text) "are not necessary anymore" (28 Oct 2026, changing her mind) - replaces the 21 Oct 2026 rule that every image includes a description
+- [stated] spacing figures are reported letter to letter, computer figures only - never quote phone figures (21 Oct 2026: "Only quote computers never phone numbers")
+- [stated] checking a built page (21 Oct 2026): look at the whole rendered page by eye at computer, tablet and phone widths beside the PDF, section by section; measure every gap against the template's figures; check against Word letter by letter (words, bold, italic, photos, headings, lists, dividers, badges); swipe photo rows and open/close every menu at phone and tablet widths; read each rule's style values on the rendered page; compare the page's code with the template's; run the page check at 1280/768/390; open the published page in Chrome and scroll to the end; run the late-photo test at three widths; compare each photo with the PDF (content, order, shape, crop, turn); prove each check catches a fault put into a copy; re-read their messages and test the report against them; give evidence for each claim, mark the rest "not checked"; have a separate agent check the page
+- [stated] fixing faults (21 Oct 2026): fix the cause in the build settings or the converter, not by hand in one page; rebuild and run every check again; re-open the published page and confirm the fix shows; when a check is wrong, fix the check and prove it on a deliberately broken copy
+- [stated] "do not ask questions until I write the words 'ask your questions now'" (23 Oct 2026); until then decide from the evidence
+- [stated] "correct all typos on every page. do not ask about this again" (27 Oct 2026): typos on the pages are corrected without asking her (replaces the 23 Oct rule of reporting each typo for her to decide)
+- [stated] faces are always blurred on copies of the full-size original photos only, never on smaller working copies (23 Oct 2026)
+- [stated] the blur is localised, centred on the eyes, nose and mouth - replaces "whole face hairline to jaw" in the v7 line above (23 Oct 2026)
+- [stated] no blurring of printed photos (e.g. photos pinned on a classroom wall) (23 Oct 2026)
+- [stated] the round 1 and round 2 faces sheets show each face as the outline of the blur's own area, not a box (23 Oct 2026)
+- [stated] "the blurring needs to be localised, centred on the eyes nose and mouth ... it's too broad. it needs to be precise" (25 Oct 2026): each face's blur covers only its eyes, nose and lips, never forehead, neck or ears
+- [stated] "tiny faces: B" (25 Oct 2026): very small faces also keep to the eyes, nose and mouth (with a stronger blur), not the whole face
+- [stated] 25 Oct 2026, 20:23 - the eyes-nose-mouth blur above was rejected on all images: "the blurring is wrong and needs to be changed ... The scan often misses the parts of the face ... This rigid-lines model is to defined and the blur needs to have softer edges ... The blurring is inconsistent: sometimes it's extremely intense and other times you can recognise the child because the blurring is barely there ... the problems are on all photos"; the blur must cover the face, have soft edges and the same strength on every face; the model may be refined or replaced
+- [stated] Project instructions updated 25 Oct 2026 to require the Faces steps of claude/START-HERE.md in full before any image with children is used; the older START-HERE copies were deleted on their "go" (25 Oct 2026)
+- [stated] "Don't use the word photo - use image" (24 Oct 2026)
+- [stated] "when you find files that are of sufficient quality, add them automatically. do not wait for permission. have an agent check your answer" (24 Oct 2026, about replacement images for the site)
+- [stated] "If there's a fault error mistake typo etc correct it immediately" (24 Oct 2026)
+- [stated] 25 Oct 2026, 22:14-22:44: the heavy soft blur (whole face skin, 0.35 x face width, trial 3) was rejected ("Worse in every way"); from the looks sheet on her five sample images she chose the look "lighter blur (0.12 x face width)" - the face still reads as a blurred face, not a blank patch; the area was not named by her (Claude took the face-skin area with an oval where the skin is not found)
+- [stated] 25 Oct 2026, 23:49: after they answer a faces sheet, never send the whole sheet again ("am I supposed to review every single photo again? including the ones i haven't asked to re-edit?"); send only the faces from that answer, with the faces they said to leave listed
+- [stated] all adults are left unblurred, on every image ("all adults" no blurring, 25 Oct 2026, 23:26); the detectors do not tell adults from children, so adults are found by eye and entered in the rules
+- [stated] never write "Nothing is live" (or "nothing goes live", "nothing touches the live site" and the like) in replies: it is superfluous, since nothing is ever published without their "go" (26 Oct 2026)
+- [stated] 26 Oct 2026, 14:50: "Too many questions. I can't keep track of them. Ask them here, one by one. Simple questions, simply stated. No click 1 2 3 options. Provide preview when possible." - questions go in the chat itself, one at a time, plainly worded, with a preview where one is possible; no clickable option boxes (replaces the 17 Oct "give clickable response boxes" line above)
+- [stated] "Always use judgemental" (26 Oct 2026) - that spelling everywhere on the site, not "judgmental"
+- [stated] 26 Oct 2026, 15:54: "USE BRITISH ENGLISH IN ALL INSTANCES" - but 15:57: "do not change the real name of an organisation, the title of a published article, or words inside a quotation". British spelling everywhere in her own text; names, published titles and quoted words stay as they are, and anything still in doubt goes to her as a document she can review
+- [stated] 26 Oct 2026: "maths", never "math", in ordinary text on the site; "artifacts" stays as spelt; "kids" stays (ordinary British English)
+- [stated] the 26 Oct 2026 "no agents" command (15:52, 15:59) was temporary and is superseded: on 27 Oct 2026 she directed agents to do the fault-fixing work on the pages, and does not want to be asked about the old command again
+- [stated] "do not search the internet archive for anything. ask me" (27 Oct 2026): never use the Internet Archive / Wayback Machine as a source; where it would be needed, ask her instead
+- [stated] "do not search the internet archive for anything. ask me" (27 Oct 2026): never use the Internet Archive / Wayback Machine; where something would be looked up there, ask her instead
+- [stated] "The templates are in github. They are the source. No other source can be referenced or used." (27 Oct 2026): for page layout, sizes, spacing, menu and footer, the GitHub Essay and Resources Code Templates are the only source - not live pages, check tools, rule files or Claude's own figures
+- [stated] "as soon as a step is stopped, immediately restart it" and "START AGENTS IMMEDIATELY AFTER THEY ARE STOPPED" (27 Oct 2026): any stopped step or agent is restarted at once, without asking
+- [stated] "immediately stop work when you have evidence that it is ineffective or in any way not required" (27 Oct 2026)
+- [stated] be suspicious of anything a HANDOVER claims; test, check and make fresh measurements before deciding a course of action, and adjust the plan at each stage as new evidence comes in (29 Oct 2026)
+- [stated] menu bar size (29 Oct 2026): she had asked for the menu font size to be increased (24-25 Oct) and has changed her mind - return it to the previous size on all pages and in the templates
+- [stated] page text font sizes, computers (confirmed 29 Oct 2026, "use them"): hero title 40, "Table of contents" label 20, contents entries 18, headings 18, paragraphs and lists 18, quotations 18, captions 16, band quote 18, footer 15
+- [stated] when reporting measurements, quote one width only - several widths get confusing (29 Oct 2026)
+- [stated] "rota" is their shorthand for The Role of the Adult page (29 Oct 2026)
+- [stated] confirmed page-text font sizes on computers (641px and wider): hero title 40, contents label 20, contents entries 18, headings 18, paragraphs and lists 18, quotations 18, captions 16, band quote 18, footer 15 (29 Oct 2026, "all of those figures ... are accurate. use them"); The Role of the Adult's line spacing is the approved one
+- [stated] when reporting figures measured at several widths, quote one width only, or it gets confusing (29 Oct 2026)
+- [stated] "rota" is her shorthand for The Role of the Adult page (29 Oct 2026)
+- [stated] when reporting measurements, quote one width only ("only quote one width or it gets confusing", 29 Oct 2026)
+- [stated] "rota" is their shorthand for The Role of the Adult page (29 Oct 2026)
+- [stated] "Do not assume or guess anything ... Asking for clarification is better than making decisions without all the evidence, which I can provide" (29 Oct 2026): where the evidence is incomplete, ask her rather than decide; replaces the 23 Oct "do not ask questions until I write 'ask your questions now'"
+- [stated] Hostinger image optimisation settings changed 25 Oct 2026 (confirmed 29 Oct): computers are served images up to 2900 px wide, phones and iPads up to 1600 px (was 1600/800); this replaces the 21 Oct "1600 wide" figure
+- [stated] "always update starthere and the other documents immediately, the updated most recent document superseding the older versions in each instance" (30 Oct 2026): update START-HERE and the other Project documents in place the moment something changes; the newest version replaces the older one
+- [stated] for questions that can be illustrated by opening them in a live preview, do so (31 Oct 2026, 22:21) - the question comes with its live preview opened, not only a description or a screenshot
+- [stated] "always ask any questions at the end of messages" (3 Nov 2026): every question goes at the end of the message, never in the middle
+- [stated] "each time you answer, list the lessons you ignored or broke, then implement them" (7 Nov 2026): every reply lists the lessons (LESSONS-LEARNED) ignored or broken since the last answer, and they are put right; 8 Nov 2026: "ignore 'Lessons broken: 65 and 71. This reply wasn't checked by a separate agent.' and stop listing it" - that line is no longer written
+- [stated] dividers (beige lines) are 30/30: "30/30 is a better number. use the for every divider" (8 Nov 2026; replaces the 7 Nov "divider always means 40/40"); all dividers the same colour
+- [stated] "I want photos in a row to be be 150 and beside text to be 120" - asked which pages: "every page" (7 Nov 2026): images in a row 150 high, images beside text 120 high, on every page and in the template
+- [stated] live previews go with Claude's own questions only, not with Claude's answers to her questions ("only this. your questions. not mine", 7 Nov 2026)
+- [stated] the 20 Oct 2026 rule "no lines round quotations" is deleted - "delete that rule and ignore that old rule" (7 Nov 2026): dividers next to quotations are shown
+- [stated] quotations (8 Nov 2026, for the Essay Code Template change list): the space under a quotation to the next paragraph is 29, the same as between two paragraphs ("Make both of those spaces 29"); the space between the lines of a quotation is 24 ("Make the quotations 24")
+- [stated] decisions made during The English Curriculum build (4-7 Nov 2026) "turned out to be bad decisions, so they need to be deleted or overturned and never used again"; agreeing to a poorly phrased suggestion does not make it right (8 Nov 2026). "Don't reference The English Curriculum again. Whatever was done with that build was wrong" - never cite that build, its timings or its decisions as precedent (8 Nov 2026)
+- [stated] agreements she gave since mid-October 2026 to Claude's suggestions are not her decisions ("just because I agreed to them doesn't make them my decisions"); do not base plans on them - base plans on other evidence (what actually happened) and disregard those agreements (8 Nov 2026). Do not make plans without research: look at past chats and the lessons before proposing changes; she rejects quick, unresearched fixes (8 Nov 2026)
