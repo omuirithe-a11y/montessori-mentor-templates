@@ -48,6 +48,18 @@ This is a separate job with no page build:
 4. Zip index.html only, one folder per page, with the home page at the root.
 5. Make the same change in both Code Templates on GitHub, and re-pin tools/v8/strip_compare_nolive.py to the new template sha256.
 
+## 3b. Template work
+Before changing either Code Template, read these, and nothing else:
+1. This file: section 2, and the "Recommended" list in section 7.
+2. The Project's saved preferences, "Site style" part. It holds her figures: fonts, spacing, dividers, image heights, lists, menu, footer.
+3. The template itself, in GitHub at the top of montessori-mentor-templates (Essay Code Template.html or Resources Code Template.html).
+4. The approved look: workspace/pages/pe-final/approved-preview-index.html (The Prepared Environment, approved by her 8 Nov), and workspace/pages/pe-final/mm-one-spacing.js (the spacing rule that page uses).
+
+How:
+- One change at a time. Show it on a live preview of a real page, then offer her a sentence that states the change itself: what changes, at which widths, on which pages. Change the template only after her written yes.
+- Then re-pin tools/v8/strip_compare_nolive.py to the new sha256 and push.
+- Live pages change only when they are rebuilt.
+
 ## 4. Faces (images with children)
 - Use the blur-faces skill.
 - The method is claude/BLUR-METHOD-26-oct.md, version 22, agreed by her on 26 Oct. Read it in full before any faces work.
