@@ -1,3 +1,7 @@
+# Workspace
+
+**9 Nov 2026: the only instructions are in claude/START-HERE.md (a copy is at records/START-HERE.md). Where this README disagrees with it, START-HERE wins. This README is kept only as a reference for what the tools do.**
+
 # Montessori Mentor workspace (set up 20 Oct 2026)
 
 Everything a chat needs to build a page, in one folder: /home/claude/mm

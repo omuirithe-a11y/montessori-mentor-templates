@@ -2,6 +2,10 @@
 # 6 Nov 2026 (owner 10:53 "yes", lessons list item 1; lesson 18): refuse a build when free disk space is under 4 GB (a build and
 # its checks use about 1.5 GB; on 6 Nov 09:57 a full disk stopped build 31)
 FREE=$(df -Pk /home/claude | awk 'NR==2{print int($4/1048576)}'); [ "${FREE:-0}" -ge 4 ] || { echo "BUILD REFUSED: only ${FREE} GB free on the disk (4 GB needed) - clear superseded builds' bulky files first (tools/clear_old_builds.sh)"; exit 3; }
+# 9 Nov 2026 (owner: "Remove old outdated unhelpful commands orders etc ... I want each new chat to open with this plan, this way of building a page"):
+# a page is built ONCE from the Word file (claude/START-HERE.md section 2), so the only guard left is free disk space. The checks below
+# (decisions sheet, fingerprint records, check rounds, build causes) belonged to the old build order and no longer run.
+echo "build guard: disk ${FREE} GB free - build allowed"; exit 0
 # build_guard.sh <builds folder> <new build name>
 # 6 Nov 2026 (owner 08:01 "analyse the effectiveness ... then adjust"; BUILD-ORDER item 5/6): a new build is refused while the
 # newest build's check round is unfinished - the fast round must have STOPPED at a fault or PASSED, and if it passed, a
