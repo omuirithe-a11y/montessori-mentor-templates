@@ -60,6 +60,19 @@ How:
 - Then re-pin tools/v8/strip_compare_nolive.py to the new sha256 and push.
 - Live pages change only when they are rebuilt.
 
+## 3b. Changing a template (Essay or Resources Code Template)
+Read first:
+- section 2, item 4 above (the one spacing rule: never add spacing fixes to the template's own spacing scripts);
+- the "Site style" part of the saved preferences (her settled figures);
+- the template itself on GitHub and its change history.
+
+Then:
+1. Show the change on a live preview of a real page. Use The Prepared Environment's approved page (workspace/pages/pe-final/approved-preview-index.html) unless the change is about something that page doesn't have.
+2. She agrees in writing to one sentence stating the change itself: what changes, at which widths, on which pages. Never edit a template before that.
+3. Change the template only on GitHub.
+4. Check the test page before and after at every width (onecheck.js plus a position comparison): only the agreed change may differ.
+5. Re-pin tools/v8/strip_compare_nolive.py to the new template sha256, and update section 7.
+
 ## 4. Faces (images with children)
 - Use the blur-faces skill.
 - The method is claude/BLUR-METHOD-26-oct.md, version 22, agreed by her on 26 Oct. Read it in full before any faces work.
