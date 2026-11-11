@@ -64,3 +64,4 @@
   - Colours to be taken from the sandpaper letters in the page's images. Blue here means the Blue Language Materials blue, not the blue of the sub-headings and links. Her word: "agreed".
 - Queued edit 33 (11 Nov, The English Curriculum, screenshot: red "Montessori Reading Systems" with a dark line under it), her words: "divider 30/30 above". (Another exception to edit 21.)
   - Asked whether Montessori Reading Systems stays red; her words: "it's already been settled" - edit 8 holds: it becomes blue (only the six contents headings and Introduction are red).
+- Queued edit 34 (11 Nov, The English Curriculum, screenshot: bold "Object Box 1 ----> The Pink Series."), her words: "1. Not bold 2. Fix the arrow as before" (arrow as in edit 18).
