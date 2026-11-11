@@ -92,3 +92,4 @@
 - Queued 12 Nov, her words: "make the space after blue sub-headings before lines of text 18 on this page and on the template". (Was 24; measured from the bottom of the letters to the top of the next capitals, as all gaps. Images after a blue heading and red headings unchanged.)
 - Queued 12 Nov, her word: "divider" (screenshot: "...independent of the adults in the room." then "In the environments I have prepared, the two essential items on the AMI list of Spoken Language..."): a beige line between these two paragraphs, 30/30.
 - Queued 12 Nov (the objects image beside Materials in The Sound Game, images/010), her words: "make it 80" (was 120; its bottom stays level with the last line, edit 15).
+- Queued 12 Nov (the row of 3 classroom images 040, 041, 042; gap 38), her words: "make it 50". This row only; other rows keep 38 unless she says.
