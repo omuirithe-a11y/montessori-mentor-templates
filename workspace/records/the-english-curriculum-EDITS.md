@@ -22,3 +22,6 @@
   - D, asked again (her 30/20 or her earlier 30/30?): her words "30/30". Quotations have 30 above and 30 below. To do in step 2.
 
 ## Her queued edits (from 11 Nov, her words; queued, not yet made)
+- Queued edit 1 (11 Nov, with a screenshot of The Prepared Environment: contents list, beige line, red "Introduction" with its red line, first line of text), her words: "this is the prepared environment. 1. the beige divider above introduction shouldn't be there. remove it 2. However, make English Curriculum look the same: The heading 'Introduction,' with a space 40 above and that red line below. Mattch the spacing fron Introduciton ot the line and the spacing under the line to the first row of text"
+  - 1 is on The Prepared Environment (remove the beige line above Introduction).
+  - 2 is on The English Curriculum (Introduction 40 above, red line below, same gaps as The Prepared Environment).
