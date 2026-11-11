@@ -96,3 +96,4 @@
 - Queued 12 Nov (image 052 beside the list "1. I-Spy ... 5. Reading (...below)."), her words: "centre that photo" - in the middle of the space between the list and the right margin (as the grid of 6).
 - Queued 12 Nov (Letter Bingo row), her words: "halve the gap between photos 1 + 2 and between 3+4, with the saved space going between photos 2 + 3" (38 -> 19 within each pair; the gap between 2 and 3 grows by the same).
 - Queued 12 Nov (red "Large Moveable Alphabet" and "Small Moveable Alphabet" in the text), her words: "change from red to regular but make them both italics" (text colour, italic).
+- Queued 12 Nov (asked: spacing above and below quotations, 30/30), her words: "make it 40/40". This page (replaces D's 30/30); beige lines next to a quotation keep 30.
