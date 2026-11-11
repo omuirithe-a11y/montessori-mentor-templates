@@ -39,3 +39,4 @@
 - Queued edit 11 (11 Nov, The English Curriculum, screenshot: a beige line above the red "Circle Time"), her words: "remove that divider"
 - Queued edit 12 (11 Nov, The English Curriculum, screenshot: "Storytelling and book readings" with the circle-time image beside it, a large gap, then "Show and tell"), her words: "fix this large spacing gap" (same as fault 7 in the step 1 list: "Show and tell" below the image instead of beside it).
 - Queued edit 13 (11 Nov, The English Curriculum, screenshot: a beige line above the red "The Peace Table"), her words: "remove that divider"
+- Queued edit 14 (11 Nov, The English Curriculum, screenshot: a beige line above the red "The Sound Game"), her words: "remove that divider"
