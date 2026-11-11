@@ -22,8 +22,8 @@ if PAGE.endswith('.zip'):
     assert top == {slug}, 'STOP: the zip must hold one folder named %s (this page\'s address); it holds %s' % (slug, sorted(top))
     print('zip folder name:', slug, '- matches the page address', NEWHREF)
 H = lambda f: hashlib.sha256(open(f, 'rb').read()).hexdigest()
-FIX = {'Essay Code Template.html': '2bd98f7094dce00e540a7b34af5f5ef8770497626f42c282b0b402085e843b24',  # 9 Nov 2026: owner's correct Essential Elements menu ("the Essential Elements menu is wrong. This is the correct one." / "I want to change them all"); was 9c8448c3
-       'Resources Code Template.html': '942a05876cf477d5965663c344cc946362af949e6825e408e307abbaefd9d692'}  # 9 Nov 2026: the same menu; was f14174ee
+FIX = {'Essay Code Template.html': '021aca08c86e6035043c12a1eb5ed7b1afca6cf36d436aab07c0287e0272f649',  # 12 Nov 2026: owner "make all font on this page and on all pages 400, unless they are explicitly named as bold. add this change to the template" and "also, make all table of contents 18"; was 2bd98f70 -  # 9 Nov 2026: owner's correct Essential Elements menu ("the Essential Elements menu is wrong. This is the correct one." / "I want to change them all"); was 9c8448c3
+       'Resources Code Template.html': '21c3edf1ea6aeca60c09ca8539e40bdca7caebb29e8a8632c1ee778dd5eb4b03'}  # 12 Nov 2026: the same two rules; was 942a0587  # 9 Nov 2026: the same menu; was f14174ee
 assert os.path.basename(TPL) in FIX and H(TPL) == FIX[os.path.basename(TPL)], 'STOP: the template is not the template pinned 1 Nov 21:0x (sha256 2cbb78e3)'
 assert H('/home/claude/reports/copy-protection.html') == '0d180ad65627bb99f5edd29c476727c29d68a34efccd4ab5fd8f64a777026ce4', 'STOP: copy-protection.html has been changed'
 print('template and copy protection fingerprints: correct')
