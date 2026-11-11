@@ -56,3 +56,4 @@
   - Read as: 1 + 2 against the left margin, 3 + 4 against the right margin (the gap between 2 and 3 grows); each caption stays over its pair. Told her this reading.
 - Queued edit 26 (11 Nov, The English Curriculum, screenshot: "Wikipedia:" then the quotation "'Writing is the act of creating..."), her words: "the gap below wikipedia is too big". Her quotation rule (D, 30/30) makes it 30 (was 40).
 - Queued edit 27 (11 Nov, The English Curriculum, screenshot of the image of the pin tools in a wooden stand - the first image in the Pinning section, images/100.jpg), her words: "make this photo 80 high"
+- Queued edit 28 (11 Nov, The English Curriculum, screenshot: blue "Reading:" and "Decoding:" labels in the definitions), her words: "not blue". They become the text colour (they are labels, not links).
