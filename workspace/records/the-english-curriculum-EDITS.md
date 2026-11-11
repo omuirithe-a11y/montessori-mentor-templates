@@ -74,3 +74,9 @@
 - Queued edit 39 (11 Nov, The English Curriculum, screenshot: blue "Symbol Box 1", then bold "Circles"), her words: "spacing 40 above Symbol Box 1"
   - Edit 39 (screenshot: blue "Symbol Box 2"), her words: "and 2" - 40 above Symbol Box 2 as well.
 - 11 Nov, her words: "The Prepared Environment: leave it. I'll have more edits tomorrow." - edits 1 (first part) and 21 (second part) are not made on The Prepared Environment now.
+
+## 11 Nov 2026 - step 2 and step 3 done (preview version 15)
+- Made: answers A-F, queued edits 2-39 (The Prepared Environment left, her words), step 1 faults 1-24; the jumping (template layout and spacing rule no longer set each other off; the text being read stays put); the speed (two older scripts no longer re-run after loading: the footer-gap script, whose gap the one spacing rule already sets at 40, and the letter-gap script, now only when the page's size changed).
+- Step 3 checks, once, then the faults they found fixed and re-tested at the widths they affect: spacing ok; steadiness ok (same height at 1 s, 4 s and after scrolling, 1440 and 390); lines ok (8 widths); speed ok (1440 and 390, no busy stretch); overlaps ok except "oversized image" for the Writing Stages strip at every width (her answer A: make it larger); image placing lists only her new rules (40 around images, Materials image by its bottom, Word Study as the PDF).
+- Not changed: bold inside quotations (the template sets quotation text to normal weight) - to ask her.
+- The template changes she agreed (40/40 around images on every page; F at 641-830) are on this page only so far; the Essay Code Template is not yet changed.
