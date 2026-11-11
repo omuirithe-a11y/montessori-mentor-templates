@@ -70,3 +70,4 @@
 - Queued edit 37 (11 Nov, The English Curriculum, screenshot: the three Word Study card images (singular/plural, male/female animals, opposites) stacked in one block, with empty space below), her words: "no" (fault 5 in the step 1 list: each image to sit beside its own rows, as in the PDF).
   - Edit 37 (her PDF screenshot of Word Study: the three images down the right side, spread apart with clear gaps between them, the first showing its title "Singular and Plural"), her words: "yes" - match this.
 - Queued edit 38 (11 Nov, The English Curriculum, screenshot: the grammar symbols image beside Series 1, against the right edge), her words: "no" (fault 8 in the step 1 list: placed where the PDF has it).
+  - Edit 38 (her PDF screenshot: the grammar symbols image larger, in the middle of the space right of the Series 1 lines, reaching down beside the gap before Series 2), her words: "yes" - match this.
