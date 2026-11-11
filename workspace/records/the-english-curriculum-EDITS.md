@@ -104,3 +104,4 @@
   - 1: "So one of..." and "I have to confess..." joined into one paragraph, ending "...colouring pencils and sharpeners."
   - 2: "Children typically begin with crayons ... pencils that are sharp." becomes its own paragraph below the row of images 079-084 (before "A sample of some useless...").
   - Her wording is the same as the page's, word for word (checked).
+- Queued 12 Nov (Pinning: the text beside the 80-high pin tools image stops well short of the image, leaving a wide empty gap), her words: "fix this gap" - the text runs up to the image with the same gap as beside other images.
