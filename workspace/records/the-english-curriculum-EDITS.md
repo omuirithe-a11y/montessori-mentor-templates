@@ -66,3 +66,4 @@
   - Asked whether Montessori Reading Systems stays red; her words: "it's already been settled" - edit 8 holds: it becomes blue (only the six contents headings and Introduction are red).
 - Queued edit 34 (11 Nov, The English Curriculum, screenshot: bold "Object Box 1 ----> The Pink Series."), her words: "1. Not bold 2. Fix the arrow as before" (arrow as in edit 18).
 - Queued edit 35 (11 Nov, The English Curriculum, screenshot: the row of four images captioned The Blue Series, The Green Series, Action Cards - Set 2, Puzzle Words (aka Sight Words)), her words: "increase the gap between those four images to make clearer seperation between them"
+- Queued edit 36 (11 Nov, The English Curriculum, screenshot: Noun, Article, Verb with their descriptions in a column; "Adjective" with its description straight after it), her words: "correct the spacing after Adjective" (fault 23 in the step 1 list: line it up with Noun, Article and Verb).
