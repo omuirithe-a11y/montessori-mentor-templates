@@ -54,3 +54,4 @@
 - Queued edit 24 (11 Nov, The English Curriculum, screenshot: image row, then the centred blue "A sample of some useless, immature, weary efforts and frightful drawings.", then an image row), her words: "also 50 above this one"
 - Queued edit 25 (11 Nov, The English Curriculum, screenshot: "Letter Bingo: learning" over images 1-2, "Letter Bingo: teaching" over images 3-4), her words: "move photos 1 + 2 to the left margin / move photos 3 + 4 to the left margin / keep the exisitng gap between 1/2 and 3/4, allow the gap between 2 and 3 to grow"
   - Read as: 1 + 2 against the left margin, 3 + 4 against the right margin (the gap between 2 and 3 grows); each caption stays over its pair. Told her this reading.
+- Queued edit 26 (11 Nov, The English Curriculum, screenshot: "Wikipedia:" then the quotation "'Writing is the act of creating..."), her words: "the gap below wikipedia is too big". Her quotation rule (D, 30/30) makes it 30 (was 40).
