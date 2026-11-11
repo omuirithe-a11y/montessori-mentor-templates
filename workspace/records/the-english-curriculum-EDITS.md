@@ -71,3 +71,4 @@
   - Edit 37 (her PDF screenshot of Word Study: the three images down the right side, spread apart with clear gaps between them, the first showing its title "Singular and Plural"), her words: "yes" - match this.
 - Queued edit 38 (11 Nov, The English Curriculum, screenshot: the grammar symbols image beside Series 1, against the right edge), her words: "no" (fault 8 in the step 1 list: placed where the PDF has it).
   - Edit 38 (her PDF screenshot: the grammar symbols image larger, in the middle of the space right of the Series 1 lines, reaching down beside the gap before Series 2), her words: "yes" - match this.
+- Queued edit 39 (11 Nov, The English Curriculum, screenshot: blue "Symbol Box 1", then bold "Circles"), her words: "spacing 40 above Symbol Box 1"
