@@ -100,3 +100,7 @@
   - Asked "Should this also go into the template, for every page?": her word "yes". Quotations 40/40 in the Essay Code Template too.
 - Queued 12 Nov (two quotations: "The little hand which touches..." - Montessori's Own Handbook, and "Whilst moving the objects..." - The Formation of Man), her words: "for both of these quotations, have the attribution on the same line as the quotation" (the attribution follows "writing.”" on its last line).
   - Noticed: the second has a space before its closing mark ("writing. ”"); to be removed as a typo.
+- Queued 12 Nov (the drawing section after the Frierson quotation), her words: "Two changes to the next section: 1. Place the following text in one paragraph: So one of the foundational principles ... colouring pencils and sharpeners. 2. Place this text below the row of photos: Children typically begin with crayons ... pencils that are sharp."
+  - 1: "So one of..." and "I have to confess..." joined into one paragraph, ending "...colouring pencils and sharpeners."
+  - 2: "Children typically begin with crayons ... pencils that are sharp." becomes its own paragraph below the row of images 079-084 (before "A sample of some useless...").
+  - Her wording is the same as the page's, word for word (checked).
