@@ -44,3 +44,4 @@
 - Queued edit 16 (11 Nov, The English Curriculum, 2 screenshots: "...beginning sound:" with a wide gap before "I Spy with..." (First stage); "...ending sound." and "...middle sound." with a smaller gap before "I Spy with..."), her words: "The gao before I Spy needs to be consistent. match the smaller gap used in the second two examples"
 - Queued edit 17 (11 Nov, The English Curriculum), her words: "I've changed my mind about the spacing above/below photos: make it 40/40"
 - Queued edit 18 (11 Nov, The English Curriculum, screenshot: "Phonemes ----------> gr..." typed with hyphens and ">"), her words: "make this arrow more stylish. the > is too big and ugly"
+- Queued edit 19 (11 Nov, The English Curriculum, screenshot: bottom of an image, a beige line, then a red heading starting "K" - Keys to Literacy, the only red heading starting with K after a beige line), her words: "remove divider"
