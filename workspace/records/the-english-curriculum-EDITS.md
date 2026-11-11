@@ -26,3 +26,4 @@
   - 1 is on The Prepared Environment (remove the beige line above Introduction).
   - 2 is on The English Curriculum (Introduction 40 above, red line below, same gaps as The Prepared Environment).
 - Queued edit 2 (11 Nov, The English Curriculum, screenshot of the top lists: Keys to Literacy, Writing Stages, Word Study, Reading Analysis), her words: "the space above Reading Analkysis is too large - it should match the otehr blue sub headngs"
+- Queued edit 3 (11 Nov, The English Curriculum, screenshot: "...which ones." then "Dr. Angeline Lillard has published a number of papers on this s... her findings:"), her words: "Move the Lilliard line up so it isn't a seperate paragraph"
