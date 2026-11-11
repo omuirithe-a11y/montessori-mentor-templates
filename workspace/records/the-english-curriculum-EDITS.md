@@ -12,3 +12,10 @@
 - 11 Nov: the speed check failed at 1440 with the red line in "currentColor" (busy 820-890 ms, 4 runs); the same line written as #EE0000 passed 1440 twice; 390 passed 2 of 3 (one 362 ms busy stretch, cause not found). (A change to the spacing script tried at the same time was undone: it did not help the speed and moved the red sub-headings by 1.)
 - Her words (11 Nov): "No. Finish building the page" (answer to: add the lessons files to START-HERE? - no).
 - Her words (11 Nov, about 13:15 Beijing), the plan to follow: "From now on, for The English Curriculum: Run every check once, including the screenshots and the PDF comparison, to get all the faults in one list. No fixing during this round. Then make all the fixes together, and test each one only at the screen widths it affects. Then run the full checks once, at the end. For the slow page: one measured run to find which part of the page is slowing it down, instead of running the speed check again and again. Follow this plan. Each time you diverge from this say so."
+- Her answers to questions A-F (asked one at a time from 11 Nov, illustrated at https://claude.ai/artifact/9bFmZbkk4wwyAq3oCT3zxp):
+  - A (Writing Stages image 120 high, 27 wide): her words "make it larger." To fix in step 2.
+  - B (rows of 5 or 6 images shrink below 150): her words "B. Let them shrink". No change.
+  - C (red line under the red sub-headings in two-column lists?): her words "C. No". No change.
+  - D (under a red heading followed by a quotation, 24 or 40?): her words "D. Neither. I already said earlier today that I wanted quotations to also have 30/20". (Her earlier words today: "Make dividers 30/30 everywhere. Quotations too".) Asked which: 30/20 or 30/30.
+  - E (Series 3, 4 and 5: 24 or 30 below them?): her words "E Series 3, 4 and 5 - 24". To do in step 2.
+  - F (at 768 and narrower computer widths the template makes swipe rows with dots and 180-high images; change the template so these widths follow her rule, 150 in rows and 120 beside text, on every page?): her words "F Swipe rows - yes". Her written yes to the template change.
