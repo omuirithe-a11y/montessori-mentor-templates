@@ -94,3 +94,4 @@
 - Queued 12 Nov (the objects image beside Materials in The Sound Game, images/010), her words: "make it 80" (was 120; its bottom stays level with the last line, edit 15).
 - Queued 12 Nov (the row of 3 classroom images 040, 041, 042; gap 38), her words: "make it 50". This row only; other rows keep 38 unless she says.
 - Queued 12 Nov (image 052 beside the list "1. I-Spy ... 5. Reading (...below)."), her words: "centre that photo" - in the middle of the space between the list and the right margin (as the grid of 6).
+- Queued 12 Nov (Letter Bingo row), her words: "halve the gap between photos 1 + 2 and between 3+4, with the saved space going between photos 2 + 3" (38 -> 19 within each pair; the gap between 2 and 3 grows by the same).
