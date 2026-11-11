@@ -51,3 +51,4 @@
 - Queued edit 22 (11 Nov, The English Curriculum, screenshot: blue "Preparation of the mind" (not bold) and blue "Preparation of the hand" (bold)), her words: "neither should be bold"
 - Queued edit 23 (11 Nov, The English Curriculum, section under Reinforcement of Letters with the centred blue headings "Matching first sounds, letters and objects" and "Letter + first sound + picture correspondence" over image rows; measured at 1440: 40/24 and 30/24), her words: "above = 50 below = 25 for the three rows in that section"
   - The three rows: "Matching first sounds, letters and objects", "Letter + first sound + picture correspondence", and "Letter Bingo: learning / Letter Bingo: teaching" - each blue heading 50 above, 25 below to its images.
+- Queued edit 24 (11 Nov, The English Curriculum, screenshot: image row, then the centred blue "A sample of some useless, immature, weary efforts and frightful drawings.", then an image row), her words: "also 50 above this one"
