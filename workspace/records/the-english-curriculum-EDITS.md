@@ -93,3 +93,4 @@
 - Queued 12 Nov, her word: "divider" (screenshot: "...independent of the adults in the room." then "In the environments I have prepared, the two essential items on the AMI list of Spoken Language..."): a beige line between these two paragraphs, 30/30.
 - Queued 12 Nov (the objects image beside Materials in The Sound Game, images/010), her words: "make it 80" (was 120; its bottom stays level with the last line, edit 15).
 - Queued 12 Nov (the row of 3 classroom images 040, 041, 042; gap 38), her words: "make it 50". This row only; other rows keep 38 unless she says.
+- Queued 12 Nov (image 052 beside the list "1. I-Spy ... 5. Reading (...below)."), her words: "centre that photo" - in the middle of the space between the list and the right margin (as the grid of 6).
