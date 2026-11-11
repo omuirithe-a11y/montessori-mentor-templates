@@ -43,3 +43,4 @@
 - Queued edit 15 (11 Nov, The English Curriculum, screenshot: blue "Materials" in The Sound Game, 3 lines of text with the objects image beside them; the image runs below the last line), her words: "move the photo up so the bottom of photo = bottom of lowest line of text"
 - Queued edit 16 (11 Nov, The English Curriculum, 2 screenshots: "...beginning sound:" with a wide gap before "I Spy with..." (First stage); "...ending sound." and "...middle sound." with a smaller gap before "I Spy with..."), her words: "The gao before I Spy needs to be consistent. match the smaller gap used in the second two examples"
 - Queued edit 17 (11 Nov, The English Curriculum), her words: "I've changed my mind about the spacing above/below photos: make it 40/40"
+- Queued edit 18 (11 Nov, The English Curriculum, screenshot: "Phonemes ----------> gr..." typed with hyphens and ">"), her words: "make this arrow more stylish. the > is too big and ugly"
