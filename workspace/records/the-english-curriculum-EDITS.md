@@ -41,3 +41,4 @@
 - Queued edit 13 (11 Nov, The English Curriculum, screenshot: a beige line above the red "The Peace Table"), her words: "remove that divider"
 - Queued edit 14 (11 Nov, The English Curriculum, screenshot: a beige line above the red "The Sound Game"), her words: "remove that divider"
 - Queued edit 15 (11 Nov, The English Curriculum, screenshot: blue "Materials" in The Sound Game, 3 lines of text with the objects image beside them; the image runs below the last line), her words: "move the photo up so the bottom of photo = bottom of lowest line of text"
+- Queued edit 16 (11 Nov, The English Curriculum, 2 screenshots: "...beginning sound:" with a wide gap before "I Spy with..." (First stage); "...ending sound." and "...middle sound." with a smaller gap before "I Spy with..."), her words: "The gao before I Spy needs to be consistent. match the smaller gap used in the second two examples"
