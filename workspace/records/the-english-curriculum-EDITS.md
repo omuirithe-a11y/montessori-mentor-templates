@@ -73,3 +73,4 @@
   - Edit 38 (her PDF screenshot: the grammar symbols image larger, in the middle of the space right of the Series 1 lines, reaching down beside the gap before Series 2), her words: "yes" - match this.
 - Queued edit 39 (11 Nov, The English Curriculum, screenshot: blue "Symbol Box 1", then bold "Circles"), her words: "spacing 40 above Symbol Box 1"
   - Edit 39 (screenshot: blue "Symbol Box 2"), her words: "and 2" - 40 above Symbol Box 2 as well.
+- 11 Nov, her words: "The Prepared Environment: leave it. I'll have more edits tomorrow." - edits 1 (first part) and 21 (second part) are not made on The Prepared Environment now.
