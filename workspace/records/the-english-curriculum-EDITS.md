@@ -63,3 +63,4 @@
 - Queued edit 32 (11 Nov, The English Curriculum, screenshot: green "Green Language Materials" then "Phonogram Sandpaper Letters"), her words: "the green to be used here and wherever green is used pn this page is the green of the green sandpaper letters. match that colour. same for oink and blue. the shade os pink and blue is the one used in the sandpaper letters"
   - Colours to be taken from the sandpaper letters in the page's images. Blue here means the Blue Language Materials blue, not the blue of the sub-headings and links. Her word: "agreed".
 - Queued edit 33 (11 Nov, The English Curriculum, screenshot: red "Montessori Reading Systems" with a dark line under it), her words: "divider 30/30 above". (Another exception to edit 21.)
+  - Asked whether Montessori Reading Systems stays red; her words: "it's already been settled" - edit 8 holds: it becomes blue (only the six contents headings and Introduction are red).
