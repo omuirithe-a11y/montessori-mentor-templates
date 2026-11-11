@@ -98,3 +98,5 @@
 - Queued 12 Nov (red "Large Moveable Alphabet" and "Small Moveable Alphabet" in the text), her words: "change from red to regular but make them both italics" (text colour, italic).
 - Queued 12 Nov (asked: spacing above and below quotations, 30/30), her words: "make it 40/40". This page (replaces D's 30/30); beige lines next to a quotation keep 30.
   - Asked "Should this also go into the template, for every page?": her word "yes". Quotations 40/40 in the Essay Code Template too.
+- Queued 12 Nov (two quotations: "The little hand which touches..." - Montessori's Own Handbook, and "Whilst moving the objects..." - The Formation of Man), her words: "for both of these quotations, have the attribution on the same line as the quotation" (the attribution follows "writing.”" on its last line).
+  - Noticed: the second has a space before its closing mark ("writing. ”"); to be removed as a typo.
