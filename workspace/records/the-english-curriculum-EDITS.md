@@ -19,3 +19,6 @@
   - D (under a red heading followed by a quotation, 24 or 40?): her words "D. Neither. I already said earlier today that I wanted quotations to also have 30/20". (Her earlier words today: "Make dividers 30/30 everywhere. Quotations too".) Asked which: 30/20 or 30/30.
   - E (Series 3, 4 and 5: 24 or 30 below them?): her words "E Series 3, 4 and 5 - 24". To do in step 2.
   - F (at 768 and narrower computer widths the template makes swipe rows with dots and 180-high images; change the template so these widths follow her rule, 150 in rows and 120 beside text, on every page?): her words "F Swipe rows - yes". Her written yes to the template change.
+  - D, asked again (her 30/20 or her earlier 30/30?): her words "30/30". Quotations have 30 above and 30 below. To do in step 2.
+
+## Her queued edits (from 11 Nov, her words; queued, not yet made)
