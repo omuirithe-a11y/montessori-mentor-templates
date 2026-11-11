@@ -40,3 +40,4 @@
 - Queued edit 12 (11 Nov, The English Curriculum, screenshot: "Storytelling and book readings" with the circle-time image beside it, a large gap, then "Show and tell"), her words: "fix this large spacing gap" (same as fault 7 in the step 1 list: "Show and tell" below the image instead of beside it).
 - Queued edit 13 (11 Nov, The English Curriculum, screenshot: a beige line above the red "The Peace Table"), her words: "remove that divider"
 - Queued edit 14 (11 Nov, The English Curriculum, screenshot: a beige line above the red "The Sound Game"), her words: "remove that divider"
+- Queued edit 15 (11 Nov, The English Curriculum, screenshot: blue "Materials" in The Sound Game, 3 lines of text with the objects image beside them; the image runs below the last line), her words: "move the photo up so the bottom of photo = bottom of lowest line of text"
