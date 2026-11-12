@@ -136,3 +136,4 @@
 - Queued 12 Nov (screenshot: the quotation "We thus began to communicate with each other through written language..."), her word: "divider" - a divider above this quotation, 30/30.
 - Queued 12 Nov (the line "Kate Millie's Supplemental Language Album - Reading" after the reading list), her words: "Make the space above Kate 50".
 - Queued 12 Nov (the list "1. Follow the presentations in the AMI Language manual. 2. Follow the Muriel Dwyer approach. 3. Follow the Pink, Blue and Green series."), her words: "make the spacing between the three items in this list 24" (bottom of letters to top of capitals, as all gaps).
+- Queued 12 Nov (caption "Action Cards - Set 2" wrapping onto two lines at a narrow computer width), her words: "have the name on one line" - the four captions never wrap; where the line is short the images and gaps get smaller to make room.
