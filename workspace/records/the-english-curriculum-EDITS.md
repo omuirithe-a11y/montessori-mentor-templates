@@ -133,3 +133,4 @@
 - Queued 12 Nov (screenshot: "However, on the language shelves we also have some ... Metal Insets."), her word: "divider" - a divider above this paragraph (after the Formation of Man quotation), 30/30.
 - Queued 12 Nov (drawing section), her words: "the rows of photos are in the wrong order. this row is supposed to be below" (the row of 6 crayon images 079-084) and "these rows are supposed to be above, directly after so I prepare a shelf containing a tray, paper, blank and lined chalkboards, chalk, crayons, colouring pencils and sharpeners." (the caption "A sample of some useless..." and the two easel rows).
   - New order: "...colouring pencils and sharpeners." / caption + two easel rows / "Children typically begin with crayons..." / the crayon row.
+- Queued 12 Nov (screenshot: the quotation "We thus began to communicate with each other through written language..."), her word: "divider" - a divider above this quotation, 30/30.
