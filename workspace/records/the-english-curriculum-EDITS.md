@@ -107,3 +107,4 @@
 - Queued 12 Nov (Pinning: the text beside the 80-high pin tools image stops well short of the image, leaving a wide empty gap), her words: "fix this gap" - the text runs up to the image with the same gap as beside other images.
 - Queued 12 Nov (asked: spacing above the red headings: 40 or 30), her words: "make it 50 on this page and in the template". 50 above every red heading (incl. Introduction after the contents), this page and the Essay Code Template.
 - Queued 12 Nov (the grid of 6 reading images: right-hand images not lined up), her words: "the photos need to align on the right, as they do on the left" - the right-hand images line up on their right edges, as the left-hand ones do on their left edges (the middle ones centred).
+- Queued 12 Nov, her words: "Everywhere 'Supplemental Language Album' is written make it in italics".
