@@ -1,0 +1,3 @@
+1440 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"033.jpg": 0.79, "066.jpg": 0.77, "099.jpg": 0.87, "132.jpg": 0.82} (limit 1.0 s)
+390 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"033.jpg": 0.77, "066.jpg": 0.76, "099.jpg": 0.74, "132.jpg": 0.81} (limit 1.0 s)
+SPEED OK

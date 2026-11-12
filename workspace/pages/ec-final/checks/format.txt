@@ -1,0 +1,236 @@
+-- width 1440 : words in Word 9198, seen on the page 9186 (contents box and main), images seen 165
+replace: Word "Contents" -> page "contents"
+insert: Word "" -> page "Introduction"
+insert: Word "" -> page "of"
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+insert: Word "" -> page "the"
+replace: Word "instills" -> page "instils"
+insert: Word "" -> page "of"
+replace: Word "they" -> page "the"
+"Writing": Word upright bold -> page upright regular
+"-": Word upright bold -> page upright regular
+"Abstract": Word upright bold -> page upright regular
+replace: Word "- - - - - - - - - - >" -> page "to"
+delete: Word "they" -> page ""
+"…": Word upright bold -> page upright regular
+"‘": Word upright bold -> page upright regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+replace: Word "practice" -> page "practise"
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"Large": Word upright regular -> page italic regular
+"Moveable": Word upright regular -> page italic regular
+"Alphabet": Word upright regular -> page italic regular
+"Small": Word upright regular -> page italic regular
+"Moveable": Word upright regular -> page italic regular
+"Alphabet": Word upright regular -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"Preparation": Word upright bold -> page upright regular
+"of": Word upright bold -> page upright regular
+"the": Word upright bold -> page upright regular
+"hand": Word upright bold -> page upright regular
+replace: Word "Practice" -> page "Practise"
+"“": Word italic bold -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"PDF": Word upright regular underlined -> page upright regular
+insert: Word "" -> page ". A sample of some useless , immature , weary efforts and frightful drawings"
+delete: Word ". A sample of some useless , immature , weary efforts and frightful drawings" -> page ""
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+replace: Word "practice" -> page "practise"
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"Supplemental": Word upright regular -> page italic regular
+"Language": Word upright regular -> page italic regular
+"Album": Word upright regular -> page italic regular
+replace: Word "practice" -> page "practise"
+delete: Word "the" -> page ""
+replace: Word "（" -> page "("
+replace: Word "）" -> page ")"
+"Object": Word upright bold -> page upright regular
+"Box": Word upright bold -> page upright regular
+"1": Word upright bold -> page upright regular
+replace: Word "- - - - >" -> page "to"
+"The": Word upright bold -> page upright regular
+"Pink": Word upright bold -> page upright regular
+"Series": Word upright bold -> page upright regular
+".": Word upright bold -> page upright regular
+replace: Word "（" -> page "("
+insert: Word "" -> page "Maria Montessori , 1950 , Perugia ."
+delete: Word ". Maria Montessori , 1950 , Perugia" -> page ""
+".": Word italic regular -> page upright regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+replace: Word "title’s" -> page "titles"
+replace: Word "title’s" -> page "titles"
+replace: Word "“" -> page "”"
+"native": Word upright regular -> page italic regular
+"speaker": Word upright regular -> page italic regular
+colour pairs (Word -> page: count, first words):
+  00B050 -> rgb(4, 50, 255): 2  Table of
+  AUTO -> rgb(43, 43, 43): 682  Spoken Language Writing - Abstract Keys to Literacy
+  000000 -> rgb(43, 43, 43): 6569  There are four aspects to language - Speaking
+  0000FF -> rgb(4, 50, 255): 16  Spoken Language Writing Stages Reading Stages Function of
+  0432FF -> rgb(4, 50, 255): 149  Keys to Literacy Time - consuming Unnecessary Group
+  0563C1 -> rgb(4, 50, 255): 22  Montessori Society The 1946 London Lectures Pg .
+  ED7D31 -> rgb(43, 43, 43): 1486  ‘ As Montessori has evolved , we might
+  00B050 -> rgb(238, 0, 0): 10  Spoken Language Writing - Abstract Writing - Concrete
+  EE0000 -> rgb(4, 50, 255): 79  Enrichment of Vocabulary Expansion of Oral Language Enrichment
+  EE0000 -> rgb(238, 0, 0): 3  Keys to Literacy
+  0432FF -> rgb(4, 69, 179): 7  blue The Blue Series Blue Language Materials
+  FF40FF -> rgb(198, 48, 79): 7  pink The Pink Series Pink Language Materials
+  00B050 -> rgb(0, 176, 80): 1  green
+  EE0000 -> rgb(43, 43, 43): 6  Large Moveable Alphabet Small Moveable Alphabet
+  0061F2 -> rgb(4, 50, 255): 3  ˈrī - tiŋ
+  0A1B27 -> rgb(43, 43, 43): 1  ‘
+  000000 -> rgb(4, 50, 255): 1  .
+  0432FF -> rgb(43, 43, 43): 5  . Reading Decoding blue blue
+  2AB116 -> rgb(42, 177, 22): 6  The Green Series Green Language Materials
+  222222 -> rgb(43, 43, 43): 73  Maria Montessori , The Montessori Method , p
+  FF0000 -> rgb(43, 43, 43): 2  red red
+ALLOWED BY A QUOTED OWNER RULE (width 1440, 16 lines; still listed, not counted as differences):
+  replace: Word "characterized" -> page "characterised"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "practicing" -> page "practising"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "practicing" -> page "practising"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "civilizations" -> page "civilisations"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "civilization" -> page "civilisation"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "practicing" -> page "practising"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "–" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "–" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "–" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "–" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "recognize" -> page "recognise"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "tyrannize" -> page "tyrannise"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "colorful" -> page "colourful"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "memorizing" -> page "memorising"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "—" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "organizing" -> page "organising"   [A023 "always UK English on the site; change US spellings when they appear"]
+-- width 390 : words in Word 9198, seen on the page 9178 (contents box and main), images seen 165
+replace: Word "Contents" -> page "contents"
+insert: Word "" -> page "Introduction"
+insert: Word "" -> page "of"
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+insert: Word "" -> page "the"
+replace: Word "instills" -> page "instils"
+insert: Word "" -> page "of"
+replace: Word "they" -> page "the"
+"Writing": Word upright bold -> page upright regular
+"-": Word upright bold -> page upright regular
+"Abstract": Word upright bold -> page upright regular
+replace: Word "- - - - - - - - - - >" -> page "to"
+delete: Word "they" -> page ""
+"…": Word upright bold -> page upright regular
+"‘": Word upright bold -> page upright regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+replace: Word "practice" -> page "practise"
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+delete: Word "Letter Bingo : learning Letter Bingo : teaching" -> page ""
+"Large": Word upright regular -> page italic regular
+"Moveable": Word upright regular -> page italic regular
+"Alphabet": Word upright regular -> page italic regular
+"Small": Word upright regular -> page italic regular
+"Moveable": Word upright regular -> page italic regular
+"Alphabet": Word upright regular -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"Preparation": Word upright bold -> page upright regular
+"of": Word upright bold -> page upright regular
+"the": Word upright bold -> page upright regular
+"hand": Word upright bold -> page upright regular
+replace: Word "Practice" -> page "Practise"
+"“": Word italic bold -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"PDF": Word upright regular underlined -> page upright regular
+insert: Word "" -> page ". A sample of some useless , immature , weary efforts and frightful drawings"
+delete: Word ". A sample of some useless , immature , weary efforts and frightful drawings" -> page ""
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+replace: Word "practice" -> page "practise"
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+"Supplemental": Word upright regular -> page italic regular
+"Language": Word upright regular -> page italic regular
+"Album": Word upright regular -> page italic regular
+replace: Word "practice" -> page "practise"
+delete: Word "the" -> page ""
+replace: Word "（" -> page "("
+replace: Word "）" -> page ")"
+"Object": Word upright bold -> page upright regular
+"Box": Word upright bold -> page upright regular
+"1": Word upright bold -> page upright regular
+replace: Word "- - - - >" -> page "to"
+"The": Word upright bold -> page upright regular
+"Pink": Word upright bold -> page upright regular
+"Series": Word upright bold -> page upright regular
+".": Word upright bold -> page upright regular
+replace: Word "（" -> page "("
+insert: Word "" -> page "Maria Montessori , 1950 , Perugia ."
+delete: Word ". Maria Montessori , 1950 , Perugia" -> page ""
+".": Word italic regular -> page upright regular
+"“": Word italic bold -> page italic regular
+"”": Word italic bold -> page italic regular
+replace: Word "title’s" -> page "titles"
+replace: Word "title’s" -> page "titles"
+replace: Word "“" -> page "”"
+"native": Word upright regular -> page italic regular
+"speaker": Word upright regular -> page italic regular
+colour pairs (Word -> page: count, first words):
+  00B050 -> rgb(4, 50, 255): 2  Table of
+  AUTO -> rgb(43, 43, 43): 682  Spoken Language Writing - Abstract Keys to Literacy
+  000000 -> rgb(43, 43, 43): 6569  There are four aspects to language - Speaking
+  0000FF -> rgb(4, 50, 255): 16  Spoken Language Writing Stages Reading Stages Function of
+  0432FF -> rgb(4, 50, 255): 141  Keys to Literacy Time - consuming Unnecessary Group
+  0563C1 -> rgb(4, 50, 255): 22  Montessori Society The 1946 London Lectures Pg .
+  ED7D31 -> rgb(43, 43, 43): 1486  ‘ As Montessori has evolved , we might
+  00B050 -> rgb(238, 0, 0): 10  Spoken Language Writing - Abstract Writing - Concrete
+  EE0000 -> rgb(4, 50, 255): 79  Enrichment of Vocabulary Expansion of Oral Language Enrichment
+  EE0000 -> rgb(238, 0, 0): 3  Keys to Literacy
+  0432FF -> rgb(4, 69, 179): 7  blue The Blue Series Blue Language Materials
+  FF40FF -> rgb(198, 48, 79): 7  pink The Pink Series Pink Language Materials
+  00B050 -> rgb(0, 176, 80): 1  green
+  EE0000 -> rgb(43, 43, 43): 6  Large Moveable Alphabet Small Moveable Alphabet
+  0061F2 -> rgb(4, 50, 255): 3  ˈrī - tiŋ
+  0A1B27 -> rgb(43, 43, 43): 1  ‘
+  000000 -> rgb(4, 50, 255): 1  .
+  0432FF -> rgb(43, 43, 43): 5  . Reading Decoding blue blue
+  2AB116 -> rgb(42, 177, 22): 6  The Green Series Green Language Materials
+  222222 -> rgb(43, 43, 43): 73  Maria Montessori , The Montessori Method , p
+  FF0000 -> rgb(43, 43, 43): 2  red red
+ALLOWED BY A QUOTED OWNER RULE (width 390, 16 lines; still listed, not counted as differences):
+  replace: Word "characterized" -> page "characterised"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "practicing" -> page "practising"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "practicing" -> page "practising"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "civilizations" -> page "civilisations"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "civilization" -> page "civilisation"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "practicing" -> page "practising"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "–" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "–" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "–" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "–" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "recognize" -> page "recognise"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "tyrannize" -> page "tyrannise"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "colorful" -> page "colourful"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "memorizing" -> page "memorising"   [A023 "always UK English on the site; change US spellings when they appear"]
+  replace: Word "—" -> page "-"   [A005 "short dashes only, everywhere on the site"]
+  replace: Word "organizing" -> page "organising"   [A023 "always UK English on the site; change US spellings when they appear"]
+RESULT: 155 differences (words and italic/bold/underline); 32 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules

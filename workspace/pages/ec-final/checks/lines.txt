@@ -1,0 +1,8 @@
+width 1440: lines 16 text boxes 1000 line-through-text 0
+width 1280: lines 16 text boxes 1000 line-through-text 0
+width 1024: lines 16 text boxes 1058 line-through-text 0
+width 961: lines 16 text boxes 1081 line-through-text 0
+width 768: lines 16 text boxes 1188 line-through-text 0
+width 641: lines 16 text boxes 1329 line-through-text 0
+width 480: lines 16 text boxes 1364 line-through-text 0
+width 390: lines 16 text boxes 1544 line-through-text 0
