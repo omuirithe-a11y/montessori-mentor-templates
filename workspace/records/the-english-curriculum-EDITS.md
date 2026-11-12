@@ -109,3 +109,4 @@
 - Queued 12 Nov (the grid of 6 reading images: right-hand images not lined up), her words: "the photos need to align on the right, as they do on the left" - the right-hand images line up on their right edges, as the left-hand ones do on their left edges (the middle ones centred).
 - Queued 12 Nov, her words: "Everywhere 'Supplemental Language Album' is written make it in italics".
 - Queued 12 Nov (captions The Blue Series, The Green Series, Action Cards - Set 2, Puzzle Words (aka Sight Words), in red), her words: "not red - blue" (the blue of the sub-headings).
+  - Her words: "and centred above the image" (replaces fault 10's left-aligned captions for these four).
