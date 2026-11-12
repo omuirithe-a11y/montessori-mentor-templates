@@ -112,3 +112,4 @@
   - Her words: "and centred above the image" (replaces fault 10's left-aligned captions for these four).
 - Queued 12 Nov (screenshot: blue "Early Readers" and "These are the first books the chil..."), her word: "dividers" - a divider above Early Readers, 30/30 (asked; her words: "no. i meant divider" - only this one).
 - Queued 12 Nov (screenshot: blue "Reading Analysis"), her word: "divider" - a divider above the Reading Analysis heading in the page (not the one in the list at the top), 30/30.
+- Queued 12 Nov (screenshots: "Series 1  Subject and Verb", "Series 2  Sub...", "Series 3/4/5  Extensions.../Indirect Object/Extensions: A..." - the names start at slightly different places; plus the PDF), her words: "Reduce this gap so the text is vertically aligned" - a smaller gap after "Series n", the same for all five, so the five names start in one column.
