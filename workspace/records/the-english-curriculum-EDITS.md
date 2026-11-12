@@ -128,3 +128,4 @@
 - Queued 12 Nov (screenshot: images, then blue "The Moveable Alphabets"), her word: "divider" - a divider above The Moveable Alphabets, 30/30.
 - Queued 12 Nov (screenshot: blue "Reinforcement of Letters", then the quotation "Summing up, we may say that..."), her word: "divider" - a divider above Reinforcement of Letters, 30/30.
 - Queued 12 Nov (the two-column list "- relax the arm, hand and fingers ... - move from left to right", 7 items), her words: "place these in one column" (order: the left column's 4, then the right column's 3).
+- Queued 12 Nov (lists under Preparation of the mind / Preparation of the hand), her words: "have the dashes align with the blue headings. retain the current gap between the dashes and the words" - each dash starts at the left edge of its blue heading; the dash-to-word gap unchanged.
