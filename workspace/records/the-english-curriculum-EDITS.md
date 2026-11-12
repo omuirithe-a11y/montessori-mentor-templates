@@ -110,3 +110,4 @@
 - Queued 12 Nov, her words: "Everywhere 'Supplemental Language Album' is written make it in italics".
 - Queued 12 Nov (captions The Blue Series, The Green Series, Action Cards - Set 2, Puzzle Words (aka Sight Words), in red), her words: "not red - blue" (the blue of the sub-headings).
   - Her words: "and centred above the image" (replaces fault 10's left-aligned captions for these four).
+- Queued 12 Nov (screenshot: blue "Early Readers" and "These are the first books the chil..."), her word: "dividers" - a beige line above Early Readers, 30/30 (asked which others).
