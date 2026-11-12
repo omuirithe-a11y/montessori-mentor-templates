@@ -1,0 +1,34 @@
+gate 19:29:29 the-prepared-environment 8612affd
+changes checked (the owner confirms this list):
+  The Prepared Environment, from the approved page of 8 Nov to the preview of 12 Nov (version 8, https://claude.ai/artifact/H4KWYZ1yfhrk5wPTbN5yTD):
+  - the template's 12 Nov rule: all text 400 unless marked bold; Table of contents 18
+  - spacing: 50 above red headings; 18 after a blue sub-heading before text; quotations 40/40; 40 above a blue heading after text or a quotation; rows of images 40/40; 20 under Before/After
+  - all dividers removed (and the invisible line under the Table of contents); dividers added above "Preparing environments" and "But I digress ..."
+  - gap between lines of quotations 20
+  - no line under Table of contents entries
+  - "highly" removed; full stops after four lines; "the" in the three Layout headings; two paragraphs joined, "Photo 1 below is"
+  - "Before" and "After" blue
+  - gaps of 50 in six rows of images; on narrower computer screens those gaps narrow first
+  - the Mats image moved into the row below as the 6th image
+  - the Madonna quotation follows the circle
+owner's confirmation:
+  12 Nov 2026, her words, in order: "no further edits"; then "yes" to "Should I make them now on The Prepared Environment preview?"; "finished. go"; "publish"; then "yes" to "By "publish", do you mean finish The Prepared Environment and send you the upload zip for Hostinger?"
+code check (no live page: template + Word): == RESULT: ALL CHECKS OK (parts 1-4 and 8)
+full check: 122 widths
+height 1440: {"1s": 20080, "4s": 20080, "scrolled": 20080, "largest margin": [42, "H2.mm-hc-EE0000 Furniture - Purchasing"]}
+  ok
+height 390: {"1s": 36802, "4s": 36802, "scrolled": 36802, "largest margin": [35, "DIV.mm-row "]}
+  ok
+image sizes: 215 large images; 24 under 1600 px long side, 54 under 2900 px; smallest 242 px; missing 0
+  under 1600: 001.jpg 453x242, 003.jpg 323x242, 009.jpg 360x222, 010.jpg 1083x815, 015.jpg 348x242, 023.jpg 1071x1399, 071.jpg 768x785, 079.jpg 217x243, 110.jpg 720x960, 111.jpg 364x243, 112.jpg 324x242, 113.jpg 324x242, 114.jpg 314x242, 115.jpg 368x242, 123.jpg 1536x1564, 129.jpg 940x623, 173.jpg 450x376, 183.jpg 242x242, 188.jpg 1156x904, 189.jpg 1400x933, 195.jpg 189x243, 196.jpg 1589x983, 202.jpg 181x242, 211.jpg 181x242
+speed 1440 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"044.jpg": 0.77, "087.jpg": 0.82, "130.jpg": 0.74, "175.jpg": 0.75} (limit 1.0 s)
+speed 390 ok  longest busy stretch 0 ms (limit 50), busy stretches 0, total 0 ms | clicks {"044.jpg": 0.78, "087.jpg": 0.78, "130.jpg": 0.75, "175.jpg": 0.76} (limit 1.0 s)
+speed SPEED OK
+copy protection: present
+placement: OK - only images 40 above/below text (her rule 12 Nov: "photos 40/40"), 7 widths
+lines through text: 0 at 8 widths
+format: RESULT: 94 differences (words and italic/bold/underline); 2 lines allowed by a quoted owner rule (listed apart); colour pairs listed above for checking against the site's colour rules
+screenshot review: NO UNLISTED FAULTS SEEN
+one spacing rule against the approved preview: ALL OK (122 widths)
+removed 1680 chars
+GATE PASSED - upload: /home/claude/pe2/final/send/the-prepared-environment-UPLOAD.zip (8612affd) | review only: /home/claude/pe2/final/send/the-prepared-environment-NO-COPY-PROTECTION-REVIEW-ONLY.zip

@@ -22,8 +22,10 @@ if PAGE.endswith('.zip'):
     assert top == {slug}, 'STOP: the zip must hold one folder named %s (this page\'s address); it holds %s' % (slug, sorted(top))
     print('zip folder name:', slug, '- matches the page address', NEWHREF)
 H = lambda f: hashlib.sha256(open(f, 'rb').read()).hexdigest()
-FIX = {'Essay Code Template.html': '021aca08c86e6035043c12a1eb5ed7b1afca6cf36d436aab07c0287e0272f649',  # 12 Nov 2026: owner "make all font on this page and on all pages 400, unless they are explicitly named as bold. add this change to the template" and "also, make all table of contents 18"; was 2bd98f70 -  # 9 Nov 2026: owner's correct Essential Elements menu ("the Essential Elements menu is wrong. This is the correct one." / "I want to change them all"); was 9c8448c3
-       'Resources Code Template.html': '21c3edf1ea6aeca60c09ca8539e40bdca7caebb29e8a8632c1ee778dd5eb4b03'}  # 12 Nov 2026: the same two rules; was 942a0587  # 9 Nov 2026: the same menu; was f14174ee
+FIX = {'Essay Code Template.html': '31c43e91bed0232dfbd29922418fe6aa20de6d51f9878990e043c47b503cb92e',  # 12 Nov 2026 (owner "make it"): The English Curriculum linked in the menu; was 021aca08
+        # 12 Nov 2026: owner "make all font on this page and on all pages 400, unless they are explicitly named as bold. add this change to the template" and "also, make all table of contents 18"; was 2bd98f70 -  # 9 Nov 2026: owner's correct Essential Elements menu ("the Essential Elements menu is wrong. This is the correct one." / "I want to change them all"); was 9c8448c3
+       'Resources Code Template.html': '7f9458c9586ba6fddd96dd6dda153ec2373d22e198a651b3898b26b3a2a2f6e4'}  # 12 Nov 2026 (owner "make it"): The English Curriculum linked in the menu; was 21c3edf1
+        # 12 Nov 2026: the same two rules; was 942a0587  # 9 Nov 2026: the same menu; was f14174ee
 assert os.path.basename(TPL) in FIX and H(TPL) == FIX[os.path.basename(TPL)], 'STOP: the template is not the template pinned 1 Nov 21:0x (sha256 2cbb78e3)'
 assert H('/home/claude/reports/copy-protection.html') == '0d180ad65627bb99f5edd29c476727c29d68a34efccd4ab5fd8f64a777026ce4', 'STOP: copy-protection.html has been changed'
 print('template and copy protection fingerprints: correct')
