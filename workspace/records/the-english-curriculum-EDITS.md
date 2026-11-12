@@ -111,3 +111,4 @@
 - Queued 12 Nov (captions The Blue Series, The Green Series, Action Cards - Set 2, Puzzle Words (aka Sight Words), in red), her words: "not red - blue" (the blue of the sub-headings).
   - Her words: "and centred above the image" (replaces fault 10's left-aligned captions for these four).
 - Queued 12 Nov (screenshot: blue "Early Readers" and "These are the first books the chil..."), her word: "dividers" - a divider above Early Readers, 30/30 (asked; her words: "no. i meant divider" - only this one).
+- Queued 12 Nov (screenshot: blue "Reading Analysis"), her word: "divider" - a divider above the Reading Analysis heading in the page (not the one in the list at the top), 30/30.
