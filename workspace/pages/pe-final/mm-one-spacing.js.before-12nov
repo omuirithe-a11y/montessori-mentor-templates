@@ -1,0 +1,40 @@
+/* 8 Nov 2026 (owner: "yes - this page being built using the preview you just created is the priority"): ONE spacing rule for this page, from the approved One Spacing Preview (version 10).
+   30 between blocks (bottom of the text or image above to the top of the capitals or image below); 40 where either block is a quotation; 40 hero to "Table of contents"; 40 last line to the blue footer; red heading line 16 below the letters.
+   The template's own spacing scripts may not change the vertical margin or padding of the blocks this script sets (their writes to those four properties are ignored), so the page does not jump when they run later. */
+(function(){var G=30,cv=document.createElement('canvas').getContext('2d'),own=new WeakSet(),mine=false;
+var RX=/^(margin|padding)-(top|bottom)$/,SP=CSSStyleDeclaration.prototype.setProperty,RP=CSSStyleDeclaration.prototype.removeProperty;
+CSSStyleDeclaration.prototype.setProperty=function(k){if(!mine&&RX.test(k)&&own.has(this))return;return SP.apply(this,arguments);};
+CSSStyleDeclaration.prototype.removeProperty=function(k){if(!mine&&RX.test(k)&&own.has(this))return '';return RP.apply(this,arguments);};
+['marginTop','marginBottom','paddingTop','paddingBottom'].forEach(function(p){var o=CSSStyleDeclaration.prototype,d=Object.getOwnPropertyDescriptor(o,p);if(!d||!d.set)return;Object.defineProperty(o,p,{configurable:true,enumerable:d.enumerable,get:d.get,set:function(v){if(!mine&&own.has(this))return;d.set.call(this,v);}});});
+function txt(el){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,r=document.createRange(),out=[];while((n=w.nextNode())){if(!n.nodeValue.trim())continue;var pe=n.parentElement;if(pe.closest('.mm-float')&&!el.matches('.mm-float'))continue;r.selectNodeContents(n);[].forEach.call(r.getClientRects(),function(q){if(q.width>1)out.push([q,pe]);});}return out;}
+var MC={};function met(e){var s=getComputedStyle(e),f=s.fontStyle+' '+s.fontWeight+' '+s.fontSize+' '+s.fontFamily;if(!MC[f]){cv.font=f;MC[f]=cv.measureText('H');}return MC[f];}
+function base(x){var m=met(x[1]),q=x[0];return q.top+(q.height-(m.fontBoundingBoxAscent+m.fontBoundingBoxDescent))/2+m.fontBoundingBoxAscent;}
+function ims(el){return [].filter.call(el.querySelectorAll('.pim'),function(p){return !p.closest('.mm-float')||el.matches('.mm-float');}).map(function(p){return p.getBoundingClientRect();}).filter(function(r){return r.height>0;});}
+function bottom(el){if(el.matches('p.mm-gl')||el.matches('h2.mm-hc-EE0000'))return el.getBoundingClientRect().bottom;var t=txt(el),i=ims(el),b=-1e9;t.forEach(function(x){b=Math.max(b,base(x));});i.forEach(function(r){b=Math.max(b,r.bottom);});return b>-1e9?b:null;}
+function top(el){if(el.matches('p.mm-gl'))return el.getBoundingClientRect().top;var t=txt(el),i=ims(el),v=1e9;t.forEach(function(x){v=Math.min(v,base(x)-met(x[1]).actualBoundingBoxAscent);});i.forEach(function(r){v=Math.min(v,r.top);});return v<1e9?v:null;}
+function blocks(){var out=[];var tw=document.querySelector('.toc-wrap');if(tw)out.push(tw);[].forEach.call(document.querySelectorAll('main section'),function(s){[].forEach.call(s.children,function(c){if(c.matches('.mm-fspacer,.mm-dots,script,style'))return;if(c.matches('.mm-float')&&getComputedStyle(c).cssFloat!=='none')return;if(!c.textContent.trim()&&!c.querySelector('.pim')&&!c.matches('p.mm-gl'))return;out.push(c);});});return out;}
+var CH=0;function set(e,k,v){own.add(e.style);if(e.style.getPropertyValue(k)===v&&e.style.getPropertyPriority(k)==='important')return;CH++;SP.call(e.style,k,v,'important');}
+function capTop(p){var w=document.createTreeWalker(p,NodeFilter.SHOW_TEXT),n,t=1e9,r=document.createRange();while((n=w.nextNode())){if(!n.nodeValue.trim())continue;r.selectNodeContents(n);[].forEach.call(r.getClientRects(),function(q){if(q.width)t=Math.min(t,q.top);});}if(t>=1e9)return null;var m=met(p);return t+m.fontBoundingBoxAscent-m.actualBoundingBoxAscent;}
+/* side photos: top of the photo level with the top of the capitals of the first line beside it (the same rule and method as mm-tablet-topline-8nov), redone after the spacing moves the text */
+function align(){if(innerWidth<641)return;[].forEach.call(document.querySelectorAll('main .mm-float'),function(f){if(f.closest('blockquote')||getComputedStyle(f).cssFloat==='none')return;var p=f.nextElementSibling;while(p&&(p.classList.contains('mm-float')||p.classList.contains('mm-fspacer')))p=p.nextElementSibling;var pim=f.querySelector('.pim');if(!p||!pim||!p.textContent.trim())return;for(var k=0;k<4;k++){var t=capTop(p);if(t===null)break;var d=t-pim.getBoundingClientRect().top;if(Math.abs(d)<0.5)break;var sp=f.previousElementSibling;if(sp&&sp.classList.contains('mm-fspacer')){var h1=(parseFloat(sp.style.height)||0)+d;if(h1>=0){sp.style.height=h1.toFixed(2)+'px';CH++;continue;}sp.style.height='0px';d=h1;}var mt=(parseFloat(getComputedStyle(f).marginTop)||0)+d;if(mt<0)break;set(f,'margin-top',mt.toFixed(2)+'px');}});}
+function run(){window.__mmOneRuns=(window.__mmOneRuns||0)+1;mine=true;try{for(var r=0;r<3;r++){CH=0;space();align();if(!CH)break;}}finally{mine=false;}}
+function space(){var was=mine;mine=true;try{var B=blocks();
+[].forEach.call(document.querySelectorAll('main h2.mm-hc-EE0000'),function(e){for(var k=0;k<3;k++){var t=txt(e);if(!t.length)break;var bb=Math.max.apply(null,t.map(base));var d=16-(e.getBoundingClientRect().bottom-1-bb);if(Math.abs(d)<0.3)break;set(e,'padding-bottom',((parseFloat(getComputedStyle(e).paddingBottom)||0)+d).toFixed(2)+'px');}});
+[].forEach.call(document.querySelectorAll('main section'),function(sc){['margin-top','margin-bottom','padding-top','padding-bottom'].forEach(function(k){set(sc,k,'0px');});});
+[].forEach.call(document.querySelectorAll('main section > ul > li:first-child, main section > ol > li:first-child'),function(li){set(li,'margin-top','0px');});
+B.forEach(function(b){['padding-top','padding-bottom','margin-bottom'].forEach(function(k){if(k==='padding-bottom'&&b.matches('h2.mm-hc-EE0000'))return;set(b,k,'0px');});if(!own.has(b.style))set(b,'margin-top',getComputedStyle(b).marginTop);});
+for(var k=0;k<4;k++){var c0=CH;for(var i=1;i<B.length;i++){var a=bottom(B[i-1]),t=top(B[i]);if(a===null||t===null)continue;var GG=(B[i].matches('blockquote')||B[i-1].matches('blockquote'))?40:G;var d=GG-(t-a);if(Math.abs(d)<0.3)continue;set(B[i],'margin-top',((parseFloat(getComputedStyle(B[i]).marginTop)||0)+d).toFixed(2)+'px');}if(CH===c0)break;}
+var hero=document.querySelector('.hero'),tl=document.querySelector('.toc-label'),tw=document.querySelector('.toc-wrap');if(hero&&tl&&tw){for(var j=0;j<3;j++){var t3=top(tl);if(t3===null)break;var d3=40-(t3-hero.getBoundingClientRect().bottom);if(Math.abs(d3)<0.3)break;set(tw,'padding-top',((parseFloat(getComputedStyle(tw).paddingTop)||0)+d3).toFixed(2)+'px');}}
+var bd=document.querySelector('.mc-band'),LB=B[B.length-1];if(bd&&LB){for(var m=0;m<4;m++){var lb=bottom(LB);if(lb===null)break;var d5=40-(bd.getBoundingClientRect().top-lb);if(Math.abs(d5)<0.3)break;set(bd,'margin-top',((parseFloat(getComputedStyle(bd).marginTop)||0)+d5).toFixed(2)+'px');}}
+}finally{mine=was;}}
+function soon(ms){clearTimeout(run.t);run.t=setTimeout(run,ms);}
+run();window.__mmOneSpacing=run;
+document.addEventListener('DOMContentLoaded',function(){run();});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){run();});
+var pl=window.__mmAfterLayout;window.__mmAfterLayout=function(){if(pl)pl();soon(30);};
+addEventListener('load',function(){run();soon(400);setTimeout(run,1500);});
+addEventListener('resize',function(){soon(100);});
+if(document.fonts&&document.fonts.addEventListener)document.fonts.addEventListener('loadingdone',function(){MC={};soon(30);});
+/* anything that changes the page's height afterwards (a late font, a template script) runs the rule again; images keep their size while loading, so their loading does not */
+if(window.ResizeObserver){var m0=document.querySelector('main');if(m0)new ResizeObserver(function(){soon(60);}).observe(m0);}
+})();
