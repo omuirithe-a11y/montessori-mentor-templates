@@ -126,3 +126,4 @@
 - Queued 12 Nov (three rows: "Phonemes -> graphemes.", "Phoneme  The smallest unit...", "Grapheme  The letter(s)..."; "graphemes." starts a little left of the two definitions), her words: "the text needs to align in these three rows" - "graphemes." starts in the same column as the two definitions.
 - Queued 12 Nov (the row of images 040-042, gap 50), her words: "make it 75".
 - Queued 12 Nov (screenshot: images, then blue "The Moveable Alphabets"), her word: "divider" - a divider above The Moveable Alphabets, 30/30.
+- Queued 12 Nov (screenshot: blue "Reinforcement of Letters", then the quotation "Summing up, we may say that..."), her word: "divider" - a divider above Reinforcement of Letters, 30/30.
