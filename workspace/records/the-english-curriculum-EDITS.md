@@ -125,3 +125,4 @@
 - Queued 12 Nov (The Sound Game stages: the "I Spy..." quotations under Fourth Stage and Fifth Stage), her words: "do not apply the 40/40 rule to the quotations in this section" - these quotations take the normal 30 between blocks.
 - Queued 12 Nov (three rows: "Phonemes -> graphemes.", "Phoneme  The smallest unit...", "Grapheme  The letter(s)..."; "graphemes." starts a little left of the two definitions), her words: "the text needs to align in these three rows" - "graphemes." starts in the same column as the two definitions.
 - Queued 12 Nov (the row of images 040-042, gap 50), her words: "make it 75".
+- Queued 12 Nov (screenshot: images, then blue "The Moveable Alphabets"), her word: "divider" - a divider above The Moveable Alphabets, 30/30.
