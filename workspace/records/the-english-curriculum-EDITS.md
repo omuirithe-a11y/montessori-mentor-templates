@@ -129,3 +129,4 @@
 - Queued 12 Nov (screenshot: blue "Reinforcement of Letters", then the quotation "Summing up, we may say that..."), her word: "divider" - a divider above Reinforcement of Letters, 30/30.
 - Queued 12 Nov (the two-column list "- relax the arm, hand and fingers ... - move from left to right", 7 items), her words: "place these in one column" (order: the left column's 4, then the right column's 3).
 - Queued 12 Nov (lists under Preparation of the mind / Preparation of the hand), her words: "have the dashes align with the blue headings. retain the current gap between the dashes and the words" - each dash starts at the left edge of its blue heading; the dash-to-word gap unchanged.
+- Queued 12 Nov (the two quotations "The little hand..." and "Whilst moving the objects..."), her words: "change these quotations back to the way they were - with the attributions on seperate lines" (undoes the morning's change; the stray space before the closing mark stays removed).
